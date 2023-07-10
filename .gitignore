@@ -1,0 +1,23 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+README.Rmd
+README_files/
+references.bib
+
+data/All Areas NuSEDS.csv
+data/North and Central Coast_20230526.csv
+data/OUTPUT_NCCStreams_2017.csv
+data/spawner_surveys.csv
+skeena/
+yukon/
+
+code/archive/
+
+output/Skeena_NuSEDS.csv
+output/Yukon_NuSEDS.csv
+output/percDecline.xlsx
+output/percDecline.csv
+output/figures/
