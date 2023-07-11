@@ -45,3 +45,14 @@ spawner_surveys <- dbGetQuery(
 )
 
 write.csv(spawner_surveys, file = "data/spawner_surveys.csv", row.names = FALSE)
+
+###############################################################################
+# Import CU-level spawner abundance (used for Fraser pink)
+###############################################################################
+
+spawner_abundance <- dbGetQuery(
+	conn = connec,
+	statement = "SELECT * FROM appdata.vwdl_dataset1cu_output"
+)
+
+write.csv(spawner_abundance, file = "data/spawner_abundance.csv", row.names = FALSE)

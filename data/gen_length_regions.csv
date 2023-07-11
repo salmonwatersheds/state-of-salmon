@@ -1,0 +1,39 @@
+region,species,gen_length
+Central Coast,Chinook,5
+Central Coast,Chum,4
+Central Coast,Coho,4
+Central Coast,Pink,2
+Central Coast,Sockeye,5
+Fraser,Chinook,5
+Fraser,Chum,4
+Fraser,Coho,4
+Fraser,Pink,2
+Fraser,Sockeye,4
+Haida Gwaii,Chinook,NA
+Haida Gwaii,Chum,NA
+Haida Gwaii,Coho,NA
+Haida Gwaii,Pink,2
+Haida Gwaii,Sockeye,NA
+Nass,Chinook,5
+Nass,Chum,4
+Nass,Coho,4
+Nass,Pink,2
+Nass,Sockeye,5
+Skeena,Chinook,6
+Skeena,Chum,5
+Skeena,Coho,4
+Skeena,Pink,2
+Skeena,Sockeye,5
+Transboundary,Chinook,NA
+Transboundary,Chum,NA
+Transboundary,Coho,NA
+Transboundary,Pink,2
+Transboundary,Sockeye,NA
+Vancouver Island & Mainland Inlets,Chinook,4
+Vancouver Island & Mainland Inlets,Chum,4
+Vancouver Island & Mainland Inlets,Coho,4
+Vancouver Island & Mainland Inlets,Pink,2
+Vancouver Island & Mainland Inlets,Sockeye,5
+Yukon,Chinook,NA
+Yukon,Chum,NA
+Yukon,Coho,NA
