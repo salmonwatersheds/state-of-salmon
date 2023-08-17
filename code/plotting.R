@@ -5,7 +5,7 @@
 # July 6, 2023
 # Steph Peacock (speacock@psf.ca)
 ###############################################################################
-
+library(viridis)
 # Source PSF and SWP colour palettes
 # source("code/colours.R")
 
@@ -22,10 +22,11 @@ regions <- c("Yukon", "Transboundary", "Haida Gwaii", "Nass", "Skeena", "Central
 
 # Select region
 r <- "Fraser"
-
+r <- "Haida Gwaii"
 # source("code/regional-expansions.R")
 
-spawners <- readRDS(paste0("output/", r, "-spawners_nuseds.rds"))
+# spawners <- readRDS(paste0("output/", r, "-spawners_nuseds.rds"))
+spawners <- readRDS(paste0("output/", r, "-spawners.rds"))
 
 yrs <- as.numeric(dimnames(spawners)[[3]])
 n.yrs <- length(yrs)
@@ -35,7 +36,7 @@ n.species <- length(species)
 
 if(r == "Fraser"){
 	cu_abund <- read.csv("data/spawner_abundance.csv", na.strings = "-989898") %>% subset(region == "Fraser" & species_name == "Pink (odd)")
-	
+	cu_abund$estimated_count[cu_abund$year == 2021] <- 7827444.568
 	if(3 == 2){
 		# Check how estimated count from CU-level spawner abundance comapres to 
 		# expanded spawners calculated from NuSEDS
@@ -49,7 +50,16 @@ if(r == "Fraser"){
 	
 	spawners[2, 4, ] <- cu_abund$estimated_count[match(cu_abund$year, yrs)]
 	
-	
+	# Check cu abundance for Fraser coho
+	if(3 == 2){
+		cu_abund <- read.csv("data/spawner_abundance.csv", na.strings = "-989898") %>% subset(region == "Fraser" & species_name == "Coho")
+		plot(cu_abund$year, cu_abund$estimated_count, "n", xlim = c(1980, 2021), bty = "l", xlab = "", ylab = "Spawner abundance")
+		cus <- sort(unique(cu_abund$cu_name_pse))
+		for(i in 1:length(cus)){
+			lines(cu_abund$year[cu_abund$cu_name_pse == cus[i]], cu_abund$estimated_count[cu_abund$cu_name_pse == cus[i]], "o", col = viridis(n = length(cus))[i], lwd = 1.5)
+		}
+		legend("topright", bty = "n", col = viridis(n = length(cus)), lwd = 1.5, legend = cus)
+	}
 }
 ###############################################################################
 # Smoothing
@@ -76,7 +86,7 @@ for(s in 1:n.species){
 }
 
 ###############################################################################
-# Plotting
+# Main abdunance plot
 ###############################################################################
 
 baseline <- 1980
@@ -86,6 +96,8 @@ quartz(width = 8, height = 4, pointsize = 12)
 par(mar = c(4,4,2,10))
 
 plot(yrs, smoothedSpawners[s, ]/smoothedSpawners[s, which(yrs == baseline)], "n", las = 1, ylim = range(smoothedSpawners[, which(yrs > 1970)]/smoothedSpawners[, which(yrs == baseline)], na.rm = TRUE), ylab = "Proportional spawners", xlab = "", main = r, bty = "l", xlim = c(1970, 2021))
+# plot(yrs, smoothedSpawners[s, ]/smoothedSpawners[s, which(yrs == baseline)], "n", las = 1, ylim = c(0,3), ylab = "Proportional spawners", xlab = "", main = r, bty = "l", xlim = c(1970, 2021))
+
 # abline(v = baseline, lty = 2)
 for(s in 1:length(species)){
 	lines(yrs, smoothedSpawners[s, ]/smoothedSpawners[s, which(yrs == baseline)], col = sp_cols[s], lwd = 2)
@@ -93,52 +105,75 @@ for(s in 1:length(species)){
 
 percDecline <- rep(NA, n.species)
 for(s in 1:n.species){
-	points(2021, smoothedSpawners[s, which(yrs == 2021)]/smoothedSpawners[s, which(yrs == baseline)], col = sp_cols[s], pch = 19, cex = 1.5)
+	points(max(yrs), smoothedSpawners[s, which(yrs == max(yrs))]/smoothedSpawners[s, which(yrs == baseline)], col = sp_cols[s], pch = 19, cex = 1.5)
 	
 	g <- genLength[s]
-	points(2021 - g, smoothedSpawners[s, which(yrs == (2021 - g))]/smoothedSpawners[s, which(yrs == baseline)], col = sp_cols[s], pch = 21, bg = "white", cex = 1.5, lwd = 2)
-	percDecline[s] <- (smoothedSpawners[s, which(yrs == 2021)] - smoothedSpawners[s, which(yrs == (2021 - g))]) / smoothedSpawners[s, which(yrs == (2021 - g))]
+	points(max(yrs) - g, smoothedSpawners[s, which(yrs == (max(yrs) - g))]/smoothedSpawners[s, which(yrs == baseline)], col = sp_cols[s], pch = 21, bg = "white", cex = 1.5, lwd = 2)
+	percDecline[s] <- (smoothedSpawners[s, which(yrs == max(yrs))] - smoothedSpawners[s, which(yrs == (max(yrs) - g))]) / smoothedSpawners[s, which(yrs == (max(yrs) - g))]
 }
 
 # Add plus if positive
 percDecline2 <- round(percDecline*100)
 percDecline2[which(percDecline2 > 0)] <- paste0("+", percDecline2[which(percDecline2 > 0)])
 # legend(u[2] + 0.01*(u[2]-u[1]), u[4], col = col_sp, lwd = 2, species, xpd = NA, bty = "n")
-text(2024, smoothedSpawners[, n.yrs]/smoothedSpawners[, which(yrs == baseline)], paste0(species, " (", percDecline2, "%)"), col = sp_cols, xpd = NA, adj = 0, font = 2)
+y <- smoothedSpawners[, n.yrs]/smoothedSpawners[, which(yrs == baseline)]
+if(r == "Nass"){
+	y[2] <- 0
+	y[1] <- 0.6
+	y[5] <- 1.2
+	y[3] <- 2
+} else if(r == "Skeena"){
+# y[1] <- 1.8 # PSE database
+# y[5] <- 2.3 # PSE database
+	y[1] <- 2
+	y[5] <- 0.5
+	y[3] <- 1
+	y[4] <- 1.5
+} else if(r == "Fraser"){
+	y[3] <- 1.5
+} else if(r == "Haida Gwaii"){
+	y[4] <- 0.1
+	y[5] <- 0.7
+}
+text(max(yrs) + 3, y, paste0(species, " (", percDecline2, "%)"), col = sp_cols, xpd = NA, adj = 0, font = 2)
+
+###############################################################################
+# Supplemental exploratory plots
+###############################################################################
 
 #------------------------------------------------------------------------------
-# Compare to Eric's original analysis 
+# Plot expansion
+#------------------------------------------------------------------------------
+par(mar = c(3, 5, 2, 1))
+plot(yrs, spawners[2, s, ]*10^-3, "n", las = 1,  ylab = "Spawner abundance (thousands)", xlab = "", main = paste(r, species[s]), bty = "l")
+lines(yrs, spawners[1, s, ]*10^-3, "o", pch = 19, col = "#C17E43")
+lines(yrs, spawners[2, s, ]*10^-3, "o", pch = 19, col = "#6578AD")
+legend("topright", pch = 19, col = c("#C17E43", "#6578AD"), c("Observed", "Estimated"), bty = "n")
+
+#------------------------------------------------------------------------------
+# log transform?
 #------------------------------------------------------------------------------
 
-# Read in prov summaries
-prov_file <- read.csv("data/Prov_runsize_1_20221020.csv", header = TRUE) 
-prov_file$Species2 <- prov_file$Species
-prov_file$Species2[prov_file$Species2 %in% c("Pink (Even)", "Pink (Odd)")] <- "Pink"
+percBasline <- smoothedSpawners/smoothedSpawners[, which(yrs == baseline)]
 
-#----
-# Plot single species
-# quartz(width = 8, height = 4, pointsize = 12)
-# par(mar = c(4,4,2,10))
+par(mar = c(4,4,2,10))
+
+plot(yrs, percBasline[s, ], "n", las = 1, ylim = range(percBasline[, which(yrs > 1970)], na.rm = TRUE), ylab = "Proportional spawners", xlab = "", main = r, bty = "l", xlim = c(1970, 2021))
+abline(h = 1)
 for(s in 1:length(species)){
-	# Eric's CU sum
-	prov_file_s <- prov_file[which(prov_file$Species2 == species[s] & prov_file$Region == "Skeena"), ]
-	prov_file_s <- prov_file_s[order(prov_file_s$Year), ]
-	
-	par(mar = c(4,4,2,10))
-	plot(y, spawners[1, s, ] * 10^-6, "l", col = grey(0.8), lwd = 2, las = 1, ylim = range(c(spawners[, s, ], prov_file_s$prov_runsize_raw)* 10^-6), ylab = "Spawners (millions)", main = paste("Skeena", species[s]))
-	
-	# Estimated (expanded) spawners
-	lines(y, spawners[2, s, ]* 10^-6, col = col_sp[3])
-	
-	# Smoothed spawners
-	lines(y, smoothedSpawners[s, ] * 10^-6, col = col_sp[2], lwd = 2)
-	
-	
-	lines(prov_file_s$Year, prov_file_s$prov_runsize_raw * 10^-6, col = col_sp[3], lty = 2)
-	
-	u <- par('usr')
-	legend(u[2] + 0.01*(u[2]-u[1]), u[4], col = c(grey(0.8), col_sp[c(3,2, 3)]), lty = c(1,1,1,2), lwd = c(2, 1,2, 1), c("Observed", "Estimated", "Smoothed", "Provincial run size"), xpd = NA, bty = "n")
-	
+	lines(yrs, percBasline[s, ], col = sp_cols[s], lwd = 2)
+}
+
+logSpawners <- log(smoothedSpawners / smoothedSpawners[, which(yrs == baseline)] + 0.1)
+
+par(mar = c(4,4,2,10))
+
+plot(yrs, logSpawners[s, ], "n", las = 1, ylim = range(logSpawners[, which(yrs > 1970)], na.rm = TRUE), ylab = "log spawners", xlab = "", main = r, bty = "l", xlim = c(1970, 2021))
+abline(h = 0)
+for(s in 1:length(species)){
+	lines(yrs, logSpawners[s, ], col = sp_cols[s], lwd = 2)
+	# par(new = TRUE)
+	# plot(yrs, logSpawners[s, ], "l", col = sp_cols[s], lwd = 2, xlab = "n", ylab = "n", bty = "n", xlim = c(1990, 2021), xaxt = "n", yaxt = "n")
 }
 
 #------------------------------------------------------------------------------

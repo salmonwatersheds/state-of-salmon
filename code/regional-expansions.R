@@ -9,18 +9,18 @@
 # I draw on spawner survey data from the SWP Database. This better reflects 
 # info currently in the PSE.
 
+library(dplyr)
 
 ###############################################################################
 # Import data (this has been pulled from the SWP database using pull-data.R)
 ###############################################################################
 
 # Read in all spawner survey data
-spawner_surveys.all <-read.csv("data/spawner_surveys.csv") %>%
+spawner_surveys.all <-read.csv("data/spawner_surveys.csv", na.strings = c(-989898)) %>%
 	subset(species_name != 'Steelhead') %>% # Remove steelhead (not part of SPS)
-	subset(year != -989898) %>% # Remove stream with no data
+	subset(!is.na(year)) %>% # Remove stream with no data
 	subset(year >= 1950) # Use only data from 1950 to present
 
-spawner_surveys.all[which(spawner_surveys.all == -989898, arr.ind = TRUE)] <- NA
 #------------------------------------------------------------------------------
 # Define variables
 #------------------------------------------------------------------------------
@@ -44,7 +44,7 @@ spawner_surveys.all$species_pooled <- species_xref$species_pooled[match(spawner_
 # Select region
 ###############################################################################
 
-# r <- "Nass"
+r <- "Haida Gwaii"#"Skeena"
 
 spawner_surveys <- subset(spawner_surveys.all, region == r)
 
@@ -105,7 +105,11 @@ expansion_factors <- list(); length(expansion_factors) <- n.species
 
 for(s in 1:n.species){
 	
-	exp1 <- ExpFactor1(sampledSpawners = t(spawner_surveys_mat[[s]][which(indicator[[s]] == "Y"), ]), years = yrs)
+	if(length(which(indicator[[s]] == "Y")) == 1){
+		warning(paste0("Only one indicator stream for ", species[s], ". Can't expand."))
+		} else {
+			exp1 <- ExpFactor1(sampledSpawners = t(spawner_surveys_mat[[s]][which(indicator[[s]] == "Y"), ]), years = yrs)
+		
 	
 	if(length(which(indicator[[s]] == "N")) == 1){
 		exp2 <- ExpFactor2(spawnersInd = t(spawner_surveys_mat[[s]][which(indicator[[s]] == "Y"), ]),
@@ -132,6 +136,7 @@ for(s in 1:n.species){
 		exp1 = exp1[[1]],
 		exp2 = exp2[[1]]
 	)
+		}
 	
 }
 
@@ -141,3 +146,7 @@ for(s in 1:n.species){
 
 saveRDS(region_spawners, file = paste0("output/", r, "-spawners.rds"))
 saveRDS(expansion_factors, file = paste0("output/", r, "-expansion-factors.rds"))
+
+
+
+

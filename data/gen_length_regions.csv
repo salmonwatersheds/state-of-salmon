@@ -9,11 +9,11 @@ Fraser,Chum,4
 Fraser,Coho,4
 Fraser,Pink,2
 Fraser,Sockeye,4
-Haida Gwaii,Chinook,NA
-Haida Gwaii,Chum,NA
-Haida Gwaii,Coho,NA
+Haida Gwaii,Chinook,5
+Haida Gwaii,Chum,5
+Haida Gwaii,Coho,4
 Haida Gwaii,Pink,2
-Haida Gwaii,Sockeye,NA
+Haida Gwaii,Sockeye,5
 Nass,Chinook,5
 Nass,Chum,4
 Nass,Coho,4
@@ -24,7 +24,7 @@ Skeena,Chum,5
 Skeena,Coho,4
 Skeena,Pink,2
 Skeena,Sockeye,5
-Transboundary,Chinook,NA
+Transboundary,Chinook,5
 Transboundary,Chum,NA
 Transboundary,Coho,NA
 Transboundary,Pink,2

@@ -226,7 +226,7 @@ ExpFactor1 <- function(sampledSpawners, years = 1960:2009, legacy = FALSE) {
 	# for each indicator streams.  Stratums that match this criteria can
 	# be used as is when computing ExpFactor1, while stratums that do not 
 	# meet this criteria will need a reference decade.  If no reference
-	# decade is avialable we fall back to the 8090s as the reference decade.
+	# decade is available we fall back to the 8090s as the reference decade.
 	#
 	# Reference decades selection is handled in  two different way depending
 	# if legacy support is enabled.  
