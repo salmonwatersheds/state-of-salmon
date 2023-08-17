@@ -36,6 +36,7 @@ quartz(width = 8, height = 6, pointsize = 12)
 par(mar = c(4,4,8,1))
 
 plot(tbr_spawners$Year[ind], tbr_spawners$Value[ind]*10^-3, "n", xlab = "", ylab = "Spawners (thousands)", las = 1, bty = "l")
+mtext(side = 3, line = 6.5, paste(unique(tbr_spawners$Stock[ind]), unique(tbr_spawners$SPECIES[ind])), font = 2, cex = 1.5)
 for(i in 1:n_stocks){
 	points(tbr_spawners$Year[ind][which(tbr_spawners$Series[ind] == unique(tbr_spawners$Series[ind])[i])], tbr_spawners$Value[ind][which(tbr_spawners$Series[ind] == unique(tbr_spawners$Series[ind])[i])]*10^-3, "o", col = st_cols[i], pch = 19, cex = 0.6)	
 }
