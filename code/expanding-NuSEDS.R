@@ -103,6 +103,7 @@ nuseds_cu$REGION[which(nuseds_cu$WATERBODY == "SHAWNIGAN CREEK")] <- "Vancouver 
 regions <- c("Yukon", "Transboundary", "Nass", "Skeena", "Haida Gwaii", "Central Coast", "Vancouver Island & Mainland Inlets", "Fraser", "Columbia")
 
 # r <- "Central Coast"
+# r <- "Vancouver Island & Mainland Inlets"
 
 spawner_surveys <- dat[which(dat$POP_ID %in% nuseds_cu$POP_ID[nuseds_cu$REGION == r]), ]
 
@@ -136,7 +137,7 @@ n.streams <- length(streams)
 source("code/expansion-functions.R")
 
 #------------------------------------------------------------------------------
-# Massage spawner surveys into array for use in expansion functions
+# Massage spawner surveys into array for use in LGL expansion functions
 #------------------------------------------------------------------------------
 
 spawner_surveys_mat <- list(); length(spawner_surveys_mat) <- n.species
@@ -221,6 +222,27 @@ if(3 == 2){
 		lines(yrs, expansion_factors[[s]]$exp1, type = "o", bty = "l", col = sp_cols[s], pch = 19, cex = 0.6, lwd = 1.5)
 	}
 	legend("topleft", pch = 19, lwd = 1.5, col = sp_cols, legend = species, pt.cex = 0.6, bty = "n")
+	
+	# VIMI - look at spawner surveys for sockeye
+	s <- 5
+	avgAbund <- apply(spawner_surveys_mat[[s]], 1, mean, na.rm = TRUE)
+	abundCol <- rev(viridis(n = 100))
+	abundLevels <- exp(seq(-2, 14, length.out = 99))
+	o <- order(avgAbund, decreasing = FALSE)
+	png("output/vimi_sockeye_database.png", width = 600, height = 1200)
+	par(mar = c(4, 1, 3, 8))
+	plot(yrs, yrs, "n", ylim = c(0.5, length(o) + 0.5), xaxs = "i", yaxs = "i", yaxt = "n", ylab = "Stream", xlab= "")
+	for(i in 1:length(o)){
+		if(indicator[[s]][o[i]] == "Y"){
+			abline(h = i, col = grey(0.8))
+			u <- par('usr')
+			text(u[2], i, rownames(spawner_surveys_mat[[s]])[o[i]], xpd = NA, pos = 4, cex = 0.5)
+		}
+		
+		points(yrs, rep(i, length(yrs)), pch = 19, col = abundCol[findInterval(spawner_surveys_mat[[s]][o[i], ], abundLevels)], cex = 0.8)
+	}
+	dev.off()
+	
 }
 ###############################################################################
 # Save output

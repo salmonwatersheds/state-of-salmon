@@ -23,6 +23,7 @@ regions <- c("Yukon", "Transboundary", "Haida Gwaii", "Nass", "Skeena", "Central
 # Select region
 r <- "Fraser"
 r <- "Haida Gwaii"
+r <- "Central Coast"
 # source("code/regional-expansions.R")
 
 # spawners <- readRDS(paste0("output/", r, "-spawners_nuseds.rds"))
@@ -134,6 +135,9 @@ if(r == "Nass"){
 } else if(r == "Haida Gwaii"){
 	y[4] <- 0.1
 	y[5] <- 0.7
+} else if(r == "Central Coast"){
+	y[1] <- 0.35
+	y[5] <- 0.2
 }
 text(max(yrs) + 3, y, paste0(species, " (", percDecline2, "%)"), col = sp_cols, xpd = NA, adj = 0, font = 2)
 
