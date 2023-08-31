@@ -44,7 +44,7 @@ spawner_surveys.all$species_pooled <- species_xref$species_pooled[match(spawner_
 # Select region
 ###############################################################################
 
-r <- "Vancouver Island & Mainland Inlets"
+r <- "Nass"
 
 spawner_surveys <- subset(spawner_surveys.all, region == r)
 

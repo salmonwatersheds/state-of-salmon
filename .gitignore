@@ -7,15 +7,12 @@ README.Rmd
 README_files/
 references.bib
 
-data/All Areas NuSEDS.csv
-data/North and Central Coast_20230526.csv
-data/OUTPUT_NCCStreams_2017.csv
-data/spawner_surveys.csv
-data/spawner_abundance.csv
 data/ignore
 
-code/archive/
+code/archive
 
-output/Skeena_NuSEDS.csv
-output/Yukon_NuSEDS.csv
-output/figures
+output/ignore
+
+# Ignore rendered methods-results doc, which is large
+docs/methods-results.html
+docs/encrypt.R
