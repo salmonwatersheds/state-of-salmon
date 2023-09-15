@@ -9,6 +9,7 @@ Fraser,Chum,4
 Fraser,Coho,4
 Fraser,Pink,2
 Fraser,Sockeye,4
+Fraser,Steelhead,5
 Haida Gwaii,Chinook,5
 Haida Gwaii,Chum,5
 Haida Gwaii,Coho,4
@@ -19,11 +20,13 @@ Nass,Chum,4
 Nass,Coho,4
 Nass,Pink,2
 Nass,Sockeye,5
+Nass,Steelhead,5
 Skeena,Chinook,6
 Skeena,Chum,5
 Skeena,Coho,4
 Skeena,Pink,2
 Skeena,Sockeye,5
+Skeena,Steelhead,5
 Transboundary,Chinook,5
 Transboundary,Chum,NA
 Transboundary,Coho,NA
@@ -34,8 +37,12 @@ Vancouver Island & Mainland Inlets,Chum,4
 Vancouver Island & Mainland Inlets,Coho,4
 Vancouver Island & Mainland Inlets,Pink,2
 Vancouver Island & Mainland Inlets,Sockeye,5
+Vancouver Island & Mainland Inlets,Steelhead,5
 Yukon,Chinook,NA
 Yukon,Chum,NA
 Yukon,Coho,NA
 Yukon,Pink,NA
 Yukon,Sockeye,NA
+Columbia,Sockeye,4
+Columbia,Chinook,5
+Columbia,Steelhead,5
