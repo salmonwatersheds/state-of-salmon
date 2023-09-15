@@ -16,3 +16,8 @@ output/ignore
 # Ignore rendered methods-results doc, which is large
 docs/methods-results.html
 docs/encrypt.R
+docs/rsconnect
+
+# Ignore large datasets
+data/spawner_surveys.csv
+data/spawner_abundance.csv
