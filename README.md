@@ -19,6 +19,10 @@ reporting.
   publicly available elsewhere.
 - `output` contains processed data and summaries that are usually
   produced by R code in `code` and used in plotting.
+- `docs` contains the Rmd and html files used to produce the [PSF’s
+  State of Salmon Reporting: Methods &
+  Results](https://bookdown.org/salmonwatersheds/state-of-salmon/methods-results.html)
+  web page with technical documentation and preliminary results.
 
 ### Acknowledgements
 
