@@ -7,6 +7,51 @@
 ###############################################################################
 
 ###############################################################################
+# Return time series of smoothed abundance 
+###############################################################################
+
+genSmooth <- function(
+		abund, # Estiamte of abundance (run size or spawner abundance) in order of increasing year
+		years, # Ordered vector of years that correspond to abund
+		genLength # generation length for geometric smoothing
+		){
+	
+	
+		g <- as.numeric(genLength)
+		yrs <- sort(unique(years))
+		n.yrs <- length(yrs)
+		
+		# Run checks
+		if(length(yrs[1]:max(yrs)) != n.yrs){
+			stop("Vector of years must be continuous.")
+		}
+		
+		if(length(abund) != n.yrs){
+			stop("Length of abundance does not match length of unique years.")
+		}
+		
+		# Set up vector to store smoothed abundance
+		smoothedAbund <- rep(NA, n.yrs)
+		
+		for(k in 1:n.yrs){ # For each year
+			
+			smoothYrs <- c(max(yrs[1], yrs[k] - g + 1):yrs[k]) # define previous years over which to smooth
+			
+			# Unweighted geometric mean
+			S <- abund[which(yrs %in% smoothYrs)] + 0.01
+			# Add 0.01 to spawners so that geometric mean is not zero for multiple years if there is an observation of zero?
+			
+			
+			N <- sum(!is.na(S)) # number of years with data
+			if(N > 0){ # If there are no data, leave as NA
+				smoothedAbund[k] <- prod(S, na.rm = TRUE) ^ (1/N)
+			}
+		} # end k years
+	
+		return(smoothedAbund)
+}
+
+###############################################################################
 # Percent decline in spawners over the most recent generation
 ###############################################################################
 
@@ -469,5 +514,154 @@ btn_table <- function(
 		wrap = TRUE,
 		style = list(fontSize = "1.25rem")
 	)
+	
+}
+
+
+###############################################################################
+# Render reactable table for all regions
+###############################################################################
+
+btn_table.all <- function(
+		regions = c("Skeena", "Nass", "Haida Gwaii", "Central Coast", "Vancouver Island & Mainland Inlets", "Fraser"),
+		spawners, # Data frame with (at minimum) fields for year, region, species, and abundance
+		genLength, # data frame of generation length for all regions and species
+		numStreams # Number of indicator/non-indicator streams
+){
+	
+	# Compile dataframe of numners
+	for(i in 1:length(regions)){
+		btn.i <- byTheNumbers(selected_region = regions[i],
+											spawners = spawners,
+											genLength = genLength,
+											numStreams = numStreams)
+		btn.i <- cbind(rep(regions[i], dim(btn.i)[1]), btn.i)
+		colnames(btn.i)[1] <- "region"
+		
+		if(i == 1){
+			btn <- btn.i
+		} else {
+			btn <- rbind(btn, btn.i)
+		}
+	}
+	
+	# Define species levels
+	species <- unique(btn$species)
+	
+	# Render table
+	btn %>%
+		reactable(
+			., 
+			columns = list(
+				region = colDef(
+					name = "Region",
+					filterable = TRUE),
+				species = colDef(
+					name = "Species",
+					filterable = TRUE,
+					style = function(value){
+						if(value == "Chinook"){
+							background <- "#33228850"
+						} else if(value == "Chum"){
+							background <- "#44AA9950"
+						}else if(value == "Coho"){
+							background <- "#88CCEE50"
+						}else if(value == "Pink"){
+							background <- "#CC667750"
+						}else if(value == "Sockeye"){
+							background <- "#88225550"
+						} else if(value == "Steelhead"){
+							background <- "#DDCC7750"
+						}
+						list(background = background)
+					},
+					maxWidth = 100
+				),
+				
+				LT_trend = colDef(
+					cell = icon_sets(., icon_ref = "LT_trend", icon_position = "over", icon_size = 28, icon_color_ref = "LT_trend_color"),
+					name = "Direction",
+					align = "center",
+					maxWidth = 80),
+				LT_trend_perc = colDef(
+					name = "Percent change",
+					maxWidth = 80),
+				LT_trend_color = colDef(
+					show = FALSE
+				),
+				
+				population_trend = colDef(
+					cell = icon_sets(., icon_ref = "population_trend", icon_position = "over", icon_size = 28, icon_color_ref = "population_trend_color"),
+					name = "Direction",
+					align = "center",
+					maxWidth = 80),
+				population_trend_perc = colDef(
+					name = "Percent change",
+					maxWidth = 80),
+				population_trend_color = colDef(
+					show = FALSE
+				),
+				
+				# LT_annual = colDef(
+				# 	cell = icon_sets(., icon_ref = "LT_annual", icon_position = "over", icon_size = 28, icon_color_ref = "LT_annual_color"),
+				# 	name = "Direction",
+				# 	align = "center",
+				# 	maxWidth = 80),
+				# LT_annual_perc = colDef(
+				# 	name = "Percent change",
+				# 	maxWidth = 80),
+				# LT_annual_color = colDef(
+				# 	show = FALSE
+				# ),
+				
+				LT_change = colDef(
+					cell = icon_sets(., icon_ref = "LT_change", icon_position = "over", icon_size = 28, icon_color_ref = "LT_change_color"),
+					name = "Direction",
+					align = "center",
+					maxWidth = 80),
+				LT_change_perc = colDef(
+					name = "Percent change",
+					maxWidth = 80),
+				LT_change_color = colDef(
+					show = FALSE
+				),
+				
+				current_spawners = colDef(
+					name = "Current",
+					maxWidth = 100),
+				lastgen_spawners = colDef(
+					name = "Previous generation",
+					maxWidth = 100),
+				avg_spawners = colDef(
+					name = "Historical average",
+					maxWidth = 100),
+				num_indicator = colDef(
+					name = "Indicator",
+					maxWidth = 80),
+				num_nonindicator = colDef(
+					name = "Non-indicator",
+					maxWidth = 80)
+			),
+			columnGroups = list(
+				colGroup(name = "Change from historical average", columns = c("LT_trend", "LT_trend_perc")),
+				colGroup(name = "Change from previous generation", columns = c("population_trend", "population_trend_perc")),
+				# colGroup(name = "Average annual change", columns = c("LT_annual", "LT_annual_perc")),
+				colGroup(name = "Change over time series", columns = c("LT_change", "LT_change_perc")),
+				colGroup(name = "Index of spawner abundance", columns = c("current_spawners", "lastgen_spawners", "avg_spawners")),
+				colGroup(name = "Number of monitored streams", columns = c("num_indicator", "num_nonindicator"))
+			),
+			#   meta = list(
+			# 		speciesColors = sp_cols,
+			# 		species_vec = species),
+			bordered = TRUE,
+			highlight = TRUE,
+			striped = TRUE,
+			resizable = TRUE,
+			fullWidth = FALSE,
+			wrap = TRUE,
+			style = list(fontSize = "1.25rem"),
+			searchable = TRUE, 
+			minRows = 10
+		)
 	
 }

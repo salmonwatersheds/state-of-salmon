@@ -1,0 +1,466 @@
+"region","species_name","cuid","cu_name_pse","threegen_intercept","threegen_slope","threegen_percent_change","threegen_start_year","uploadid"
+"Skeena","Chinook",205,"Ecstall",-989898,-989898,-989898,-989898,-989898
+"Skeena","Chinook",206,"Kalum-Early",-989898,-989898,-989898,-989898,-989898
+"Skeena","Chinook",207,"Kalum-Late",9.77,0.02,-34,2000,1435
+"Skeena","Chinook",210,"Lower Skeena",7.91,-0.1,-81,2000,1435
+"Skeena","Chinook",212,"Upper Skeena",-989898,-989898,-989898,-989898,-989898
+"Skeena","Chinook",217,"Middle Skeena-Mainstem Tributaries",9.74,-0.06,-63,2000,1435
+"Skeena","Chinook",221,"Upper Bulkley River",-989898,-989898,-989898,-989898,-989898
+"Skeena","Chinook",222,"Middle Skeena-Large Lakes",10.39,-0.02,-31,2000,1435
+"Skeena","Chinook",224,"Skeena Estuary",-989898,-989898,-989898,-989898,-989898
+"Skeena","Chinook",227,"Lakelse",-989898,-989898,-989898,-989898,-989898
+"Skeena","Chinook",229,"Zymoetz",-989898,-989898,-989898,-989898,-989898
+"Skeena","Chinook",241,"Sicintine",-989898,-989898,-989898,-989898,-989898
+"Skeena","Chum",211,"Lower Skeena",9.78,-0.21,-90,2006,1435
+"Skeena","Chum",214,"Middle Skeena",-989898,-989898,-989898,-989898,-989898
+"Skeena","Chum",220,"Skeena Estuary",-989898,-989898,-989898,-989898,-989898
+"Skeena","Chum",242,"Upper Skeena",-989898,-989898,-989898,-989898,-989898
+"Skeena","Coho",202,"Lower Skeena",11.09,0.03,36,2006,1435
+"Skeena","Coho",215,"Middle Skeena",12.31,-0.03,-26,2006,1435
+"Skeena","Coho",225,"Skeena Estuary",-989898,-989898,-989898,-989898,-989898
+"Skeena","Coho",231,"Upper Skeena",9.04,0.06,100,2006,1435
+"Skeena","Lake sockeye",171,"Alastair",9.51,0.035,63,2005,1435
+"Skeena","Lake sockeye",174,"Ecstall/Lower",-989898,-989898,-989898,-989898,-989898
+"Skeena","Lake sockeye",175,"Johnston",-989898,-989898,-989898,-989898,-989898
+"Skeena","Lake sockeye",176,"Kitsumkalum",10.06,0.02,30,2005,1435
+"Skeena","Lake sockeye",177,"Lakelse",8.28,0.14,583,2005,1435
+"Skeena","Lake sockeye",178,"Mcdonell/Dennis/Aldrich",8.15,0.02,40,2005,1435
+"Skeena","Lake sockeye",180,"Babine/Onerka",10.68,-0.04,-44,2005,1435
+"Skeena","Lake sockeye",181,"Bulkley/Maxan",-989898,-989898,-989898,-989898,-989898
+"Skeena","Lake sockeye",183,"Gitanyow (Kitwanga/Kitwancool)",7.29,0.03,56,2005,1435
+"Skeena","Lake sockeye",185,"Morice/Atna",9.46,0.02,35,2005,1435
+"Skeena","Lake sockeye",186,"Nilkitkwa",11.86,-0.03,-30,2005,1435
+"Skeena","Lake sockeye",187,"Stephens",9.51,-0.05,-50,2005,1435
+"Skeena","Lake sockeye",188,"Swan/Club",8.04,-0.02,-22,2005,1435
+"Skeena","Lake sockeye",189,"Tahlo/Morrison",10.18,-0.03,-30,2005,1435
+"Skeena","Lake sockeye",190,"Asitika",5.36,0.13,540,2005,1435
+"Skeena","Lake sockeye",191,"Azuklotz",6.62,0.13,535,2005,1435
+"Skeena","Lake sockeye",192,"Bear",7.66,0.11,398,2005,1435
+"Skeena","Lake sockeye",193,"Damshilgwit",5.64,0.026,44,2005,1435
+"Skeena","Lake sockeye",194,"Johanson",-989898,-989898,-989898,-989898,-989898
+"Skeena","Lake sockeye",195,"Kluatantan",-989898,-989898,-989898,-989898,-989898
+"Skeena","Lake sockeye",196,"Kluayaz",-989898,-989898,-989898,-989898,-989898
+"Skeena","Lake sockeye",197,"Motase",6,-0.05,-50,2005,1435
+"Skeena","Lake sockeye",198,"Sicintine",-989898,-989898,-989898,-989898,-989898
+"Skeena","Lake sockeye",199,"Slamgeesh",-989898,-989898,-989898,-989898,-989898
+"Skeena","Lake sockeye",200,"Spawning",-989898,-989898,-989898,-989898,-989898
+"Skeena","Lake sockeye",201,"Sustut",-989898,-989898,-989898,-989898,-989898
+"Skeena","Lake sockeye",203,"Babine (enhanced)",12.86,-0.005,-7,2005,1435
+"Skeena","Lake sockeye",230,"Footsore/Hodder",-989898,-989898,-989898,-989898,-989898
+"Skeena","Pink (even)",218,"Middle-Upper Skeena (even)",12.32,0.007,3,2012,1435
+"Skeena","Pink (even)",219,"Nass-Skeena Estuary (even)",14.37,-0.05,-23,2012,1435
+"Skeena","Pink (odd)",209,"Lower Skeena River (odd)",15.18,-0.7,-94,2013,1435
+"Skeena","Pink (odd)",213,"Middle-Upper Skeena (odd)",13.08,0.06,25,2013,1435
+"Skeena","Pink (odd)",223,"Nass-Skeena Estuary (odd)",13.72,-0.5,-86,2013,1435
+"Skeena","River sockeye",216,"Skeena River-High Interior (river-type)",-989898,-989898,-989898,-989898,-989898
+"Skeena","River sockeye",226,"Skeena River (river-type)",-989898,-989898,-989898,-989898,-989898
+"Skeena","Steelhead",280,"Upper Skeena Headwaters",-989898,-989898,-989898,-989898,-989898
+"Skeena","Steelhead",281,"Upper Sustut",6.27,0.016,25,2008,1624
+"Skeena","Steelhead",282,"Upper Skeena",-989898,-989898,-989898,-989898,-989898
+"Skeena","Steelhead",283,"Kispiox",-989898,-989898,-989898,-989898,-989898
+"Skeena","Steelhead",284,"Babine",-989898,-989898,-989898,-989898,-989898
+"Skeena","Steelhead",285,"Middle Skeena",-989898,-989898,-989898,-989898,-989898
+"Skeena","Steelhead",286,"Suskwa",-989898,-989898,-989898,-989898,-989898
+"Skeena","Steelhead",287,"Bulkley",-989898,-989898,-989898,-989898,-989898
+"Skeena","Steelhead",288,"Skeena Coastal Summers",-989898,-989898,-989898,-989898,-989898
+"Skeena","Steelhead",289,"Morice",-989898,-989898,-989898,-989898,-989898
+"Skeena","Steelhead",290,"Skeena Coastal Winters",-989898,-989898,-989898,-989898,-989898
+"Nass","Chinook",401,"Portland Sound-Observatory Inlet-Lower Nass",7.88,-0.04,-43,2003,1030
+"Nass","Chinook",402,"Upper Nass",10.07,-0.05,-53,2003,1030
+"Nass","Chum",404,"Portland Inlet",9.87,-0.03,-32,2006,1030
+"Nass","Chum",405,"Lower Nass",-989898,-989898,-989898,-989898,-989898
+"Nass","Chum",406,"Portland Canal-Observatory",9.82,-0.02,-23,2006,1030
+"Nass","Coho",408,"Lower Nass",11.06,0.02,21,2006,1030
+"Nass","Coho",409,"Upper Nass",9.51,0.01,12,2006,1030
+"Nass","Coho",410,"Portland Sound-Observatory Inlet-Portland Canal",11.26,-0.08,-60,2006,1030
+"Nass","Lake sockeye",418,"Clements",-989898,-989898,-989898,-989898,-989898
+"Nass","Lake sockeye",419,"Leverson",-989898,-989898,-989898,-989898,-989898
+"Nass","Lake sockeye",420,"Bowser",-989898,-989898,-989898,-989898,-989898
+"Nass","Lake sockeye",421,"Damdochax",6.25,0.14,589,2003,1030
+"Nass","Lake sockeye",422,"Fred Wright",7.65,-0.08,-68,2003,1030
+"Nass","Lake sockeye",423,"Kwinageese",-989898,-989898,-989898,-989898,-989898
+"Nass","Lake sockeye",424,"Meziadin",12.02,-0.009,-12,2003,1030
+"Nass","Lake sockeye",425,"Oweegee",-989898,-989898,-989898,-989898,-989898
+"Nass","Pink (even)",412,"Upper Nass (even)",-989898,-989898,-989898,-989898,-989898
+"Nass","Pink (odd)",414,"Nass-Portland-Observatory (odd)",14.08,-0.05,-19,2013,1030
+"Nass","Pink (odd)",415,"Upper Nass (odd)",-989898,-989898,-989898,-989898,-989898
+"Nass","River sockeye",426,"Lower Nass-Portland (river-type)",8.39,0.18,587,2006,1030
+"Nass","River sockeye",427,"Upper Nass River (river-type)",-989898,-989898,-989898,-989898,-989898
+"Nass","Steelhead",480,"Nass Summer",9.43,0.009,14,2008,1624
+"Nass","Steelhead",481,"Nass Winter",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Chinook",509,"Docee",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Chinook",510,"Rivers Inlet",8.44,-0.13,-83,2003,1595
+"Central Coast","Chinook",511,"Wannock",8.48,0.03,49,2003,1595
+"Central Coast","Chinook",512,"Bella Coola-Bentinck",9.71,-0.01,-14,2003,1595
+"Central Coast","Chinook",513,"Dean River",8.01,-0.05,-48,2003,1595
+"Central Coast","Chinook",514,"North & Central Coast-Late",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Chinook",515,"North & Central Coast-Early",6.84,-0.06,-54,2003,1595
+"Central Coast","Chum",500,"Smith Inlet",10.71,-0.12,-81,2007,1595
+"Central Coast","Chum",501,"Rivers Inlet",10.4,-0.18,-92,2007,1595
+"Central Coast","Chum",502,"Wannock",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Chum",503,"Spiller-Fitz-Hugh-Burke",12.26,-0.02,-28,2007,1595
+"Central Coast","Chum",504,"Bella Coola-Dean Rivers",11.62,0.03,56,2007,1595
+"Central Coast","Chum",505,"Bella Coola River-Late",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Chum",506,"Hecate Lowlands",11.69,-0.07,-62,2007,1595
+"Central Coast","Chum",507,"Mussel-Kynoch",11.6,-0.08,-68,2007,1595
+"Central Coast","Chum",508,"Douglas-Gardner",11.58,-0.01,-17,2007,1595
+"Central Coast","Coho",516,"Smith Inlet",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Coho",517,"Rivers Inlet",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Coho",518,"Bella Coola-Dean Rivers",10.5,-0.07,-51,2010,1595
+"Central Coast","Coho",519,"Mussel-Kynoch",8.89,-0.11,-70,2010,1595
+"Central Coast","Coho",520,"Hecate Strait Mainland",11.95,-0.11,-69,2010,1595
+"Central Coast","Coho",521,"Brim-Wahoo",8.74,-0.005,-6,2010,1595
+"Central Coast","Coho",522,"Douglas Channel-Kitimat Arm",11.27,0.02,28,2010,1595
+"Central Coast","Coho",523,"Northern Coastal Streams",11.87,-0.04,-36,2010,1595
+"Central Coast","Lake sockeye",524,"Long",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",525,"Owikeno",12.34,-0.006,-8,2007,1595
+"Central Coast","Lake sockeye",527,"Wannock (Owikeno)",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",528,"South Atnarko Lakes",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",529,"Backland",5.56,-0.14,-85,2007,1595
+"Central Coast","Lake sockeye",530,"Soda Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",532,"Canoona",9.22,-0.1,-76,2007,1595
+"Central Coast","Lake sockeye",533,"Dome",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",534,"Evelyn",7.6,-0.02,-23,2007,1595
+"Central Coast","Lake sockeye",535,"Kainet Creek",7.54,-0.004,-6,2007,1595
+"Central Coast","Lake sockeye",536,"Kimsquit",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",537,"Kitkiata",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",538,"Kitlope",9.61,0.02,36,2007,1595
+"Central Coast","Lake sockeye",539,"Pine River",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",540,"Banks",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",541,"Bloomfield",7.07,-0.05,-50,2005,1595
+"Central Coast","Lake sockeye",542,"Bolton Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",543,"Bonilla",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",544,"Borrowman Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",545,"Busey Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",546,"Cartwright Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",547,"Chic Chic",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",548,"Citeyats",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",549,"Fannie Cove",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",550,"Curtis Inlet",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",551,"Dallain Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",552,"Deer",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",553,"Devon",8.9,-0.06,-54,2007,1595
+"Central Coast","Lake sockeye",554,"Douglas Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",555,"Elizabeth",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",556,"Elsie/Hoy",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",557,"End Hill Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",558,"Evinrude Inlet",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",559,"Freeda",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",560,"Hartley Bay",7.61,-0.04,-44,2007,1595
+"Central Coast","Lake sockeye",561,"Hevenor Inlet",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",562,"Higgins Lagoon",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",563,"Kadjusdis River",5.83,0.15,762,2007,1595
+"Central Coast","Lake sockeye",564,"Kdelmashan Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",565,"Keecha",9.05,-0.11,-79,2005,1595
+"Central Coast","Lake sockeye",566,"Kent Inlet Lagoon Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",567,"Kenzuwash Creeks",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",568,"Keswar Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",569,"Kildidt Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",570,"Kildidt Lagoon Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",571,"Kisameet",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",572,"Koeye",7.86,0.13,560,2007,1595
+"Central Coast","Lake sockeye",573,"Kooryet",9.21,-0.17,-90,2007,1595
+"Central Coast","Lake sockeye",574,"Kunsoot River",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",575,"Kwakwa Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",576,"Lewis Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",577,"Limestone Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",578,"Lowe/Simpson/Weir",9.79,-0.08,-67,2007,1595
+"Central Coast","Lake sockeye",579,"Mary Cove Creek",5.91,0.02,37,2007,1595
+"Central Coast","Lake sockeye",580,"Mcdonald Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",581,"Mcloughlin",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",582,"Mikado",8.98,-0.05,-51,2007,1595
+"Central Coast","Lake sockeye",583,"Monckton Inlet Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",584,"Namu",7.43,0.08,195,2007,1595
+"Central Coast","Lake sockeye",585,"Port John",4.74,0.17,1036,2007,1595
+"Central Coast","Lake sockeye",586,"Powles Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",587,"Price Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",588,"Roderick",6.81,-0.05,-53,2007,1595
+"Central Coast","Lake sockeye",589,"Ryan Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",590,"Salter",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",591,"Scoular/Kilpatrick",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",592,"Sheneeza Inlet",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",593,"Ship Point Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",594,"Spencer Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",595,"Stannard Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",596,"Talamoosa Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",597,"Tankeeah River",8.39,0.01,22,2006,1595
+"Central Coast","Lake sockeye",598,"Treneman Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",599,"Tsimtack/Moore/Roger",4.74,0.26,3921,2007,1595
+"Central Coast","Lake sockeye",600,"Tuno Creek East",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",601,"Tuno Creek West",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",602,"Tyler Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",603,"Wale Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",604,"Watt Bay",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",605,"West Creek",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",606,"Yaaklele Lagoon",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Lake sockeye",607,"Yeo",7.53,-0.07,-62,2007,1595
+"Central Coast","Pink (even)",608,"Hecate Lowlands (even)",11.9,0.12,85,2016,1595
+"Central Coast","Pink (even)",609,"Hecate Strait-Fjords (even)",14.6,0.16,123,2016,1595
+"Central Coast","Pink (odd)",610,"Homathko-Klinaklini-Smith-Rivers-Bella Coola-Dean (odd)",16.13,-0.78,-98,2016,1595
+"Central Coast","Pink (odd)",611,"Hecate Strait-Lowlands (odd)",11.83,0.23,210,2016,1595
+"Central Coast","Pink (odd)",612,"Hecate Strait-Fjords (odd)",13.86,-0.03,-13,2016,1595
+"Central Coast","River sockeye",613,"Rivers-Smith Inlets (river-type)",-989898,-989898,-989898,-989898,-989898
+"Central Coast","River sockeye",614,"Northern Coastal Fjords (river-type)",9.06,-0.059,-56,2007,1595
+"Central Coast","River sockeye",615,"Northern Coastal Streams (river-type)",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Steelhead",680,"North Coast Winter",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Steelhead",681,"North Coast Summer",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Steelhead",682,"Central Coast Winter",-989898,-989898,-989898,-989898,-989898
+"Central Coast","Steelhead",683,"Transition Summer",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",302,"Boundary Bay (Fall 4-1)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",303,"Lower Fraser River (Fall 4-1)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",304,"Lower Fraser River (Spring 5-2)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",305,"Lower Fraser River-Upper Pitt (Summer 5-2)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",306,"Lower Fraser River (Summer 5-2)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",307,"Lower Fraser River-Maria Slough (Summer 4-1)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",308,"Fraser Canyon-Nahatlatch (Spring 5-2)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",309,"Middle Fraser River-Portage (Fall 5-2)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",310,"Middle Fraser River (Spring 5-2)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",311,"Middle Fraser River (Summer 5-2)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",312,"Upper Fraser River (Spring 5-2)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",313,"South Thompson River (Summer 4-1)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",314,"South Thompson River (Summer 5-2)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",315,"Shuswap River (Summer 4-1)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",316,"South Thompson River-Bessette Creek (Summer 4-2)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",317,"Lower Thompson River (Spring 4-2)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",318,"North Thompson River (Spring 5-2)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",319,"North Thompson River (Summer 5-2)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chinook",333,"South Thompson-Adams River Upper",-989898,-989898,-989898,-989898,-989898
+"Fraser","Chum",701,"Lower Fraser",-989898,-989898,-989898,-989898,-989898
+"Fraser","Coho",704,"Lillooet",-989898,-989898,-989898,-989898,-989898
+"Fraser","Coho",705,"Fraser Canyon",-989898,-989898,-989898,-989898,-989898
+"Fraser","Coho",707,"Lower Thompson",-989898,-989898,-989898,-989898,-989898
+"Fraser","Coho",708,"South Thompson",-989898,-989898,-989898,-989898,-989898
+"Fraser","Coho",709,"North Thompson",-989898,-989898,-989898,-989898,-989898
+"Fraser","Coho",749,"Interior Fraser",-989898,-989898,-989898,-989898,-989898
+"Fraser","Coho",750,"Lower Fraser",-989898,-989898,-989898,-989898,-989898
+"Fraser","Coho",906,"Boundary Bay",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",711,"Chilliwack-Early Summer (cyclic)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",712,"Cultus-Late",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",713,"Harrison-Downstream Migrating-Late",9.42,-0.17,-84,2009,1440
+"Fraser","Lake sockeye",714,"Harrison-Upstream Migrating-Late",10.5,-0.2,-90,2009,1440
+"Fraser","Lake sockeye",715,"Pitt-Early Summer",10.67,-0.046,-40,2009,1440
+"Fraser","Lake sockeye",716,"Lillooet-Harrison-Late",11.91,-0.18,-87,2009,1440
+"Fraser","Lake sockeye",718,"Nahatlatch-Early Summer",7.9,-0.003,-3,2009,1440
+"Fraser","Lake sockeye",719,"Anderson-Seton-Early Summer",9.83,-0.046,-40,2009,1440
+"Fraser","Lake sockeye",720,"Chilko-Early Summer",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",721,"Chilko-Summer",13.37,-0.047,-40,2009,1440
+"Fraser","Lake sockeye",725,"Francois-Fraser-Summer",11.5,-0.001,-1,2009,1440
+"Fraser","Lake sockeye",727,"Nadina-Francois-Early Summer",9.46,0.08,140,2009,1440
+"Fraser","Lake sockeye",728,"Quesnel-Summer (cyclic)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",729,"Seton-Late (de novo)",7.66,-0.11,-70,2009,1440
+"Fraser","Lake sockeye",731,"Takla-Trembleur-Stuart-Summer (cyclic)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",732,"Takla-Trembleur-Early Stuart (cyclic)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",734,"Taseko-Early Summer",5.97,-0.14,-79,2009,1440
+"Fraser","Lake sockeye",735,"Bowron-Early Summer",8.13,-0.15,-81,2009,1440
+"Fraser","Lake sockeye",738,"Shuswap-Early Summer (cyclic)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",739,"Shuswap-Late (cyclic)",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",740,"Kamloops-Early Summer",10.17,-0.08,-58,2009,1440
+"Fraser","Lake sockeye",751,"Adams & Momich Lakes-Early Summer",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",752,"North Barriere-Early Summer (de novo)",8.91,-0.15,-82,2009,1440
+"Fraser","Lake sockeye",753,"Fraser-Early Summer",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",756,"Alouette-Early Summer",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",757,"Coquitlam-Early Summer",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",758,"Kawkawa-Late",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",759,"Seton-Summer",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",760,"Adams-Early Summer",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",761,"Momich-Early Summer",-989898,-989898,-989898,-989898,-989898
+"Fraser","Lake sockeye",763,"North Barriere-Early Summer",-989898,-989898,-989898,-989898,-989898
+"Fraser","Pink (odd)",710,"Fraser River (odd)",16.28,-0.25,-64,2013,1440
+"Fraser","River sockeye",742,"Widgeon (river-type)",6.69,-0.11,-71,2009,1440
+"Fraser","River sockeye",745,"Harrison River (river-type)",12.7,-0.16,-84,2009,1440
+"Fraser","Steelhead",780,"Mid Fraser Summer",6.19,-0.086,-70,2006,1624
+"Fraser","Steelhead",781,"Thompson Summer",7.41,-0.11,-81,2006,1624
+"Fraser","Steelhead",782,"Lower Fraser Winter",-989898,-989898,-989898,-989898,-989898
+"Fraser","Steelhead",783,"Fraser Canyon Summer",-989898,-989898,-989898,-989898,-989898
+"Fraser","Steelhead",784,"Lower Fraser Summer",-989898,-989898,-989898,-989898,-989898
+"Fraser","Steelhead",785,"Boundary Bay Winter",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Chinook",320,"Southern Mainland-Georgia Strait (Fall x-1)",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Chinook",321,"East Vancouver Island-Goldstream (Fall x-1)",5.64,-0.29,-98,2003,1028
+"Vancouver Island & Mainland Inlets","Chinook",322,"East Vancouver Island-Cowichan and Koksilah (Fall x-1)",7.54,0.06,139,2003,1028
+"Vancouver Island & Mainland Inlets","Chinook",323,"East Vancouver Island-Nanaimo (Spring x-2)",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Chinook",324,"East Vancouver Island-Nanaimo and Chemainus (Fall x-1)",7.47,0.02,31,2003,1028
+"Vancouver Island & Mainland Inlets","Chinook",325,"East Vancouver Island-Qualicum and Puntledge (Fall x-1)",10.03,-0.06,-55,2003,1028
+"Vancouver Island & Mainland Inlets","Chinook",326,"Southern Mainland-Southern Fjords (Fall x-1)",4.45,0.22,2370,2003,1028
+"Vancouver Island & Mainland Inlets","Chinook",327,"East Vancouver Island-North (Fall x-1)",9.41,-0.05,-47,2003,1028
+"Vancouver Island & Mainland Inlets","Chinook",328,"West Vancouver Island-South (Fall x-1)",10.94,-0.03,-38,2003,1028
+"Vancouver Island & Mainland Inlets","Chinook",329,"West Vancouver Island-Nootka and Kyuquot (Fall x-1)",9.91,0.02,39,2003,1028
+"Vancouver Island & Mainland Inlets","Chinook",330,"West Vancouver Island-North (Fall x-1)",7.81,0.01,17,2003,1028
+"Vancouver Island & Mainland Inlets","Chinook",331,"Homathko (Summer x-x)",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Chinook",332,"Klinaklini (Summer 5-2)",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Chinook",334,"East Vancouver Island-Georgia Strait (Summer 4-1)",7.63,-0.03,-37,2003,1028
+"Vancouver Island & Mainland Inlets","Chum",900,"Southern Coastal Streams",6.43,0.12,285,2006,1028
+"Vancouver Island & Mainland Inlets","Chum",901,"Bute Inlet",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Chum",902,"Loughborough",9.89,-0.009,-9,2006,1028
+"Vancouver Island & Mainland Inlets","Chum",903,"Northeast Vancouver Island",10.16,-0.13,-77,2006,1028
+"Vancouver Island & Mainland Inlets","Chum",904,"Georgia Strait",13.3,0,0,2006,1028
+"Vancouver Island & Mainland Inlets","Chum",905,"Howe Sound-Burrard Inlet",12.46,0.08,134,2006,1028
+"Vancouver Island & Mainland Inlets","Chum",977,"Northwest Vancouver Island",10.55,0.07,122,2006,1028
+"Vancouver Island & Mainland Inlets","Chum",978,"Southwest & West Vancouver Island",12.64,-0.05,-45,2006,1028
+"Vancouver Island & Mainland Inlets","Chum",979,"Upper Knight",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Coho",907,"Howe Sound-Burrard Inlet",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Coho",908,"Georgia Strait Mainland",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Coho",909,"Southern Coastal Streams-Queen Charlotte Strait-Johnstone Strait-Southern Fjords",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Coho",910,"East Vancouver Island-Georgia Strait",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Coho",911,"East Vancouver Island-Johnstone Strait-Southern Fjords",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Coho",912,"Nahwitti Lowland",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Coho",913,"Juan de Fuca-Pachena",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Coho",914,"West Vancouver Island",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Coho",915,"Clayoquot",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Coho",916,"Homathko-Klinaklini Rivers",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",927,"Fulmore",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",928,"Heydon",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",929,"Kakweiken",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",930,"Loose",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",931,"Mackenzie",6.29,0.07,176,2003,1028
+"Vancouver Island & Mainland Inlets","Lake sockeye",932,"Phillips",8.08,0.02,32,2003,1028
+"Vancouver Island & Mainland Inlets","Lake sockeye",933,"Sakinaw",1.91,0.2,1571,2003,1028
+"Vancouver Island & Mainland Inlets","Lake sockeye",935,"Tzoonie",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",937,"Ida-Bonanza",5.35,-0.11,-79,1999,1028
+"Vancouver Island & Mainland Inlets","Lake sockeye",938,"Nahwitti",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",939,"Nimpkish",10.07,0.09,246,2003,1028
+"Vancouver Island & Mainland Inlets","Lake sockeye",941,"Quatse",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",942,"Schoen",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",943,"Shushartie",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",944,"Woss",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",945,"Alice",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",946,"Canoe Creek",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",947,"Cecilia",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",948,"Cheewat",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",949,"Clayoquot",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",950,"Deserted",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",951,"Fairy",3.71,-0.04,-43,2003,1028
+"Vancouver Island & Mainland Inlets","Lake sockeye",952,"Great Central",12.11,0.008,12,2003,1028
+"Vancouver Island & Mainland Inlets","Lake sockeye",953,"Henderson",9.32,0.08,222,2003,1028
+"Vancouver Island & Mainland Inlets","Lake sockeye",954,"Hesquiat",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",955,"Hobiton",6.54,0.08,186,1999,1028
+"Vancouver Island & Mainland Inlets","Lake sockeye",956,"Jansen",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",957,"Kanim",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",958,"Kennedy",9.84,-0.03,-38,2003,1028
+"Vancouver Island & Mainland Inlets","Lake sockeye",959,"Maggie",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",960,"Megin",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",961,"Muchalat",10.48,-0.31,-99,2003,1028
+"Vancouver Island & Mainland Inlets","Lake sockeye",962,"Muriel",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",963,"Nitinat",2.56,0.21,1900,2003,1028
+"Vancouver Island & Mainland Inlets","Lake sockeye",964,"O'Connell",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",966,"Park River",6.95,-0.19,-93,1987,1028
+"Vancouver Island & Mainland Inlets","Lake sockeye",967,"Power",7.58,-0.21,-95,1987,1028
+"Vancouver Island & Mainland Inlets","Lake sockeye",969,"Sproat",11.69,0.07,152,2003,1028
+"Vancouver Island & Mainland Inlets","Lake sockeye",970,"William-Brink",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Lake sockeye",976,"Vernon",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Pink (even)",917,"Georgia Strait (even)",14.8,-0.86,-82,2012,1028
+"Vancouver Island & Mainland Inlets","Pink (even)",918,"West Vancouver Island (even)",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Pink (even)",919,"Northwest Vancouver Island (even)",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Pink (even)",920,"Southern Fjords (even)",15.64,-0.61,-70,2012,1028
+"Vancouver Island & Mainland Inlets","Pink (odd)",921,"East Howe Sound-Burrard Inlet (odd)",10.06,0.81,405,2011,1028
+"Vancouver Island & Mainland Inlets","Pink (odd)",922,"Georgia Strait (odd)",13.02,0.75,348,2011,1028
+"Vancouver Island & Mainland Inlets","Pink (odd)",923,"East Vancouver Island-Johnstone Strait (odd)",10.66,0.82,415,2011,1028
+"Vancouver Island & Mainland Inlets","Pink (odd)",924,"Nahwitti (odd)",11.14,-0.31,-46,2011,1028
+"Vancouver Island & Mainland Inlets","Pink (odd)",925,"West Vancouver Island (odd)",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Pink (odd)",926,"Southern Fjords (odd)",12.27,0.3,82,2011,1028
+"Vancouver Island & Mainland Inlets","River sockeye",971,"Southern Fjords (river-type)",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","River sockeye",972,"West Vancouver Island (river-type)",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","River sockeye",973,"East Vancouver Island & Georgia Strait (river-type)",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","River sockeye",974,"NW Vancouver Island (river-type)",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Steelhead",980,"South Coast Winter",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Steelhead",981,"East Vancouver Island Winter",6.04,-0.017,-21,2006,1624
+"Vancouver Island & Mainland Inlets","Steelhead",982,"West Vancouver Island Winter",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Steelhead",983,"South Coast Summer",-989898,-989898,-989898,-989898,-989898
+"Vancouver Island & Mainland Inlets","Steelhead",984,"West Vancouver Island Summer",6.43,-0.0099,-13,2006,1624
+"Vancouver Island & Mainland Inlets","Steelhead",985,"East Vancouver Island Summer",4.98,-0.0035,-5,2006,1624
+"Haida Gwaii","Chinook",805,"North Haida Gwaii",-989898,-989898,-989898,-989898,-989898
+"Haida Gwaii","Chinook",806,"East Haida Gwaii",-989898,-989898,-989898,-989898,-989898
+"Haida Gwaii","Chum",800,"North Haida Gwaii-Stanley Creek",-989898,-989898,-989898,-989898,-989898
+"Haida Gwaii","Chum",801,"East Haida Gwaii",11.6,-0.05,-52,2007,1668
+"Haida Gwaii","Chum",802,"North Haida Gwaii",10.16,-0.08,-69,2007,1668
+"Haida Gwaii","Chum",803,"West Haida Gwaii",11.75,-0.05,-50,2007,1668
+"Haida Gwaii","Chum",804,"Skidegate",10.75,0.008,12,2007,1668
+"Haida Gwaii","Coho",807,"East Haida Gwaii",11.37,-0.07,-51,2010,1668
+"Haida Gwaii","Coho",808,"West Haida Gwaii",10.75,-0.08,-60,2010,1668
+"Haida Gwaii","Coho",809,"Haida Gwaii-Graham Island Lowlands",11.82,-0.036,-33,2010,1668
+"Haida Gwaii","Lake sockeye",819,"Ain-Skundale-Ian",-989898,-989898,-989898,-989898,-989898
+"Haida Gwaii","Lake sockeye",820,"Awun",9.13,-0.027,-32,2007,1668
+"Haida Gwaii","Lake sockeye",821,"Fairfax",-989898,-989898,-989898,-989898,-989898
+"Haida Gwaii","Lake sockeye",822,"Jalun",-989898,-989898,-989898,-989898,-989898
+"Haida Gwaii","Lake sockeye",823,"Marian/Eden",9,-0.017,-21,2007,1668
+"Haida Gwaii","Lake sockeye",824,"Mathers",-989898,-989898,-989898,-989898,-989898
+"Haida Gwaii","Lake sockeye",825,"Mercer",8.6,0.008,12,2007,1668
+"Haida Gwaii","Lake sockeye",826,"Skidegate",9.05,0.04,82,2007,1668
+"Haida Gwaii","Lake sockeye",827,"Yakoun",9,-0.023,-28,2007,1668
+"Haida Gwaii","Lake sockeye",828,"Marie",-989898,-989898,-989898,-989898,-989898
+"Haida Gwaii","Pink (even)",810,"North Haida Gwaii (even)",12.7,0.31,250,2016,1668
+"Haida Gwaii","Pink (even)",811,"East Haida Gwaii (even)",12.27,0.34,290,2016,1668
+"Haida Gwaii","Pink (even)",812,"West Haida Gwaii (even)",8.82,0.22,141,2016,1668
+"Haida Gwaii","Pink (odd)",813,"East Haida Gwaii (odd)",10.88,-0.1,-32,2017,1668
+"Haida Gwaii","Pink (odd)",814,"North Haida Gwaii (odd)",-989898,-989898,-989898,-989898,-989898
+"Haida Gwaii","Pink (odd)",815,"West Haida Gwaii (odd)",-989898,-989898,-989898,-989898,-989898
+"Haida Gwaii","River sockeye",816,"East Haida Gwaii (river-type)",-989898,-989898,-989898,-989898,-989898
+"Haida Gwaii","River sockeye",817,"North Haida Gwaii (river-type)",-989898,-989898,-989898,-989898,-989898
+"Haida Gwaii","River sockeye",818,"West Haida Gwaii (river-type)",-989898,-989898,-989898,-989898,-989898
+"Haida Gwaii","Steelhead",880,"Haida Gwaii Winter",-989898,-989898,-989898,-989898,-989898
+"Columbia","Chinook",301,"Okanagan",2.65,0.1,736,2004,1406
+"Columbia","Lake sockeye",1300,"Osoyoos",11.58,-0.13,194,2009,1406
+"Columbia","Steelhead",1380,"Mid Columbia Summer",-989898,-989898,-989898,-989898,-989898
+"Yukon","Chinook",1201,"Big Salmon",8.54,0.037,87,2002,1512
+"Yukon","Chinook",1202,"Nordenskiold",-989898,-989898,-989898,-989898,-989898
+"Yukon","Chinook",1203,"Pelly",8.94,-0.006,-10,2002,1512
+"Yukon","Chinook",1204,"Middle Yukon",9.26,-0.018,-26,2002,1512
+"Yukon","Chinook",1205,"Stewart",7.99,-0.01,-19,2002,1512
+"Yukon","Chinook",1206,"White",8.3,0.001,2,2002,1512
+"Yukon","Chinook",1207,"Northern Yukon",9.05,-0.03,-37,2002,1512
+"Yukon","Chinook",1208,"Salmon Fork",-989898,-989898,-989898,-989898,-989898
+"Yukon","Chinook",1209,"Porcupine",-989898,-989898,-989898,-989898,-989898
+"Yukon","Chinook",1210,"Old Crow",-989898,-989898,-989898,-989898,-989898
+"Yukon","Chinook",1211,"Upper Yukon",8.31,-0.019,-27,2002,1512
+"Yukon","Chinook",1212,"Teslin",8.46,0.02,46,2002,1512
+"Yukon","Chum",1213,"Middle Yukon",-989898,-989898,-989898,-989898,-989898
+"Yukon","Chum",1214,"North Yukon",-989898,-989898,-989898,-989898,-989898
+"Yukon","Chum",1215,"White",-989898,-989898,-989898,-989898,-989898
+"Yukon","Chum",1216,"Donjek Kluane",-989898,-989898,-989898,-989898,-989898
+"Yukon","Chum",1217,"Porcupine",-989898,-989898,-989898,-989898,-989898
+"Yukon","Chum",1218,"Stewart",-989898,-989898,-989898,-989898,-989898
+"Yukon","Chum",1219,"Teslin",-989898,-989898,-989898,-989898,-989898
+"Yukon","Coho",1220,"Porcupine",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Chinook",1004,"Alsek",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Chinook",1005,"Lynn Canal",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Chinook",1006,"Taku-Early Timing",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Chinook",1007,"Taku-Mid Timing",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Chinook",1008,"Taku-Late Timing",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Chinook",1009,"Whiting",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Chinook",1010,"Stikine-Early Timing",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Chinook",1011,"Stikine-Late Timing",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Chinook",1012,"Unuk",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Chum",1000,"Lynn Canal",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Chum",1001,"Taku",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Chum",1002,"Whiting",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Chum",1003,"Unuk",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Chum",1032,"Lower Stikine",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Coho",1013,"Alsek",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Coho",1014,"Lynn Canal",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Coho",1015,"Taku-Late Timing",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Coho",1016,"Whiting",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Coho",1017,"Lower Stikine",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Coho",1018,"Unuk",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Coho",1034,"Taku-Early Timing",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Coho",1035,"Taku-Mid Timing",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Lake sockeye",1024,"Border",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Lake sockeye",1025,"Christina",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Lake sockeye",1026,"Tahltan",10.28,-0.018,-22,2007,1502
+"Transboundary","Lake sockeye",1027,"Kuthai",7.55,-0.16,-90,2007,1502
+"Transboundary","Lake sockeye",1028,"Little Trapper",8.87,-0.0028,-4,2007,1502
+"Transboundary","Lake sockeye",1029,"Tatsamenie",8.28,0.024,40,2007,1502
+"Transboundary","Lake sockeye",1031,"Blanchard",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Lake sockeye",1033,"King Salmon",6.41,0.15,450,2010,1502
+"Transboundary","Lake sockeye",1036,"Chutine",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Lake sockeye",1037,"Whiting",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Lake sockeye",1038,"Klukshu",9.03,9e-04,1,2007,1502
+"Transboundary","Lake sockeye",1039,"Nesketahin",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Pink (even)",1019,"Transboundary Fjords (even)",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Pink (odd)",1020,"Transboundary Fjords (odd)",-989898,-989898,-989898,-989898,-989898
+"Transboundary","River sockeye",1021,"Alsek (river-type)",-989898,-989898,-989898,-989898,-989898
+"Transboundary","River sockeye",1022,"Chilkat (river-type)",-989898,-989898,-989898,-989898,-989898
+"Transboundary","River sockeye",1023,"Northern Transboundary Fjords (river-type)",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Steelhead",1080,"Alsek Summer",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Steelhead",1081,"Taku Summer",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Steelhead",1082,"Taku Winter",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Steelhead",1083,"Stikine Summer",-989898,-989898,-989898,-989898,-989898
+"Transboundary","Steelhead",1084,"Stikine Winter",-989898,-989898,-989898,-989898,-989898

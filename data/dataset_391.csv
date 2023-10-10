@@ -1,0 +1,64 @@
+region,CUID,Species,3gen_intercept,3gen_slope,3gen_percent_Change,3gen_start_year
+Fraser,710,PKO,16.28,-0.25,-64,2013
+Fraser,719,SEL,9.83,-0.046,-40,2009
+Fraser,735,SEL,8.13,-0.15,-81,2009
+Fraser,721,SEL,13.37,-0.047,-40,2009
+Fraser,725,SEL,11.5,-0.001,-1,2009
+Fraser,713,SEL,9.42,-0.17,-84,2009
+Fraser,714,SEL,10.5,-0.2,-90,2009
+Fraser,740,SEL,10.17,-0.08,-58,2009
+Fraser,716,SEL,11.91,-0.18,-87,2009
+Fraser,727,SEL,9.46,0.08,140,2009
+Fraser,718,SEL,7.9,-0.003,-3,2009
+Fraser,752,SEL,8.91,-0.15,-82,2009
+Fraser,715,SEL,10.67,-0.046,-40,2009
+Fraser,729,SEL,7.66,-0.11,-70,2009
+Fraser,734,SEL,5.97,-0.14,-79,2009
+Fraser,745,SER,12.7,-0.16,-84,2009
+Fraser,742,SER,6.69,-0.11,-71,2009
+Central Coast,500,Chum,10.71,-0.12,-81,2007
+Central Coast,501,Chum,10.4,-0.18,-92,2007
+Central Coast,503,Chum,12.26,-0.02,-28,2007
+Central Coast,504,Chum,11.62,0.03,56,2007
+Central Coast,506,Chum,11.69,-0.07,-62,2007
+Central Coast,507,Chum,11.6,-0.08,-68,2007
+Central Coast,508,Chum,11.58,-0.01,-17,2007
+Central Coast,510,Chinook,8.44,-0.13,-83,2003
+Central Coast,511,Chinook,8.48,0.03,49,2003
+Central Coast,512,Chinook,9.71,-0.01,-14,2003
+Central Coast,513,Chinook,8.01,-0.05,-48,2003
+Central Coast,515,Chinook,6.84,-0.06,-54,2003
+Central Coast,518,Coho,10.5,-0.07,-51,2010
+Central Coast,519,Coho,8.89,-0.11,-70,2010
+Central Coast,520,Coho,11.95,-0.11,-69,2010
+Central Coast,521,Coho,8.74,-0.005,-6,2010
+Central Coast,522,Coho,11.27,0.02,28,2010
+Central Coast,523,Coho,11.87,-0.04,-36,2010
+Central Coast,525,Lake Sockeye,12.34,-0.006,-8,2007
+Central Coast,529,Lake Sockeye,5.56,-0.14,-85,2007
+Central Coast,532,Lake Sockeye,9.22,-0.1,-76,2007
+Central Coast,534,Lake Sockeye,7.6,-0.02,-23,2007
+Central Coast,535,Lake Sockeye,7.54,-0.004,-6,2007
+Central Coast,538,Lake Sockeye,9.61,0.02,36,2007
+Central Coast,541,Lake Sockeye,7.07,-0.05,-50,2005
+Central Coast,553,Lake Sockeye,8.9,-0.06,-54,2007
+Central Coast,560,Lake Sockeye,7.61,-0.04,-44,2007
+Central Coast,563,Lake Sockeye,5.83,0.15,762,2007
+Central Coast,565,Lake Sockeye,9.05,-0.11,-79,2005
+Central Coast,572,Lake Sockeye,7.86,0.13,560,2007
+Central Coast,573,Lake Sockeye,9.21,-0.17,-90,2007
+Central Coast,578,Lake Sockeye,9.79,-0.08,-67,2007
+Central Coast,579,Lake Sockeye,5.91,0.02,37,2007
+Central Coast,582,Lake Sockeye,8.98,-0.05,-51,2007
+Central Coast,584,Lake Sockeye,7.43,0.08,195,2007
+Central Coast,585,Lake Sockeye,4.74,0.17,1036,2007
+Central Coast,588,Lake Sockeye,6.81,-0.05,-53,2007
+Central Coast,597,Lake Sockeye,8.39,0.01,22,2006
+Central Coast,599,Lake Sockeye,4.74,0.26,3921,2007
+Central Coast,607,Lake Sockeye,7.53,-0.07,-62,2007
+Central Coast,608,Pink (Even),11.9,0.12,85,2016
+Central Coast,609,Pink (Even),14.6,0.16,123,2016
+Central Coast,610,Pink (Odd),16.13,-0.78,-98,2016
+Central Coast,611,Pink (Odd),11.83,0.23,210,2016
+Central Coast,612,Pink (Odd),13.86,-0.03,-13,2016
+Central Coast,614,Lake Sockeye,9.06,-0.059,-56,2007

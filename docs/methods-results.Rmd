@@ -60,9 +60,9 @@ Currently, there is no place where the public can readily find answers to genera
 
 This lack of publicly accessible information about the state of Pacific salmon and opens the door to misinformation that can hinder and harm our ability to conserve salmon. 
 
-The [Pacific Salmon Foundation (PSF)](https://www.psf.ca) is developing an inaugural **State of Pacific Salmon in Canada** publication (henceforth referred to as *SPS*), which will address these questions and be tailored to the questions of a salmon-informed public audience. The outputs will be updated annually to reflect new data and changes to the state of Pacific salmon populations.
+The [Pacific Salmon Foundation (PSF)](https://www.psf.ca) is developing an inaugural **State of Pacific Salmon in Canada** publication (henceforth referred to as *SPS*), which will address these questions and be tailored to the questions of a salmon-informed public audience. The outputs will be updated regularly (e.g. annually or biennially) to reflect new data and changes to the state of Pacific salmon populations.
 
-As part of the SPS report, PSF's [Salmon Watersheds Program](https://www.salmonwatersheds.ca) has developed an approach to estimating the regional abundance of salmon spawners for each species as a simple metric that provides information on how the number of salmon returning to spawn has been changing. This document outlines the data sources and analytical approach used to estimate time series of spawner abundance for each species and region, as well as draft results. It is intended to be shared with external partners in order to garner feedback on preliminary results that will inform our approach moving forward. Our analyses are ongoing, and the information here is subject to change on a regular basis, but we will endeavor to keep it up-to-date.
+As part of the SPS report, PSF's [Salmon Watersheds Program](https://www.salmonwatersheds.ca) is developing simple metrics to report on the status and trends in regional abundance for each species. This document outlines the data sources and analytical approach used to estimate time series of spawner abundance and, where available, run size for each species and region, as well as draft results. It is intended to be shared with external partners in order to garner feedback on preliminary results that will inform our approach moving forward. Our analyses are ongoing, and the information here is subject to change on a regular basis, but we will endeavor to keep it up-to-date.
 
 # Methods
 
@@ -72,16 +72,54 @@ We report spawner abundance for each of nine regions that represent all major Pa
 
 We separate five species of Pacific salmon: Chinook, chum, coho, pink, and sockeye. We also report status of steelhead trout for regions where spawner data are are available (Nass, Skeena, and interior Fraser). We note that when assessing biological status, pink are often separated into even- and odd-year lineages due to their consistent 2-year life cycle. However, for the general overviews provided in State of Salmon we consider generational averages, which take the running average of even- and odd-year lineages for pink salmon. This approach of using generation running averages also smooths over dominant lines for sockeye salmon, for which many populations display cyclic dominance. Shifts in dominance between even- and odd-year pink populations or declines in sub-dominant years of sockeye salmon are considered in a more nuanced way when discussing how changes in abundance have been reflected in the diversity and distribution of each species within the region. 
 
-For each of these species, where data are available, we construct an index of spawner abundance at the regional scale. We chose to use spawner abundance, rather than catch or run size (i.e., catch plus spawners), because data on spawner abundance are more readily summarized at different spatial scales. Further, spawners represents the abundance of salmon available for to meet cultural and ecological needs and thus provides a measure of status relevant to communities and ecosystems, rather than industry. We recognize that commercial catch has historical been a substantial portion of salmon that return to the coast, and that ignoring declines in catch will underestimate the declines in overall salmon abundance. Trends in catch will be discussed as part of the Harvest section under "Factors" in the SPS report.
+For each of these species, where data are available, we construct an index of spawner abundance at the regional scale. We focus on spawner abundance, rather than catch or run size (i.e., catch plus spawners), because data on spawner abundance are more readily summarized at different spatial scales. Further, spawners represents the abundance of salmon available for to meet cultural and ecological needs and thus provides a measure of status relevant to communities and ecosystems, rather than industry. We recognize that commercial catch has historically been a substantial portion of salmon that return to the coast, and that ignoring declines in catch will underestimate the declines in overall salmon abundance. Therefore, we are looking to include information on run size for species and regions with reliable data. **This assessment of the data landscape is ongoing, and one of the reasons why the results here should be considered preliminary.** 
 
-For most species and regions, we expanded spawner abundance from river-level estimates to get a regional scale **index** of spawner abundance using two types of expansion factors [@English2016]. Expansion Factor 1 accounts for indicator streams that are not monitored in a given year, and is based on the mean proportional contribution of each indicator stream to the aggregate abundance. Expansion Factor 2 accounts for non-indicator streams that are monitored less rigorously, and is a constant through time calculated based on the average contribution of indicator versus non-indicator stream to aggregate abundance. This expansion process is described in more detail [below](#expansion-factors). For some regions and species, river-level spawner abundance data are not readily available or are not reliable. In particular, stocks that are governed by international treaties may be monitored by the Pacific Salmon Commission, and tend to have better data available at coarser management unit scales. For these regions and species, we may have adapted our approach to incorporate more reliable datasets (see [Region-Specific Deviations](#region-specific-deviations)).
+For some species and regions, there is a reliable source of data for region-wide escapement and/or run size that we can directly use as an index of abundance. For example, stocks that are governed by international treaties may be monitored by the Pacific Salmon Commission, and tend to have reliable time series of abundance available at regional scales. These data sources are outlined in the [Region-Specific Data section](#region-specific-data). For species and regions where aggregate abundance is not reported at the scale needed, we adapted our approach to make the best use of available data. In most cases, this meant expanding spawner abundance from stream-level estimates to get a regional scale index of spawner abundance using two types of expansion factors [@English2016]. This expansion process is described in more detail [below](#expansion-factors).  
 
 R code for the analyses described here are available on GitHub at https://github.com/salmonwatersheds/state-of-salmon.
 
-## Expansion Factors
-When expanding to regional scale abundance, we started with spawner survey data shown in the Pacific Salmon Explorer. Spawner surveys were each assigned to one of the nine regions we considered based on their geographic location. We note that this is slightly different from how spawner survey data are organized in the Pacific Salmon Explorer, where data are organized by Conservation Units (CUs) that may span regional boundaries (e.g. for pink salmon that have relatively geographically large CUs). In cases of trans-regional CUs, the spawner surveys appear in both regions in the Pacific Salmon Explorer, whereas here we assign the spawner survey to the region in which it is located regardless of the CU boundary. 
+## Region-Specific Data
 
-Spawner survey data are largely derived from river-level estimates in  DFO’s [New Salmon Escapement Database System (NuSEDS)](https://open.canada.ca/data/en/dataset/c48669a3-045b-400d-b730-48aafe8c5ee6), but are cleaned up to address issues of, for example, inconsistent naming of streams through time or duplicate data. The spawner survey abundance is equal to the `MAX_ESTIMATE` in NUSEDS for each year and river population, calculated as the maximum of all fields containing spawner abundance data (e.g. natural adult spawners, natural jack spawners, total broodstock removals). Each of these river populations has been designated as an **indicator** stream or **non-indicator** stream by DFO. Indicator streams are observed more consistently in recent decades, tend to have higher spawner abundance, and tend to be monitored using more intensive methods that provide greater accuracy [@English2016]. For further information on the compilation of spawner survey data, see the [Pacific Salmon Explorer Technical Report](https://bookdown.org/salmonwatersheds/tech-report/analytical-approach.html#spawner-surveys).
+Here we describe specific data sources for the abundance of salmon and steelhead at the regional scale. If no data source is listed for a species and region, then we took an alternate approach of estimating regional-scale abundance from finer-scale data (see [Expansion Factors](#expansion-factors)). 
+
+### Nass
+
+The index of Nass steelhead spawner abundance is based on estimated spawner abundance to the Nass Summer CU, provided by the Nisga’a Fish and Wildlife Department and LGL Ltd. (publication forthcoming). There is another steelhead CU in the Nass region - Nass Winter - which is not well monitored and therefore not included in our index of spawner abundance.
+
+### Skeena
+
+The index of Skeena steelhead spawner abundance is derived from estimated escapement of Skeena Summer steelhead at the Tyee Test Fishery (1956 - present), provided by the Province. As for other regions, these estimates may not capture winter-run steelhead, for which data are not available.
+
+### Fraser
+<!-- From More Information for Fraser spawner abundance: https://www.salmonexplorer.ca/#!/fraser/pink/fraser-river-odd&pop=ABUNDANCE_ESTIMATE&pop-detail=1 -->
+
+River-level spawner abundance for Fraser Chinook found in NuSEDS can be highly unreliable, thus we based our expansions on only the most intensively monitored streams that have been deemed as reliable estimates of abundance by @Brown2020. These streams are those shown in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca), and the associated data can be accessed from the stream survey data in the [SWP Data Library](https://data.salmonwatersheds.ca/result?datasetid=1). We also truncated the Chinook index of abundance to 1995 and more recent data, since earlier years have been deemed unreliable [@Brown2020]. 
+
+Data on aggregate abundance of pink salmon and sockeye salmon in the Fraser region are provided by the Pacific Salmon Commission (PSC), and accessed through the [Fraser Panel Annual Report: Data Application](https://psc1.shinyapps.io/PSC_Annual_Fraser/). For these species, we report on the run size and escapement (or 'spawning escapement' for sockeye). We note that Fraser River pink salmon are only counted in the dominant, odd-year run. 
+
+We are currently exploring the possibility of including regional-scale abundance for Fraser Chinook, coho, and chum from DFO and/or the PSC, but have not yet acquired these data.
+
+Steelhead trout in the Fraser are monitored by the Province in at least 10 different streams, but these data are not readily available. Relatively reliable estimates of steelhead spawner abundance are available at the CU-level for interior Fraser steelhead from the Thompson Summer CU (monitored at the Thompson River) and Mid Fraser Summer CU (primarily monitored at the Chilcotin River). We used the sum of CU-level spawner abundance for these two CUs as an index of Fraser steelhead abundance. We note that this approach does not include more coastal populations, such as the Lower Fraser Summer steelhead monitored in the Coquihalla River or Boundary Bay Winter steelhead, which may not have declined to the same extent over the past decade. However, a lack of publicly accessible data on coastal Fraser steelhead has limited our ability to include these CUs in our index of abundance.
+
+### Columbia
+
+We used CU-level estimates of spawner abundance (run reconstructions) sourced from DFO (Ogden, pers. comm.) for Chinook and  @Stockwell2003 and subsequent updates for sockeye. 
+
+There is no monitoring of steelhead trout in the Canadian portion of the Columbia region, but the  Okanagan Nation Alliance does enumerate steelhead in akskwəkwant (Inkaneep Creek) and estimate a Canadian portion of steelhead spawning abundance. These data can be found in associated report (e.g. @OBMEP2023) and are available in the Pacific Salmon Explorer as the CU-level spawner abundance for the Mid Columbia Summer CU.
+
+### Northern Transboundary
+
+We assessed regional abundance in the Transboundary using estimates of border escapement provided in the Pacific Salmon Commission's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The regional abundance of Chinook, coho, and sockeye salmon were calculated as the sum of border escapement to the Stikine, Alsek, and Taku watersheds. We recognize that this approach ignores spawners in the smaller watersheds, specifically the Chilkat, Unuk, and Whiting, but the contribution of these smaller watersheds to total regional abundance for each species is likely small.
+
+### Yukon
+
+The Canadian portion of the Yukon River is home to Chinook, chum, and coho salmon. Border escapement and run size of Canadian-origin Chinook and fall chum salmon is estimated at the Eagle Sonar station on the Yukon/Alaska border, and are availabel from the [Yukon River Panel](https://www.yukonriverpanel.com/). There are also Chinook, chum, and coho salmon in the Canadian portion of the Porcupine River, which joins the mainstem Yukon River in Alaska. Data on escapement to the Porcupine River are more patchy and not currently included here.
+
+## Expansion Factors
+
+For species and regions that lacked reliable data on spawner abundance and run size at the appropriate scale, we estimated regional-scale abundance from stream-level surveys. We started with spawner survey data shown in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca). Spawner surveys were each assigned to one of the nine regions we considered based on their geographic location. We note that this is slightly different from how spawner survey data are organized in the Pacific Salmon Explorer, where data are organized by Conservation Units (CUs) that may span regional boundaries (e.g. for pink salmon that have relatively geographically large CUs). In cases of trans-regional CUs, the spawner surveys appear in both regions in the Pacific Salmon Explorer, whereas here we assign spawner surveys to the region in which they fall geographically, regardless of the CU boundary. 
+
+Spawner survey data are largely derived from river-level estimates in  DFO’s [New Salmon Escapement Database System (NuSEDS)](https://open.canada.ca/data/en/dataset/c48669a3-045b-400d-b730-48aafe8c5ee6), but are cleaned up to address issues of, for example, inconsistent naming of streams through time or duplicate data. The spawner survey abundance is equal to the `MAX_ESTIMATE` in NUSEDS for each year and river population, calculated as the maximum of all fields containing spawner abundance data (e.g. natural adult spawners, natural jack spawners, total broodstock removals). Each of these river populations has been designated as an **indicator** stream or **non-indicator**. Indicator streams are observed more consistently in recent decades, tend to have higher spawner abundance, and tend to be monitored using more intensive methods that provide greater accuracy [@English2016]. For further information on the compilation of spawner survey data, see the [Pacific Salmon Explorer Technical Report](https://bookdown.org/salmonwatersheds/tech-report/analytical-approach.html#spawner-surveys).
 
 Expansion Factor 1, $F_{1,y/d}$, expands the observed spawner abundances in indicator streams to account for indicator streams that are not monitored in a given year. It is calculated for each year $y$ of the spawner time series, and relies on a decadal contribution of each indicator stream to the total escapement to all indicator streams, $P_{d,i}$ in decade $d$ [@English2016]. The calculation of this decadal contribution requires at least one estimate from each indicator stream for the decade. If a decade does not contain sufficient information (i.e. one or more indicator streams are not monitored at all in a decade), then a reference decade is used to calculate $P_{d,i}$. This reference decade is chosen to be: (1) the closest decade (historical or future) with sufficient information, or failing (1), (2) the 20-year period from 1980-1999 [@Challenger2018].
 
@@ -192,38 +230,6 @@ mtext(side = 3, adj = 0, "  c) Change over the entire time series", cex = 0.8)
 
 ```
 
-## Region-Specific Deviations
-
-As mentioned above, for some regions and species, we use alternative data sources other than NuSEDS. These region-specific deviations to the general appraoch are detailed here.
-
-### Nass
-
-The index of Nass steelhead spawner abundance is based on estimated spawner abundance to the Nass Summer CU, provided by the Nisga’a Fish and Wildlife Department and LGL Ltd. (publication forthcoming). There is another steelhead CU in the Nass region - Nass Winter - which is not well monitored and therefore not included in our index of abundance.
-
-### Skeena
-
-The index of Skeena steelhead spawner abundance is derived from estimated escapement of Skeena Summer steelhead at the Tyee Test Fishery (1956 - present), provided by the Province. As for other regions, these estimates may not capture winter-run steelhead, for which data are not available.
-
-### Fraser
-<!-- From More Information for Fraser spawner abundance: https://www.salmonexplorer.ca/#!/fraser/pink/fraser-river-odd&pop=ABUNDANCE_ESTIMATE&pop-detail=1 -->
-
-River-level spawner abundance for Fraser Chinook found in NuSEDS can be highly unreliable, thus we based our expansions on only the most intensively monitored streams that have been deemed as reliable estimates of abundance by @Brown2020. These streams are those shown in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca), and the associated data can be accessed from the stream survey data in the [SWP Data Library](https://data.salmonwatersheds.ca/result?datasetid=1). We also truncated the Chinook index of abundance to 1995 and more recent data, since earlier years have been deemed unreliable [@Brown2020].
-
-In the Fraser region, there are only pink salmon returning in any significant abundance in odd-years, constituting the **Fraser River (odd)** Conservation Unit (CU). There are no spawner estimates for Fraser pink in NuSEDS since 2001. Therefore, spawner abundance is estimated for the Fraser River (odd) pink salmon using three different methods: (1) Up to 2001, estimated spawner abundance was calculated as the sum of observed spawner abundance in NuSEDS, (2) from 2003 to 2007 estimated spawner abundance was based on test fishing expansion, and (3) from 2009 to present estimated spawner abundance is based on [hydroacoustic estimates at Mission](https://www.psc.org/publications/fraser-panel-in-season-information/fish-passage-past-the-psc-hydroacoustic-counting-station-near-mission-bc/). 
-
-Steelhead trout in the Fraser are monitored by the Province in at least 10 different streams, but these data are not readily available. Relatively reliable estimates of steelhead spawner abundance are available at the CU-level for interior Fraser steelhead from the Thompson Summer CU (monitored at the Thompson River) and Mid Fraser Summer CU (primarily monitored at the Chilcotin River). We used the sum of CU-level spawner abundance for these two CUs as an index of Fraser steelhead abundance. We note that this approach does not include more coastal populations, such as the Lower Fraser Summer steelhead monitored in the Coquihalla River or Boundary Bay Winter steelhead, which may not have declined to the same extent over the past decade. However, a lack of publicly accessible data on coastal Fraser steelhead has limited our ability to include these CUs in our index of abundance.
-
-### Columbia
-
-There are limited spawner surveys in the Columbia region, so we used CU-level estimates of spawner abundance (run reconstructions) sourced from DFO (Ogden, pers. comm.) for Chinook and  @Stockwell2003 and subsequent updates for sockeye.
-
-There is no monitoring of steelhead trout in the Canadian portion of the Columbia region, but the  Okanagan Nation Alliance does enumerate steelhead in akskwəkwant (Inkaneep Creek) and estimate a Canadian portion of steelhead spawning abundance. These data can be found in associated report (e.g. @OBMEP2023) and are available in the Pacific Salmon Explorer as the CU-level spawner abundance for the Mid Columbia Summer CU.
-
-<!-- ### Northern Transboundary -->
-
-<!-- The northern Transboundary watersheds that cross the Canada-US border into Alaska are managed under the Pacific Salmon Treaty. There is considerable effort in assessing the abundance of salmon that cross the border of major watersheds in this region in order to monitor whether escapement goals to Canadian rivers are met, but data on individual river population in NuSEDS can be patchy. As such, we assessed regional abundance in the Transboundary using estimates of border escapement provided by the Pacific Salmon Commission's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The regional abundance of Chinook, coho, and sockeye salmon were calculated as the sum of border escapement to the Stikine, Alsek, and Taku watersheds. We recognize that this approach ignores spawners in the smaller watersheds, specifically the Chilkat, Unuk, and Whiting, but the contribution of these smaller watersheds to total regional abundance for each species is likely small. -->
-
-
 # Results 
 
 :::: {.blackbox data-latex=""}
@@ -244,7 +250,7 @@ library(dplyr)
 library(abind)
 
 # Set wd as root for project, rather than docs folder
-setwd("/Users/stephaniepeacock/Salmon Watersheds Dropbox/Stephanie Peacock/X Drive/1_PROJECTS/1_Active/State of Salmon/Data and Analysis/state-of-salmon")
+setwd("..")
 
 # Read in data for plots
 
@@ -262,6 +268,18 @@ names(sp_cols) <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead")
 source("code/functions.R")
 
 ```
+
+## All regions
+
+The following table summarizes the three metrics of change (see [Quantifying change](#quantifying-change)) and the index spawner abundance in the current generation, previous generation, and long-term average for all regions and species. The table is sort-able (click on the header to sort increasing or decreasing), filterable by species or region (enter text in boxes below header), and searchable (enter text in top right search box).
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+btn_table.all(
+  spawners = spawners,
+  genLength = genLength,
+  numStreams = numStreams
+)
+```
+
 
 ## Yukon
 

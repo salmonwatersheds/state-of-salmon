@@ -56,3 +56,31 @@ spawner_abundance <- dbGetQuery(
 )
 
 write.csv(spawner_abundance, file = "data/spawner_abundance.csv", row.names = FALSE)
+
+###############################################################################
+# Import trends in spawner abundance (dataset391)
+###############################################################################
+
+trends <- dbGetQuery(
+	conn = connec,
+	statement = "SELECT * FROM appdata.vwdl_dataset391_output"
+)
+
+write.csv(trends, file = "data/dataset391.csv", row.names = FALSE)
+
+###############################################################################
+# Import appendix4 view from appdata
+###############################################################################
+
+# Get app4 view
+app4 <- dbGetQuery(
+	conn = connec, 
+	statement = "SELECT * FROM appdata.vwdl_setr_appendix4"
+)
+
+app4$species_pooled <- app4$species_name
+app4$species_pooled[app4$species_pooled %in% c("Pink (even)", "Pink (odd)")] <- "Pink"
+app4$species_pooled[app4$species_pooled %in% c("Lake sockeye", "River sockeye")] <- "Sockeye"
+
+
+write.csv(app4[, c("region", "species_name", "species_pooled", "cuid", "cu_name_pse", "psf_status")], file = "data/status.csv", row.names = FALSE)
