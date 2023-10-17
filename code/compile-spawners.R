@@ -251,10 +251,10 @@ for(r in 1:length(regions)){
 			numStreams_r[which(numStreams_r$species == "Steelhead"), ] <- c("Skeena", "Steelhead", 3, 1)
 		}
 		
-		if(regions[r] == "Vancouver Island & Mainland Inlets"){
-			numStreams_r <- rbind(numStreams_r, c("Vancouver Island & Mainland Inlets", "Steelhead", 8, 0))
-		}
-		
+		# if(regions[r] == "Vancouver Island & Mainland Inlets"){
+		# 	numStreams_r <- rbind(numStreams_r, c("Vancouver Island & Mainland Inlets", "Steelhead", 8, 0))
+		# }
+		# 
 		
 		# Merge back to global dataframe
 		if(("numStreams" %in% ls()) == FALSE){
