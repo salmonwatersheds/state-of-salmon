@@ -21,3 +21,7 @@ docs/rsconnect
 # Ignore large datasets
 data/spawner_surveys.csv
 data/spawner_abundance.csv
+
+# Ignore pdf source files (for now)
+data/sources
+
