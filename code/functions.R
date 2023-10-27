@@ -7,6 +7,35 @@
 ###############################################################################
 
 ###############################################################################
+# Basic runsize plot
+###############################################################################
+plot_abund <- function(sps_data_subset, cols = c("#887A52", "#416191")){
+	
+	plot(sps_data_subset$year, sps_data_subset$spawners*10^-3, "n", xlab = "", ylab = "Abundance (thousands)", las = 1, ylim = c(0, max(c(sps_data_subset$smoothedRunsize, sps_data_subset$smoothedSpawners)*10^-3, na.rm = TRUE)), bty = "l")
+	abline(v = seq(1950, 2025, 5), col = grey(0.8), lwd = 0.8)
+	abline(v = seq(1950, 2025, 1), col = grey(0.8), lwd = 0.8, lty = 3)
+	
+	# Add spawners
+	abline(h = mean(sps_data_subset$smoothedSpawners*10^-3, na.rm = TRUE), col = cols[2], lty = 2)
+	lines(sps_data_subset$year, sps_data_subset$spawners*10^-3, col = cols[2], lwd = 0.5, xpd = NA)
+	lines(sps_data_subset$year, sps_data_subset$smoothedSpawners*10^-3, col = cols[2], lwd = 2, xpd = NA)
+
+	# Add run size
+	if(sum(!is.na(sps_data_subset$runsize)) > 0){
+		abline(h = mean(sps_data_subset$smoothedRunsize*10^-3, na.rm = TRUE), col = cols[1], lty = 2)
+	lines(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], xpd = NA, lwd = 0.5)
+	lines(sps_data_subset$year, sps_data_subset$smoothedRunsize*10^-3, col = cols[1], lwd = 2, xpd = NA)
+	legend("topright", lwd = 2, col = cols, c("Run size", "Spawners"), bty = "n")
+	
+	} else {
+		legend("topright", lwd = 2, col = cols[2], c("Spawners"), bty = "n")
+	}
+	
+	mtext(side = 3, line = 2, paste(unique(sps_data_subset$region), unique(sps_data_subset$species)))
+
+	}
+
+###############################################################################
 # Return time series of smoothed abundance 
 ###############################################################################
 

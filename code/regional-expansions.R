@@ -57,8 +57,14 @@ pse_regions <- st_read("data/ignore/pse-regions/se_boundary_regions_simple.shp")
 
 for(R in 1:6){
 
-	r <- c("Haida Gwaii", "Nass", "Skeena", "Central Coast", "Vancouver Island & Mainland Inlets", "Fraser")[R]
-pse_region <- pse_regions[which(pse_regions$Region == r), ]
+	r <- c("Northern Transboundary", "Haida Gwaii", "Nass", "Skeena", "Central Coast", "Vancouver Island & Mainland Inlets", "Fraser")[R]
+
+	# Subset region of interest
+	pse_region <- pse_regions[which(pse_regions$Region == r), ]
+
+# # May need to make valid
+# 	pse_region <- st_make_valid(pse_region)
+	
 streamid <- unique(spawner_surveys.all$streamid)
 stream_points <- data.frame(
 	streamid = streamid,
@@ -67,7 +73,12 @@ stream_points <- data.frame(
 	st_as_sf(coords = c("lon", "lat"), crs = 4269)
 
 intrscts <- st_intersects(stream_points, pse_region, sparse = FALSE)
+
 incl <- which(c(intrscts) == TRUE)
+
+# plot(st_geometry(pse_region))
+# plot(st_geometry(stream_points), pch = 19, col = 2, cex = 0.6, add = TRUE)
+# plot(st_geometry(stream_points[incl,]), pch = 1, col = 4, cex = 0.8, add = TRUE)
 
 spawner_surveys <- spawner_surveys.all[which(spawner_surveys.all$streamid %in% streamid[incl]), ]
 
@@ -128,6 +139,8 @@ for(s in 1:n.species){
 		spawner_surveys_mat[[s]][, y]  <- spawner_surveys.sy$stream_observed_count[match(streams.s, spawner_surveys.sy$stream_name_pse)] 
 	} # end yrs
 } # end species
+
+
 
 #------------------------------------------------------------------------------
 # Create arrays to store observed and expanded counts for each species

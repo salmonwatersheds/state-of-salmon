@@ -11,6 +11,7 @@ output:
     toc_depth: 4
     toc_float: true
     number_sections: true
+link-citations: true
 editor_options: 
   chunk_output_type: console
 ---
@@ -82,11 +83,27 @@ R code for the analyses described here are available on GitHub at https://github
 
 Here we describe specific data sources for the abundance of salmon and steelhead at the regional scale. If no data source is listed for a species and region, then we took an alternate approach of estimating regional-scale abundance from finer-scale data (see [Expansion Factors](#expansion-factors)). 
 
+### Yukon
+
+The Canadian portion of the Yukon River is home to Chinook, chum, and coho salmon. Border escapement and run size of Canadian-origin Chinook and fall chum salmon is estimated at the Eagle Sonar station on the Yukon/Alaska border, and are available from the [Yukon River Panel](https://www.yukonriverpanel.com/) in their Joint Technical Committee (JTC) Reports. Specifically, we used Chinook "Spawning escapement estimate" and "Canadian origin total run size estimate" from Appendix B11 of @jtcYukonRiverSalmon2023. Chum salmon data were from Appendix B16 of @jtcYukonRiverSalmon2023. There are also Chinook, chum, and coho salmon in the Canadian portion of the Porcupine River, which joins the mainstem Yukon River in Alaska. Data on escapement to the Porcupine River are more patchy and not currently included here.
+
+### Transboundary
+
+For Chinook, coho, and sockeye, we assessed regional abundance in the Transboundary using estimates of border escapement provided in the Pacific Salmon Commission's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The regional spawner abundance and run size of Chinook was calculated as the sum of escapement and run size, respectively, to the Stikine, Alsek, and Taku watersheds, available from Table B2 of @ctcAnnualReportCatch2023 and provided to E. Hertz in Excel format following a data request. Sockeye spawner abundance and run size was the sum escapement or Terminal Run, respectively, from the Stikine River (Appendix B21 [@ttcFinalEstimatesTransboundary2022]) and the Taku River (Appendix D15; [@ttcFinalEstimatesTransboundary2022]). Coho spawner abundance and run size are available for the Taku River only, taken from Appendix D20 of @ttcFinalEstimatesTransboundary2022.
+
+Pink and chum salmon abundance are less monitored in the Transboundary, with ongoing escapement available only from the Canyon Island fish wheel on the Taku River. We used the index of escapement from the Canyon Island fish wheel as an index of regional spawner abundance [@ttcFinalEstimatesTransboundary2022]. There are some historical data for pink salmon spawner abundance in the Nakina River of the Taku watershed, but this location has not reported data since 1998 and thus we did not include this stream survey in our index of regional abundance.
+
+We recognize that our approach in the Transboundary lacks information from many unmonitored watersheds, in particular the smaller watersheds of the Chilkat, Unuk, and Whiting Rivers. In the absence of better monitoring, we choose to report available data as a proxy for regional abundance, and note that the contribution of these smaller watersheds to total regional abundance for each species is likely small.
+
 ### Nass
+
+Nass sockeye escapement and run size were extracted from Pacific Salmon Commission reports [@tcnbCanadaNorthernBoundary2023,@SCSC2023]. 
 
 The index of Nass steelhead spawner abundance is based on estimated spawner abundance to the Nass Summer CU, provided by the Nisga’a Fish and Wildlife Department and LGL Ltd. (publication forthcoming). There is another steelhead CU in the Nass region - Nass Winter - which is not well monitored and therefore not included in our index of spawner abundance.
 
 ### Skeena
+
+Skeena sockeye escapement and run size were extracted from Pacific Salmon Commission reports [@tcnbCanadaNorthernBoundary2023,@SCSC2023]. For Skeena chum salmon, we used escapement to Area 4 reported in Table 32 of @tcnbCanadaNorthernBoundary2023, rather than expanding escapement from spawner surveys, because surveys of indicator stream have been incrasingly patchy over the last 30 years, making expansions uncertain.
 
 The index of Skeena steelhead spawner abundance is derived from estimated escapement of Skeena Summer steelhead at the Tyee Test Fishery (1956 - present), provided by the Province. As for other regions, these estimates may not capture winter-run steelhead, for which data are not available.
 
@@ -107,13 +124,6 @@ We used CU-level estimates of spawner abundance (run reconstructions) sourced fr
 
 There is no monitoring of steelhead trout in the Canadian portion of the Columbia region, but the  Okanagan Nation Alliance does enumerate steelhead in akskwəkwant (Inkaneep Creek) and estimate a Canadian portion of steelhead spawning abundance. These data can be found in associated report (e.g. @OBMEP2023) and are available in the Pacific Salmon Explorer as the CU-level spawner abundance for the Mid Columbia Summer CU.
 
-### Northern Transboundary
-
-We assessed regional abundance in the Transboundary using estimates of border escapement provided in the Pacific Salmon Commission's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The regional abundance of Chinook, coho, and sockeye salmon were calculated as the sum of border escapement to the Stikine, Alsek, and Taku watersheds. We recognize that this approach ignores spawners in the smaller watersheds, specifically the Chilkat, Unuk, and Whiting, but the contribution of these smaller watersheds to total regional abundance for each species is likely small.
-
-### Yukon
-
-The Canadian portion of the Yukon River is home to Chinook, chum, and coho salmon. Border escapement and run size of Canadian-origin Chinook and fall chum salmon is estimated at the Eagle Sonar station on the Yukon/Alaska border, and are availabel from the [Yukon River Panel](https://www.yukonriverpanel.com/). There are also Chinook, chum, and coho salmon in the Canadian portion of the Porcupine River, which joins the mainstem Yukon River in Alaska. Data on escapement to the Porcupine River are more patchy and not currently included here.
 
 ## Expansion Factors
 
@@ -248,9 +258,6 @@ library(reactable)
 library(reactablefmtr)
 library(dplyr)
 library(abind)
-
-# Set wd as root for project, rather than docs folder
-setwd("..")
 
 # Read in data for plots
 
