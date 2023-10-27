@@ -162,3 +162,9 @@ abund_ck$smoothedRunsize <- genSmooth(
 	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chinook"]
 )
 
+#-----------------
+plot(frck_spawn$year[frck_spawn$population=="cowichan"], frck_spawn$tot_spawn[frck_spawn$population=="cowichan"]*10^-3, "o", ylim = c(0, 60), las = 1, xlab = "", ylab = "Abundance (1000s)", main = "Cowichan Chinook", bty = "l")
+lines(frck_run$year[frck_run$population=="cowichan"], frck_run$tot_run[frck_run$population=="cowichan"]*10^-3, col = 2, type = "o", xpd = NA)
+lines(sps_data$year[sps_data$species == "Chinook" & sps_data$region == "Vancouver Island & Mainland Inlets"],sps_data$spawners[sps_data$species == "Chinook" & sps_data$region == "Vancouver Island & Mainland Inlets"]*10^-4, col = 4, type = "o")
+legend("topleft", col = c(1,2,4), lwd = 1, pch = 1, c("Cowichan total spawners", "Cowichan run", "VIMI spawners*"))
+

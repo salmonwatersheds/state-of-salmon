@@ -301,6 +301,94 @@ plot_abund(tbrcm_sps)
 sps_data <- rbind(sps_data, tbrcm_sps)
 
 ###############################################################################
+# Haida Gwaii
+###############################################################################
+
+# PSC Northern Boundary data for comparison
+hg_table30 <- read.csv("data/TCNB-23-01_Table30_Area1escapement.csv")
+names(hg_table30) <- c("year", "Sockeye", "Coho", "Pink", "Chum", "Chinook") # Change names to be consistent with species
+
+#------------------------------------------------------------------------------
+# Haida Gwaii: Chinook
+#------------------------------------------------------------------------------
+# No recent data, but at least show what we have for Yakoun
+# These are consistent with the TCNB escapement data for Area 1 (Table 30)
+
+hgck <- read.csv("data/spawner_surveys.csv", na.strings = c(-989898)) %>%
+	subset(species_name == "Chinook" & region == "Haida Gwaii") %>%
+	subset(stream_name_pse == "YAKOUN RIVER")
+
+# There are some missing years of data; want to impute in between when smoothing
+diff(hgck_sps$year)
+hgck_years <- min(hgck_sps$year):max(hgck_sps$year)
+
+# Reformat data for SPS
+hgck_sps <- data.frame(
+	region = rep("Haida Gwaii", length(hgck_years)),
+	species = rep("Chinook", length(hgck_years)),
+	year = hgck_years,
+	spawners = hgck$stream_observed_count[match(hgck_years, hgck_sps$year)], 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA
+) 
+
+# Smoothing
+hgck_sps$smoothedSpawners <- genSmooth(
+	abund = hgck_sps$spawners,
+	years = hgck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Haida Gwaii" & genLength$species == "Chinook"]
+)
+
+plot_abund(hgck_sps)
+lines(hg_table30$year, hg_table30$Chinook*10^-3, lty = 2, col = 2)
+legend("topleft", lty = 2, col = 2, "NBTC Table 30 (Area 1) escapement")
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, hgck_sps)
+
+
+#------------------------------------------------------------------------------
+# Haida Gwaii: Chum, Coho, Pink, Sockeye
+#------------------------------------------------------------------------------
+# Expansion from spawner surveys only; no steelhead data
+
+# Use expanded spawner abundance -> NO, not super accurate
+sp <- readRDS("output/Haida Gwaii-spawners.rds")
+yrs <- as.numeric(dimnames(sp)[[3]])
+
+for(s in 2:5){
+	hg.s <- sp[2, species[s], ]
+	# hg.s <- hg.s[!is.na(hg.s)]
+
+	# Reformat data for SPS
+	hg.s_sps <- data.frame(
+		region = rep("Haida Gwaii", length(hg.s)),
+		species = rep(species[s], length(hg.s)),
+		year = as.numeric(names(hg.s)),
+		spawners = as.numeric(hg.s), 
+		smoothedSpawners = NA,
+		runsize = NA,
+		smoothedRunsize = NA
+	) 
+	
+	# Smoothing
+	hg.s_sps$smoothedSpawners <- genSmooth(
+		abund = hg.s_sps$spawners,
+		years = hg.s_sps$year,
+		genLength = genLength$gen_length[genLength$region == "Haida Gwaii" & genLength$species == species[s]]
+	)
+	
+	plot_abund(hg.s_sps)
+	lines(hg_table30$year, hg_table30[, species[s]]*10^-3, col = 2)
+	legend("topleft", lty = 1, col = 2, "NBTC Table 30 (Area 1) escapement", bty = "n")
+	
+	# Add to master sps dataframe
+	sps_data <- rbind(sps_data, hg.s_sps)
+	
+}	# end species
+
+###############################################################################
 # Nass
 ###############################################################################
 
@@ -555,3 +643,90 @@ for(s in c(1, 3, 4)){
 ###############################################################################
 # Central Coast
 ###############################################################################
+
+# Expansion from spawner surveys only; no steelhead data
+sp <- readRDS("output/Central Coast-spawners.rds")
+yrs <- as.numeric(dimnames(sp)[[3]])
+
+for(s in 1:5){
+	cc.s <- sp[2, species[s], ]
+	cc.s <- cc.s[!is.na(cc.s)]
+	
+	# Reformat data for SPS
+	cc.s_sps <- data.frame(
+		region = rep("Central Coast", length(cc.s)),
+		species = rep(species[s], length(cc.s)),
+		year = as.numeric(names(cc.s)),
+		spawners = as.numeric(cc.s), 
+		smoothedSpawners = NA,
+		runsize = NA,
+		smoothedRunsize = NA
+	) 
+	
+	# Smoothing
+	cc.s_sps$smoothedSpawners <- genSmooth(
+		abund = cc.s_sps$spawners,
+		years = cc.s_sps$year,
+		genLength = genLength$gen_length[genLength$region == "Central Coast" & genLength$species == species[s]]
+	)
+	
+	plot_abund(cc.s_sps)
+	
+	# Add to master sps dataframe
+	sps_data <- rbind(sps_data, cc.s_sps)
+	
+}	# end species
+
+###############################################################################
+# Vancouver Island & Mainland Inlets
+###############################################################################
+
+# Expansion from spawner surveys only; no steelhead data
+sp <- readRDS("output/Vancouver Island & Mainland Inlets-spawners.rds")
+yrs <- as.numeric(dimnames(sp)[[3]])
+
+for(s in 1:6){
+	vimi.s <- sp[2, species[s], ]
+	# Get rid of NAs (esp in 2022)
+	vimi.s <- vimi.s[1:max(which(!is.na(vimi.s)))]
+	
+	
+	# Reformat data for SPS
+	vimi.s_sps <- data.frame(
+		region = rep("Vancouver Island & Mainland Inlets", length(vimi.s)),
+		species = rep(species[s], length(vimi.s)),
+		year = as.numeric(names(vimi.s)),
+		spawners = as.numeric(vimi.s), 
+		smoothedSpawners = NA,
+		runsize = NA,
+		smoothedRunsize = NA
+	) 
+	
+	# Smoothing
+	vimi.s_sps$smoothedSpawners <- genSmooth(
+		abund = vimi.s_sps$spawners,
+		years = vimi.s_sps$year,
+		genLength = genLength$gen_length[genLength$region == "Vancouver Island & Mainland Inlets" & genLength$species == species[s]]
+	)
+	
+	plot_abund(vimi.s_sps)
+	
+	# Add to master sps dataframe
+	sps_data <- rbind(sps_data, vimi.s_sps)
+	
+}	# end species
+
+###############################################################################
+# Fraser
+###############################################################################
+
+#------------------------------------------------------------------------------
+# Chinook
+#------------------------------------------------------------------------------
+
+# Look at data from Atlas et al. 2023
+frck_spawn <- read.csv("data/Atlas2023/CK_esc_FINAL.csv")
+frck_run <- read.csv("data/Atlas2023/CK_TotalRun_FINAL.csv") %>% 
+	subset(group == "salish") %>% # select Salish group
+	subset(grepl("skagit", population) == FALSE & grepl("cowichan", population) == FALSE) # Remove VIMI populations
+
