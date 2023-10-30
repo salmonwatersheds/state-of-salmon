@@ -115,13 +115,11 @@ Spawner abundance and run size were provided by DFO on data request (pers. comm.
 
 Data on aggregate run size and spawner abundance of pink salmon and sockeye salmon in the Fraser region are provided by the Pacific Salmon Commission (PSC), and accessed through the [Fraser Panel Annual Report: Data Application](https://psc1.shinyapps.io/PSC_Annual_Fraser/). We note that Fraser River pink salmon are only counted in the dominant, odd-year run. 
 
-We are currently exploring the possibility of including regional-scale abundance for Fraser Chinook, coho, and chum from DFO and/or the PSC, but have not yet acquired these data.
-
 Steelhead trout in the Fraser are monitored by the Province in at least 10 different streams, but these data are not readily available. Relatively reliable estimates of steelhead spawner abundance are available at the CU-level for interior Fraser steelhead from the Thompson Summer CU (monitored at the Thompson River) and Mid Fraser Summer CU (primarily monitored at the Chilcotin River). We used the sum of CU-level spawner abundance for these two CUs as an index of Fraser steelhead abundance. We note that this approach does not include more coastal populations, such as the Lower Fraser Summer steelhead monitored in the Coquihalla River or Boundary Bay Winter steelhead, which may not have declined to the same extent over the past decade. However, a lack of publicly accessible data on coastal Fraser steelhead has limited our ability to include these CUs in our index of abundance.
 
 ### Columbia
 
-We used CU-level estimates of spawner abundance (run reconstructions) sourced from DFO (Ogden, pers. comm.) for Chinook and  @Stockwell2003 and subsequent updates for sockeye. 
+We used CU-level estimates of spawner abundance (run reconstructions) sourced from DFO (Ogden, pers. comm.) for Chinook and @Stockwell2003 and subsequent updates for sockeye. 
 
 There is no monitoring of steelhead trout in the Canadian portion of the Columbia region, but the  Okanagan Nation Alliance does enumerate steelhead in akskwəkwant (Inkaneep Creek) and estimate a Canadian portion of steelhead spawning abundance. These data can be found in associated report (e.g. @OBMEP2023) and are available in the Pacific Salmon Explorer as the CU-level spawner abundance for the Mid Columbia Summer CU.
 
@@ -168,31 +166,26 @@ If there were missing data in a generation, the smoothed abundance was still cal
 When plotting, we show the smoothed spawner abundance relative to the long term historical average, so that species that have vastly different abundances within a region can be plotted on the same y-axis for comparison.
 
 ## Quantifying change
-We summarize the time series of smoothed spwaner abundance at the regional scale using three different metrics of change:
+We summarize the time series of smoothed spawner abundance or run size at the regional scale using three different metrics:
 
-1. Change from historical average
-2. Change from the previous generation
-3. Change over the entire time series
+1. **Current status** relative to historical average;
+2. **Long-term trend** over the entire time series; and
+3. **Short-term trend** over the most recent generation.
 
-The first two metrics provide information on how the most recent spawner abundance compares to past values, while the third metric is a long-term trend in abundance that is less sensitive to the current index of abundance.
+The first metric provides information on how the most recent spawner abundance compares to past values, while the second two metrics provide information on the direction of change and are less sensitive to the magnitude of current abundance.
 
-The percent **change from historical average** is calculated as:
+The **current status** relative to historical average is calculated as:
 $$ (\bar{S_{y}} - \bf{S}) / \bf{S} $$
 where $y$ is the most recent year for which the index of spawner abundance could be calculated and $\bf{S}$ is the average smoothed spawner abundance over the entire time series.
 
-The percent **change from the previous generation** is calculated as:
-$$ (\bar{S_{y}} - \bar{S}_{y-g} ) / \bar{S}_{y-g} $$
+The **long-term trend** is calculated following the recommendations of @DEon-Eggertson2015, who found that the correct identification of declines in salmon population abundance may be most reliable when considering the entire time series, and applying regression-based estimates of change calculated from log-transformed and smoothed spawner abundances. As such, we fit a simple linear model to the time series of $\log ( \bar{S}_{y} )$ over $y$. The resulting slope, $m$, gives an average estimate of annual change:
 
-The **change over the entire time series** is calculated following the recommendations of @DEon-Eggertson2015, who found that the correct identification of declines in salmon population abundance may be most reliable when considering the entire time series, and applying regression-based estimates of change calculated from log-transformed and smoothed spawner abundances. As such, we fit a simple linear model to the time series of $\log ( \bar{S}_{y} )$ over $y$, and extract the **model-predicted** log abundance at the beginning, $\log (\hat{S}_1)$, and end, $\log(\hat{S}_n)$ of the time series. We then calculate the percent change between the predicted spawner abundances as:
+$$ m = \log \left( \frac{\bar{S}_{y}}{\bar{S}_{y-1}} \right)$$.
 
-$$ (\hat{S_{n}} - \hat{S}_{1} ) / \hat{S}_{1} $$
+With some rearranging, we can calculate the average annual percent change as:
+$$ \frac{\bar{S}_{y} - \bar{S}_{y-1}}{\bar{S}_{y-1}} = \frac{ e^m \bar{S}_{y-1} - \bar{S}_{y-1}}{\bar{S}_{y-1}} = e^m - 1$$.
 
-
-<!-- Specifically, we fit a simple linear model to the time series of $\log ( \bar{S}_{y} )$ over $y$, for which the resulting slope, $m$, gives an average estimate of annual change: -->
-<!-- $$ m = \log \left( \frac{\bar{S}_{y}}{\bar{S}_{y-1}} \right) $$. -->
-
-<!-- With some rearranging, we can calculate the average annual **percent** change as: -->
-<!-- $$ \frac{\bar{S}_{y} - \bar{S}_{y-1}}{\bar{S}_{y-1}} = \frac{ e^m \bar{S}_{y-1} - \bar{S}_{y-1}}{\bar{S}_{y-1}} = e^m - 1 $$. -->
+The **short-term trend** is calculated as described above, but only using the time series over the most recent generation.
 
 ```{r, echo = FALSE, include = TRUE, fig.width = 8, fig.height = 8, fig.cap = "**Above:** Simulated time series of smoothed spawner abundance (black line), illustrating the three metrics of change that we report: a) Change from historical average (horizontal dashed line), b) Change from the previous generation (open point), and c) Change over the entire time series. In each case, the change is indicated by the red arrow."}
 
@@ -262,10 +255,10 @@ library(abind)
 
 # Read in data for plots
 
-spawners <- read.csv("output/spawners_all-regions.csv")
-regions <- c("Skeena", "Nass", "Haida Gwaii", "Central Coast", "Vancouver Island & Mainland Inlets", "Fraser")
+sps_dat <- read.csv("output/sps-data.csv")
+regions <- unique(unique(sps_dat$region))
 
-genLength <-read.csv("data/gen_length_regions.csv")
+# genLength <-read.csv("data/gen_length_regions.csv")
 
 numStreams <- read.csv("output/numStreams_all-regions.csv")
 # Set colour palette for species

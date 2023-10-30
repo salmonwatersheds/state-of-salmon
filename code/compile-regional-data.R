@@ -87,7 +87,7 @@ ytcm_sps <- data.frame(
 	year = ytcm$Date,
 	spawners = ytcm$Spawning.escapement.estimate, 
 	smoothedSpawners = NA,
-	runsize = ytcm$U.S..Canada.mainstem.border.passage.estimate,
+	runsize = NA,
 	smoothedRunsize = NA
 ) 
 
