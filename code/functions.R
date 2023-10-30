@@ -116,94 +116,84 @@ calcPercDecline <- function(
 # Plot regional index of spawner abundance for all species through time
 ###############################################################################
 
-plot.regional_spawners <- function(
-		selected_region, # Select region for which to create multi-species plot
-		spawners, # Data frame with (at minimum) fields for year, region, species, and abundance
-		baseline = "average",  # Baseline for calculating relative spawners; can be a year or "average"
-		genLength, # data frame of generation length for all regions and species
-		sp_cols # vector of colours for species lines
+plot.regional_abund <- function(
+	selected_region, # Select region for which to create multi-species plot
+	abund = "spawners", # Select "spawners" or "runsize"
+	sps_metrics, 
+	sps_dat,	# data frame from compile-regional-data.R
+	sp_cols # vector of colours for species lines
 ){
 	
 	# Subset selected_region
-	ss <- spawners[which(spawners$region == selected_region), c("species", "year", "smoothedSpawners")]
-	yrs <- sort(unique(ss$year))
-	species <- sort(unique(ss$species[which(!is.na(ss$smoothedSpawners))]))
-	n.species <- length(species)
+	dat <- sps_dat[which(sps_dat$region == selected_region), c(
+		"species",
+		"year",
+		paste0("smoothed", toTitleCase(abund))
+		)]
+	dat <- dat[which(!is.na(dat[, 3])), ]
 	
-	# Calculate spawners relative to baseline
-	ss$relativeSpawners <- NA
-	for(s in 1:length(species)){
-		if(is.numeric(baseline)){ # If baseline is a year
-			ss.baseline <- ss$smoothedSpawners[which(ss$species == species[s] & ss$year == baseline)]
-		} else if (baseline == "average"){
-			ss.baseline <- mean(ss$smoothedSpawners[which(ss$species == species[s])], na.rm = TRUE)
-		}
-		
-		if(!is.na(ss.baseline)){
-			ss$relativeSpawners[ss$species == species[s]] <- ss$smoothedSpawners[ss$species == species[s]]/ss.baseline
-		} else {
-			warning(paste(selected_region, species[s], ": no data for baseline", baseline))
-		}
+	if(dim(dat)[1] > 0){
+		species_withData <- sort(unique(dat$species))
+	n.species <- length(species_withData)
+	
+	# Calculate abundanxce relative to long-term average
+	dat$relativeAbund <- NA
+	for(s in 1:n.species){
+		dat$relativeAbund[dat$species == species_withData[s]] <- dat[dat$species == species_withData[s], 3]/mean(dat[dat$species == species_withData[s], 3], na.rm = TRUE)
 	}
-	
-	# Change y-axis label depending on what baseline is being used
-	if(is.numeric(baseline)){ # If baseline is a year
-		ylab_baseline <- paste0("Spawners relative to ", baseline)
-	} else if (baseline == "average"){
-		ylab_baseline <- "Index of spawner abundance"
-	}
-	
+
 	# Set margins
 	par(mar = c(4,5,2,11))
 	
 	# Initiate blank plot
-	plot(range(yrs), c(0, quantile(ss$relativeSpawners[ss$year > 1970], 0.99, na.rm = TRUE)), "n", las = 1, ylab = "", xlab = "", main = selected_region, bty = "l", xlim = c(1950, 2021))
+	plot(range(dat$year), c(min(dat[dat$year > 1970, 4]), quantile(dat[dat$year > 1970, 4], 0.99, na.rm = TRUE)), "n", las = 1, ylab = "", xlab = "", main = paste(selected_region, c("Spawners", "Run Size")[as.numeric(abund == "runsize") + 1]), bty = "l")
+	abline(v = seq(1950, 2025, 10), col = grey(0.8), lwd = 0.5)
+	abline(v = seq(1950, 2025, 2), col = grey(0.8), lty = 3, lwd = 0.5)
 	
 	# Store plotting window extent for polygons and text positioning
 	u <- par("usr")
 	
 	# Add y-axis label
-	mtext(side = 2, line = 3, ylab_baseline)
+	mtext(side = 2, line = 3, paste0("Index of ", abund))
 	
-	# Add polygon/line for y < 1 (less than long-term average)
-	# polygon(x = c(u[c(1, 1)], 2050, 2050), y = c(u[3], 1, 1, u[3]), border = NA, col = grey(0.8), xpd = NA)
-	segments(x0 = u[1], x1 = 2050, y0 = 1, y1 = 1, col = grey(0.6), lty = 2, xpd = NA)
-	segments(x0 = u[1], x1 = 2050, y0 = u[3], y1 = u[3], col = 1, xpd = NA)
-	arrows(x0 = rep(2043, 2), x1 = rep(2043, 2), y0 = 1, y1 = 1 + c(-1, 1)*(u[4] - u[3])/10, length = 0.08, lwd = 1.5, xpd = NA, col = grey(0.6))
-	text(rep(2043, 2), 1 + c(-1, 1)*(u[4] - u[3])/10, pos = c(1,3), c("Below\nhistorical\naverage", "Above\nhistorical\naverage"), xpd = NA, col = grey(0.6), cex = 0.8)
+	# Line for y < 1 (less than long-term average)
+	segments(x0 = u[1], x1 = u[2] + 0.2 * (u[2]-u[1]), y0 = 1, y1 = 1, col = grey(0.6), lty = 2, xpd = NA)
+	# segments(x0 = u[1], x1 = u[2] + 0.05 * (u[2]-u[1]), y0 = u[3], y1 = u[3], col = 1, xpd = NA)
+	arrows(x0 = rep(u[2] + 0.1 * (u[2]-u[1]), 2), 
+				 x1 = rep(u[2] + 0.1 * (u[2]-u[1]), 2), 
+				 y0 = 1, 
+				 y1 = 1 + c(-1, 1)*(u[4] - u[3])/10, 
+				 length = 0.08, lwd = 1.5, xpd = NA, col = grey(0.6))
+	
+	text(rep(u[2] + 0.2 * (u[2]-u[1]), 2), 1 + c(-1, 1)*(u[4] - u[3])/10, pos = c(1,3), c("Below\nhistorical\naverage", "Above\nhistorical\naverage"), xpd = NA, col = grey(0.6), cex = 0.8)
 
 	# Add lines for each species
-	for(s in 1:length(species)){
-		lines(ss$year[ss$species == species[s]], ss$relativeSpawners[ss$species == species[s]], col = sp_cols[species[s]], lwd = 2)
+	for(s in 1:n.species){
+		lines(dat$year[dat$species == species_withData[s]],
+					dat$relativeAbund[dat$species == species_withData[s]], 
+					col = sp_cols[species_withData[s]], lwd = 2, xpd = NA)
 	}
 	
-	# # Calculate percent decline over most recent generation
-	# percDecline <- calcPercDecline(selected_region = selected_region,
-	# 															 spawners = spawners,
-	# 															 genLength = genLength)
-	
-	max.yrs <- tapply(ss$year[!is.na(ss$smoothedSpawners)], ss$species[!is.na(ss$smoothedSpawners)], max)
+	max.yrs <- tapply(dat$year[!is.na(dat$relativeAbund)], dat$species[!is.na(dat$relativeAbund)], max)
 	for(s in 1:n.species){
-		g <- genLength$gen_length[which(genLength$region == selected_region & genLength$species == species[s])]
-		points(max.yrs[species[s]], ss$relativeSpawners[which(ss$species == species[s] & ss$year == max.yrs[species[s]])], col = sp_cols[species[s]], pch = 19, cex = 1.5)
-		points(max.yrs[species[s]] - g, ss$relativeSpawners[which(ss$species == species[s] & ss$year == max.yrs[species[s]] - g)], col = sp_cols[species[s]], pch = 21, bg = "white", cex = 1.5, lwd = 2)
+		g <- sps_metrics$generation_length[sps_metrics$region == selected_region & sps_metrics$species == species_withData[s] & sps_metrics$type == c("Spawners", "Run Size")[as.numeric(abund == "runsize") + 1]]
+		
+		points(max.yrs[species_withData[s]], dat$relativeAbund[which(dat$species == species_withData[s] & dat$year == max.yrs[species_withData[s]])], col = sp_cols[species_withData[s]], pch = 19, cex = 1.5, xpd = NA)
+		
+		# points(max.yrs[species_withData[s]] - g, dat$relativeAbund[which(dat$species == species_withData[s] & dat$year == (max.yrs[species_withData[s]] - g))], col = sp_cols[species_withData[s]], pch = 21, bg = "white", cex = 1.5, lwd = 2)
 		
 	}
 	
-	# # Add plus if positive
-	# percDecline2 <- round(percDecline*100)
-	# percDecline2[which(percDecline2 > 0)] <- paste0("+", percDecline2[which(percDecline2 > 0)])
-	
 	# Calculate percent decline from historical average
-	LTmean <- tapply(ss$smoothedSpawners[!is.na(ss$smoothedSpawners)], ss$species[!is.na(ss$smoothedSpawners)], mean, na.rm = TRUE)
-	percDecline <- (tapply(ss$smoothedSpawners[!is.na(ss$smoothedSpawners)], ss$species[!is.na(ss$smoothedSpawners)], tail, 1) - LTmean)/LTmean
+	status <- sps_metrics$status[sps_metrics$region == selected_region & sps_metrics$species %in% species_withData & sps_metrics$type == c("Spawners", "Run Size")[as.numeric(abund == "runsize") + 1]]
 	
 	# Add plus if positive
-	percDecline2 <- paste0(round(percDecline*100),"%")
-	percDecline2[which(percDecline > 0)] <- paste0("+", percDecline2[which(percDecline > 0)])
+	percDecline <- paste0(round(status*100),"%")
+	
+	percDecline[which(percDecline > 0)] <- paste0("+", percDecline[which(status > 0)])
 	
 	# Calculate y-axis positioning for labels (don't want them too squished)
-	y <- tapply(ss$relativeSpawners[!is.na(ss$smoothedSpawners)], ss$species[!is.na(ss$smoothedSpawners)], tail, 1)
+	y <- tapply(dat$relativeAbund[!is.na(dat$relativeAbund)], dat$species[!is.na(dat$relativeAbund)], tail, 1)
 	
 	# Order labels on right from highest to lowest most recent abundance
 	o <- order(y)
@@ -219,8 +209,18 @@ plot.regional_spawners <- function(
 			}
 	
 	# Add labels with species and % change from previous generation
-	text(max(yrs) + 3, y, paste0(species, " (", percDecline2, ")"), col = sp_cols[species], xpd = NA, adj = 0, font = 2)
+	text(u[2], y, paste0(species_withData, " (", percDecline, ")"), col = sp_cols[species_withData], xpd = NA, adj = 0, font = 2)
 	
+	} else { # If no data
+		par(mar = c(4,5,2,11))
+		
+		# Initiate blank plot
+		plot(c(1950,2022), c(0, 2), "n", las = 1, ylab = "", xlab = "", main = paste(selected_region, c("Spawners", "Run Size")[as.numeric(abund == "runsize") + 1]), bty = "l")
+	text(mean(c(1950,2022)), 1, font = 2, "Data Deficient", cex = 2, col = grey(0.6))
+			
+		# Add y-axis label
+		mtext(side = 2, line = 3, paste0("Index of ", abund))
+	}
 
 }
 
@@ -270,121 +270,76 @@ plot.regional_expansion <- function(
 
 byTheNumbers <- function(
 		selected_region, # Select region for which to create multi-species plot
-		spawners, # Data frame with (at minimum) fields for year, region, species, and abundance
-		genLength, # data frame of generation length for all regions and species
-		numStreams # Number of indicator/non-indicator streams
+		sps_metrics # data frame of metrics
 		){
 	
-	# Subset spawners for selected_region
-	ss <- spawners[which(spawners$region == selected_region), c("species", "year", "smoothedSpawners")]
-	yrs <- sort(unique(ss$year))
+	# Subset metrics for selected_region
+	dat <- sps_metrics[which(sps_metrics$region == selected_region), ]
+	
 	species <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead")
 	n.species <- length(species)
 	
 	#-------------------------------------
-	# Percent decline over most recent generation
+	# Metric 1: Percent decline from historical average
 	#-------------------------------------
-	percDecline <- calcPercDecline(selected_region = selected_region,
-																 spawners = spawners,
-																 genLength = genLength)
-	
 	# Add plus if positive
-	percDecline2 <- paste0(round(percDecline*100, 1),"%")
-	percDecline2[which(percDecline2 > 0)] <- paste0("+", percDecline2[which(percDecline2 > 0)])
-	percDecline2[is.na(percDecline)] <- ""
+	metric1 <- paste0(round(dat$status*100, 1),"%")
+	metric1[which(dat$status > 0)] <- paste0("+", metric1[which(dat$status > 0)])
+	metric1[is.na(dat$status)] <- ""
+	
+	metric1_cat <- rep(NA, dim(dat)[1])
+	metric1_cat[which(dat$status < 0)] <- "arrow-down"
+	metric1_cat[which(dat$status > 0)] <- "arrow-up"
+	metric1_cat[which(dat$status == 0)] <- "arrows-left-right"
 	
 	#-------------------------------------
-	# Percent decline from historical average
+	# Metric 2: Trend over entire time series (annual)
 	#-------------------------------------
-	LTmean <- tapply(ss$smoothedSpawners[which(!is.na(ss$smoothedSpawners))], ss$species[which(!is.na(ss$smoothedSpawners))], mean, na.rm = TRUE)
-	percDeclineH <- (tapply(ss$smoothedSpawners[!is.na(ss$smoothedSpawners)], ss$species[!is.na(ss$smoothedSpawners)], tail, 1) - LTmean)/LTmean
 	
-	# Add plus if positive
-	percDeclineH2 <- paste0(round(percDeclineH*100, 1),"%")
-	percDeclineH2[which(percDeclineH2 > 0)] <- paste0("+", percDeclineH2[which(percDeclineH2 > 0)])
-	percDeclineH2[is.na(percDeclineH)] <- ""
+	metric2 <- paste0(round(dat$long_trend*100, 1),"%")
+	metric2[which(dat$long_trend > 0)] <- paste0("+", metric2[which(dat$long_trend > 0)])
+	metric2[is.na(dat$long_trend)] <- ""
 	
+	metric2_color <- dat$long_trend_cat
+
 	#-------------------------------------
-	# Trend over entire time series (annual)
+	# Metric 3: Trend over 3 gens (annual)
 	#-------------------------------------
-	ss$logS <- log(ss$smoothedSpawners)
-	# meanTrend <- rep(NA, n.species)
-	totalChange <- rep(NA, n.species); names(totalChange) <- species
-	for(s in 1:n.species){
-		# If there are more than two years of data for that species
-		if(length(which(ss$species[!is.na(ss$smoothedSpawners)] == species[s])) > 2){
-		y <- ss$logS[ss$species == species[s]]
-		x <- ss$year[ss$species == species[s]]
-		
-		# # Manual calculation of slope (least squares)
-		# n <- length(x)
-		# meanTrend[s] <- (n*sum(x*y) - sum(x)*sum(y))/(n*sum(x^2) - (sum(x))^2)
-		fit <- lm(y ~ x)
-		# meanTrend[s] <- as.numeric(fit$coefficients['x'])
-			predSpawners <- exp(predict(fit))
-			totalChange[s] <- (tail(predSpawners, 1) - head(predSpawners, 1))/tail(predSpawners, 1)
-			
-	}}
 	
-	
-	# meanAnnualChange <- exp(meanTrend) - 1
-	# meanAnnualChange2 <- paste0(round(meanAnnualChange*100, 1),"%")
-	# meanAnnualChange2[which(meanAnnualChange > 0)] <- paste0("+", meanAnnualChange2[which(meanAnnualChange > 0)])
-	# meanAnnualChange2[is.na(meanAnnualChange2)] <- ""
-	
-	totalChange2 <- paste0(round(totalChange*100, 1),"%")
-	totalChange2[which(totalChange > 0)] <- paste0("+", totalChange2[which(totalChange > 0)])
-	totalChange2[is.na(totalChange)] <- ""
-	
-	#-------------------------------------
-	# Calculate current and last-gen spawners
-	#-------------------------------------
-	lastGen <- current_spawners <- current_yr <- rep(NA, n.species)
-	max.yrs <- tapply(ss$year[which(!is.na(ss$smoothedSpawners))], ss$species[which(!is.na(ss$smoothedSpawners))], max)
-	for(s in 1:n.species){
-		# If there are any data for that species
-		if(length(which(ss$species[!is.na(ss$smoothedSpawners)] == species[s])) > 0){
-			# Current spawners 
-			current_spawners[s] <- round(ss$smoothedSpawners[which(ss$species == species[s] & ss$year == max.yrs[species[s]])])
-			
-			# Previous generation
-		g <- genLength$gen_length[which(genLength$region == selected_region & genLength$species == species[s])]
-		lastGen[s] <- round(ss$smoothedSpawners[which(ss$species == species[s] & ss$year == max.yrs[species[s]] - g)])
-	}}
+	metric3 <- paste0(round(dat$short_trend*100, 1),"%")
+	metric3[which(dat$short_trend > 0)] <- paste0("+", metric3[which(dat$short_trend > 0)])
+	metric3[is.na(dat$short_trend)] <- ""
 	
 	#-------------------------------------
 	# Compile table of summary
 	#-------------------------------------
-	btn <- cbind(
-		species = species,
-		LT_trend = ifelse(percDeclineH < 0, "arrow-down", "arrow-up")[match(species, names(percDeclineH))],
-		LT_trend_perc = percDeclineH2[match(species, names(percDeclineH))],
-		LT_trend_color = ifelse(percDeclineH < 0, "#C06263", "#83B686")[match(species, names(percDeclineH))],
-		population_trend = ifelse(percDecline < 0, "arrow-down", "arrow-up")[match(species, names(percDecline))],
-		population_trend_perc = percDecline2[match(species, names(percDecline))],
-		population_trend_color = ifelse(percDecline < 0, "#C06263", "#83B686")[match(species, names(percDecline))],
-		# LT_annual = ifelse(meanAnnualChange < 0, "arrow-down", "arrow-up"),
-		# LT_annual_perc = meanAnnualChange2,
-		# LT_annual_color = ifelse(meanAnnualChange < 0, "#C06263", "#83B686"),
-		LT_change = ifelse(totalChange < 0, "arrow-down", "arrow-up"),
-		LT_change_perc = totalChange2,
-		LT_change_color = ifelse(totalChange < 0, "#C06263", "#83B686"),
-		current_spawners = prettierNum(current_spawners), 
-		avg_spawners = prettierNum(round(tapply(ss$smoothedSpawners, ss$species, mean, na.rm = TRUE)))[match(species, names(tapply(ss$smoothedSpawners, ss$species, mean, na.rm = TRUE)))],
-		lastgen_spawners = prettierNum(lastGen),
-		num_indicator = numStreams$indicator[which(numStreams$region == selected_region)],
-		num_nonindicator = numStreams$nonindicator[which(numStreams$region == selected_region)]
+	btn <- data.frame(
+		Species = dat$species,
+		Index = dat$type,
+		
+		metric1 = metric1_cat,
+		metric1_perc = metric1,
+		
+		metric2 = dat$long_trend_cat,
+		metric2_perc = metric2,
+		
+		metric3 = dat$short_trend_cat,
+		metric3_perc = metric2,
+		
+		current_abund = prettierNum(round(dat$current)), 
+		lastgen_abund = prettierNum(round(dat$prevGen)),
+		avg_abund = prettierNum(round(dat$hist)),
+		
+		num_indicator = ifelse(is.na(dat$n_indicator), "", dat$n_indicator),
+		
+		num_nonindicator = ifelse(is.na(dat$n_nonindicator), "", dat$n_nonindicator),
+		
+		gen_length = ifelse(is.na(dat$generation_length), "", dat$generation_length)
 	)
-	btn <- data.frame(btn, row.names = NULL)
-	
-	# Change NAs to blanks for table rendering
-	btn[which(is.na(btn), arr.ind = TRUE)] <- " "
-	
-	# Except keep NAs for icon colour and type to avoid warning (" " not a colour)
-	btn$population_trend_color[btn$population_trend_color == " "] <- NA
-	btn$LT_trend_color[btn$LT_trend_color == " "] <- NA
-	# btn$LT_annual_color[btn$LT_annual_color == " "] <- NA
-	btn$LT_change_color[btn$LT_change_color == " "] <- NA
+
+	# Keep NAs for icon colour and type to avoid warning (" " not a colour)
+	btn$metric2[which(btn$metric2 == "")] <- NA
+	btn$metric3[which(btn$metric3 == "")] <- NA
 	
 	return(btn)
 }
@@ -420,27 +375,47 @@ prettierNum <- function(
 
 btn_table <- function(
 		selected_region, # Select region for which to create multi-species plot
-		spawners, # Data frame with (at minimum) fields for year, region, species, and abundance
-		genLength, # data frame of generation length for all regions and species
-		numStreams # Number of indicator/non-indicator streams
+		sps_metrics
 ){
 	
 	# Compile dataframe of numners
 	btn <- byTheNumbers(selected_region = selected_region,
-											spawners = spawners,
-											genLength = genLength,
-											numStreams = numStreams)
+											sps_metrics = sps_metrics)
 	
 	# Define species levels
-	species <- btn$species
+	# species <- sort(unique(btn$Species))
+	
+	# # function which returns background colour based on cell value (using colour map)
+	# # also takes column name as an input, which allows to get max and min
+	# stylefunc <- function(value, index, name) {
+	# 	if(is.na(value)){
+	# 		background <- "#FFFFFF"
+	# 	} else if(value > 0){
+	# 		background <- "#83B68680"
+	# 	} else if(value < 0){
+	# 		background <- "#C0626380"
+	# 	}
+	# 	list(background = background, fontWeight = "bold")
+	# }
+	# 
+	# # list giving column formatting (using style function) for single column
+	# coldefs <- list(
+	# 	reactable::colDef(style = stylefunc)
+	# )
+	# 
+	# # replicate list to required length
+	# coldefs <- rep(coldefs,length(regions))
+	# 
+	# # name elements of list according to cols
+	# names(coldefs) <- regions
+	# 
 	
 	# Render table
 	btn %>%
 		reactable(
 		., 
 		columns = list(
-			species = colDef(
-				name = "Species",
+			Species = colDef(
 				style = function(value){
 					if(value == "Chinook"){
 						background <- "#33228850"
@@ -460,61 +435,76 @@ btn_table <- function(
 				maxWidth = 100
 			),
 			
-			LT_trend = colDef(
-				cell = icon_sets(., icon_ref = "LT_trend", icon_position = "over", icon_size = 28, icon_color_ref = "LT_trend_color"),
-				name = "Direction",
-				align = "center",
-				maxWidth = 80),
-			LT_trend_perc = colDef(
-				name = "Percent change",
-				maxWidth = 80),
-			LT_trend_color = colDef(
-				show = FALSE
+			metric1 = colDef(show = FALSE),
+			metric1_perc = colDef(
+				name = "Current Status",
+				style = function(value, index){
+					if(is.na(btn$metric1[index])){
+						color <- "#FFFFFF"
+						fontWeight <- "normal"
+					} else if(btn$metric1[index] == "arrow-down"){
+						color <- "#C06263"
+						fontWeight <- "bold"
+					} else if(btn$metric1[index] == "arrow-up"){
+						color <- "#83B686"
+						fontWeight <- "bold"
+					} else if(btn$metric1[index] == "arrows-left-right"){
+						color <- "#808080"
+						fontWeight <- "normal"
+					}
+					list(color = color, fontWeight = fontWeight)
+				}
 			),
 			
-			population_trend = colDef(
-				cell = icon_sets(., icon_ref = "population_trend", icon_position = "over", icon_size = 28, icon_color_ref = "population_trend_color"),
-				name = "Direction",
-				align = "center",
-				maxWidth = 80),
-			population_trend_perc = colDef(
-				name = "Percent change",
-				maxWidth = 80),
-			population_trend_color = colDef(
-				show = FALSE
+			metric2 = colDef(show = FALSE),
+			metric2_perc = colDef(
+				name = "LT Trend",
+				style = function(value, index){
+					if(is.na(btn$metric2[index])){
+						color <- "#FFFFFF"
+						fontWeight <- "normal"
+					} else if(btn$metric2[index] == "arrow-down"){
+						color <- "#C06263"
+						fontWeight <- "bold"
+					} else if(btn$metric2[index] == "arrow-up"){
+						color <- "#83B686"
+						fontWeight <- "bold"
+					} else if(btn$metric2[index] == "arrows-left-right"){
+						color <- "#808080"
+						fontWeight <- "normal"
+					}
+					list(color = color, fontWeight = fontWeight)
+				}
 			),
 			
-			# LT_annual = colDef(
-			# 	cell = icon_sets(., icon_ref = "LT_annual", icon_position = "over", icon_size = 28, icon_color_ref = "LT_annual_color"),
-			# 	name = "Direction",
-			# 	align = "center",
-			# 	maxWidth = 80),
-			# LT_annual_perc = colDef(
-			# 	name = "Percent change",
-			# 	maxWidth = 80),
-			# LT_annual_color = colDef(
-			# 	show = FALSE
-			# ),
-			
-			LT_change = colDef(
-				cell = icon_sets(., icon_ref = "LT_change", icon_position = "over", icon_size = 28, icon_color_ref = "LT_change_color"),
-				name = "Direction",
-				align = "center",
-				maxWidth = 80),
-			LT_change_perc = colDef(
-				name = "Percent change",
-				maxWidth = 80),
-			LT_change_color = colDef(
-				show = FALSE
+			metric3 = colDef(show = FALSE),
+			metric3_perc = colDef(
+				name = "3-Gen Trend",
+				style = function(value, index){
+					if(is.na(btn$metric3[index])){
+						color <- "#FFFFFF"
+						fontWeight <- "normal"
+					} else if(btn$metric3[index] == "arrow-down"){
+						color <- "#C06263"
+						fontWeight <- "bold"
+					} else if(btn$metric3[index] == "arrow-up"){
+						color <- "#83B686"
+						fontWeight <- "bold"
+					} else if(btn$metric3[index] == "arrows-left-right"){
+						color <- "#808080"
+						fontWeight <- "normal"
+					}
+					list(color = color, fontWeight = fontWeight)
+				}
 			),
 			
-			current_spawners = colDef(
+			current_abund = colDef(
 				name = "Current",
 				maxWidth = 100),
-			lastgen_spawners = colDef(
+			lastgen_abund = colDef(
 				name = "Previous generation",
 				maxWidth = 100),
-			avg_spawners = colDef(
+			avg_abund = colDef(
 				name = "Historical average",
 				maxWidth = 100),
 			num_indicator = colDef(
@@ -522,14 +512,16 @@ btn_table <- function(
 				maxWidth = 80),
 			num_nonindicator = colDef(
 				name = "Non-indicator",
+				maxWidth = 80),
+			gen_length = colDef(
+				name = "Generation length",
 				maxWidth = 80)
 		),
+		
 		columnGroups = list(
-			colGroup(name = "Change from historical average", columns = c("LT_trend", "LT_trend_perc")),
-			colGroup(name = "Change from previous generation", columns = c("population_trend", "population_trend_perc")),
-			# colGroup(name = "Average annual change", columns = c("LT_annual", "LT_annual_perc")),
-			colGroup(name = "Change over time series", columns = c("LT_change", "LT_change_perc")),
-			colGroup(name = "Index of spawner abundance", columns = c("current_spawners", "lastgen_spawners", "avg_spawners")),
+			colGroup(name = "Metrics of change", columns = c("metric1_perc", "metric2_perc", "metric3_perc")),
+			
+			colGroup(name = "Index of abundance", columns = c("current_abund", "lastgen_abund", "avg_abund")),
 			colGroup(name = "Number of monitored streams", columns = c("num_indicator", "num_nonindicator"))
 		),
 		#   meta = list(
@@ -541,7 +533,8 @@ btn_table <- function(
 		resizable = TRUE,
 		fullWidth = FALSE,
 		wrap = TRUE,
-		style = list(fontSize = "1.25rem")
+		style = list(fontSize = "1.25rem"),
+		defaultPageSize = 12
 	)
 	
 }
@@ -552,136 +545,69 @@ btn_table <- function(
 ###############################################################################
 
 btn_table.all <- function(
-		regions = c("Skeena", "Nass", "Haida Gwaii", "Central Coast", "Vancouver Island & Mainland Inlets", "Fraser"),
-		spawners, # Data frame with (at minimum) fields for year, region, species, and abundance
-		genLength, # data frame of generation length for all regions and species
-		numStreams # Number of indicator/non-indicator streams
+		sps_metrics_tab = sps_metrics[which(sps_metrics$type == "Spawners"), c("region", "species", "status")] # data frame with region, species, metric
 ){
 	
-	# Compile dataframe of numners
+	regions <- unique(sps_metrics_tab$region)
+	tab_long <- data.frame(
+		species = unique(sps_metrics_tab$species)
+	)
+	
 	for(i in 1:length(regions)){
-		btn.i <- byTheNumbers(selected_region = regions[i],
-											spawners = spawners,
-											genLength = genLength,
-											numStreams = numStreams)
-		btn.i <- cbind(rep(regions[i], dim(btn.i)[1]), btn.i)
-		colnames(btn.i)[1] <- "region"
-		
-		if(i == 1){
-			btn <- btn.i
-		} else {
-			btn <- rbind(btn, btn.i)
+		tab_long <- cbind(tab_long, sps_metrics_tab[which(sps_metrics_tab$region == regions[i]), 3])
+	}
+	names(tab_long) <- c("Species", regions)
+	
+	tab_long[which(tab_long$Species %in% c("Pink", "Sockeye", "Steelhead")), "Yukon"] <- -989898
+	
+	tab_long[which(tab_long$Species %in% c("Pink", "Chum", "Coho")), "Columbia"] <- -989898
+	
+	# tab_long_col <- ifelse(tab_long[, c(2:(dim(tab_long)[2]))] < 0, "#C06263", "#83B686")
+	# 
+	# tab <- cbind(tab_long, tab_long_col)
+	# names(tab)[11:19] <- paste0("col_", names(tab)[11:19])
+	
+	# function which returns background colour based on cell value (using colour map)
+	# also takes column name as an input, which allows to get max and min
+	stylefunc <- function(value, index, name) {
+		if(is.na(value)){
+			color <- NA
+			background <- "#FFFFFF"
+		} else if(value == -989898){
+			color <- "#000000"
+			background <- "#000000"
+		} else if(value > 0){
+			color <- "#83B686"
+			background <- "#83B68630"
+		} else if(value < 0){
+			color <- "#C06263"
+			background <- "#C0626330"
 		}
+		list(color = color, background = background, fontWeight = "bold")
 	}
 	
-	# Define species levels
-	species <- unique(btn$species)
+	# list giving column formatting (using style function) for single column
+	coldefs <- list(
+		reactable::colDef(
+			style = stylefunc, 
+			format = colFormat(digits = 1, percent = TRUE),
+			maxWidth = 77)
+	)
+	
+	# replicate list to required length
+	coldefs <- rep(coldefs,length(regions))
+	
+	# name elements of list according to cols
+	names(coldefs) <- regions
 	
 	# Render table
-	btn %>%
+	tab_long %>%
 		reactable(
 			., 
-			columns = list(
-				region = colDef(
-					name = "Region",
-					filterable = TRUE),
-				species = colDef(
-					name = "Species",
-					filterable = TRUE,
-					style = function(value){
-						if(value == "Chinook"){
-							background <- "#33228850"
-						} else if(value == "Chum"){
-							background <- "#44AA9950"
-						}else if(value == "Coho"){
-							background <- "#88CCEE50"
-						}else if(value == "Pink"){
-							background <- "#CC667750"
-						}else if(value == "Sockeye"){
-							background <- "#88225550"
-						} else if(value == "Steelhead"){
-							background <- "#DDCC7750"
-						}
-						list(background = background)
-					},
-					maxWidth = 100
-				),
-				
-				LT_trend = colDef(
-					cell = icon_sets(., icon_ref = "LT_trend", icon_position = "over", icon_size = 28, icon_color_ref = "LT_trend_color"),
-					name = "Direction",
-					align = "center",
-					maxWidth = 80),
-				LT_trend_perc = colDef(
-					name = "Percent change",
-					maxWidth = 80),
-				LT_trend_color = colDef(
-					show = FALSE
-				),
-				
-				population_trend = colDef(
-					cell = icon_sets(., icon_ref = "population_trend", icon_position = "over", icon_size = 28, icon_color_ref = "population_trend_color"),
-					name = "Direction",
-					align = "center",
-					maxWidth = 80),
-				population_trend_perc = colDef(
-					name = "Percent change",
-					maxWidth = 80),
-				population_trend_color = colDef(
-					show = FALSE
-				),
-				
-				# LT_annual = colDef(
-				# 	cell = icon_sets(., icon_ref = "LT_annual", icon_position = "over", icon_size = 28, icon_color_ref = "LT_annual_color"),
-				# 	name = "Direction",
-				# 	align = "center",
-				# 	maxWidth = 80),
-				# LT_annual_perc = colDef(
-				# 	name = "Percent change",
-				# 	maxWidth = 80),
-				# LT_annual_color = colDef(
-				# 	show = FALSE
-				# ),
-				
-				LT_change = colDef(
-					cell = icon_sets(., icon_ref = "LT_change", icon_position = "over", icon_size = 28, icon_color_ref = "LT_change_color"),
-					name = "Direction",
-					align = "center",
-					maxWidth = 80),
-				LT_change_perc = colDef(
-					name = "Percent change",
-					maxWidth = 80),
-				LT_change_color = colDef(
-					show = FALSE
-				),
-				
-				current_spawners = colDef(
-					name = "Current",
-					maxWidth = 100),
-				lastgen_spawners = colDef(
-					name = "Previous generation",
-					maxWidth = 100),
-				avg_spawners = colDef(
-					name = "Historical average",
-					maxWidth = 100),
-				num_indicator = colDef(
-					name = "Indicator",
-					maxWidth = 80),
-				num_nonindicator = colDef(
-					name = "Non-indicator",
-					maxWidth = 80)
-			),
+			columns = coldefs,
 			columnGroups = list(
-				colGroup(name = "Change from historical average", columns = c("LT_trend", "LT_trend_perc")),
-				colGroup(name = "Change from previous generation", columns = c("population_trend", "population_trend_perc")),
-				# colGroup(name = "Average annual change", columns = c("LT_annual", "LT_annual_perc")),
-				colGroup(name = "Change over time series", columns = c("LT_change", "LT_change_perc")),
-				colGroup(name = "Index of spawner abundance", columns = c("current_spawners", "lastgen_spawners", "avg_spawners")),
-				colGroup(name = "Number of monitored streams", columns = c("num_indicator", "num_nonindicator"))
-			),
-			#   meta = list(
-			# 		speciesColors = sp_cols,
-			# 		species_vec = species),
+				colGroup(name = "Region", columns = c("Yukon", "Transboundary", "Haida Gwaii", "Nass", "Skeena", "Central Coast", "Vancouver Island & Mainland Inlets", "Fraser", "Columbia"))
+				),
 			bordered = TRUE,
 			highlight = TRUE,
 			striped = TRUE,
@@ -689,8 +615,7 @@ btn_table.all <- function(
 			fullWidth = FALSE,
 			wrap = TRUE,
 			style = list(fontSize = "1.25rem"),
-			searchable = TRUE, 
-			minRows = 10
+			defaultPageSize = 6
 		)
 	
 }

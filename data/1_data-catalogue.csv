@@ -14,3 +14,5 @@ Skeena,Chum,TCNB-23-01.pdf,"Table 32. –Annual escapements for Canadian Area 4,
 Fraser ,Coho,Atlas et al. 2023,https://github.com/willatlas/ChinookEscapement-RunSize,CK_TotalRun_FINAL.csv,Used sum of run to four Fraser populations; spawner abundance was expanded from NuSEDS
 Fraser ,Pink,Pacific Salmon Commission,https://psc1.shinyapps.io/PSC_Annual_Fraser/ ,pink_run_size_2023-09-20.csv,
 Fraser,Sockeye,Pacific Salmon Commission,https://psc1.shinyapps.io/PSC_Annual_Fraser/ ,Total Fraser_run_size_2023-09-20.csv,Use in-season run size for most recent year if available.
+Okanagan,Chinook,Chuck Parken,Pacific Salmon Commision Okanagan Work Group,,
+Okanagan,Sockeye,"DFO, data request",PSE CU-level spawner abundance for Okanagan sockeye,spawner-abundance.csv,

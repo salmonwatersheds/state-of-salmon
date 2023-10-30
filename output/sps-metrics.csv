@@ -1,0 +1,109 @@
+"","region","species","type","status","short_trend","short_trend_cat","long_trend","long_trend_cat","current","current_year","hist","prevGen","n_indicator","n_nonindicator","generation_length"
+"1","Yukon","Chinook","Spawners",-0.254804522191192,-0.0037908761654889,"arrows-left-right",0.00204010202670557,"arrows-left-right",34959.9469844449,2022,46913.793797088,49995.4684101922,NA,NA,6
+"2","Yukon","Chinook","Run Size",-0.582226094539865,-0.0374049914059201,"arrow-down",-0.0271669103436287,"arrow-down",46531.2849271995,2022,111379.107979351,62715.5603871879,NA,NA,6
+"3","Yukon","Chum","Spawners",-0.672377141246299,-0.104955233344749,"arrow-down",0.0332725182918372,"arrow-up",33087.6310061707,2022,100993.047713576,176795.230000913,NA,NA,4
+"4","Yukon","Chum","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,4
+"5","Yukon","Coho","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,0,0,NA
+"6","Yukon","Coho","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,0,0,NA
+"7","Yukon","Pink","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,0,0,NA
+"8","Yukon","Pink","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,0,0,NA
+"9","Yukon","Sockeye","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,0,0,NA
+"10","Yukon","Sockeye","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,0,0,NA
+"11","Yukon","Steelhead","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,0,0,NA
+"12","Yukon","Steelhead","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,0,0,NA
+"13","Transboundary","Chinook","Spawners",-0.582983821200263,-0.0598162084716296,"arrow-down",-0.0106899135353631,"arrow-down",26267.8547887994,2022,62990.0136354517,33126.228795056,NA,NA,5
+"14","Transboundary","Chinook","Run Size",-0.631079703433682,-0.090791490525328,"arrow-down",-0.0059964398896325,"arrows-left-right",28683.0678250453,2022,77748.6847213599,43532.757577373,NA,NA,5
+"15","Transboundary","Chum","Spawners",-0.858990900490583,-0.12591020902354,"arrow-down",-0.0467486564469016,"arrow-down",46.8625476981719,2021,332.337046766562,146.359625551152,NA,NA,4
+"16","Transboundary","Chum","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,4
+"17","Transboundary","Coho","Spawners",-0.22599917614209,-0.0441078103950772,"arrow-down",0.0116766017729741,"arrow-up",64531.0459255166,2020,83373.355604287,76104.8675941175,NA,NA,5
+"18","Transboundary","Coho","Run Size",-0.419044404613007,-0.0559499955357788,"arrow-down",-0.014647067150475,"arrow-down",98723.8626411652,2020,169933.5774112,133333.000443785,NA,NA,5
+"19","Transboundary","Pink","Spawners",0.0219150850122416,0.235512726236678,"arrow-up",-0.02396897621991,"arrow-down",11301.1666163321,2021,11058.8118152662,5217.43900300713,NA,NA,2
+"20","Transboundary","Pink","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,2
+"21","Transboundary","Sockeye","Spawners",-0.0214624836246953,0.00366920801230131,"arrows-left-right",-0.00368655864025613,"arrows-left-right",119484.789525437,2020,122105.476311253,118193.353295453,NA,NA,5
+"22","Transboundary","Sockeye","Run Size",-0.201751375296948,-0.0220178336766851,"arrow-down",0.00117364856488145,"arrows-left-right",239931.97140372,2020,300572.984379365,263549.844466067,NA,NA,5
+"23","Transboundary","Steelhead","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,0,0,NA
+"24","Transboundary","Steelhead","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,0,0,NA
+"25","Haida Gwaii","Chinook","Spawners",1.20850169210965,0.0841926695630859,"arrow-up",0.00779849614896788,"arrows-left-right",4325.3178452024,2006,1958.48518507164,3048.80657747966,1,6,5
+"26","Haida Gwaii","Chinook","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,5
+"27","Haida Gwaii","Chum","Spawners",-0.735615445820428,-0.0462024741614089,"arrow-down",-0.014704496778162,"arrow-down",83266.6322226629,2021,314945.146780804,167154.575756586,79,123,5
+"28","Haida Gwaii","Chum","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,5
+"29","Haida Gwaii","Coho","Spawners",-0.592394828879339,-0.0584302502062247,"arrow-down",-0.00966408471157998,"arrow-down",36190.8375613635,2021,88788.9558953856,94001.4193236509,9,184,4
+"30","Haida Gwaii","Coho","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,4
+"31","Haida Gwaii","Pink","Spawners",-0.923369788835435,-0.190037971525848,"arrows-left-right",-0.00610788633501858,"arrows-left-right",29036.8128868943,2021,378921.217175521,320315.402090018,7,134,2
+"32","Haida Gwaii","Pink","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,2
+"33","Haida Gwaii","Sockeye","Spawners",-0.30821021964855,0.00597266845215993,"arrows-left-right",-0.0052861888372483,"arrow-down",25493.01320343,2021,36850.8092017185,41283.59958088,6,39,5
+"34","Haida Gwaii","Sockeye","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,5
+"35","Haida Gwaii","Steelhead","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,0,0,NA
+"36","Haida Gwaii","Steelhead","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA
+"37","Nass","Chinook","Spawners",-0.601333275902617,-0.0770261944000707,"arrow-down",-0.0138523989680953,"arrow-down",8494.97759942188,2021,21308.4691697188,10197.9696964373,6,23,5
+"38","Nass","Chinook","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,5
+"39","Nass","Chum","Spawners",-0.364332010344435,0.0659965595004324,"arrow-up",-0.00867831775254457,"arrow-down",30542.4670562077,2021,48047.8292964808,36863.7840814274,13,38,4
+"40","Nass","Chum","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,4
+"41","Nass","Coho","Spawners",-0.227650522958271,-0.0363062633963874,"arrows-left-right",0.0127645940982066,"arrow-up",30564.6078847968,2021,39573.5464233964,55935.4358359935,8,52,4
+"42","Nass","Coho","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,4
+"43","Nass","Pink","Spawners",0.0567929077516833,-0.188770493418846,"arrows-left-right",0.0256689984125973,"arrow-up",695309.065602992,2021,657942.592633646,387428.366264083,36,87,2
+"44","Nass","Pink","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,2
+"45","Nass","Sockeye","Spawners",-0.0556727198473269,0.0180246489912446,"arrow-up",-0.00435008392619307,"arrows-left-right",243740.199401409,2020,258109.878348535,258624.193461049,5,14,5
+"46","Nass","Sockeye","Run Size",-0.512262792968385,-0.0343468134645722,"arrow-down",-0.0171494917015729,"arrow-down",360053.71990298,2020,738212.534766989,570159.137200898,NA,NA,5
+"47","Nass","Steelhead","Spawners",-0.132588922964723,-0.00935997514609577,"arrows-left-right",0.0280780039974948,"arrow-up",10366.4136966836,2022,11950.9814563528,14608.0905485264,7,0,5
+"48","Nass","Steelhead","Run Size",-0.279510002471813,-0.0320401368714079,"arrow-down",0.00678344863303004,"arrows-left-right",13478.4905677213,2022,18707.3944315153,18958.5483721608,NA,NA,5
+"49","Skeena","Chinook","Spawners",-0.396029779322259,-0.0379143593612746,"arrow-down",0.00363224399558404,"arrows-left-right",27249.4115150052,2021,45117.1441605638,46571.1003968983,16,71,6
+"50","Skeena","Chinook","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,6
+"51","Skeena","Chum","Spawners",-0.932612840927282,-0.0614005872942864,"arrow-down",-0.0623866207408031,"arrow-down",504.981616511221,2022,7493.73654357936,989.670901212219,12,56,5
+"52","Skeena","Chum","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,5
+"53","Skeena","Coho","Spawners",-0.284268530199622,-0.019886958354244,"arrows-left-right",-0.00833401723376415,"arrow-down",72988.5403330179,2021,101977.548022829,117059.781339195,50,151,4
+"54","Skeena","Coho","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,4
+"55","Skeena","Pink","Spawners",-0.775266611890273,-0.0790285710653843,"arrows-left-right",-0.00859577656496291,"arrows-left-right",237284.621830671,2021,1055849.43931347,54073.4098041575,18,129,2
+"56","Skeena","Pink","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,2
+"57","Skeena","Sockeye","Spawners",-0.179108597437613,0.0038766740524907,"arrows-left-right",-0.0165174539478127,"arrow-down",975118.705618279,2020,1187877.8393518,1019962.96839619,30,65,5
+"58","Skeena","Sockeye","Run Size",-0.474953389827505,-0.0164160091825704,"arrows-left-right",-0.032611896555585,"arrow-down",1324071.53620457,2020,2521817.13118683,1686291.42312764,NA,NA,5
+"59","Skeena","Steelhead","Spawners",-0.321489227007498,-0.024510431459094,"arrows-left-right",0.0121484690346529,"arrow-up",16261.770038499,2021,23966.8560703585,33564.0303234358,3,1,5
+"60","Skeena","Steelhead","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,5
+"61","Central Coast","Chinook","Spawners",-0.468015878809231,-0.0292642372131557,"arrow-down",-0.00256512206489723,"arrows-left-right",28691.1840765111,2021,53932.4068776528,44850.385263792,14,62,5
+"62","Central Coast","Chinook","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,5
+"63","Central Coast","Chum","Spawners",-0.563357489967793,-0.018176948263721,"arrows-left-right",-0.00373170448660476,"arrow-down",285481.283916223,2021,653810.101758452,642332.641808804,128,207,4
+"64","Central Coast","Chum","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,4
+"65","Central Coast","Coho","Spawners",-0.38994342901376,-0.07305274605014,"arrow-down",-0.00703490746871327,"arrow-down",119335.609733348,2021,195614.005993617,195432.944652409,65,264,4
+"66","Central Coast","Coho","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,4
+"67","Central Coast","Pink","Spawners",0.374840036751933,0.136075422576037,"arrows-left-right",0.00716501408430292,"arrow-up",3969037.792668,2021,2886908.79416406,756977.155640958,93,221,2
+"68","Central Coast","Pink","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,2
+"69","Central Coast","Sockeye","Spawners",-0.491522855791199,0.0246942092869473,"arrows-left-right",-0.014950778217378,"arrow-down",225188.779797441,2021,442869.030323553,331438.860129728,34,171,5
+"70","Central Coast","Sockeye","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,5
+"71","Central Coast","Steelhead","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,1,0,NA
+"72","Central Coast","Steelhead","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA
+"73","Vancouver Island & Mainland Inlets","Chinook","Spawners",0.276274966964104,0.0546343504131375,"arrow-up",0.00308224073201391,"arrows-left-right",148362.67805361,2021,116246.64111882,164784.578866767,41,210,4
+"74","Vancouver Island & Mainland Inlets","Chinook","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,4
+"75","Vancouver Island & Mainland Inlets","Chum","Spawners",-0.488296450860077,-0.0393585918129904,"arrows-left-right",0.00506605273745642,"arrow-up",692401.304504153,2021,1353129.76755379,1538947.44151839,67,502,4
+"76","Vancouver Island & Mainland Inlets","Chum","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,4
+"77","Vancouver Island & Mainland Inlets","Coho","Spawners",-0.373865679544249,-0.0535565351724843,"arrow-down",-0.0158421504638524,"arrow-down",309838.097664891,2021,494842.859658876,291213.783412342,83,511,4
+"78","Vancouver Island & Mainland Inlets","Coho","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,4
+"79","Vancouver Island & Mainland Inlets","Pink","Spawners",-0.220728604671602,0.142148707546739,"arrows-left-right",0.0250380834051955,"arrow-up",1265075.00298449,2021,1623407.46826895,704616.208338573,18,295,2
+"80","Vancouver Island & Mainland Inlets","Pink","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,2
+"81","Vancouver Island & Mainland Inlets","Sockeye","Spawners",-0.221883610693853,0.0395506066604434,"arrows-left-right",-0.0122451500808114,"arrow-down",248351.192427026,2021,319169.722987692,389749.048218495,6,196,5
+"82","Vancouver Island & Mainland Inlets","Sockeye","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,5
+"83","Vancouver Island & Mainland Inlets","Steelhead","Spawners",-0.538932922906013,-0.0321245332925649,"arrow-down",-0.0118101415541418,"arrow-down",1066.20097829777,2022,2312.46391526764,1945.55483657448,9,0,5
+"84","Vancouver Island & Mainland Inlets","Steelhead","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,5
+"85","Fraser","Chinook","Spawners",-0.164811584090244,-0.0201645966474557,"arrow-down",-0.00115417898435011,"arrows-left-right",200197.933797925,2021,239703.915888073,215248.242114216,53,82,5
+"86","Fraser","Chinook","Run Size",-0.415388764636099,-0.041247530922897,"arrow-down",-0.0180134648802465,"arrow-down",185993.153900291,2021,318148.44233111,231395.827655551,NA,NA,5
+"87","Fraser","Chum","Spawners",0.546970549537397,0.0267049221497166,"arrows-left-right",0.0528956231618785,"arrow-up",1130018.27262284,2020,730471.74231,1767297.23236594,9,93,4
+"88","Fraser","Chum","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,4
+"89","Fraser","Coho","Spawners",0.623559661822915,0.0449661423364107,"arrows-left-right",-0.0161247371762229,"arrow-down",67234.491552265,2022,41411.7775485841,29030.2553909447,44,209,4
+"90","Fraser","Coho","Run Size",-0.124215087740785,0.0449902508800333,"arrows-left-right",-0.0514488296689994,"arrow-down",79322.2611786375,2022,90572.7651484816,33280.0089069003,NA,NA,4
+"91","Fraser","Pink","Spawners",0.230063402778925,0.00411878951232914,"arrows-left-right",0.0368955422269519,"arrow-up",7827445,2021,6363448.40625,8307419,12,81,2
+"92","Fraser","Pink","Run Size",-0.288103257908703,-0.0456492420322322,"arrows-left-right",0.012065577504077,"arrows-left-right",8107514,2021,11388609.5,8858203,NA,NA,2
+"93","Fraser","Sockeye","Spawners",-0.608462501319783,-0.149937864009981,"arrow-down",0.00978808718647439,"arrow-up",541685.022082275,2022,1383481.8476089,1228544.62698756,48,226,4
+"94","Fraser","Sockeye","Run Size",-0.74544606252477,-0.151220927607598,"arrow-down",-8.90251242657847e-06,"arrows-left-right",1387768.40869878,2022,5451765.63546113,2210135.01784715,NA,NA,4
+"95","Fraser","Steelhead","Spawners",-0.847012894569568,-0.103435201515608,"arrow-down",-0.0114770136679516,"arrows-left-right",296.347572854766,2021,1937.07549417963,1220.01724335372,6,4,5
+"96","Fraser","Steelhead","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,5
+"97","Columbia","Chinook","Spawners",0.196871444801606,0.120419666484494,"arrow-up",0.0672629919150296,"arrow-up",28.8376030672724,2022,24.0941524610043,48.3341217741256,1,0,5
+"98","Columbia","Chinook","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,5
+"99","Columbia","Chum","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,0,0,NA
+"100","Columbia","Chum","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA
+"101","Columbia","Coho","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,0,0,NA
+"102","Columbia","Coho","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA
+"103","Columbia","Pink","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,0,0,NA
+"104","Columbia","Pink","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA
+"105","Columbia","Sockeye","Spawners",-0.147484997144443,-0.164806113533523,"arrow-down",0.0188351866537142,"arrow-up",21051.5327159277,2020,24693.4454471935,41929.7704211422,1,0,4
+"106","Columbia","Sockeye","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,4
+"107","Columbia","Steelhead","Spawners",-0.962259787269981,-0.306421745366367,"arrow-down",-0.258361668893896,"arrow-down",2.5315274598176,2021,67.0777209955683,17.0595985657688,0,0,5
+"108","Columbia","Steelhead","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,5
