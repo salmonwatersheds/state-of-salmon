@@ -11,7 +11,7 @@
 ###############################################################################
 plot_abund <- function(sps_data_subset, cols = c("#887A52", "#416191")){
 	
-	plot(sps_data_subset$year, sps_data_subset$spawners*10^-3, "n", xlab = "", ylab = "Abundance (thousands)", las = 1, ylim = c(0, max(c(sps_data_subset$smoothedRunsize, sps_data_subset$smoothedSpawners)*10^-3, na.rm = TRUE)), bty = "l")
+	plot(sps_data_subset$year, sps_data_subset$spawners*10^-3, "n", xlab = "", ylab = "Abundance (thousands)", las = 1, ylim = c(0, max(c(sps_data_subset$runsize, sps_data_subset$spawners)*10^-3, na.rm = TRUE)), bty = "l")
 	abline(v = seq(1950, 2025, 5), col = grey(0.8), lwd = 0.8)
 	abline(v = seq(1950, 2025, 1), col = grey(0.8), lwd = 0.8, lty = 3)
 	

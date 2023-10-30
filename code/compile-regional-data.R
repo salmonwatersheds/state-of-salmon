@@ -28,6 +28,9 @@ genLength <- read.csv("data/gen_length_regions.csv")
 ###############################################################################
 ###############################################################################
 
+pdf(file = "output/ignore/figures/spawners_and_runsize_ALL.pdf",
+		width = 6, height = 4, pointsize = 10)
+
 ###############################################################################
 # Yukon
 ###############################################################################
@@ -319,15 +322,15 @@ hgck <- read.csv("data/spawner_surveys.csv", na.strings = c(-989898)) %>%
 	subset(stream_name_pse == "YAKOUN RIVER")
 
 # There are some missing years of data; want to impute in between when smoothing
-diff(hgck_sps$year)
-hgck_years <- min(hgck_sps$year):max(hgck_sps$year)
+diff(hgck$year)
+hgck_years <- min(hgck$year):max(hgck$year)
 
 # Reformat data for SPS
 hgck_sps <- data.frame(
 	region = rep("Haida Gwaii", length(hgck_years)),
 	species = rep("Chinook", length(hgck_years)),
 	year = hgck_years,
-	spawners = hgck$stream_observed_count[match(hgck_years, hgck_sps$year)], 
+	spawners = hgck$stream_observed_count[match(hgck_years, hgck$year)], 
 	smoothedSpawners = NA,
 	runsize = NA,
 	smoothedRunsize = NA
@@ -341,8 +344,8 @@ hgck_sps$smoothedSpawners <- genSmooth(
 )
 
 plot_abund(hgck_sps)
-lines(hg_table30$year, hg_table30$Chinook*10^-3, lty = 2, col = 2)
-legend("topleft", lty = 2, col = 2, "NBTC Table 30 (Area 1) escapement")
+# lines(hg_table30$year, hg_table30$Chinook*10^-3, lty = 2, col = 2)
+# legend("topleft", lty = 2, col = 2, "NBTC Table 30 (Area 1) escapement")
 
 # Add to master sps dataframe
 sps_data <- rbind(sps_data, hgck_sps)
@@ -380,8 +383,8 @@ for(s in 2:5){
 	)
 	
 	plot_abund(hg.s_sps)
-	lines(hg_table30$year, hg_table30[, species[s]]*10^-3, col = 2)
-	legend("topleft", lty = 1, col = 2, "NBTC Table 30 (Area 1) escapement", bty = "n")
+	# lines(hg_table30$year, hg_table30[, species[s]]*10^-3, col = 2)
+	# legend("topleft", lty = 1, col = 2, "NBTC Table 30 (Area 1) escapement", bty = "n")
 	
 	# Add to master sps dataframe
 	sps_data <- rbind(sps_data, hg.s_sps)
@@ -723,10 +726,339 @@ for(s in 1:6){
 #------------------------------------------------------------------------------
 # Chinook
 #------------------------------------------------------------------------------
+# (1) Use expanded spawner surveys from 1984 onward
+sp <- readRDS("output/Fraser-spawners.rds")
+yrs <- c(1984:max(as.numeric(dimnames(sp)[[3]])))
 
-# Look at data from Atlas et al. 2023
-frck_spawn <- read.csv("data/Atlas2023/CK_esc_FINAL.csv")
-frck_run <- read.csv("data/Atlas2023/CK_TotalRun_FINAL.csv") %>% 
+# (2) Use Atlas et al. (2023) Fraser populations for run size
+frck_run0 <- read.csv("data/Atlas2023/CK_TotalRun_FINAL.csv") %>% 
 	subset(group == "salish") %>% # select Salish group
 	subset(grepl("skagit", population) == FALSE & grepl("cowichan", population) == FALSE) # Remove VIMI populations
 
+frck_run <- tapply(frck_run0$tot_run, frck_run0$year, sum)
+
+# Put in SPS format
+frck_sps <- data.frame(
+	region = rep("Fraser", length(yrs)),
+	species = rep("Chinook", length(yrs)),
+	year = yrs,
+	spawners = sp[2, "Chinook", match(yrs, as.numeric(dimnames(sp)[[3]]))], 
+	smoothedSpawners = NA,
+	runsize = frck_run[match(yrs, as.numeric(names(frck_run)))],
+	smoothedRunsize = NA
+) 
+	
+	# Smoothing
+frck_sps$smoothedSpawners <- genSmooth(
+		abund = frck_sps$spawners,
+		years = frck_sps$year,
+		genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chinook"]
+	)
+
+frck_sps$smoothedRunsize <- genSmooth(
+	abund = frck_sps$runsize,
+	years = frck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chinook"]
+)
+
+plot_abund(frck_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, frck_sps)
+
+#------------------------------------------------------------------------------
+# Chum
+#------------------------------------------------------------------------------
+# (1) Use expanded spawner surveys from 1984 onward
+yrs <- as.numeric(dimnames(sp)[[3]])
+yrs <- 1953:max(yrs[!is.na(sp[2, "Chum", ])])
+
+# Put in SPS format
+frcm_sps <- data.frame(
+	region = rep("Fraser", length(yrs)),
+	species = rep("Chum", length(yrs)),
+	year = yrs,
+	spawners = sp[2, "Chum", match(yrs, as.numeric(dimnames(sp)[[3]]))], 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA
+) 
+
+# Smoothing
+frcm_sps$smoothedSpawners <- genSmooth(
+	abund = frcm_sps$spawners,
+	years = frcm_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chum"]
+)
+
+plot_abund(frcm_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, frcm_sps)
+
+
+#------------------------------------------------------------------------------
+# Coho
+#------------------------------------------------------------------------------
+
+# Interior Fraser Coho data shared by Marissa.Glavas@dfo-mpo.gc.ca on data request
+frco <- read.csv("data/E. Hertz - IFC Data.csv")
+yrs <- sort(unique(frco$ReturnYear))
+
+# Put in SPS format
+frco_sps <- data.frame(
+	region = rep("Fraser", length(yrs)),
+	species = rep("Coho", length(yrs)),
+	year = yrs,
+	spawners = tapply(frco$Total.Return, frco$ReturnYear, sum), # Note this is the fish that returned to spawn, NOT a mistake!
+	smoothedSpawners = NA,
+	runsize = tapply(frco$Total.Prefishery.Abundance, frco$ReturnYear, sum),
+	smoothedRunsize = NA
+) 
+
+# Smoothing
+frco_sps$smoothedSpawners <- genSmooth(
+	abund = frco_sps$spawners,
+	years = frco_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Coho"]
+)
+
+frco_sps$smoothedRunsize <- genSmooth(
+	abund = frco_sps$runsize,
+	years = frco_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Coho"]
+)
+
+plot_abund(frco_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, frco_sps)
+
+#------------------------------------------------------------------------------
+# Pink
+#------------------------------------------------------------------------------
+
+# From PSC
+frpk <- read.csv("data/pink_run_size_2023-09-20.csv")
+
+# Put in SPS format
+frpk_sps <- data.frame(
+	region = rep("Fraser", length(frpk$Year)),
+	species = rep("Pink", length(frpk$Year)),
+	year = frpk$Year,
+	spawners = frpk$Escapement, # Note this is the fish that returned to spawn, NOT a mistake!
+	smoothedSpawners = NA,
+	runsize = frpk$Run.Size,
+	smoothedRunsize = NA
+) 
+
+# Smoothing - don't do this for pink salmon in the Fraser - no even year data!
+frpk_sps$smoothedSpawners <- frpk_sps$spawners
+frpk_sps$smoothedRunsize <- frpk_sps$runsize
+
+plot_abund(frpk_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, frpk_sps)
+
+#------------------------------------------------------------------------------
+# Sockeye
+#------------------------------------------------------------------------------
+
+# From PSC
+frse <- read.csv("data/Total Fraser_run_size_2023-09-20.csv")
+
+# Put in SPS format
+frse_sps <- data.frame(
+	region = rep("Fraser", length(frse$Year)),
+	species = rep("Sockeye", length(frse$Year)),
+	year = frse$Year,
+	spawners = frse$Spawning.Escapement, # Note this is the fish that returned to spawn, NOT a mistake!
+	smoothedSpawners = NA,
+	runsize = frse$Run.Size,
+	smoothedRunsize = NA
+) 
+
+# Fill in run size with in-season estimates if available
+if(sum(is.na(frse_sps$runsize)) > 0){
+	if(!is.na(frse$In.season.Run.Size[which(frse$Year %in% frse_sps$year[is.na(frse_sps$runsize)])])){
+		frse_sps$runsize[which(frse$Year %in% frse_sps$year[is.na(frse_sps$runsize)])] <- frse$In.season.Run.Size[which(frse$Year %in% frse_sps$year[is.na(frse_sps$runsize)])]
+	}
+}
+
+# Smoothing
+frse_sps$smoothedSpawners <- genSmooth(
+	abund = frse_sps$spawners,
+	years = frse_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Sockeye"]
+)
+
+frse_sps$smoothedRunsize <- genSmooth(
+	abund = frse_sps$runsize,
+	years = frse_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Sockeye"]
+)
+
+plot_abund(frse_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, frse_sps)
+
+#------------------------------------------------------------------------------
+# Steelhead
+#------------------------------------------------------------------------------
+
+# Use sum of two main Fraser steelhead CUs
+frsh <- read.csv("data/spawner_abundance.csv", na.strings = "-989898") %>% 
+	subset(region == "Fraser" & species_name == "Steelhead") %>%
+	subset(cu_name_pse %in% c("Thompson Summer", "Mid Fraser Summer")) %>%
+	subset(!is.na(estimated_count))
+
+frsh_sum <- tapply(as.numeric(frsh$estimated_count), frsh$year, sum)
+
+# Put in SPS format
+frsh_sps <- data.frame(
+	region = rep("Fraser", length(frsh_sum)),
+	species = rep("Steelhead", length(frsh_sum)),
+	year = as.numeric(names(frsh_sum)),
+	spawners = frsh_sum, # Note this is the fish that returned to spawn, NOT a mistake!
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA
+) 
+
+# Smoothing
+frsh_sps$smoothedSpawners <- genSmooth(
+	abund = frsh_sps$spawners,
+	years = frsh_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Steelhead"]
+)
+
+
+plot_abund(frsh_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, frsh_sps)
+
+###############################################################################
+# Columbia
+###############################################################################
+
+#------------------------------------------------------------------------------
+# Chinook
+#------------------------------------------------------------------------------
+colck <- read.csv("data/spawner_abundance.csv", na.strings = "-989898") %>% 
+	subset(region == "Columbia" & species_name == "Chinook") %>%
+	subset(!is.na(estimated_count))
+
+# Add in more recent Chinook data that's not yet in database
+# Sent directly by Chuck Parken: Pacific Salmon Commision Okanagan Work Group
+# Okanagan Chinook: Summary of Findings and COnsiderations for FUture Actions
+# June 28, 2023
+
+colck <- rbind(colck, data.frame(
+	region = rep("Columbia", 4),
+	species_name = rep("Chinook", 4),
+	cuid = rep(301, 4),
+	cu_name_pse = rep("Okanagan", 4),
+	year = c(2019:2022),
+	estimated_count = c(15, 79, 73, 23),
+	observed_count = c(15, 79, 73, 23),
+	total_run = rep(NA, 4)
+))
+
+# Put in SPS format
+colck_sps <- data.frame(
+	region = rep("Columbia", length(colck$year)),
+	species = rep("Chinook", length(colck$year)),
+	year = colck$year,
+	spawners = as.numeric(colck$estimated_count), # Note this is the fish that returned to spawn, NOT a mistake!
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA
+) 
+
+# Smoothing
+colck_sps$smoothedSpawners <- genSmooth(
+	abund = colck_sps$spawners,
+	years = colck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Columbia" & genLength$species == "Chinook"]
+)
+
+
+plot_abund(colck_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, colck_sps)
+
+#------------------------------------------------------------------------------
+# Sockeye
+#------------------------------------------------------------------------------
+colse <- read.csv("data/spawner_abundance.csv", na.strings = "-989898") %>% 
+	subset(region == "Columbia" &  species_name == "Lake sockeye") %>%
+	subset(!is.na(estimated_count))
+
+# Put in SPS format
+colse_sps <- data.frame(
+	region = rep("Columbia", length(colse$year)),
+	species = rep("Sockeye", length(colse$year)),
+	year = colse$year,
+	spawners = as.numeric(colse$estimated_count), # Note this is the fish that returned to spawn, NOT a mistake!
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA
+) 
+
+# Smoothing
+colse_sps$smoothedSpawners <- genSmooth(
+	abund = colse_sps$spawners,
+	years = colse_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Columbia" & genLength$species == "Sockeye"]
+)
+
+
+plot_abund(colse_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, colse_sps)
+
+#------------------------------------------------------------------------------
+# Columbia: Steelhead
+#------------------------------------------------------------------------------
+colsh <- read.csv("data/spawner_abundance.csv", na.strings = "-989898") %>% 
+	subset(region == "Columbia" &  species_name == "Steelhead") %>%
+	subset(!is.na(estimated_count))
+
+# Put in SPS format
+colsh_sps <- data.frame(
+	region = rep("Columbia", length(colsh$year)),
+	species = rep("Steelhead", length(colsh$year)),
+	year = colsh$year,
+	spawners = as.numeric(colsh$estimated_count), # Note this is the fish that returned to spawn, NOT a mistake!
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA
+) 
+
+# Smoothing
+colsh_sps$smoothedSpawners <- genSmooth(
+	abund = colsh_sps$spawners,
+	years = colsh_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Columbia" & genLength$species == "Steelhead"]
+)
+
+
+plot_abund(colsh_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, colsh_sps)
+
+
+dev.off()
+###############################################################################
+###############################################################################
+# Write to .csv
+###############################################################################
+###############################################################################
+
+write.csv(sps_data, "output/sps-data.csv", row.names = FALSE)
