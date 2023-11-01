@@ -324,15 +324,15 @@ byTheNumbers <- function(
 		metric2_perc = metric2,
 		
 		metric3 = dat$short_trend_cat,
-		metric3_perc = metric2,
+		metric3_perc = metric3,
 		
 		current_abund = prettierNum(round(dat$current)), 
 		lastgen_abund = prettierNum(round(dat$prevGen)),
 		avg_abund = prettierNum(round(dat$hist)),
 		
-		num_indicator = ifelse(is.na(dat$n_indicator), "", dat$n_indicator),
+		num_indicator = ifelse(is.na(dat$n_indicator)|dat$n_indicator == 0, "", dat$n_indicator),
 		
-		num_nonindicator = ifelse(is.na(dat$n_nonindicator), "", dat$n_nonindicator),
+		num_nonindicator = ifelse(is.na(dat$n_nonindicator)|dat$n_nonindicator == 0, "", dat$n_nonindicator),
 		
 		gen_length = ifelse(is.na(dat$generation_length), "", dat$generation_length)
 	)
