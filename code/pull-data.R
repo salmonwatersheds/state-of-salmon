@@ -84,3 +84,24 @@ app4$species_pooled[app4$species_pooled %in% c("Lake sockeye", "River sockeye")]
 
 
 write.csv(app4[, c("region", "species_name", "species_pooled", "cuid", "cu_name_pse", "psf_status")], file = "data/status.csv", row.names = FALSE)
+
+# ###############################################################################
+# # Import catch and run size
+# ###############################################################################
+# 
+# # Get app4 view
+# dataset3 <- dbGetQuery(
+# 	conn = connec, 
+# 	statement = "SELECT * FROM appdata.vwdl_dataset3_output"
+# )
+# 
+# dat <- subset(dataset3, cu_name_pse == "Lower Nass-Portland (river-type)")
+# sp <- subset(spawner_abundance, cu_name_pse == "Lower Nass-Portland (river-type)")
+# 						 head(dat)
+# 
+# plot(dat$year, dat$cdn_catch, ylim = c(0, 120000))
+# points(dat$year, dat$cdn_catch+dat$us_catch, col = 2)
+# points(sp$year, sp$estimated_count)
+# 
+# lowerNass <- merge(dat, sp)
+# write.csv(lowerNass, "output/lowerNass_PSF_2023-11-10.csv")
