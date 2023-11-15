@@ -401,6 +401,11 @@ for(s in 2:5){
 # From Fig. 1 of PSC (2023) Assessment and management frameworks of the Pacific Salmon Treaty and their robustness to environmental change
 nassse <- read.csv('data/nass_sockeye.csv')
 
+# # Compare to escapement from the TCNB (23)-01
+# nassse2 <- read.csv("data/TCNB-23-01_Table31_Area3escapement.csv")
+# plot(nassse$year, nassse$escapement,"o")
+# lines(nassse2$YEAR, nassse2$SOCKEYE, col = 2)
+
 # Check if years are continuous
 unique(diff(nassse$year)) # Yes, all one year apart
 
