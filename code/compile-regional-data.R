@@ -399,24 +399,36 @@ for(s in 2:5){
 # Nass: Sockeye
 #------------------------------------------------------------------------------
 # From Fig. 1 of PSC (2023) Assessment and management frameworks of the Pacific Salmon Treaty and their robustness to environmental change
-nassse <- read.csv('data/nass_sockeye.csv')
+# nassse <- read.csv('data/nass_sockeye.csv')
 
 # # Compare to escapement from the TCNB (23)-01
 # nassse2 <- read.csv("data/TCNB-23-01_Table31_Area3escapement.csv")
 # plot(nassse$year, nassse$escapement,"o")
 # lines(nassse2$YEAR, nassse2$SOCKEYE, col = 2)
 
+# # Compare to NCC run reconstruction: https://github.com/LGLLimited/nccdbv2/tree/master/run/2022-nass-update/data/KarlEnglish-2023-05-29
+nassse <- read.csv("data/nassskeena_sockeye_lgl.csv") %>%
+	subset(Region == "Nass")
+# par(mfrow = c(2, 1), mar = c(3,4,2,1))
+# plot(nassse$year, nassse$escapement,"o", xlim = c(1980, 2023), bty = "l", ylab = "Escapement")
+# lines(nassse3$Year[nassse3$Region == "Nass"], nassse3$TE[nassse3$Region == "Nass"], "o", col = 2, pch = 19, cex = 0.6)
+# legend("topright", pch = c(1, 19), col = c(1,2), pt.cex = c(1, 0.8), legend = c("SCSC figure", "NCCDB_v2 GitHub"), lty = 1, bty = "n")
+# 
+# plot(nassse$year, nassse$runsize,"o", xlim = c(1980, 2023), bty = "l", ylab = "Run Size")
+# lines(nassse3$Year[nassse3$Region == "Nass"], nassse3$Total.Run[nassse3$Region == "Nass"], "o", col = 2, pch = 19, cex = 0.6)
+# mtext(side = 3, line = -1, outer= TRUE, 'Nass sockeye')
+
 # Check if years are continuous
-unique(diff(nassse$year)) # Yes, all one year apart
+unique(diff(nassse$Year)) # Yes, all one year apart
 
 # Reformat data for SPS
 nassse_sps <- data.frame(
 	region = rep("Nass", dim(nassse)[1]),
 	species = rep("Sockeye", dim(nassse)[1]),
-	year = nassse$year,
-	spawners = nassse$escapement, 
+	year = nassse$Year,
+	spawners = nassse$TE, 
 	smoothedSpawners = NA,
-	runsize = nassse$runsize,
+	runsize = nassse$Total.Run,
 	smoothedRunsize = NA
 ) 
 
@@ -518,19 +530,31 @@ for(s in c(1:4)){
 # Skeena: Sockeye
 #------------------------------------------------------------------------------
 # From Fig. 1 of PSC (2023) Assessment and management frameworks of the Pacific Salmon Treaty and their robustness to environmental change
-skse <- read.csv('data/skeena_sockeye.csv')
+# skse <- read.csv('data/skeena_sockeye.csv')
+
+# Compare to NCC run reconstruction: https://github.com/LGLLimited/nccdbv2/tree/master/run/2022-nass-update/data/KarlEnglish-2023-05-29
+skse <- read.csv("data/nassskeena_sockeye_lgl.csv") %>%
+	subset(Region == "Skeena")
+# par(mfrow = c(2, 1), mar = c(3,4,2,1))
+# plot(skse$year, skse$escapement,"o", xlim = c(1960, 2023), bty = "l", ylab = "Escapement", ylim = c(0, max(nassse3$TE[nassse3$Region == "Skeena"])))
+# lines(nassse3$Year[nassse3$Region == "Skeena"], nassse3$TE[nassse3$Region == "Skeena"], "o", col = 2, pch = 19, cex = 0.6)
+# legend("topleft", pch = c(1, 19), col = c(1,2), pt.cex = c(1, 0.8), legend = c("SCSC figure", "NCCDB_v2 GitHub"), lty = 1, bty = "n")
+# 
+# plot(skse$year, skse$runsize,"o", xlim = c(1960, 2023), bty = "l", ylab = "Run Size")
+# lines(nassse3$Year[nassse3$Region == "Skeena"], nassse3$Total.Run[nassse3$Region == "Skeena"], "o", col = 2, pch = 19, cex = 0.6)
+# mtext(side = 3, line = -1, outer= TRUE, 'Skeena sockeye')
 
 # Check if years are continuous
-unique(diff(skse$year)) # Yes, all one year apart
+unique(diff(skse$Year)) # Yes, all one year apart
 
 # Reformat data for SPS
 skse_sps <- data.frame(
 	region = rep("Skeena", dim(skse)[1]),
 	species = rep("Sockeye", dim(skse)[1]),
-	year = skse$year,
-	spawners = skse$escapement, 
+	year = skse$Year,
+	spawners = skse$TE, 
 	smoothedSpawners = NA,
-	runsize = skse$runsize,
+	runsize = skse$Total.Run,
 	smoothedRunsize = NA
 ) 
 

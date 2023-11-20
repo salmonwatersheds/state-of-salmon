@@ -7,12 +7,12 @@ Transboundary,Sockeye,TCTR-22-01.pdf,Appendix D15. Taku River sockeye salmon run
 Transboundary,Coho,TCTR-22-01.pdf,"Appendix D. 20. Historic Taku River coho salmon run size, 1987–2020",tbr_coho_appendixD20.csv,
 Transboundary,Pink,TCTR-22-01.pdf,,,
 Haida Gwaii,all ,TCNB-23-01.pdf,"Table 30.–Annual salmon escapements for Canadian Area 1, 1970 – 2022. ",TCNB-23-01_Table30_Area1escapement.csv,
-Nass,Sockeye,PSC_SCS-23.pdf,"Ch. 3, Figure 1 (p. 84)",nass_sockeye.csv,Need to identify reliable ongoing source
 Nass,"Chinook, Chum, Coho, Pink",,,,NOT CURRENTLY USED; using expansions instead
-Skeena,Sockeye,PSC_SCS-23.pdf,"Ch. 3, Figure 1 (p. 84)",nass_sockeye.csv,Need to identify reliable ongoing source
 Skeena,Chum,TCNB-23-01.pdf,"Table 32. –Annual escapements for Canadian Area 4, 1970 – 2022. ",TCNB-23-01_Table32_Area4escapement.csv,Chum data only used for now; expansions from spawner data poor for chum
 Fraser ,Coho,Atlas et al. 2023,https://github.com/willatlas/ChinookEscapement-RunSize,CK_TotalRun_FINAL.csv,Used sum of run to four Fraser populations; spawner abundance was expanded from NuSEDS
 Fraser ,Pink,Pacific Salmon Commission,https://psc1.shinyapps.io/PSC_Annual_Fraser/ ,pink_run_size_2023-09-20.csv,
 Fraser,Sockeye,Pacific Salmon Commission,https://psc1.shinyapps.io/PSC_Annual_Fraser/ ,Total Fraser_run_size_2023-09-20.csv,Use in-season run size for most recent year if available.
 Okanagan,Chinook,Chuck Parken,Pacific Salmon Commision Okanagan Work Group,,
 Okanagan,Sockeye,"DFO, data request",PSE CU-level spawner abundance for Okanagan sockeye,spawner-abundance.csv,
+Nass ,Sockeye,Sockeye Exploitation Rate Summary1982-2022_27May2023+AppendixTables_WC.xlsm,https://github.com/LGLLimited/nccdbv2/tree/master/run/2022-nass-update/data/KarlEnglish-2023-05-29,nassskeena_sockeye_lgl.csv,"Fields are ""TE"" (Total Escapement) and Total Run for Area 3 (Nass River) from tab “SockeyeSkeenaNassReconstr”"
+Skeena ,Sockeye,Sockeye Exploitation Rate Summary1982-2022_27May2023+AppendixTables_WC.xlsm,https://github.com/LGLLimited/nccdbv2/tree/master/run/2022-nass-update/data/KarlEnglish-2023-05-29,nassskeena_sockeye_lgl.csv,"Fields are ""TE"" (Total Escapement) and Total Run for Area 4 (Skeena River) from tab “SockeyeSkeenaNassReconstr”"
