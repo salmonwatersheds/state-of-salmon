@@ -399,7 +399,8 @@ for(s in 2:5){
 # Nass: Sockeye
 #------------------------------------------------------------------------------
 # From Fig. 1 of PSC (2023) Assessment and management frameworks of the Pacific Salmon Treaty and their robustness to environmental change
-# nassse <- read.csv('data/nass_sockeye.csv')
+nassse <- read.csv('data/nass_sockeye.csv')
+names(nassse) <- c("Year", "Total.Run", "TE") # Rename to be consistent with NCCDBV2 output for easy switching
 
 # # Compare to escapement from the TCNB (23)-01
 # nassse2 <- read.csv("data/TCNB-23-01_Table31_Area3escapement.csv")
@@ -407,8 +408,8 @@ for(s in 2:5){
 # lines(nassse2$YEAR, nassse2$SOCKEYE, col = 2)
 
 # # Compare to NCC run reconstruction: https://github.com/LGLLimited/nccdbv2/tree/master/run/2022-nass-update/data/KarlEnglish-2023-05-29
-nassse <- read.csv("data/nassskeena_sockeye_lgl.csv") %>%
-	subset(Region == "Nass")
+# nassse <- read.csv("data/nassskeena_sockeye_lgl.csv") %>%
+	# subset(Region == "Nass")
 # par(mfrow = c(2, 1), mar = c(3,4,2,1))
 # plot(nassse$year, nassse$escapement,"o", xlim = c(1980, 2023), bty = "l", ylab = "Escapement")
 # lines(nassse3$Year[nassse3$Region == "Nass"], nassse3$TE[nassse3$Region == "Nass"], "o", col = 2, pch = 19, cex = 0.6)
