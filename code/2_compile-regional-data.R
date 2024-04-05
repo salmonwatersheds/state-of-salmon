@@ -398,18 +398,18 @@ for(s in 2:5){
 #------------------------------------------------------------------------------
 # Nass: Sockeye
 #------------------------------------------------------------------------------
-# From Fig. 1 of PSC (2023) Assessment and management frameworks of the Pacific Salmon Treaty and their robustness to environmental change
-nassse <- read.csv('data/nass_sockeye.csv')
-names(nassse) <- c("Year", "Total.Run", "TE") # Rename to be consistent with NCCDBV2 output for easy switching
+# # From Fig. 1 of PSC (2023) Assessment and management frameworks of the Pacific Salmon Treaty and their robustness to environmental change
+# nassse <- read.csv('data/nass_sockeye.csv')
+# names(nassse) <- c("Year", "Total.Run", "TE") # Rename to be consistent with NCCDBV2 output for easy switching
 
 # # Compare to escapement from the TCNB (23)-01
 # nassse2 <- read.csv("data/TCNB-23-01_Table31_Area3escapement.csv")
 # plot(nassse$year, nassse$escapement,"o")
 # lines(nassse2$YEAR, nassse2$SOCKEYE, col = 2)
 
-# # Compare to NCC run reconstruction: https://github.com/LGLLimited/nccdbv2/tree/master/run/2022-nass-update/data/KarlEnglish-2023-05-29
-# nassse <- read.csv("data/nassskeena_sockeye_lgl.csv") %>%
-	# subset(Region == "Nass")
+# Compare to NCC run reconstruction: https://github.com/LGLLimited/nccdbv2/tree/master/run/2022-nass-update/data/KarlEnglish-2023-05-29
+nassse <- read.csv("data/nassskeena_sockeye_lgl.csv") %>%
+subset(Region == "Nass")
 # par(mfrow = c(2, 1), mar = c(3,4,2,1))
 # plot(nassse$year, nassse$escapement,"o", xlim = c(1980, 2023), bty = "l", ylab = "Escapement")
 # lines(nassse3$Year[nassse3$Region == "Nass"], nassse3$TE[nassse3$Region == "Nass"], "o", col = 2, pch = 19, cex = 0.6)
@@ -420,7 +420,7 @@ names(nassse) <- c("Year", "Total.Run", "TE") # Rename to be consistent with NCC
 # mtext(side = 3, line = -1, outer= TRUE, 'Nass sockeye')
 
 # Check if years are continuous
-unique(diff(nassse$Year)) # Yes, all one year apart
+# unique(diff(nassse$Year)) # Yes, all one year apart
 
 # Reformat data for SPS
 nassse_sps <- data.frame(
@@ -718,7 +718,7 @@ for(s in 1:5){
 sp <- readRDS("output/Vancouver Island & Mainland Inlets-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 
-for(s in 1:6){
+for(s in 1:5){
 	vimi.s <- sp[2, species[s], ]
 	# Get rid of NAs (esp in 2022)
 	vimi.s <- vimi.s[1:max(which(!is.na(vimi.s)))]
@@ -868,8 +868,8 @@ sps_data <- rbind(sps_data, frco_sps)
 # Pink
 #------------------------------------------------------------------------------
 
-# From PSC
-frpk <- read.csv("data/pink_run_size_2023-09-20.csv")
+# From PSC (updated to include)
+frpk <- read.csv("data/pink_run_size_2023-12-08.csv")
 
 # Put in SPS format
 frpk_sps <- data.frame(
@@ -982,7 +982,7 @@ colck <- read.csv("data/spawner_abundance.csv", na.strings = "-989898") %>%
 	subset(!is.na(estimated_count))
 
 # Add in more recent Chinook data that's not yet in database
-# Sent directly by Chuck Parken: Pacific Salmon Commision Okanagan Work Group
+# Sent directly by Chuck Parken: Pacific Salmon Commission Okanagan Work Group
 # Okanagan Chinook: Summary of Findings and COnsiderations for FUture Actions
 # June 28, 2023
 
@@ -994,7 +994,8 @@ colck <- rbind(colck, data.frame(
 	year = c(2019:2022),
 	estimated_count = c(15, 79, 73, 23),
 	observed_count = c(15, 79, 73, 23),
-	total_run = rep(NA, 4)
+	total_run = rep(NA, 4),
+	uploadid = rep(NA, 4)
 ))
 
 # Put in SPS format

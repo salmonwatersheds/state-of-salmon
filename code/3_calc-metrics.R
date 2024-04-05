@@ -161,5 +161,34 @@ for(r in 1:length(regions)){
 
 dev.off()
 
+###############################################################################
+# Hard-coded checks 
+###############################################################################
+
+#------------------------------------------------------------------------------
+# Is there a spawner abundance estimate in the most recent generation?
+#------------------------------------------------------------------------------
+
+sps_metrics[which(sps_metrics$current_year < max(sps_metrics$current_year, na.rm = TRUE) - sps_metrics$generation_length), ]
+
+# Just Haida Gwaii Chinook; set to NA
+sps_metrics[which(sps_metrics$current_year < max(sps_metrics$current_year, na.rm = TRUE) - sps_metrics$generation_length), c("status", "short_trend", "long_trend", "current", "prevGen")] <- NA
+
+sps_metrics[which(sps_metrics$current_year < max(sps_metrics$current_year, na.rm = TRUE) - sps_metrics$generation_length), c("short_trend_cat", "long_trend_cat")] <- ""
+
+
+# #------------------------------------------------------------------------------
+# # Is current spawner abundance < 1000?
+# #------------------------------------------------------------------------------
+# 
+# sps_metrics[which(sps_metrics$current < 1000), ]
+# 
+# # Create new variable to flag if abundance is below critical threshold of 1000 spawners
+# sps_metrics$critical <- ifelse(sps_metrics$current < 1000, 1, 0)
+
+###############################################################################
+# Write output
+###############################################################################
+
 write.csv(sps_metrics, file = "output/sps-metrics.csv")
 		
