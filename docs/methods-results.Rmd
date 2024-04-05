@@ -109,13 +109,13 @@ We recognize that our approach in the Transboundary lacks information from many 
 
 ### Haida Gwaii
 
-For Haida Gwaii, we followed the Expansion Factors approach described below, with the exception of Chinook salmon for which the only data are from a single enumeration project on the Yakoun River. Thus we report Yakoun River spawner abundance for Haida Gwaii, but  there  no estimates for Chinook have been reported since 2006. We compared our expansion approach to estimates of escapement to Area 1 reported in the @TCNB2023CanadaNorthernBoundary (Appendix 30) but found the Area 1 estimates were much lower (except for Chinook, for which Appendix 30 matched the Yakoun River estimates exactly). 
+For Haida Gwaii, we followed the Expansion Factors approach described below, with the exception of Chinook salmon for which the only data are from a single enumeration project on the Yakoun River. We show Yakoun River spawner abundance up to 2006, but no estimates were available for the most recent generation yielding a "Data Deficient" assessment for Haida Gwaii Chinook. For other species, we compared our expansion approach to estimates of escapement to Area 1 reported in the @TCNB2023CanadaNorthernBoundary (Appendix 30) but found the Area 1 estimates were much lower (except for Chinook, for which Appendix 30 matched the Yakoun River estimates exactly). 
 
 ### Nass
 
-Nass sockeye escapement and run size were extracted from Pacific Salmon Commission reports [@TCNB2023CanadaNorthernBoundary, @StandingCommitteeonScientificCooperation2023AssessmentManagementFrameworks]. 
+Nass sockeye escapement and run size were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and run size for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 3 sockeye from the  2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2016NorthCentralCoast; @EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast].
 
-The index of Nass steelhead spawner abundance and run size are for the Nass Summer CU, provided by the Nisga’a Fish and Wildlife Department and LGL Ltd. (publication forthcoming). There is another steelhead CU in the Nass region - Nass Winter - which is not well monitored and therefore not included in our index of spawner abundance.
+The index of Nass steelhead spawner abundance and run size are for the Nass Summer CU, developed in collaboration with the Nisga’a Fish and Wildlife Department and LGL Ltd. [@EnglishEtAl2023PreliminaryAreaSalmon]. There is another steelhead CU in the Nass region - Nass Winter - which is not well monitored and therefore not included in our index of spawner abundance.
 
 ### Skeena
 
@@ -125,6 +125,10 @@ For Skeena chum salmon, we used escapement to Area 4 reported in Table 32 of @TC
 
 The index of Skeena steelhead spawner abundance is derived from estimated escapement of Skeena Summer steelhead at the Tyee Test Fishery (1956 - present), provided by the Province via email. As for other regions, these estimates may not capture winter-run steelhead, for which data are not available.
 
+### Vancouver Island & Mainland Inlets
+
+
+
 ### Fraser
 
 River-level spawner abundance for Fraser Chinook found in NuSEDS can be highly unreliable, thus we based our expansions on only the most intensively monitored streams that have been deemed as reliable estimates of abundance by @BrownEtAl20202020SummaryAbundance. These streams are those shown in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca), and the associated data can be accessed from the stream survey data in the [SWP Data Library](https://data.salmonwatersheds.ca/result?datasetid=1). We also truncated the Chinook index of abundance to 1984 and more recent data, as earlier years have been deemed unreliable [@BrownEtAl20202020SummaryAbundance] and from 1984 onward spawner estimates mirrored those reported by @AtlasEtAl2023TrendsChinookSalmon. For Chinook run size, we used the sum of total run for four Fraser populations (Harrison, Nicola, Lower Shuswap, and South Thompson - all) reported in @AtlasEtAl2023TrendsChinookSalmon and available from the associated [GitHub repository](https://github.com/willatlas/ChinookEscapement-RunSize).
@@ -133,7 +137,7 @@ For interior Fraser coho CUs, spawner abundance and run size were provided by DF
 
 Data on aggregate run size and spawner abundance of pink salmon and sockeye salmon in the Fraser region are provided by the Pacific Salmon Commission (PSC), and accessed through the [Fraser Panel Annual Report: Data Application](https://psc1.shinyapps.io/PSC_Annual_Fraser/). We note that Fraser River pink salmon are only counted in the dominant, odd-year run. 
 
-Steelhead trout in the Fraser are monitored by the Province in at least 10 different streams, but these data are not readily available. Relatively reliable estimates of steelhead spawner abundance are available at the CU-level for interior Fraser steelhead from the Thompson Summer CU (monitored at the Thompson River) and Mid Fraser Summer CU (primarily monitored at the Chilcotin River). We used the sum of CU-level spawner abundance for these two CUs as an index of Fraser steelhead abundance. We note that this approach does not include more coastal populations, such as the Lower Fraser Summer steelhead monitored in the Coquihalla River or Boundary Bay Winter steelhead, which may not have declined to the same extent over the past decade. However, a lack of publicly accessible data on coastal Fraser steelhead has limited our ability to include these CUs in our index of abundance.
+Steelhead trout in the Fraser are monitored by the Province in at least 10 different streams, but these data are not readily available. Relatively reliable estimates of steelhead spawner abundance are available at the CU-level for interior Fraser steelhead from the Thompson Summer CU (monitored at the Thompson River) and Mid Fraser Summer CU (primarily monitored at the Chilcotin River; data in the [Pacific Salmon Explorer](https://salmonexplorer.ca)). We used the sum of CU-level spawner abundance for these two CUs as an index of Fraser steelhead abundance. We note that this approach does not include more coastal populations, such as the Lower Fraser Summer steelhead monitored in the Coquihalla River or Boundary Bay Winter steelhead, which may not have declined to the same extent over the past decade. However, a lack of publicly accessible data on coastal Fraser steelhead has limited our ability to include these CUs in our index of abundance.
 
 ### Columbia
 
@@ -260,6 +264,12 @@ text(2007, 11, paste0("Metric 3: ", round(coefficients(fit2)[2]*100, 1), "% per 
 lines(1950:2021, SS, lwd = 1.5)
 ```
 
+### Additional Considerations
+The standardized approach to quantifying change described above was applied across regions and species. We then considered two additional attributes prior to reporting on the State of Salmon:
+
+1. If the species and region had no data in the most recent generation, it was deemed `Data Deficient` even if historical abundance information was available. This was the case for **Haida Gwaii Chinook**, for which there were no reliable estimates of spawners since 2006.
+2. If there was reliable information that the absolute population size was < 1000 spawners, then the species and region was considered at risk of extirpation regardless of the outcome of the metrics above. This was the case for **Columbia Chinook** which have been assessed as Endangered by COSEWIC due to low population size [@COSEWIC2017ChinookSalmonOncorhynchus]. There were four other regions and species that had spawner abundance < 1000, but none of these had reliable estimates of **absolute** spawner abundance and all four were already assessed as having current abundance 85% to 96% below historical average.
+
 # Results 
 
 :::: {.blackbox data-latex=""}
@@ -292,25 +302,28 @@ source("code/functions.R")
 
 ```
 
+* These trends in aggregated spawner abundance provide a broad overview of how salmon are doing, but must be interpreted with caution due to the diversity of populations with potentially different outlooks within each region and species. For example, Chinook in Vancouver Island & Mainland Inlets have an aggregate spawner abundance that is `r round(sps_metrics$status[sps_metrics$region == "Vancouver Island & Mainland Inlets" & sps_metrics$species == "Chinook" & sps_metrics$type == "Spawners"]*100, 1)`% above historical average, but some stocks (e.g., West Coast Vancouver Island) are of conservation concern. **Preserving the population diversity within regions is key to the long-term resilience of salmon, particularly in the face of climate change.**
+* The status of spawner abundance is, in all cases, more positive than the status in run size, highlighting that declines in fisheries have been pervasive. Further, for all species and regions that had data on run size, current abundance is below the long-term historical average.
+
 ## All regions
 
 **Highlights**
 
-* These trends in aggregated spawner abundance provide a broad overview of how salmon are doing, but must be interpreted with caution due to the diversity of populations with potentially different outlooks within each region and species. For example, Chinook in Vancouver Island & Mainland Inlets have an aggregate spawner abundance that is `r round(sps_metrics$status[sps_metrics$region == "Vancouver Island & Mainland Inlets" & sps_metrics$species == "Chinook" & sps_metrics$type == "Spawners"]*100, 1)`% above historical average, but some stocks (e.g., West Coast Vancouver Island) are of conservation concern. **Preserving the population diversity within regions is key to the long-term resilience of salmon, particularly in the face of climate change.**
-* The status of spawner abundance is, in all cases, more positive than the status in run size, highlighting that declines in fisheries have been pervasive. Further, for all species and regions that had data on run size, current abundance is below the long-term historical average.
 * Across regions, pink salmon seem to be doing the best (spawner abundance above historical average in 4 of 7 regions assessed) and steelhead are doing the worst (spawner abundance below historical average in all 5 regions assessed).
 * The Fraser region has the most positive outlook, with spawner abundances of chum, coho, and pink all above historical average. Although the historically productive fisheries supported by this Region have been decimated, and run size for coho and pink are well below historical average, stable trends over the most recent 3-generations in both spawner abundance and run-size for these species provide hope that declines can be stemmed and populations rebuilt.
 * Further north, in the Yukon and Transboundary, almost all species (with the exception of Transboundary pink salmon) are well below historical average with recent declines in either spawners, run size, or both. This finding is concerning, given that climate change may render southern habitats less suitable for salmon into the future and more northern populations must be nurtured as potential strongholds. Management of salmon harvest in these northern regions is complex, and involves international treaties that are not easily negotiated or adapted in response to environmental changes or emerging trends, challenging efforts to stem declines and recover these populations. 
 
 
-**Below**: Summary of current status relative to historical average (Metric 1) for **spawner abundance**. Regions and species below historical average are in red and above historical average are in green. Black cells indicate species that are not thought to be present in the given region, and white cells indicate there were no available abundance data for that species and region combination. 
+**Below**: Summary of current status relative to historical average (Metric 1) for **spawner abundance**. Regions and species below historical average are in red and above historical average are in green. Black cells indicate species that are not thought to be present in the given region, and grey cells indicate there were no available abundance data for that species and region combination. Solid red cells are species and regions with absolute spawner abundance < 1000, deemed at risk of extirpation regardless of Metric 1 value.
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
-btn_table.all(sps_metrics[which(sps_metrics$type == "Spawners"), c("region", "species", "status")])
+btn_table.all(sps_metrics[which(sps_metrics$type == "Spawners"), c("region", "species", "status")],
+							type = "Spawners")
 ```
 
-**Below**: Summary of current status relative to historical average (Metric 1) for **run size**. Regions and species below historical average are in red and above historical average are in green. Black cells indicate species that are not thought to be present in the given region, and white cells indicate there were no available abundance data for that species and region combination. 
+**Below**: Summary of current status relative to historical average (Metric 1) for **run size**. Regions and species below historical average are in red and above historical average are in green. Black cells indicate species that are not thought to be present in the given region, and grey cells indicate there were no available abundance data for that species and region combination. 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
-btn_table.all(sps_metrics[which(sps_metrics$type == "Run Size"), c("region", "species", "status")])
+btn_table.all(sps_metrics[which(sps_metrics$type == "Run Size"), c("region", "species", "status")],
+							type = "Run Size")
 ```
 
 ## Yukon
@@ -434,7 +447,7 @@ btn_table(
 
 * While most species show declines over both long- and short-time frames, Nass pink salmon have rebounded to above historical average abundance in the most recent generation.
 * Chinook salmon have shown the biggest declines from historical average abundance (`r round(sps_metrics$status[sps_metrics$region == "Nass" & sps_metrics$species == "Chinook" & sps_metrics$type == "Spawners"]*100, 1)`%) with declines persisting in the most recent generation.
-* Although sockeye spawner abundance and run size are below historical average, trends in spawner abundance are stable (long-term) or slightly increasing (3-gen).
+* Although sockeye run size is `r -round(sps_metrics$status[sps_metrics$region == "Nass" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`% **below** historical average, increases over the last two years have put spawner abundance above historical average with an increasing short-term (3-gen) trend.
 
 ```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Index of spawner abundance through time. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
 plot.regional_abund(
@@ -590,7 +603,7 @@ btn_table(
 
 * Despite the uptick in Fraser sockeye abundance in the early 2010s, the most recent spawner abundance and run size are below the devastating returns in 2009 that triggered a federal inquiry. Fraser sockeye spawner abundance in 2021 was `r -round(sps_metrics$status[sps_metrics$region == "Fraser" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Spawners"]*100, 1)`% below historical average and in-season estimates for run size in 2022 was `r -round(sps_metrics$status[sps_metrics$region == "Fraser" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`% below historical average.
 * As for sockeye, Chinook spawner abundance is below historical average and run size is even further below historical average. However some life-history types are doing better than others [@AtlasEtAl2023TrendsChinookSalmon], highlighting the need to conserve the within-species diversity that makes salmon resilient to environmental change.
-* Spawner abundance of chum, coho, and pink salmon are above historical average, **however** the these trends do not account for declining catch of the commercial fishing industry in this area. Total run size is below average for pink and coho, but the trend in the most recent three generations is stable providing some hope of recovery. Run size is not (yet) available for chum salmon in the Fraser.
+* Spawner abundance of chum, coho, and pink salmon are above historical average, **however** the these trends do not account for declining catch of the commercial fishing industry in this area. Total run size is below average for pink and coho, but the trend in the most recent three generations is stable providing some hope of recovery. Time series of chum salmon data should be interpreted with caution as they are based on expansion factors and spawner survey coverage has varied considerably through time. Run size is not (yet) available for chum salmon in the Fraser.
 
 * Declines of Chinook, chum, pink, sockeye, and steelhead since the early 2000s may reflect the increasing pressures of climate change on these southern and interior populations.
 
@@ -628,7 +641,8 @@ btn_table(
 **Highlights**
 
 * Columbia Chinook and sockeye show promise of rebuilding, with positive long-term trends. (We currently only have data to 2020, but record returns of Okanagan sockeye [were celebrated in 2022](https://www.cbc.ca/news/canada/british-columbia/sockeye-salmon-okangan-fishery-osoyoos-1.6571895).)
-* The time series for steelhead and Chinook are short, making it difficult to establish a meaningful baseline. (For this reason, the biological status of Okanagan steelhead is not assessed in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca).)
+* The time series for steelhead and Chinook are short, making it difficult to establish a meaningful baseline. (For this reason, the biological status of Okanagan steelhead is not assessed in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca))
+* Although Chinook spawner abundance has increased from a low in 2011, the absolute abundance is still less than 1000 spawners and the Okanagan population of Chinook was listed as Endangered in 2017 by COSEWIC [@COSEWIC2017ChinookSalmonOncorhynchus]. Recent increases should be cautiously celebrated, knowing that this population is still at risk of extirpation.
 * Columbia steelhead have declined recently to `r -round(sps_metrics$status[sps_metrics$region == "Columbia" & sps_metrics$species == "Steelhead" & sps_metrics$type == "Spawners"]*100, 1)`% below the 2006-2021 average.
 
 ```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Index of spawner abundance through time. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
