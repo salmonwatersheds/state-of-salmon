@@ -75,19 +75,22 @@ sps_data <- ytck_sps
 #------------------------------------------------------------------------------
 # Yukon: Chum
 #------------------------------------------------------------------------------
-ytcm <- read.csv('data/yukon_chum_appendixB16.csv')
+ytcm_spawners <- read.csv('data/yukon_chum_appendixB16.csv')
+ytcm_runsize <- read.csv('data/yukon_chum_appendixB20.csv')
 
 # Check if years are continuous
-unique(diff(ytcm$Date)) # Yes, all one year apart
+unique(diff(ytcm_spawners$Date)) # Yes, all one year apart
+unique(diff(ytcm_runsize$Year)) # Yes, all one year apart
+# Note run size available for fewer years
 
 # Reformat data for SPS
 ytcm_sps <- data.frame(
 	region = rep("Yukon", dim(ytcm)[1]),
 	species = rep("Chum", dim(ytcm)[1]),
-	year = ytcm$Date,
-	spawners = ytcm$Spawning.escapement.estimate, 
+	year = ytcm_spawners$Date,
+	spawners = ytcm_spawners$Spawning.escapement.estimate, 
 	smoothedSpawners = NA,
-	runsize = NA,
+	runsize = ytcm_runsize$Total.estimated.Canadian.origin.run.size[match(ytcm_spawners$Date, ytcm_runsize$Year)],
 	smoothedRunsize = NA
 ) 
 
@@ -239,29 +242,36 @@ plot_abund(tbrco_sps)
 sps_data <- rbind(sps_data, tbrco_sps)
 
 #------------------------------------------------------------------------------
-# Transboundary: Pink and chum
+# Transboundary: Pink, chum, and steelhead
 #------------------------------------------------------------------------------
 
 # Monitoring of pink and chum salmon in the Transboundary region is limited, and the 
 # best available information is the Canyon Island fish wheel. 
 
-tbrpkcm <- read.csv("data/spawner_surveys.csv", na.strings = c(-989898)) %>%
-	subset(!is.na(stream_observed_count)) %>% # Remove stream with no data
-	subset(stream_name_pse == "CANYON ISLAND") %>% # Subset Canyon Island data
-	subset(species_name %in% c("Pink (even)", "Pink (odd)", "Chum")) # Use only data from 1950 to present
-
-tbrpkcm$species_pooled <- tbrpkcm$species_name
-tbrpkcm$species_pooled[tbrpkcm$species_name %in% c("Pink (even)", "Pink (odd)")] <- "Pink"
+# tbrpkcm <- read.csv("data/spawner_surveys.csv", na.strings = c(-989898)) %>%
+# 	subset(!is.na(stream_observed_count)) %>% # Remove stream with no data
+# 	subset(stream_name_pse == "CANYON ISLAND") %>% # Subset Canyon Island data
+# 	subset(species_name %in% c("Pink (even)", "Pink (odd)", "Chum")) # Use only data from 1950 to present
+# 
+# tbrpkcm$species_pooled <- tbrpkcm$species_name
+# tbrpkcm$species_pooled[tbrpkcm$species_name %in% c("Pink (even)", "Pink (odd)")] <- "Pink"
 
 # --- 
 # Pink
 # --- 
+
+tbrpk <- read.csv("data/TTC_ManualExtract_Taku_Pink.csv") %>%
+	filter(!is.na(Value))
+
+# Check if years are continuous
+unique(diff(tbrpk$Year)) # Yes, all one year apart
+
 # Reformat data for SPS
 tbrpk_sps <- data.frame(
-	region = rep("Transboundary", length(which(tbrpkcm$species_pooled == "Pink"))),
-	species = rep("Pink", length(which(tbrpkcm$species_pooled == "Pink"))),
-	year = sort(tbrpkcm$year[tbrpkcm$species_pooled == "Pink"]),
-	spawners = tbrpkcm$stream_observed_count[tbrpkcm$species_pooled == "Pink"][order(tbrpkcm$year[tbrpkcm$species_pooled == "Pink"])], 
+	region = rep("Transboundary", nrow(tbrpk)), #rep("Transboundary", length(which(tbrpkcm$species_pooled == "Pink"))),
+	species = rep("Pink", nrow(tbrpk)), #length(which(tbrpkcm$species_pooled == "Pink"))),
+	year = tbrpk$Year, #sort(tbrpkcm$year[tbrpkcm$species_pooled == "Pink"]),
+	spawners = tbrpk$Value, # tbrpkcm$stream_observed_count[tbrpkcm$species_pooled == "Pink"][order(tbrpkcm$year[tbrpkcm$species_pooled == "Pink"])], 
 	smoothedSpawners = NA,
 	runsize = NA,
 	smoothedRunsize = NA
@@ -281,12 +291,15 @@ sps_data <- rbind(sps_data, tbrpk_sps)
 # --- 
 # Chum
 # --- 
+tbrcm <- read.csv("data/TTC_ManualExtract_Taku_Chum.csv") %>%
+	filter(!is.na(Value))
+
 # Reformat data for SPS
 tbrcm_sps <- data.frame(
-	region = rep("Transboundary", length(which(tbrpkcm$species_pooled == "Chum"))),
-	species = rep("Chum", length(which(tbrpkcm$species_pooled == "Chum"))),
-	year = sort(tbrpkcm$year[tbrpkcm$species_pooled == "Chum"]),
-	spawners = tbrpkcm$stream_observed_count[tbrpkcm$species_pooled == "Chum"][order(tbrpkcm$year[tbrpkcm$species_pooled == "Chum"])], 
+	region = rep("Transboundary", nrow(tbrcm)), #length(which(tbrpkcm$species_pooled == "Chum"))),
+	species = rep("Chum", nrow(tbrcm)), #length(which(tbrpkcm$species_pooled == "Chum"))),
+	year = tbrcm$Year, #sort(tbrpkcm$year[tbrpkcm$species_pooled == "Chum"]),
+	spawners = tbrcm$Value, #tbrpkcm$stream_observed_count[tbrpkcm$species_pooled == "Chum"][order(tbrpkcm$year[tbrpkcm$species_pooled == "Chum"])], 
 	smoothedSpawners = NA,
 	runsize = NA,
 	smoothedRunsize = NA
@@ -303,6 +316,39 @@ plot_abund(tbrcm_sps)
 # Add to master sps dataframe
 sps_data <- rbind(sps_data, tbrcm_sps)
 
+# --- 
+# Steelhead
+# --- 
+
+tbrsh <- read.csv("data/TTC_ManualExtract_Taku_Steelhead.csv")
+
+# Check if years are continuous
+unique(diff(tbrsh$Year)) # Yes, all one year apart
+
+# Start timeseries at first non-NA
+tbrsh <- tbrsh[which(!is.na(tbrsh$Value))[1]:nrow(tbrsh), ]
+
+# Reformat data for SPS
+tbrsh_sps <- data.frame(
+	region = rep("Transboundary", nrow(tbrsh)), #rep("Transboundary", length(which(tbrpkcm$species_pooled == "Pink"))),
+	species = rep("Steelhead", nrow(tbrsh)), #length(which(tbrpkcm$species_pooled == "Pink"))),
+	year = tbrsh$Year, #sort(tbrpkcm$year[tbrpkcm$species_pooled == "Pink"]),
+	spawners = tbrsh$Value, # tbrpkcm$stream_observed_count[tbrpkcm$species_pooled == "Pink"][order(tbrpkcm$year[tbrpkcm$species_pooled == "Pink"])], 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA
+) 
+# Smoothing
+tbrsh_sps$smoothedSpawners <- genSmooth(
+	abund = tbrsh_sps$spawners,
+	years = tbrsh_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Transboundary" & genLength$species == "Steelhead"]
+)
+
+plot_abund(tbrsh_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, tbrsh_sps)
 ###############################################################################
 # Haida Gwaii
 ###############################################################################
