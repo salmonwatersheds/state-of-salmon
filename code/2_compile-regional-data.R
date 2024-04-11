@@ -16,9 +16,6 @@ regions <- c("Yukon", "Transboundary", "Haida Gwaii", "Nass", "Skeena", "Central
 
 species <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead")
 
-# Obtain list of files so as to ignore regions that do not yet have output data
-output.files <- list.files(path = "output/")
-
 # Generation length by species and region (for smoothing)
 genLength <- read.csv("data/gen_length_regions.csv") 
 
@@ -28,7 +25,7 @@ genLength <- read.csv("data/gen_length_regions.csv")
 ###############################################################################
 ###############################################################################
 
-pdf(file = "output/ignore/figures/spawners_and_runsize_ALL.pdf",
+pdf(file = paste0("output/ignore/figures/spawners_and_runsize_ALL_", Sys.Date(), ".pdf"),
 		width = 6, height = 4, pointsize = 10)
 
 ###############################################################################
@@ -85,8 +82,8 @@ unique(diff(ytcm_runsize$Year)) # Yes, all one year apart
 
 # Reformat data for SPS
 ytcm_sps <- data.frame(
-	region = rep("Yukon", dim(ytcm)[1]),
-	species = rep("Chum", dim(ytcm)[1]),
+	region = rep("Yukon", dim(ytcm_spawners)[1]),
+	species = rep("Chum", dim(ytcm_spawners)[1]),
 	year = ytcm_spawners$Date,
 	spawners = ytcm_spawners$Spawning.escapement.estimate, 
 	smoothedSpawners = NA,
@@ -119,24 +116,67 @@ sps_data <- rbind(sps_data, ytcm_sps)
 #------------------------------------------------------------------------------
 # Transboundary: Chinook
 #------------------------------------------------------------------------------
+
+# # (1) CTC data
 tbrck <- read.csv('data/tbr_chinook.csv')
 
 # Remove 1975 -> missing Alsek data
 tbrck <- tbrck[!is.na(tbrck$Alsek_Escapement), ]
-
 # Check if years are continuous
 unique(diff(tbrck$Year)) # Yes, all one year apart
 
+# tbrck2 <- readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B2", range = "A4:G52")
+
+# (2) TTC data
+ttcck <- read.csv("data/TTC_MERGED.csv") %>%
+	filter(SPECIES == "Chinook", TableSource %in% c("E.7_full", "B.12", "D.7"))
+
+ttcck_totals <- ttcck %>%
+	filter(Series %in% c("Alsek River - Escapement", "Escapement", "Spawning Escapement")) %>%
+	group_by(Year) %>%
+	summarise(Spawners = sum(Value))
+ttcck_totals <- ttcck_totals %>% left_join(
+	ttcck %>%
+		filter(Series %in% c("Alsek River - Canada harvest", "Alsek River - Harvest Dry Bay", "Canadian Harvest", "US Harvest", "Canadian Catch", "US Harvest")) %>%
+		group_by(Year) %>%
+		summarise(Catch = sum(Value))
+)
+
+
+# Check if years are continuous
+unique(diff(ttcck_totals$Year)) # Yes, all one year apart
+
+# # Compare
+# par(mfrow = c(2,1))
+# plot(ttcck_totals$Year, ttcck_totals$Spawners*10^-3, "o", col = 2, bty = "l", xlab = "", ylab = "Spawners (thousands)", las = 1)
+# points(tbrck$Year, apply(tbrck[, c("Taku_Escapement", "Stikine_Escapement", "Alsek_Escapement")], 1, sum)*10^-3, "o")
+# points(tbrck2$...1, apply(tbrck2[, grep("Esc", names(tbrck2))], 1, sum)*10^-3, "o", col = 4, cex = 0.3)
+# legend("topright", pch = 1, lty = 1, col = c(1,2,4), c("CTC data request to E. Hertz", "TTC data", "TCCHINOOK Table B2"))
+# 
+# plot(ttcck_totals$Year, (ttcck_totals$Spawners + ttcck_totals$Catch)*10^-3, "o", col = 2, bty = "l", xlab = "", ylab = "Run size (thousands)", las = 1)
+# points(tbrck$Year, apply(tbrck[, c("Taku_Escapement", "Stikine_Escapement", "Alsek_Escapement")]/(1 - tbrck[, c("Taku_Rate", "Stikine_Rate", "Alsek_Rate")]), 1, sum)*10^-3, "o")
+# mtext(side =3, outer = TRUE, line = -1, "Transboundary Chinook")
+
+# Use TCCHINOOK, but add most recent year from TTC for now
+tbrck_yrs <- c(tbrck$Year, 2023)
+tbrck_spawners <- c(apply(tbrck[, c("Taku_Escapement", "Stikine_Escapement", "Alsek_Escapement")], 1, sum), ttcck_totals$Spawners[ttcck_totals$Year == 2023])
+tbrck_run <- c(apply(tbrck[, c("Taku_Escapement", "Stikine_Escapement", "Alsek_Escapement")]/(1 - tbrck[, c("Taku_Rate", "Stikine_Rate", "Alsek_Rate")]), 1, sum), sum(ttcck_totals[ttcck_totals$Year == 2023, c("Spawners", "Catch")]))
+
 # Reformat data for SPS
 tbrck_sps <- data.frame(
-	region = rep("Transboundary", dim(tbrck)[1]),
-	species = rep("Chinook", dim(tbrck)[1]),
-	year = tbrck$Year,
-	spawners = apply(tbrck[, c("Taku_Escapement", "Stikine_Escapement", "Alsek_Escapement")], 1, sum), 
+	region = rep("Transboundary", length(tbrck_yrs)),
+	species = rep("Chinook", length(tbrck_yrs)),
+	year = tbrck_yrs,
+	spawners = tbrck_spawners, 
 	smoothedSpawners = NA,
-	runsize = apply(tbrck[, c("Taku_Escapement", "Stikine_Escapement", "Alsek_Escapement")]/(1 - tbrck[, c("Taku_Rate", "Stikine_Rate", "Alsek_Rate")]), 1, sum),
+	runsize = tbrck_run,
 	smoothedRunsize = NA
 ) 
+
+# # Catch (for comparison to TCCHINOOL Table A4)
+# plot(tbrck$Year, apply( tbrck[, c("Taku_Rate", "Stikine_Rate", "Alsek_Rate")] * tbrck[, c("Taku_Escapement", "Stikine_Escapement", "Alsek_Escapement")]/(1 - tbrck[, c("Taku_Rate", "Stikine_Rate", "Alsek_Rate")]), 1, sum) * 10^-3, 'o', ylab = "Transboudnary CK Catch (thousands)", xlab = "", las = 1)
+# lines(1975:2022, c(1257,1584,856,1210,3946,3193,2386,3430,3442,1986,2608,4140,4021,4615,5198,6088,5378,4771,5237,5866,6829,8407,9151,5051,6600,6428,4277,5160,6447,10343,22610,19128,16364,12641,12390,11433,10037,11116,6996,7822,7210,5121,1379,202,1815,3966,713,650)*10^-3, "o", col = 2)
+# legend("topleft", pch = 1, lwd = 1, col = c(1,2), c("CTC data request (esc + expl rate)", "CTC Table A4 (Total LC, Rel. IM)"))
 
 # Smoothing
 tbrck_sps$smoothedSpawners <- genSmooth(
@@ -169,8 +209,8 @@ tbrse_taku <- read.csv('data/tbr_sockeye_appendixD15.csv')
 min(tbrse_stik$Year) # 1979
 min(tbrse_taku$Year) # 1984
 
-max(tbrse_stik$Year) # 2020
-max(tbrse_taku$Year) # 2020
+max(tbrse_stik$Year) # 2023
+max(tbrse_taku$Year) # 2023
 
 # Remove Stikine data prior to 1984
 tbrse_stik <- subset(tbrse_stik, tbrse_stik$Year >= 1984)
@@ -219,7 +259,7 @@ tbrco_sps <- data.frame(
 	year = tbrco$Year,
 	spawners = tbrco$Escape., 
 	smoothedSpawners = NA,
-	runsize = tbrco$Total.Run,
+	runsize = tbrco$Run,
 	smoothedRunsize = NA
 ) 
 
@@ -242,7 +282,7 @@ plot_abund(tbrco_sps)
 sps_data <- rbind(sps_data, tbrco_sps)
 
 #------------------------------------------------------------------------------
-# Transboundary: Pink, chum, and steelhead
+# Transboundary: Pink and chum
 #------------------------------------------------------------------------------
 
 # Monitoring of pink and chum salmon in the Transboundary region is limited, and the 
@@ -316,39 +356,39 @@ plot_abund(tbrcm_sps)
 # Add to master sps dataframe
 sps_data <- rbind(sps_data, tbrcm_sps)
 
-# --- 
-# Steelhead
-# --- 
-
-tbrsh <- read.csv("data/TTC_ManualExtract_Taku_Steelhead.csv")
-
-# Check if years are continuous
-unique(diff(tbrsh$Year)) # Yes, all one year apart
-
-# Start timeseries at first non-NA
-tbrsh <- tbrsh[which(!is.na(tbrsh$Value))[1]:nrow(tbrsh), ]
-
-# Reformat data for SPS
-tbrsh_sps <- data.frame(
-	region = rep("Transboundary", nrow(tbrsh)), #rep("Transboundary", length(which(tbrpkcm$species_pooled == "Pink"))),
-	species = rep("Steelhead", nrow(tbrsh)), #length(which(tbrpkcm$species_pooled == "Pink"))),
-	year = tbrsh$Year, #sort(tbrpkcm$year[tbrpkcm$species_pooled == "Pink"]),
-	spawners = tbrsh$Value, # tbrpkcm$stream_observed_count[tbrpkcm$species_pooled == "Pink"][order(tbrpkcm$year[tbrpkcm$species_pooled == "Pink"])], 
-	smoothedSpawners = NA,
-	runsize = NA,
-	smoothedRunsize = NA
-) 
-# Smoothing
-tbrsh_sps$smoothedSpawners <- genSmooth(
-	abund = tbrsh_sps$spawners,
-	years = tbrsh_sps$year,
-	genLength = genLength$gen_length[genLength$region == "Transboundary" & genLength$species == "Steelhead"]
-)
-
-plot_abund(tbrsh_sps)
-
-# Add to master sps dataframe
-sps_data <- rbind(sps_data, tbrsh_sps)
+# # --- 
+# # Steelhead - do not use for now
+# # --- 
+# 
+# tbrsh <- read.csv("data/TTC_ManualExtract_Taku_Steelhead.csv")
+# 
+# # Check if years are continuous
+# unique(diff(tbrsh$Year)) # Yes, all one year apart
+# 
+# # Start timeseries at first non-NA
+# tbrsh <- tbrsh[which(!is.na(tbrsh$Value))[1]:nrow(tbrsh), ]
+# 
+# # Reformat data for SPS
+# tbrsh_sps <- data.frame(
+# 	region = rep("Transboundary", nrow(tbrsh)), #rep("Transboundary", length(which(tbrpkcm$species_pooled == "Pink"))),
+# 	species = rep("Steelhead", nrow(tbrsh)), #length(which(tbrpkcm$species_pooled == "Pink"))),
+# 	year = tbrsh$Year, #sort(tbrpkcm$year[tbrpkcm$species_pooled == "Pink"]),
+# 	spawners = tbrsh$Value, # tbrpkcm$stream_observed_count[tbrpkcm$species_pooled == "Pink"][order(tbrpkcm$year[tbrpkcm$species_pooled == "Pink"])], 
+# 	smoothedSpawners = NA,
+# 	runsize = NA,
+# 	smoothedRunsize = NA
+# ) 
+# # Smoothing
+# tbrsh_sps$smoothedSpawners <- genSmooth(
+# 	abund = tbrsh_sps$spawners,
+# 	years = tbrsh_sps$year,
+# 	genLength = genLength$gen_length[genLength$region == "Transboundary" & genLength$species == "Steelhead"]
+# )
+# 
+# plot_abund(tbrsh_sps)
+# 
+# # Add to master sps dataframe
+# sps_data <- rbind(sps_data, tbrsh_sps)
 ###############################################################################
 # Haida Gwaii
 ###############################################################################
@@ -403,7 +443,7 @@ sps_data <- rbind(sps_data, hgck_sps)
 # Expansion from spawner surveys only; no steelhead data
 
 # Use expanded spawner abundance -> NO, not super accurate
-sp <- readRDS("output/Haida Gwaii-spawners.rds")
+sp <- readRDS("output/expanded-spawners/Haida Gwaii-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 
 for(s in 2:5){
@@ -440,6 +480,42 @@ for(s in 2:5){
 ###############################################################################
 # Nass
 ###############################################################################
+
+#------------------------------------------------------------------------------
+# Nass: Chinook
+#------------------------------------------------------------------------------
+
+# TCCHINOOK Table B3
+nass_ctc <- readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "A5:D53", col_types = "numeric")
+
+# Reformat data for SPS
+nassck_sps <- data.frame(
+	region = rep("Nass", dim(nass_ctc)[1]),
+	species = rep("Chinook", dim(nass_ctc)[1]),
+	year = nass_ctc$...1,
+	spawners = nass_ctc$Esc, 
+	smoothedSpawners = NA,
+	runsize = nass_ctc$`t. run`,
+	smoothedRunsize = NA
+) 
+
+# Smoothing
+nassck_sps$smoothedSpawners <- genSmooth(
+	abund = nassck_sps$spawners,
+	years = nassck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Nass" & genLength$species == "Chinook"]
+)
+
+nassck_sps$smoothedRunsize <- genSmooth(
+	abund = nassck_sps$runsize,
+	years = nassck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Nass" & genLength$species == "Chinook"]
+)
+
+plot_abund(nassck_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, nassck_sps)
 
 #------------------------------------------------------------------------------
 # Nass: Sockeye
@@ -501,8 +577,8 @@ sps_data <- rbind(sps_data, nassse_sps)
 # Nass: Steelhead
 #------------------------------------------------------------------------------
 # Use CU-level Nass summer abundance which is a better region-scale indicator
-nasssh <- read.csv("data/spawner_abundance.csv", na.strings = "-989898") %>% 
-	subset(region == "Nass" & species_name == "Steelhead" & cu_name_pse == "Nass Summer" & !is.na(estimated_count))
+nasssh <- read.csv("data/spawner_abundance.csv") %>% 
+	filter(region == "Nass", species_name == "Steelhead", cu_name_pse == "Nass Summer", !is.na(estimated_count))
 
 # Reformat data for SPS
 nasssh_sps <- data.frame(
@@ -534,14 +610,14 @@ plot_abund(nasssh_sps)
 sps_data <- rbind(sps_data, nasssh_sps)
 
 #------------------------------------------------------------------------------
-# Nass: Chinook, Pink, Chum, Coho
+# Nass: Pink, Chum, Coho
 #------------------------------------------------------------------------------
 
 # Use expanded spawner abundance
-sp <- readRDS("output/Nass-spawners.rds")
+sp <- readRDS("output/expanded-spawners/Nass-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 
-for(s in c(1:4)){
+for(s in c(2:4)){
 	nass.s <- sp[2, species[s], ]
 	
 	# Reformat data for SPS
@@ -569,9 +645,52 @@ for(s in c(1:4)){
 	
 }	
 
+# Compare chum to TCCHUM
+
 ###############################################################################
 # Skeena
 ###############################################################################
+
+# skeena: Chinook
+
+# TCCHINOOK Table B3
+sk_ctc <- readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "A5:G53", col_types = "numeric")
+
+# # TCNB Table 32
+# tcnb_32 <-read.csv("data/TCNB-23-01_Table32_Area4escapement.csv")
+# 
+# # There is Total Esc and GSI esc...
+# plot(as.numeric(names(skeena.s)), as.numeric(skeena.s)*10^-3, "o", las = 1, ylab = "Spawner abundance (thousands)", xlab = "", ylim = c(0, 100), bty = "l", xpd = NA, cex = 0.5, pch = 19)
+# lines(sk_ctc$...1, sk_ctc$`Total Esc`*10^-3, "o", col = 2, cex = 0.8, pch = 19, lwd = 1.5)
+# lines(sk_ctc$...1, sk_ctc$`GSI3 esc`*10^-3, "o", col = 4, cex = 0.5, pch = 19)
+# lines(tcnb_32$YEAR, tcnb_32$CHINOOK*10^-3, "o", col = 3, pch = 19, cex = 0.5)
+# legend("topleft", pch = 19, pt.cex = c(0.5, 0.8, 0.5, 0.5), lwd = c(1, 1.5, 1, 1), col = c(1,2,4, 3), c("Expanded", "Table B3: Total Esc", "Table B3: GSI esc", "TCNB Table 31 Area 4 escapement"))
+
+# Reformat data for SPS
+skck_sps <- data.frame(
+	region = rep("Skeena", dim(sk_ctc)[1]),
+	species = rep("Chinook", dim(sk_ctc)[1]),
+	year = sk_ctc$...1,
+	spawners = sk_ctc$`Total Esc`, 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA
+) 
+
+# Remove last year (2022) that is NA
+skck_sps <- skck_sps[!is.na(skck_sps$spawners), ]
+
+# Smoothing
+skck_sps$smoothedSpawners <- genSmooth(
+	abund = skck_sps$spawners,
+	years = skck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Skeena" & genLength$species == "Chinook"]
+)
+
+plot_abund(skck_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, skck_sps)
 
 #------------------------------------------------------------------------------
 # Skeena: Sockeye
@@ -628,14 +747,16 @@ sps_data <- rbind(sps_data, skse_sps)
 #------------------------------------------------------------------------------
 
 # Use Skeena steelhead run size from BC Updates
-sksh <- read.csv("data/Steelhead_total_runsize.csv")
+# sksh <- read.csv("data/Steelhead_total_runsize.csv")
+sksh <- read.csv("data/SkeenaSteelhead_1956-2023.csv")
+
 
 # Reformat data for SPS
 sksh_sps <- data.frame(
 	region = rep("Skeena", dim(sksh)[1]),
 	species = rep("Steelhead", dim(sksh)[1]),
 	year = sksh$Year,
-	spawners = sksh$prov_runsize_raw, 
+	spawners = sksh$TyeeEscapement, 
 	smoothedSpawners = NA,
 	runsize = NA,
 	smoothedRunsize = NA
@@ -683,14 +804,14 @@ plot_abund(skcm_sps)
 sps_data <- rbind(sps_data, skcm_sps)
 
 #------------------------------------------------------------------------------
-# Skeena: Chinook, Pink, Coho
+# Skeena: Pink and Coho
 #------------------------------------------------------------------------------
 
 # Use expanded spawner abundance -> NO, not super accurate
-sp <- readRDS("output/Skeena-spawners.rds")
+sp <- readRDS("output/expanded-spawners/Skeena-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 
-for(s in c(1, 3, 4)){
+for(s in c(3, 4)){
 	skeena.s <- sp[2, species[s], ]
 	skeena.s <- skeena.s[!is.na(skeena.s)]
 	
@@ -724,7 +845,7 @@ for(s in c(1, 3, 4)){
 ###############################################################################
 
 # Expansion from spawner surveys only; no steelhead data
-sp <- readRDS("output/Central Coast-spawners.rds")
+sp <- readRDS("output/expanded-spawners/Central Coast-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 
 for(s in 1:5){
@@ -760,8 +881,40 @@ for(s in 1:5){
 # Vancouver Island & Mainland Inlets
 ###############################################################################
 
+# #------------------------------------------------------------------------------
+# # Chinook - leave as expansion for now Apr 9, 2024
+# #------------------------------------------------------------------------------
+# 
+# # (1) CTC data
+# vimi_ctc_esc1 <- readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B4", range = "A4:G52", col_types = "numeric") # Southern BC
+# vimi_ctc_esc2 <- readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B5", range = "A3:K51", col_types = "numeric") # Vancouver Island
+# 
+# vimi_ctc_esc <- data.frame(
+# 	year = vimi_ctc_esc1$...1,
+# 	esc_SBC = apply(vimi_ctc_esc1[, grep("Esc", names(vimi_ctc_esc1))], 1, sum),
+# 	esc_VI = apply(vimi_ctc_esc2[, grep("Index", names(vimi_ctc_esc2))], 1, sum, na.rm = TRUE) # Ignore missing data; small  contribution to overall sum
+# 	)
+# 
+# # Remove 1975-1978, when SBC wasn't monitored
+# vimi_ctc_esc <- vimi_ctc_esc[!is.na(vimi_ctc_esc$esc_SBC), ]
+# 
+# # Catch	
+# vimi_ctc_catch <-  readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-A-Catch-Detailed.xlsx", sheet = "A14", range = "K4:M52") %>%
+# 	mutate(year = 1975:2022)
+# 
+# ctc_catch_sum <- apply(ctc_catch[, 1:3], 1, sum)
+# ctc_run <- ctc_esc_sum + ctc_catch_sum
+# 
+# plot(yrs, vimi.s*10^-6, "o", las = 1, ylab = "Spawners (millions)", ylim = c(0, 0.3))
+# lines(vimi_ctc_esc$year, apply(vimi_ctc_esc[, 2:3], 1, sum)*10^-6, "o", col = 2)
+# abline(v = seq(1950, 2023, 2), lty = 3, col = grey(0.6))
+# legend("topleft", pch = 1, lwd = 1, col = c(1,2), c("Expansion", "Sum of index from TCCHINOOK Table B4,B5"))
+#------------------------------------------------------------------------------
+# Other
+#------------------------------------------------------------------------------
+
 # Expansion from spawner surveys only; no steelhead data
-sp <- readRDS("output/Vancouver Island & Mainland Inlets-spawners.rds")
+sp <- readRDS("output/expanded-spawners/Vancouver Island & Mainland Inlets-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 
 for(s in 1:5){
@@ -802,25 +955,44 @@ for(s in 1:5){
 #------------------------------------------------------------------------------
 # Chinook
 #------------------------------------------------------------------------------
-# (1) Use expanded spawner surveys from 1984 onward
-sp <- readRDS("output/Fraser-spawners.rds")
-yrs <- c(1984:max(as.numeric(dimnames(sp)[[3]])))
+# # (1) Use expanded spawner surveys from 1984 onward
+# sp <- readRDS("output/expanded-spawners/Fraser-spawners.rds")
+# yrs <- c(1984:max(as.numeric(dimnames(sp)[[3]])))
+# 
+# # (2) Use Atlas et al. (2023) Fraser populations for run size
+# frck_run0 <- read.csv("data/Atlas2023/CK_TotalRun_FINAL.csv") %>% 
+# 	subset(group == "salish") %>% # select Salish group
+# 	subset(grepl("skagit", population) == FALSE & grepl("cowichan", population) == FALSE) # Remove VIMI populations
+# 
+# frck_run <- tapply(frck_run0$tot_run, frck_run0$year, sum)
 
-# (2) Use Atlas et al. (2023) Fraser populations for run size
-frck_run0 <- read.csv("data/Atlas2023/CK_TotalRun_FINAL.csv") %>% 
-	subset(group == "salish") %>% # select Salish group
-	subset(grepl("skagit", population) == FALSE & grepl("cowichan", population) == FALSE) # Remove VIMI populations
+# (3) CTC data
+ctc_esc <- readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A6:P54", col_types = "numeric")
+ctc_esc_sum <- apply(ctc_esc[, grep("Esc", names(ctc_esc))], 1, sum)
 
-frck_run <- tapply(frck_run0$tot_run, frck_run0$year, sum)
+ctc_catch <-  readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-A-Catch-Detailed.xlsx", sheet = "A14", range = "K4:M52") %>%
+	mutate(year = 1975:2022)
 
+ctc_catch_sum <- apply(ctc_catch[, 1:3], 1, sum)
+ctc_run <- ctc_esc_sum + ctc_catch_sum
+	
+# # Compare to CTC data# Compare to CTC datasum
+# plot(as.numeric(names(frck_run)), frck_run*10^-6, "o", pch = 19, las = 1, ylim = c(0, 1), xlim = c(1980, 2023), lwd = 1.5, ylab = "Abundance (millions)", xlab = "")
+# abline(v = seq(1980, 2023, 2), lty = 3, col = grey(0.6))
+# points(1975:2022, ctc_run*10^-6, "o", col = 2, lwd = 1.5, pch = 19)
+# points(yrs, sp[2, "Chinook", match(yrs, as.numeric(dimnames(sp)[[3]]))]*10^-6, "o",cex = 0.6)
+# points(1975:2022, ctc_esc_sum*10^-6, "o", col = 2, cex = 0.6)
+# legend("topleft", ncol = 2, pch = c(19, 1, 19, 1), pt.cex = c(1, 0.6, 1, 0.6), col = c(1,1,2,2), c("Atlas (2023)", "Expansion", "TCCHINOOK Table A14 - sum + Esc from below", "TCCHINOOK Table B6 - sum of Esc."))
+
+yrs <- ctc_esc$Year[!is.na(ctc_esc_sum)]
 # Put in SPS format
 frck_sps <- data.frame(
 	region = rep("Fraser", length(yrs)),
 	species = rep("Chinook", length(yrs)),
 	year = yrs,
-	spawners = sp[2, "Chinook", match(yrs, as.numeric(dimnames(sp)[[3]]))], 
+	spawners = ctc_esc_sum[!is.na(ctc_esc_sum)], # sp[2, "Chinook", match(yrs, as.numeric(dimnames(sp)[[3]]))], 
 	smoothedSpawners = NA,
-	runsize = frck_run[match(yrs, as.numeric(names(frck_run)))],
+	runsize = ctc_run[!is.na(ctc_run)], # frck_run[match(yrs, as.numeric(names(frck_run)))],
 	smoothedRunsize = NA
 ) 
 	
@@ -845,24 +1017,47 @@ sps_data <- rbind(sps_data, frck_sps)
 #------------------------------------------------------------------------------
 # Chum
 #------------------------------------------------------------------------------
-# (1) Use expanded spawner surveys from 1984 onward
+# (1) Use expanded spawner surveys from 1953 onward
+sp <- readRDS("output/expanded-spawners/Fraser-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 yrs <- 1953:max(yrs[!is.na(sp[2, "Chum", ])])
 
+# # (2) Use TCCHUM Fraser data
+# frcm <- read.csv("data/TTCHUM23-01.csv")
+# 
+# frcm_esc <- frcm$value[frcm$tableSource == "Table 3-11" & frcm$series == "Fraser River Escapement"]
+# frcm_run <- frcm_esc +
+# 	frcm$value[frcm$tableSource == "Table 3-8" & frcm$series == "Total Commercial FSC Harvest"] + 
+# 	frcm$value[frcm$tableSource == "Table 3-9" & frcm$series == "Total Recreational Harvest"] 
+# 
+# # Compare
+# plot(yrs, sp[2, "Chum", match(yrs, as.numeric(dimnames(sp)[[3]]))]*10^-6, "o", pch = 19, bty = "l", xlab = "", ylab = "", las = 1)
+# points(2010:2019, frcm_esc*10^-6, "o", col = 2, pch = 19, cex = 0.8)
+# points(2010:2019, frcm_run*10^-6, "o", col = 2, pch = 21, bg = "white", cex = 0.8)
+# 
+# (frcm_run - frcm_esc)/frcm_run
+
+
 # Put in SPS format
 frcm_sps <- data.frame(
-	region = rep("Fraser", length(yrs)),
-	species = rep("Chum", length(yrs)),
-	year = yrs,
-	spawners = sp[2, "Chum", match(yrs, as.numeric(dimnames(sp)[[3]]))], 
+	region = rep("Fraser", length(yrs)), #length(frcm_esc)),
+	species = rep("Chum", length(yrs)), #length(frcm_esc)),
+	year = yrs, #sort(unique(frcm$year)),
+	spawners = sp[2, "Chum", match(yrs, as.numeric(dimnames(sp)[[3]]))],  # frcm_esc
 	smoothedSpawners = NA,
-	runsize = NA,
+	runsize = NA, #frcm_run,
 	smoothedRunsize = NA
 ) 
 
 # Smoothing
 frcm_sps$smoothedSpawners <- genSmooth(
 	abund = frcm_sps$spawners,
+	years = frcm_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chum"]
+)
+
+frcm_sps$smoothedRunsize <- genSmooth(
+	abund = frcm_sps$runsize,
 	years = frcm_sps$year,
 	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chum"]
 )
@@ -915,7 +1110,7 @@ sps_data <- rbind(sps_data, frco_sps)
 #------------------------------------------------------------------------------
 
 # From PSC (updated to include)
-frpk <- read.csv("data/pink_run_size_2023-12-08.csv")
+frpk <- read.csv("data/pink_run_size_2024_04_05.csv")
 
 # Put in SPS format
 frpk_sps <- data.frame(
@@ -942,7 +1137,7 @@ sps_data <- rbind(sps_data, frpk_sps)
 #------------------------------------------------------------------------------
 
 # From PSC
-frse <- read.csv("data/Total Fraser_run_size_2023-09-20.csv")
+frse <- read.csv("data/Total Fraser_run_size_2024_04_05.csv")
 
 # Put in SPS format
 frse_sps <- data.frame(
@@ -985,12 +1180,13 @@ sps_data <- rbind(sps_data, frse_sps)
 #------------------------------------------------------------------------------
 
 # Use sum of two main Fraser steelhead CUs
-frsh <- read.csv("data/spawner_abundance.csv", na.strings = "-989898") %>% 
-	subset(region == "Fraser" & species_name == "Steelhead") %>%
-	subset(cu_name_pse %in% c("Thompson Summer", "Mid Fraser Summer")) %>%
-	subset(!is.na(estimated_count))
+frsh <- read.csv("data/spawner_abundance.csv") %>% 
+	filter(region == "Fraser", species_name == "Steelhead") %>%
+	filter(cu_name_pse %in% c("Thompson Summer", "Mid Fraser Summer")) %>%
+	filter(!is.na(estimated_count))
 
 frsh_sum <- tapply(as.numeric(frsh$estimated_count), frsh$year, sum)
+frsh_sum <- frsh_sum[min(which(!is.na(frsh_sum))): max(which(!is.na(frsh_sum)))]
 
 # Put in SPS format
 frsh_sps <- data.frame(
@@ -1023,26 +1219,9 @@ sps_data <- rbind(sps_data, frsh_sps)
 #------------------------------------------------------------------------------
 # Chinook
 #------------------------------------------------------------------------------
-colck <- read.csv("data/spawner_abundance.csv", na.strings = "-989898") %>% 
-	subset(region == "Columbia" & species_name == "Chinook") %>%
-	subset(!is.na(estimated_count))
-
-# Add in more recent Chinook data that's not yet in database
-# Sent directly by Chuck Parken: Pacific Salmon Commission Okanagan Work Group
-# Okanagan Chinook: Summary of Findings and COnsiderations for FUture Actions
-# June 28, 2023
-
-colck <- rbind(colck, data.frame(
-	region = rep("Columbia", 4),
-	species_name = rep("Chinook", 4),
-	cuid = rep(301, 4),
-	cu_name_pse = rep("Okanagan", 4),
-	year = c(2019:2022),
-	estimated_count = c(15, 79, 73, 23),
-	observed_count = c(15, 79, 73, 23),
-	total_run = rep(NA, 4),
-	uploadid = rep(NA, 4)
-))
+colck <- read.csv("data/spawner_abundance.csv") %>% 
+	filter(region == "Columbia", species_name == "Chinook") %>%
+	filter(!is.na(estimated_count))
 
 # Put in SPS format
 colck_sps <- data.frame(
@@ -1071,7 +1250,7 @@ sps_data <- rbind(sps_data, colck_sps)
 #------------------------------------------------------------------------------
 # Sockeye
 #------------------------------------------------------------------------------
-colse <- read.csv("data/spawner_abundance.csv", na.strings = "-989898") %>% 
+colse <- read.csv("data/spawner_abundance.csv") %>% 
 	subset(region == "Columbia" &  species_name == "Lake sockeye") %>%
 	subset(!is.na(estimated_count))
 
@@ -1102,9 +1281,9 @@ sps_data <- rbind(sps_data, colse_sps)
 #------------------------------------------------------------------------------
 # Columbia: Steelhead
 #------------------------------------------------------------------------------
-colsh <- read.csv("data/spawner_abundance.csv", na.strings = "-989898") %>% 
-	subset(region == "Columbia" &  species_name == "Steelhead") %>%
-	subset(!is.na(estimated_count))
+colsh <- read.csv("data/spawner_abundance.csv") %>% 
+	filter(region == "Columbia",  species_name == "Steelhead") %>%
+	filter(!is.na(estimated_count))
 
 # Put in SPS format
 colsh_sps <- data.frame(
@@ -1132,10 +1311,13 @@ sps_data <- rbind(sps_data, colsh_sps)
 
 
 dev.off()
+
+
 ###############################################################################
 ###############################################################################
 # Write to .csv
 ###############################################################################
 ###############################################################################
 
-write.csv(sps_data, "output/sps-data.csv", row.names = FALSE)
+write.csv(sps_data, "output/sps-data-raw.csv", row.names = FALSE) # Always have most recent
+write.csv(sps_data, paste0("output/sps-data", Sys.Date(), ".csv"), row.names = FALSE) # Archive with date

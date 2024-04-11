@@ -131,6 +131,7 @@
 		"id": "PeacockEtAl2020EvaluatingConsequencesCommon",
 		"type": "article-journal",
 		"abstract": "Information on biological status is essential for designing, implementing, and evaluating management strategies and recovery plans for threatened or exploited species. However, the data required to quantify status are often limited, and it is important to understand how assessments of status may be biased by assumptions in data analysis. For Pacific salmon, biological status assessments based on spawner abundances and spawner–recruitment (SR) analyses often involve “run reconstructions” that impute missing spawner data, expand observed spawner abundance to account for unmonitored streams, assign catch to individual stocks, and quantify age-at-return. Using a stochastic simulation approach, we quantified how common assumptions in run reconstructions biased assessments of biological status based on spawner abundance. We found that status assessments were robust to most common assumptions in run reconstructions, even in the face of declining monitoring coverage, but that overestimating catch tended to increase rates of status misclassification. Our results lend confidence to biological status assessments based on spawner abundances and SR analyses, even in the face of incomplete data.",
+		"archive": "https://cdnsciencepub.com/doi/10.1139/cjfas-2019-0432",
 		"container-title": "Canadian Journal of Fisheries and Aquatic Sciences",
 		"DOI": "10.1139/CJFAS-2019-0432/ASSET/IMAGES/CJFAS-2019-0432IEQ43.GIF",
 		"ISSN": "12057533",
@@ -138,7 +139,7 @@
 		"note": "publisher: Canadian Science Publishing",
 		"page": "1904-1920",
 		"title": "Evaluating the consequences of common assumptions in run reconstructions on Pacific salmon biological status assessments",
-		"URL": "https://cdnsciencepub.com/doi/10.1139/cjfas-2019-0432",
+		"URL": "https://salmonwatersheds.ca/document/lib_501/",
 		"volume": "77",
 		"author": [
 			{
@@ -610,7 +611,7 @@
 		"volume": "TCTR (22)-01",
 		"author": [
 			{
-				"family": "TTC",
+				"family": "Transboundary Technical Committee",
 				"given": ""
 			}
 		],
@@ -619,6 +620,215 @@
 				[
 					"2022",
 					3
+				]
+			]
+		}
+	},
+	{
+		"id": "COSEWIC2017ChinookSalmonOncorhynchus",
+		"type": "webpage",
+		"abstract": "Information on Environment and Climate Change Canada’s Species at Risk Public Registry.",
+		"language": "eng",
+		"note": "Last Modified: 2017-12-11",
+		"title": "Chinook salmon (Oncorhynchus tshawytscha) Okanagan population: COSEWIC Assessment and Status Report 2017",
+		"title-short": "Chinook salmon (Oncorhynchus tshawytscha) Okanagan population",
+		"URL": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/chinook-salmon-okanagan-population-2017.html",
+		"author": [
+			{
+				"family": "COSEWIC",
+				"given": ""
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					12,
+					4
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2017"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/groups/5243880/items/UPUDMUPY",
+		"type": "document",
+		"title": "aqhaliat-volume-4-english.pdf",
+		"URL": "https://www.canada.ca/content/dam/polar-polaire/documents/publications/aqhaliat/volume-4/aqhaliat-volume-4-english.pdf",
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					12,
+					4
+				]
+			]
+		}
+	},
+	{
+		"id": "EnglishEtAl2023PreliminaryAreaSalmon",
+		"type": "report",
+		"number": "Nisga'a Fisheries Report #22-16",
+		"page": "vi + 75 p.",
+		"publisher": "Prepared by LGL Ltd. and Nisga’a Lisims Government - Fisheries & Wildlife Department for the Pacific Salmon Foundation and Nisga’a-Canada-BC Treaty’s Joint Fisheries Management Committee",
+		"title": "Preliminary Area 3 Salmon (2018–2022) and Nass River Summer-Run Steelhead (1994–2022) Escapement, Catch, Run Size, and Exploitation Rate Estimates",
+		"URL": "https://salmonwatersheds.ca/document/lib_526/",
+		"author": [
+			{
+				"family": "English",
+				"given": "K. K."
+			},
+			{
+				"family": "Alexander",
+				"given": "Richard F."
+			},
+			{
+				"family": "Beveridge",
+				"given": "Ian A."
+			},
+			{
+				"family": "Challenger",
+				"given": "Wendell"
+			},
+			{
+				"family": "Percival",
+				"given": "Niva"
+			},
+			{
+				"family": "Hertz",
+				"given": "Eric"
+			},
+			{
+				"family": "Atkinson",
+				"given": "Clare"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2023",
+					9
+				]
+			]
+		}
+	},
+	{
+		"id": "CoutureEtAl2024CombinedEffectsPredation",
+		"type": "article-journal",
+		"abstract": "Along the northeast Pacific coast, the salmon-eating southern resident killer whale population (SRKW, Orcinus orca) have been at very low levels since the 1970s. Previous research have suggested that reduction in food availability, especially of Chinook salmon (Oncorhynchus tshawytscha), could be the main limiting factor for the SRKW population. Using the ecosystem modelling platform Ecopath with Ecosim (EwE), this study evaluated if the decline of the Pacific salmon populations between 1979 and 2020 may have been impacted by a combination of factors, including marine mammal predation, fishing activities, and climatic patterns. We found that the total mortality of most Chinook salmon populations has been relatively stable for all mature returning fish despite strong reduction in fishing mortality since the 1990s. This mortality pattern was mainly driven by pinnipeds, with increases in predation between 1979 and 2020 mortality ranging by factors of 1.8 to 8.5 across the different Chinook salmon population groups. The predation mortality on fall-run Chinook salmon smolts originating from the Salish Sea increased 4.6 times from 1979 to 2020, whereas the predation mortality on coho salmon (Oncorhynchus kisutch) smolts increased by a factor of 7.3. The model also revealed that the north Pacific gyre oscillation (NPGO) was the most important large-scale climatic index affecting the stock productivity of Chinook salmon populations from California to northern British Columbia. Overall, the model provided evidence that multiple factors may have affected Chinook salmon populations between 1979 and 2020, and suggested that predation mortality by marine mammals could be an important driver of salmon population declines during that time.",
+		"container-title": "PLOS ONE",
+		"DOI": "10.1371/journal.pone.0296358",
+		"ISSN": "1932-6203",
+		"issue": "3",
+		"journalAbbreviation": "PLOS ONE",
+		"language": "en",
+		"note": "publisher: Public Library of Science",
+		"page": "e0296358",
+		"source": "PLoS Journals",
+		"title": "The combined effects of predation, fishing, and ocean productivity on salmon species targeted by marine mammals in the northeast Pacific",
+		"URL": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0296358",
+		"volume": "19",
+		"author": [
+			{
+				"family": "Couture",
+				"given": "Fanny"
+			},
+			{
+				"family": "Christensen",
+				"given": "Villy"
+			},
+			{
+				"family": "Walters",
+				"given": "Carl"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2024",
+					3,
+					22
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2024",
+					3,
+					14
+				]
+			]
+		}
+	},
+	{
+		"id": "20232019PostSeasonSummary",
+		"type": "article-journal",
+		"container-title": "Pacific Salmon Commission Joint Chum Technical Committee",
+		"page": "viii + 60",
+		"title": "2019 Post-Season Summary Report",
+		"URL": "https://www.psc.org/publications/technical-reports/technical-committee-reports/chum/",
+		"volume": "TCCHUM SALMON (23)-01",
+		"author": [
+			{
+				"family": "TTCHUM",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2023",
+					5
+				]
+			]
+		}
+	},
+	{
+		"id": "PacificSalmonCommission2024PSCAnnualReport",
+		"type": "dataset",
+		"title": "PSC Annual Report Application. Release 2024.04 [Updated 2024 apr 03; accessed 2024 Apr 05]",
+		"URL": "https://www.psc1.shinyapps.io/PSC_Annual_Fraser/",
+		"author": [
+			{
+				"family": "Pacific Salmon Commission",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2024"
+				]
+			]
+		}
+	},
+	{
+		"id": "CTC2023TCCHINOOK2306Pdf",
+		"type": "article-journal",
+		"container-title": "Pacific Salmon Commission Joint Chinook Technical Committtee Report",
+		"page": "xviii + 171 p.",
+		"title": "2023 Exploitation Rate Analysis",
+		"URL": "https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/",
+		"volume": "TCCHINOOK (2023)-06",
+		"author": [
+			{
+				"family": "CTC",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2023",
+					12,
+					8
 				]
 			]
 		}

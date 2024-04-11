@@ -18,12 +18,14 @@ plot_abund <- function(sps_data_subset, cols = c("#887A52", "#416191")){
 	# Add spawners
 	abline(h = mean(sps_data_subset$smoothedSpawners*10^-3, na.rm = TRUE), col = cols[2], lty = 2)
 	lines(sps_data_subset$year, sps_data_subset$spawners*10^-3, col = cols[2], lwd = 0.5, xpd = NA)
+	points(sps_data_subset$year, sps_data_subset$spawners*10^-3, col = cols[2], pch = 21, bg = "white", lwd = 0.5)
 	lines(sps_data_subset$year, sps_data_subset$smoothedSpawners*10^-3, col = cols[2], lwd = 2, xpd = NA)
 
 	# Add run size
 	if(sum(!is.na(sps_data_subset$runsize)) > 0){
 		abline(h = mean(sps_data_subset$smoothedRunsize*10^-3, na.rm = TRUE), col = cols[1], lty = 2)
 	lines(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], xpd = NA, lwd = 0.5)
+	points(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], pch = 21, bg = "white", lwd = 0.5)
 	lines(sps_data_subset$year, sps_data_subset$smoothedRunsize*10^-3, col = cols[1], lwd = 2, xpd = NA)
 	legend("topright", lwd = 2, col = cols, c("Run size", "Spawners"), bty = "n")
 	
@@ -67,13 +69,13 @@ genSmooth <- function(
 			smoothYrs <- c(max(yrs[1], yrs[k] - g + 1):yrs[k]) # define previous years over which to smooth
 			
 			# Unweighted geometric mean
-			S <- abund[which(yrs %in% smoothYrs)] + 0.01
+			S <- abund[which(yrs %in% smoothYrs)]
 			# Add 0.01 to spawners so that geometric mean is not zero for multiple years if there is an observation of zero?
 			
 			
 			N <- sum(!is.na(S)) # number of years with data
 			if(N > 0){ # If there are no data, leave as NA
-				smoothedAbund[k] <- prod(S, na.rm = TRUE) ^ (1/N)
+				smoothedAbund[k] <- exp(mean(log(S + 0.01), na.rm = TRUE))
 			}
 		} # end k years
 	
@@ -120,8 +122,7 @@ plot.regional_abund <- function(
 	selected_region, # Select region for which to create multi-species plot
 	abund = "spawners", # Select "spawners" or "runsize"
 	sps_metrics, 
-	sps_dat,	# data frame from compile-regional-data.R
-	sp_cols # vector of colours for species lines
+	sps_dat
 ){
 	
 	# Subset selected_region
@@ -130,23 +131,31 @@ plot.regional_abund <- function(
 		"year",
 		paste0("smoothed", toTitleCase(abund))
 		)]
+	
 	dat <- dat[which(!is.na(dat[, 3])), ]
 	
 	if(dim(dat)[1] > 0){
 		species_withData <- sort(unique(dat$species))
-	n.species <- length(species_withData)
+		n.species <- length(species_withData)
 	
-	# Calculate abundanxce relative to long-term average
+	# Calculate abundance as a percentage of the long-term average
 	dat$relativeAbund <- NA
 	for(s in 1:n.species){
-		dat$relativeAbund[dat$species == species_withData[s]] <- dat[dat$species == species_withData[s], 3]/mean(dat[dat$species == species_withData[s], 3], na.rm = TRUE)
+		H <- exp(mean(log(dat[dat$species == species_withData[s], 3]), na.rm = TRUE))
+		dat$relativeAbund[dat$species == species_withData[s]] <- (dat[dat$species == species_withData[s], 3] - H)/H*100
 	}
 
 	# Set margins
 	par(mar = c(4,5,2,11))
 	
 	# Initiate blank plot
-	plot(range(dat$year), c(min(dat[dat$year > 1970, 4]), quantile(dat[dat$year > 1970, 4], 0.99, na.rm = TRUE)), "n", las = 1, ylab = "", xlab = "", main = paste(selected_region, c("Spawners", "Run Size")[as.numeric(abund == "runsize") + 1]), bty = "l")
+	plot(range(dat$year), 
+			 c(min(dat[dat$year > 1970, 4]), quantile(dat[dat$year > 1970, 4], 0.99, na.rm = TRUE)),
+			 "n", las = 1, ylab = "", xlab = "", bty = "l",
+			 main = paste(selected_region, c("Spawners", "Run Size")[as.numeric(abund == "runsize") + 1]),
+			 yaxt = "n")
+	axis(side = 2, at = pretty(c(min(dat[dat$year > 1970, 4]), quantile(dat[dat$year > 1970, 4], 0.99, na.rm = TRUE))), labels = paste0(pretty(c(min(dat[dat$year > 1970, 4]), quantile(dat[dat$year > 1970, 4], 0.99, na.rm = TRUE))), "%"), las = 1)
+	
 	abline(v = seq(1950, 2025, 10), col = grey(0.8), lwd = 0.5)
 	abline(v = seq(1950, 2025, 2), col = grey(0.8), lty = 3, lwd = 0.5)
 	
@@ -154,31 +163,32 @@ plot.regional_abund <- function(
 	u <- par("usr")
 	
 	# Add y-axis label
-	mtext(side = 2, line = 3, paste0("Index of ", abund))
+	mtext(side = 2, line = 3, c("Spawner abundance", "Run Size")[as.numeric(abund == "runsize") + 1])
 	
 	# Line for y < 1 (less than long-term average)
-	segments(x0 = u[1], x1 = u[2] + 0.2 * (u[2]-u[1]), y0 = 1, y1 = 1, col = grey(0.6), lty = 2, xpd = NA)
+	segments(x0 = u[1], x1 = u[2], y0 = 0, y1 = 0, col = grey(0.8), lwd = 3, xpd = NA)
+	text(u[2] + 0.1 * (u[2]-u[1]), 0, "Historical average", xpd = NA, col = grey(0.6), cex = 0.8)
 	# segments(x0 = u[1], x1 = u[2] + 0.05 * (u[2]-u[1]), y0 = u[3], y1 = u[3], col = 1, xpd = NA)
-	arrows(x0 = rep(u[2] + 0.1 * (u[2]-u[1]), 2), 
-				 x1 = rep(u[2] + 0.1 * (u[2]-u[1]), 2), 
-				 y0 = 1, 
-				 y1 = 1 + c(-1, 1)*(u[4] - u[3])/10, 
-				 length = 0.08, lwd = 1.5, xpd = NA, col = grey(0.6))
-	
-	text(rep(u[2] + 0.2 * (u[2]-u[1]), 2), 1 + c(-1, 1)*(u[4] - u[3])/10, pos = c(1,3), c("Below\nhistorical\naverage", "Above\nhistorical\naverage"), xpd = NA, col = grey(0.6), cex = 0.8)
+	# arrows(x0 = rep(u[2] + 0.1 * (u[2]-u[1]), 2), 
+	# 			 x1 = rep(u[2] + 0.1 * (u[2]-u[1]), 2), 
+	# 			 y0 = 0, 
+	# 			 y1 = 0 + c(-1, 1)*(u[4] - u[3])/10, 
+	# 			 length = 0.08, lwd = 1.5, xpd = NA, col = grey(0.6))
+	# 
+	# text(rep(u[2] + 0.2 * (u[2]-u[1]), 2), 1 + c(-1, 1)*(u[4] - u[3])/10, pos = c(1,3), c("Below\nhistorical\naverage", "Above\nhistorical\naverage"), xpd = NA, col = grey(0.6), cex = 0.8)
 
 	# Add lines for each species
 	for(s in 1:n.species){
 		lines(dat$year[dat$species == species_withData[s]],
 					dat$relativeAbund[dat$species == species_withData[s]], 
-					col = sp_cols[species_withData[s]], lwd = 2, xpd = NA)
+					col = species_cols_light[species_withData[s]], lwd = 1.5, xpd = NA)
 	}
 	
 	max.yrs <- tapply(dat$year[!is.na(dat$relativeAbund)], dat$species[!is.na(dat$relativeAbund)], max)
 	for(s in 1:n.species){
 		g <- sps_metrics$generation_length[sps_metrics$region == selected_region & sps_metrics$species == species_withData[s] & sps_metrics$type == c("Spawners", "Run Size")[as.numeric(abund == "runsize") + 1]]
 		
-		points(max.yrs[species_withData[s]], dat$relativeAbund[which(dat$species == species_withData[s] & dat$year == max.yrs[species_withData[s]])], col = sp_cols[species_withData[s]], pch = 19, cex = 1.5, xpd = NA)
+		points(max.yrs[species_withData[s]], dat$relativeAbund[which(dat$species == species_withData[s] & dat$year == max.yrs[species_withData[s]])], col = species_cols_dark[species_withData[s]], pch = 21, bg = species_cols_light[species_withData[s]], cex = 1.5, xpd = NA)
 		
 		# points(max.yrs[species_withData[s]] - g, dat$relativeAbund[which(dat$species == species_withData[s] & dat$year == (max.yrs[species_withData[s]] - g))], col = sp_cols[species_withData[s]], pch = 21, bg = "white", cex = 1.5, lwd = 2)
 		
@@ -187,10 +197,11 @@ plot.regional_abund <- function(
 	# Calculate percent decline from historical average
 	status <- sps_metrics$status[sps_metrics$region == selected_region & sps_metrics$species %in% species_withData & sps_metrics$type == c("Spawners", "Run Size")[as.numeric(abund == "runsize") + 1]]
 	
-	# Add plus if positive
+	# Add plus if positive and blank if NA
 	percDecline <- paste0(round(status*100),"%")
-	
 	percDecline[which(percDecline > 0)] <- paste0("+", percDecline[which(status > 0)])
+	percDecline <- paste0(" (", percDecline, ")")
+	percDecline[is.na(status)] <- ""
 	
 	# Calculate y-axis positioning for labels (don't want them too squished)
 	y <- tapply(dat$relativeAbund[!is.na(dat$relativeAbund)], dat$species[!is.na(dat$relativeAbund)], tail, 1)
@@ -209,7 +220,7 @@ plot.regional_abund <- function(
 			}
 	
 	# Add labels with species and % change from previous generation
-	text(u[2], y, paste0(species_withData, " (", percDecline, ")"), col = sp_cols[species_withData], xpd = NA, adj = 0, font = 2)
+	text(u[2], y, paste0(species_withData, percDecline), col = species_cols_dark[species_withData], xpd = NA, adj = 0, font = 2)
 	
 	} else { # If no data
 		par(mar = c(4,5,2,11))
@@ -230,8 +241,7 @@ plot.regional_abund <- function(
 
 plot.regional_expansion <- function(
 		selected_region, # Select region for which to create multi-species plot
-		spawners, # Data frame with (at minimum) fields for year, region, species, and abundance
-		sp_cols # vector of colours for species lines
+		spawners
 ){
 	
 	# Subset selected species
@@ -250,14 +260,14 @@ plot.regional_expansion <- function(
 	# Add species lines
 	for(s in 1:length(species)){
 		# Expansion factor 1
-		lines(ss$year[ss$species == species[s]], ss$expansion_factor1[ss$species == species[s]], col = sp_cols[species[s]], lwd = 2)
+		lines(ss$year[ss$species == species[s]], ss$expansion_factor1[ss$species == species[s]], col = species_cols_light[species[s]], lwd = 2)
 		
 		# Expansion factor 2
-		lines(ss$year[ss$species == species[s]], ss$expansion_factor2[ss$species == species[s]], col = sp_cols[species[s]], lty = 2)
+		lines(ss$year[ss$species == species[s]], ss$expansion_factor2[ss$species == species[s]], col = species_cols_dark[species[s]], lty = 2)
 	}
 	
 	# Add legend
-	legend("topleft", fill = sp_cols, legend = species, border = NA)
+	legend("topleft", fill = species_cols_light, broder = species_cols_dark, legend = species, border = NA)
 }
 
 
@@ -418,17 +428,17 @@ btn_table <- function(
 			Species = colDef(
 				style = function(value){
 					if(value == "Chinook"){
-						background <- "#33228850"
+						background <- "#87AC9F"
 					} else if(value == "Chum"){
-						background <- "#44AA9950"
+						background <- "#BDA3A5"
 					}else if(value == "Coho"){
-						background <- "#88CCEE50"
+						background <- "#D0B669"
 					}else if(value == "Pink"){
-						background <- "#CC667750"
+						background <- "#EDBAAF"
 					}else if(value == "Sockeye"){
-						background <- "#88225550"
+						background <- "#C5CC8C"
 					} else if(value == "Steelhead"){
-						background <- "#DDCC7750"
+						background <- "#6F99AD"
 					}
 					list(background = background)
 				},
@@ -443,13 +453,13 @@ btn_table <- function(
 						color <- "#FFFFFF"
 						fontWeight <- "normal"
 					} else if(btn$metric1[index] == "arrow-down"){
-						color <- "#C06263"
+						color <- "#C06363"
 						fontWeight <- "bold"
 					} else if(btn$metric1[index] == "arrow-up"){
-						color <- "#83B686"
+						color <- "#83B687"
 						fontWeight <- "bold"
 					} else if(btn$metric1[index] == "arrows-left-right"){
-						color <- "#808080"
+						color <- "#A7A9AC"
 						fontWeight <- "normal"
 					}
 					list(color = color, fontWeight = fontWeight)
@@ -464,13 +474,13 @@ btn_table <- function(
 						color <- "#FFFFFF"
 						fontWeight <- "normal"
 					} else if(btn$metric2[index] == "arrow-down"){
-						color <- "#C06263"
+						color <- "#C06363"
 						fontWeight <- "bold"
 					} else if(btn$metric2[index] == "arrow-up"){
-						color <- "#83B686"
+						color <- "#83B687"
 						fontWeight <- "bold"
 					} else if(btn$metric2[index] == "arrows-left-right"){
-						color <- "#808080"
+						color <- "#A7A9AC"
 						fontWeight <- "normal"
 					}
 					list(color = color, fontWeight = fontWeight)
@@ -485,13 +495,13 @@ btn_table <- function(
 						color <- "#FFFFFF"
 						fontWeight <- "normal"
 					} else if(btn$metric3[index] == "arrow-down"){
-						color <- "#C06263"
+						color <- "#C06363"
 						fontWeight <- "bold"
 					} else if(btn$metric3[index] == "arrow-up"){
-						color <- "#83B686"
+						color <- "#83B687"
 						fontWeight <- "bold"
 					} else if(btn$metric3[index] == "arrows-left-right"){
-						color <- "#808080"
+						color <- "#A7A9AC"
 						fontWeight <- "normal"
 					}
 					list(color = color, fontWeight = fontWeight)
@@ -545,22 +555,28 @@ btn_table <- function(
 ###############################################################################
 
 btn_table.all <- function(
-		sps_metrics_tab = sps_metrics[which(sps_metrics$type == "Spawners"), c("region", "species", "status")] # data frame with region, species, metric
+		sps_metrics_tab = sps_metrics[which(sps_metrics$type == "Spawners"), c("region", "species", "status")], # data frame with region, species, metric
+		type = "Spawners"
 ){
 	
-	regions <- unique(sps_metrics_tab$region)
+	species <- unique(sps_metrics_tab$species)
 	tab_long <- data.frame(
-		species = unique(sps_metrics_tab$species)
+		regions = unique(sps_metrics_tab$region)
 	)
 	
-	for(i in 1:length(regions)){
-		tab_long <- cbind(tab_long, sps_metrics_tab[which(sps_metrics_tab$region == regions[i]), 3])
+	for(s in 1:length(species)){
+		tab_long <- cbind(tab_long, sps_metrics_tab[which(sps_metrics_tab$species == species[s]), 3])
 	}
-	names(tab_long) <- c("Species", regions)
+	names(tab_long) <- c("Region", species)
 	
-	tab_long[which(tab_long$Species %in% c("Pink", "Sockeye", "Steelhead")), "Yukon"] <- -989898
+	# Set species that are not present
+	tab_long[tab_long$Region == "Yukon", which(names(tab_long) %in% c("Pink", "Sockeye", "Steelhead"))] <- -989898
+	tab_long[tab_long$Region == "Columbia", which(names(tab_long) %in% c("Pink", "Chum", "Coho"))] <- -989898
 	
-	tab_long[which(tab_long$Species %in% c("Pink", "Chum", "Coho")), "Columbia"] <- -989898
+	# # Okanagan Chinook are endangered - Apr 2024: set as unknown due to short baseline
+	# if(type == "Spawners"){
+	# 	tab_long[which(tab_long$Species == "Chinook"), "Columbia"] <- -1000
+	# }
 	
 	# tab_long_col <- ifelse(tab_long[, c(2:(dim(tab_long)[2]))] < 0, "#C06263", "#83B686")
 	# 
@@ -572,10 +588,13 @@ btn_table.all <- function(
 	stylefunc <- function(value, index, name) {
 		if(is.na(value)){
 			color <- NA
-			background <- "#FFFFFF"
+			background <- "#D8D8D8"
 		} else if(value == -989898){
 			color <- "#000000"
 			background <- "#000000"
+		} else if(value == -1000){
+			color <- "#C06263"
+			background <- "#C06263"
 		} else if(value > 0){
 			color <- "#83B686"
 			background <- "#83B68630"
@@ -595,19 +614,19 @@ btn_table.all <- function(
 	)
 	
 	# replicate list to required length
-	coldefs <- rep(coldefs,length(regions))
+	coldefs <- rep(coldefs,length(species))
 	
 	# name elements of list according to cols
-	names(coldefs) <- regions
+	names(coldefs) <- species
 	
 	# Render table
 	tab_long %>%
 		reactable(
 			., 
 			columns = coldefs,
-			columnGroups = list(
-				colGroup(name = "Region", columns = c("Yukon", "Transboundary", "Haida Gwaii", "Nass", "Skeena", "Central Coast", "Vancouver Island & Mainland Inlets", "Fraser", "Columbia"))
-				),
+			# columnGroups = list(
+			# 	colGroup(name = "Region", columns = c("Yukon", "Transboundary", "Haida Gwaii", "Nass", "Skeena", "Central Coast", "Vancouver Island & Mainland Inlets", "Fraser", "Columbia"))
+			# 	),
 			bordered = TRUE,
 			highlight = TRUE,
 			striped = TRUE,
@@ -615,7 +634,7 @@ btn_table.all <- function(
 			fullWidth = FALSE,
 			wrap = TRUE,
 			style = list(fontSize = "1.25rem"),
-			defaultPageSize = 6
+			defaultPageSize = 9
 		)
 	
 }
