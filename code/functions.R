@@ -27,7 +27,7 @@ plot_abund <- function(sps_data_subset, cols = c("#887A52", "#416191")){
 	lines(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], xpd = NA, lwd = 0.5)
 	points(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], pch = 21, bg = "white", lwd = 0.5)
 	lines(sps_data_subset$year, sps_data_subset$smoothedRunsize*10^-3, col = cols[1], lwd = 2, xpd = NA)
-	legend("topright", lwd = 2, col = cols, c("Run size", "Spawners"), bty = "n")
+	legend("topright", lwd = 2, col = cols, c("Total Return", "Spawners"), bty = "n")
 	
 	} else {
 		legend("topright", lwd = 2, col = cols[2], c("Spawners"), bty = "n")
@@ -152,7 +152,7 @@ plot.regional_abund <- function(
 	plot(range(dat$year), 
 			 c(min(dat[dat$year > 1970, 4]), quantile(dat[dat$year > 1970, 4], 0.99, na.rm = TRUE)),
 			 "n", las = 1, ylab = "", xlab = "", bty = "l",
-			 main = paste(selected_region, c("Spawners", "Run Size")[as.numeric(abund == "runsize") + 1]),
+			 main = paste(selected_region, c("Spawners", "Total return")[as.numeric(abund == "runsize") + 1]),
 			 yaxt = "n")
 	axis(side = 2, at = pretty(c(min(dat[dat$year > 1970, 4]), quantile(dat[dat$year > 1970, 4], 0.99, na.rm = TRUE))), labels = paste0(pretty(c(min(dat[dat$year > 1970, 4]), quantile(dat[dat$year > 1970, 4], 0.99, na.rm = TRUE))), "%"), las = 1)
 	
@@ -163,7 +163,7 @@ plot.regional_abund <- function(
 	u <- par("usr")
 	
 	# Add y-axis label
-	mtext(side = 2, line = 3, c("Spawner abundance", "Run Size")[as.numeric(abund == "runsize") + 1])
+	mtext(side = 2, line = 3, c("Spawner abundance", "Total return")[as.numeric(abund == "runsize") + 1])
 	
 	# Line for y < 1 (less than long-term average)
 	segments(x0 = u[1], x1 = u[2], y0 = 0, y1 = 0, col = grey(0.8), lwd = 3, xpd = NA)
@@ -230,7 +230,8 @@ plot.regional_abund <- function(
 	text(mean(c(1950,2022)), 1, font = 2, "Data Deficient", cex = 2, col = grey(0.6))
 			
 		# Add y-axis label
-		mtext(side = 2, line = 3, paste0("Index of ", abund))
+		mtext(side = 2, line = 3, c("Spawner abundance", "Total return")[as.numeric(abund == "runsize") + 1])
+		
 	}
 
 }
@@ -392,6 +393,8 @@ btn_table <- function(
 	btn <- byTheNumbers(selected_region = selected_region,
 											sps_metrics = sps_metrics)
 	
+	# Chnage term "run size" to "total return"
+	btn$Index[btn$Index == "Run Size"] <- "Total return"
 	# Define species levels
 	# species <- sort(unique(btn$Species))
 	
@@ -517,12 +520,12 @@ btn_table <- function(
 			avg_abund = colDef(
 				name = "Historical average",
 				maxWidth = 100),
-			num_indicator = colDef(
-				name = "Indicator",
-				maxWidth = 80),
-			num_nonindicator = colDef(
-				name = "Non-indicator",
-				maxWidth = 80),
+			# num_indicator = colDef(
+			# 	name = "Indicator",
+			# 	maxWidth = 80),
+			# num_nonindicator = colDef(
+			# 	name = "Non-indicator",
+			# 	maxWidth = 80),
 			gen_length = colDef(
 				name = "Generation length",
 				maxWidth = 80)
@@ -531,8 +534,8 @@ btn_table <- function(
 		columnGroups = list(
 			colGroup(name = "Metrics of change", columns = c("metric1_perc", "metric2_perc", "metric3_perc")),
 			
-			colGroup(name = "Index of abundance", columns = c("current_abund", "lastgen_abund", "avg_abund")),
-			colGroup(name = "Number of monitored streams", columns = c("num_indicator", "num_nonindicator"))
+			colGroup(name = "Index of abundance", columns = c("current_abund", "lastgen_abund", "avg_abund"))#,
+			# colGroup(name = "Number of monitored streams", columns = c("num_indicator", "num_nonindicator"))
 		),
 		#   meta = list(
 		# 		speciesColors = sp_cols,

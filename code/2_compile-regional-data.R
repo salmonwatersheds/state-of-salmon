@@ -1023,16 +1023,21 @@ yrs <- as.numeric(dimnames(sp)[[3]])
 yrs <- 1953:max(yrs[!is.na(sp[2, "Chum", ])])
 
 # # (2) Use TCCHUM Fraser data
-# frcm <- read.csv("data/TTCHUM23-01.csv")
+# frcm <- read.csv("data/TTCHUM.csv")
 # 
 # frcm_esc <- frcm$value[frcm$tableSource == "Table 3-11" & frcm$series == "Fraser River Escapement"]
+# frcm_esc2 <- frcm$value[frcm$tableSource == "Table 6" & frcm$series == "Fraser River Escapement"]
 # frcm_run <- frcm_esc +
-# 	frcm$value[frcm$tableSource == "Table 3-8" & frcm$series == "Total Commercial FSC Harvest"] + 
-# 	frcm$value[frcm$tableSource == "Table 3-9" & frcm$series == "Total Recreational Harvest"] 
+# 	frcm$value[frcm$tableSource == "Table 3-8" & frcm$series == "Total Commercial FSC Harvest"] +
+# 	frcm$value[frcm$tableSource == "Table 3-9" & frcm$series == "Total Recreational Harvest"]
 # 
 # # Compare
-# plot(yrs, sp[2, "Chum", match(yrs, as.numeric(dimnames(sp)[[3]]))]*10^-6, "o", pch = 19, bty = "l", xlab = "", ylab = "", las = 1)
+# plot(yrs, sp[2, "Chum", match(yrs, as.numeric(dimnames(sp)[[3]]))]*10^-6, "o", pch = 19, bty = "l", xlab = "", ylab = "Escapement (millions)", las = 1, main = "Escapement of Fraser Chum")
+# abline(v = seq(1950, 2020, 5), col = "#00000030")
 # points(2010:2019, frcm_esc*10^-6, "o", col = 2, pch = 19, cex = 0.8)
+# points(1999:2009, frcm_esc2*10^-6, "o", col = 4, pch = 19, cex = 0.8)
+# legend("topleft", pch = 19, pt.cex = c(1, 0.8, 0.8), col = c(1,2,4), c("PSF-expanded from NuSEDS indicator streams", "TCCHUM (23)-01 Table 3-11", "TCCHUM 10-2 Table 6"))
+# 
 # points(2010:2019, frcm_run*10^-6, "o", col = 2, pch = 21, bg = "white", cex = 0.8)
 # 
 # (frcm_run - frcm_esc)/frcm_run
