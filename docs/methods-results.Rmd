@@ -72,7 +72,7 @@ This lack of publicly accessible information about the state of Pacific salmon a
 
 The [Pacific Salmon Foundation (PSF)](https://www.psf.ca) is developing an inaugural **State of Pacific Salmon in Canada** publication, which will address these questions and be tailored to the questions of a salmon-informed public audience. The outputs will be updated regularly (e.g. annually or biennially) to reflect new data and changes to the state of Pacific salmon populations.
 
-As part of the State of Salmon report, PSF's [Salmon Watersheds Program](https://www.salmonwatersheds.ca) is developing simple metrics to report on the status and trends in regional abundance for each species. This document outlines the data sources and analytical approach used to estimate time series of spawner abundance and, where available, run size for each species and region, as well as draft results. **This information is intended to be shared with external partners in order to garner feedback on preliminary results that will inform our approach moving forward.** Our analyses are ongoing, and the information here is subject to change on a regular basis, but we will endeavor to keep it up-to-date.
+As part of the State of Salmon report, PSF's [Salmon Watersheds Program](https://www.salmonwatersheds.ca) is developing simple metrics to report on the status and trends in regional abundance for each species. This document outlines the data sources and analytical approach used to estimate time series of spawner abundance and total returns (including catch) for each species and region, as well as draft results. **This information is intended to be shared with external partners in order to garner feedback on preliminary results that will inform our approach moving forward.** Our analyses are ongoing, and the information here is subject to change on a regular basis, but we will endeavor to keep it up-to-date.
 
 # Methods
 
@@ -82,9 +82,9 @@ We report spawner abundance for each of nine regions that represent all major Pa
 
 We separate five species of Pacific salmon: Chinook, chum, coho, pink, and sockeye. We also report status of steelhead trout for regions where spawner data are are available and can reasonably be expanded to yield an estimate of regional abundance (Nass, Skeena, interior Fraser, and Columbia). When assessing biological status, pink salmon are often separated into even- and odd-year lineages due to their consistent 2-year life cycle. However, for the general overviews provided in State of Salmon we consider generational averages, which take the running average of even- and odd-year lineages for pink salmon. This approach of using generation running averages also smooths over dominant years for sockeye salmon, for which many populations display cyclic dominance. Shifts in dominance between even- and odd-year pink populations or declines in sub-dominant years of sockeye salmon are considered in a more nuanced way in our reporting when discussing how changes in abundance have been reflected in the diversity and distribution of each species within the region. 
 
-For each of these species, where data are available, we construct an index of spawner abundance at the regional scale. We focus on spawner abundance, rather than catch or run size (i.e., catch plus spawners), because data on spawner data are more easily accessible and straightforward to summarize at different spatial scales. Further, spawners represent the abundance of salmon available to meet cultural and ecological needs within watersheds, and thus provides a measure of status relevant to communities and ecosystems. We recognize that commercial catch has historically been a substantial portion of salmon that return to the coast, and that ignoring declines in catch will underestimate the declines in overall salmon abundance. Therefore, we include information on run size for species and regions with reliable data. **This assessment of the data landscape is ongoing, and one of the reasons why the results here should be considered preliminary.** 
+For each of these species, where data are available, we construct an index of **spawner abundance** at the regional scale. We focus on spawner abundance because these data are more readily accessible and easily summarised at different spatial scales. Spawners represent the abundance of salmon available to reproduce and contribute to future generations, as well as to meet cultural and ecological needs within watersheds, and thus provides a measure of status relevant to communities and ecosystems. We recognize that commercial catch has historically been a substantial portion of salmon that return to the coast, and that ignoring declines in catch will underestimate the declines in overall salmon abundance. Therefore, we include information on **total return** (i.e. spawners plus catch) for species and regions with reliable data. **This assessment of the data landscape is ongoing, and one of the reasons why the results here should be considered preliminary.** 
 
-We have strived to base our assessments on the best available data for each region and species. For example, stocks that are governed by international treaties may be monitored by the Pacific Salmon Commission, and tend to have reliable time series of abundance available at regional scales. These data sources are outlined in the [Region-Specific Data section](#region-specific-data). For species and regions where aggregate abundance is not reported by the PSC or DFO at the scale needed, we adapted our approach to make the best use of available data. In most cases, this meant expanding spawner abundance from stream-level estimates to get a regional scale index of spawner abundance using two types of expansion factors [@EnglishEtAl2016NorthCentralCoast]. This expansion process is described in the [Expansion Factors section](#expansion-factors).  
+We have strived to base our assessments on the best available data for each region and species. For example, stocks that are governed by international treaties may be monitored by the [Pacific Salmon Commission (PSC)](https://www.psc.org/), and tend to have reliable time series of abundance available at regional scales. These data sources are outlined in the [Region-Specific Data section](#region-specific-data). For species and regions where aggregate abundance is not reported by the PSC or DFO at the scale needed, we adapted our approach to make the best use of available data. In most cases, this meant expanding spawner abundance from stream-level estimates to get a regional scale index of spawner abundance using two types of expansion factors [@EnglishEtAl2016NorthCentralCoast]. This expansion process is described in the [Expansion Factors section](#expansion-factors).  
 
 `R` code and data for the analyses described here are available on GitHub at https://github.com/salmonwatersheds/state-of-salmon.
 
@@ -94,17 +94,17 @@ Here we describe specific data sources for the abundance of salmon and steelhead
 
 ### Yukon
 
-The Canadian portion of the Yukon River is home to Chinook, chum, and coho salmon. Border escapement and run size of Canadian-origin Chinook and fall chum salmon in the mainstem Yukon River are counted at the Eagle Sonar station on the Yukon/Alaska border, and are available from the [Yukon River Panel](https://www.yukonriverpanel.com/) in their Joint Technical Committee (JTC) Reports. Specifically, we used Chinook `Spawning escapement estimate` and `Canadian origin total run size estimate` from Appendix B11 of @JTC2023YukonRiverSalmon. Chum salmon spawner data were from Appendix B16 and run size from Appendix B20 of @JTC2023YukonRiverSalmon. Estimates from 2023 have not yet been published but were reported in the January 2024 post-season Yukon River Panel meeting (recording available on the YRP website [here](https://www.yukonriverpanel.com/meetings/past-meetings/)), and should be considered preliminary. 
+The Canadian portion of the Yukon River is home to Chinook, chum, and coho salmon. Border escapement and total return of Canadian-origin Chinook and fall chum salmon in the mainstem Yukon River are counted at the Eagle Sonar station on the Yukon/Alaska border, and are available from the [Yukon River Panel](https://www.yukonriverpanel.com/) in their Joint Technical Committee (JTC) Reports. Specifically, we used Chinook `Spawning escapement estimate` and `Canadian origin total run size estimate` from Appendix B11 of @JTC2023YukonRiverSalmon. Chum salmon spawner data were from Appendix B16 and total return from Appendix B20 of @JTC2023YukonRiverSalmon. Estimates from 2023 have not yet been published but were reported in the January 2024 post-season Yukon River Panel meeting (recording available on the YRP website [here](https://www.yukonriverpanel.com/meetings/past-meetings/)), and should be considered preliminary. 
 
 There are also Chinook, chum, and coho salmon in the Canadian portion of the Porcupine River, which joins the mainstem Yukon River in Alaska. Data on escapement to the Porcupine River are more patchy and not currently included here.
 
-<!-- ```{r, echo = FALSE, include = TRUE, fig.cap = "**Above:** Map showing the Canadian portino of the Yukon River drainage. Out estimates of spawner abundance and run size are based on border escapement estimated from Eagle sonar. Enuneration of salmon in the Porcupine river is less consistent and was not included in our analysis."} -->
+<!-- ```{r, echo = FALSE, include = TRUE, fig.cap = "**Above:** Map showing the Canadian portino of the Yukon River drainage. Out estimates of spawner abundance and total return are based on border escapement estimated from Eagle sonar. Enuneration of salmon in the Porcupine river is less consistent and was not included in our analysis."} -->
 
 <!-- ``` -->
 
 ### Transboundary
 
-For Chinook, coho, and sockeye, we assessed regional abundance in the Transboundary using estimates of border escapement provided in the Pacific Salmon Commission's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The regional spawner abundance and run size of Chinook was calculated as the sum of escapement and run size, respectively, to the Stikine, Alsek, and Taku watersheds, available from Table B2 of @CTC2023AnnualReportCatch and provided to E. Hertz in Excel format following a data request. Sockeye spawner abundance and run size was the `sum escapement` or `Terminal Run`, respectively, from the Stikine River [Appendix B21; @TTC2022FinalEstimatesTransboundary] and the Taku River [Appendix D15; @TTC2022FinalEstimatesTransboundary]. Coho spawner abundance and run size are available for the Taku River only, taken from Appendix D20 of @TTC2022FinalEstimatesTransboundary.
+For Chinook, coho, and sockeye, we assessed regional abundance in the Transboundary using estimates of border escapement provided in the PSC's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The regional spawner abundance and total return of Chinook was calculated as the sum of escapement and total return, respectively, to the Stikine, Alsek, and Taku watersheds, available from Table B2 of @CTC2023AnnualReportCatch and provided to PSF staff (E. Hertz) in Excel format following a data request. Sockeye spawner abundance and total return was the `sum escapement` or `Terminal Run`, respectively, from the Stikine River [Appendix B21; @TTC2022FinalEstimatesTransboundary] and the Taku River [Appendix D15; @TTC2022FinalEstimatesTransboundary]. Coho spawner abundance and total return are available for the Taku River only, taken from Appendix D20 of @TTC2022FinalEstimatesTransboundary.
 
 Pink and chum salmon are less extensively monitored in the Transboundary, with ongoing escapement available only from the Canyon Island fish wheel on the Taku River. We used the index of escapement from the Canyon Island fish wheel as an index of regional spawner abundance for pink and chum [@TTC2022FinalEstimatesTransboundary]. There are some historical data for pink salmon spawner abundance in the Nakina River of the Taku watershed, but this location has not reported data since 1998 and thus we did not include this stream survey in our index of regional abundance. Steelhead trout have also been enumerated at the Canyon Island fish wheel since 1987, though recent estimates have been patchy and the timing of the fish wheel likely misses a substantial portion of the Taku summer run steelhead. Thus, we do not use the Canyon Island counts as an index of steelhead abundance.
 
@@ -116,23 +116,23 @@ For Haida Gwaii, we followed the [Expansion Factors](#expansion-factors) approac
 
 ### Nass
 
-Chinook spawners and run size were taken from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @CTC2023AnnualReportCatch. Specifically, Nass River (Area 3) escapement and terminal run are provided in Table B3 (fields `Esc` and `t.run` respectively).
+Chinook spawners and total return were taken from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @CTC2023AnnualReportCatch. Specifically, Nass River (Area 3) escapement and terminal run are provided in Table B3 (fields `Esc` and `t.run` respectively).
 
 Chum, coho, and pink salmon were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Nass region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS.
 
-Nass sockeye escapement and run size were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and run size for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 3 sockeye from the  2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2016NorthCentralCoast; @EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast].
+Nass sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 3 sockeye from the  2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2016NorthCentralCoast; @EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast].
 
-The index of Nass steelhead spawner abundance and run size are for the Nass Summer CU, developed in collaboration with the Nisga’a Fish and Wildlife Department and LGL Ltd. [@EnglishEtAl2023PreliminaryAreaSalmon]. There is another steelhead CU in the Nass region - Nass Winter - which is not well monitored and therefore not included in our index of spawner abundance.
+The index of Nass steelhead spawner abundance and total return are for the Nass Summer CU, developed in collaboration with the Nisga’a Fish and Wildlife Department and LGL Ltd. [@EnglishEtAl2023PreliminaryAreaSalmon]. There is another steelhead CU in the Nass region - Nass Winter - which is not well monitored and therefore not included in our index of spawner abundance.
 
 ### Skeena
 
-Chinook spawners were taken from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @CTC2023AnnualReportCatch. Specifically, Skeena River (Area 4) escapement is provided in Table B3 (field `Total Esc`). There is no total run size for the Skeena River provided in the CTC data sets.
+Chinook spawners were taken from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @CTC2023AnnualReportCatch. Specifically, Skeena River (Area 4) escapement is provided in Table B3 (field `Total Esc`). There is no total return for the Skeena River provided in the CTC data sets.
 
 For Skeena chum salmon, we used escapement to Area 4 reported in Table 32 of @TCNB2023CanadaNorthernBoundary, rather than expanding escapement from spawner surveys, because surveys of indicator stream have been increasingly patchy over the last 30 years, making expansions uncertain.
 
 Skeena coho and pink salmon were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS.
 
-Skeena sockeye escapement and run size were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and run size for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 4 sockeye from the  2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2016NorthCentralCoast; @EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast].
+Skeena sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 4 sockeye from the  2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2016NorthCentralCoast; @EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast].
 
 The index of Skeena steelhead spawner abundance is derived from estimated escapement of Skeena Summer steelhead at the Tyee Test Fishery (1956 - present), provided by the Province via email. As for other regions, these estimates may not capture winter-run steelhead, for which data are not available.
 
@@ -140,23 +140,23 @@ The index of Skeena steelhead spawner abundance is derived from estimated escape
 
 Estimates of spawner abundance for all salmon species on the Central Coast were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Central Coast region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS.
 
-There were no available data on steelhead spawner abundance or run size on the Central Coast.
+There were no available data on steelhead spawner abundance or total return on the Central Coast.
 
 ### Vancouver Island & Mainland Inlets
 
-Estimates of spawner abundance for all salmon species in Vancouver Island & Mainland Inlets were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). We are exploring the potential use of well-monitored Chinook indicator stocks to inform an index of spawner abundance and run size for Chinook [@CTC2023AnnualReportCatch].
+Estimates of spawner abundance for all salmon species in Vancouver Island & Mainland Inlets were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). We are exploring the potential use of well-monitored Chinook indicator stocks to inform an index of spawner abundance and total return for Chinook [@CTC2023AnnualReportCatch].
 
 ### Fraser
 
-<!-- River-level spawner abundance for Fraser Chinook found in NuSEDS can be highly unreliable, thus we based our expansions on only the most intensively monitored streams that have been deemed as reliable estimates of abundance by @BrownEtAl20202020SummaryAbundance. These streams are those shown in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca), and the associated data can be accessed from the stream survey data in the [SWP Data Library](https://data.salmonwatersheds.ca/result?datasetid=1). We also truncated the Chinook index of abundance to 1984 and more recent data, as earlier years have been deemed unreliable [@BrownEtAl20202020SummaryAbundance] and from 1984 onward spawner estimates mirrored those reported by @AtlasEtAl2023TrendsChinookSalmon. For Chinook run size, we used the sum of total run for four Fraser populations (Harrison, Nicola, Lower Shuswap, and South Thompson - all) reported in @AtlasEtAl2023TrendsChinookSalmon and available from the associated [GitHub repository](https://github.com/willatlas/ChinookEscapement-RunSize). -->
+<!-- River-level spawner abundance for Fraser Chinook found in NuSEDS can be highly unreliable, thus we based our expansions on only the most intensively monitored streams that have been deemed as reliable estimates of abundance by @BrownEtAl20202020SummaryAbundance. These streams are those shown in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca), and the associated data can be accessed from the stream survey data in the [SWP Data Library](https://data.salmonwatersheds.ca/result?datasetid=1). We also truncated the Chinook index of abundance to 1984 and more recent data, as earlier years have been deemed unreliable [@BrownEtAl20202020SummaryAbundance] and from 1984 onward spawner estimates mirrored those reported by @AtlasEtAl2023TrendsChinookSalmon. For Chinook total return, we used the sum of total run for four Fraser populations (Harrison, Nicola, Lower Shuswap, and South Thompson - all) reported in @AtlasEtAl2023TrendsChinookSalmon and available from the associated [GitHub repository](https://github.com/willatlas/ChinookEscapement-RunSize). -->
 
-Escapement of Fraser Chinook is provided in the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @CTC2023AnnualReportCatch. We took the sum of escapement to indicator stocks in Table B6 (all Spring/Summer, Harrison, Lower Shuswap, Nicola, Lower Chilcotin, and Chilko) as an index of spawner abundance. Catch of Fraser Chinook is provided in Table A14. We assumed run size was the sum of escapement and catch (landed catch plus incidental mortality).
+Escapement of Fraser Chinook is provided in the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @CTC2023AnnualReportCatch. We took the sum of escapement to indicator stocks in Table B6 (all Spring/Summer, Harrison, Lower Shuswap, Nicola, Lower Chilcotin, and Chilko) as an index of spawner abundance. Catch of Fraser Chinook is provided in Table A14. We assumed total return was the sum of escapement and catch (landed catch plus incidental mortality).
 
 Fraser chum catch and escapement are reported by PSC's Chum Technical Committee [@20232019PostSeasonSummary], however the most recently published report only contains estimates for 2010-2019 and the data were not otherwise made available to us. As such, we estimated spawner abundance from available spawner surveys in NuSEDS as described below in [Expansion Factors](#expansion-factors). We note that, although most NuSEDS data was updated to include surveys in 2022, for Fraser chum the most recent data was from 2020.
 
-For interior Fraser coho CUs, spawner abundance and run size were provided by DFO on data request (pers. comm. Marissa Glavas, Data Manager, Fraser River Stock Assessment). We report run size as the sum of "Total Pre-Fishery Abundance" to all CUs and spawner abundance as the sum of "Total Return" (i.e., final spawner estimate plus fish removed from the system by DFO Salmon Enhancement Program or First Nations) to all CUs. We recognize that using these estimates ignores coastal coho populations, for which monitoring has been patchy through time.
+For interior Fraser coho CUs, spawner abundance and total return were provided by DFO on data request (pers. comm. Marissa Glavas, Data Manager, Fraser River Stock Assessment). We report total return as the sum of "Total Pre-Fishery Abundance" to all CUs and spawner abundance as the sum of "Total Return" (i.e., final spawner estimate plus fish removed from the system by DFO Salmon Enhancement Program or First Nations) to all CUs (we note the term "total return" is used differently in this data set to represent spawners!). We recognize that using these estimates ignores coastal coho populations, for which monitoring has been patchy through time.
 
-Data on aggregate run size and spawner abundance of pink salmon and sockeye salmon in the Fraser region are provided by the Pacific Salmon Commission (PSC), and accessed through the Fraser Panel Annual Report: Data Application[@PacificSalmonCommission2024PSCAnnualReport]. Total escapement for Fraser sockeye was not yet available for 2023, and 2023 run size is considered preliminary. We note that Fraser River pink salmon are only counted in the dominant, odd-year run. 
+Data on total return and spawner abundance of pink salmon and sockeye salmon in the Fraser region are provided by the PSC and accessed through the Fraser Panel Annual Report: Data Application [@PacificSalmonCommission2024PSCAnnualReport]. Total escapement for Fraser sockeye was not yet available for 2023, and 2023 total return is considered preliminary. We note that Fraser River pink salmon are only counted in the dominant, odd-year run. 
 
 Steelhead trout in the Fraser are monitored by the Province in at least 10 different streams, but these data are not readily available. Relatively reliable estimates of steelhead spawner abundance are available at the CU-level for interior Fraser steelhead from the Thompson Summer CU (monitored at the Thompson River) and Mid Fraser Summer CU (primarily monitored at the Chilcotin River; data in the [Pacific Salmon Explorer](https://salmonexplorer.ca)). We used the sum of CU-level spawner abundance for these two CUs as an index of Fraser steelhead abundance. We note that this approach does not include more coastal populations, such as the Lower Fraser Summer steelhead monitored in the Coquihalla River or Boundary Bay Winter steelhead, which may not have declined to the same extent over the past decade. However, a lack of publicly accessible data on coastal Fraser steelhead has limited our ability to include these CUs in our index of abundance.
 
@@ -168,7 +168,7 @@ There is no monitoring of steelhead trout in the Canadian portion of the Columbi
 
 ## Expansion Factors 
 
-For species and regions that lacked reliable data on spawner abundance and run size at the appropriate scale, we estimated regional-scale abundance from stream-level surveys. We started with spawner survey data shown in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca). Spawner surveys were each assigned to one of the nine regions we considered based on their geographic location. We note that this is slightly different from how spawner survey data are organized in the Pacific Salmon Explorer, where data are organized by Conservation Units (CUs) that may span regional boundaries (e.g. for pink salmon that have relatively geographically large CUs). In cases of trans-regional CUs, the spawner surveys appear in both regions in the Pacific Salmon Explorer, whereas here we assign spawner surveys to the region in which they fall geographically, regardless of the CU boundary. 
+For species and regions that lacked reliable data on spawner abundance and total return at the appropriate scale, we estimated regional-scale abundance from stream-level surveys. We started with spawner survey data shown in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca). Spawner surveys were each assigned to one of the nine regions we considered based on their geographic location. We note that this is slightly different from how spawner survey data are organized in the Pacific Salmon Explorer, where data are organized by Conservation Units (CUs) that may span regional boundaries (e.g. for pink salmon that have relatively geographically large CUs). In cases of trans-regional CUs, the spawner surveys appear in both regions in the Pacific Salmon Explorer, whereas here we assign spawner surveys to the region in which they fall geographically, regardless of the CU boundary. 
 
 Spawner survey data are largely derived from river-level estimates in  DFO’s [New Salmon Escapement Database System (NuSEDS)](https://open.canada.ca/data/en/dataset/c48669a3-045b-400d-b730-48aafe8c5ee6), but are cleaned up to address issues of, for example, inconsistent naming of streams through time or duplicate data. The spawner survey abundance is equal to the `MAX_ESTIMATE` in NUSEDS for each year and river population, calculated as the maximum of all fields containing spawner abundance data (e.g. natural adult spawners, natural jack spawners, total broodstock removals). Each of these river populations has been designated as an **indicator** stream or **non-indicator**. Indicator streams are observed more consistently in recent decades, tend to have higher spawner abundance, and tend to be monitored using more intensive methods that provide greater accuracy [EnglishEtAl2016NorthCentralCoast]. For further information on the compilation of spawner survey data, see the [Pacific Salmon Explorer Technical Report](https://bookdown.org/salmonwatersheds/tech-report/analytical-approach.html#spawner-surveys).
 
@@ -200,7 +200,7 @@ $$ S''_{y} = F_{2,d} S'_{y} $$
 Note that when expanding spawner abundance for spawner-recruit analysis, a third expansion factor is applied to account for streams that are never monitored and for observer (in)efficiency [@PeacockEtAl2020EvaluatingConsequencesCommon]. We did not apply this third expansion factor because it is highly undertain and we are interested in relative changes in abundance through time, so we do not require to expand to absolute abundance.
 
 ## Smoothing
-We smoothed time series of spawner abundance and run size using a right-aligned running geometric mean over the length of a generation. This reduces the influence of dominant years and produces an index that is less sensitive to stochastic interannual variability that is common in salmon population dynamics. The generation length was based on the dominant life-history type for each species in a particular region. The smoothed spawner abundance in year $y$ given a generation length $g$ was calculated as:
+We smoothed time series of spawner abundance and total return using a right-aligned running geometric mean over the length of a generation. This reduces the influence of dominant years and produces an index that is less sensitive to stochastic interannual variability that is common in salmon population dynamics. The generation length was based on the dominant life-history type for each species in a particular region. The smoothed spawner abundance in year $y$ given a generation length $g$ was calculated as:
 $$ \bar{S_{y}} = \left( \prod_{t = y-g+1}^y {S''_t} \right)^{1/g} $$
 
 We smoothed abundance from the first year to the most recent year of raw abundance data. If there were intermediate years with missing data, the smoothed abundance was still calculated using the available years (i.e. ignoring the missing data, with the exponent $1/g$ adjusted so that $g$ reflected the number of years with data in the generation). If all years in a generation were missing data, than the smoothed abundance was `NA`.
@@ -208,7 +208,7 @@ We smoothed abundance from the first year to the most recent year of raw abundan
 When plotting, we show the smoothed abundance relative to the long-term historical average, so that species that have vastly different abundances within a region can be plotted on the same y-axis for comparison.
 
 ## Quantifying change
-We summarize the time series of smoothed spawner abundance or run size at the regional scale using three different metrics:
+We summarize the time series of smoothed spawner abundance or total return at the regional scale using three different metrics:
 
 1. **Current status** relative to historical average;
 2. **Long-term trend** over the entire time series; and
@@ -290,7 +290,7 @@ The standardized approach to quantifying change described above was applied acro
 
 1. If the species and region had no data in the most recent generation, the current status was "Unknown" even if historical abundance information was available. This was the case for **Haida Gwaii Chinook**, for which there were no reliable estimates of spawners since 2006.
 
-2. If the time series of abundance (spawners or run size) contained fewer than 20 years of data, we could not reliably establish a historical baseline and the current status was therefore "Unknown". This applied to **Columbia Chinook** and **Columbia steelhead**, both of which have been monitored since 2006.
+2. If the time series of abundance (spawners or total return) contained fewer than 20 years of data, we could not reliably establish a historical baseline and the current status was therefore "Unknown". This applied to **Columbia Chinook** and **Columbia steelhead**, both of which have been monitored since 2006.
 
 <!-- 2. If there was reliable information that the absolute population size was < 1000 spawners, then the species and region was considered at risk of extirpation regardless of the outcome of the metrics above. This was the case for **Columbia Chinook** which have been assessed as Endangered by COSEWIC due to low population size [@COSEWIC2017ChinookSalmonOncorhynchus]. There were four other regions and species that had spawner abundance < 1000, but none of these had reliable estimates of **absolute** spawner abundance and all four were already assessed as having current abundance 85% to 96% below historical average. -->
 
@@ -327,15 +327,15 @@ source("code/functions.R")
 ```
 
 * These trends in aggregated spawner abundance provide a broad overview of how salmon are doing, but must be interpreted with caution due to the diversity of populations with potentially different outlooks within each region and species. For example, Chinook in Vancouver Island & Mainland Inlets have an aggregate spawner abundance that is `r round(sps_metrics$status[sps_metrics$region == "Vancouver Island & Mainland Inlets" & sps_metrics$species == "Chinook" & sps_metrics$type == "Spawners"]*100, 1)`% above historical average, but some stocks (e.g., West Coast Vancouver Island) are of conservation concern. Preserving the population diversity within regions is key to the long-term resilience of salmon, particularly in the face of climate change.
-* The status of spawner abundance is, in most cases, more positive than the status in run size, highlighting that declines in fisheries have been pervasive. Further, for all species and regions that had data on run size, current abundance is below the long-term historical average.
+* The status of spawner abundance is, in most cases, more positive than the status in total return, highlighting that declines in fisheries have been pervasive. 
 
 ## All regions
 
 **Highlights**
 
 * Across regions, pink and sockeye salmon seem to be doing the best (spawner abundance above historical average for over half of the regions assessed) and steelhead and chum are doing the worst (spawner abundance below historical average in almost all regions assessed).
-* The Fraser region has the most positive outlook, with spawner abundances of chum, coho, pink, and sockeye all above historical average. Although the historically productive fisheries supported by this Region have been decimated, run size for coho and pink are now above below historical average, and short-term trends in both spawner abundance and run size for these species are stable, providing hope that declines can be stemmed and populations rebuilt.
-* Further north, in the Yukon and Transboundary, almost all species (with the exception of Transboundary sockeye salmon) are well below historical average with recent declines in either spawners, run size, or both. This finding is concerning, given that climate change may render southern habitats less suitable for salmon into the future and more northern populations must be nurtured as potential strongholds. Management of salmon harvest in these northern regions is complex, and involves international treaties that are not easily negotiated or adapted in response to environmental changes or emerging trends, challenging efforts to stem declines and recover these populations. 
+* The Fraser region has the most positive outlook, with spawner abundances of chum, coho, pink, and sockeye all above historical average. Although the historically productive fisheries supported by this Region have been decimated, total return for coho and pink are now above below historical average, and short-term trends in both spawner abundance and total return for these species are stable, providing hope that declines can be stemmed and populations rebuilt.
+* Further north, in the Yukon and Transboundary, almost all species (with the exception of Transboundary sockeye salmon) are well below historical average with recent declines in either spawners, total return, or both. This finding is concerning, given that climate change may render southern habitats less suitable for salmon into the future and more northern populations must be nurtured as potential strongholds. Management of salmon harvest in these northern regions is complex, and involves international treaties that are not easily negotiated or adapted in response to environmental changes or emerging trends, challenging efforts to stem declines and recover these populations. 
 
 
 **Below**: Summary of current status relative to historical average (Metric 1) for **spawner abundance**. Regions and species below historical average are in red and above historical average are in green. Black cells indicate species that are not thought to be present in the given region, and grey cells indicate status was Unknown. 
@@ -344,7 +344,7 @@ btn_table.all(sps_metrics[which(sps_metrics$type == "Spawners"), c("region", "sp
 							type = "Spawners")
 ```
 
-**Below**: Summary of current status relative to historical average (Metric 1) for **run size**. Regions and species below historical average are in red and above historical average are in green. Black cells indicate species that are not thought to be present in the given region, and grey cells indicate there were no available abundance data for that species and region combination. 
+**Below**: Summary of current status relative to historical average (Metric 1) for **total return**. Regions and species below historical average are in red and above historical average are in green. Black cells indicate species that are not thought to be present in the given region, and grey cells indicate there were no available abundance data for that species and region combination. 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 btn_table.all(sps_metrics[which(sps_metrics$type == "Run Size"), c("region", "species", "status")],
 							type = "Run Size")
@@ -355,7 +355,7 @@ btn_table.all(sps_metrics[which(sps_metrics$type == "Run Size"), c("region", "sp
 **Highlights**
 
 * Chinook and chum salmon spawners have both experienced precipitous declines in recent years.
-* Trends in Chinook run size show statistically significant declines of 3% and 4% **per year** over long and short time frames, respectively, highlighting the significant, persistent decline that has led to closure of fisheries, including First Nations subsistence fishing, throughout in the Canadian portion of the Yukon.   
+* Trends in Chinook total return show statistically significant declines of 3% and 4% **per year** over long and short time frames, respectively, highlighting the significant, persistent decline that has led to closure of fisheries, including First Nations subsistence fishing, throughout in the Canadian portion of the Yukon.   
 
 ```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
 plot.regional_abund(
@@ -366,7 +366,7 @@ plot.regional_abund(
 
 ```
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Run size through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
 plot.regional_abund(
   selected_region = "Yukon",
 	abund = "runsize", # Select "spawners" or "runsize"
@@ -376,7 +376,7 @@ plot.regional_abund(
 ```
 
 
-**Below:** Summary of the three metrics for spawners and run size. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+**Below:** Summary of the three metrics for spawners and total return. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
 btn_table(
@@ -390,7 +390,7 @@ btn_table(
 **Highlights**
 
 * Most species in the Transboundary are below historical average spawner abundance, except sockeye salmon which have shown a recent increase, driven by increases in river-type type sockeye in the Taku River.
-* As in many other regions, the most recent index of spawner abundance is lower than the index of run size for the three Transboundary species that have both types of data (Chinook: `r round(sps_metrics$status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Chinook" & sps_metrics$type == "Spawners"]*100, 1)`% compared to `r round(sps_metrics$status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Chinook" & sps_metrics$type == "Run Size"]*100, 1)`%, coho: `r round(sps_metrics$status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Coho" & sps_metrics$type == "Spawners"]*100, 1)`% compared to `r round(sps_metrics$status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Coho" & sps_metrics$type == "Run Size"]*100, 1)`%, and sockeye: `r round(sps_metrics$status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Spawners"]*100, 1)`% compared to `r round(sps_metrics$status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`%), indicating that **declines in catch** have also occurred in recent years.
+* As in many other regions, the most recent index of spawner abundance is lower than the index of total return for the three Transboundary species that have both types of data (Chinook: `r round(sps_metrics$status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Chinook" & sps_metrics$type == "Spawners"]*100, 1)`% compared to `r round(sps_metrics$status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Chinook" & sps_metrics$type == "Run Size"]*100, 1)`%, coho: `r round(sps_metrics$status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Coho" & sps_metrics$type == "Spawners"]*100, 1)`% compared to `r round(sps_metrics$status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Coho" & sps_metrics$type == "Run Size"]*100, 1)`%, and sockeye: `r round(sps_metrics$status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Spawners"]*100, 1)`% compared to `r round(sps_metrics$status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`%), indicating that **declines in catch** have also occurred in recent years.
 
 
 ```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
@@ -402,7 +402,7 @@ plot.regional_abund(
 
 ```
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Run size through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
 plot.regional_abund(
   selected_region = "Transboundary",
 	abund = "runsize", # Select "spawners" or "runsize"
@@ -412,7 +412,7 @@ plot.regional_abund(
 ```
 
 
-**Below:** Summary of the three metrics for spawners and run size. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+**Below:** Summary of the three metrics for spawners and total return. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
 btn_table(
@@ -438,7 +438,7 @@ plot.regional_abund(
 
 ```
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Run size through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
 plot.regional_abund(
   selected_region = "Haida Gwaii",
 	abund = "runsize", # Select "spawners" or "runsize"
@@ -448,7 +448,7 @@ plot.regional_abund(
 ```
 
 
-**Below:** Summary of the three metrics for spawners and run size. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+**Below:** Summary of the three metrics for spawners and total return. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
 btn_table(
@@ -463,7 +463,7 @@ btn_table(
 
 * While most species show declines over both long- and short-time frames, Nass pink salmon have rebounded to above historical average abundance in the most recent generation.
 * Chum salmon are the species furthest below their historical average (`r round(sps_metrics$status[sps_metrics$region == "Nass" & sps_metrics$species == "Chum" & sps_metrics$type == "Spawners"]*100, 1)`%) with an average long-term decline of `r round(sps_metrics$long_trend[sps_metrics$region == "Nass" & sps_metrics$species == "Chum" & sps_metrics$type == "Spawners"]*100, 1)`%.
-* Although sockeye run size is `r -round(sps_metrics$status[sps_metrics$region == "Nass" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`% **below** historical average, increases over the last two years have put spawner abundance above historical average with an increasing short-term (3-gen) trend.
+* Although sockeye total return is `r -round(sps_metrics$status[sps_metrics$region == "Nass" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`% **below** historical average, increases over the last two years have put spawner abundance above historical average with an increasing short-term (3-gen) trend.
 
 ```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
 plot.regional_abund(
@@ -474,7 +474,7 @@ plot.regional_abund(
 
 ```
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Run size through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
 plot.regional_abund(
   selected_region = "Nass",
 	abund = "runsize", # Select "spawners" or "runsize"
@@ -484,7 +484,7 @@ plot.regional_abund(
 ```
 
 
-**Below:** Summary of the three metrics for spawners and run size. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+**Below:** Summary of the three metrics for spawners and total return. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
 btn_table(
@@ -498,7 +498,7 @@ btn_table(
 **Highlights**
 
 * Most species are below historical average spawner abundance, with chum salmon having declined by `r -round(sps_metrics$status[sps_metrics$region == "Skeena" & sps_metrics$species == "Chum" & sps_metrics$type == "Spawners"]*100, 1)`%. Exceptons include sockeye spawner abundance, which has recently increased to `r round(sps_metrics$status[sps_metrics$region == "Skeena" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Spawners"]*100, 1)`% above historical average in 2022 and pink salmon which were `r +round(sps_metrics$status[sps_metrics$region == "Skeena" & sps_metrics$species == "Pink" & sps_metrics$type == "Spawners"]*100, 1)`% in 2022.
-* Run size was only available for Skeena sockeye, and shows increases in the 1980s and 90s, with a decline from the peak in 1996. Slight increases over the last two years put current run size `r -round(sps_metrics$status[sps_metrics$region == "Skeena" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`% below historical average, with stable long-term and short-term trends. Other research has found that the decline in sockeye abundance from the 1980s has been accompanied by erosion of diversity, with enhanced stocks increasingly dominating returns [@PriceEtAl2021PortfolioSimplificationArising].
+* Total return was only available for Skeena sockeye, and shows increases in the 1980s and 90s, with a decline from the peak in 1996. Slight increases over the last two years put current total return `r -round(sps_metrics$status[sps_metrics$region == "Skeena" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`% below historical average, with stable long-term and short-term trends. Other research has found that the decline in sockeye abundance from the 1980s has been accompanied by erosion of diversity, with enhanced stocks increasingly dominating returns [@PriceEtAl2021PortfolioSimplificationArising].
 * Estimates of regional spawner abundance have become increasingly uncertain since 2000, especially for coho, due to a decline in monitoring of indicator streams.
 
 ```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
@@ -510,7 +510,7 @@ plot.regional_abund(
 
 ```
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Run size through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
 plot.regional_abund(
   selected_region = "Skeena",
 	abund = "runsize", # Select "spawners" or "runsize"
@@ -520,7 +520,7 @@ plot.regional_abund(
 ```
 
 
-**Below:** Summary of the three metrics for spawners and run size. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+**Below:** Summary of the three metrics for spawners and total return. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
 btn_table(
@@ -547,7 +547,7 @@ plot.regional_abund(
 
 ```
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Run size through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
 plot.regional_abund(
   selected_region = "Central Coast",
 	abund = "runsize", # Select "spawners" or "runsize"
@@ -557,7 +557,7 @@ plot.regional_abund(
 ```
 
 
-**Below:** Summary of the three metrics for spawners and run size. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+**Below:** Summary of the three metrics for spawners and total return. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
 btn_table(
@@ -572,7 +572,7 @@ btn_table(
 **Highlights**
 
 * Most species are currently below historical average, with the exception of Chinook and pink salmon.
-* Aggregate Chinook abundance is `r round(sps_metrics$status[sps_metrics$region == "Vancouver Island & Mainland Inlets" & sps_metrics$species == "Chinook" & sps_metrics$type == "Spawners"]*100, 1)`% above historical average, but some populations have concerning declines (e.g., West Coast Vancouver Island Chinook are at low enough abundance to have triggered a Recovery Potential Assessment in recent years) while others are increasing - including Cowichan River which has seen consistent increases in spawner abundance **and run size** since 2010 [@AtlasEtAl2023TrendsChinookSalmon]. 
+* Aggregate Chinook abundance is `r round(sps_metrics$status[sps_metrics$region == "Vancouver Island & Mainland Inlets" & sps_metrics$species == "Chinook" & sps_metrics$type == "Spawners"]*100, 1)`% above historical average, but some populations have concerning declines (e.g., West Coast Vancouver Island Chinook are at low enough abundance to have triggered a Recovery Potential Assessment in recent years) while others are increasing - including Cowichan River which has seen consistent increases in spawner abundance **and total return** since 2010 [@AtlasEtAl2023TrendsChinookSalmon]. 
 * Coho were below average and declining - poor outcomes under all 3 metrics.
 * Short-term trends are stable or increasing for Chinook, pink, and sockeye, suggestion possibility for recovery.
 * Dynamics through time are more stable for the regional aggregate because there are many component populations in this large area, but some local trends are concerning highlighting a need to understand and conserve the diversity represented by component populations (for more detailed information on populations within regions, see the [Pacific Salmon Explorer](https://www.salmonexplorer.ca)).
@@ -586,7 +586,7 @@ plot.regional_abund(
 
 ```
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Run size through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
 plot.regional_abund(
   selected_region = "Vancouver Island & Mainland Inlets",
 	abund = "runsize", # Select "spawners" or "runsize"
@@ -596,7 +596,7 @@ plot.regional_abund(
 ```
 
 
-**Below:** Summary of the three metrics for spawners and run size. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+**Below:** Summary of the three metrics for spawners and total return. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
 btn_table(
@@ -609,9 +609,9 @@ btn_table(
 
 **Highlights**
 
-* Despite the uptick in Fraser sockeye spawner abundance in the early 2010s, the most recent spawner abundance and run size are below the devastating returns in 2009 that triggered a federal inquiry. The in-season estimate for Fraser sockeye run size in 2023 was `r -round(sps_metrics$status[sps_metrics$region == "Fraser" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`% below historical average.
-* Chinook spawner abundance and run size were below historical average with recent short-term declines. However some life-history types are doing better than others [@AtlasEtAl2023TrendsChinookSalmon], highlighting the need to conserve the within-species diversity that makes salmon resilient to environmental change.
-* •	Spawner abundance of chum, coho, and pink salmon are above historical average, with total run size slightly above average for pink and coho, with a stable trend in the most recent three generations providing some hope of recovery. Time series of chum salmon data should be interpreted with caution as they are based on expansion factors and spawner survey coverage has varied considerably through time. Run size is not (yet) available for chum salmon in the Fraser.
+* Despite the uptick in Fraser sockeye spawner abundance in the early 2010s, the most recent spawner abundance and total return are below the devastating returns in 2009 that triggered a federal inquiry. The in-season estimate for Fraser sockeye total return in 2023 was `r -round(sps_metrics$status[sps_metrics$region == "Fraser" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`% below historical average.
+* Chinook spawner abundance and total return were below historical average with recent short-term declines. However some life-history types are doing better than others [@AtlasEtAl2023TrendsChinookSalmon], highlighting the need to conserve the within-species diversity that makes salmon resilient to environmental change.
+* •	Spawner abundance of chum, coho, and pink salmon are above historical average, with total return slightly above average for pink and coho, with a stable trend in the most recent three generations providing some hope of recovery. Time series of chum salmon data should be interpreted with caution as they are based on expansion factors and spawner survey coverage has varied considerably through time. Total return is not (yet) available for chum salmon in the Fraser.
 
 * Declines of Chinook, chum, pink, sockeye, and steelhead since the early 2000s may reflect the increasing pressures of climate change on these southern and interior populations.
 
@@ -624,7 +624,7 @@ plot.regional_abund(
 
 ```
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Run size through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
 plot.regional_abund(
   selected_region = "Fraser",
 	abund = "runsize", # Select "spawners" or "runsize"
@@ -634,7 +634,7 @@ plot.regional_abund(
 ```
 
 
-**Below:** Summary of the three metrics for spawners and run size. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+**Below:** Summary of the three metrics for spawners and total return. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
 btn_table(
@@ -661,7 +661,7 @@ plot.regional_abund(
 
 ```
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Run size through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
 plot.regional_abund(
   selected_region = "Columbia",
 	abund = "runsize", # Select "spawners" or "runsize"
@@ -671,7 +671,7 @@ plot.regional_abund(
 ```
 
 
-**Below:** Summary of the three metrics for spawners and run size. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+**Below:** Summary of the three metrics for spawners and total return. For long-term (LT) trends and short-term (3-Gen) trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
 btn_table(
