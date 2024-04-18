@@ -609,15 +609,62 @@ plot_abund(nasssh_sps)
 # Add to master sps dataframe
 sps_data <- rbind(sps_data, nasssh_sps)
 
+
 #------------------------------------------------------------------------------
-# Nass: Pink, Chum, Coho
+# Nass: Coho
+#------------------------------------------------------------------------------
+
+# Read in LGL data
+nassco_lgl <- readxl::read_xlsx("data/LGL_nass_update_TRTC_age.xlsx", sheet = "ConservationUnit TRTC") %>%
+	filter(SpeciesId == "CO" & Year >= 1992)
+
+nassco <- nassco_lgl %>%
+	group_by(Year) %>%
+	summarise(escapement = sum(TE), runsize = sum(`Total Run`))
+
+# CHeck year difference is 1
+if(unique(diff(nassco$Year)) != 1){
+	stop("Nass coho years not continuous.")
+}
+
+# Reformat data for SPS
+nassco_sps <- data.frame(
+	region = rep("Nass", dim(nassco)[1]),
+	species = rep("Coho", dim(nassco)[1]),
+	year = nassco$Year,
+	spawners = nassco$escapement, 
+	smoothedSpawners = NA,
+	runsize = nassco$runsize,
+	smoothedRunsize = NA
+) 
+
+# Smoothing
+nassco_sps$smoothedSpawners <- genSmooth(
+	abund = nassco_sps$spawners,
+	years = nassco_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Nass" & genLength$species == "Coho"]
+)
+
+nassco_sps$smoothedRunsize <- genSmooth(
+	abund = nassco_sps$runsize,
+	years = nassco_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Nass" & genLength$species == "Coho"]
+)
+
+plot_abund(nassco_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, nassco_sps)
+
+#------------------------------------------------------------------------------
+# Nass: Pink, Chum
 #------------------------------------------------------------------------------
 
 # Use expanded spawner abundance
 sp <- readRDS("output/expanded-spawners/Nass-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 
-for(s in c(2:4)){
+for(s in c(2,4)){
 	nass.s <- sp[2, species[s], ]
 	
 	# Reformat data for SPS
@@ -645,13 +692,13 @@ for(s in c(2:4)){
 	
 }	
 
-# Compare chum to TCCHUM
-
 ###############################################################################
 # Skeena
 ###############################################################################
 
-# skeena: Chinook
+#------------------------------------------------------------------------------
+# Skeena: Chinook
+#------------------------------------------------------------------------------
 
 # TCCHINOOK Table B3
 sk_ctc <- readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "A5:G53", col_types = "numeric")
@@ -910,18 +957,20 @@ for(s in 1:5){
 # abline(v = seq(1950, 2023, 2), lty = 3, col = grey(0.6))
 # legend("topleft", pch = 1, lwd = 1, col = c(1,2), c("Expansion", "Sum of index from TCCHINOOK Table B4,B5"))
 #------------------------------------------------------------------------------
-# Other
+# Other (including steelhead)
 #------------------------------------------------------------------------------
 
-# Expansion from spawner surveys only; no steelhead data
+# Expansion from spawner surveys; including steelhead (incl. Cheakamus)
 sp <- readRDS("output/expanded-spawners/Vancouver Island & Mainland Inlets-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 
-for(s in 1:5){
+for(s in 1:6){
 	vimi.s <- sp[2, species[s], ]
 	# Get rid of NAs (esp in 2022)
 	vimi.s <- vimi.s[1:max(which(!is.na(vimi.s)))]
 	
+	# For all VIMI species, start in 1953 - earlier expansion factors are huge
+	vimi.s	<- vimi.s[which(as.numeric(names(vimi.s)) >= 1953)]
 	
 	# Reformat data for SPS
 	vimi.s_sps <- data.frame(
@@ -948,6 +997,7 @@ for(s in 1:5){
 	
 }	# end species
 
+
 ###############################################################################
 # Fraser
 ###############################################################################
@@ -970,11 +1020,11 @@ for(s in 1:5){
 ctc_esc <- readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A6:P54", col_types = "numeric")
 ctc_esc_sum <- apply(ctc_esc[, grep("Esc", names(ctc_esc))], 1, sum)
 
-ctc_catch <-  readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-A-Catch-Detailed.xlsx", sheet = "A14", range = "K4:M52") %>%
-	mutate(year = 1975:2022)
-
-ctc_catch_sum <- apply(ctc_catch[, 1:3], 1, sum)
-ctc_run <- ctc_esc_sum + ctc_catch_sum
+# ctc_catch <-  readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-A-Catch-Detailed.xlsx", sheet = "A14", range = "K4:M52") %>%
+# 	mutate(year = 1975:2022)
+# 
+# ctc_catch_sum <- apply(ctc_catch[, 1:3], 1, sum)
+# ctc_run <- ctc_esc_sum + ctc_catch_sum
 	
 # # Compare to CTC data# Compare to CTC datasum
 # plot(as.numeric(names(frck_run)), frck_run*10^-6, "o", pch = 19, las = 1, ylim = c(0, 1), xlim = c(1980, 2023), lwd = 1.5, ylab = "Abundance (millions)", xlab = "")
@@ -992,7 +1042,7 @@ frck_sps <- data.frame(
 	year = yrs,
 	spawners = ctc_esc_sum[!is.na(ctc_esc_sum)], # sp[2, "Chinook", match(yrs, as.numeric(dimnames(sp)[[3]]))], 
 	smoothedSpawners = NA,
-	runsize = ctc_run[!is.na(ctc_run)], # frck_run[match(yrs, as.numeric(names(frck_run)))],
+	runsize = NA, #ctc_run[!is.na(ctc_run)], # frck_run[match(yrs, as.numeric(names(frck_run)))],
 	smoothedRunsize = NA
 ) 
 	
@@ -1017,40 +1067,56 @@ sps_data <- rbind(sps_data, frck_sps)
 #------------------------------------------------------------------------------
 # Chum
 #------------------------------------------------------------------------------
-# (1) Use expanded spawner surveys from 1953 onward
-sp <- readRDS("output/expanded-spawners/Fraser-spawners.rds")
-yrs <- as.numeric(dimnames(sp)[[3]])
-yrs <- 1953:max(yrs[!is.na(sp[2, "Chum", ])])
+# # (1) Use expanded spawner surveys from 1953 onward
+# sp <- readRDS("output/expanded-spawners/Fraser-spawners.rds")
+# yrs <- as.numeric(dimnames(sp)[[3]])
+# yrs <- 1953:max(yrs[!is.na(sp[2, "Chum", ])])
 
-# # (2) Use TCCHUM Fraser data
-# frcm <- read.csv("data/TTCHUM.csv")
-# 
-# frcm_esc <- frcm$value[frcm$tableSource == "Table 3-11" & frcm$series == "Fraser River Escapement"]
-# frcm_esc2 <- frcm$value[frcm$tableSource == "Table 6" & frcm$series == "Fraser River Escapement"]
-# frcm_run <- frcm_esc +
-# 	frcm$value[frcm$tableSource == "Table 3-8" & frcm$series == "Total Commercial FSC Harvest"] +
-# 	frcm$value[frcm$tableSource == "Table 3-9" & frcm$series == "Total Recreational Harvest"]
-# 
+# (2) Use TCCHUM Fraser data
+frcm_esc <- readxl::read_xlsx("data/ChumTC Report Tables - full time series up to 2022.xlsx", sheet = "3-11", range = "A4:B29") %>%
+	rename(year = "...1", esc = "Fraser River")
+
+frcm_catch1 <- readxl::read_xlsx("data/ChumTC Report Tables - full time series up to 2022.xlsx", sheet = "3-8", range = "A3:G30") %>%
+	rename(year = "Year", catch = "Total") %>%
+	select(year, catch)
+
+
+frcm_catch2 <- readxl::read_xlsx("data/ChumTC Report Tables - full time series up to 2022.xlsx", sheet = "3-9", range = "A4:G31") %>%
+	rename(year = "...1", catch = "Total") %>%
+	select(year, catch)
+
+# Find years when catch and escapement are reported
+yrs_tcchum <- c(max(c(min(frcm_esc$year), min(frcm_catch1$year), min(frcm_catch2$year))):min(c(max(frcm_esc$year), max(frcm_catch1$year), max(frcm_catch2$year)))) #1998:2022
+
+frcm_run <- frcm_esc$esc[match(yrs_tcchum, frcm_esc$year)] + frcm_catch1$catch[match(yrs_tcchum, frcm_catch1$year)] + frcm_catch2$catch[match(yrs_tcchum, frcm_catch2$year)] 
+	
 # # Compare
 # plot(yrs, sp[2, "Chum", match(yrs, as.numeric(dimnames(sp)[[3]]))]*10^-6, "o", pch = 19, bty = "l", xlab = "", ylab = "Escapement (millions)", las = 1, main = "Escapement of Fraser Chum")
 # abline(v = seq(1950, 2020, 5), col = "#00000030")
-# points(2010:2019, frcm_esc*10^-6, "o", col = 2, pch = 19, cex = 0.8)
-# points(1999:2009, frcm_esc2*10^-6, "o", col = 4, pch = 19, cex = 0.8)
-# legend("topleft", pch = 19, pt.cex = c(1, 0.8, 0.8), col = c(1,2,4), c("PSF-expanded from NuSEDS indicator streams", "TCCHUM (23)-01 Table 3-11", "TCCHUM 10-2 Table 6"))
+# points(yrs_tcchum, frcm_esc$esc*10^-6, "o", col = 2, pch = 19, cex = 0.8, xpd = NA)
+# # polygon(x = c(yrs_tcchum, rev(yrs_tcchum)),
+# # 				y = c(frcm_esc$esc, rev(frcm_run))*10^-6,
+# # 				col = "#FF000040", 
+# # 				border = NA)
+# legend("topleft", pch = c(19, 19, 21), pt.cex = c(1, 0.8, 0.8), col = c(1,2,2), pt.bg = c(NA, NA, "white"), c("PSF-expanded from NuSEDS indicator streams", "TCCHUM (23)-01 Table 3-11", "TCCHUM esc + catch"), lwd = 1)
 # 
-# points(2010:2019, frcm_run*10^-6, "o", col = 2, pch = 21, bg = "white", cex = 0.8)
+# points(yrs_tcchum, frcm_run*10^-6, "o", col = 2, pch = 21, bg = "white", cex = 0.8, xpd = NA)
 # 
 # (frcm_run - frcm_esc)/frcm_run
+
+# # Plot catch
+# plot(frcm_catch1$year, frcm_catch1$catch*10^-6, "o", pch = 21, bg = "white", xlab = "", ylab = "Commercial and FN catch (millions)", main = "TCCHUM Table 3-8 Fraser Catch", las = 1)
+# lines(frcm_catch2$year, frcm_catch1$catch + frcm_catch2$catch , lty = 2)
 
 
 # Put in SPS format
 frcm_sps <- data.frame(
-	region = rep("Fraser", length(yrs)), #length(frcm_esc)),
-	species = rep("Chum", length(yrs)), #length(frcm_esc)),
-	year = yrs, #sort(unique(frcm$year)),
-	spawners = sp[2, "Chum", match(yrs, as.numeric(dimnames(sp)[[3]]))],  # frcm_esc
+	region = rep("Fraser", length(yrs_tcchum)), 
+	species = rep("Chum", length(yrs_tcchum)), 
+	year = yrs_tcchum, 
+	spawners = frcm_esc$esc, #sp[2, "Chum", match(yrs, as.numeric(dimnames(sp)[[3]]))], 
 	smoothedSpawners = NA,
-	runsize = NA, #frcm_run,
+	runsize = frcm_run, #frcm_run,
 	smoothedRunsize = NA
 ) 
 
@@ -1324,5 +1390,5 @@ dev.off()
 ###############################################################################
 ###############################################################################
 
-write.csv(sps_data, "output/sps-data-raw.csv", row.names = FALSE) # Always have most recent
-write.csv(sps_data, paste0("output/sps-data", Sys.Date(), ".csv"), row.names = FALSE) # Archive with date
+write.csv(sps_data, "output/sps-data.csv", row.names = FALSE) # Always have most recent
+write.csv(sps_data, paste0("output/archive/sps-data_", Sys.Date(), ".csv"), row.names = FALSE) # Archive with date
