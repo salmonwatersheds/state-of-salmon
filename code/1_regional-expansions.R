@@ -17,55 +17,29 @@ source("code/expansion-functions.R")
 
 Dropbox_directory <- "/Users/stephaniepeacock/Salmon Watersheds Dropbox/Stephanie Peacock/X Drive/1_PROJECTS/1_Active/Population Methods and Analysis/population-indicators/"
 
+source(paste0(Dropbox_directory, "code/functions_general.R"))
+
 ###############################################################################
 # Import data (this has been pulled from the SWP database using pull-data.R)
 ###############################################################################
 
 # # Read in all spawner survey data
-# spawner_surveys.old <-read.csv(paste0(Dropbox_directory, "data-input/streamspawnersurveys_output.csv"), na.strings = c(-989898)) %>%
-# filter(species_name != 'Steelhead') %>% # Remove steelhead
-# filter(!is.na(year)) %>% # Remove stream with no data
-# filter(year >= 1950) # Use only data from 1950 to present
-# 
-# Use latest output from Bruno
-spawner_surveys.all <-read.csv(paste0(Dropbox_directory, "spawner-surveys/output/dataset_1part2_20240404.csv")) %>%
-	filter(year >= 1950) # Use only data from 1950 to present
-# These data DO NOT INCLUDE Yukon, Transboundary, or Columbia sockeye, but that's ok because those regions
-# do not use expansions anyway.
+# spawner_surveys.all <- retrieve_data_from_PSF_databse_fun(name_dataset = "appdata.vwdl_streamspawnersurveys_output")
+# write.csv(spawner_surveys.all, "data/spawner_surveys.csv", row.names = FALSE)
+spawner_surveys.all <-read.csv(paste0(Dropbox_directory, "data-input/streamspawnersurveys_output.csv")) %>%
+	filter(year >= 1950, stream_observed_count != -989898) # Use only data from 1950 to present
 
-# # How do the indicator designations compare for Fraser Chinook?
-# # A: They are the same...
-# fr_decoder <- read.csv("data/fr_streams_decoder_May.2019.csv")
-# 
-# fr_ss <- spawner_surveys.all %>% 
-# 	filter(region == "Fraser" & species_name == "Chinook") %>% 
-# 	left_join(fr_decoder %>%
-# 							rename(streamid = "to", indicator_Brown = "Indicator") %>%
-# 							select(streamid, indicator_Brown))
-# 
-# which(fr_ss$indicator != fr_ss$indicator_Brown)
-ss_ind <- spawner_surveys.all  %>%
-	select(streamid, indicator) %>%
-	distinct(streamid, .keep_all = TRUE) %>%
-	left_join(spawner_surveys.old %>%
-							select(streamid, indicator) %>%
-							distinct(streamid, .keep_all = TRUE) %>%
-							rename(indicator_old = "indicator"))
-head(ss_ind)
-diff_streamid <- ss_ind$streamid[which(ss_ind$indicator != ss_ind$indicator_old)]
-ss_diff_ind <- spawner_surveys.all %>% filter(streamid %in% diff_streamid) %>%
-	select(region, species_name, cu_name_pse, stream_name_pse, streamid, indicator) %>%
-	distinct(streamid, .keep_all = TRUE) %>% 
-	left_join(ss_ind %>% select(streamid, indicator_old))
-write.csv(ss_diff_ind, paste0(Dropbox_directory, "spawner-surveys/output/spawnersurveys_indicatorChanged.csv"))
 
-# Use previous indicator designations
-for(i in 1:length(ss_diff_ind$streamid)){
-	spawner_surveys.all$indicator[which(spawner_surveys.all$streamid == ss_diff_ind$streamid[i])] <- ss_diff_ind$indicator_old[i]
+# Replace nuSEDS indicator designation with LGL where different
+ind_desig <- read.csv("data/spawner_surveys_indicatorChanged.csv")
+for(i in 1:dim(ind_desig)[1]){
+	spawner_surveys.all$indicator[spawner_surveys.all$streamid == ind_desig$streamid[i]] <- ind_desig$indicator_old[i]
 }
 
 unique(spawner_surveys.all$region)
-range(spawner_surveys.all$year) # Most recent year = 2022
+range(spawner_surveys.all$year) # Most recent year = 2023 (Transboundary)
+
+
 #------------------------------------------------------------------------------
 # Define variables
 #------------------------------------------------------------------------------
@@ -76,16 +50,16 @@ spawner_surveys.all$region <- factor(spawner_surveys.all$region, levels = region
 
 # Arrange species (already done in new output)
 unique(spawner_surveys.all$species_name)
-spawner_surveys.all$species_pooled <- spawner_surveys.all$species_name
+# spawner_surveys.all$species_pooled <- spawner_surveys.all$species_name
 species_pooled <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead") 
-# 
-# species_xref <- data.frame(
-# 	species = sort(unique(spawner_surveys.all$species_name)), 
-# 	species_pooled = c("Chinook", "Chum", "Coho", "Sockeye", "Pink", "Pink", "Sockeye", "Steelhead") 
-# )
-# 
-# # Create variable in data for pooled species
-# spawner_surveys.all$species_pooled <- species_xref$species_pooled[match(spawner_surveys.all$species_name, species_xref$species)]
+
+species_xref <- data.frame(
+	species = sort(unique(spawner_surveys.all$species_name)),
+	species_pooled = c("Chinook", "Chum", "Coho", "Sockeye", "Pink", "Pink", "Sockeye", "Steelhead")
+)
+
+# Create variable in data for pooled species
+spawner_surveys.all$species_pooled <- species_xref$species_pooled[match(spawner_surveys.all$species_name, species_xref$species)]
 
 #------------------------------------------------------------------------------
 # Read in spatial boundaries of PSE regions for subsetting streams
@@ -129,6 +103,9 @@ for(R in c(1:6)){
 	# plot(st_geometry(stream_points[incl,]), pch = 1, col = 4, cex = 0.8, add = TRUE)
 	
 	spawner_surveys <- spawner_surveys.all[which(spawner_surveys.all$streamid %in% streamid[incl]), ]
+	
+	# DO NOT Remove Cheakamus for VIMI Steelhead
+	# spawner_surveys <- spawner_surveys[-which(spawner_surveys$stream_name_pse == "CHEAKAMUS RIVER" & spawner_surveys$species_pooled == "Steelhead"),]
 	
 	# Not all species are necessarily present in each region
 	# E.g., no sockeye or pink in Yukon
