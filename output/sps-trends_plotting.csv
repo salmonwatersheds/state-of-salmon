@@ -1,0 +1,2531 @@
+"region","species","year","spawners","spawners_short_trend","spawners_long_trend","total_return","total_return_short_trend","total_return_long_trend"
+"Yukon","Chinook",1982,-5.4,NA,-0.2,44.5,NA,82.3
+"Yukon","Chinook",1983,-4.4,NA,-0.2,50.6,NA,77.1
+"Yukon","Chinook",1984,-0.2,NA,-0.2,35.1,NA,72
+"Yukon","Chinook",1985,-3.3,NA,-0.1,36.9,NA,67
+"Yukon","Chinook",1986,-4.7,NA,-0.1,40.5,NA,62.2
+"Yukon","Chinook",1987,-5.6,NA,-0.1,45.1,NA,57.5
+"Yukon","Chinook",1988,-7.1,NA,-0.1,44.8,NA,52.9
+"Yukon","Chinook",1989,-2.2,NA,-0.1,45.4,NA,48.5
+"Yukon","Chinook",1990,0.5,NA,-0.1,53.1,NA,44.2
+"Yukon","Chinook",1991,1.5,NA,-0.1,49.2,NA,40.1
+"Yukon","Chinook",1992,0.5,NA,-0.1,48.4,NA,36
+"Yukon","Chinook",1993,-1.6,NA,-0.1,41.6,NA,32.1
+"Yukon","Chinook",1994,4.3,NA,-0.1,45.7,NA,28.3
+"Yukon","Chinook",1995,1.3,NA,-0.1,46.3,NA,24.6
+"Yukon","Chinook",1996,5.2,NA,-0.1,51,NA,21
+"Yukon","Chinook",1997,9.3,NA,0,57.7,NA,17.5
+"Yukon","Chinook",1998,7.5,NA,0,43.7,NA,14.1
+"Yukon","Chinook",1999,8,NA,0,39.6,NA,10.8
+"Yukon","Chinook",2000,-5.2,NA,0,14.6,NA,7.6
+"Yukon","Chinook",2001,-4.6,NA,0,2.4,NA,4.5
+"Yukon","Chinook",2002,-13.1,NA,0,-10.5,NA,1.5
+"Yukon","Chinook",2003,-7,NA,0,-11.6,NA,-1.5
+"Yukon","Chinook",2004,-2.1,NA,0,-7.4,NA,-4.3
+"Yukon","Chinook",2005,8.3,NA,0,-5.6,NA,-7.1
+"Yukon","Chinook",2006,25.5,NA,0,8.1,NA,-9.7
+"Yukon","Chinook",2007,17.2,9.4,0,8.6,-3.4,-12.4
+"Yukon","Chinook",2008,12.9,8.2,0,4,-7.6,-14.9
+"Yukon","Chinook",2009,9,7,0.1,-5,-11.6,-17.3
+"Yukon","Chinook",2010,1.7,5.8,0.1,-15.1,-15.4,-19.7
+"Yukon","Chinook",2011,-4.6,4.6,0.1,-22.5,-19.1,-22
+"Yukon","Chinook",2012,-14.4,3.5,0.1,-33.3,-22.6,-24.3
+"Yukon","Chinook",2013,-17.1,2.3,0.1,-42.2,-25.9,-26.5
+"Yukon","Chinook",2014,-8,1.2,0.1,-41.9,-29.1,-28.6
+"Yukon","Chinook",2015,-4.4,0.1,0.1,-41.9,-32.2,-30.7
+"Yukon","Chinook",2016,8.7,-1,0.1,-38.6,-35.1,-32.7
+"Yukon","Chinook",2017,15.9,-2.1,0.1,-35.9,-37.9,-34.6
+"Yukon","Chinook",2018,26.2,-3.2,0.1,-30.8,-40.6,-36.5
+"Yukon","Chinook",2019,34.6,-4.3,0.1,-22.7,-43.2,-38.3
+"Yukon","Chinook",2020,19.4,-5.3,0.1,-27.1,-45.7,-40.1
+"Yukon","Chinook",2021,1.7,-6.4,0.2,-38,-48,-41.8
+"Yukon","Chinook",2022,-24,-7.4,0.2,-54.4,-50.3,-43.5
+"Yukon","Chinook",2023,-41.3,-8.4,0.2,-66.1,-52.4,-45.2
+"Yukon","Chum",1980,-72,NA,-43.5,NA,NA,NA
+"Yukon","Chum",1981,-59.8,NA,-42,NA,NA,NA
+"Yukon","Chum",1982,-60.2,NA,-40.4,NA,NA,NA
+"Yukon","Chum",1983,-48.5,NA,-38.8,NA,NA,NA
+"Yukon","Chum",1984,-35.5,NA,-37.2,NA,NA,NA
+"Yukon","Chum",1985,-30.9,NA,-35.5,NA,NA,NA
+"Yukon","Chum",1986,-10.9,NA,-33.8,NA,NA,NA
+"Yukon","Chum",1987,-13.5,NA,-32,NA,NA,NA
+"Yukon","Chum",1988,-22.4,NA,-30.1,NA,NA,NA
+"Yukon","Chum",1989,-32.4,NA,-28.3,NA,NA,NA
+"Yukon","Chum",1990,-40.8,NA,-26.3,NA,NA,NA
+"Yukon","Chum",1991,-41.2,NA,-24.3,NA,NA,NA
+"Yukon","Chum",1992,-36.8,NA,-22.3,NA,NA,NA
+"Yukon","Chum",1993,-39.6,NA,-20.2,NA,NA,NA
+"Yukon","Chum",1994,-29.1,NA,-18.1,NA,NA,NA
+"Yukon","Chum",1995,-15.5,NA,-15.9,NA,NA,NA
+"Yukon","Chum",1996,6.1,NA,-13.6,NA,NA,NA
+"Yukon","Chum",1997,38.2,NA,-11.3,NA,NA,NA
+"Yukon","Chum",1998,14.4,NA,-8.9,NA,NA,NA
+"Yukon","Chum",1999,-10.7,NA,-6.4,NA,NA,NA
+"Yukon","Chum",2000,-27.4,NA,-3.9,NA,NA,NA
+"Yukon","Chum",2001,-42.5,NA,-1.3,-45.3,NA,24.5
+"Yukon","Chum",2002,-30.5,NA,1.3,-45.4,NA,22.1
+"Yukon","Chum",2003,-13.1,NA,4.1,-32.3,NA,19.7
+"Yukon","Chum",2004,13,NA,6.9,-23.6,NA,17.3
+"Yukon","Chum",2005,114.9,NA,9.7,17.5,NA,15
+"Yukon","Chum",2006,162.9,NA,12.7,56.7,NA,12.7
+"Yukon","Chum",2007,198.2,NA,15.7,77.1,NA,10.5
+"Yukon","Chum",2008,204.7,NA,18.9,89.4,NA,8.3
+"Yukon","Chum",2009,107.2,NA,22.1,34.4,NA,6.2
+"Yukon","Chum",2010,77.1,NA,25.3,13.2,NA,4.1
+"Yukon","Chum",2011,70.9,NA,28.7,17.7,NA,2
+"Yukon","Chum",2012,62.6,NA,32.2,17.9,NA,0
+"Yukon","Chum",2013,96.7,215.3,35.7,46.2,176.7,-2
+"Yukon","Chum",2014,111.2,162.7,39.4,63.4,122.9,-3.9
+"Yukon","Chum",2015,80.1,118.9,43.2,45.5,79.5,-5.8
+"Yukon","Chum",2016,82.6,82.5,47,53.9,44.6,-7.7
+"Yukon","Chum",2017,117.2,52,51,79.7,16.5,-9.5
+"Yukon","Chum",2018,116.3,26.7,55,90,-6.2,-11.3
+"Yukon","Chum",2019,111.7,5.6,59.2,83.4,-24.4,-13
+"Yukon","Chum",2020,34.3,-12,63.5,-1.3,-39.1,-14.7
+"Yukon","Chum",2021,-34.2,-26.7,67.9,-55.6,-51,-16.4
+"Yukon","Chum",2022,-59.5,-38.9,72.4,-76.2,-60.5,-18.1
+"Yukon","Chum",2023,-72.2,-49.1,77.1,-85.8,-68.2,-19.7
+"Transboundary","Chinook",1976,-37.5,NA,32.2,-46.5,NA,20.1
+"Transboundary","Chinook",1977,-23.3,NA,30.6,-32.6,NA,19.1
+"Transboundary","Chinook",1978,-28.1,NA,29.1,-35.3,NA,18.2
+"Transboundary","Chinook",1979,-23.8,NA,27.5,-29.7,NA,17.3
+"Transboundary","Chinook",1980,-13.8,NA,26,-19.5,NA,16.4
+"Transboundary","Chinook",1981,4.8,NA,24.6,-1,NA,15.5
+"Transboundary","Chinook",1982,11.7,NA,23.1,6.6,NA,14.6
+"Transboundary","Chinook",1983,5.1,NA,21.6,1.2,NA,13.7
+"Transboundary","Chinook",1984,0.9,NA,20.2,-3.8,NA,12.8
+"Transboundary","Chinook",1985,-5.5,NA,18.8,-10.2,NA,11.9
+"Transboundary","Chinook",1986,-12.5,NA,17.4,-16.2,NA,11.1
+"Transboundary","Chinook",1987,-14.8,NA,16,-18.5,NA,10.2
+"Transboundary","Chinook",1988,9,NA,14.6,2.5,NA,9.4
+"Transboundary","Chinook",1989,22.3,NA,13.3,15,NA,8.5
+"Transboundary","Chinook",1990,31.6,NA,11.9,23.8,NA,7.7
+"Transboundary","Chinook",1991,39.7,NA,10.6,31.6,NA,6.8
+"Transboundary","Chinook",1992,51.1,NA,9.3,41.8,NA,6
+"Transboundary","Chinook",1993,64.5,NA,8,55.2,NA,5.2
+"Transboundary","Chinook",1994,73.4,NA,6.7,63.1,NA,4.4
+"Transboundary","Chinook",1995,69.9,NA,5.5,58.5,NA,3.6
+"Transboundary","Chinook",1996,82.5,NA,4.2,69,NA,2.8
+"Transboundary","Chinook",1997,100.8,NA,3,86.3,NA,2
+"Transboundary","Chinook",1998,71.9,NA,1.8,59.1,NA,1.2
+"Transboundary","Chinook",1999,51.2,NA,0.6,42.2,NA,0.4
+"Transboundary","Chinook",2000,49.2,NA,-0.6,41.1,NA,-0.4
+"Transboundary","Chinook",2001,47.4,NA,-1.8,39,NA,-1.2
+"Transboundary","Chinook",2002,38.1,NA,-2.9,30.4,NA,-1.9
+"Transboundary","Chinook",2003,47.7,NA,-4.1,40.5,NA,-2.7
+"Transboundary","Chinook",2004,78.1,NA,-5.2,67.9,NA,-3.4
+"Transboundary","Chinook",2005,84,NA,-6.3,89,NA,-4.2
+"Transboundary","Chinook",2006,65.6,NA,-7.4,85.7,NA,-4.9
+"Transboundary","Chinook",2007,29.1,NA,-8.5,63.2,NA,-5.7
+"Transboundary","Chinook",2008,13.5,NA,-9.6,51.8,NA,-6.4
+"Transboundary","Chinook",2009,-9.6,NA,-10.7,28.7,NA,-7.1
+"Transboundary","Chinook",2010,-17.2,-12.5,-11.7,11.7,15,-7.8
+"Transboundary","Chinook",2011,-25.3,-17.3,-12.8,-2.9,5.3,-8.6
+"Transboundary","Chinook",2012,-21.2,-21.8,-13.8,-4.2,-3.6,-9.3
+"Transboundary","Chinook",2013,-23.8,-26.1,-14.8,-10.6,-11.8,-10
+"Transboundary","Chinook",2014,-20.7,-30.2,-15.8,-11.6,-19.2,-10.7
+"Transboundary","Chinook",2015,-21.4,-34,-16.8,-14.1,-26.1,-11.4
+"Transboundary","Chinook",2016,-30.5,-37.6,-17.8,-23.9,-32.3,-12.1
+"Transboundary","Chinook",2017,-41.8,-41,-18.8,-38,-38,-12.7
+"Transboundary","Chinook",2018,-49.2,-44.3,-19.7,-47.5,-43.3,-13.4
+"Transboundary","Chinook",2019,-53.8,-47.3,-20.7,-53.9,-48.1,-14.1
+"Transboundary","Chinook",2020,-58.3,-50.2,-21.6,-59.6,-52.4,-14.8
+"Transboundary","Chinook",2021,-57.2,-52.9,-22.5,-60.9,-56.5,-15.4
+"Transboundary","Chinook",2022,-53.9,-55.5,-23.4,-59.1,-60.1,-16.1
+"Transboundary","Chinook",2023,-49.5,-57.9,-24.3,-56,-63.5,-16.7
+"Transboundary","Sockeye",1984,8.4,NA,1.8,-20.3,NA,2.4
+"Transboundary","Sockeye",1985,42.6,NA,1.7,1.6,NA,2.2
+"Transboundary","Sockeye",1986,42.6,NA,1.6,1.6,NA,2.1
+"Transboundary","Sockeye",1987,5.6,NA,1.5,-17.9,NA,2
+"Transboundary","Sockeye",1988,-9.9,NA,1.4,-29.8,NA,1.9
+"Transboundary","Sockeye",1989,-12.8,NA,1.3,-29.4,NA,1.7
+"Transboundary","Sockeye",1990,-30.9,NA,1.2,-36,NA,1.6
+"Transboundary","Sockeye",1991,-20.2,NA,1.1,-26.8,NA,1.5
+"Transboundary","Sockeye",1992,-2.3,NA,1,-9.2,NA,1.4
+"Transboundary","Sockeye",1993,19,NA,0.9,20.3,NA,1.3
+"Transboundary","Sockeye",1994,22.6,NA,0.9,33.5,NA,1.1
+"Transboundary","Sockeye",1995,34.7,NA,0.8,47.3,NA,1
+"Transboundary","Sockeye",1996,28.7,NA,0.7,64,NA,0.9
+"Transboundary","Sockeye",1997,11.9,NA,0.6,52.3,NA,0.8
+"Transboundary","Sockeye",1998,-6.2,NA,0.5,24.6,NA,0.7
+"Transboundary","Sockeye",1999,-15.7,NA,0.4,12.7,NA,0.5
+"Transboundary","Sockeye",2000,-27.4,NA,0.3,2.7,NA,0.4
+"Transboundary","Sockeye",2001,-27.4,NA,0.2,-4.9,NA,0.3
+"Transboundary","Sockeye",2002,-25.9,NA,0.1,-7.2,NA,0.2
+"Transboundary","Sockeye",2003,-9.1,NA,0,11.5,NA,0.1
+"Transboundary","Sockeye",2004,5.3,NA,0,27.3,NA,-0.1
+"Transboundary","Sockeye",2005,21.9,NA,-0.1,38.1,NA,-0.2
+"Transboundary","Sockeye",2006,26.1,NA,-0.2,36.8,NA,-0.3
+"Transboundary","Sockeye",2007,19.5,NA,-0.3,37.7,NA,-0.4
+"Transboundary","Sockeye",2008,-1.2,NA,-0.4,19.5,NA,-0.5
+"Transboundary","Sockeye",2009,-11.4,NA,-0.5,4.3,NA,-0.7
+"Transboundary","Sockeye",2010,-16.4,-19.6,-0.6,-5.5,-6.2,-0.8
+"Transboundary","Sockeye",2011,-21.4,-17.1,-0.7,-9.6,-6.9,-0.9
+"Transboundary","Sockeye",2012,-15.2,-14.6,-0.8,-12.4,-7.6,-1
+"Transboundary","Sockeye",2013,-10.8,-11.9,-0.9,-8.9,-8.3,-1.1
+"Transboundary","Sockeye",2014,-8.3,-9.2,-0.9,-10.8,-9,-1.2
+"Transboundary","Sockeye",2015,-2.8,-6.4,-1,-8.6,-9.7,-1.4
+"Transboundary","Sockeye",2016,4.7,-3.5,-1.1,-3,-10.4,-1.5
+"Transboundary","Sockeye",2017,-0.9,-0.5,-1.2,-2.2,-11.1,-1.6
+"Transboundary","Sockeye",2018,-3,2.6,-1.3,-11.3,-11.8,-1.7
+"Transboundary","Sockeye",2019,1.9,5.8,-1.4,-7.6,-12.5,-1.8
+"Transboundary","Sockeye",2020,-1.8,9.1,-1.5,-16.8,-13.2,-2
+"Transboundary","Sockeye",2021,4.4,12.5,-1.6,-22.3,-13.8,-2.1
+"Transboundary","Sockeye",2022,21,16,-1.7,-18,-14.5,-2.2
+"Transboundary","Sockeye",2023,34.1,19.5,-1.7,-11.4,-15.1,-2.3
+"Transboundary","Coho",1992,-0.9,NA,2,36.2,NA,15.4
+"Transboundary","Coho",1993,18.3,NA,1.8,34.4,NA,14.2
+"Transboundary","Coho",1994,16.8,NA,1.7,47.1,NA,13.1
+"Transboundary","Coho",1995,1.2,NA,1.5,35.8,NA,12
+"Transboundary","Coho",1996,-11.1,NA,1.4,13.5,NA,10.9
+"Transboundary","Coho",1997,-26.5,NA,1.3,-13.7,NA,9.8
+"Transboundary","Coho",1998,-35.7,NA,1.1,-24.2,NA,8.7
+"Transboundary","Coho",1999,-41.3,NA,1,-38.4,NA,7.7
+"Transboundary","Coho",2000,-39.5,NA,0.9,-43.8,NA,6.6
+"Transboundary","Coho",2001,-28.4,NA,0.7,-36.8,NA,5.6
+"Transboundary","Coho",2002,5.1,NA,0.6,-9.1,NA,4.5
+"Transboundary","Coho",2003,30.7,NA,0.5,9.5,NA,3.5
+"Transboundary","Coho",2004,52.1,NA,0.3,28.1,NA,2.5
+"Transboundary","Coho",2005,76.3,NA,0.2,47.5,NA,1.5
+"Transboundary","Coho",2006,82,NA,0.1,58.4,NA,0.5
+"Transboundary","Coho",2007,46.5,NA,-0.1,30.9,NA,-0.5
+"Transboundary","Coho",2008,28.6,28.3,-0.2,17.6,24.5,-1.5
+"Transboundary","Coho",2009,23.1,23,-0.3,16.4,19.2,-2.4
+"Transboundary","Coho",2010,21.5,17.9,-0.5,20.4,14.2,-3.4
+"Transboundary","Coho",2011,8.9,13,-0.6,6.6,9.4,-4.3
+"Transboundary","Coho",2012,7.9,8.3,-0.7,6.1,4.8,-5.3
+"Transboundary","Coho",2013,0.9,3.8,-0.9,2.5,0.4,-6.2
+"Transboundary","Coho",2014,4.5,-0.5,-1,4.4,-3.8,-7.1
+"Transboundary","Coho",2015,-10,-4.7,-1.1,-12.8,-7.8,-8
+"Transboundary","Coho",2016,-6,-8.6,-1.3,-9.6,-11.7,-8.9
+"Transboundary","Coho",2017,-9.8,-12.4,-1.4,-13.3,-15.4,-9.8
+"Transboundary","Coho",2018,-14.8,-16.1,-1.5,-16.6,-19,-10.7
+"Transboundary","Coho",2019,-21.4,-19.6,-1.7,-24.4,-22.4,-11.6
+"Transboundary","Coho",2020,-23.7,-22.9,-1.8,-28.2,-25.6,-12.5
+"Transboundary","Coho",2021,-25.9,-26.1,-1.9,-29.9,-28.7,-13.3
+"Transboundary","Pink",1984,118.4,NA,63.5,NA,NA,NA
+"Transboundary","Pink",1985,152.2,NA,59.5,NA,NA,NA
+"Transboundary","Pink",1986,49.1,NA,55.5,NA,NA,NA
+"Transboundary","Pink",1987,85.4,NA,51.6,NA,NA,NA
+"Transboundary","Pink",1988,37.4,NA,47.8,NA,NA,NA
+"Transboundary","Pink",1989,17.3,NA,44.2,NA,NA,NA
+"Transboundary","Pink",1990,114.8,NA,40.6,NA,NA,NA
+"Transboundary","Pink",1991,86.7,NA,37.1,NA,NA,NA
+"Transboundary","Pink",1992,55.3,NA,33.6,NA,NA,NA
+"Transboundary","Pink",1993,-59.2,NA,30.3,NA,NA,NA
+"Transboundary","Pink",1994,-30.2,NA,27.1,NA,NA,NA
+"Transboundary","Pink",1995,-28.3,NA,23.9,NA,NA,NA
+"Transboundary","Pink",1996,-36,NA,20.8,NA,NA,NA
+"Transboundary","Pink",1997,8.9,NA,17.8,NA,NA,NA
+"Transboundary","Pink",1998,13.3,NA,14.9,NA,NA,NA
+"Transboundary","Pink",1999,146.5,NA,12,NA,NA,NA
+"Transboundary","Pink",2000,30.4,NA,9.2,NA,NA,NA
+"Transboundary","Pink",2001,-18.7,NA,6.5,NA,NA,NA
+"Transboundary","Pink",2002,-24.3,NA,3.9,NA,NA,NA
+"Transboundary","Pink",2003,-1.4,NA,1.3,NA,NA,NA
+"Transboundary","Pink",2004,20.5,NA,-1.3,NA,NA,NA
+"Transboundary","Pink",2005,21.8,NA,-3.7,NA,NA,NA
+"Transboundary","Pink",2006,95.2,NA,-6.1,NA,NA,NA
+"Transboundary","Pink",2007,72.8,NA,-8.4,NA,NA,NA
+"Transboundary","Pink",2008,-19.6,NA,-10.7,NA,NA,NA
+"Transboundary","Pink",2009,-30.6,NA,-13,NA,NA,NA
+"Transboundary","Pink",2010,-4.8,NA,-15.1,NA,NA,NA
+"Transboundary","Pink",2011,32.1,NA,-17.2,NA,NA,NA
+"Transboundary","Pink",2012,7.1,NA,-19.3,NA,NA,NA
+"Transboundary","Pink",2013,-45.1,NA,-21.3,NA,NA,NA
+"Transboundary","Pink",2014,-64.5,NA,-23.3,NA,NA,NA
+"Transboundary","Pink",2015,-19.1,NA,-25.2,NA,NA,NA
+"Transboundary","Pink",2016,-39.4,NA,-27,NA,NA,NA
+"Transboundary","Pink",2017,-47,NA,-28.9,NA,NA,NA
+"Transboundary","Pink",2018,-42.6,NA,-30.6,NA,NA,NA
+"Transboundary","Pink",2019,-45.1,-15.2,-32.4,NA,NA,NA
+"Transboundary","Pink",2020,-5.6,-21.9,-34,NA,NA,NA
+"Transboundary","Pink",2021,18.9,-28.1,-35.7,NA,NA,NA
+"Transboundary","Pink",2022,-21.9,-33.7,-37.3,NA,NA,NA
+"Transboundary","Pink",2023,-59.9,-38.9,-38.8,NA,NA,NA
+"Transboundary","Chum",1984,22.7,NA,173.3,NA,NA,NA
+"Transboundary","Chum",1985,156.1,NA,159.6,NA,NA,NA
+"Transboundary","Chum",1986,26.8,NA,146.6,NA,NA,NA
+"Transboundary","Chum",1987,86.7,NA,134.2,NA,NA,NA
+"Transboundary","Chum",1988,154.3,NA,122.4,NA,NA,NA
+"Transboundary","Chum",1989,110.4,NA,111.2,NA,NA,NA
+"Transboundary","Chum",1990,268,NA,100.6,NA,NA,NA
+"Transboundary","Chum",1991,235.8,NA,90.5,NA,NA,NA
+"Transboundary","Chum",1992,116.7,NA,80.9,NA,NA,NA
+"Transboundary","Chum",1993,85.3,NA,71.9,NA,NA,NA
+"Transboundary","Chum",1994,55.1,NA,63.2,NA,NA,NA
+"Transboundary","Chum",1995,4.4,NA,55,NA,NA,NA
+"Transboundary","Chum",1996,24.9,NA,47.2,NA,NA,NA
+"Transboundary","Chum",1997,36.1,NA,39.8,NA,NA,NA
+"Transboundary","Chum",1998,13.7,NA,32.8,NA,NA,NA
+"Transboundary","Chum",1999,5.9,NA,26.1,NA,NA,NA
+"Transboundary","Chum",2000,8.2,NA,19.8,NA,NA,NA
+"Transboundary","Chum",2001,-8.3,NA,13.8,NA,NA,NA
+"Transboundary","Chum",2002,-5.2,NA,8,NA,NA,NA
+"Transboundary","Chum",2003,7.2,NA,2.6,NA,NA,NA
+"Transboundary","Chum",2004,6.7,NA,-2.5,NA,NA,NA
+"Transboundary","Chum",2005,7.5,NA,-7.4,NA,NA,NA
+"Transboundary","Chum",2006,32,NA,-12.1,NA,NA,NA
+"Transboundary","Chum",2007,52.9,NA,-16.5,NA,NA,NA
+"Transboundary","Chum",2008,46.6,NA,-20.7,NA,NA,NA
+"Transboundary","Chum",2009,42.6,NA,-24.7,NA,NA,NA
+"Transboundary","Chum",2010,-4.4,NA,-28.5,NA,NA,NA
+"Transboundary","Chum",2011,-25.6,NA,-32.1,NA,NA,NA
+"Transboundary","Chum",2012,-32.9,NA,-35.5,NA,NA,NA
+"Transboundary","Chum",2013,-30.3,-10.2,-38.7,NA,NA,NA
+"Transboundary","Chum",2014,-6,-23,-41.8,NA,NA,NA
+"Transboundary","Chum",2015,-19.6,-34,-44.7,NA,NA,NA
+"Transboundary","Chum",2016,-41.3,-43.4,-47.5,NA,NA,NA
+"Transboundary","Chum",2017,-43.2,-51.4,-50.2,NA,NA,NA
+"Transboundary","Chum",2018,-67.8,-58.3,-52.7,NA,NA,NA
+"Transboundary","Chum",2019,-66,-64.3,-55,NA,NA,NA
+"Transboundary","Chum",2020,-69.3,-69.4,-57.3,NA,NA,NA
+"Transboundary","Chum",2021,-81.8,-73.7,-59.4,NA,NA,NA
+"Transboundary","Chum",2022,-73.2,-77.5,-61.5,NA,NA,NA
+"Transboundary","Chum",2023,-77.3,-80.7,-63.4,NA,NA,NA
+"Haida Gwaii","Chinook",1952,-6.3,NA,-18.9,NA,NA,NA
+"Haida Gwaii","Chinook",1953,-6.3,NA,-18.3,NA,NA,NA
+"Haida Gwaii","Chinook",1954,-6.3,NA,-17.7,NA,NA,NA
+"Haida Gwaii","Chinook",1955,-6.3,NA,-17,NA,NA,NA
+"Haida Gwaii","Chinook",1956,-33.7,NA,-16.4,NA,NA,NA
+"Haida Gwaii","Chinook",1957,-33.7,NA,-15.7,NA,NA,NA
+"Haida Gwaii","Chinook",1958,-33.7,NA,-15.1,NA,NA,NA
+"Haida Gwaii","Chinook",1959,-1.3,NA,-14.4,NA,NA,NA
+"Haida Gwaii","Chinook",1960,-18.1,NA,-13.7,NA,NA,NA
+"Haida Gwaii","Chinook",1961,20.4,NA,-13,NA,NA,NA
+"Haida Gwaii","Chinook",1962,20.4,NA,-12.4,NA,NA,NA
+"Haida Gwaii","Chinook",1963,20.4,NA,-11.7,NA,NA,NA
+"Haida Gwaii","Chinook",1964,45.6,NA,-11,NA,NA,NA
+"Haida Gwaii","Chinook",1965,208,NA,-10.3,NA,NA,NA
+"Haida Gwaii","Chinook",1966,272.6,NA,-9.6,NA,NA,NA
+"Haida Gwaii","Chinook",1967,272.6,NA,-8.9,NA,NA,NA
+"Haida Gwaii","Chinook",1968,182.7,NA,-8.2,NA,NA,NA
+"Haida Gwaii","Chinook",1969,104.9,NA,-7.5,NA,NA,NA
+"Haida Gwaii","Chinook",1970,14,NA,-6.8,NA,NA,NA
+"Haida Gwaii","Chinook",1971,-33.7,NA,-6,NA,NA,NA
+"Haida Gwaii","Chinook",1972,-38.8,NA,-5.3,NA,NA,NA
+"Haida Gwaii","Chinook",1973,-44.8,NA,-4.6,NA,NA,NA
+"Haida Gwaii","Chinook",1974,-49.1,NA,-3.8,NA,NA,NA
+"Haida Gwaii","Chinook",1975,-42.2,NA,-3.1,NA,NA,NA
+"Haida Gwaii","Chinook",1976,-38.2,NA,-2.3,NA,NA,NA
+"Haida Gwaii","Chinook",1977,-40.9,NA,-1.5,NA,NA,NA
+"Haida Gwaii","Chinook",1978,-45.5,NA,-0.8,NA,NA,NA
+"Haida Gwaii","Chinook",1979,-54.6,NA,0,NA,NA,NA
+"Haida Gwaii","Chinook",1980,-62.2,NA,0.8,NA,NA,NA
+"Haida Gwaii","Chinook",1981,-61.7,NA,1.6,NA,NA,NA
+"Haida Gwaii","Chinook",1982,-57.2,NA,2.4,NA,NA,NA
+"Haida Gwaii","Chinook",1983,-57.2,NA,3.2,NA,NA,NA
+"Haida Gwaii","Chinook",1984,-59.6,NA,4,NA,NA,NA
+"Haida Gwaii","Chinook",1985,-51.4,NA,4.8,NA,NA,NA
+"Haida Gwaii","Chinook",1986,-55.2,NA,5.6,NA,NA,NA
+"Haida Gwaii","Chinook",1987,-51.9,NA,6.4,NA,NA,NA
+"Haida Gwaii","Chinook",1988,-37.6,NA,7.2,NA,NA,NA
+"Haida Gwaii","Chinook",1989,-2.5,NA,8.1,NA,NA,NA
+"Haida Gwaii","Chinook",1990,3.2,NA,8.9,NA,NA,NA
+"Haida Gwaii","Chinook",1991,34.8,NA,9.8,NA,NA,NA
+"Haida Gwaii","Chinook",1992,34.8,NA,10.6,NA,NA,NA
+"Haida Gwaii","Chinook",1993,15.2,-3.1,11.5,NA,NA,NA
+"Haida Gwaii","Chinook",1994,7.7,5.1,12.4,NA,NA,NA
+"Haida Gwaii","Chinook",1995,1.6,13.9,13.2,NA,NA,NA
+"Haida Gwaii","Chinook",1996,11.4,23.5,14.1,NA,NA,NA
+"Haida Gwaii","Chinook",1997,16.5,33.9,15,NA,NA,NA
+"Haida Gwaii","Chinook",1998,45.1,45.2,15.9,NA,NA,NA
+"Haida Gwaii","Chinook",1999,59.4,57.4,16.8,NA,NA,NA
+"Haida Gwaii","Chinook",2000,89.9,70.7,17.7,NA,NA,NA
+"Haida Gwaii","Chinook",2001,90.5,85.1,18.6,NA,NA,NA
+"Haida Gwaii","Chinook",2002,107.2,100.6,19.6,NA,NA,NA
+"Haida Gwaii","Chinook",2003,122.6,117.5,20.5,NA,NA,NA
+"Haida Gwaii","Chinook",2004,130.8,135.9,21.4,NA,NA,NA
+"Haida Gwaii","Chinook",2005,157.5,155.7,22.4,NA,NA,NA
+"Haida Gwaii","Chinook",2006,170.2,177.2,23.3,NA,NA,NA
+"Haida Gwaii","Chum",1950,210.3,NA,79.6,NA,NA,NA
+"Haida Gwaii","Chum",1951,229.8,NA,76.7,NA,NA,NA
+"Haida Gwaii","Chum",1952,272.5,NA,73.8,NA,NA,NA
+"Haida Gwaii","Chum",1953,182.7,NA,71,NA,NA,NA
+"Haida Gwaii","Chum",1954,175.1,NA,68.3,NA,NA,NA
+"Haida Gwaii","Chum",1955,72,NA,65.6,NA,NA,NA
+"Haida Gwaii","Chum",1956,20.6,NA,62.9,NA,NA,NA
+"Haida Gwaii","Chum",1957,0,NA,60.3,NA,NA,NA
+"Haida Gwaii","Chum",1958,-4.3,NA,57.7,NA,NA,NA
+"Haida Gwaii","Chum",1959,-35.7,NA,55.1,NA,NA,NA
+"Haida Gwaii","Chum",1960,-19.5,NA,52.6,NA,NA,NA
+"Haida Gwaii","Chum",1961,-8.4,NA,50.2,NA,NA,NA
+"Haida Gwaii","Chum",1962,-14,NA,47.7,NA,NA,NA
+"Haida Gwaii","Chum",1963,-8.1,NA,45.4,NA,NA,NA
+"Haida Gwaii","Chum",1964,38,NA,43,NA,NA,NA
+"Haida Gwaii","Chum",1965,57.9,NA,40.7,NA,NA,NA
+"Haida Gwaii","Chum",1966,78.9,NA,38.4,NA,NA,NA
+"Haida Gwaii","Chum",1967,80.7,NA,36.2,NA,NA,NA
+"Haida Gwaii","Chum",1968,85.7,NA,34,NA,NA,NA
+"Haida Gwaii","Chum",1969,59.6,NA,31.8,NA,NA,NA
+"Haida Gwaii","Chum",1970,45.1,NA,29.7,NA,NA,NA
+"Haida Gwaii","Chum",1971,29.2,NA,27.6,NA,NA,NA
+"Haida Gwaii","Chum",1972,16.6,NA,25.6,NA,NA,NA
+"Haida Gwaii","Chum",1973,7.5,NA,23.5,NA,NA,NA
+"Haida Gwaii","Chum",1974,0.2,NA,21.6,NA,NA,NA
+"Haida Gwaii","Chum",1975,-14,NA,19.6,NA,NA,NA
+"Haida Gwaii","Chum",1976,-20.5,NA,17.7,NA,NA,NA
+"Haida Gwaii","Chum",1977,-18.6,NA,15.8,NA,NA,NA
+"Haida Gwaii","Chum",1978,-17.8,NA,13.9,NA,NA,NA
+"Haida Gwaii","Chum",1979,-27.7,NA,12.1,NA,NA,NA
+"Haida Gwaii","Chum",1980,-19.4,NA,10.3,NA,NA,NA
+"Haida Gwaii","Chum",1981,-18.1,NA,8.5,NA,NA,NA
+"Haida Gwaii","Chum",1982,-14.7,NA,6.7,NA,NA,NA
+"Haida Gwaii","Chum",1983,-20,NA,5,NA,NA,NA
+"Haida Gwaii","Chum",1984,0.9,NA,3.3,NA,NA,NA
+"Haida Gwaii","Chum",1985,14.1,NA,1.6,NA,NA,NA
+"Haida Gwaii","Chum",1986,27,NA,0,NA,NA,NA
+"Haida Gwaii","Chum",1987,33.1,NA,-1.6,NA,NA,NA
+"Haida Gwaii","Chum",1988,45.3,NA,-3.2,NA,NA,NA
+"Haida Gwaii","Chum",1989,40.6,NA,-4.8,NA,NA,NA
+"Haida Gwaii","Chum",1990,34.1,NA,-6.3,NA,NA,NA
+"Haida Gwaii","Chum",1991,25.6,NA,-7.8,NA,NA,NA
+"Haida Gwaii","Chum",1992,7.6,NA,-9.3,NA,NA,NA
+"Haida Gwaii","Chum",1993,5.3,NA,-10.8,NA,NA,NA
+"Haida Gwaii","Chum",1994,1.5,NA,-12.2,NA,NA,NA
+"Haida Gwaii","Chum",1995,-4.9,NA,-13.6,NA,NA,NA
+"Haida Gwaii","Chum",1996,-6.9,NA,-15,NA,NA,NA
+"Haida Gwaii","Chum",1997,-2.1,NA,-16.4,NA,NA,NA
+"Haida Gwaii","Chum",1998,2.9,NA,-17.7,NA,NA,NA
+"Haida Gwaii","Chum",1999,11.4,NA,-19.1,NA,NA,NA
+"Haida Gwaii","Chum",2000,12.2,NA,-20.4,NA,NA,NA
+"Haida Gwaii","Chum",2001,9.2,NA,-21.6,NA,NA,NA
+"Haida Gwaii","Chum",2002,6.1,NA,-22.9,NA,NA,NA
+"Haida Gwaii","Chum",2003,-3.3,NA,-24.2,NA,NA,NA
+"Haida Gwaii","Chum",2004,-11.8,NA,-25.4,NA,NA,NA
+"Haida Gwaii","Chum",2005,-13.9,NA,-26.6,NA,NA,NA
+"Haida Gwaii","Chum",2006,-15.5,NA,-27.8,NA,NA,NA
+"Haida Gwaii","Chum",2007,-27.9,NA,-28.9,NA,NA,NA
+"Haida Gwaii","Chum",2008,-31.6,NA,-30.1,NA,NA,NA
+"Haida Gwaii","Chum",2009,-31.8,-20.4,-31.2,NA,NA,NA
+"Haida Gwaii","Chum",2010,-35,-24.9,-32.3,NA,NA,NA
+"Haida Gwaii","Chum",2011,-37.7,-29.2,-33.4,NA,NA,NA
+"Haida Gwaii","Chum",2012,-24.8,-33.2,-34.5,NA,NA,NA
+"Haida Gwaii","Chum",2013,-30,-37,-35.5,NA,NA,NA
+"Haida Gwaii","Chum",2014,-38.3,-40.5,-36.6,NA,NA,NA
+"Haida Gwaii","Chum",2015,-37.3,-43.9,-37.6,NA,NA,NA
+"Haida Gwaii","Chum",2016,-40.7,-47.1,-38.6,NA,NA,NA
+"Haida Gwaii","Chum",2017,-47.2,-50.1,-39.6,NA,NA,NA
+"Haida Gwaii","Chum",2018,-43,-52.9,-40.6,NA,NA,NA
+"Haida Gwaii","Chum",2019,-43.9,-55.6,-41.5,NA,NA,NA
+"Haida Gwaii","Chum",2020,-61.7,-58.1,-42.5,NA,NA,NA
+"Haida Gwaii","Chum",2021,-70.3,-60.5,-43.4,NA,NA,NA
+"Haida Gwaii","Chum",2022,-68.4,-62.7,-44.3,NA,NA,NA
+"Haida Gwaii","Coho",1950,-23.4,NA,44.6,NA,NA,NA
+"Haida Gwaii","Coho",1951,106.4,NA,43.1,NA,NA,NA
+"Haida Gwaii","Coho",1952,81.2,NA,41.6,NA,NA,NA
+"Haida Gwaii","Coho",1953,32.7,NA,40.2,NA,NA,NA
+"Haida Gwaii","Coho",1954,63.9,NA,38.8,NA,NA,NA
+"Haida Gwaii","Coho",1955,11.7,NA,37.4,NA,NA,NA
+"Haida Gwaii","Coho",1956,8.4,NA,36,NA,NA,NA
+"Haida Gwaii","Coho",1957,33.2,NA,34.6,NA,NA,NA
+"Haida Gwaii","Coho",1958,20.9,NA,33.2,NA,NA,NA
+"Haida Gwaii","Coho",1959,-10.7,NA,31.8,NA,NA,NA
+"Haida Gwaii","Coho",1960,-4,NA,30.5,NA,NA,NA
+"Haida Gwaii","Coho",1961,30.4,NA,29.2,NA,NA,NA
+"Haida Gwaii","Coho",1962,25.7,NA,27.9,NA,NA,NA
+"Haida Gwaii","Coho",1963,78.7,NA,26.6,NA,NA,NA
+"Haida Gwaii","Coho",1964,130.8,NA,25.3,NA,NA,NA
+"Haida Gwaii","Coho",1965,92.4,NA,24,NA,NA,NA
+"Haida Gwaii","Coho",1966,137.4,NA,22.7,NA,NA,NA
+"Haida Gwaii","Coho",1967,151.7,NA,21.5,NA,NA,NA
+"Haida Gwaii","Coho",1968,76.2,NA,20.2,NA,NA,NA
+"Haida Gwaii","Coho",1969,66,NA,19,NA,NA,NA
+"Haida Gwaii","Coho",1970,69.5,NA,17.8,NA,NA,NA
+"Haida Gwaii","Coho",1971,39.3,NA,16.6,NA,NA,NA
+"Haida Gwaii","Coho",1972,55.5,NA,15.4,NA,NA,NA
+"Haida Gwaii","Coho",1973,40.2,NA,14.2,NA,NA,NA
+"Haida Gwaii","Coho",1974,7.9,NA,13.1,NA,NA,NA
+"Haida Gwaii","Coho",1975,23.8,NA,11.9,NA,NA,NA
+"Haida Gwaii","Coho",1976,13.3,NA,10.8,NA,NA,NA
+"Haida Gwaii","Coho",1977,3.8,NA,9.7,NA,NA,NA
+"Haida Gwaii","Coho",1978,14.7,NA,8.5,NA,NA,NA
+"Haida Gwaii","Coho",1979,2,NA,7.4,NA,NA,NA
+"Haida Gwaii","Coho",1980,-9.2,NA,6.3,NA,NA,NA
+"Haida Gwaii","Coho",1981,-6.1,NA,5.3,NA,NA,NA
+"Haida Gwaii","Coho",1982,-19.7,NA,4.2,NA,NA,NA
+"Haida Gwaii","Coho",1983,-24.7,NA,3.1,NA,NA,NA
+"Haida Gwaii","Coho",1984,-27.4,NA,2.1,NA,NA,NA
+"Haida Gwaii","Coho",1985,-25.9,NA,1,NA,NA,NA
+"Haida Gwaii","Coho",1986,-31.8,NA,0,NA,NA,NA
+"Haida Gwaii","Coho",1987,-34.4,NA,-1,NA,NA,NA
+"Haida Gwaii","Coho",1988,-32,NA,-2,NA,NA,NA
+"Haida Gwaii","Coho",1989,-40.2,NA,-3,NA,NA,NA
+"Haida Gwaii","Coho",1990,-45.2,NA,-4,NA,NA,NA
+"Haida Gwaii","Coho",1991,-45.2,NA,-5,NA,NA,NA
+"Haida Gwaii","Coho",1992,-43.8,NA,-6,NA,NA,NA
+"Haida Gwaii","Coho",1993,-45.2,NA,-6.9,NA,NA,NA
+"Haida Gwaii","Coho",1994,-26.8,NA,-7.9,NA,NA,NA
+"Haida Gwaii","Coho",1995,-36.2,NA,-8.8,NA,NA,NA
+"Haida Gwaii","Coho",1996,-44,NA,-9.7,NA,NA,NA
+"Haida Gwaii","Coho",1997,-47.4,NA,-10.7,NA,NA,NA
+"Haida Gwaii","Coho",1998,-48.5,NA,-11.6,NA,NA,NA
+"Haida Gwaii","Coho",1999,-32.8,NA,-12.5,NA,NA,NA
+"Haida Gwaii","Coho",2000,-19.3,NA,-13.4,NA,NA,NA
+"Haida Gwaii","Coho",2001,9.1,NA,-14.2,NA,NA,NA
+"Haida Gwaii","Coho",2002,21.5,NA,-15.1,NA,NA,NA
+"Haida Gwaii","Coho",2003,27.6,NA,-16,NA,NA,NA
+"Haida Gwaii","Coho",2004,25.2,NA,-16.8,NA,NA,NA
+"Haida Gwaii","Coho",2005,14.3,NA,-17.7,NA,NA,NA
+"Haida Gwaii","Coho",2006,7.1,NA,-18.5,NA,NA,NA
+"Haida Gwaii","Coho",2007,2.8,NA,-19.3,NA,NA,NA
+"Haida Gwaii","Coho",2008,-9.5,NA,-20.2,NA,NA,NA
+"Haida Gwaii","Coho",2009,5.1,NA,-21,NA,NA,NA
+"Haida Gwaii","Coho",2010,0.1,NA,-21.8,NA,NA,NA
+"Haida Gwaii","Coho",2011,1.8,NA,-22.6,NA,NA,NA
+"Haida Gwaii","Coho",2012,8.6,29.2,-23.4,NA,NA,NA
+"Haida Gwaii","Coho",2013,-6.3,17.6,-24.2,NA,NA,NA
+"Haida Gwaii","Coho",2014,-7.4,7.1,-24.9,NA,NA,NA
+"Haida Gwaii","Coho",2015,-0.3,-2.5,-25.7,NA,NA,NA
+"Haida Gwaii","Coho",2016,16.4,-11.2,-26.4,NA,NA,NA
+"Haida Gwaii","Coho",2017,15.6,-19.2,-27.2,NA,NA,NA
+"Haida Gwaii","Coho",2018,-0.9,-26.4,-27.9,NA,NA,NA
+"Haida Gwaii","Coho",2019,-26.6,-33,-28.7,NA,NA,NA
+"Haida Gwaii","Coho",2020,-34.7,-39,-29.4,NA,NA,NA
+"Haida Gwaii","Coho",2021,-55.5,-44.4,-30.1,NA,NA,NA
+"Haida Gwaii","Coho",2022,-63.9,-49.4,-30.8,NA,NA,NA
+"Haida Gwaii","Pink",1950,321.4,NA,79.4,NA,NA,NA
+"Haida Gwaii","Pink",1951,38.4,NA,76.5,NA,NA,NA
+"Haida Gwaii","Pink",1952,79.2,NA,73.6,NA,NA,NA
+"Haida Gwaii","Pink",1953,74.3,NA,70.8,NA,NA,NA
+"Haida Gwaii","Pink",1954,58.3,NA,68.1,NA,NA,NA
+"Haida Gwaii","Pink",1955,54.3,NA,65.4,NA,NA,NA
+"Haida Gwaii","Pink",1956,32.5,NA,62.7,NA,NA,NA
+"Haida Gwaii","Pink",1957,113.3,NA,60.1,NA,NA,NA
+"Haida Gwaii","Pink",1958,83.9,NA,57.5,NA,NA,NA
+"Haida Gwaii","Pink",1959,181.6,NA,55,NA,NA,NA
+"Haida Gwaii","Pink",1960,145.1,NA,52.5,NA,NA,NA
+"Haida Gwaii","Pink",1961,25.6,NA,50,NA,NA,NA
+"Haida Gwaii","Pink",1962,105.9,NA,47.6,NA,NA,NA
+"Haida Gwaii","Pink",1963,160.9,NA,45.2,NA,NA,NA
+"Haida Gwaii","Pink",1964,-20.2,NA,42.9,NA,NA,NA
+"Haida Gwaii","Pink",1965,-52.2,NA,40.6,NA,NA,NA
+"Haida Gwaii","Pink",1966,22.8,NA,38.3,NA,NA,NA
+"Haida Gwaii","Pink",1967,98.7,NA,36.1,NA,NA,NA
+"Haida Gwaii","Pink",1968,157.3,NA,33.9,NA,NA,NA
+"Haida Gwaii","Pink",1969,280,NA,31.8,NA,NA,NA
+"Haida Gwaii","Pink",1970,298.8,NA,29.6,NA,NA,NA
+"Haida Gwaii","Pink",1971,83.1,NA,27.6,NA,NA,NA
+"Haida Gwaii","Pink",1972,74,NA,25.5,NA,NA,NA
+"Haida Gwaii","Pink",1973,99.4,NA,23.5,NA,NA,NA
+"Haida Gwaii","Pink",1974,11.1,NA,21.5,NA,NA,NA
+"Haida Gwaii","Pink",1975,-25.6,NA,19.5,NA,NA,NA
+"Haida Gwaii","Pink",1976,-4.8,NA,17.6,NA,NA,NA
+"Haida Gwaii","Pink",1977,-37.1,NA,15.7,NA,NA,NA
+"Haida Gwaii","Pink",1978,-39.4,NA,13.9,NA,NA,NA
+"Haida Gwaii","Pink",1979,-4.6,NA,12,NA,NA,NA
+"Haida Gwaii","Pink",1980,-39.4,NA,10.2,NA,NA,NA
+"Haida Gwaii","Pink",1981,-56.5,NA,8.5,NA,NA,NA
+"Haida Gwaii","Pink",1982,-73.9,NA,6.7,NA,NA,NA
+"Haida Gwaii","Pink",1983,-68.8,NA,5,NA,NA,NA
+"Haida Gwaii","Pink",1984,-54.4,NA,3.3,NA,NA,NA
+"Haida Gwaii","Pink",1985,-46.8,NA,1.6,NA,NA,NA
+"Haida Gwaii","Pink",1986,6.4,NA,0,NA,NA,NA
+"Haida Gwaii","Pink",1987,55.3,NA,-1.6,NA,NA,NA
+"Haida Gwaii","Pink",1988,65.2,NA,-3.2,NA,NA,NA
+"Haida Gwaii","Pink",1989,32,NA,-4.8,NA,NA,NA
+"Haida Gwaii","Pink",1990,67.8,NA,-6.3,NA,NA,NA
+"Haida Gwaii","Pink",1991,14.7,NA,-7.8,NA,NA,NA
+"Haida Gwaii","Pink",1992,-10.8,NA,-9.3,NA,NA,NA
+"Haida Gwaii","Pink",1993,-5.1,NA,-10.7,NA,NA,NA
+"Haida Gwaii","Pink",1994,-7.6,NA,-12.2,NA,NA,NA
+"Haida Gwaii","Pink",1995,-53,NA,-13.6,NA,NA,NA
+"Haida Gwaii","Pink",1996,-38.8,NA,-15,NA,NA,NA
+"Haida Gwaii","Pink",1997,-41.6,NA,-16.3,NA,NA,NA
+"Haida Gwaii","Pink",1998,-49.2,NA,-17.7,NA,NA,NA
+"Haida Gwaii","Pink",1999,-58.2,NA,-19,NA,NA,NA
+"Haida Gwaii","Pink",2000,-69.7,NA,-20.3,NA,NA,NA
+"Haida Gwaii","Pink",2001,-40.5,NA,-21.6,NA,NA,NA
+"Haida Gwaii","Pink",2002,-34.2,NA,-22.9,NA,NA,NA
+"Haida Gwaii","Pink",2003,-80.9,NA,-24.1,NA,NA,NA
+"Haida Gwaii","Pink",2004,-88,NA,-25.3,NA,NA,NA
+"Haida Gwaii","Pink",2005,79.4,NA,-26.5,NA,NA,NA
+"Haida Gwaii","Pink",2006,60.6,NA,-27.7,NA,NA,NA
+"Haida Gwaii","Pink",2007,9.2,NA,-28.9,NA,NA,NA
+"Haida Gwaii","Pink",2008,86.3,NA,-30,NA,NA,NA
+"Haida Gwaii","Pink",2009,72.3,NA,-31.2,NA,NA,NA
+"Haida Gwaii","Pink",2010,178,NA,-32.3,NA,NA,NA
+"Haida Gwaii","Pink",2011,527.4,NA,-33.3,NA,NA,NA
+"Haida Gwaii","Pink",2012,396.1,NA,-34.4,NA,NA,NA
+"Haida Gwaii","Pink",2013,-53.3,NA,-35.5,NA,NA,NA
+"Haida Gwaii","Pink",2014,-95.7,NA,-36.5,NA,NA,NA
+"Haida Gwaii","Pink",2015,-49.2,NA,-37.5,NA,NA,NA
+"Haida Gwaii","Pink",2016,-20.3,NA,-38.5,NA,NA,NA
+"Haida Gwaii","Pink",2017,-28.9,NA,-39.5,NA,NA,NA
+"Haida Gwaii","Pink",2018,15.8,38.8,-40.5,NA,NA,NA
+"Haida Gwaii","Pink",2019,-20.3,-6.1,-41.5,NA,NA,NA
+"Haida Gwaii","Pink",2020,20.4,-36.5,-42.4,NA,NA,NA
+"Haida Gwaii","Pink",2021,-59.7,-57.1,-43.3,NA,NA,NA
+"Haida Gwaii","Pink",2022,-77,-71,-44.2,NA,NA,NA
+"Haida Gwaii","Sockeye",1950,-40,NA,21.1,NA,NA,NA
+"Haida Gwaii","Sockeye",1951,-17.8,NA,20.5,NA,NA,NA
+"Haida Gwaii","Sockeye",1952,-30.9,NA,19.8,NA,NA,NA
+"Haida Gwaii","Sockeye",1953,-26.5,NA,19.2,NA,NA,NA
+"Haida Gwaii","Sockeye",1954,-12.7,NA,18.6,NA,NA,NA
+"Haida Gwaii","Sockeye",1955,-17.5,NA,17.9,NA,NA,NA
+"Haida Gwaii","Sockeye",1956,-21.3,NA,17.3,NA,NA,NA
+"Haida Gwaii","Sockeye",1957,-2.6,NA,16.7,NA,NA,NA
+"Haida Gwaii","Sockeye",1958,16,NA,16.1,NA,NA,NA
+"Haida Gwaii","Sockeye",1959,6.2,NA,15.5,NA,NA,NA
+"Haida Gwaii","Sockeye",1960,30.7,NA,14.8,NA,NA,NA
+"Haida Gwaii","Sockeye",1961,39.1,NA,14.2,NA,NA,NA
+"Haida Gwaii","Sockeye",1962,58.3,NA,13.6,NA,NA,NA
+"Haida Gwaii","Sockeye",1963,54.9,NA,13,NA,NA,NA
+"Haida Gwaii","Sockeye",1964,65.6,NA,12.4,NA,NA,NA
+"Haida Gwaii","Sockeye",1965,69.4,NA,11.8,NA,NA,NA
+"Haida Gwaii","Sockeye",1966,75.2,NA,11.2,NA,NA,NA
+"Haida Gwaii","Sockeye",1967,52.9,NA,10.6,NA,NA,NA
+"Haida Gwaii","Sockeye",1968,57.8,NA,10.1,NA,NA,NA
+"Haida Gwaii","Sockeye",1969,76.5,NA,9.5,NA,NA,NA
+"Haida Gwaii","Sockeye",1970,83.8,NA,8.9,NA,NA,NA
+"Haida Gwaii","Sockeye",1971,84.4,NA,8.3,NA,NA,NA
+"Haida Gwaii","Sockeye",1972,69,NA,7.7,NA,NA,NA
+"Haida Gwaii","Sockeye",1973,60.5,NA,7.2,NA,NA,NA
+"Haida Gwaii","Sockeye",1974,45.6,NA,6.6,NA,NA,NA
+"Haida Gwaii","Sockeye",1975,35.3,NA,6,NA,NA,NA
+"Haida Gwaii","Sockeye",1976,41.6,NA,5.5,NA,NA,NA
+"Haida Gwaii","Sockeye",1977,61.6,NA,4.9,NA,NA,NA
+"Haida Gwaii","Sockeye",1978,44.1,NA,4.4,NA,NA,NA
+"Haida Gwaii","Sockeye",1979,26.8,NA,3.8,NA,NA,NA
+"Haida Gwaii","Sockeye",1980,29,NA,3.2,NA,NA,NA
+"Haida Gwaii","Sockeye",1981,12.1,NA,2.7,NA,NA,NA
+"Haida Gwaii","Sockeye",1982,2.1,NA,2.2,NA,NA,NA
+"Haida Gwaii","Sockeye",1983,2.1,NA,1.6,NA,NA,NA
+"Haida Gwaii","Sockeye",1984,3.8,NA,1.1,NA,NA,NA
+"Haida Gwaii","Sockeye",1985,11.4,NA,0.5,NA,NA,NA
+"Haida Gwaii","Sockeye",1986,2.2,NA,0,NA,NA,NA
+"Haida Gwaii","Sockeye",1987,-4.2,NA,-0.5,NA,NA,NA
+"Haida Gwaii","Sockeye",1988,1.2,NA,-1.1,NA,NA,NA
+"Haida Gwaii","Sockeye",1989,-9.5,NA,-1.6,NA,NA,NA
+"Haida Gwaii","Sockeye",1990,-37.9,NA,-2.1,NA,NA,NA
+"Haida Gwaii","Sockeye",1991,-47.1,NA,-2.6,NA,NA,NA
+"Haida Gwaii","Sockeye",1992,-49,NA,-3.1,NA,NA,NA
+"Haida Gwaii","Sockeye",1993,-55.6,NA,-3.7,NA,NA,NA
+"Haida Gwaii","Sockeye",1994,-58.3,NA,-4.2,NA,NA,NA
+"Haida Gwaii","Sockeye",1995,-56.9,NA,-4.7,NA,NA,NA
+"Haida Gwaii","Sockeye",1996,-41.1,NA,-5.2,NA,NA,NA
+"Haida Gwaii","Sockeye",1997,-35.5,NA,-5.7,NA,NA,NA
+"Haida Gwaii","Sockeye",1998,-29.5,NA,-6.2,NA,NA,NA
+"Haida Gwaii","Sockeye",1999,-16.5,NA,-6.7,NA,NA,NA
+"Haida Gwaii","Sockeye",2000,8.2,NA,-7.2,NA,NA,NA
+"Haida Gwaii","Sockeye",2001,-4.7,NA,-7.7,NA,NA,NA
+"Haida Gwaii","Sockeye",2002,-10.7,NA,-8.2,NA,NA,NA
+"Haida Gwaii","Sockeye",2003,-15.9,NA,-8.7,NA,NA,NA
+"Haida Gwaii","Sockeye",2004,-18.7,NA,-9.1,NA,NA,NA
+"Haida Gwaii","Sockeye",2005,-33.3,NA,-9.6,NA,NA,NA
+"Haida Gwaii","Sockeye",2006,-23.2,NA,-10.1,NA,NA,NA
+"Haida Gwaii","Sockeye",2007,-26.9,NA,-10.6,NA,NA,NA
+"Haida Gwaii","Sockeye",2008,-28.5,NA,-11.1,NA,NA,NA
+"Haida Gwaii","Sockeye",2009,-26.2,7.7,-11.5,NA,NA,NA
+"Haida Gwaii","Sockeye",2010,-8,6.6,-12,NA,NA,NA
+"Haida Gwaii","Sockeye",2011,-2.5,5.4,-12.5,NA,NA,NA
+"Haida Gwaii","Sockeye",2012,12.6,4.3,-12.9,NA,NA,NA
+"Haida Gwaii","Sockeye",2013,19,3.1,-13.4,NA,NA,NA
+"Haida Gwaii","Sockeye",2014,30.3,2,-13.9,NA,NA,NA
+"Haida Gwaii","Sockeye",2015,31.1,0.9,-14.3,NA,NA,NA
+"Haida Gwaii","Sockeye",2016,19.9,-0.2,-14.8,NA,NA,NA
+"Haida Gwaii","Sockeye",2017,14.5,-1.2,-15.2,NA,NA,NA
+"Haida Gwaii","Sockeye",2018,10.4,-2.3,-15.7,NA,NA,NA
+"Haida Gwaii","Sockeye",2019,-4.7,-3.4,-16.1,NA,NA,NA
+"Haida Gwaii","Sockeye",2020,-19.5,-4.4,-16.6,NA,NA,NA
+"Haida Gwaii","Sockeye",2021,-26,-5.4,-17,NA,NA,NA
+"Haida Gwaii","Sockeye",2022,-19.2,-6.5,-17.4,NA,NA,NA
+"Nass","Chinook",1975,-11.5,NA,9,-22.6,NA,-1.7
+"Nass","Chinook",1976,-14.7,NA,8.6,-25.5,NA,-1.6
+"Nass","Chinook",1977,-14.9,NA,8.2,-23.8,NA,-1.5
+"Nass","Chinook",1978,-11.3,NA,7.8,-19.6,NA,-1.5
+"Nass","Chinook",1979,-14,NA,7.4,-21.7,NA,-1.4
+"Nass","Chinook",1980,-14,NA,7,-21,NA,-1.3
+"Nass","Chinook",1981,-13.9,NA,6.6,-20,NA,-1.3
+"Nass","Chinook",1982,-19.3,NA,6.2,-25.1,NA,-1.2
+"Nass","Chinook",1983,-19.8,NA,5.8,-26,NA,-1.1
+"Nass","Chinook",1984,-8.4,NA,5.5,-15.5,NA,-1
+"Nass","Chinook",1985,-3,NA,5.1,-10.7,NA,-1
+"Nass","Chinook",1986,18.9,NA,4.7,9.1,NA,-0.9
+"Nass","Chinook",1987,37.6,NA,4.3,25.4,NA,-0.8
+"Nass","Chinook",1988,38.5,NA,3.9,26.1,NA,-0.8
+"Nass","Chinook",1989,42.9,NA,3.5,30,NA,-0.7
+"Nass","Chinook",1990,51.7,NA,3.2,38,NA,-0.6
+"Nass","Chinook",1991,10.5,NA,2.8,6.5,NA,-0.5
+"Nass","Chinook",1992,6.3,NA,2.4,5.5,NA,-0.5
+"Nass","Chinook",1993,15.8,NA,2,17.9,NA,-0.4
+"Nass","Chinook",1994,12.1,NA,1.7,15.4,NA,-0.3
+"Nass","Chinook",1995,-10,NA,1.3,-0.2,NA,-0.3
+"Nass","Chinook",1996,11.3,NA,0.9,18.4,NA,-0.2
+"Nass","Chinook",1997,14.4,NA,0.6,20.5,NA,-0.1
+"Nass","Chinook",1998,13.4,NA,0.2,19.3,NA,0
+"Nass","Chinook",1999,-1.2,NA,-0.2,10.4,NA,0
+"Nass","Chinook",2000,15.6,NA,-0.5,25.8,NA,0.1
+"Nass","Chinook",2001,23.9,NA,-0.9,35.4,NA,0.2
+"Nass","Chinook",2002,16.2,NA,-1.3,28.8,NA,0.3
+"Nass","Chinook",2003,19.4,NA,-1.6,30,NA,0.3
+"Nass","Chinook",2004,26.8,NA,-2,33.1,NA,0.4
+"Nass","Chinook",2005,21.4,NA,-2.4,26.4,NA,0.5
+"Nass","Chinook",2006,18,NA,-2.7,21.8,NA,0.5
+"Nass","Chinook",2007,31,NA,-3.1,33.7,NA,0.6
+"Nass","Chinook",2008,24.7,NA,-3.4,25.1,NA,0.7
+"Nass","Chinook",2009,39.6,20,-3.8,35,14,0.8
+"Nass","Chinook",2010,47.8,13.6,-4.1,37.2,9.5,0.8
+"Nass","Chinook",2011,22.1,7.5,-4.5,14.6,5.2,0.9
+"Nass","Chinook",2012,1.3,1.7,-4.8,-2.7,1,1
+"Nass","Chinook",2013,-15.3,-3.8,-5.2,-14.8,-3,1.1
+"Nass","Chinook",2014,-28.2,-8.9,-5.5,-24.7,-6.9,1.1
+"Nass","Chinook",2015,-28.3,-13.8,-5.9,-23.3,-10.6,1.2
+"Nass","Chinook",2016,-29.1,-18.5,-6.2,-22.5,-14.1,1.3
+"Nass","Chinook",2017,-38.1,-22.8,-6.5,-30.1,-17.5,1.3
+"Nass","Chinook",2018,-30.3,-27,-6.9,-23.1,-20.8,1.4
+"Nass","Chinook",2019,-31.6,-30.9,-7.2,-24,-23.9,1.5
+"Nass","Chinook",2020,-36.4,-34.6,-7.6,-28.8,-27,1.6
+"Nass","Chinook",2021,-33.5,-38.1,-7.9,-24.4,-29.9,1.6
+"Nass","Chinook",2022,-14,-41.5,-8.2,-9,-32.6,1.7
+"Nass","Sockeye",1982,39.3,NA,3.5,35.2,NA,36.6
+"Nass","Sockeye",1983,7.8,NA,3.3,10.5,NA,34.5
+"Nass","Sockeye",1984,-2.3,NA,3.1,-0.9,NA,32.4
+"Nass","Sockeye",1985,10.9,NA,2.9,4.7,NA,30.3
+"Nass","Sockeye",1986,5.2,NA,2.8,3.1,NA,28.3
+"Nass","Sockeye",1987,-5,NA,2.6,-6.6,NA,26.3
+"Nass","Sockeye",1988,-10.5,NA,2.4,-14.2,NA,24.4
+"Nass","Sockeye",1989,-18.4,NA,2.2,-12.9,NA,22.5
+"Nass","Sockeye",1990,-30.8,NA,2.1,-22.8,NA,20.6
+"Nass","Sockeye",1991,-25.6,NA,1.9,-16.8,NA,18.7
+"Nass","Sockeye",1992,-6.1,NA,1.7,6.8,NA,16.9
+"Nass","Sockeye",1993,20.4,NA,1.5,49.4,NA,15.1
+"Nass","Sockeye",1994,43.8,NA,1.4,60.4,NA,13.3
+"Nass","Sockeye",1995,55.8,NA,1.2,93.3,NA,11.5
+"Nass","Sockeye",1996,45.3,NA,1,97,NA,9.8
+"Nass","Sockeye",1997,19.2,NA,0.9,72,NA,8.1
+"Nass","Sockeye",1998,3.6,NA,0.7,37.9,NA,6.4
+"Nass","Sockeye",1999,-4.1,NA,0.5,38.1,NA,4.8
+"Nass","Sockeye",2000,-8.9,NA,0.3,21.9,NA,3.2
+"Nass","Sockeye",2001,-13.6,NA,0.2,8.3,NA,1.6
+"Nass","Sockeye",2002,-4.9,NA,0,16,NA,0
+"Nass","Sockeye",2003,-5.1,NA,-0.2,28.3,NA,-1.5
+"Nass","Sockeye",2004,-4.6,NA,-0.3,32.4,NA,-3.1
+"Nass","Sockeye",2005,-2.8,NA,-0.5,34.1,NA,-4.6
+"Nass","Sockeye",2006,5.4,NA,-0.7,41.9,NA,-6
+"Nass","Sockeye",2007,-12,NA,-0.8,19.8,NA,-7.5
+"Nass","Sockeye",2008,-15.3,NA,-1,-4.4,NA,-8.9
+"Nass","Sockeye",2009,-13.1,-11.9,-1.2,-14.2,-15.1,-10.3
+"Nass","Sockeye",2010,-12.8,-10.5,-1.4,-21.1,-17.4,-11.7
+"Nass","Sockeye",2011,-11,-9.1,-1.5,-26.1,-19.7,-13.1
+"Nass","Sockeye",2012,-7.2,-7.6,-1.7,-29.5,-22,-14.4
+"Nass","Sockeye",2013,-7.9,-6.1,-1.9,-25.5,-24.2,-15.8
+"Nass","Sockeye",2014,-6.8,-4.6,-2,-26.2,-26.3,-17.1
+"Nass","Sockeye",2015,3.6,-3,-2.2,-15.4,-28.3,-18.3
+"Nass","Sockeye",2016,3.6,-1.5,-2.4,-19.2,-30.3,-19.6
+"Nass","Sockeye",2017,5.9,0.1,-2.5,-23.2,-32.3,-20.8
+"Nass","Sockeye",2018,7.3,1.7,-2.7,-30,-34.2,-22.1
+"Nass","Sockeye",2019,5.9,3.4,-2.9,-35.1,-36,-23.3
+"Nass","Sockeye",2020,-5.9,5,-3,-47.7,-37.8,-24.5
+"Nass","Sockeye",2021,-1.5,6.7,-3.2,-46.3,-39.5,-25.6
+"Nass","Sockeye",2022,12.7,8.5,-3.3,-40.4,-41.2,-26.8
+"Nass","Steelhead",1994,-39.5,NA,-32.1,-28.6,NA,-9
+"Nass","Steelhead",1995,-59.4,NA,-30.2,-51.4,NA,-8.4
+"Nass","Steelhead",1996,-44.1,NA,-28.3,-28.6,NA,-7.8
+"Nass","Steelhead",1997,-34.9,NA,-26.3,-18,NA,-7.2
+"Nass","Steelhead",1998,-28.4,NA,-24.2,-5.2,NA,-6.5
+"Nass","Steelhead",1999,-21.8,NA,-22.1,6.7,NA,-5.9
+"Nass","Steelhead",2000,7.2,NA,-19.9,37.8,NA,-5.3
+"Nass","Steelhead",2001,10,NA,-17.6,36.8,NA,-4.6
+"Nass","Steelhead",2002,20.3,NA,-15.3,36.5,NA,-4
+"Nass","Steelhead",2003,30.3,NA,-12.9,30.8,NA,-3.3
+"Nass","Steelhead",2004,11.4,NA,-10.5,11.6,NA,-2.7
+"Nass","Steelhead",2005,-1.7,NA,-8,-0.7,NA,-2
+"Nass","Steelhead",2006,-19.5,NA,-5.4,-23.5,NA,-1.3
+"Nass","Steelhead",2007,-34.7,NA,-2.7,-23.5,NA,-0.7
+"Nass","Steelhead",2008,-37.5,NA,0,-27.9,NA,0
+"Nass","Steelhead",2009,-11.7,35.6,2.8,-2.8,33.9,0.7
+"Nass","Steelhead",2010,6.8,34.3,5.7,12.8,29.6,1.4
+"Nass","Steelhead",2011,44.9,33,8.7,49.5,25.5,2
+"Nass","Steelhead",2012,69.9,31.8,11.7,40.9,21.5,2.7
+"Nass","Steelhead",2013,52.3,30.6,14.8,26.6,17.6,3.4
+"Nass","Steelhead",2014,43.6,29.3,18.1,12.2,13.8,4.1
+"Nass","Steelhead",2015,37.1,28.1,21.4,10.8,10.2,4.8
+"Nass","Steelhead",2016,40.1,26.9,24.8,13.7,6.6,5.6
+"Nass","Steelhead",2017,30.1,25.7,28.3,5,3.2,6.3
+"Nass","Steelhead",2018,69.1,24.6,31.9,32.6,-0.1,7
+"Nass","Steelhead",2019,51.2,23.4,35.6,19.9,-3.3,7.7
+"Nass","Steelhead",2020,15.6,22.2,39.4,-11.7,-6.4,8.5
+"Nass","Steelhead",2021,-13,21.1,43.3,-32,-9.4,9.2
+"Nass","Steelhead",2022,-7.7,20,47.4,-25.3,-12.3,9.9
+"Nass","Chum",1950,-39.6,NA,30.4,NA,NA,NA
+"Nass","Chum",1951,23.1,NA,29.4,NA,NA,NA
+"Nass","Chum",1952,34.4,NA,28.5,NA,NA,NA
+"Nass","Chum",1953,25.9,NA,27.5,NA,NA,NA
+"Nass","Chum",1954,30.5,NA,26.6,NA,NA,NA
+"Nass","Chum",1955,-27.1,NA,25.7,NA,NA,NA
+"Nass","Chum",1956,-37.2,NA,24.7,NA,NA,NA
+"Nass","Chum",1957,-31.7,NA,23.8,NA,NA,NA
+"Nass","Chum",1958,-25.7,NA,22.9,NA,NA,NA
+"Nass","Chum",1959,46.8,NA,22,NA,NA,NA
+"Nass","Chum",1960,67.8,NA,21.1,NA,NA,NA
+"Nass","Chum",1961,91.1,NA,20.2,NA,NA,NA
+"Nass","Chum",1962,115.7,NA,19.4,NA,NA,NA
+"Nass","Chum",1963,84.7,NA,18.5,NA,NA,NA
+"Nass","Chum",1964,116.1,NA,17.6,NA,NA,NA
+"Nass","Chum",1965,57.8,NA,16.7,NA,NA,NA
+"Nass","Chum",1966,34.4,NA,15.9,NA,NA,NA
+"Nass","Chum",1967,3.2,NA,15,NA,NA,NA
+"Nass","Chum",1968,-12.4,NA,14.2,NA,NA,NA
+"Nass","Chum",1969,-11.9,NA,13.3,NA,NA,NA
+"Nass","Chum",1970,-10,NA,12.5,NA,NA,NA
+"Nass","Chum",1971,-7.3,NA,11.7,NA,NA,NA
+"Nass","Chum",1972,0,NA,10.9,NA,NA,NA
+"Nass","Chum",1973,29.2,NA,10.1,NA,NA,NA
+"Nass","Chum",1974,92.3,NA,9.2,NA,NA,NA
+"Nass","Chum",1975,106.3,NA,8.4,NA,NA,NA
+"Nass","Chum",1976,71.7,NA,7.6,NA,NA,NA
+"Nass","Chum",1977,69.8,NA,6.9,NA,NA,NA
+"Nass","Chum",1978,32.1,NA,6.1,NA,NA,NA
+"Nass","Chum",1979,37.5,NA,5.3,NA,NA,NA
+"Nass","Chum",1980,40.4,NA,4.5,NA,NA,NA
+"Nass","Chum",1981,-3.6,NA,3.8,NA,NA,NA
+"Nass","Chum",1982,-32.5,NA,3,NA,NA,NA
+"Nass","Chum",1983,-32.3,NA,2.2,NA,NA,NA
+"Nass","Chum",1984,-21.6,NA,1.5,NA,NA,NA
+"Nass","Chum",1985,-0.4,NA,0.7,NA,NA,NA
+"Nass","Chum",1986,0.3,NA,0,NA,NA,NA
+"Nass","Chum",1987,-16.6,NA,-0.7,NA,NA,NA
+"Nass","Chum",1988,-23.6,NA,-1.5,NA,NA,NA
+"Nass","Chum",1989,-26.6,NA,-2.2,NA,NA,NA
+"Nass","Chum",1990,-19,NA,-2.9,NA,NA,NA
+"Nass","Chum",1991,-6.8,NA,-3.6,NA,NA,NA
+"Nass","Chum",1992,-23.3,NA,-4.3,NA,NA,NA
+"Nass","Chum",1993,-18.6,NA,-5,NA,NA,NA
+"Nass","Chum",1994,-2.1,NA,-5.7,NA,NA,NA
+"Nass","Chum",1995,-1.4,NA,-6.4,NA,NA,NA
+"Nass","Chum",1996,-6,NA,-7.1,NA,NA,NA
+"Nass","Chum",1997,-26,NA,-7.8,NA,NA,NA
+"Nass","Chum",1998,-3.6,NA,-8.5,NA,NA,NA
+"Nass","Chum",1999,1.6,NA,-9.1,NA,NA,NA
+"Nass","Chum",2000,14.7,NA,-9.8,NA,NA,NA
+"Nass","Chum",2001,46.3,NA,-10.5,NA,NA,NA
+"Nass","Chum",2002,-3.7,NA,-11.1,NA,NA,NA
+"Nass","Chum",2003,1.9,NA,-11.8,NA,NA,NA
+"Nass","Chum",2004,21.9,NA,-12.4,NA,NA,NA
+"Nass","Chum",2005,24.2,NA,-13.1,NA,NA,NA
+"Nass","Chum",2006,44.3,NA,-13.7,NA,NA,NA
+"Nass","Chum",2007,18,NA,-14.3,NA,NA,NA
+"Nass","Chum",2008,-8.2,NA,-15,NA,NA,NA
+"Nass","Chum",2009,-17.2,NA,-15.6,NA,NA,NA
+"Nass","Chum",2010,-37,NA,-16.2,NA,NA,NA
+"Nass","Chum",2011,-45.9,NA,-16.8,NA,NA,NA
+"Nass","Chum",2012,-42.7,-27.7,-17.4,NA,NA,NA
+"Nass","Chum",2013,-46.9,-28,-18,NA,NA,NA
+"Nass","Chum",2014,-38.1,-28.4,-18.6,NA,NA,NA
+"Nass","Chum",2015,-6.3,-28.7,-19.2,NA,NA,NA
+"Nass","Chum",2016,-5.6,-29,-19.8,NA,NA,NA
+"Nass","Chum",2017,-7.1,-29.3,-20.4,NA,NA,NA
+"Nass","Chum",2018,-2.8,-29.6,-21,NA,NA,NA
+"Nass","Chum",2019,-2.8,-30,-21.6,NA,NA,NA
+"Nass","Chum",2020,-51.7,-30.3,-22.2,NA,NA,NA
+"Nass","Chum",2021,-48.6,-30.6,-22.7,NA,NA,NA
+"Nass","Chum",2022,-39.5,-30.9,-23.3,NA,NA,NA
+"Nass","Coho",1950,-25.6,NA,-41.6,NA,NA,NA
+"Nass","Coho",1951,-42.1,NA,-40.7,NA,NA,NA
+"Nass","Coho",1952,-60.3,NA,-39.8,NA,NA,NA
+"Nass","Coho",1953,-59.1,NA,-38.9,NA,NA,NA
+"Nass","Coho",1954,-65.6,NA,-38,NA,NA,NA
+"Nass","Coho",1955,-53.3,NA,-37.1,NA,NA,NA
+"Nass","Coho",1956,-31.1,NA,-36.1,NA,NA,NA
+"Nass","Coho",1957,-18.5,NA,-35.2,NA,NA,NA
+"Nass","Coho",1958,1.1,NA,-34.2,NA,NA,NA
+"Nass","Coho",1959,-33.5,NA,-33.2,NA,NA,NA
+"Nass","Coho",1960,-39.4,NA,-32.2,NA,NA,NA
+"Nass","Coho",1961,-30,NA,-31.2,NA,NA,NA
+"Nass","Coho",1962,-32.9,NA,-30.1,NA,NA,NA
+"Nass","Coho",1963,15.5,NA,-29.1,NA,NA,NA
+"Nass","Coho",1964,4.6,NA,-28,NA,NA,NA
+"Nass","Coho",1965,5.9,NA,-26.9,NA,NA,NA
+"Nass","Coho",1966,-3.9,NA,-25.8,NA,NA,NA
+"Nass","Coho",1967,-16.4,NA,-24.7,NA,NA,NA
+"Nass","Coho",1968,-15.1,NA,-23.6,NA,NA,NA
+"Nass","Coho",1969,-10.3,NA,-22.4,NA,NA,NA
+"Nass","Coho",1970,8,NA,-21.3,NA,NA,NA
+"Nass","Coho",1971,5.3,NA,-20.1,NA,NA,NA
+"Nass","Coho",1972,-12.3,NA,-18.9,NA,NA,NA
+"Nass","Coho",1973,-33.6,NA,-17.7,NA,NA,NA
+"Nass","Coho",1974,-42,NA,-16.4,NA,NA,NA
+"Nass","Coho",1975,-47.9,NA,-15.2,NA,NA,NA
+"Nass","Coho",1976,-38.7,NA,-13.9,NA,NA,NA
+"Nass","Coho",1977,-35.2,NA,-12.6,NA,NA,NA
+"Nass","Coho",1978,-34.6,NA,-11.3,NA,NA,NA
+"Nass","Coho",1979,-36.6,NA,-9.9,NA,NA,NA
+"Nass","Coho",1980,-38.8,NA,-8.6,NA,NA,NA
+"Nass","Coho",1981,-36.6,NA,-7.2,NA,NA,NA
+"Nass","Coho",1982,-25.9,NA,-5.8,NA,NA,NA
+"Nass","Coho",1983,-14.6,NA,-4.4,NA,NA,NA
+"Nass","Coho",1984,11.3,NA,-2.9,NA,NA,NA
+"Nass","Coho",1985,31,NA,-1.5,NA,NA,NA
+"Nass","Coho",1986,44.9,NA,0,NA,NA,NA
+"Nass","Coho",1987,51.5,NA,1.5,NA,NA,NA
+"Nass","Coho",1988,8.2,NA,3,NA,NA,NA
+"Nass","Coho",1989,0.6,NA,4.6,NA,NA,NA
+"Nass","Coho",1990,12.3,NA,6.2,NA,NA,NA
+"Nass","Coho",1991,9.5,NA,7.8,NA,NA,NA
+"Nass","Coho",1992,47,NA,9.4,NA,NA,NA
+"Nass","Coho",1993,26.3,NA,11,NA,NA,NA
+"Nass","Coho",1994,15.3,NA,12.7,NA,NA,NA
+"Nass","Coho",1995,17.9,NA,14.4,NA,NA,NA
+"Nass","Coho",1996,11.9,NA,16.1,NA,NA,NA
+"Nass","Coho",1997,1.1,NA,17.9,NA,NA,NA
+"Nass","Coho",1998,-8.3,NA,19.6,NA,NA,NA
+"Nass","Coho",1999,-4.9,NA,21.5,NA,NA,NA
+"Nass","Coho",2000,-10.1,NA,23.3,NA,NA,NA
+"Nass","Coho",2001,39.3,NA,25.1,NA,NA,NA
+"Nass","Coho",2002,72.2,NA,27,NA,NA,NA
+"Nass","Coho",2003,84,NA,28.9,NA,NA,NA
+"Nass","Coho",2004,109.5,NA,30.9,NA,NA,NA
+"Nass","Coho",2005,102.1,NA,32.8,NA,NA,NA
+"Nass","Coho",2006,79.4,NA,34.8,NA,NA,NA
+"Nass","Coho",2007,67.4,NA,36.9,NA,NA,NA
+"Nass","Coho",2008,58,NA,38.9,NA,NA,NA
+"Nass","Coho",2009,75.1,NA,41,NA,NA,NA
+"Nass","Coho",2010,73.9,NA,43.2,NA,NA,NA
+"Nass","Coho",2011,38.2,NA,45.3,NA,NA,NA
+"Nass","Coho",2012,40.6,54.7,47.5,NA,NA,NA
+"Nass","Coho",2013,40.3,51.3,49.7,NA,NA,NA
+"Nass","Coho",2014,58.9,48,52,NA,NA,NA
+"Nass","Coho",2015,64.9,44.8,54.3,NA,NA,NA
+"Nass","Coho",2016,67.8,41.7,56.6,NA,NA,NA
+"Nass","Coho",2017,61.7,38.6,59,NA,NA,NA
+"Nass","Coho",2018,5.7,35.6,61.3,NA,NA,NA
+"Nass","Coho",2019,27.8,32.7,63.8,NA,NA,NA
+"Nass","Coho",2020,19,29.8,66.2,NA,NA,NA
+"Nass","Coho",2021,-9.5,27,68.7,NA,NA,NA
+"Nass","Coho",2022,78.4,24.3,71.3,NA,NA,NA
+"Nass","Pink",1950,-73.9,NA,-58,NA,NA,NA
+"Nass","Pink",1951,-64.6,NA,-57,NA,NA,NA
+"Nass","Pink",1952,-61.9,NA,-55.9,NA,NA,NA
+"Nass","Pink",1953,-82.8,NA,-54.8,NA,NA,NA
+"Nass","Pink",1954,-86.3,NA,-53.7,NA,NA,NA
+"Nass","Pink",1955,-78.4,NA,-52.6,NA,NA,NA
+"Nass","Pink",1956,-70.1,NA,-51.5,NA,NA,NA
+"Nass","Pink",1957,-75.1,NA,-50.3,NA,NA,NA
+"Nass","Pink",1958,-68.8,NA,-49.1,NA,NA,NA
+"Nass","Pink",1959,-45.1,NA,-47.8,NA,NA,NA
+"Nass","Pink",1960,-52.8,NA,-46.5,NA,NA,NA
+"Nass","Pink",1961,-33.5,NA,-45.2,NA,NA,NA
+"Nass","Pink",1962,13.4,NA,-43.9,NA,NA,NA
+"Nass","Pink",1963,8.4,NA,-42.5,NA,NA,NA
+"Nass","Pink",1964,12.9,NA,-41.1,NA,NA,NA
+"Nass","Pink",1965,23.5,NA,-39.7,NA,NA,NA
+"Nass","Pink",1966,49.9,NA,-38.2,NA,NA,NA
+"Nass","Pink",1967,-21.8,NA,-36.7,NA,NA,NA
+"Nass","Pink",1968,-45.3,NA,-35.2,NA,NA,NA
+"Nass","Pink",1969,-48.9,NA,-33.6,NA,NA,NA
+"Nass","Pink",1970,-35.6,NA,-32,NA,NA,NA
+"Nass","Pink",1971,5.2,NA,-30.3,NA,NA,NA
+"Nass","Pink",1972,12.6,NA,-28.6,NA,NA,NA
+"Nass","Pink",1973,-20.1,NA,-26.9,NA,NA,NA
+"Nass","Pink",1974,-54.1,NA,-25.1,NA,NA,NA
+"Nass","Pink",1975,-43.3,NA,-23.3,NA,NA,NA
+"Nass","Pink",1976,-12,NA,-21.4,NA,NA,NA
+"Nass","Pink",1977,-4.2,NA,-19.5,NA,NA,NA
+"Nass","Pink",1978,28.3,NA,-17.5,NA,NA,NA
+"Nass","Pink",1979,-45.1,NA,-15.5,NA,NA,NA
+"Nass","Pink",1980,-69.7,NA,-13.5,NA,NA,NA
+"Nass","Pink",1981,-38.3,NA,-11.3,NA,NA,NA
+"Nass","Pink",1982,30.5,NA,-9.2,NA,NA,NA
+"Nass","Pink",1983,94.6,NA,-7,NA,NA,NA
+"Nass","Pink",1984,110.5,NA,-4.7,NA,NA,NA
+"Nass","Pink",1985,182.4,NA,-2.4,NA,NA,NA
+"Nass","Pink",1986,105.9,NA,0,NA,NA,NA
+"Nass","Pink",1987,75.2,NA,2.4,NA,NA,NA
+"Nass","Pink",1988,19.2,NA,4.9,NA,NA,NA
+"Nass","Pink",1989,50.2,NA,7.5,NA,NA,NA
+"Nass","Pink",1990,23.4,NA,10.1,NA,NA,NA
+"Nass","Pink",1991,5.5,NA,12.8,NA,NA,NA
+"Nass","Pink",1992,51.1,NA,15.5,NA,NA,NA
+"Nass","Pink",1993,31.8,NA,18.4,NA,NA,NA
+"Nass","Pink",1994,23.5,NA,21.3,NA,NA,NA
+"Nass","Pink",1995,18,NA,24.2,NA,NA,NA
+"Nass","Pink",1996,47.2,NA,27.2,NA,NA,NA
+"Nass","Pink",1997,-10.8,NA,30.3,NA,NA,NA
+"Nass","Pink",1998,-44.9,NA,33.5,NA,NA,NA
+"Nass","Pink",1999,-1.8,NA,36.8,NA,NA,NA
+"Nass","Pink",2000,75.1,NA,40.1,NA,NA,NA
+"Nass","Pink",2001,172.2,NA,43.5,NA,NA,NA
+"Nass","Pink",2002,243,NA,47,NA,NA,NA
+"Nass","Pink",2003,218.9,NA,50.6,NA,NA,NA
+"Nass","Pink",2004,259.7,NA,54.3,NA,NA,NA
+"Nass","Pink",2005,274.8,NA,58,NA,NA,NA
+"Nass","Pink",2006,103.6,NA,61.9,NA,NA,NA
+"Nass","Pink",2007,61.3,NA,65.8,NA,NA,NA
+"Nass","Pink",2008,-0.3,NA,69.9,NA,NA,NA
+"Nass","Pink",2009,-7,NA,74,NA,NA,NA
+"Nass","Pink",2010,92.8,NA,78.3,NA,NA,NA
+"Nass","Pink",2011,-11.4,NA,82.6,NA,NA,NA
+"Nass","Pink",2012,-10.9,NA,87.1,NA,NA,NA
+"Nass","Pink",2013,156.7,NA,91.6,NA,NA,NA
+"Nass","Pink",2014,219.5,NA,96.3,NA,NA,NA
+"Nass","Pink",2015,122.9,NA,101.1,NA,NA,NA
+"Nass","Pink",2016,116.3,NA,106,NA,NA,NA
+"Nass","Pink",2017,178.4,NA,111,NA,NA,NA
+"Nass","Pink",2018,35.2,-31.1,116.1,NA,NA,NA
+"Nass","Pink",2019,-52.5,-13.5,121.4,NA,NA,NA
+"Nass","Pink",2020,-33.6,8.5,126.8,NA,NA,NA
+"Nass","Pink",2021,48.3,36.2,132.3,NA,NA,NA
+"Nass","Pink",2022,138.2,70.9,138,NA,NA,NA
+"Skeena","Chinook",1975,-43.1,NA,-15.9,NA,NA,NA
+"Skeena","Chinook",1976,-54.4,NA,-15.3,NA,NA,NA
+"Skeena","Chinook",1977,-44.7,NA,-14.7,NA,NA,NA
+"Skeena","Chinook",1978,-42.8,NA,-14,NA,NA,NA
+"Skeena","Chinook",1979,-44.5,NA,-13.4,NA,NA,NA
+"Skeena","Chinook",1980,-44.1,NA,-12.7,NA,NA,NA
+"Skeena","Chinook",1981,-42.1,NA,-12,NA,NA,NA
+"Skeena","Chinook",1982,-39.3,NA,-11.4,NA,NA,NA
+"Skeena","Chinook",1983,-41.1,NA,-10.7,NA,NA,NA
+"Skeena","Chinook",1984,-35.9,NA,-10,NA,NA,NA
+"Skeena","Chinook",1985,-22.7,NA,-9.3,NA,NA,NA
+"Skeena","Chinook",1986,-7.8,NA,-8.7,NA,NA,NA
+"Skeena","Chinook",1987,6.5,NA,-8,NA,NA,NA
+"Skeena","Chinook",1988,33.8,NA,-7.3,NA,NA,NA
+"Skeena","Chinook",1989,54.4,NA,-6.6,NA,NA,NA
+"Skeena","Chinook",1990,64.9,NA,-5.9,NA,NA,NA
+"Skeena","Chinook",1991,64.5,NA,-5.1,NA,NA,NA
+"Skeena","Chinook",1992,66,NA,-4.4,NA,NA,NA
+"Skeena","Chinook",1993,69.5,NA,-3.7,NA,NA,NA
+"Skeena","Chinook",1994,60.1,NA,-3,NA,NA,NA
+"Skeena","Chinook",1995,47.1,NA,-2.2,NA,NA,NA
+"Skeena","Chinook",1996,54,NA,-1.5,NA,NA,NA
+"Skeena","Chinook",1997,48.6,NA,-0.8,NA,NA,NA
+"Skeena","Chinook",1998,41.2,NA,0,NA,NA,NA
+"Skeena","Chinook",1999,31.5,NA,0.8,NA,NA,NA
+"Skeena","Chinook",2000,32.8,NA,1.5,NA,NA,NA
+"Skeena","Chinook",2001,53.4,NA,2.3,NA,NA,NA
+"Skeena","Chinook",2002,41.2,NA,3.1,NA,NA,NA
+"Skeena","Chinook",2003,48.1,NA,3.8,NA,NA,NA
+"Skeena","Chinook",2004,46.8,NA,4.6,NA,NA,NA
+"Skeena","Chinook",2005,37.4,26.6,5.4,NA,NA,NA
+"Skeena","Chinook",2006,27.6,22,6.2,NA,NA,NA
+"Skeena","Chinook",2007,9.9,17.7,7,NA,NA,NA
+"Skeena","Chinook",2008,4.4,13.5,7.8,NA,NA,NA
+"Skeena","Chinook",2009,-2.2,9.5,8.7,NA,NA,NA
+"Skeena","Chinook",2010,-2.5,5.6,9.5,NA,NA,NA
+"Skeena","Chinook",2011,1.3,1.8,10.3,NA,NA,NA
+"Skeena","Chinook",2012,1.7,-1.8,11.1,NA,NA,NA
+"Skeena","Chinook",2013,-2,-5.3,12,NA,NA,NA
+"Skeena","Chinook",2014,-4.3,-8.7,12.8,NA,NA,NA
+"Skeena","Chinook",2015,-3,-11.9,13.7,NA,NA,NA
+"Skeena","Chinook",2016,-6.7,-15.1,14.6,NA,NA,NA
+"Skeena","Chinook",2017,-17,-18.1,15.4,NA,NA,NA
+"Skeena","Chinook",2018,-16.6,-21,16.3,NA,NA,NA
+"Skeena","Chinook",2019,-17.7,-23.8,17.2,NA,NA,NA
+"Skeena","Chinook",2020,-27.5,-26.6,18.1,NA,NA,NA
+"Skeena","Chinook",2021,-43.1,-29.2,19,NA,NA,NA
+"Skeena","Sockeye",1960,-67.5,NA,-22.6,-66.8,NA,-6.2
+"Skeena","Sockeye",1961,-39.1,NA,-22,-39.8,NA,-6
+"Skeena","Sockeye",1962,-37,NA,-21.3,-36.2,NA,-5.8
+"Skeena","Sockeye",1963,-34.3,NA,-20.7,-39.1,NA,-5.6
+"Skeena","Sockeye",1964,-28.1,NA,-20,-32.1,NA,-5.5
+"Skeena","Sockeye",1965,-14.6,NA,-19.4,-22,NA,-5.3
+"Skeena","Sockeye",1966,-27.6,NA,-18.7,-29.7,NA,-5.1
+"Skeena","Sockeye",1967,-25.9,NA,-18,-22.2,NA,-4.9
+"Skeena","Sockeye",1968,-26.9,NA,-17.3,-14.2,NA,-4.7
+"Skeena","Sockeye",1969,-30.9,NA,-16.7,-20.1,NA,-4.5
+"Skeena","Sockeye",1970,-30.2,NA,-16,-17.6,NA,-4.3
+"Skeena","Sockeye",1971,-20.1,NA,-15.3,-9.4,NA,-4.1
+"Skeena","Sockeye",1972,-18.5,NA,-14.6,-14.2,NA,-3.9
+"Skeena","Sockeye",1973,-12.8,NA,-13.8,-7.4,NA,-3.7
+"Skeena","Sockeye",1974,-10.8,NA,-13.1,3.9,NA,-3.5
+"Skeena","Sockeye",1975,-7.3,NA,-12.4,4.5,NA,-3.3
+"Skeena","Sockeye",1976,-13.5,NA,-11.7,-1.2,NA,-3.1
+"Skeena","Sockeye",1977,-7.9,NA,-10.9,6,NA,-2.9
+"Skeena","Sockeye",1978,-19.3,NA,-10.2,-8.3,NA,-2.7
+"Skeena","Sockeye",1979,-11.3,NA,-9.5,-5.6,NA,-2.5
+"Skeena","Sockeye",1980,-18.4,NA,-8.7,-6.5,NA,-2.3
+"Skeena","Sockeye",1981,-2.4,NA,-7.9,11.9,NA,-2.1
+"Skeena","Sockeye",1982,0.7,NA,-7.2,20.5,NA,-1.9
+"Skeena","Sockeye",1983,16.4,NA,-6.4,32.4,NA,-1.6
+"Skeena","Sockeye",1984,13,NA,-5.6,26.4,NA,-1.4
+"Skeena","Sockeye",1985,48.4,NA,-4.8,62.2,NA,-1.2
+"Skeena","Sockeye",1986,29.7,NA,-4.1,40,NA,-1
+"Skeena","Sockeye",1987,33.5,NA,-3.3,27.9,NA,-0.8
+"Skeena","Sockeye",1988,45.6,NA,-2.5,47.5,NA,-0.6
+"Skeena","Sockeye",1989,48,NA,-1.6,49.9,NA,-0.4
+"Skeena","Sockeye",1990,26,NA,-0.8,31,NA,-0.2
+"Skeena","Sockeye",1991,40.3,NA,0,51.1,NA,0
+"Skeena","Sockeye",1992,39.5,NA,0.8,68.9,NA,0.2
+"Skeena","Sockeye",1993,43.7,NA,1.7,74.9,NA,0.4
+"Skeena","Sockeye",1994,40.8,NA,2.5,76,NA,0.6
+"Skeena","Sockeye",1995,57.2,NA,3.4,103.4,NA,0.8
+"Skeena","Sockeye",1996,67,NA,4.2,133.4,NA,1
+"Skeena","Sockeye",1997,54.8,NA,5.1,128.3,NA,1.3
+"Skeena","Sockeye",1998,22.5,NA,6,67.3,NA,1.5
+"Skeena","Sockeye",1999,11.3,NA,6.8,34.9,NA,1.7
+"Skeena","Sockeye",2000,5.5,NA,7.7,30.2,NA,1.9
+"Skeena","Sockeye",2001,0.5,NA,8.6,17,NA,2.1
+"Skeena","Sockeye",2002,-7,NA,9.5,-4.4,NA,2.3
+"Skeena","Sockeye",2003,12,NA,10.4,11.2,NA,2.5
+"Skeena","Sockeye",2004,20.3,NA,11.4,24.5,NA,2.7
+"Skeena","Sockeye",2005,6,NA,12.3,-6.8,NA,2.9
+"Skeena","Sockeye",2006,2.4,NA,13.2,-14.4,NA,3.2
+"Skeena","Sockeye",2007,13.4,NA,14.2,-6.3,NA,3.4
+"Skeena","Sockeye",2008,4.3,NA,15.1,-6.1,NA,3.6
+"Skeena","Sockeye",2009,-0.3,-8.6,16.1,-14.4,-22,3.8
+"Skeena","Sockeye",2010,-1.3,-6.9,17,-16.9,-22.2,4
+"Skeena","Sockeye",2011,-6.1,-5.3,18,-23.2,-22.5,4.2
+"Skeena","Sockeye",2012,-4.1,-3.6,19,-22.4,-22.7,4.5
+"Skeena","Sockeye",2013,-18.4,-1.9,20,-42.5,-23,4.7
+"Skeena","Sockeye",2014,-5.9,-0.1,21,-27.6,-23.2,4.9
+"Skeena","Sockeye",2015,6.3,1.7,22,-14.9,-23.5,5.1
+"Skeena","Sockeye",2016,5.8,3.5,23,-17,-23.7,5.3
+"Skeena","Sockeye",2017,0.4,5.3,24,-28.8,-24,5.5
+"Skeena","Sockeye",2018,25.8,7.2,25.1,-7.5,-24.2,5.8
+"Skeena","Sockeye",2019,2.8,9.2,26.1,-29.8,-24.5,6
+"Skeena","Sockeye",2020,3.2,11.1,27.1,-33.1,-24.7,6.2
+"Skeena","Sockeye",2021,6.9,13.1,28.2,-32.9,-25,6.4
+"Skeena","Sockeye",2022,30.5,15.1,29.3,-11,-25.2,6.6
+"Skeena","Steelhead",1956,-10,NA,-25.2,NA,NA,NA
+"Skeena","Steelhead",1957,-44.2,NA,-24.6,NA,NA,NA
+"Skeena","Steelhead",1958,-33.7,NA,-23.9,NA,NA,NA
+"Skeena","Steelhead",1959,-38.4,NA,-23.3,NA,NA,NA
+"Skeena","Steelhead",1960,-35.3,NA,-22.6,NA,NA,NA
+"Skeena","Steelhead",1961,-40.3,NA,-21.9,NA,NA,NA
+"Skeena","Steelhead",1962,-24.5,NA,-21.2,NA,NA,NA
+"Skeena","Steelhead",1963,-25.1,NA,-20.6,NA,NA,NA
+"Skeena","Steelhead",1964,-19.5,NA,-19.9,NA,NA,NA
+"Skeena","Steelhead",1965,-17.2,NA,-19.2,NA,NA,NA
+"Skeena","Steelhead",1966,1.1,NA,-18.5,NA,NA,NA
+"Skeena","Steelhead",1967,2.4,NA,-17.8,NA,NA,NA
+"Skeena","Steelhead",1968,0.1,NA,-17,NA,NA,NA
+"Skeena","Steelhead",1969,8.3,NA,-16.3,NA,NA,NA
+"Skeena","Steelhead",1970,15,NA,-15.6,NA,NA,NA
+"Skeena","Steelhead",1971,0.8,NA,-14.8,NA,NA,NA
+"Skeena","Steelhead",1972,-9.1,NA,-14.1,NA,NA,NA
+"Skeena","Steelhead",1973,-11.8,NA,-13.4,NA,NA,NA
+"Skeena","Steelhead",1974,-22.2,NA,-12.6,NA,NA,NA
+"Skeena","Steelhead",1975,-33.4,NA,-11.8,NA,NA,NA
+"Skeena","Steelhead",1976,-29.3,NA,-11.1,NA,NA,NA
+"Skeena","Steelhead",1977,-28.7,NA,-10.3,NA,NA,NA
+"Skeena","Steelhead",1978,-24.8,NA,-9.5,NA,NA,NA
+"Skeena","Steelhead",1979,-26.1,NA,-8.7,NA,NA,NA
+"Skeena","Steelhead",1980,-17.4,NA,-7.9,NA,NA,NA
+"Skeena","Steelhead",1981,-19.3,NA,-7.1,NA,NA,NA
+"Skeena","Steelhead",1982,-7.5,NA,-6.3,NA,NA,NA
+"Skeena","Steelhead",1983,-18.8,NA,-5.5,NA,NA,NA
+"Skeena","Steelhead",1984,7.9,NA,-4.7,NA,NA,NA
+"Skeena","Steelhead",1985,16,NA,-3.8,NA,NA,NA
+"Skeena","Steelhead",1986,28,NA,-3,NA,NA,NA
+"Skeena","Steelhead",1987,16.8,NA,-2.1,NA,NA,NA
+"Skeena","Steelhead",1988,51.3,NA,-1.3,NA,NA,NA
+"Skeena","Steelhead",1989,25.8,NA,-0.4,NA,NA,NA
+"Skeena","Steelhead",1990,18.2,NA,0.4,NA,NA,NA
+"Skeena","Steelhead",1991,-9.4,NA,1.3,NA,NA,NA
+"Skeena","Steelhead",1992,-19.8,NA,2.2,NA,NA,NA
+"Skeena","Steelhead",1993,-34.5,NA,3.1,NA,NA,NA
+"Skeena","Steelhead",1994,-32.6,NA,4,NA,NA,NA
+"Skeena","Steelhead",1995,-34.9,NA,4.9,NA,NA,NA
+"Skeena","Steelhead",1996,-22.4,NA,5.8,NA,NA,NA
+"Skeena","Steelhead",1997,-20.6,NA,6.7,NA,NA,NA
+"Skeena","Steelhead",1998,5.9,NA,7.7,NA,NA,NA
+"Skeena","Steelhead",1999,19.1,NA,8.6,NA,NA,NA
+"Skeena","Steelhead",2000,43,NA,9.5,NA,NA,NA
+"Skeena","Steelhead",2001,46.5,NA,10.5,NA,NA,NA
+"Skeena","Steelhead",2002,92.8,NA,11.5,NA,NA,NA
+"Skeena","Steelhead",2003,61.6,NA,12.4,NA,NA,NA
+"Skeena","Steelhead",2004,58.3,NA,13.4,NA,NA,NA
+"Skeena","Steelhead",2005,42.4,NA,14.4,NA,NA,NA
+"Skeena","Steelhead",2006,44.4,NA,15.4,NA,NA,NA
+"Skeena","Steelhead",2007,15.7,NA,16.4,NA,NA,NA
+"Skeena","Steelhead",2008,52.6,NA,17.4,NA,NA,NA
+"Skeena","Steelhead",2009,52.6,NA,18.5,NA,NA,NA
+"Skeena","Steelhead",2010,68.2,106.7,19.5,NA,NA,NA
+"Skeena","Steelhead",2011,74.5,89.8,20.5,NA,NA,NA
+"Skeena","Steelhead",2012,75.3,74.3,21.6,NA,NA,NA
+"Skeena","Steelhead",2013,56.7,60.1,22.6,NA,NA,NA
+"Skeena","Steelhead",2014,52.9,47.1,23.7,NA,NA,NA
+"Skeena","Steelhead",2015,34.5,35.1,24.8,NA,NA,NA
+"Skeena","Steelhead",2016,42.5,24,25.9,NA,NA,NA
+"Skeena","Steelhead",2017,20.2,13.9,27,NA,NA,NA
+"Skeena","Steelhead",2018,34.9,4.6,28.1,NA,NA,NA
+"Skeena","Steelhead",2019,18.2,-3.9,29.2,NA,NA,NA
+"Skeena","Steelhead",2020,5.8,-11.7,30.3,NA,NA,NA
+"Skeena","Steelhead",2021,-30.6,-18.9,31.5,NA,NA,NA
+"Skeena","Steelhead",2022,-32.2,-25.6,32.6,NA,NA,NA
+"Skeena","Steelhead",2023,-50.1,-31.6,33.8,NA,NA,NA
+"Skeena","Chum",1970,133,NA,433.8,NA,NA,NA
+"Skeena","Chum",1971,61.5,NA,400.5,NA,NA,NA
+"Skeena","Chum",1972,174.2,NA,369.3,NA,NA,NA
+"Skeena","Chum",1973,225.6,NA,340,NA,NA,NA
+"Skeena","Chum",1974,220.7,NA,312.5,NA,NA,NA
+"Skeena","Chum",1975,217.6,NA,286.8,NA,NA,NA
+"Skeena","Chum",1976,269,NA,262.7,NA,NA,NA
+"Skeena","Chum",1977,189.2,NA,240.1,NA,NA,NA
+"Skeena","Chum",1978,130.3,NA,218.8,NA,NA,NA
+"Skeena","Chum",1979,92.2,NA,198.9,NA,NA,NA
+"Skeena","Chum",1980,129.1,NA,180.3,NA,NA,NA
+"Skeena","Chum",1981,121.7,NA,162.8,NA,NA,NA
+"Skeena","Chum",1982,86.7,NA,146.4,NA,NA,NA
+"Skeena","Chum",1983,35.9,NA,131,NA,NA,NA
+"Skeena","Chum",1984,89.1,NA,116.6,NA,NA,NA
+"Skeena","Chum",1985,63.8,NA,103.1,NA,NA,NA
+"Skeena","Chum",1986,74.2,NA,90.4,NA,NA,NA
+"Skeena","Chum",1987,92.7,NA,78.6,NA,NA,NA
+"Skeena","Chum",1988,344.5,NA,67.4,NA,NA,NA
+"Skeena","Chum",1989,311.9,NA,57,NA,NA,NA
+"Skeena","Chum",1990,261.4,NA,47.2,NA,NA,NA
+"Skeena","Chum",1991,195.6,NA,38,NA,NA,NA
+"Skeena","Chum",1992,219.5,NA,29.4,NA,NA,NA
+"Skeena","Chum",1993,98.4,NA,21.3,NA,NA,NA
+"Skeena","Chum",1994,64.5,NA,13.8,NA,NA,NA
+"Skeena","Chum",1995,72,NA,6.7,NA,NA,NA
+"Skeena","Chum",1996,93.4,NA,0,NA,NA,NA
+"Skeena","Chum",1997,121.5,NA,-6.2,NA,NA,NA
+"Skeena","Chum",1998,138.8,NA,-12.1,NA,NA,NA
+"Skeena","Chum",1999,91.6,NA,-17.6,NA,NA,NA
+"Skeena","Chum",2000,72.3,NA,-22.7,NA,NA,NA
+"Skeena","Chum",2001,73.1,NA,-27.5,NA,NA,NA
+"Skeena","Chum",2002,16.4,NA,-32.1,NA,NA,NA
+"Skeena","Chum",2003,-23.6,NA,-36.3,NA,NA,NA
+"Skeena","Chum",2004,-27.7,NA,-40.3,NA,NA,NA
+"Skeena","Chum",2005,-37,NA,-44,NA,NA,NA
+"Skeena","Chum",2006,-62,NA,-47.5,NA,NA,NA
+"Skeena","Chum",2007,-73.8,NA,-50.8,NA,NA,NA
+"Skeena","Chum",2008,-79.6,NA,-53.8,NA,NA,NA
+"Skeena","Chum",2009,-81.3,-68.7,-56.7,NA,NA,NA
+"Skeena","Chum",2010,-83.8,-70.6,-59.4,NA,NA,NA
+"Skeena","Chum",2011,-77.3,-72.4,-61.9,NA,NA,NA
+"Skeena","Chum",2012,-69.1,-74.1,-64.3,NA,NA,NA
+"Skeena","Chum",2013,-62.4,-75.7,-66.5,NA,NA,NA
+"Skeena","Chum",2014,-64.3,-77.2,-68.6,NA,NA,NA
+"Skeena","Chum",2015,-60.5,-78.6,-70.6,NA,NA,NA
+"Skeena","Chum",2016,-68.7,-79.9,-72.4,NA,NA,NA
+"Skeena","Chum",2017,-78.8,-81.1,-74.1,NA,NA,NA
+"Skeena","Chum",2018,-81.8,-82.3,-75.8,NA,NA,NA
+"Skeena","Chum",2019,-81,-83.4,-77.3,NA,NA,NA
+"Skeena","Chum",2020,-89.9,-84.4,-78.7,NA,NA,NA
+"Skeena","Chum",2021,-90.3,-85.4,-80,NA,NA,NA
+"Skeena","Chum",2022,-89.2,-86.3,-81.3,NA,NA,NA
+"Skeena","Coho",1950,0.8,NA,31.7,NA,NA,NA
+"Skeena","Coho",1951,21.3,NA,30.7,NA,NA,NA
+"Skeena","Coho",1952,34.6,NA,29.7,NA,NA,NA
+"Skeena","Coho",1953,42.3,NA,28.7,NA,NA,NA
+"Skeena","Coho",1954,69.3,NA,27.7,NA,NA,NA
+"Skeena","Coho",1955,79.4,NA,26.7,NA,NA,NA
+"Skeena","Coho",1956,110.9,NA,25.8,NA,NA,NA
+"Skeena","Coho",1957,115.6,NA,24.8,NA,NA,NA
+"Skeena","Coho",1958,148.6,NA,23.9,NA,NA,NA
+"Skeena","Coho",1959,167.1,NA,22.9,NA,NA,NA
+"Skeena","Coho",1960,160.1,NA,22,NA,NA,NA
+"Skeena","Coho",1961,152.3,NA,21,NA,NA,NA
+"Skeena","Coho",1962,85.7,NA,20.1,NA,NA,NA
+"Skeena","Coho",1963,82.5,NA,19.2,NA,NA,NA
+"Skeena","Coho",1964,60.6,NA,18.3,NA,NA,NA
+"Skeena","Coho",1965,94.6,NA,17.4,NA,NA,NA
+"Skeena","Coho",1966,126.6,NA,16.5,NA,NA,NA
+"Skeena","Coho",1967,83.3,NA,15.6,NA,NA,NA
+"Skeena","Coho",1968,92,NA,14.7,NA,NA,NA
+"Skeena","Coho",1969,43.3,NA,13.9,NA,NA,NA
+"Skeena","Coho",1970,31.8,NA,13,NA,NA,NA
+"Skeena","Coho",1971,39.3,NA,12.1,NA,NA,NA
+"Skeena","Coho",1972,14,NA,11.3,NA,NA,NA
+"Skeena","Coho",1973,1.2,NA,10.4,NA,NA,NA
+"Skeena","Coho",1974,-18.6,NA,9.6,NA,NA,NA
+"Skeena","Coho",1975,-44.5,NA,8.8,NA,NA,NA
+"Skeena","Coho",1976,-51.6,NA,7.9,NA,NA,NA
+"Skeena","Coho",1977,-54.7,NA,7.1,NA,NA,NA
+"Skeena","Coho",1978,-52.6,NA,6.3,NA,NA,NA
+"Skeena","Coho",1979,-51.2,NA,5.5,NA,NA,NA
+"Skeena","Coho",1980,-49.6,NA,4.7,NA,NA,NA
+"Skeena","Coho",1981,-49.7,NA,3.9,NA,NA,NA
+"Skeena","Coho",1982,-57.2,NA,3.1,NA,NA,NA
+"Skeena","Coho",1983,-53.1,NA,2.3,NA,NA,NA
+"Skeena","Coho",1984,-50,NA,1.5,NA,NA,NA
+"Skeena","Coho",1985,-54.9,NA,0.8,NA,NA,NA
+"Skeena","Coho",1986,-43.5,NA,0,NA,NA,NA
+"Skeena","Coho",1987,-33.2,NA,-0.8,NA,NA,NA
+"Skeena","Coho",1988,-52.2,NA,-1.5,NA,NA,NA
+"Skeena","Coho",1989,-40.2,NA,-2.3,NA,NA,NA
+"Skeena","Coho",1990,-34.9,NA,-3,NA,NA,NA
+"Skeena","Coho",1991,-33.8,NA,-3.7,NA,NA,NA
+"Skeena","Coho",1992,-6.9,NA,-4.5,NA,NA,NA
+"Skeena","Coho",1993,-21,NA,-5.2,NA,NA,NA
+"Skeena","Coho",1994,-25.2,NA,-5.9,NA,NA,NA
+"Skeena","Coho",1995,-39.5,NA,-6.6,NA,NA,NA
+"Skeena","Coho",1996,-51.5,NA,-7.4,NA,NA,NA
+"Skeena","Coho",1997,-61,NA,-8.1,NA,NA,NA
+"Skeena","Coho",1998,-63.2,NA,-8.8,NA,NA,NA
+"Skeena","Coho",1999,-50.5,NA,-9.5,NA,NA,NA
+"Skeena","Coho",2000,-41.7,NA,-10.1,NA,NA,NA
+"Skeena","Coho",2001,3.9,NA,-10.8,NA,NA,NA
+"Skeena","Coho",2002,7.5,NA,-11.5,NA,NA,NA
+"Skeena","Coho",2003,10.3,NA,-12.2,NA,NA,NA
+"Skeena","Coho",2004,24.6,NA,-12.8,NA,NA,NA
+"Skeena","Coho",2005,32.5,NA,-13.5,NA,NA,NA
+"Skeena","Coho",2006,45.8,NA,-14.2,NA,NA,NA
+"Skeena","Coho",2007,36.4,NA,-14.8,NA,NA,NA
+"Skeena","Coho",2008,19.2,NA,-15.5,NA,NA,NA
+"Skeena","Coho",2009,18.7,NA,-16.1,NA,NA,NA
+"Skeena","Coho",2010,16.6,NA,-16.8,NA,NA,NA
+"Skeena","Coho",2011,10.1,NA,-17.4,NA,NA,NA
+"Skeena","Coho",2012,18.5,39.6,-18,NA,NA,NA
+"Skeena","Coho",2013,18.7,34.3,-18.6,NA,NA,NA
+"Skeena","Coho",2014,32.6,29.1,-19.3,NA,NA,NA
+"Skeena","Coho",2015,31.1,24.2,-19.9,NA,NA,NA
+"Skeena","Coho",2016,50.3,19.5,-20.5,NA,NA,NA
+"Skeena","Coho",2017,32.9,14.9,-21.1,NA,NA,NA
+"Skeena","Coho",2018,8.6,10.5,-21.7,NA,NA,NA
+"Skeena","Coho",2019,15.7,6.3,-22.3,NA,NA,NA
+"Skeena","Coho",2020,5.1,2.2,-22.9,NA,NA,NA
+"Skeena","Coho",2021,-17.9,-1.7,-23.5,NA,NA,NA
+"Skeena","Coho",2022,-13,-5.5,-24,NA,NA,NA
+"Skeena","Pink",1950,-16.3,NA,34.6,NA,NA,NA
+"Skeena","Pink",1951,-28.1,NA,33.5,NA,NA,NA
+"Skeena","Pink",1952,21.1,NA,32.4,NA,NA,NA
+"Skeena","Pink",1953,-2.1,NA,31.3,NA,NA,NA
+"Skeena","Pink",1954,-46.6,NA,30.2,NA,NA,NA
+"Skeena","Pink",1955,-40.2,NA,29.2,NA,NA,NA
+"Skeena","Pink",1956,-59.7,NA,28.1,NA,NA,NA
+"Skeena","Pink",1957,-49.3,NA,27.1,NA,NA,NA
+"Skeena","Pink",1958,-33.2,NA,26,NA,NA,NA
+"Skeena","Pink",1959,-25.6,NA,25,NA,NA,NA
+"Skeena","Pink",1960,-40.8,NA,23.9,NA,NA,NA
+"Skeena","Pink",1961,-39.9,NA,22.9,NA,NA,NA
+"Skeena","Pink",1962,29.9,NA,21.9,NA,NA,NA
+"Skeena","Pink",1963,55.4,NA,20.9,NA,NA,NA
+"Skeena","Pink",1964,90.5,NA,19.9,NA,NA,NA
+"Skeena","Pink",1965,104,NA,18.9,NA,NA,NA
+"Skeena","Pink",1966,39.6,NA,18,NA,NA,NA
+"Skeena","Pink",1967,-12.9,NA,17,NA,NA,NA
+"Skeena","Pink",1968,29.4,NA,16,NA,NA,NA
+"Skeena","Pink",1969,65,NA,15.1,NA,NA,NA
+"Skeena","Pink",1970,31.3,NA,14.1,NA,NA,NA
+"Skeena","Pink",1971,30.8,NA,13.2,NA,NA,NA
+"Skeena","Pink",1972,47,NA,12.3,NA,NA,NA
+"Skeena","Pink",1973,62.8,NA,11.3,NA,NA,NA
+"Skeena","Pink",1974,0.2,NA,10.4,NA,NA,NA
+"Skeena","Pink",1975,27.2,NA,9.5,NA,NA,NA
+"Skeena","Pink",1976,55.6,NA,8.6,NA,NA,NA
+"Skeena","Pink",1977,13.1,NA,7.7,NA,NA,NA
+"Skeena","Pink",1978,17.5,NA,6.8,NA,NA,NA
+"Skeena","Pink",1979,-13.8,NA,5.9,NA,NA,NA
+"Skeena","Pink",1980,-17.3,NA,5.1,NA,NA,NA
+"Skeena","Pink",1981,38.2,NA,4.2,NA,NA,NA
+"Skeena","Pink",1982,33.7,NA,3.4,NA,NA,NA
+"Skeena","Pink",1983,87.9,NA,2.5,NA,NA,NA
+"Skeena","Pink",1984,140.7,NA,1.7,NA,NA,NA
+"Skeena","Pink",1985,95.2,NA,0.8,NA,NA,NA
+"Skeena","Pink",1986,140.4,NA,0,NA,NA,NA
+"Skeena","Pink",1987,180.8,NA,-0.8,NA,NA,NA
+"Skeena","Pink",1988,86.5,NA,-1.6,NA,NA,NA
+"Skeena","Pink",1989,126,NA,-2.4,NA,NA,NA
+"Skeena","Pink",1990,311.9,NA,-3.2,NA,NA,NA
+"Skeena","Pink",1991,361.3,NA,-4,NA,NA,NA
+"Skeena","Pink",1992,146.6,NA,-4.8,NA,NA,NA
+"Skeena","Pink",1993,-2,NA,-5.6,NA,NA,NA
+"Skeena","Pink",1994,-48.2,NA,-6.4,NA,NA,NA
+"Skeena","Pink",1995,-12.6,NA,-7.2,NA,NA,NA
+"Skeena","Pink",1996,174.1,NA,-7.9,NA,NA,NA
+"Skeena","Pink",1997,32.2,NA,-8.7,NA,NA,NA
+"Skeena","Pink",1998,-51.1,NA,-9.4,NA,NA,NA
+"Skeena","Pink",1999,-27,NA,-10.2,NA,NA,NA
+"Skeena","Pink",2000,-2,NA,-10.9,NA,NA,NA
+"Skeena","Pink",2001,13.2,NA,-11.6,NA,NA,NA
+"Skeena","Pink",2002,61,NA,-12.4,NA,NA,NA
+"Skeena","Pink",2003,94.4,NA,-13.1,NA,NA,NA
+"Skeena","Pink",2004,75.1,NA,-13.8,NA,NA,NA
+"Skeena","Pink",2005,67.8,NA,-14.5,NA,NA,NA
+"Skeena","Pink",2006,-27.2,NA,-15.2,NA,NA,NA
+"Skeena","Pink",2007,-48.1,NA,-15.9,NA,NA,NA
+"Skeena","Pink",2008,-57.7,NA,-16.6,NA,NA,NA
+"Skeena","Pink",2009,-17.6,NA,-17.3,NA,NA,NA
+"Skeena","Pink",2010,63.9,NA,-18,NA,NA,NA
+"Skeena","Pink",2011,-45.4,NA,-18.7,NA,NA,NA
+"Skeena","Pink",2012,-50.5,NA,-19.3,NA,NA,NA
+"Skeena","Pink",2013,4.5,NA,-20,NA,NA,NA
+"Skeena","Pink",2014,147.5,NA,-20.6,NA,NA,NA
+"Skeena","Pink",2015,11.3,NA,-21.3,NA,NA,NA
+"Skeena","Pink",2016,-70.1,NA,-21.9,NA,NA,NA
+"Skeena","Pink",2017,-65.3,NA,-22.6,NA,NA,NA
+"Skeena","Pink",2018,-87,-94.5,-23.2,NA,NA,NA
+"Skeena","Pink",2019,-93.7,-89.5,-23.9,NA,NA,NA
+"Skeena","Pink",2020,-90.6,-79.7,-24.5,NA,NA,NA
+"Skeena","Pink",2021,-72.8,-60.8,-25.1,NA,NA,NA
+"Skeena","Pink",2022,66.8,-24.4,-25.7,NA,NA,NA
+"Central Coast","Chinook",1950,-8,NA,10.1,NA,NA,NA
+"Central Coast","Chinook",1951,-11.8,NA,9.8,NA,NA,NA
+"Central Coast","Chinook",1952,10.7,NA,9.5,NA,NA,NA
+"Central Coast","Chinook",1953,-2,NA,9.2,NA,NA,NA
+"Central Coast","Chinook",1954,1.2,NA,8.9,NA,NA,NA
+"Central Coast","Chinook",1955,1.4,NA,8.6,NA,NA,NA
+"Central Coast","Chinook",1956,22,NA,8.3,NA,NA,NA
+"Central Coast","Chinook",1957,10.9,NA,8,NA,NA,NA
+"Central Coast","Chinook",1958,39.2,NA,7.8,NA,NA,NA
+"Central Coast","Chinook",1959,34.4,NA,7.5,NA,NA,NA
+"Central Coast","Chinook",1960,30.7,NA,7.2,NA,NA,NA
+"Central Coast","Chinook",1961,10.9,NA,6.9,NA,NA,NA
+"Central Coast","Chinook",1962,-0.4,NA,6.6,NA,NA,NA
+"Central Coast","Chinook",1963,-6.2,NA,6.3,NA,NA,NA
+"Central Coast","Chinook",1964,5.2,NA,6,NA,NA,NA
+"Central Coast","Chinook",1965,17.1,NA,5.8,NA,NA,NA
+"Central Coast","Chinook",1966,16.9,NA,5.5,NA,NA,NA
+"Central Coast","Chinook",1967,37.6,NA,5.2,NA,NA,NA
+"Central Coast","Chinook",1968,31.1,NA,4.9,NA,NA,NA
+"Central Coast","Chinook",1969,8.5,NA,4.6,NA,NA,NA
+"Central Coast","Chinook",1970,-9.6,NA,4.4,NA,NA,NA
+"Central Coast","Chinook",1971,0.2,NA,4.1,NA,NA,NA
+"Central Coast","Chinook",1972,-7,NA,3.8,NA,NA,NA
+"Central Coast","Chinook",1973,-12.2,NA,3.5,NA,NA,NA
+"Central Coast","Chinook",1974,-0.2,NA,3.3,NA,NA,NA
+"Central Coast","Chinook",1975,-0.9,NA,3,NA,NA,NA
+"Central Coast","Chinook",1976,-12.6,NA,2.7,NA,NA,NA
+"Central Coast","Chinook",1977,-16.1,NA,2.4,NA,NA,NA
+"Central Coast","Chinook",1978,-14.2,NA,2.2,NA,NA,NA
+"Central Coast","Chinook",1979,-28.5,NA,1.9,NA,NA,NA
+"Central Coast","Chinook",1980,-27.6,NA,1.6,NA,NA,NA
+"Central Coast","Chinook",1981,-33.4,NA,1.3,NA,NA,NA
+"Central Coast","Chinook",1982,-37.5,NA,1.1,NA,NA,NA
+"Central Coast","Chinook",1983,-44.1,NA,0.8,NA,NA,NA
+"Central Coast","Chinook",1984,-36.4,NA,0.5,NA,NA,NA
+"Central Coast","Chinook",1985,-23.2,NA,0.3,NA,NA,NA
+"Central Coast","Chinook",1986,-6.9,NA,0,NA,NA,NA
+"Central Coast","Chinook",1987,2.7,NA,-0.3,NA,NA,NA
+"Central Coast","Chinook",1988,12.7,NA,-0.5,NA,NA,NA
+"Central Coast","Chinook",1989,17.9,NA,-0.8,NA,NA,NA
+"Central Coast","Chinook",1990,10,NA,-1.1,NA,NA,NA
+"Central Coast","Chinook",1991,6.3,NA,-1.3,NA,NA,NA
+"Central Coast","Chinook",1992,20.5,NA,-1.6,NA,NA,NA
+"Central Coast","Chinook",1993,44.6,NA,-1.9,NA,NA,NA
+"Central Coast","Chinook",1994,54.8,NA,-2.1,NA,NA,NA
+"Central Coast","Chinook",1995,69,NA,-2.4,NA,NA,NA
+"Central Coast","Chinook",1996,72.5,NA,-2.6,NA,NA,NA
+"Central Coast","Chinook",1997,55.7,NA,-2.9,NA,NA,NA
+"Central Coast","Chinook",1998,39.7,NA,-3.2,NA,NA,NA
+"Central Coast","Chinook",1999,32.3,NA,-3.4,NA,NA,NA
+"Central Coast","Chinook",2000,30.3,NA,-3.7,NA,NA,NA
+"Central Coast","Chinook",2001,33.1,NA,-3.9,NA,NA,NA
+"Central Coast","Chinook",2002,32.3,NA,-4.2,NA,NA,NA
+"Central Coast","Chinook",2003,22.4,NA,-4.4,NA,NA,NA
+"Central Coast","Chinook",2004,18.7,NA,-4.7,NA,NA,NA
+"Central Coast","Chinook",2005,12.5,NA,-4.9,NA,NA,NA
+"Central Coast","Chinook",2006,13.1,NA,-5.2,NA,NA,NA
+"Central Coast","Chinook",2007,8.7,NA,-5.5,NA,NA,NA
+"Central Coast","Chinook",2008,2.9,NA,-5.7,NA,NA,NA
+"Central Coast","Chinook",2009,-5,-7.9,-6,NA,NA,NA
+"Central Coast","Chinook",2010,-12.1,-10.4,-6.2,NA,NA,NA
+"Central Coast","Chinook",2011,-25.5,-12.8,-6.5,NA,NA,NA
+"Central Coast","Chinook",2012,-33,-15.1,-6.7,NA,NA,NA
+"Central Coast","Chinook",2013,-22,-17.4,-7,NA,NA,NA
+"Central Coast","Chinook",2014,-13.1,-19.6,-7.2,NA,NA,NA
+"Central Coast","Chinook",2015,-4.5,-21.8,-7.4,NA,NA,NA
+"Central Coast","Chinook",2016,-5.9,-23.9,-7.7,NA,NA,NA
+"Central Coast","Chinook",2017,-17.1,-25.9,-7.9,NA,NA,NA
+"Central Coast","Chinook",2018,-25.9,-27.9,-8.2,NA,NA,NA
+"Central Coast","Chinook",2019,-11.5,-29.9,-8.4,NA,NA,NA
+"Central Coast","Chinook",2020,-34.2,-31.7,-8.7,NA,NA,NA
+"Central Coast","Chinook",2021,-42.5,-33.6,-8.9,NA,NA,NA
+"Central Coast","Chinook",2022,-49.2,-35.4,-9.2,NA,NA,NA
+"Central Coast","Chum",1950,47.6,NA,17,NA,NA,NA
+"Central Coast","Chum",1951,47.3,NA,16.5,NA,NA,NA
+"Central Coast","Chum",1952,49.2,NA,16,NA,NA,NA
+"Central Coast","Chum",1953,52.4,NA,15.5,NA,NA,NA
+"Central Coast","Chum",1954,49.1,NA,15,NA,NA,NA
+"Central Coast","Chum",1955,22.7,NA,14.5,NA,NA,NA
+"Central Coast","Chum",1956,4.7,NA,14,NA,NA,NA
+"Central Coast","Chum",1957,-8.9,NA,13.5,NA,NA,NA
+"Central Coast","Chum",1958,-4.9,NA,13,NA,NA,NA
+"Central Coast","Chum",1959,-10.7,NA,12.5,NA,NA,NA
+"Central Coast","Chum",1960,-13.3,NA,12,NA,NA,NA
+"Central Coast","Chum",1961,-24.2,NA,11.5,NA,NA,NA
+"Central Coast","Chum",1962,-29.8,NA,11,NA,NA,NA
+"Central Coast","Chum",1963,-13.5,NA,10.5,NA,NA,NA
+"Central Coast","Chum",1964,1.6,NA,10.1,NA,NA,NA
+"Central Coast","Chum",1965,-5.1,NA,9.6,NA,NA,NA
+"Central Coast","Chum",1966,5.9,NA,9.1,NA,NA,NA
+"Central Coast","Chum",1967,3.1,NA,8.6,NA,NA,NA
+"Central Coast","Chum",1968,14.1,NA,8.2,NA,NA,NA
+"Central Coast","Chum",1969,32.8,NA,7.7,NA,NA,NA
+"Central Coast","Chum",1970,26.1,NA,7.2,NA,NA,NA
+"Central Coast","Chum",1971,16.2,NA,6.8,NA,NA,NA
+"Central Coast","Chum",1972,8.6,NA,6.3,NA,NA,NA
+"Central Coast","Chum",1973,38.6,NA,5.8,NA,NA,NA
+"Central Coast","Chum",1974,33.6,NA,5.4,NA,NA,NA
+"Central Coast","Chum",1975,24.3,NA,4.9,NA,NA,NA
+"Central Coast","Chum",1976,-1.6,NA,4.5,NA,NA,NA
+"Central Coast","Chum",1977,-22.7,NA,4,NA,NA,NA
+"Central Coast","Chum",1978,-26.6,NA,3.5,NA,NA,NA
+"Central Coast","Chum",1979,-23.4,NA,3.1,NA,NA,NA
+"Central Coast","Chum",1980,-19.5,NA,2.6,NA,NA,NA
+"Central Coast","Chum",1981,-20.3,NA,2.2,NA,NA,NA
+"Central Coast","Chum",1982,-18.3,NA,1.8,NA,NA,NA
+"Central Coast","Chum",1983,-16.7,NA,1.3,NA,NA,NA
+"Central Coast","Chum",1984,-16.5,NA,0.9,NA,NA,NA
+"Central Coast","Chum",1985,-4.7,NA,0.4,NA,NA,NA
+"Central Coast","Chum",1986,5.8,NA,0,NA,NA,NA
+"Central Coast","Chum",1987,9.9,NA,-0.4,NA,NA,NA
+"Central Coast","Chum",1988,33.6,NA,-0.9,NA,NA,NA
+"Central Coast","Chum",1989,28.1,NA,-1.3,NA,NA,NA
+"Central Coast","Chum",1990,20.5,NA,-1.7,NA,NA,NA
+"Central Coast","Chum",1991,17.2,NA,-2.2,NA,NA,NA
+"Central Coast","Chum",1992,-13.4,NA,-2.6,NA,NA,NA
+"Central Coast","Chum",1993,-22.4,NA,-3,NA,NA,NA
+"Central Coast","Chum",1994,-26.6,NA,-3.4,NA,NA,NA
+"Central Coast","Chum",1995,-14.2,NA,-3.8,NA,NA,NA
+"Central Coast","Chum",1996,7.5,NA,-4.3,NA,NA,NA
+"Central Coast","Chum",1997,18.7,NA,-4.7,NA,NA,NA
+"Central Coast","Chum",1998,42.9,NA,-5.1,NA,NA,NA
+"Central Coast","Chum",1999,31.3,NA,-5.5,NA,NA,NA
+"Central Coast","Chum",2000,22.2,NA,-5.9,NA,NA,NA
+"Central Coast","Chum",2001,27.5,NA,-6.3,NA,NA,NA
+"Central Coast","Chum",2002,17.5,NA,-6.7,NA,NA,NA
+"Central Coast","Chum",2003,43.3,NA,-7.1,NA,NA,NA
+"Central Coast","Chum",2004,71.1,NA,-7.5,NA,NA,NA
+"Central Coast","Chum",2005,67.3,NA,-7.9,NA,NA,NA
+"Central Coast","Chum",2006,52.2,NA,-8.3,NA,NA,NA
+"Central Coast","Chum",2007,14,NA,-8.7,NA,NA,NA
+"Central Coast","Chum",2008,-25.6,NA,-9.1,NA,NA,NA
+"Central Coast","Chum",2009,-37,NA,-9.5,NA,NA,NA
+"Central Coast","Chum",2010,-52.1,NA,-9.9,NA,NA,NA
+"Central Coast","Chum",2011,-42.7,NA,-10.3,NA,NA,NA
+"Central Coast","Chum",2012,-23.5,11.3,-10.7,NA,NA,NA
+"Central Coast","Chum",2013,-10.5,4.1,-11.1,NA,NA,NA
+"Central Coast","Chum",2014,1.2,-2.6,-11.5,NA,NA,NA
+"Central Coast","Chum",2015,2.9,-8.9,-11.9,NA,NA,NA
+"Central Coast","Chum",2016,4.6,-14.8,-12.2,NA,NA,NA
+"Central Coast","Chum",2017,0.4,-20.3,-12.6,NA,NA,NA
+"Central Coast","Chum",2018,8.4,-25.4,-13,NA,NA,NA
+"Central Coast","Chum",2019,-8.4,-30.3,-13.4,NA,NA,NA
+"Central Coast","Chum",2020,-47.8,-34.8,-13.8,NA,NA,NA
+"Central Coast","Chum",2021,-55,-39,-14.1,NA,NA,NA
+"Central Coast","Chum",2022,-52.8,-42.9,-14.5,NA,NA,NA
+"Central Coast","Coho",1950,17.8,NA,28.6,NA,NA,NA
+"Central Coast","Coho",1951,29.7,NA,27.7,NA,NA,NA
+"Central Coast","Coho",1952,14.8,NA,26.8,NA,NA,NA
+"Central Coast","Coho",1953,6.3,NA,25.9,NA,NA,NA
+"Central Coast","Coho",1954,22,NA,25.1,NA,NA,NA
+"Central Coast","Coho",1955,18.9,NA,24.2,NA,NA,NA
+"Central Coast","Coho",1956,49.7,NA,23.3,NA,NA,NA
+"Central Coast","Coho",1957,92.3,NA,22.5,NA,NA,NA
+"Central Coast","Coho",1958,65.2,NA,21.6,NA,NA,NA
+"Central Coast","Coho",1959,91,NA,20.8,NA,NA,NA
+"Central Coast","Coho",1960,59.6,NA,19.9,NA,NA,NA
+"Central Coast","Coho",1961,51.8,NA,19.1,NA,NA,NA
+"Central Coast","Coho",1962,60.5,NA,18.3,NA,NA,NA
+"Central Coast","Coho",1963,58.6,NA,17.4,NA,NA,NA
+"Central Coast","Coho",1964,96.8,NA,16.6,NA,NA,NA
+"Central Coast","Coho",1965,97.2,NA,15.8,NA,NA,NA
+"Central Coast","Coho",1966,108.3,NA,15,NA,NA,NA
+"Central Coast","Coho",1967,56.8,NA,14.2,NA,NA,NA
+"Central Coast","Coho",1968,42,NA,13.4,NA,NA,NA
+"Central Coast","Coho",1969,0.2,NA,12.6,NA,NA,NA
+"Central Coast","Coho",1970,-9.5,NA,11.8,NA,NA,NA
+"Central Coast","Coho",1971,-7.6,NA,11.1,NA,NA,NA
+"Central Coast","Coho",1972,-21.4,NA,10.3,NA,NA,NA
+"Central Coast","Coho",1973,-5.7,NA,9.5,NA,NA,NA
+"Central Coast","Coho",1974,-15.1,NA,8.7,NA,NA,NA
+"Central Coast","Coho",1975,-10.4,NA,8,NA,NA,NA
+"Central Coast","Coho",1976,-0.1,NA,7.2,NA,NA,NA
+"Central Coast","Coho",1977,-3,NA,6.5,NA,NA,NA
+"Central Coast","Coho",1978,0.7,NA,5.8,NA,NA,NA
+"Central Coast","Coho",1979,1.4,NA,5,NA,NA,NA
+"Central Coast","Coho",1980,-19.7,NA,4.3,NA,NA,NA
+"Central Coast","Coho",1981,-26.3,NA,3.6,NA,NA,NA
+"Central Coast","Coho",1982,-36.2,NA,2.8,NA,NA,NA
+"Central Coast","Coho",1983,-40.4,NA,2.1,NA,NA,NA
+"Central Coast","Coho",1984,-28.5,NA,1.4,NA,NA,NA
+"Central Coast","Coho",1985,-26.6,NA,0.7,NA,NA,NA
+"Central Coast","Coho",1986,-9.5,NA,0,NA,NA,NA
+"Central Coast","Coho",1987,-18.5,NA,-0.7,NA,NA,NA
+"Central Coast","Coho",1988,-29.7,NA,-1.4,NA,NA,NA
+"Central Coast","Coho",1989,-36.1,NA,-2.1,NA,NA,NA
+"Central Coast","Coho",1990,-42.8,NA,-2.8,NA,NA,NA
+"Central Coast","Coho",1991,-36.8,NA,-3.4,NA,NA,NA
+"Central Coast","Coho",1992,-40.7,NA,-4.1,NA,NA,NA
+"Central Coast","Coho",1993,-39.3,NA,-4.8,NA,NA,NA
+"Central Coast","Coho",1994,-41.1,NA,-5.4,NA,NA,NA
+"Central Coast","Coho",1995,-39.2,NA,-6.1,NA,NA,NA
+"Central Coast","Coho",1996,-43,NA,-6.8,NA,NA,NA
+"Central Coast","Coho",1997,-47.2,NA,-7.4,NA,NA,NA
+"Central Coast","Coho",1998,-28.7,NA,-8,NA,NA,NA
+"Central Coast","Coho",1999,-27.5,NA,-8.7,NA,NA,NA
+"Central Coast","Coho",2000,-8.8,NA,-9.3,NA,NA,NA
+"Central Coast","Coho",2001,43.9,NA,-10,NA,NA,NA
+"Central Coast","Coho",2002,29.5,NA,-10.6,NA,NA,NA
+"Central Coast","Coho",2003,49.8,NA,-11.2,NA,NA,NA
+"Central Coast","Coho",2004,66.1,NA,-11.8,NA,NA,NA
+"Central Coast","Coho",2005,40,NA,-12.4,NA,NA,NA
+"Central Coast","Coho",2006,16.3,NA,-13,NA,NA,NA
+"Central Coast","Coho",2007,-5.4,NA,-13.7,NA,NA,NA
+"Central Coast","Coho",2008,-22.1,NA,-14.3,NA,NA,NA
+"Central Coast","Coho",2009,-6.4,NA,-14.9,NA,NA,NA
+"Central Coast","Coho",2010,5.3,NA,-15.4,NA,NA,NA
+"Central Coast","Coho",2011,27.9,NA,-16,NA,NA,NA
+"Central Coast","Coho",2012,41,35.2,-16.6,NA,NA,NA
+"Central Coast","Coho",2013,13.2,25.4,-17.2,NA,NA,NA
+"Central Coast","Coho",2014,17.3,16.2,-17.8,NA,NA,NA
+"Central Coast","Coho",2015,6.1,7.8,-18.3,NA,NA,NA
+"Central Coast","Coho",2016,5.5,-0.1,-18.9,NA,NA,NA
+"Central Coast","Coho",2017,6.1,-7.4,-19.5,NA,NA,NA
+"Central Coast","Coho",2018,-11.7,-14.1,-20,NA,NA,NA
+"Central Coast","Coho",2019,-27.4,-20.4,-20.6,NA,NA,NA
+"Central Coast","Coho",2020,-34.7,-26.2,-21.2,NA,NA,NA
+"Central Coast","Coho",2021,-35.7,-31.6,-21.7,NA,NA,NA
+"Central Coast","Coho",2022,-28.1,-36.6,-22.2,NA,NA,NA
+"Central Coast","Pink",1950,-59.5,NA,-21,NA,NA,NA
+"Central Coast","Pink",1951,-31.8,NA,-20.5,NA,NA,NA
+"Central Coast","Pink",1952,-3.6,NA,-20,NA,NA,NA
+"Central Coast","Pink",1953,-39.4,NA,-19.5,NA,NA,NA
+"Central Coast","Pink",1954,-55.8,NA,-18.9,NA,NA,NA
+"Central Coast","Pink",1955,-55,NA,-18.4,NA,NA,NA
+"Central Coast","Pink",1956,-35.3,NA,-17.9,NA,NA,NA
+"Central Coast","Pink",1957,-23.7,NA,-17.3,NA,NA,NA
+"Central Coast","Pink",1958,-48.7,NA,-16.8,NA,NA,NA
+"Central Coast","Pink",1959,-50.5,NA,-16.2,NA,NA,NA
+"Central Coast","Pink",1960,-10.2,NA,-15.7,NA,NA,NA
+"Central Coast","Pink",1961,36.9,NA,-15.1,NA,NA,NA
+"Central Coast","Pink",1962,143.3,NA,-14.6,NA,NA,NA
+"Central Coast","Pink",1963,155.5,NA,-14,NA,NA,NA
+"Central Coast","Pink",1964,46.1,NA,-13.4,NA,NA,NA
+"Central Coast","Pink",1965,-16.2,NA,-12.9,NA,NA,NA
+"Central Coast","Pink",1966,-13.3,NA,-12.3,NA,NA,NA
+"Central Coast","Pink",1967,-46.5,NA,-11.7,NA,NA,NA
+"Central Coast","Pink",1968,-35.1,NA,-11.1,NA,NA,NA
+"Central Coast","Pink",1969,-28.2,NA,-10.6,NA,NA,NA
+"Central Coast","Pink",1970,-53.4,NA,-10,NA,NA,NA
+"Central Coast","Pink",1971,-25.3,NA,-9.4,NA,NA,NA
+"Central Coast","Pink",1972,-0.9,NA,-8.8,NA,NA,NA
+"Central Coast","Pink",1973,-22.9,NA,-8.2,NA,NA,NA
+"Central Coast","Pink",1974,-32.8,NA,-7.6,NA,NA,NA
+"Central Coast","Pink",1975,-33.1,NA,-7,NA,NA,NA
+"Central Coast","Pink",1976,-25.7,NA,-6.3,NA,NA,NA
+"Central Coast","Pink",1977,-14.2,NA,-5.7,NA,NA,NA
+"Central Coast","Pink",1978,-0.4,NA,-5.1,NA,NA,NA
+"Central Coast","Pink",1979,58.8,NA,-4.5,NA,NA,NA
+"Central Coast","Pink",1980,25.3,NA,-3.9,NA,NA,NA
+"Central Coast","Pink",1981,5.5,NA,-3.2,NA,NA,NA
+"Central Coast","Pink",1982,-36.5,NA,-2.6,NA,NA,NA
+"Central Coast","Pink",1983,-21.3,NA,-1.9,NA,NA,NA
+"Central Coast","Pink",1984,18.9,NA,-1.3,NA,NA,NA
+"Central Coast","Pink",1985,62.1,NA,-0.7,NA,NA,NA
+"Central Coast","Pink",1986,172,NA,0,NA,NA,NA
+"Central Coast","Pink",1987,40.6,NA,0.7,NA,NA,NA
+"Central Coast","Pink",1988,25.6,NA,1.3,NA,NA,NA
+"Central Coast","Pink",1989,40.5,NA,2,NA,NA,NA
+"Central Coast","Pink",1990,30,NA,2.7,NA,NA,NA
+"Central Coast","Pink",1991,97.1,NA,3.3,NA,NA,NA
+"Central Coast","Pink",1992,124.2,NA,4,NA,NA,NA
+"Central Coast","Pink",1993,65.5,NA,4.7,NA,NA,NA
+"Central Coast","Pink",1994,-28.4,NA,5.4,NA,NA,NA
+"Central Coast","Pink",1995,-34.5,NA,6.1,NA,NA,NA
+"Central Coast","Pink",1996,31.3,NA,6.8,NA,NA,NA
+"Central Coast","Pink",1997,59.8,NA,7.5,NA,NA,NA
+"Central Coast","Pink",1998,8.7,NA,8.2,NA,NA,NA
+"Central Coast","Pink",1999,3.5,NA,8.9,NA,NA,NA
+"Central Coast","Pink",2000,63.5,NA,9.6,NA,NA,NA
+"Central Coast","Pink",2001,178.4,NA,10.3,NA,NA,NA
+"Central Coast","Pink",2002,184.1,NA,11.1,NA,NA,NA
+"Central Coast","Pink",2003,133.3,NA,11.8,NA,NA,NA
+"Central Coast","Pink",2004,60,NA,12.5,NA,NA,NA
+"Central Coast","Pink",2005,48.8,NA,13.3,NA,NA,NA
+"Central Coast","Pink",2006,-13.1,NA,14,NA,NA,NA
+"Central Coast","Pink",2007,-19.8,NA,14.8,NA,NA,NA
+"Central Coast","Pink",2008,-18,NA,15.5,NA,NA,NA
+"Central Coast","Pink",2009,4.3,NA,16.3,NA,NA,NA
+"Central Coast","Pink",2010,-4.4,NA,17,NA,NA,NA
+"Central Coast","Pink",2011,-45.9,NA,17.8,NA,NA,NA
+"Central Coast","Pink",2012,-6.2,NA,18.6,NA,NA,NA
+"Central Coast","Pink",2013,65.9,NA,19.4,NA,NA,NA
+"Central Coast","Pink",2014,95.5,NA,20.2,NA,NA,NA
+"Central Coast","Pink",2015,-19.7,NA,21,NA,NA,NA
+"Central Coast","Pink",2016,-16.7,NA,21.7,NA,NA,NA
+"Central Coast","Pink",2017,27.2,NA,22.5,NA,NA,NA
+"Central Coast","Pink",2018,-52.8,-57.8,23.4,NA,NA,NA
+"Central Coast","Pink",2019,-69.1,-44.8,24.2,NA,NA,NA
+"Central Coast","Pink",2020,5.5,-27.8,25,NA,NA,NA
+"Central Coast","Pink",2021,60.6,-5.4,25.8,NA,NA,NA
+"Central Coast","Pink",2022,-20.4,23.8,26.6,NA,NA,NA
+"Central Coast","Sockeye",1950,107.6,NA,70.2,NA,NA,NA
+"Central Coast","Sockeye",1951,79.7,NA,67.7,NA,NA,NA
+"Central Coast","Sockeye",1952,86,NA,65.3,NA,NA,NA
+"Central Coast","Sockeye",1953,84.2,NA,62.8,NA,NA,NA
+"Central Coast","Sockeye",1954,67.8,NA,60.5,NA,NA,NA
+"Central Coast","Sockeye",1955,50,NA,58.1,NA,NA,NA
+"Central Coast","Sockeye",1956,41.3,NA,55.8,NA,NA,NA
+"Central Coast","Sockeye",1957,18.7,NA,53.5,NA,NA,NA
+"Central Coast","Sockeye",1958,5.2,NA,51.2,NA,NA,NA
+"Central Coast","Sockeye",1959,12.3,NA,49,NA,NA,NA
+"Central Coast","Sockeye",1960,-5.2,NA,46.8,NA,NA,NA
+"Central Coast","Sockeye",1961,-11.3,NA,44.7,NA,NA,NA
+"Central Coast","Sockeye",1962,3.1,NA,42.6,NA,NA,NA
+"Central Coast","Sockeye",1963,35.4,NA,40.5,NA,NA,NA
+"Central Coast","Sockeye",1964,39.8,NA,38.4,NA,NA,NA
+"Central Coast","Sockeye",1965,39.9,NA,36.4,NA,NA,NA
+"Central Coast","Sockeye",1966,51.6,NA,34.4,NA,NA,NA
+"Central Coast","Sockeye",1967,40.5,NA,32.4,NA,NA,NA
+"Central Coast","Sockeye",1968,29.8,NA,30.5,NA,NA,NA
+"Central Coast","Sockeye",1969,5.6,NA,28.6,NA,NA,NA
+"Central Coast","Sockeye",1970,10.6,NA,26.7,NA,NA,NA
+"Central Coast","Sockeye",1971,6.8,NA,24.8,NA,NA,NA
+"Central Coast","Sockeye",1972,-5.4,NA,23,NA,NA,NA
+"Central Coast","Sockeye",1973,-0.7,NA,21.2,NA,NA,NA
+"Central Coast","Sockeye",1974,18.6,NA,19.4,NA,NA,NA
+"Central Coast","Sockeye",1975,38.2,NA,17.6,NA,NA,NA
+"Central Coast","Sockeye",1976,32.4,NA,15.9,NA,NA,NA
+"Central Coast","Sockeye",1977,46.2,NA,14.2,NA,NA,NA
+"Central Coast","Sockeye",1978,19.9,NA,12.5,NA,NA,NA
+"Central Coast","Sockeye",1979,2.3,NA,10.9,NA,NA,NA
+"Central Coast","Sockeye",1980,-1.3,NA,9.3,NA,NA,NA
+"Central Coast","Sockeye",1981,16.1,NA,7.7,NA,NA,NA
+"Central Coast","Sockeye",1982,38.9,NA,6.1,NA,NA,NA
+"Central Coast","Sockeye",1983,50.9,NA,4.5,NA,NA,NA
+"Central Coast","Sockeye",1984,58.2,NA,3,NA,NA,NA
+"Central Coast","Sockeye",1985,82.7,NA,1.5,NA,NA,NA
+"Central Coast","Sockeye",1986,85.5,NA,0,NA,NA,NA
+"Central Coast","Sockeye",1987,75.3,NA,-1.5,NA,NA,NA
+"Central Coast","Sockeye",1988,73.8,NA,-2.9,NA,NA,NA
+"Central Coast","Sockeye",1989,82.7,NA,-4.3,NA,NA,NA
+"Central Coast","Sockeye",1990,61.8,NA,-5.7,NA,NA,NA
+"Central Coast","Sockeye",1991,58.7,NA,-7.1,NA,NA,NA
+"Central Coast","Sockeye",1992,53.9,NA,-8.5,NA,NA,NA
+"Central Coast","Sockeye",1993,49.3,NA,-9.8,NA,NA,NA
+"Central Coast","Sockeye",1994,35.9,NA,-11.1,NA,NA,NA
+"Central Coast","Sockeye",1995,15.5,NA,-12.5,NA,NA,NA
+"Central Coast","Sockeye",1996,-8.3,NA,-13.7,NA,NA,NA
+"Central Coast","Sockeye",1997,-20.9,NA,-15,NA,NA,NA
+"Central Coast","Sockeye",1998,-34.4,NA,-16.2,NA,NA,NA
+"Central Coast","Sockeye",1999,-50.7,NA,-17.5,NA,NA,NA
+"Central Coast","Sockeye",2000,-60.5,NA,-18.7,NA,NA,NA
+"Central Coast","Sockeye",2001,-66.7,NA,-19.9,NA,NA,NA
+"Central Coast","Sockeye",2002,-67.1,NA,-21.1,NA,NA,NA
+"Central Coast","Sockeye",2003,-60.8,NA,-22.2,NA,NA,NA
+"Central Coast","Sockeye",2004,-53.1,NA,-23.4,NA,NA,NA
+"Central Coast","Sockeye",2005,-43.1,NA,-24.5,NA,NA,NA
+"Central Coast","Sockeye",2006,-32.9,NA,-25.6,NA,NA,NA
+"Central Coast","Sockeye",2007,-40.4,NA,-26.7,NA,NA,NA
+"Central Coast","Sockeye",2008,-54.6,NA,-27.8,NA,NA,NA
+"Central Coast","Sockeye",2009,-54.2,-35.9,-28.8,NA,NA,NA
+"Central Coast","Sockeye",2010,-52.5,-35.4,-29.9,NA,NA,NA
+"Central Coast","Sockeye",2011,-39.8,-34.8,-30.9,NA,NA,NA
+"Central Coast","Sockeye",2012,-34.4,-34.3,-31.9,NA,NA,NA
+"Central Coast","Sockeye",2013,-19.2,-33.7,-32.9,NA,NA,NA
+"Central Coast","Sockeye",2014,-6.4,-33.1,-33.9,NA,NA,NA
+"Central Coast","Sockeye",2015,-1.2,-32.6,-34.9,NA,NA,NA
+"Central Coast","Sockeye",2016,-13.2,-32,-35.8,NA,NA,NA
+"Central Coast","Sockeye",2017,-18.5,-31.4,-36.7,NA,NA,NA
+"Central Coast","Sockeye",2018,-22.6,-30.8,-37.7,NA,NA,NA
+"Central Coast","Sockeye",2019,-36.7,-30.2,-38.6,NA,NA,NA
+"Central Coast","Sockeye",2020,-43.7,-29.6,-39.5,NA,NA,NA
+"Central Coast","Sockeye",2021,-43.9,-29,-40.4,NA,NA,NA
+"Central Coast","Sockeye",2022,-39.3,-28.4,-41.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1950,NA,NA,NA,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1951,738.9,NA,-11.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1952,738.9,NA,-11.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1953,353.3,NA,-11,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1954,221.8,NA,-10.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1955,94.2,NA,-10.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1956,9.1,NA,-10.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1957,9.9,NA,-9.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1958,-4.4,NA,-9.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1959,-14.6,NA,-9.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1960,-19.1,NA,-8.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1961,-36.2,NA,-8.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1962,-35.1,NA,-8.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1963,-34.7,NA,-7.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1964,-27.7,NA,-7.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1965,-18.9,NA,-7.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1966,-13.2,NA,-6.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1967,-21.7,NA,-6.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1968,-30.4,NA,-6.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1969,-41.7,NA,-5.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1970,-46.5,NA,-5.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1971,-46.8,NA,-5.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1972,-46.7,NA,-4.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1973,-38.1,NA,-4.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1974,-42,NA,-4.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1975,-43.2,NA,-3.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1976,-46,NA,-3.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1977,-54.5,NA,-3.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1978,-53.8,NA,-2.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1979,-49.6,NA,-2.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1980,-49.6,NA,-2.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1981,-48.8,NA,-1.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1982,-51.5,NA,-1.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1983,-56.4,NA,-1.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1984,-57.3,NA,-0.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1985,-51.4,NA,-0.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1986,-47.9,NA,-0.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1987,-47.1,NA,0.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1988,-39.3,NA,0.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1989,-34.1,NA,0.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1990,-19.2,NA,1.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1991,0.6,NA,1.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1992,15.4,NA,1.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1993,20.2,NA,2.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1994,19.1,NA,2.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1995,26.9,NA,3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1996,28.5,NA,3.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1997,40.3,NA,3.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1998,56.3,NA,4.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",1999,57.4,NA,4.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2000,43.9,NA,4.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2001,35.5,NA,5.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2002,27.5,NA,5.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2003,39.3,NA,5.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2004,55.1,NA,6.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2005,41.8,NA,6.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2006,37.8,NA,7.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2007,8,NA,7.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2008,-9.5,NA,7.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2009,-8.4,NA,8.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2010,-16.5,NA,8.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2011,-7.6,NA,8.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2012,-9,19.2,9.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2013,16.5,25.6,9.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2014,32.9,32.3,10.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2015,53.2,39.3,10.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2016,94.7,46.7,10.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2017,81.4,54.5,11.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2018,80.8,62.7,11.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2019,71.3,71.4,12,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2020,70,80.5,12.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2021,68.5,90.1,12.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook",2022,77.3,100.2,13.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1950,-8.8,NA,-17.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1951,17.8,NA,-16.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1952,35,NA,-16.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1953,23.8,NA,-15.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1954,33,NA,-15.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1955,1.8,NA,-15,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1956,-25.5,NA,-14.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1957,-29.1,NA,-14.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1958,-32.7,NA,-13.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1959,-28.8,NA,-13.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1960,-24.8,NA,-12.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1961,-34.4,NA,-12.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1962,-43.5,NA,-11.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1963,-47.9,NA,-11.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1964,-48.3,NA,-10.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1965,-51.2,NA,-10.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1966,-48.7,NA,-10,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1967,-43.8,NA,-9.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1968,-32.6,NA,-9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1969,-17,NA,-8.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1970,-9.4,NA,-8.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1971,-13.7,NA,-7.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1972,-9,NA,-7.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1973,5.7,NA,-6.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1974,8.1,NA,-6.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1975,11.1,NA,-5.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1976,-6.1,NA,-5.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1977,-16.4,NA,-4.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1978,-10.6,NA,-4.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1979,-12.3,NA,-3.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1980,-3.6,NA,-3.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1981,1.4,NA,-2.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1982,2.4,NA,-2.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1983,13.8,NA,-1.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1984,11.7,NA,-1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1985,23.1,NA,-0.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1986,28.9,NA,0,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1987,35.4,NA,0.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1988,47.6,NA,1.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1989,16.5,NA,1.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1990,8.6,NA,2.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1991,18.3,NA,2.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1992,25.6,NA,3.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1993,66.2,NA,3.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1994,83.3,NA,4.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1995,56.1,NA,4.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1996,35.1,NA,5.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1997,25.4,NA,6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1998,34.4,NA,6.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",1999,39.6,NA,7.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2000,7.5,NA,7.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2001,9.6,NA,8.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2002,-0.5,NA,8.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2003,13.2,NA,9.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2004,64.8,NA,9.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2005,65.6,NA,10.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2006,50,NA,11.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2007,38,NA,11.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2008,13.9,NA,12.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2009,-4.6,NA,12.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2010,-20.2,NA,13.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2011,-12.4,NA,14,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2012,1.6,40.4,14.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2013,8.8,30.5,15.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2014,26.3,21.3,15.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2015,16.6,12.8,16.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2016,32.5,4.9,17.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2017,30.7,-2.5,17.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2018,27.3,-9.3,18.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2019,-3.5,-15.7,18.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2020,-25.2,-21.6,19.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2021,-41.6,-27.1,20.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chum",2022,-49.9,-32.3,20.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1950,139.9,NA,56.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1951,660.6,NA,54.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1952,408.1,NA,52.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1953,289.7,NA,50.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1954,240.8,NA,48.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1955,75.3,NA,46.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1956,76.2,NA,45.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1957,65,NA,43.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1958,72,NA,41.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1959,48.6,NA,39.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1960,8.8,NA,38.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1961,5.7,NA,36.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1962,-8.9,NA,34.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1963,-5.7,NA,33,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1964,19.6,NA,31.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1965,14.1,NA,29.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1966,19.6,NA,28.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1967,16.8,NA,26.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1968,-3.3,NA,25,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1969,-15.6,NA,23.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1970,-10.6,NA,22,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1971,-5.4,NA,20.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1972,-13.3,NA,19,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1973,-4.1,NA,17.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1974,-7,NA,16.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1975,-13.6,NA,14.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1976,-10.7,NA,13.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1977,2.6,NA,11.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1978,-10.1,NA,10.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1979,-10.4,NA,9.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1980,2.3,NA,7.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1981,-22.8,NA,6.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1982,-23,NA,5.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1983,-34.2,NA,3.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1984,-38.5,NA,2.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1985,-36.6,NA,1.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1986,-40.8,NA,0,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1987,-38.8,NA,-1.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1988,-40.1,NA,-2.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1989,-42.8,NA,-3.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1990,-31.2,NA,-4.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1991,-25.7,NA,-6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1992,-30.7,NA,-7.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1993,-22.6,NA,-8.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1994,-30.9,NA,-9.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1995,-29.2,NA,-10.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1996,-31.3,NA,-11.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1997,-37.2,NA,-12.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1998,-29.5,NA,-13.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",1999,-29.8,NA,-14.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2000,-13.1,NA,-15.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2001,21.1,NA,-17,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2002,23.7,NA,-18,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2003,33.9,NA,-19,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2004,35.1,NA,-20,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2005,4.1,NA,-21,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2006,-15.2,NA,-22,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2007,-26.6,NA,-22.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2008,-38.1,NA,-23.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2009,-27.7,NA,-24.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2010,-18.1,NA,-25.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2011,-3.6,NA,-26.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2012,4.8,8.7,-27.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2013,10,4.7,-28.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2014,18.6,0.9,-29.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2015,-0.3,-2.7,-30.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2016,-4.9,-6.3,-31.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2017,-19.1,-9.7,-31.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2018,-25,-13,-32.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2019,-28.4,-16.1,-33.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2020,-23,-19.2,-34.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2021,-14.1,-22.1,-35.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Coho",2022,-12.2,-24.9,-36,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1950,-65,NA,-54.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1951,-35.6,NA,-53.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1952,-29.4,NA,-52.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1953,-69.9,NA,-51,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1954,-69,NA,-50,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1955,-48.7,NA,-48.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1956,-44.7,NA,-47.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1957,-35.7,NA,-46.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1958,-29,NA,-45.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1959,-41.1,NA,-44.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1960,-66.5,NA,-43,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1961,-65.8,NA,-41.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1962,-44.4,NA,-40.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1963,-39.1,NA,-39.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1964,-42.5,NA,-37.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1965,-46.5,NA,-36.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1966,-25.4,NA,-35.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1967,-42.2,NA,-33.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1968,-41.9,NA,-32.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1969,-56.3,NA,-30.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1970,-59.6,NA,-29.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1971,-13.2,NA,-27.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1972,-32,NA,-26.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1973,-20.4,NA,-24.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1974,-7.6,NA,-22.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1975,24.9,NA,-21.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1976,91.2,NA,-19.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1977,-33.3,NA,-17.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1978,-40.8,NA,-15.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1979,-33.8,NA,-14.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1980,-22.7,NA,-12.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1981,57.3,NA,-10.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1982,-6.6,NA,-8.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1983,19.2,NA,-6.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1984,6,NA,-4.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1985,-19,NA,-2.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1986,46.9,NA,0,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1987,-2.9,NA,2.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1988,17,NA,4.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1989,6.8,NA,6.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1990,39,NA,9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1991,22.9,NA,11.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1992,11.7,NA,13.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1993,59.1,NA,16.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1994,22.8,NA,18.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1995,-8.2,NA,21.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1996,21.4,NA,24.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1997,60.7,NA,26.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1998,56.2,NA,29.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",1999,111.8,NA,32.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2000,257.8,NA,35.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2001,466.8,NA,38.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2002,104.5,NA,41.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2003,-14.4,NA,44.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2004,26.9,NA,47.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2005,49.7,NA,50.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2006,-11.2,NA,54.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2007,0.2,NA,57.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2008,-8.9,NA,61,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2009,70.3,NA,64.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2010,127.6,NA,68.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2011,-1.9,NA,71.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2012,73.1,NA,75.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2013,268.6,NA,79.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2014,352.3,NA,83.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2015,359.8,NA,87.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2016,100.2,NA,91.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2017,3,NA,95.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2018,-27.4,-28.9,99.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2019,-13.8,-8.1,104.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2020,26.9,18.8,108.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2021,50.1,53.6,113.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Pink",2022,98.5,98.5,118,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1950,104.4,NA,49.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1951,199.2,NA,48,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1952,98.7,NA,46.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1953,85,NA,44.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1954,75.6,NA,43.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1955,57.5,NA,41.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1956,18,NA,40,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1957,36.2,NA,38.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1958,29.4,NA,36.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1959,25.4,NA,35.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1960,22,NA,33.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1961,22.7,NA,32.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1962,21.5,NA,30.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1963,36.6,NA,29.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1964,45.6,NA,28,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1965,30,NA,26.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1966,53.4,NA,25.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1967,60,NA,23.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1968,39.3,NA,22.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1969,34.1,NA,21,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1970,44.3,NA,19.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1971,27,NA,18.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1972,6.7,NA,17,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1973,17.8,NA,15.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1974,25.7,NA,14.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1975,24.9,NA,13.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1976,8.5,NA,11.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1977,-10.6,NA,10.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1978,-36,NA,9.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1979,-49,NA,8.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1980,-52.2,NA,7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1981,-45.6,NA,5.8,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1982,-26.7,NA,4.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1983,-2,NA,3.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1984,10.4,NA,2.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1985,19.4,NA,1.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1986,11.6,NA,0,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1987,21.6,NA,-1.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1988,36.7,NA,-2.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1989,22.1,NA,-3.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1990,2.2,NA,-4.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1991,7.4,NA,-5.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1992,13.7,NA,-6.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1993,10.7,NA,-7.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1994,-1,NA,-8.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1995,-0.1,NA,-9.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1996,-14.2,NA,-10.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1997,-26.8,NA,-11.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1998,-51,NA,-12.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",1999,-50.9,NA,-13.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2000,-54.8,NA,-14.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2001,-55.3,NA,-15.5,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2002,-53.2,NA,-16.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2003,-44.8,NA,-17.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2004,-43,NA,-18.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2005,-35.5,NA,-19.2,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2006,-33,NA,-20.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2007,-49.6,NA,-21,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2008,-50.8,NA,-21.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2009,-47.3,-7.3,-22.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2010,-28,-6.6,-23.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2011,-8.2,-5.9,-24.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2012,11.5,-5.2,-25.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2013,26.1,-4.5,-26.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2014,50.6,-3.8,-26.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2015,34,-3.1,-27.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2016,16.9,-2.3,-28.6,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2017,5.4,-1.6,-29.3,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2018,8.3,-0.9,-30.1,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2019,-4.7,-0.1,-30.9,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2020,-25.5,0.6,-31.7,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2021,-21.9,1.3,-32.4,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye",2022,-6.7,2.1,-33.2,NA,NA,NA
+"Fraser","Chinook",1984,-19.9,NA,2.3,-17.5,NA,-3.1
+"Fraser","Chinook",1985,-4.9,NA,2.2,-5.8,NA,-2.9
+"Fraser","Chinook",1986,4.7,NA,2.1,2.6,NA,-2.8
+"Fraser","Chinook",1987,-0.2,NA,1.9,-3.1,NA,-2.6
+"Fraser","Chinook",1988,-5.9,NA,1.8,-9,NA,-2.5
+"Fraser","Chinook",1989,-7.5,NA,1.7,-11.4,NA,-2.3
+"Fraser","Chinook",1990,-5.5,NA,1.6,-10.1,NA,-2.1
+"Fraser","Chinook",1991,-13.4,NA,1.5,-17.4,NA,-2
+"Fraser","Chinook",1992,-9.4,NA,1.3,-14.2,NA,-1.8
+"Fraser","Chinook",1993,-5.9,NA,1.2,-10.7,NA,-1.6
+"Fraser","Chinook",1994,1.7,NA,1.1,-4.1,NA,-1.5
+"Fraser","Chinook",1995,-8.8,NA,1,-12.9,NA,-1.3
+"Fraser","Chinook",1996,-3.9,NA,0.8,-8.7,NA,-1.2
+"Fraser","Chinook",1997,-4.1,NA,0.7,-6.7,NA,-1
+"Fraser","Chinook",1998,7.2,NA,0.6,3.6,NA,-0.8
+"Fraser","Chinook",1999,8.1,NA,0.5,4.2,NA,-0.7
+"Fraser","Chinook",2000,13.2,NA,0.4,9.1,NA,-0.5
+"Fraser","Chinook",2001,16.5,NA,0.2,13.3,NA,-0.3
+"Fraser","Chinook",2002,23.3,NA,0.1,18.7,NA,-0.2
+"Fraser","Chinook",2003,30.6,NA,0,25.9,NA,0
+"Fraser","Chinook",2004,33.4,NA,-0.1,31.1,NA,0.2
+"Fraser","Chinook",2005,36.7,NA,-0.2,36.1,NA,0.3
+"Fraser","Chinook",2006,40.6,NA,-0.4,39.2,NA,0.5
+"Fraser","Chinook",2007,24.1,NA,-0.5,24.5,NA,0.7
+"Fraser","Chinook",2008,2.1,NA,-0.6,5.9,NA,0.8
+"Fraser","Chinook",2009,-3.7,2.9,-0.7,1.2,9.9,1
+"Fraser","Chinook",2010,4.2,1.1,-0.8,7.6,7.7,1.2
+"Fraser","Chinook",2011,1.2,-0.7,-1,6.9,5.6,1.3
+"Fraser","Chinook",2012,-5.5,-2.4,-1.1,3.1,3.5,1.5
+"Fraser","Chinook",2013,-2.8,-4.1,-1.2,5,1.4,1.7
+"Fraser","Chinook",2014,0.5,-5.7,-1.3,8.5,-0.6,1.8
+"Fraser","Chinook",2015,1,-7.4,-1.4,9.2,-2.5,2
+"Fraser","Chinook",2016,-9.6,-9,-1.6,-4.2,-4.5,2.2
+"Fraser","Chinook",2017,-7.8,-10.6,-1.7,-5.3,-6.3,2.3
+"Fraser","Chinook",2018,-17.9,-12.1,-1.8,-15.1,-8.2,2.5
+"Fraser","Chinook",2019,-19.1,-13.6,-1.9,-17.7,-10,2.7
+"Fraser","Chinook",2020,-25.4,-15.1,-2,-23.8,-11.8,2.9
+"Fraser","Chinook",2021,-18.1,-16.6,-2.1,-15.1,-13.5,3
+"Fraser","Chinook",2022,-5.6,-18.1,-2.3,-0.7,-15.2,3.2
+"Fraser","Chum",1953,-69.9,NA,-82.2,NA,NA,NA
+"Fraser","Chum",1954,-79.1,NA,-81.3,NA,NA,NA
+"Fraser","Chum",1955,-81,NA,-80.3,NA,NA,NA
+"Fraser","Chum",1956,-85.5,NA,-79.2,NA,NA,NA
+"Fraser","Chum",1957,-87.2,NA,-78.1,NA,NA,NA
+"Fraser","Chum",1958,-87.2,NA,-77,NA,NA,NA
+"Fraser","Chum",1959,-85.4,NA,-75.8,NA,NA,NA
+"Fraser","Chum",1960,-80.1,NA,-74.5,NA,NA,NA
+"Fraser","Chum",1961,-81.8,NA,-73.1,NA,NA,NA
+"Fraser","Chum",1962,-79.8,NA,-71.7,NA,NA,NA
+"Fraser","Chum",1963,-78.2,NA,-70.2,NA,NA,NA
+"Fraser","Chum",1964,-73.4,NA,-68.6,NA,NA,NA
+"Fraser","Chum",1965,-67.3,NA,-67,NA,NA,NA
+"Fraser","Chum",1966,-52.7,NA,-65.2,NA,NA,NA
+"Fraser","Chum",1967,-51.3,NA,-63.4,NA,NA,NA
+"Fraser","Chum",1968,-35.2,NA,-61.5,NA,NA,NA
+"Fraser","Chum",1969,-19,NA,-59.4,NA,NA,NA
+"Fraser","Chum",1970,-24.8,NA,-57.3,NA,NA,NA
+"Fraser","Chum",1971,-15.2,NA,-55,NA,NA,NA
+"Fraser","Chum",1972,-27.7,NA,-52.6,NA,NA,NA
+"Fraser","Chum",1973,-38.4,NA,-50.1,NA,NA,NA
+"Fraser","Chum",1974,-38.9,NA,-47.5,NA,NA,NA
+"Fraser","Chum",1975,-56.1,NA,-44.7,NA,NA,NA
+"Fraser","Chum",1976,-60.8,NA,-41.8,NA,NA,NA
+"Fraser","Chum",1977,-47.8,NA,-38.7,NA,NA,NA
+"Fraser","Chum",1978,-46.9,NA,-35.5,NA,NA,NA
+"Fraser","Chum",1979,-28.7,NA,-32.1,NA,NA,NA
+"Fraser","Chum",1980,-30,NA,-28.5,NA,NA,NA
+"Fraser","Chum",1981,-38.6,NA,-24.7,NA,NA,NA
+"Fraser","Chum",1982,-45.3,NA,-20.7,NA,NA,NA
+"Fraser","Chum",1983,-40.2,NA,-16.5,NA,NA,NA
+"Fraser","Chum",1984,-28.3,NA,-12.1,NA,NA,NA
+"Fraser","Chum",1985,-10.9,NA,-7.4,NA,NA,NA
+"Fraser","Chum",1986,9.1,NA,-2.5,NA,NA,NA
+"Fraser","Chum",1987,-14.5,NA,2.6,NA,NA,NA
+"Fraser","Chum",1988,-34.8,NA,8,NA,NA,NA
+"Fraser","Chum",1989,-49.1,NA,13.8,NA,NA,NA
+"Fraser","Chum",1990,-44.9,NA,19.8,NA,NA,NA
+"Fraser","Chum",1991,-3.2,NA,26.1,NA,NA,NA
+"Fraser","Chum",1992,56.5,NA,32.8,NA,NA,NA
+"Fraser","Chum",1993,110.1,NA,39.8,NA,NA,NA
+"Fraser","Chum",1994,180.6,NA,47.2,NA,NA,NA
+"Fraser","Chum",1995,221.5,NA,55,NA,NA,NA
+"Fraser","Chum",1996,206.7,NA,63.2,NA,NA,NA
+"Fraser","Chum",1997,207.2,NA,71.8,NA,NA,NA
+"Fraser","Chum",1998,213.3,NA,80.9,NA,NA,NA
+"Fraser","Chum",1999,183.5,NA,90.5,NA,NA,NA
+"Fraser","Chum",2000,143.1,NA,100.5,NA,NA,NA
+"Fraser","Chum",2001,222,NA,111.1,NA,NA,NA
+"Fraser","Chum",2002,216.8,NA,122.3,NA,NA,NA
+"Fraser","Chum",2003,213,NA,134.1,NA,NA,NA
+"Fraser","Chum",2004,410.8,NA,146.4,NA,NA,NA
+"Fraser","Chum",2005,303.4,NA,159.5,NA,NA,NA
+"Fraser","Chum",2006,336.4,NA,173.2,NA,NA,NA
+"Fraser","Chum",2007,314.8,NA,187.7,NA,NA,NA
+"Fraser","Chum",2008,274.3,NA,202.9,NA,NA,NA
+"Fraser","Chum",2009,209.9,NA,218.9,NA,NA,NA
+"Fraser","Chum",2010,132.9,166,235.8,NA,NA,NA
+"Fraser","Chum",2011,128.4,173,253.5,NA,NA,NA
+"Fraser","Chum",2012,154,180.2,272.2,NA,NA,NA
+"Fraser","Chum",2013,203.6,187.6,291.9,NA,NA,NA
+"Fraser","Chum",2014,260.9,195.2,312.6,NA,NA,NA
+"Fraser","Chum",2015,255,203,334.4,NA,NA,NA
+"Fraser","Chum",2016,298.6,211,357.4,NA,NA,NA
+"Fraser","Chum",2017,263.3,219.3,381.6,NA,NA,NA
+"Fraser","Chum",2018,240.4,227.7,407.1,NA,NA,NA
+"Fraser","Chum",2019,199.9,236.3,433.9,NA,NA,NA
+"Fraser","Chum",2020,154.5,245.2,462.2,NA,NA,NA
+"Fraser","Coho",1984,125.5,NA,36.2,309.7,NA,172.8
+"Fraser","Coho",1985,83.6,NA,34,233.6,NA,158.8
+"Fraser","Coho",1986,82,NA,31.8,223,NA,145.5
+"Fraser","Coho",1987,88.5,NA,29.7,206.7,NA,132.8
+"Fraser","Coho",1988,93.7,NA,27.6,223.5,NA,120.8
+"Fraser","Coho",1989,104.2,NA,25.6,232.2,NA,109.5
+"Fraser","Coho",1990,87.3,NA,23.5,225.4,NA,98.7
+"Fraser","Coho",1991,50.1,NA,21.5,185.5,NA,88.5
+"Fraser","Coho",1992,29.5,NA,19.6,174.9,NA,78.8
+"Fraser","Coho",1993,9.7,NA,17.7,202.6,NA,69.6
+"Fraser","Coho",1994,3.3,NA,15.8,135.3,NA,60.9
+"Fraser","Coho",1995,0.3,NA,13.9,111.5,NA,52.6
+"Fraser","Coho",1996,-29.9,NA,12.1,52.2,NA,44.7
+"Fraser","Coho",1997,-38.1,NA,10.2,-9.1,NA,37.3
+"Fraser","Coho",1998,-42.4,NA,8.5,-25.2,NA,30.2
+"Fraser","Coho",1999,-44.7,NA,6.7,-40.2,NA,23.5
+"Fraser","Coho",2000,-35.2,NA,5,-54.9,NA,17.2
+"Fraser","Coho",2001,-15.7,NA,3.3,-47.5,NA,11.1
+"Fraser","Coho",2002,0.8,NA,1.6,-37.1,NA,5.4
+"Fraser","Coho",2003,-1.4,NA,0,-37.8,NA,0
+"Fraser","Coho",2004,13.9,NA,-1.6,-26.2,NA,-5.1
+"Fraser","Coho",2005,-21.1,NA,-3.2,-48.1,NA,-10
+"Fraser","Coho",2006,-49.1,NA,-4.8,-66.4,NA,-14.7
+"Fraser","Coho",2007,-34.9,NA,-6.3,-57.2,NA,-19
+"Fraser","Coho",2008,-47.8,NA,-7.8,-66,NA,-23.2
+"Fraser","Coho",2009,-41.3,NA,-9.3,-61.9,NA,-27.2
+"Fraser","Coho",2010,-16.5,NA,-10.8,-45.7,NA,-30.9
+"Fraser","Coho",2011,-30.8,NA,-12.2,-54.8,NA,-34.5
+"Fraser","Coho",2012,-6.6,-19.1,-13.6,-38.7,-44.4,-37.8
+"Fraser","Coho",2013,17.7,-15.5,-15,-21.6,-41.8,-41
+"Fraser","Coho",2014,-1.9,-11.7,-16.4,-30.1,-39.2,-44.1
+"Fraser","Coho",2015,-19.6,-7.7,-17.7,-41.8,-36.5,-46.9
+"Fraser","Coho",2016,-16.9,-3.5,-19,-40.6,-33.6,-49.7
+"Fraser","Coho",2017,-33,0.8,-20.4,-53,-30.7,-52.3
+"Fraser","Coho",2018,-23.1,5.3,-21.6,-48.8,-27.5,-54.7
+"Fraser","Coho",2019,4.6,10.1,-22.9,-29.6,-24.3,-57
+"Fraser","Coho",2020,7.3,15,-24.1,-26.3,-20.9,-59.3
+"Fraser","Coho",2021,47.2,20.2,-25.4,0.9,-17.3,-61.4
+"Fraser","Coho",2022,78,25.6,-26.6,21.9,-13.6,-63.3
+"Fraser","Pink",1959,-76.3,NA,-67.5,-31.2,NA,-30.2
+"Fraser","Pink",1961,-76,NA,-65.1,-79.9,NA,-28.6
+"Fraser","Pink",1963,-57.1,NA,-62.6,-41.6,NA,-27
+"Fraser","Pink",1965,-73.8,NA,-59.8,-75.3,NA,-25.4
+"Fraser","Pink",1967,-59.8,NA,-56.9,38,NA,-23.7
+"Fraser","Pink",1969,-66.4,NA,-53.8,-58.1,NA,-21.9
+"Fraser","Pink",1971,-60.4,NA,-50.4,4,NA,-20.1
+"Fraser","Pink",1973,-61.5,NA,-46.8,-27.5,NA,-18.3
+"Fraser","Pink",1975,-70,NA,-43,-47.9,NA,-16.5
+"Fraser","Pink",1977,-47.6,NA,-38.8,-12.6,NA,-14.6
+"Fraser","Pink",1979,-21.8,NA,-34.4,53.4,NA,-12.6
+"Fraser","Pink",1981,-1.5,NA,-29.6,99,NA,-10.6
+"Fraser","Pink",1983,1.7,NA,-24.5,63.4,NA,-8.6
+"Fraser","Pink",1985,41.9,NA,-19,102.7,NA,-6.5
+"Fraser","Pink",1987,-29.2,NA,-13.1,-23.6,NA,-4.4
+"Fraser","Pink",1989,57.9,NA,-6.8,75.5,NA,-2.2
+"Fraser","Pink",1991,184.2,NA,0,136.1,NA,0
+"Fraser","Pink",1993,136.4,NA,7.3,80.9,NA,2.3
+"Fraser","Pink",1995,57.5,NA,15.1,37.4,NA,4.6
+"Fraser","Pink",1997,-37.6,NA,23.4,-12.9,NA,7
+"Fraser","Pink",1999,-24.4,NA,32.4,-61.6,NA,9.4
+"Fraser","Pink",2001,335,NA,42,126.4,NA,11.9
+"Fraser","Pink",2003,387,NA,52.3,158.2,NA,14.5
+"Fraser","Pink",2005,93.4,NA,63.4,5.1,NA,17.1
+"Fraser","Pink",2007,68,NA,75.3,-9.6,NA,19.7
+"Fraser","Pink",2009,238.8,NA,88,112.3,NA,22.4
+"Fraser","Pink",2011,180.7,NA,101.7,119.8,NA,25.2
+"Fraser","Pink",2013,105.2,NA,116.4,69.3,NA,28.1
+"Fraser","Pink",2015,17.9,-4.6,132.1,-37.5,-50.6,31
+"Fraser","Pink",2017,-25.5,16.4,149,-62.1,-39.7,34
+"Fraser","Pink",2019,82.4,42.1,167.1,-5.7,-26.4,37
+"Fraser","Pink",2021,71.9,73.4,186.5,-13.7,-10.2,40.1
+"Fraser","Pink",2023,110.3,111.7,207.3,12,9.6,43.3
+"Fraser","Sockeye",1893,653.6,NA,-46.9,250,NA,1.2
+"Fraser","Sockeye",1894,302.8,NA,-46.3,126.5,NA,1.2
+"Fraser","Sockeye",1895,203.2,NA,-45.8,100.6,NA,1.1
+"Fraser","Sockeye",1896,103.7,NA,-45.3,72.9,NA,1.1
+"Fraser","Sockeye",1897,121.2,NA,-44.8,97.9,NA,1.1
+"Fraser","Sockeye",1898,54,NA,-44.2,88.5,NA,1.1
+"Fraser","Sockeye",1899,44.4,NA,-43.7,119.7,NA,1.1
+"Fraser","Sockeye",1900,25.8,NA,-43.1,116,NA,1
+"Fraser","Sockeye",1901,29.6,NA,-42.6,136.3,NA,1
+"Fraser","Sockeye",1902,23.8,NA,-42,155.3,NA,1
+"Fraser","Sockeye",1903,-6.1,NA,-41.4,96.5,NA,1
+"Fraser","Sockeye",1904,-20,NA,-40.9,69.9,NA,1
+"Fraser","Sockeye",1905,-24.2,NA,-40.3,60.6,NA,1
+"Fraser","Sockeye",1906,-24.9,NA,-39.7,41.2,NA,0.9
+"Fraser","Sockeye",1907,-39.3,NA,-39.1,13.7,NA,0.9
+"Fraser","Sockeye",1908,-40.1,NA,-38.5,16.8,NA,0.9
+"Fraser","Sockeye",1909,-50.5,NA,-37.9,12.8,NA,0.9
+"Fraser","Sockeye",1910,-43,NA,-37.3,17.1,NA,0.9
+"Fraser","Sockeye",1911,-45.7,NA,-36.7,22.4,NA,0.8
+"Fraser","Sockeye",1912,-36.9,NA,-36.1,30.2,NA,0.8
+"Fraser","Sockeye",1913,-31.9,NA,-35.4,41.4,NA,0.8
+"Fraser","Sockeye",1914,-34.1,NA,-34.8,48.4,NA,0.8
+"Fraser","Sockeye",1915,-19.3,NA,-34.2,45.7,NA,0.8
+"Fraser","Sockeye",1916,-36.8,NA,-33.5,14.6,NA,0.8
+"Fraser","Sockeye",1917,-64.9,NA,-32.9,-23.3,NA,0.7
+"Fraser","Sockeye",1918,-79,NA,-32.2,-52.8,NA,0.7
+"Fraser","Sockeye",1919,-81.2,NA,-31.6,-57.1,NA,0.7
+"Fraser","Sockeye",1920,-79,NA,-30.9,-57.5,NA,0.7
+"Fraser","Sockeye",1921,-83.9,NA,-30.2,-70.1,NA,0.7
+"Fraser","Sockeye",1922,-76,NA,-29.5,-66.1,NA,0.6
+"Fraser","Sockeye",1923,-74.5,NA,-28.9,-68.1,NA,0.6
+"Fraser","Sockeye",1924,-72.6,NA,-28.2,-67.6,NA,0.6
+"Fraser","Sockeye",1925,-73.8,NA,-27.5,-66.9,NA,0.6
+"Fraser","Sockeye",1926,-71,NA,-26.7,-63.1,NA,0.6
+"Fraser","Sockeye",1927,-65.4,NA,-26,-55.2,NA,0.6
+"Fraser","Sockeye",1928,-71.1,NA,-25.3,-57.8,NA,0.5
+"Fraser","Sockeye",1929,-67.1,NA,-24.6,-55.4,NA,0.5
+"Fraser","Sockeye",1930,-53,NA,-23.8,-40.2,NA,0.5
+"Fraser","Sockeye",1931,-63.7,NA,-23.1,-44.4,NA,0.5
+"Fraser","Sockeye",1932,-57.5,NA,-22.3,-35.8,NA,0.5
+"Fraser","Sockeye",1933,-56,NA,-21.6,-33.5,NA,0.4
+"Fraser","Sockeye",1934,-62.5,NA,-20.8,-35.4,NA,0.4
+"Fraser","Sockeye",1935,-59.6,NA,-20,-33.1,NA,0.4
+"Fraser","Sockeye",1936,-49.7,NA,-19.3,-23.5,NA,0.4
+"Fraser","Sockeye",1937,-40.4,NA,-18.5,-21.5,NA,0.4
+"Fraser","Sockeye",1938,-46.7,NA,-17.7,-29.5,NA,0.4
+"Fraser","Sockeye",1939,-54.4,NA,-16.9,-34.9,NA,0.3
+"Fraser","Sockeye",1940,-55.2,NA,-16.1,-39.4,NA,0.3
+"Fraser","Sockeye",1941,-57.6,NA,-15.2,-33.3,NA,0.3
+"Fraser","Sockeye",1942,-43.1,NA,-14.4,-14.8,NA,0.3
+"Fraser","Sockeye",1943,-36.7,NA,-13.6,-25.1,NA,0.3
+"Fraser","Sockeye",1944,-44.9,NA,-12.7,-31.7,NA,0.3
+"Fraser","Sockeye",1945,-44.6,NA,-11.9,-42.9,NA,0.2
+"Fraser","Sockeye",1946,-44.5,NA,-11,-43.6,NA,0.2
+"Fraser","Sockeye",1947,-28.9,NA,-10.1,-39,NA,0.2
+"Fraser","Sockeye",1948,-4.8,NA,-9.3,-31.1,NA,0.2
+"Fraser","Sockeye",1949,12.6,NA,-8.4,-23.7,NA,0.2
+"Fraser","Sockeye",1950,-0.3,NA,-7.5,-39.7,NA,0.1
+"Fraser","Sockeye",1951,-2,NA,-6.6,-23.6,NA,0.1
+"Fraser","Sockeye",1952,-6.4,NA,-5.7,-23.2,NA,0.1
+"Fraser","Sockeye",1953,-2.2,NA,-4.7,-15,NA,0.1
+"Fraser","Sockeye",1954,5.7,NA,-3.8,9.6,NA,0.1
+"Fraser","Sockeye",1955,-5.7,NA,-2.9,3.2,NA,0.1
+"Fraser","Sockeye",1956,-5,NA,-1.9,0.8,NA,0
+"Fraser","Sockeye",1957,1.1,NA,-1,-1.7,NA,0
+"Fraser","Sockeye",1958,5.1,NA,0,8.2,NA,0
+"Fraser","Sockeye",1959,31.9,NA,1,24,NA,0
+"Fraser","Sockeye",1960,21.5,NA,2,29.8,NA,0
+"Fraser","Sockeye",1961,13.1,NA,3,28.2,NA,-0.1
+"Fraser","Sockeye",1962,-1.8,NA,4,-14.8,NA,-0.1
+"Fraser","Sockeye",1963,11.9,NA,5,-18.1,NA,-0.1
+"Fraser","Sockeye",1964,1.6,NA,6,-31.5,NA,-0.1
+"Fraser","Sockeye",1965,-7.7,NA,7,-38,NA,-0.1
+"Fraser","Sockeye",1966,-3.8,NA,8.1,-30.9,NA,-0.1
+"Fraser","Sockeye",1967,-7.7,NA,9.1,-21.7,NA,-0.2
+"Fraser","Sockeye",1968,1.6,NA,10.2,-10.2,NA,-0.2
+"Fraser","Sockeye",1969,5.8,NA,11.3,0,NA,-0.2
+"Fraser","Sockeye",1970,6.1,NA,12.4,3,NA,-0.2
+"Fraser","Sockeye",1971,-8.2,NA,13.5,7.2,NA,-0.2
+"Fraser","Sockeye",1972,-1.5,NA,14.6,13.7,NA,-0.3
+"Fraser","Sockeye",1973,2.7,NA,15.7,23.8,NA,-0.3
+"Fraser","Sockeye",1974,0.1,NA,16.8,35.1,NA,-0.3
+"Fraser","Sockeye",1975,7,NA,18,12.3,NA,-0.3
+"Fraser","Sockeye",1976,6.8,NA,19.1,17,NA,-0.3
+"Fraser","Sockeye",1977,5.2,NA,20.3,14.7,NA,-0.3
+"Fraser","Sockeye",1978,15.1,NA,21.5,18,NA,-0.4
+"Fraser","Sockeye",1979,25.6,NA,22.7,37,NA,-0.4
+"Fraser","Sockeye",1980,26.6,NA,23.9,27.6,NA,-0.4
+"Fraser","Sockeye",1981,35.3,NA,25.1,36.8,NA,-0.4
+"Fraser","Sockeye",1982,52.1,NA,26.3,50.9,NA,-0.4
+"Fraser","Sockeye",1983,38.8,NA,27.5,43.1,NA,-0.4
+"Fraser","Sockeye",1984,42.1,NA,28.8,67.3,NA,-0.5
+"Fraser","Sockeye",1985,56.6,NA,30,90.8,NA,-0.5
+"Fraser","Sockeye",1986,53.5,NA,31.3,99.7,NA,-0.5
+"Fraser","Sockeye",1987,81.7,NA,32.6,118.7,NA,-0.5
+"Fraser","Sockeye",1988,101.9,NA,33.9,96.8,NA,-0.5
+"Fraser","Sockeye",1989,121.6,NA,35.2,112.7,NA,-0.6
+"Fraser","Sockeye",1990,150.7,NA,36.5,127.2,NA,-0.6
+"Fraser","Sockeye",1991,187.9,NA,37.8,151.8,NA,-0.6
+"Fraser","Sockeye",1992,171.4,NA,39.2,184,NA,-0.6
+"Fraser","Sockeye",1993,222.8,NA,40.6,202.8,NA,-0.6
+"Fraser","Sockeye",1994,172.8,NA,41.9,185.2,NA,-0.6
+"Fraser","Sockeye",1995,132.5,NA,43.3,118.2,NA,-0.7
+"Fraser","Sockeye",1996,170.6,NA,44.7,101.2,NA,-0.7
+"Fraser","Sockeye",1997,146.1,NA,46.1,82.9,NA,-0.7
+"Fraser","Sockeye",1998,169,NA,47.6,62.8,NA,-0.7
+"Fraser","Sockeye",1999,173.1,NA,49,59.3,NA,-0.7
+"Fraser","Sockeye",2000,182.5,NA,50.5,63.9,NA,-0.8
+"Fraser","Sockeye",2001,198.1,NA,51.9,33.1,NA,-0.8
+"Fraser","Sockeye",2002,266.6,NA,53.4,45.2,NA,-0.8
+"Fraser","Sockeye",2003,272.3,NA,54.9,56,NA,-0.8
+"Fraser","Sockeye",2004,155.9,NA,56.4,48.3,NA,-0.8
+"Fraser","Sockeye",2005,128.6,NA,58,47,NA,-0.8
+"Fraser","Sockeye",2006,88.3,NA,59.5,41,NA,-0.9
+"Fraser","Sockeye",2007,54,NA,61.1,6.4,NA,-0.9
+"Fraser","Sockeye",2008,71.9,NA,62.6,-15.1,NA,-0.9
+"Fraser","Sockeye",2009,30.1,NA,64.2,-40.6,NA,-0.9
+"Fraser","Sockeye",2010,68.6,NA,65.8,-28,NA,-0.9
+"Fraser","Sockeye",2011,120.2,NA,67.5,-3.3,NA,-0.9
+"Fraser","Sockeye",2012,127.2,NA,69.1,1.2,NA,-1
+"Fraser","Sockeye",2013,180.8,129.5,70.7,28.5,14.4,-1
+"Fraser","Sockeye",2014,129.7,103.6,72.4,16.2,-1.8,-1
+"Fraser","Sockeye",2015,89.3,80.6,74.1,-8,-15.6,-1
+"Fraser","Sockeye",2016,61.2,60.3,75.8,-26.6,-27.5,-1
+"Fraser","Sockeye",2017,25.9,42.2,77.5,-45.7,-37.8,-1.1
+"Fraser","Sockeye",2018,15,26.1,79.3,-52.6,-46.5,-1.1
+"Fraser","Sockeye",2019,-18.3,11.9,81,-65.2,-54.1,-1.1
+"Fraser","Sockeye",2020,-29.2,-0.7,82.8,-71.1,-60.6,-1.1
+"Fraser","Sockeye",2021,-15.9,-11.9,84.6,-66.1,-66.1,-1.1
+"Fraser","Sockeye",2022,-19.1,-21.9,86.4,-70.2,-70.9,-1.1
+"Fraser","Sockeye",2023,14.5,-30.7,88.2,-61.2,-75,-1.2
+"Fraser","Steelhead",1972,-41.6,NA,32.7,NA,NA,NA
+"Fraser","Steelhead",1973,-28.6,NA,31.2,NA,NA,NA
+"Fraser","Steelhead",1974,-40.6,NA,29.7,NA,NA,NA
+"Fraser","Steelhead",1975,-47.8,NA,28.2,NA,NA,NA
+"Fraser","Steelhead",1976,-45.9,NA,26.7,NA,NA,NA
+"Fraser","Steelhead",1977,-52.7,NA,25.2,NA,NA,NA
+"Fraser","Steelhead",1978,-45.8,NA,23.8,NA,NA,NA
+"Fraser","Steelhead",1979,-30.3,NA,22.4,NA,NA,NA
+"Fraser","Steelhead",1980,-12.2,NA,21,NA,NA,NA
+"Fraser","Steelhead",1981,-1.4,NA,19.6,NA,NA,NA
+"Fraser","Steelhead",1982,32.1,NA,18.2,NA,NA,NA
+"Fraser","Steelhead",1983,44.3,NA,16.9,NA,NA,NA
+"Fraser","Steelhead",1984,42.7,NA,15.5,NA,NA,NA
+"Fraser","Steelhead",1985,84.5,NA,14.2,NA,NA,NA
+"Fraser","Steelhead",1986,119,NA,12.9,NA,NA,NA
+"Fraser","Steelhead",1987,148.6,NA,11.6,NA,NA,NA
+"Fraser","Steelhead",1988,142.1,NA,10.3,NA,NA,NA
+"Fraser","Steelhead",1989,142.7,NA,9,NA,NA,NA
+"Fraser","Steelhead",1990,82.5,NA,7.8,NA,NA,NA
+"Fraser","Steelhead",1991,50.9,NA,6.6,NA,NA,NA
+"Fraser","Steelhead",1992,23,NA,5.3,NA,NA,NA
+"Fraser","Steelhead",1993,26.9,NA,4.1,NA,NA,NA
+"Fraser","Steelhead",1994,38.9,NA,2.9,NA,NA,NA
+"Fraser","Steelhead",1995,61.6,NA,1.7,NA,NA,NA
+"Fraser","Steelhead",1996,59.1,NA,0.6,NA,NA,NA
+"Fraser","Steelhead",1997,98.6,NA,-0.6,NA,NA,NA
+"Fraser","Steelhead",1998,71.2,NA,-1.7,NA,NA,NA
+"Fraser","Steelhead",1999,68,NA,-2.8,NA,NA,NA
+"Fraser","Steelhead",2000,54.4,NA,-4,NA,NA,NA
+"Fraser","Steelhead",2001,77.3,NA,-5.1,NA,NA,NA
+"Fraser","Steelhead",2002,76.4,NA,-6.2,NA,NA,NA
+"Fraser","Steelhead",2003,80.5,NA,-7.2,NA,NA,NA
+"Fraser","Steelhead",2004,47.8,NA,-8.3,NA,NA,NA
+"Fraser","Steelhead",2005,54.9,NA,-9.3,NA,NA,NA
+"Fraser","Steelhead",2006,45,NA,-10.4,NA,NA,NA
+"Fraser","Steelhead",2007,10.8,NA,-11.4,NA,NA,NA
+"Fraser","Steelhead",2008,-1.7,10.8,-12.4,NA,NA,NA
+"Fraser","Steelhead",2009,-4.5,-0.6,-13.4,NA,NA,NA
+"Fraser","Steelhead",2010,-27.1,-10.9,-14.4,NA,NA,NA
+"Fraser","Steelhead",2011,-39.1,-20.1,-15.4,NA,NA,NA
+"Fraser","Steelhead",2012,-37.2,-28.4,-16.4,NA,NA,NA
+"Fraser","Steelhead",2013,-35.8,-35.8,-17.3,NA,NA,NA
+"Fraser","Steelhead",2014,-25.1,-42.4,-18.3,NA,NA,NA
+"Fraser","Steelhead",2015,-16.4,-48.4,-19.2,NA,NA,NA
+"Fraser","Steelhead",2016,-25.8,-53.7,-20.2,NA,NA,NA
+"Fraser","Steelhead",2017,-40.7,-58.5,-21.1,NA,NA,NA
+"Fraser","Steelhead",2018,-59.1,-62.8,-22,NA,NA,NA
+"Fraser","Steelhead",2019,-71.7,-66.6,-22.9,NA,NA,NA
+"Fraser","Steelhead",2020,-78.8,-70.1,-23.8,NA,NA,NA
+"Fraser","Steelhead",2021,-82,-73.2,-24.6,NA,NA,NA
+"Columbia","Chinook",2006,61.3,NA,-40.6,NA,NA,NA
+"Columbia","Chinook",2007,-26.8,NA,-36.6,NA,NA,NA
+"Columbia","Chinook",2008,-29.1,NA,-32.3,NA,NA,NA
+"Columbia","Chinook",2009,-43.6,-51.6,-27.8,NA,NA,NA
+"Columbia","Chinook",2010,-52.5,-45.8,-22.9,NA,NA,NA
+"Columbia","Chinook",2011,-56.9,-39.3,-17.7,NA,NA,NA
+"Columbia","Chinook",2012,-52.8,-32,-12.2,NA,NA,NA
+"Columbia","Chinook",2013,-41.8,-23.8,-6.3,NA,NA,NA
+"Columbia","Chinook",2014,-11.1,-14.6,0,NA,NA,NA
+"Columbia","Chinook",2015,46.6,-4.3,6.7,NA,NA,NA
+"Columbia","Chinook",2016,66.7,7.2,13.9,NA,NA,NA
+"Columbia","Chinook",2017,129.2,20.1,21.6,NA,NA,NA
+"Columbia","Chinook",2018,73.7,34.6,29.7,NA,NA,NA
+"Columbia","Chinook",2019,36.6,50.8,38.5,NA,NA,NA
+"Columbia","Chinook",2020,43.8,68.9,47.8,NA,NA,NA
+"Columbia","Chinook",2021,62.2,89.3,57.7,NA,NA,NA
+"Columbia","Chinook",2022,36.7,112.1,68.3,NA,NA,NA
+"Columbia","Sockeye",1961,-83.4,NA,-42.4,NA,NA,NA
+"Columbia","Sockeye",1962,-78.2,NA,-41.3,NA,NA,NA
+"Columbia","Sockeye",1963,-59.8,NA,-40.3,NA,NA,NA
+"Columbia","Sockeye",1964,-46.9,NA,-39.2,NA,NA,NA
+"Columbia","Sockeye",1965,-18.2,NA,-38.1,NA,NA,NA
+"Columbia","Sockeye",1966,56.9,NA,-36.9,NA,NA,NA
+"Columbia","Sockeye",1967,58,NA,-35.8,NA,NA,NA
+"Columbia","Sockeye",1968,86.9,NA,-34.6,NA,NA,NA
+"Columbia","Sockeye",1969,64.4,NA,-33.4,NA,NA,NA
+"Columbia","Sockeye",1970,30.6,NA,-32.2,NA,NA,NA
+"Columbia","Sockeye",1971,40.5,NA,-31,NA,NA,NA
+"Columbia","Sockeye",1972,16.6,NA,-29.7,NA,NA,NA
+"Columbia","Sockeye",1973,20.3,NA,-28.4,NA,NA,NA
+"Columbia","Sockeye",1974,-15.6,NA,-27.1,NA,NA,NA
+"Columbia","Sockeye",1975,-35,NA,-25.8,NA,NA,NA
+"Columbia","Sockeye",1976,-39.2,NA,-24.4,NA,NA,NA
+"Columbia","Sockeye",1977,-38,NA,-23.1,NA,NA,NA
+"Columbia","Sockeye",1978,-43.9,NA,-21.6,NA,NA,NA
+"Columbia","Sockeye",1979,-41.6,NA,-20.2,NA,NA,NA
+"Columbia","Sockeye",1980,-42.1,NA,-18.8,NA,NA,NA
+"Columbia","Sockeye",1981,-38.4,NA,-17.3,NA,NA,NA
+"Columbia","Sockeye",1982,-22.8,NA,-15.8,NA,NA,NA
+"Columbia","Sockeye",1983,-20.6,NA,-14.2,NA,NA,NA
+"Columbia","Sockeye",1984,7.7,NA,-12.7,NA,NA,NA
+"Columbia","Sockeye",1985,26.3,NA,-11.1,NA,NA,NA
+"Columbia","Sockeye",1986,35.4,NA,-9.5,NA,NA,NA
+"Columbia","Sockeye",1987,43.4,NA,-7.8,NA,NA,NA
+"Columbia","Sockeye",1988,12.9,NA,-6.1,NA,NA,NA
+"Columbia","Sockeye",1989,-2.2,NA,-4.4,NA,NA,NA
+"Columbia","Sockeye",1990,-22,NA,-2.7,NA,NA,NA
+"Columbia","Sockeye",1991,-23.3,NA,-0.9,NA,NA,NA
+"Columbia","Sockeye",1992,-13.7,NA,0.9,NA,NA,NA
+"Columbia","Sockeye",1993,-14.6,NA,2.7,NA,NA,NA
+"Columbia","Sockeye",1994,-36,NA,4.6,NA,NA,NA
+"Columbia","Sockeye",1995,-55.6,NA,6.5,NA,NA,NA
+"Columbia","Sockeye",1996,-62.4,NA,8.5,NA,NA,NA
+"Columbia","Sockeye",1997,-65.6,NA,10.5,NA,NA,NA
+"Columbia","Sockeye",1998,-59.8,NA,12.5,NA,NA,NA
+"Columbia","Sockeye",1999,-57.6,NA,14.5,NA,NA,NA
+"Columbia","Sockeye",2000,-51.5,NA,16.6,NA,NA,NA
+"Columbia","Sockeye",2001,-33.6,NA,18.7,NA,NA,NA
+"Columbia","Sockeye",2002,-28.9,NA,20.9,NA,NA,NA
+"Columbia","Sockeye",2003,-5.3,NA,23.1,NA,NA,NA
+"Columbia","Sockeye",2004,3.4,NA,25.3,NA,NA,NA
+"Columbia","Sockeye",2005,-3.7,NA,27.6,NA,NA,NA
+"Columbia","Sockeye",2006,38.3,NA,30,NA,NA,NA
+"Columbia","Sockeye",2007,29.2,NA,32.3,NA,NA,NA
+"Columbia","Sockeye",2008,71,NA,34.7,NA,NA,NA
+"Columbia","Sockeye",2009,104.2,NA,37.2,NA,NA,NA
+"Columbia","Sockeye",2010,263.8,NA,39.7,NA,NA,NA
+"Columbia","Sockeye",2011,463.4,NA,42.2,NA,NA,NA
+"Columbia","Sockeye",2012,422,342,44.8,NA,NA,NA
+"Columbia","Sockeye",2013,353.6,278.4,47.5,NA,NA,NA
+"Columbia","Sockeye",2014,314.7,224,50.2,NA,NA,NA
+"Columbia","Sockeye",2015,151.1,177.4,52.9,NA,NA,NA
+"Columbia","Sockeye",2016,119.8,137.5,55.7,NA,NA,NA
+"Columbia","Sockeye",2017,59.1,103.3,58.5,NA,NA,NA
+"Columbia","Sockeye",2018,7.9,74.1,61.4,NA,NA,NA
+"Columbia","Sockeye",2019,14.2,49,64.4,NA,NA,NA
+"Columbia","Sockeye",2020,10.3,27.6,67.4,NA,NA,NA
+"Columbia","Sockeye",2021,23,9.2,70.4,NA,NA,NA
+"Columbia","Sockeye",2022,70.1,-6.5,73.5,NA,NA,NA
+"Columbia","Steelhead",2006,221,NA,840.9,NA,NA,NA
+"Columbia","Steelhead",2007,209.4,NA,597.8,NA,NA,NA
+"Columbia","Steelhead",2008,189.3,815.5,417.5,NA,NA,NA
+"Columbia","Steelhead",2009,316.7,535,283.8,NA,NA,NA
+"Columbia","Steelhead",2010,381.5,340.4,184.7,NA,NA,NA
+"Columbia","Steelhead",2011,413.1,205.5,111.1,NA,NA,NA
+"Columbia","Steelhead",2012,436.5,111.9,56.6,NA,NA,NA
+"Columbia","Steelhead",2013,158.1,46.9,16.1,NA,NA,NA
+"Columbia","Steelhead",2014,36.7,1.9,-13.9,NA,NA,NA
+"Columbia","Steelhead",2015,-14.1,-29.3,-36.1,NA,NA,NA
+"Columbia","Steelhead",2016,-44.7,-51,-52.6,NA,NA,NA
+"Columbia","Steelhead",2017,-66.1,-66,-64.9,NA,NA,NA
+"Columbia","Steelhead",2018,-88.2,-76.4,-73.9,NA,NA,NA
+"Columbia","Steelhead",2019,-87.4,-83.6,-80.7,NA,NA,NA
+"Columbia","Steelhead",2020,-90.9,-88.7,-85.7,NA,NA,NA
+"Columbia","Steelhead",2021,-91.8,-92.1,-89.4,NA,NA,NA
