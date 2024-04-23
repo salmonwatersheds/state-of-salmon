@@ -1053,11 +1053,11 @@ frck_sps$smoothedSpawners <- genSmooth(
 		genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chinook"]
 	)
 
-frck_sps$smoothedRunsize <- genSmooth(
-	abund = frck_sps$runsize,
-	years = frck_sps$year,
-	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chinook"]
-)
+# frck_sps$smoothedRunsize <- genSmooth(
+# 	abund = frck_sps$runsize,
+# 	years = frck_sps$year,
+# 	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chinook"]
+# )
 
 plot_abund(frck_sps)
 
