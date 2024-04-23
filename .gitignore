@@ -3,6 +3,9 @@
 .RData
 .Ruserdata
 
+*.html
+*.docx
+
 README.Rmd
 README_files/
 references.bib
@@ -20,6 +23,7 @@ docs/methods-results.html
 docs/encrypt.R
 docs/rsconnect
 docs/figures
+docs/*.docx
 
 # Ignore large datasets
 data/spawner_surveys.csv
