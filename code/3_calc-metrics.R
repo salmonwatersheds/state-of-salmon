@@ -9,13 +9,13 @@
 # Read in data 
 
 # Compiled spawner and run size
-sps_dat <- read.csv("output/sps-data-raw.csv")
+sps_dat <- read.csv("output/sps-data.csv")
 
 # Generation length
 genLength <-read.csv("data/gen_length_regions.csv")
 
-# Number of streams
-numStreams <- read.csv("output/num-surveys/numStreams_all-regions.csv")
+# # Number of streams
+# numStreams <- read.csv("output/num-surveys/numStreams_all-regions.csv")
 
 # Define variables
 regions <- unique(unique(sps_dat$region))
@@ -76,7 +76,7 @@ for(r in 1:length(regions)){ # for each region
 		
 		#----------
 		# Check if there are any data	
-		if(length(which(sps_dat$region == regions[r] & sps_dat$species == species[s])) == 0 & length(which(numStreams$region == regions[r] & numStreams$species == species[s])) == 0){ # If no data
+		if(length(which(sps_dat$region == regions[r] & sps_dat$species == species[s])) == 0){ # If no data
 			
 			# sps_metrics[which(sps_metrics$region == regions[r] & sps_metrics$species == species[s]), c("n_indicator", "n_nonindicator")] <- 0
 			
@@ -128,8 +128,9 @@ for(r in 1:length(regions)){ # for each region
 					# Calculate short-term trend (three generations) as the average annual
 					# percent change in abundance
 					#----------
-					x2 <- tail(x[!is.na(y)], g*3 - 1)
-					fit.short <- lm(log(tail(y[!is.na(y)], g*3 - 1)) ~ x2)
+					x2 <- c((max(x[!is.na(y)]) - g*3 + 1):max(x[!is.na(y)]))
+					y2 <- y[match(x2, x)]
+					fit.short <- lm(log(y2) ~ x2)
 					
 					sps_metrics$short_trend[ind[i]] <- as.numeric(exp(fit.short$coefficients[2]) - 1)
 					
@@ -144,9 +145,9 @@ for(r in 1:length(regions)){ # for each region
 					
 					# Predict spawners or total return and include in sps_dat
 					y.pred_short <- predict(fit.short, se.fit = TRUE)
-					sps_dat[tail(ind_dat, g*3 - 1), columns.short[i, 1]] <- exp(y.pred_short$fit) # Mean prediction
-					sps_dat[tail(ind_dat, g*3 - 1), columns.short[i, 2]] <- exp(y.pred_short$fit - 1.96*y.pred_short$se.fit) # Lower 95% prediction interval
-					sps_dat[tail(ind_dat, g*3 - 1), columns.short[i, 3]] <- exp(y.pred_short$fit + 1.96*y.pred_short$se.fit) # Upper 95% prediction interval
+					sps_dat[tail(ind_dat, g*3), columns.short[i, 1]] <- exp(y.pred_short$fit) # Mean prediction
+					sps_dat[tail(ind_dat, g*3), columns.short[i, 2]] <- exp(y.pred_short$fit - 1.96*y.pred_short$se.fit) # Lower 95% prediction interval
+					sps_dat[tail(ind_dat, g*3), columns.short[i, 3]] <- exp(y.pred_short$fit + 1.96*y.pred_short$se.fit) # Upper 95% prediction interval
 					
 					#----------
 					# Calculate long-term trend (all time) as the average annual
@@ -245,6 +246,7 @@ sps_metrics[which(sps_metrics$current_abundance_year < max(sps_metrics$current_a
 
 # Which regions and species have <20 years of spawner data?
 dum_sp <- sps_dat %>% select(region, species, year, smoothedSpawners) %>%
+	filter(!is.na(smoothedSpawners)) %>%
 	mutate(regionspecies = paste(region, species)) %>%
 	group_by(regionspecies) %>%
 	summarise(nyears = length(year), rangeyears = paste(min(year), max(year), sep = "-"))
@@ -294,18 +296,91 @@ write.csv(sps_dat, file = paste0("output/archive/sps-data_", Sys.Date(), ".csv")
 #------------------------------------------------------------------------------
 sps_summary <- sps_metrics %>%
 	mutate(current_status = round(current_status*100)) %>%
+	mutate(status_offset_x = 0) %>%
+	mutate(status_offset_y = 0) %>%
 	mutate(short_trend = round(short_trend*100, 1)) %>%
 	mutate(long_trend = round(long_trend*100, 1)) %>%
 	mutate(current_abundance = round(current_abundance)) %>%
 	mutate(average_abundance = round(average_abundance)) %>%
 	mutate(previous_gen_abundance = round(previous_gen_abundance)) %>%
 	filter(paste(region, species) %in% c("Yukon Pink", "Yukon Sockeye", "Yukon Steelhead", "Columbia Chum", "Columbia Coho", "Columbia Pink") == FALSE) # Filter out regions/species not known to exist
-
+	
 # Change from Run Size to Total return
 sps_summary$type[sps_summary$type == "Run Size"] <- "Total return"
 
+# Within spawners and run size, for each species, offset status for regions if needed
+P <- 3 # threshold for y-axis offset
+for(i in 1:2){ # for spawners and run type
+	for(s in 1:6){ # for each species
+		
+		sps_summary.is <- sps_summary[which(sps_summary$type ==  c("Spawners", "Total return")[i] & sps_summary$species == species[s]), c("region", "current_status", "status_offset_y")]
+		sps_summary.is <- sps_summary.is[order(sps_summary.is$current_status),]
+
+		# If zero diff, add in offset x
+		if(length(which(diff(sps_summary.is$current_status) == 0)) > 0){
+			
+			ind <- which(diff(sps_summary.is$current_status) == 0)
+			if(length(ind) > 1){
+				stop("More than one region has the same value.")
+			} else {
+				regions.same <- sps_summary.is$region[c(ind, ind + 1)]
+				sps_summary$status_offset_x[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species[s] & sps_summary$region %in% regions.same)] <- c(-1, 1)
+			}
+		}
+		
+		# If within P percent, then offset y
+		if(length(which(diff(sps_summary.is$current_status) < P & diff(sps_summary.is$current_status) > 0)) > 0){
+			dum <- which(diff(sps_summary.is$current_status) < P & diff(sps_summary.is$current_status) > 0)
+			while(length(dum) > 0){
+				diff <- diff(sps_summary.is$current_status + sps_summary.is$status_offset_y)[dum]
+				sps_summary.is[dum, "status_offset_y"] <- sps_summary.is[dum, "status_offset_y"] - ceiling((3-diff)/2)
+				sps_summary.is[dum + 1, "status_offset_y"] <- sps_summary.is[dum + 1, "status_offset_y"] + ceiling((3-diff)/2)
+				
+				# Check order if preseved
+				if(sum(order(sps_summary.is$current_status) - order(sps_summary.is$current_status + sps_summary.is$status_offset_y)) > 0){
+					stop("Order is changed.")
+				}
+				dum <- which(diff(sps_summary.is$current_status + sps_summary.is$status_offset_y) < P & diff(sps_summary.is$current_status) > 0)
+			}
+			
+			sps_summary$status_offset_y[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species[s])] <- sps_summary.is$status_offset_y[match(sps_summary$region[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species[s])], sps_summary.is$region)]
+			
+		}
+		
+		
+		} # end species
+	}
+
+
 write.csv(sps_summary, file = paste0("output/archive/sps-summary_", Sys.Date(), ".csv"), row.names = FALSE)
 write.csv(sps_summary, file = "output/sps-summary.csv", row.names = FALSE)
+
+#--------------------------------
+# Pivot tables for fishy dot plot
+
+for(i in 1:2){
+	if(i == 1){
+		summ1 <- sps_summary %>%
+			filter(type == "Spawners") %>%
+			select(species, region, current_status) %>%
+			pivot_wider(names_from = species, values_from = current_status)
+		
+	} else { 
+		summ1 <- sps_summary %>%
+			filter(type == "Total return") %>%
+			select(species, region, current_status) %>%
+			pivot_wider(names_from = species, values_from = current_status)
+	}
+	
+	summ1 <- data.frame(summ1)
+	
+	summ1[summ1$region == "Yukon", c("Pink", "Sockeye", "Steelhead")] <- "Not present"
+	summ1[summ1$region == "Columbia", c("Chum", "Coho", "Pink")] <- "Not present"
+	summ1[which(is.na(summ1), arr.ind = TRUE)] <- "Unknown"
+	
+	write.csv(summ1, file = paste0("output/sps-summary_table_", c("spawners", "totalreturn")[i], ".csv"), row.names = FALSE)
+}
+
 
 #------------------------------------------------------------------------------
 # Trends
@@ -343,7 +418,6 @@ for(r in 1:length(regions)){ # for each region
 	} # end s
 } # end r
 
-range(trends_plotting[, c(4:9)], na.rm = TRUE)
 
 write.csv(trends_plotting, file = paste0("output/archive/sps-trends_plotting_", Sys.Date(), ".csv"), row.names = FALSE)
 write.csv(trends_plotting, file = "output/sps-trends_plotting.csv", row.names = FALSE)
