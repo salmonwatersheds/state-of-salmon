@@ -6,6 +6,8 @@
 
 ###############################################################################
 
+library(tidyverse)
+
 # Read in data 
 
 # Compiled spawner and run size
@@ -145,9 +147,9 @@ for(r in 1:length(regions)){ # for each region
 					
 					# Predict spawners or total return and include in sps_dat
 					y.pred_short <- predict(fit.short, se.fit = TRUE)
-					sps_dat[tail(ind_dat, g*3), columns.short[i, 1]] <- exp(y.pred_short$fit) # Mean prediction
-					sps_dat[tail(ind_dat, g*3), columns.short[i, 2]] <- exp(y.pred_short$fit - 1.96*y.pred_short$se.fit) # Lower 95% prediction interval
-					sps_dat[tail(ind_dat, g*3), columns.short[i, 3]] <- exp(y.pred_short$fit + 1.96*y.pred_short$se.fit) # Upper 95% prediction interval
+					sps_dat[ind_dat[match(x2[!is.na(y2)], sps_dat$year[ind_dat])], columns.short[i, 1]] <- exp(y.pred_short$fit) # Mean prediction
+					sps_dat[ind_dat[match(x2[!is.na(y2)], sps_dat$year[ind_dat])], columns.short[i, 2]] <- exp(y.pred_short$fit - 1.96*y.pred_short$se.fit) # Lower 95% prediction interval
+					sps_dat[ind_dat[match(x2[!is.na(y2)], sps_dat$year[ind_dat])], columns.short[i, 3]] <- exp(y.pred_short$fit + 1.96*y.pred_short$se.fit) # Upper 95% prediction interval
 					
 					#----------
 					# Calculate long-term trend (all time) as the average annual
@@ -184,13 +186,13 @@ for(r in 1:length(regions)){ # for each region
 					points(sps_metrics$current_abundance_year[ind[i]], sps_metrics$current_abundance[ind[i]]*10^-3, pch = 19, col = SWP_cols['stone3'])
 					points(sps_metrics$current_abundance_year[ind[i]] - g, sps_metrics$previous_gen_abundance[ind[i]]*10^-3, pch = 21, bg = "#FFFFFF", col = SWP_cols['stone3'], lwd = 1.5)
 					
-					polygon(x = c(x2, rev(x2)), 
+					polygon(x = c(x2[!is.na(y2)], rev(x2[!is.na(y2)])), 
 									y = c(exp(y.pred_short$fit + 1.96*y.pred_short$se.fit), rev(exp(y.pred_short$fit - 1.96*y.pred_short$se.fit)))*10^-3,
 									border = NA, col = paste0(SWP_cols['clay1'], 30))
 					
-					lines(x2, exp(y.pred_short$fit)*10^-3, col = SWP_cols['clay1'], lwd = 2)
+					lines(x2[!is.na(y2)], exp(y.pred_short$fit)*10^-3, col = SWP_cols['clay1'], lwd = 2)
 					
-					text(x[1], 0.9*max(yraw, na.rm = TRUE)*10^-3, paste("Short-term trend:", round(sps_metrics$short_trend[ind[i]], 2), sps_metrics$short_trend_cat[ind[i]]), col = SWP_cols['clay1'], adj = 0, cex = 0.8)
+					text(x[1], 0.9*max(yraw, na.rm = TRUE)*10^-3, paste0("Short-term trend: ", round(sps_metrics$short_trend[ind[i]]*100, 1), "% (", sps_metrics$short_trend_cat[ind[i]], ")"), col = SWP_cols['clay1'], adj = 0, cex = 0.8)
 					
 				
 					polygon(x = c(x[!is.na(y)], rev(x[!is.na(y)])), 
@@ -199,9 +201,9 @@ for(r in 1:length(regions)){ # for each region
 					
 					lines(x[!is.na(y)], exp(y.pred_long$fit)*10^-3, col = SWP_cols['tidal2'], lwd = 2)
 					
-					text(x[1], 0.95 * max(yraw, na.rm = TRUE)*10^-3, paste("Long-term trend:", round(sps_metrics$long_trend[ind[i]], 2), sps_metrics$long_trend_cat[ind[i]]), col = SWP_cols['tidal2'], adj = 0, cex = 0.8)
+					text(x[1], 0.95 * max(yraw, na.rm = TRUE)*10^-3, paste0("Long-term trend: ", round(sps_metrics$long_trend[ind[i]]*100, 1), "% (", sps_metrics$long_trend_cat[ind[i]], ")"), col = SWP_cols['tidal2'], adj = 0, cex = 0.8)
 					
-					text(x[1], max(yraw, na.rm = TRUE)*10^-3, paste("Current status:", round(sps_metrics$current_status[ind[i]], 2)), adj = 0, cex = 0.8, col = SWP_cols['stone3'])
+					text(x[1], max(yraw, na.rm = TRUE)*10^-3, paste0("Current status: ", round(sps_metrics$current_status[ind[i]]*100, 1), "%"), adj = 0, cex = 0.8, col = SWP_cols['stone3'])
 					mtext(side= 3, paste(regions[r], species[s], c("spawners", "run size")[i]))
 					
 					legend("topright", lwd = c(1.5, 1), lty = c(1, 3), col = c(SWP_cols['stone3'], SWP_cols['stone1']), c("Smoothed", "Raw"), bty = "n", cex = 0.8)
