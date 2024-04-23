@@ -47,7 +47,7 @@ genSmooth <- function(
 		genLength # generation length for geometric smoothing
 		){
 	
-	
+
 		g <- as.numeric(genLength)
 		yrs <- sort(unique(years))
 		n.yrs <- length(yrs)
@@ -78,7 +78,13 @@ genSmooth <- function(
 				smoothedAbund[k] <- exp(mean(log(S + 0.01), na.rm = TRUE))
 			}
 		} # end k years
-	
+		
+		# If tail end years are NA, don't smooth over them
+		index_lastData <- max(which(!is.na(abund)))
+		if(index_lastData < length(smoothedAbund)){
+			smoothedAbund[(index_lastData + 1):length(smoothedAbund)] <- NA
+		}
+		
 		return(smoothedAbund)
 }
 
@@ -152,7 +158,7 @@ plot.regional_abund <- function(
 	plot(range(dat$year), 
 			 c(min(dat[dat$year > 1970, 4]), quantile(dat[dat$year > 1970, 4], 0.99, na.rm = TRUE)),
 			 "n", las = 1, ylab = "", xlab = "", bty = "l",
-			 main = paste(selected_region, c("Spawners", "Total return")[as.numeric(abund == "runsize") + 1]),
+			 main = paste(selected_region, c("Spawners", "Total Return")[as.numeric(abund == "runsize") + 1]),
 			 yaxt = "n")
 	axis(side = 2, at = pretty(c(min(dat[dat$year > 1970, 4]), quantile(dat[dat$year > 1970, 4], 0.99, na.rm = TRUE))), labels = paste0(pretty(c(min(dat[dat$year > 1970, 4]), quantile(dat[dat$year > 1970, 4], 0.99, na.rm = TRUE))), "%"), las = 1)
 	
@@ -195,7 +201,7 @@ plot.regional_abund <- function(
 	}
 	
 	# Calculate percent decline from historical average
-	status <- sps_metrics$status[sps_metrics$region == selected_region & sps_metrics$species %in% species_withData & sps_metrics$type == c("Spawners", "Run Size")[as.numeric(abund == "runsize") + 1]]
+	status <- sps_metrics$current_status[sps_metrics$region == selected_region & sps_metrics$species %in% species_withData & sps_metrics$type == c("Spawners", "Run Size")[as.numeric(abund == "runsize") + 1]]
 	
 	# Add plus if positive and blank if NA
 	percDecline <- paste0(round(status*100),"%")
@@ -294,14 +300,14 @@ byTheNumbers <- function(
 	# Metric 1: Percent decline from historical average
 	#-------------------------------------
 	# Add plus if positive
-	metric1 <- paste0(round(dat$status*100, 1),"%")
-	metric1[which(dat$status > 0)] <- paste0("+", metric1[which(dat$status > 0)])
-	metric1[is.na(dat$status)] <- ""
+	metric1 <- paste0(round(dat$current_status*100, 1),"%")
+	metric1[which(dat$current_status > 0)] <- paste0("+", metric1[which(dat$current_status > 0)])
+	metric1[is.na(dat$current_status)] <- ""
 	
 	metric1_cat <- rep(NA, dim(dat)[1])
-	metric1_cat[which(dat$status < 0)] <- "arrow-down"
-	metric1_cat[which(dat$status > 0)] <- "arrow-up"
-	metric1_cat[which(dat$status == 0)] <- "arrows-left-right"
+	metric1_cat[which(dat$current_status < 0)] <- "arrow-down"
+	metric1_cat[which(dat$current_status > 0)] <- "arrow-up"
+	metric1_cat[which(dat$current_status == 0)] <- "arrows-left-right"
 	
 	#-------------------------------------
 	# Metric 2: Trend over entire time series (annual)
@@ -326,7 +332,9 @@ byTheNumbers <- function(
 	#-------------------------------------
 	btn <- data.frame(
 		Species = dat$species,
-		Index = dat$type,
+		Variable = case_when(
+			dat$type == "Spawners" ~ "Spawners",
+			dat$type == "Run Size" ~ "Total return"),
 		
 		metric1 = metric1_cat,
 		metric1_perc = metric1,
@@ -337,15 +345,14 @@ byTheNumbers <- function(
 		metric3 = dat$short_trend_cat,
 		metric3_perc = metric3,
 		
-		current_abund = prettierNum(round(dat$current)), 
-		lastgen_abund = prettierNum(round(dat$prevGen)),
-		avg_abund = prettierNum(round(dat$hist)),
+		current_abund = prettierNum(round(dat$current_abundance)), 
+		lastgen_abund = prettierNum(round(dat$previous_gen_abundance)),
+		avg_abund = prettierNum(round(dat$average_abundance)),
 		
-		num_indicator = ifelse(is.na(dat$n_indicator)|dat$n_indicator == 0, "", dat$n_indicator),
+		gen_length = ifelse(is.na(dat$gen_length), "", dat$gen_length),
 		
-		num_nonindicator = ifelse(is.na(dat$n_nonindicator)|dat$n_nonindicator == 0, "", dat$n_nonindicator),
-		
-		gen_length = ifelse(is.na(dat$generation_length), "", dat$generation_length)
+		nyears = ifelse(is.na(dat$nyears), 0, dat$nyears),
+		rangeyears = ifelse(is.na(dat$rangeyears), "", dat$rangeyears)
 	)
 
 	# Keep NAs for icon colour and type to avoid warning (" " not a colour)
@@ -393,35 +400,6 @@ btn_table <- function(
 	btn <- byTheNumbers(selected_region = selected_region,
 											sps_metrics = sps_metrics)
 	
-	# Chnage term "run size" to "total return"
-	btn$Index[btn$Index == "Run Size"] <- "Total return"
-	# Define species levels
-	# species <- sort(unique(btn$Species))
-	
-	# # function which returns background colour based on cell value (using colour map)
-	# # also takes column name as an input, which allows to get max and min
-	# stylefunc <- function(value, index, name) {
-	# 	if(is.na(value)){
-	# 		background <- "#FFFFFF"
-	# 	} else if(value > 0){
-	# 		background <- "#83B68680"
-	# 	} else if(value < 0){
-	# 		background <- "#C0626380"
-	# 	}
-	# 	list(background = background, fontWeight = "bold")
-	# }
-	# 
-	# # list giving column formatting (using style function) for single column
-	# coldefs <- list(
-	# 	reactable::colDef(style = stylefunc)
-	# )
-	# 
-	# # replicate list to required length
-	# coldefs <- rep(coldefs,length(regions))
-	# 
-	# # name elements of list according to cols
-	# names(coldefs) <- regions
-	# 
 	
 	# Render table
 	btn %>%
@@ -450,7 +428,7 @@ btn_table <- function(
 			
 			metric1 = colDef(show = FALSE),
 			metric1_perc = colDef(
-				name = "Current Status",
+				name = "Current status",
 				style = function(value, index){
 					if(is.na(btn$metric1[index])){
 						color <- "#FFFFFF"
@@ -471,7 +449,7 @@ btn_table <- function(
 			
 			metric2 = colDef(show = FALSE),
 			metric2_perc = colDef(
-				name = "LT Trend",
+				name = "Long-term trend",
 				style = function(value, index){
 					if(is.na(btn$metric2[index])){
 						color <- "#FFFFFF"
@@ -492,7 +470,7 @@ btn_table <- function(
 			
 			metric3 = colDef(show = FALSE),
 			metric3_perc = colDef(
-				name = "3-Gen Trend",
+				name = "Short-term trend",
 				style = function(value, index){
 					if(is.na(btn$metric3[index])){
 						color <- "#FFFFFF"
@@ -528,11 +506,17 @@ btn_table <- function(
 			# 	maxWidth = 80),
 			gen_length = colDef(
 				name = "Generation length",
+				maxWidth = 80),
+			nyears = colDef(
+				name = "Years of data",
+				maxWidth = 80),
+			rangeyears = colDef(
+				name = "Span of data",
 				maxWidth = 80)
 		),
 		
 		columnGroups = list(
-			colGroup(name = "Metrics of change", columns = c("metric1_perc", "metric2_perc", "metric3_perc")),
+			colGroup(name = "Metrics", columns = c("metric1_perc", "metric2_perc", "metric3_perc")),
 			
 			colGroup(name = "Index of abundance", columns = c("current_abund", "lastgen_abund", "avg_abund"))#,
 			# colGroup(name = "Number of monitored streams", columns = c("num_indicator", "num_nonindicator"))
@@ -558,27 +542,29 @@ btn_table <- function(
 ###############################################################################
 
 btn_table.all <- function(
-		sps_metrics_tab = sps_metrics[which(sps_metrics$type == "Spawners"), c("region", "species", "status")], # data frame with region, species, metric
-		type = "Spawners"
+		sps_metrics_tab = sps_metrics[, c("region", "species","type", "current_status")] # data frame with region, species, metric
 ){
 	
 	species <- unique(sps_metrics_tab$species)
 	tab_long <- data.frame(
-		regions = unique(sps_metrics_tab$region)
+		Region = rep(unique(sps_metrics_tab$region), each = 2),
+		Variable = rep(c("Spawners", "Total return"), length(unique(sps_metrics_tab$region)))
 	)
 	
 	for(s in 1:length(species)){
-		tab_long <- cbind(tab_long, sps_metrics_tab[which(sps_metrics_tab$species == species[s]), 3])
+		tab_long <- cbind(tab_long, sps_metrics_tab[which(sps_metrics_tab$species == species[s]), 4])
 	}
-	names(tab_long) <- c("Region", species)
+	names(tab_long) <- c("Region", "Variable", species)
 	
+
 	# Set species that are not present
 	tab_long[tab_long$Region == "Yukon", which(names(tab_long) %in% c("Pink", "Sockeye", "Steelhead"))] <- -989898
 	tab_long[tab_long$Region == "Columbia", which(names(tab_long) %in% c("Pink", "Chum", "Coho"))] <- -989898
 	
+	
 	# # Okanagan Chinook are endangered - Apr 2024: set as unknown due to short baseline
 	# if(type == "Spawners"){
-	# 	tab_long[which(tab_long$Species == "Chinook"), "Columbia"] <- -1000
+	# 	tab_long[which(tab_long$Region == "Columbia"), "Chinook"] <- -1000
 	# }
 	
 	# tab_long_col <- ifelse(tab_long[, c(2:(dim(tab_long)[2]))] < 0, "#C06263", "#83B686")
@@ -608,19 +594,48 @@ btn_table.all <- function(
 		list(color = color, background = background, fontWeight = "bold")
 	}
 	
-	# list giving column formatting (using style function) for single column
-	coldefs <- list(
-		reactable::colDef(
-			style = stylefunc, 
-			format = colFormat(digits = 1, percent = TRUE),
-			maxWidth = 77)
-	)
+	
 	
 	# replicate list to required length
-	coldefs <- rep(coldefs,length(species))
+	coldefs <- list(
+		Region = colDef(
+		style = JS("function(rowInfo, column, state) {
+        const firstSorted = state.sorted[0]
+        // Merge cells if unsorted or sorting by region
+        if (!firstSorted || firstSorted.id === 'Region') {
+          const prevRow = state.pageRows[rowInfo.viewIndex - 1]
+          if (prevRow && rowInfo.values['Region'] === prevRow['Region']) {
+            return { visibility: 'hidden' }
+          }
+        }
+      }")),
+		Chinook = colDef(
+			style = stylefunc, 
+			format = colFormat(digits = 1, percent = TRUE),
+			maxWidth = 77),
+		Chum = colDef(
+			style = stylefunc, 
+			format = colFormat(digits = 1, percent = TRUE),
+			maxWidth = 77),
+		Coho = colDef(
+			style = stylefunc, 
+			format = colFormat(digits = 1, percent = TRUE),
+			maxWidth = 77),
+		Pink = colDef(
+			style = stylefunc, 
+			format = colFormat(digits = 1, percent = TRUE),
+			maxWidth = 77),
+		Sockeye = colDef(
+			style = stylefunc, 
+			format = colFormat(digits = 1, percent = TRUE),
+			maxWidth = 77),
+		Steelhead = colDef(
+			style = stylefunc, 
+			format = colFormat(digits = 1, percent = TRUE),
+			maxWidth = 77))
 	
 	# name elements of list according to cols
-	names(coldefs) <- species
+	# names(coldefs) <- species
 	
 	# Render table
 	tab_long %>%
@@ -633,11 +648,12 @@ btn_table.all <- function(
 			bordered = TRUE,
 			highlight = TRUE,
 			striped = TRUE,
+			outlined = TRUE,
 			resizable = TRUE,
 			fullWidth = FALSE,
 			wrap = TRUE,
 			style = list(fontSize = "1.25rem"),
-			defaultPageSize = 9
+			defaultPageSize = 18
 		)
 	
 }
