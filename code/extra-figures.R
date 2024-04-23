@@ -1,21 +1,30 @@
+sps_metrics <- read.csv("output/sps-summary.csv")
+
 # Extra figures
 # Apr 9, 2024
 species <- unique(sps_dat$species)
+regions <- unique(sps_metrics$region)
+regionsName <- regions
+regionsName[regions == "Vancouver Island & Mainland Inlets"] <- "VIMI"
 ###############################################################################
 # Fishy dot plot
 ###############################################################################
+regionsCol <- PNWColors::pnw_palette("Bay", n = 9)
+
 quartz(width = 8, height = 4.5, pointsize = 10)
-yr <- range(sps_metrics$status[sps_metrics$type == "Spawners"], na.rm = TRUE)
-par(mar = c(2, 5, 2, 1))
-plot(c(0.5, 6.5), c(-120, 140), "n", yaxt = 'n', ylab = "Salmon Abundance", xaxt = "n", xlab = "", xaxs = "i")
-axis(side = 2, at = seq(-100, 100, 50), las = 1)
+yr <- range(sps_metrics$current_status[sps_metrics$type == "Spawners"], na.rm = TRUE)
+yr <- c(-100, 160)
+par(mar = c(2, 5, 2, 8))
+plot(c(0.5, 6.5), c(-120, 160), "n", yaxt = 'n', ylab = "Salmon Abundance", xaxt = "n", xlab = "", xaxs = "i", bty = "n")
+axis(side = 2, at = seq(-100, 150, 50), las = 1)
 abline(h = 0, lwd = 5, col = SWP_cols['stone1'])
 axis(side = 2, at = -115, "Unknown", las = 1)
 for(s in 1:6){
-	text(s, 148, species[s], col = species_cols_dark[s], xpd = NA, pos = 3)
+	text(s, yr[2]+7, species[s], col = species_cols_dark[s], xpd = NA, pos = 3)
 	polygon(x = s + c(-0.45, -0.45, 0.45, 0.45),
 					y = c(-100, 200, 200, -100),
-					col = paste0(species_cols_light[s], 50),
+					col = "#00000020",
+					#col = paste0(species_cols_light[s], 50),
 					border = NA)
 	polygon(x = s + c(-0.45, -0.45, 0.45, 0.45),
 					y = c(-200, -105, -105, -200), 
@@ -23,9 +32,11 @@ for(s in 1:6){
 					border =NA)
 	
 	ind <- which(sps_metrics$species == species[s] & sps_metrics$type == "Spawners")
-	ptCol <- ifelse(sps_metrics$status[ind] > 0, status_cols['green'], status_cols['red'])
-	points(seq(s-0.3, s+0.3, length.out = 9), sps_metrics$status[ind]*100, pch = 19, cex = 2, col = ptCol)
-	points(seq(s-0.3, s+0.3, length.out = 9), ifelse(is.na(sps_metrics$status[ind]), -115, NA), cex = 2, col = grey(0.5), pch = 19)
+	# ind <- which(sps_metrics$species == species[s] & sps_metrics$type == "Total return")
+	# ptCol <- ifelse(sps_metrics$current_status[ind] > 0, status_cols['green'], status_cols['red'])
+	r <- match(sps_metrics$region[ind], regions)
+	points(seq(s-0.3, s+0.3, length.out = 9)[r], sps_metrics$current_status[ind], pch = 19, cex = 2, col = regionsCol[r], xpd = NA)#col = ptCol)
+	points(seq(s-0.3, s+0.3, length.out = 9)[r], ifelse(is.na(sps_metrics$current_status[ind]), -115, NA), cex = 2, pch = 19, col = regionsCol[r]) #, col = grey(0.5)
 	
 	# # Add run size
 	# ind2 <- which(sps_metrics$species == species[s] & sps_metrics$type == "Run Size")
@@ -40,10 +51,12 @@ for(s in 1:6){
 	# 				 lwd = 2)
 
 }
-
+mtext(side = 3, "Spawners", line = 1, cex = 1.2)
+# mtext(side = 3, "Total return", line = 1, cex = 1.2)
 # legend(-0.2, 180, pch = c(19, NA), pt.cex = 2, c("Spawners", ""), xpd = NA, bty = "n")
+legend(6.5, 130, pch = 19, pt.cex = 2, col = regionsCol, legend = regionsName, xpd = NA, bty = "n")
 
-legend(-0.2, 180, pch = c(19, 1), pt.cex = 2, c("Spawners", "Run size"), xpd = NA, bty = "n")
+# legend(-0.2, 180, pch = c(19, 1), pt.cex = 2, c("Spawners", "Run size"), xpd = NA, bty = "n")
 
 #---- Just run size
 
