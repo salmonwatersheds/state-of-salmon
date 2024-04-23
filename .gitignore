@@ -13,11 +13,13 @@ code/archive
 code/ignore
 
 output/ignore
+output/archive
 
 # Ignore rendered methods-results doc, which is large
 docs/methods-results.html
 docs/encrypt.R
 docs/rsconnect
+docs/figures
 
 # Ignore large datasets
 data/spawner_surveys.csv
