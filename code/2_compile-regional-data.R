@@ -1352,16 +1352,14 @@ sps_data <- rbind(sps_data, colse_sps)
 #------------------------------------------------------------------------------
 # Columbia: Steelhead
 #------------------------------------------------------------------------------
-colsh <- read.csv("data/spawner_abundance.csv") %>% 
-	filter(region == "Columbia",  species_name == "Steelhead") %>%
-	filter(!is.na(estimated_count))
+colsh <- read.csv("data/Columbia_Steelhead_OBMEP.csv")
 
 # Put in SPS format
 colsh_sps <- data.frame(
 	region = rep("Columbia", length(colsh$year)),
 	species = rep("Steelhead", length(colsh$year)),
 	year = colsh$year,
-	spawners = as.numeric(colsh$estimated_count), # Note this is the fish that returned to spawn, NOT a mistake!
+	spawners = colsh$natural_spawners, # Note this is the fish that returned to spawn, NOT a mistake!
 	smoothedSpawners = NA,
 	runsize = NA,
 	smoothedRunsize = NA
