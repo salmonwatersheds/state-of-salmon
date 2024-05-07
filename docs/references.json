@@ -271,6 +271,59 @@
 		}
 	},
 	{
+		"id": "OhlbergerEtAl2020ReproductiveValueLarge",
+		"type": "article-journal",
+		"abstract": "While conservation and fisheries management are often concerned with changes in population abundance and distribution, shifts in population age–size structure are commonly observed in response to human and environmental stressors. Chinook salmon (Oncorhynchus tshawytscha) have experienced widespread declines in mean age and size throughout their North American range. We investigated the consequences of declines in body size for spawner reproductive potential in terms of total egg mass per female. Our case study is the Yukon River where Chinook salmon have supported subsistence, commercial, and recreational fisheries. Using historical observations on individual body size from throughout the Yukon River and the relationship between female size and total egg mass from the Canadian portion, we estimate a decline in average female reproductive potential of 24%–35% since the 1970s. Because spawner abundances and the population sex ratio have not shown clear trends over time, our results suggest a reduced total population reproductive potential. Changes in spawner quality should be considered when developing management reference points, and conservation of population demographic structure may be necessary to sustain productive Chinook salmon systems.",
+		"container-title": "Canadian Journal of Fisheries and Aquatic Sciences",
+		"DOI": "10.1139/cjfas-2020-0012",
+		"ISSN": "12057533",
+		"issue": "8",
+		"page": "1292-1301",
+		"title": "The reproductive value of large females: Consequences of shifts in demographic structure for population reproductive potential in Chinook Salmon",
+		"volume": "77",
+		"author": [
+			{
+				"family": "Ohlberger",
+				"given": "Jan"
+			},
+			{
+				"family": "Schindler",
+				"given": "Daniel E."
+			},
+			{
+				"family": "Brown",
+				"given": "Randy J."
+			},
+			{
+				"family": "Harding",
+				"given": "Joel M.S."
+			},
+			{
+				"family": "Adkison",
+				"given": "Milo D."
+			},
+			{
+				"family": "Munro",
+				"given": "Andrew R."
+			},
+			{
+				"family": "Horstmann",
+				"given": "Lara"
+			},
+			{
+				"family": "Spaeder",
+				"given": "Joe"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020"
+				]
+			]
+		}
+	},
+	{
 		"id": "OBMEP2022ColumbiaSteelhead",
 		"type": "report",
 		"event-place": "Nespelem, WA",
@@ -689,8 +742,7 @@
 				"given": "Richard F."
 			},
 			{
-				"family": "Beveridge",
-				"given": "Ian A."
+				"literal": "Ian A. Beveridge"
 			},
 			{
 				"family": "Challenger",
@@ -774,7 +826,7 @@
 		"page": "viii + 60",
 		"title": "2019 Post-Season Summary Report",
 		"URL": "https://www.psc.org/publications/technical-reports/technical-committee-reports/chum/",
-		"volume": "TCCHUM SALMON (23)-01",
+		"volume": "3-11",
 		"author": [
 			{
 				"family": "TTCHUM",
@@ -829,6 +881,62 @@
 					"2023",
 					12,
 					8
+				]
+			]
+		}
+	},
+	{
+		"id": "SchoenEtAl2023NOAAArcticReport",
+		"type": "article-journal",
+		"abstract": "Pacific salmon populations in western Alaska have responded differently to recent climatic changes, with Chinook salmon (Oncorhynchus tshawytscha) and chum salmon (O. keta) reaching record low abundance levels, while sockeye salmon (O. nerka) have attained record high abundance levels since 2020 (Fig. 1). Why these species have responded differently has important implications for the future of Pacific salmon in a warming Arctic.",
+		"DOI": "10.25923/F2HV-5581",
+		"language": "en",
+		"license": "Creative Commons Zero v1.0 Universal",
+		"note": "publisher: [object Object]",
+		"source": "DOI.org (Datacite)",
+		"title": "NOAA Arctic Report Card 2023: Divergent Responses of Western Alaska Salmon to a Changing Climate",
+		"title-short": "NOAA Arctic Report Card 2023",
+		"URL": "https://repository.library.noaa.gov/view/noaa/56618",
+		"author": [
+			{
+				"family": "Schoen",
+				"given": "E. R."
+			},
+			{
+				"family": "Howard",
+				"given": "K. G."
+			},
+			{
+				"family": "Murphy",
+				"given": "J. M."
+			},
+			{
+				"family": "Schindler",
+				"given": "D. E."
+			},
+			{
+				"family": "Westley",
+				"given": "P. A. H."
+			},
+			{
+				"family": "Biela",
+				"given": "V. R.",
+				"non-dropping-particle": "von"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2024",
+					4,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2023"
 				]
 			]
 		}
