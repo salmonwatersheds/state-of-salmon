@@ -1,5 +1,5 @@
 ---
-title: "PSF's State of Salmon Reporting: Methods & Results"
+title: "PSF's State of Salmon Report: Methods & Results"
 author: "Salmon Watersheds Program, Steph Peacock"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 bibliography: references.json
@@ -70,7 +70,7 @@ Currently, there is no place where the public can readily find answers to genera
 
 This lack of publicly accessible information about the state of Pacific salmon and opens the door to misinformation that can hinder and harm our ability to conserve salmon. 
 
-The [Pacific Salmon Foundation (PSF)](https://www.psf.ca) is developing an inaugural **State of Pacific Salmon in Canada** publication, which will address these questions and be tailored to the questions of a salmon-informed public audience. The outputs will be updated regularly (e.g. annually or biennially) to reflect new data and changes to the state of Pacific salmon populations.
+The [Pacific Salmon Foundation (PSF)](https://www.psf.ca) is developing an inaugural **State of Salmon** report, which will address these questions and be tailored to the questions of a salmon-informed public audience. The outputs will be updated regularly (e.g. annually or biennially) to reflect new data and changes to the state of Pacific salmon populations.
 
 As part of the State of Salmon report, PSF's [Salmon Watersheds Program](https://www.salmonwatersheds.ca) is developing simple metrics to report on the status and trends in regional abundance for each species. This document outlines the data sources and analytical approach used to estimate time series of spawner abundance and total returns (including catch) for each species and region, as well as draft results. **This information is intended to be shared with external partners in order to garner feedback on preliminary results that will inform our approach moving forward.** Our analyses are ongoing, and the information here is subject to change on a regular basis, but we will endeavor to keep it up-to-date.
 
@@ -425,7 +425,7 @@ btn_table(
 **Highlights**
 
 * All species for which we had reliable data are currently below their historical average, with long-term trends either stable or declining.
-* Unlike in other regions, where pink salmon have been doing relatively well, pink salmon have shown the most dramatic declines, and most recent spawner abundance was `r -round(sps_metrics$current_status[sps_metrics$region == "Haida Gwaii" & sps_metrics$species == "Pink" & sps_metrics$type == "Spawners"]*100, 1)`% **lower88 than the historical average.
+* Unlike in other regions, where pink salmon have been doing relatively well, pink salmon have shown the most dramatic declines, and most recent spawner abundance was `r -round(sps_metrics$current_status[sps_metrics$region == "Haida Gwaii" & sps_metrics$species == "Pink" & sps_metrics$type == "Spawners"]*100, 1)`% **lower** than the historical average.
 * There is only one indicator stream for Chinook in Haida Gwaii,the Yakoun River, which has not been monitored since 2006 and although abundance was relatively high at that time, current status is unknown.
 
 ```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
