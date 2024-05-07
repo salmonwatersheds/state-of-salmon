@@ -1,28 +1,36 @@
 README
 ================
 Stephanie Peacock
-2023-07-10
+2024-May-07
 
 ## state-of-salmon
 
 ### Overview
 
-This repo contains code and data used to estimate time series of spawner
-abundance for each species and region as part of PSF’s State of Salmon
-reporting.
+This repo contains code and data that informs the Pacific Salmon
+Foundation’s State of Salmon Report.
 
 ### Files
 
-- `code` contains R code to expand spawner abundance from river-level
-  estimates to regional indices used in State of Salmon reporting.
-- `data` has original data or links to these data when sources are
-  publicly available elsewhere.
+- `code` contains R code for data compiltation and analysis:
+  - `1_regions-expansions.R` expands spawner abundance from stream-level
+    spawner surveys to regional aggregate abundance.
+  - `2_compile-regional-data.R` compiles regional estimates of spawners
+    and returns from various sources in `data/`, or uses the expanded
+    spawner abundances from 1. where regional data were not available,
+    and smooths these time series using a geometric running mean over
+    the generation length for the species/region. Outputs the raw and
+    smoothed time series as `output/sps-data.csv`.
+  - `3_calc-metrics.R` reads in `output/sps-data.csv` and calculates the
+    current status and trends reported on in the State of Salmon report.
+  - other supporting code in `colours.R`, `expansion-functions.R`, and
+    `functions.R` are sourced in the above files and contain functions
+    for expansion, smoothing, and plotting output.
+- `data` has source data sets used in `2_compile-regional-data.R`.
 - `output` contains processed data and summaries that are usually
   produced by R code in `code` and used in plotting.
-- `docs` contains the Rmd and html files used to produce the [PSF’s
-  State of Salmon Reporting: Methods &
-  Results](https://bookdown.org/salmonwatersheds/state-of-salmon/methods-results.html)
-  web page with technical documentation and preliminary results.
+- `docs` contains Technical Documentation on the methods - see
+  <https://salmonwatersheds.github.io/state-of-salmon/>
 
 ### Acknowledgements
 
@@ -32,4 +40,11 @@ Salmon Foundation](www.psf.ca).
 
 ### More information
 
-Steph Peacock <speacock@psf.ca>
+- Technical Documentation of the data sources and approach can be found
+  at <https://salmonwatersheds.github.io/state-of-salmon/>.
+- Output data sets provided here in `output` are available through the
+  Salmon Watershed Program’s [Data
+  Library](https://data.salmonwatersheds.ca/) with associated metdata
+  and citation information.
+- If you have questions or would like more information, contact Steph
+  Peacock <speacock@psf.ca>.
