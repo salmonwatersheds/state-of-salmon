@@ -14,8 +14,15 @@ references.bib
 code/archive
 code/ignore
 
+# Ignore certain output files
 output/ignore
 output/archive
+output/data-library
+output/num-surveys
+output/sps-trends_plotting.csv
+output/sps-summary_table_totalreturn.csv
+output/sps-summary_table_spawners.csv
+
 
 # Ignore rendered methods-results doc, which is large
 docs/methods-results.html
