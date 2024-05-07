@@ -253,6 +253,12 @@ dum_sp <- sps_dat %>% select(region, species, year, smoothedSpawners) %>%
 	group_by(regionspecies) %>%
 	summarise(nyears = length(year), rangeyears = paste(min(year), max(year), sep = "-"))
 
+dum_sp2 <- sps_dat %>% select(region, species, year, smoothedSpawners) %>%
+	filter(!is.na(smoothedSpawners)) %>%
+	mutate(regionspecies = paste(region, species)) %>%
+	group_by(regionspecies) %>%
+	summarise(region = unique(region), species = unique(species), nyears = length(year), minyear = min(year), maxyear = max(year))
+
 # Which regions and species have <20 years of run size data?
 dum_rs <- sps_dat %>% select(region, species, year, smoothedRunsize) %>%
 	filter(!is.na(smoothedRunsize)) %>%
@@ -260,6 +266,12 @@ dum_rs <- sps_dat %>% select(region, species, year, smoothedRunsize) %>%
 	group_by(regionspecies) %>%
 	summarise(nyears = length(year), rangeyears = paste(min(year), max(year), sep = "-")) %>% 
 	mutate(regionspeciestype = paste(regionspecies, "Run Size"))
+
+dum_rs2 <- sps_dat %>% select(region, species, year, smoothedRunsize) %>%
+	filter(!is.na(smoothedRunsize)) %>%
+	mutate(regionspecies = paste(region, species)) %>%
+	group_by(regionspecies) %>%
+	summarise(region = unique(region), species = unique(species), nyears = length(year), minyear = min(year), maxyear = max(year))
 
 # Add spawners number of years and range of years to sps_metrics
 sps_metrics <- sps_metrics %>% 
@@ -271,6 +283,7 @@ sps_metrics <- sps_metrics %>%
 	) 
 
 # Add run size number of years and range of years to sps_metrics
+
 sps_metrics[match(dum_rs$regionspeciestype, sps_metrics$regionspeciestype), c("nyears", "rangeyears")] <- dum_rs[, c("nyears", "rangeyears")]
 
 # Remove dummy variable for matching
