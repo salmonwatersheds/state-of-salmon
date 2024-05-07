@@ -1,21 +1,30 @@
+# Compiled spawner and run size
+sps_dat <- read.csv("output/sps-data.csv")
+
 sps_metrics <- read.csv("output/sps-summary.csv")
 
+source("code/colours.R")
 # Extra figures
 # Apr 9, 2024
-species <- unique(sps_dat$species)
+species <- sort(unique(sps_dat$species))
 regions <- unique(sps_metrics$region)
 regionsName <- regions
 regionsName[regions == "Vancouver Island & Mainland Inlets"] <- "VIMI"
 ###############################################################################
 # Fishy dot plot
 ###############################################################################
+
 regionsCol <- PNWColors::pnw_palette("Bay", n = 9)
 
-quartz(width = 8, height = 4.5, pointsize = 10)
-yr <- range(sps_metrics$current_status[sps_metrics$type == "Spawners"], na.rm = TRUE)
+i <- 2
+type <- c("Spawners", "Total return")[i]
+
+# quartz(width = 8, height = 4.5, pointsize = 10)
+yr <- range(sps_metrics$current_status[sps_metrics$type == type], na.rm = TRUE)
 yr <- c(-100, 160)
 par(mar = c(2, 5, 2, 8))
 plot(c(0.5, 6.5), c(-120, 160), "n", yaxt = 'n', ylab = "Salmon Abundance", xaxt = "n", xlab = "", xaxs = "i", bty = "n")
+abline(h = seq(-120, 160, 20), lty = 3, col = grey(0.6))
 axis(side = 2, at = seq(-100, 150, 50), las = 1)
 abline(h = 0, lwd = 5, col = SWP_cols['stone1'])
 axis(side = 2, at = -115, "Unknown", las = 1)
@@ -31,7 +40,7 @@ for(s in 1:6){
 					col = grey(0.8),
 					border =NA)
 	
-	ind <- which(sps_metrics$species == species[s] & sps_metrics$type == "Spawners")
+	ind <- which(sps_metrics$species == species[s] & sps_metrics$type == type)
 	# ind <- which(sps_metrics$species == species[s] & sps_metrics$type == "Total return")
 	# ptCol <- ifelse(sps_metrics$current_status[ind] > 0, status_cols['green'], status_cols['red'])
 	r <- match(sps_metrics$region[ind], regions)
@@ -51,7 +60,7 @@ for(s in 1:6){
 	# 				 lwd = 2)
 
 }
-mtext(side = 3, "Spawners", line = 1, cex = 1.2)
+mtext(side = 3, type, line = 1, cex = 1.2)
 # mtext(side = 3, "Total return", line = 1, cex = 1.2)
 # legend(-0.2, 180, pch = c(19, NA), pt.cex = 2, c("Spawners", ""), xpd = NA, bty = "n")
 legend(6.5, 130, pch = 19, pt.cex = 2, col = regionsCol, legend = regionsName, xpd = NA, bty = "n")
@@ -170,3 +179,102 @@ runsize <- FALSE
 # quartz(width = 3, height = 3, pointsize = 10)	
 # 	plot(1,1,"n", bty = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "")
 # legend("center", lwd = c(1.5, 1), col = c(species_cols_dark[s], species_cols_light[s]), c("Spawners", "Run size"), bty = "n")	
+
+	
+	#_________________
+	
+head(sps_dat)
+
+frco <- read.csv("data/E. Hertz - IFC Data.csv")
+y <- tapply(frco$Natural.Returns, frco$ReturnYear, sum)
+
+dat.i <- sps_dat %>%
+	filter(region == "Fraser", species == "Coho")
+
+met.i <- sps_metrics %>% 
+	filter(region == "Fraser", species == "Coho")
+quartz(width = 5, height = 8)
+par(mfrow = c(2,1))
+plot(dat.i$year, dat.i$spawners*10^-3, "l", ylim = c(0, 85), xlim = c(1983, 2023), las = 1, ylab = "Aggregate spawners (thousands)", col = 2, lwd = 2, xpd = NA, bty = "l")
+# lines(dat.i$year, dat.i$smoothedSpawners*10^-3, col = 2, lwd = 0.8)
+lines(as.numeric(names(y)), y*10^-3,  "l")
+abline(h = met.i$average_abundance[met.i$type == "Spawners"]*10^-3, lty = 2, col = 2)
+legend(1990, 120, lty = c(1,1,2), col = c(1,2,2), lwd = c(1, 1.5, 1), c("Natural spawners", "Total spawners (used in SoS)", "Historical avg (SoS)"), bty = "n", xpd = NA)
+
+plot(dat.i$year, dat.i$runsize*10^-3, "l", xlim = c(1983, 2023), las = 1, ylab = "Aggregate total return (thousands)", col = 2, lwd = 2, xpd = NA, bty = "l")
+# lines(dat.i$year, dat.i$smoothedSpawners*10^-3, col = 2, lwd = 0.8)
+abline(h = met.i$average_abundance[met.i$type == "Total return"]*10^-3, lty = 2, col = 2)
+
+###############################################################################
+# Extra chunks of code for diggin into data
+
+
+z <- sps_dat[which(sps_dat$species == "Chinook" & sps_dat$region == "Haida Gwaii"), c("year", "spawners", "smoothedSpawners", "runsize", "smoothedRunsize")]
+
+
+z
+
+
+sps_metrics[which(sps_metrics$species == "Steelhead" & sps_metrics$type == "Spawners"),]
+
+
+# Plot coho abundances
+regionsCol <- PNWColors::pnw_palette("Bay", n = 9)
+
+selected_species <- "Pink"
+
+ylims <- range(sps_dat$smoothedSpawners[sps_dat$species == selected_species], na.rm = TRUE)
+par(mar = c(3, 4, 1, 6))
+plot(c(1950, 2023), c(0, ylims[2]*10^-3), "n", xlab= "", ylab = "Smoothed Spawners (thousands)", main = selected_species)
+abline(h = seq(0, 700, 50), col = grey(0.8), lty = 3)
+abline(v = seq(1950, 2023, 5), col = grey(0.8), lty = 3)
+abline(v = seq(1950, 2023, 10), col = grey(0.5), lty = 3)
+
+for(r in 1:9){
+	sps_dat.r <- sps_dat %>% 
+		filter(region == regions[r], species == selected_species)
+	if(nrow(sps_dat.r) > 0){
+		lines(sps_dat.r$year, sps_dat.r$smoothedSpawners*10^-3, lwd = 2, col = regionsCol[r])
+	}
+}
+legend(2024, ylims[2]*0.9*10^-3, xpd = NA, lwd = 2, col = regionsCol, legend = regions)
+
+# Relative to average
+par(mar = c(3, 4, 1, 6))
+plot(c(1950, 2023), c(-100, 100), "n", xlab= "", ylab = "spawners (% difference from average)")
+abline(h = seq(-100, 100, 10), col = grey(0.8), lty = 3)
+abline(v = seq(1950, 2023, 5), col = grey(0.8), lty = 3)
+abline(v = seq(1950, 2023, 10), col = grey(0.5), lty = 3)
+abline(h = 0)
+for(r in 1:9){
+	sps_dat.r <- sps_dat %>% 
+		filter(region == regions[r], species == selected_species)
+	avg.r <- sps_metrics$average_abundance[which(sps_metrics$region == regions[r] &sps_metrics$species == selected_species & sps_metrics$type == "Spawners")]
+	
+	if(nrow(sps_dat.r) > 0){
+		lines(sps_dat.r$year, (sps_dat.r$smoothedSpawners - avg.r)/avg.r*100, lwd = 5, col = regionsCol[r])
+	}
+}
+legend(2024, 100, xpd = NA, lwd = 2, col = regionsCol, legend = regions)
+
+#-------
+# Average spawners by region and species
+r.offset <- seq(-0.4, 0.4, length.out = 9)
+
+plot(c(1,6), c(0, 1500), "n", xaxt = "n", ylab = "Average spawners", xlim = c(0.5, 6.5), xaxs = "i")
+axis(side = 1, at = 1:6, labels = species)
+abline(v = seq(1.5, 5.5, 1))
+
+y <- tapply(sps_metrics$average_abundance[sps_metrics$type == "Spawners"], sps_metrics$species[sps_metrics$type == "Spawners"], mean, na.rm = TRUE)
+for(s in 1:6){
+	segments(x0 = s - 0.5, x1 = s+0.5, y0 = y[s]*10^-3, y1 = y[s]*10^-3, lwd = 3, col = grey(0.8))
+}
+
+for(r in 1:9){
+	sr <- sps_metrics[sps_metrics$type == "Spawners" & sps_metrics$region == regions[r], ]
+	points(match(sr$species, species) + r.offset[r], sr$average_abundance*10^-3, col = regionsCol[r], pch = 19, cex = 2)
+}
+
+ind <- which(sps_metrics$average_abundance > 1500*10^3 & sps_metrics$type == "Spawners")
+arrows(x0 = 4 + r.offset[match(sps_metrics$region[ind], regions)], x1 = 4 + r.offset[match(sps_metrics$region[ind], regions)], y0 = 1500, y1 = 1550, col = regionsCol[match(sps_metrics$region[ind], regions)], lwd = 5, length = 0.08, xpd = NA)
+
