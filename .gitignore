@@ -10,7 +10,6 @@ README.Rmd
 README_files/
 references.bib
 
-data/ignore
 
 code/archive
 code/ignore
@@ -24,6 +23,7 @@ docs/encrypt.R
 docs/rsconnect
 docs/figures
 docs/*.docx
+docs/methods.Rmd
 
 # Ignore large datasets
 data/spawner_surveys.csv
@@ -31,4 +31,5 @@ data/spawner_abundance.csv
 
 # Ignore pdf source files (for now)
 data/sources
+data/ignore
 
