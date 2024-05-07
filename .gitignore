@@ -9,6 +9,8 @@ README.Rmd
 README_files/
 references.bib
 
+# Ignore rendered methods-results doc, which is large
+methods-results
 
 code/archive
 code/ignore
@@ -21,15 +23,6 @@ output/num-surveys
 output/sps-trends_plotting.csv
 output/sps-summary_table_totalreturn.csv
 output/sps-summary_table_spawners.csv
-
-
-# Ignore rendered methods-results doc, which is large
-docs/methods-results.html
-docs/encrypt.R
-docs/rsconnect
-docs/figures
-docs/*.docx
-docs/methods.Rmd
 
 # Ignore large datasets
 data/spawner_surveys.csv
