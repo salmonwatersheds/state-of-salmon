@@ -1,8 +1,8 @@
 "region","species","type","current_status","short_trend","short_trend_cat","long_trend","long_trend_cat","current_abundance","current_abundance_year","average_abundance","previous_gen_abundance","gen_length","nyears","rangeyears","status_offset_x","status_offset_y"
-"Yukon","Chinook","Spawners",-41,-1.3,"arrows-left-right",0,"arrows-left-right",27022,2023,46013,53343,6,42,"1982-2023",0,1
+"Yukon","Chinook","Spawners",-41,-1.3,"arrows-left-right",0,"arrows-left-right",27022,2023,46013,53343,6,42,"1982-2023",0,0
 "Yukon","Chinook","Total return",-66,-4.4,"arrow-down",-2.9,"arrow-down",34591,2023,102106,65446,6,42,"1982-2023",0,0
 "Yukon","Chum","Spawners",-72,-13.9,"arrow-down",2.7,"arrow-up",22699,2023,81731,173049,4,44,"1980-2023",0,0
-"Yukon","Chum","Total return",-86,-16.1,"arrow-down",-2,"arrows-left-right",23412,2023,164703,302125,4,23,"2001-2023",0,0
+"Yukon","Chum","Total return",-86,-16.1,"arrow-down",-2,"arrows-left-right",23484,2023,164725,302125,4,23,"2001-2023",0,0
 "Yukon","Coho","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,0,0
 "Yukon","Coho","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,0,0
 "Transboundary","Chinook","Spawners",-49,-5.4,"arrow-down",-1.2,"arrow-down",28754,2023,56932,28934,5,48,"1976-2023",0,1
@@ -41,7 +41,7 @@
 "Nass","Sockeye","Total return",-40,-3,"arrow-down",-1.5,"arrow-down",405992,2022,681081,522749,5,41,"1982-2022",0,0
 "Nass","Steelhead","Spawners",-8,1,"arrows-left-right",2.8,"arrow-up",10366,2022,11232,14608,5,29,"1994-2022",0,0
 "Nass","Steelhead","Total return",-25,-1.6,"arrows-left-right",0.7,"arrows-left-right",13478,2022,18054,18959,5,29,"1994-2022",0,0
-"Skeena","Chinook","Spawners",-43,-3.8,"arrow-down",0.8,"arrows-left-right",20328,2021,35717,34655,6,47,"1975-2021",0,-1
+"Skeena","Chinook","Spawners",-56,-7.1,"arrow-down",-1.3,"arrow-down",20930,2022,48065,34517,6,39,"1984-2022",0,0
 "Skeena","Chinook","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,6,NA,NA,0,0
 "Skeena","Chum","Spawners",-89,-5,"arrows-left-right",-6.2,"arrow-down",505,2022,4673,990,5,53,"1970-2022",0,0
 "Skeena","Chum","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0

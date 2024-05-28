@@ -718,7 +718,7 @@ skck_sps <- data.frame(
 	region = rep("Skeena", dim(sk_ctc)[1]),
 	species = rep("Chinook", dim(sk_ctc)[1]),
 	year = sk_ctc$...1,
-	spawners = sk_ctc$`Total Esc`, 
+	spawners = sk_ctc$`GSI3 esc`, 
 	smoothedSpawners = NA,
 	runsize = NA,
 	smoothedRunsize = NA

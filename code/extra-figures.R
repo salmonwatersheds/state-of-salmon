@@ -221,11 +221,11 @@ sps_metrics[which(sps_metrics$species == "Steelhead" & sps_metrics$type == "Spaw
 # Plot coho abundances
 regionsCol <- PNWColors::pnw_palette("Bay", n = 9)
 
-selected_species <- "Pink"
+selected_species <- "Chum"
 
 ylims <- range(sps_dat$smoothedSpawners[sps_dat$species == selected_species], na.rm = TRUE)
-par(mar = c(3, 4, 1, 6))
-plot(c(1950, 2023), c(0, ylims[2]*10^-3), "n", xlab= "", ylab = "Smoothed Spawners (thousands)", main = selected_species)
+par(mar = c(3, 4, 1, 12))
+plot(c(1950, 2023), c(0, ylims[2]*10^-3), "n", xlab= "", ylab = "Smoothed spawners (thousands)", main = selected_species, yaxs = "i")
 abline(h = seq(0, 700, 50), col = grey(0.8), lty = 3)
 abline(v = seq(1950, 2023, 5), col = grey(0.8), lty = 3)
 abline(v = seq(1950, 2023, 10), col = grey(0.5), lty = 3)
@@ -237,11 +237,11 @@ for(r in 1:9){
 		lines(sps_dat.r$year, sps_dat.r$smoothedSpawners*10^-3, lwd = 2, col = regionsCol[r])
 	}
 }
-legend(2024, ylims[2]*0.9*10^-3, xpd = NA, lwd = 2, col = regionsCol, legend = regions)
+legend(2028, ylims[2]*0.9*10^-3, xpd = NA, lwd = 2, col = regionsCol, legend = regionsName, bty = "n")
 
 # Relative to average
-par(mar = c(3, 4, 1, 6))
-plot(c(1950, 2023), c(-100, 100), "n", xlab= "", ylab = "spawners (% difference from average)")
+par(mar = c(3, 4, 1, 12))
+plot(c(1950, 2023), c(-100, 180), "n", xlab= "", ylab = "Smoothed spawners (anomalies)", yaxs = "i")
 abline(h = seq(-100, 100, 10), col = grey(0.8), lty = 3)
 abline(v = seq(1950, 2023, 5), col = grey(0.8), lty = 3)
 abline(v = seq(1950, 2023, 10), col = grey(0.5), lty = 3)
@@ -252,10 +252,10 @@ for(r in 1:9){
 	avg.r <- sps_metrics$average_abundance[which(sps_metrics$region == regions[r] &sps_metrics$species == selected_species & sps_metrics$type == "Spawners")]
 	
 	if(nrow(sps_dat.r) > 0){
-		lines(sps_dat.r$year, (sps_dat.r$smoothedSpawners - avg.r)/avg.r*100, lwd = 5, col = regionsCol[r])
+		lines(sps_dat.r$year, (sps_dat.r$smoothedSpawners - avg.r)/avg.r*100, lwd = 2, col = regionsCol[r])
 	}
 }
-legend(2024, 100, xpd = NA, lwd = 2, col = regionsCol, legend = regions)
+legend(2028, 100, xpd = NA, lwd = 2, col = regionsCol, legend  = regionsName, bty = "n")
 
 #-------
 # Average spawners by region and species
