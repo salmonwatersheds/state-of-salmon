@@ -35,7 +35,17 @@ pdf(file = paste0("output/ignore/figures/spawners_and_runsize_ALL_", Sys.Date(),
 #------------------------------------------------------------------------------
 # Yukon: Chinook
 #------------------------------------------------------------------------------
-ytck <- read.csv('data/yukon_chinook_appendixB11.csv')
+# ytck0 <- read.csv('data/yukon_chinook_appendixB11.csv') # Pre-2023
+ytck <- read.csv('data/JTC 2023 B11.csv') # 2023 update
+
+# # Compare RR estimates that started to be reported in 2024 for 2023 and historical
+# # Outcome: RR estimates tend to be slightly higher historically; may lead to more significant declines in trend metrics?
+# plot(ytck$Year, ytck$RR.Spawning.escapement.estimate, "o")
+# points(ytck0$Year, ytck0$Spawning.escapement.estimate, "o", col = grey(0.8), cex = 0.8, pch = 19)
+# 
+# plot(ytck$Year, ytck$RR.Canadian.origin.total.run.size.estimate, "o")
+# points(ytck$Year, ytck$Historic.Canadian.origin.total.run.size.estimate, col = 2, pch = 19, cex = 0.5)
+# points(ytck0$Year, ytck0$Canadian.origin.total.run.size.estimate, "o", col = grey(0.8), cex = 0.8, pch = 19)
 
 # Check if years are continuous
 unique(diff(ytck$Year)) # Yes, all one year apart
@@ -45,9 +55,9 @@ ytck_sps <- data.frame(
 	region = rep("Yukon", dim(ytck)[1]),
 	species = rep("Chinook", dim(ytck)[1]),
 	year = ytck$Year,
-	spawners = ytck$Spawning.escapement.estimate, 
+	spawners = ytck$RR.Spawning.escapement.estimate, # ytck$Spawning.escapement.estimate, 
 	smoothedSpawners = NA,
-	runsize = ytck$Canadian.origin.total.run.size.estimate,
+	runsize = ytck$RR.Canadian.origin.total.run.size.estimate, #ytck$Canadian.origin.total.run.size.estimate,
 	smoothedRunsize = NA
 ) 
 
