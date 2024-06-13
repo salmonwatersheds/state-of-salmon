@@ -370,33 +370,6 @@ for(i in 1:2){ # for spawners and run type
 write.csv(sps_summary, file = paste0("output/archive/sps-summary_", Sys.Date(), ".csv"), row.names = FALSE)
 write.csv(sps_summary, file = "output/sps-summary.csv", row.names = FALSE)
 
-#--------------------------------
-# Pivot tables for fishy dot plot
-
-for(i in 1:2){
-	if(i == 1){
-		summ1 <- sps_summary %>%
-			filter(type == "Spawners") %>%
-			select(species, region, current_status) %>%
-			pivot_wider(names_from = species, values_from = current_status)
-		
-	} else { 
-		summ1 <- sps_summary %>%
-			filter(type == "Total return") %>%
-			select(species, region, current_status) %>%
-			pivot_wider(names_from = species, values_from = current_status)
-	}
-	
-	summ1 <- data.frame(summ1)
-	
-	summ1[summ1$region == "Yukon", c("Pink", "Sockeye", "Steelhead")] <- "Not present"
-	summ1[summ1$region == "Columbia", c("Chum", "Coho", "Pink")] <- "Not present"
-	summ1[which(is.na(summ1), arr.ind = TRUE)] <- "Unknown"
-	
-	write.csv(summ1, file = paste0("output/sps-summary_table_", c("spawners", "totalreturn")[i], ".csv"), row.names = FALSE)
-}
-
-
 #------------------------------------------------------------------------------
 # Trends
 #------------------------------------------------------------------------------
