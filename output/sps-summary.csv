@@ -1,20 +1,20 @@
 "region","species","type","current_status","short_trend","short_trend_cat","long_trend","long_trend_cat","current_abundance","current_abundance_year","average_abundance","previous_gen_abundance","gen_length","nyears","rangeyears","status_offset_x","status_offset_y","region_label_offset_x","region_label_offset_y"
 "Yukon","Chinook","Spawners",-46,-1.8,"arrows-left-right",-0.3,"arrows-left-right",27022,2023,50160,53406,6,42,"1982-2023",0,1,0,0
 "Yukon","Chinook","Total",-67,-4.6,"arrow-down",-3.1,"arrow-down",36602,2023,112226,67936,6,42,"1982-2023",0,0,0,0
-"Yukon","Chum","Spawners",-72,-13.9,"arrow-down",2.7,"arrow-up",22699,2023,81731,173049,4,44,"1980-2023",0,0,0,0
+"Yukon","Chum","Spawners",-72,-13.9,"arrow-down",2.7,"arrow-up",22699,2023,81731,173049,4,44,"1980-2023",0,0,0,-1
 "Yukon","Chum","Total",-86,-16.1,"arrow-down",-2,"arrows-left-right",23484,2023,164725,302125,4,23,"2001-2023",0,0,0,0
 "Yukon","Coho","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,0,0,0,0
 "Yukon","Coho","Total",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,0,0,0,0
-"Transboundary","Chinook","Spawners",-49,-5.4,"arrow-down",-1.2,"arrow-down",28754,2023,56932,28934,5,48,"1976-2023",0,0,0,0
+"Transboundary","Chinook","Spawners",-49,-5.4,"arrow-down",-1.2,"arrow-down",28754,2023,56932,28934,5,48,"1976-2023",0,0,0,-1
 "Transboundary","Chinook","Total",-56,-8.5,"arrow-down",-0.8,"arrows-left-right",30893,2023,70203,36825,5,48,"1976-2023",0,0,0,0
-"Transboundary","Chum","Spawners",-77,-12.8,"arrow-down",-5,"arrow-down",58,2023,257,88,4,40,"1984-2023",0,0,0,0
+"Transboundary","Chum","Spawners",-77,-12.8,"arrow-down",-5,"arrow-down",58,2023,257,88,4,40,"1984-2023",0,0,0,-1
 "Transboundary","Chum","Total",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,0,0,0,0
-"Transboundary","Coho","Spawners",-14,-3.5,"arrow-down",-0.3,"arrows-left-right",71836,2023,83385,72043,5,32,"1992-2023",0,-1,0,0
+"Transboundary","Coho","Spawners",-14,-3.5,"arrow-down",-0.3,"arrows-left-right",71836,2023,83385,72043,5,32,"1992-2023",0,-1,0,-1
 "Transboundary","Coho","Total",-23,-3.9,"arrow-down",-1.1,"arrow-down",91548,2023,118142,100386,5,32,"1992-2023",0,0,0,0
 "Transboundary","Pink","Spawners",-60,-1.4,"arrows-left-right",-2.5,"arrow-down",3807,2023,9502,11301,2,40,"1984-2023",0,0,0,0
 "Transboundary","Pink","Total",NA,NA,"",NA,"",NA,NA,NA,NA,2,NA,NA,0,0,0,0
 "Transboundary","Sockeye","Spawners",34,2.8,"arrow-up",-0.1,"arrows-left-right",163056,2023,121634,117951,5,40,"1984-2023",0,0,0,0
-"Transboundary","Sockeye","Total",-11,-1,"arrow-down",-0.1,"arrows-left-right",255462,2023,288298,255717,5,40,"1984-2023",-1,0,0,0
+"Transboundary","Sockeye","Total",-11,-1,"arrow-down",-0.1,"arrows-left-right",255462,2023,288298,255717,5,40,"1984-2023",-1,0,0,-5
 "Transboundary","Steelhead","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,0,0,0,0
 "Transboundary","Steelhead","Total",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,0,0,0,0
 "Haida Gwaii","Chinook","Spawners",NA,7.3,"arrow-up",0.4,"arrows-left-right",NA,2006,1578,NA,5,72,"1935-2006",0,0,0,0
@@ -25,7 +25,7 @@
 "Haida Gwaii","Coho","Total",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,0,0,0,0
 "Haida Gwaii","Pink","Spawners",-77,-21.3,"arrows-left-right",-1.6,"arrow-down",26783,2022,116406,140192,2,73,"1950-2022",0,0,0,0
 "Haida Gwaii","Pink","Total",NA,NA,"",NA,"",NA,NA,NA,NA,2,NA,NA,0,0,0,0
-"Haida Gwaii","Sockeye","Spawners",-19,0,"arrows-left-right",-0.5,"arrow-down",27828,2022,34422,39408,5,73,"1950-2022",-1,0,0,0
+"Haida Gwaii","Sockeye","Spawners",-19,0,"arrows-left-right",-0.5,"arrow-down",27828,2022,34422,39408,5,73,"1950-2022",-1,0,0,-5
 "Haida Gwaii","Sockeye","Total",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
 "Haida Gwaii","Steelhead","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,0,0,0,0
 "Haida Gwaii","Steelhead","Total",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,0,0,0,0
@@ -34,14 +34,14 @@
 "Nass","Chum","Spawners",-39,0.7,"arrows-left-right",-0.7,"arrow-down",17800,2022,29410,28587,4,73,"1950-2022",0,0,0,0
 "Nass","Chum","Total",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,0,0,0,0
 "Nass","Coho","Spawners",38,-2,"arrows-left-right",2.4,"arrow-up",164423,2022,118911,109051,4,31,"1992-2022",0,0,0,0
-"Nass","Coho","Total",22,-1.7,"arrows-left-right",1.6,"arrow-up",318593,2022,261541,286163,4,31,"1992-2022",-1,0,0,0
+"Nass","Coho","Total",22,-1.7,"arrows-left-right",1.6,"arrow-up",318593,2022,261541,286163,4,31,"1992-2022",-1,0,0,-5
 "Nass","Pink","Spawners",138,-0.5,"arrows-left-right",2.4,"arrow-up",513698,2022,215701,143309,2,73,"1950-2022",0,0,0,0
 "Nass","Pink","Total",NA,NA,"",NA,"",NA,NA,NA,NA,2,NA,NA,0,0,0,0
 "Nass","Sockeye","Spawners",13,1.7,"arrow-up",-0.2,"arrows-left-right",283243,2022,251216,266105,5,41,"1982-2022",0,0,0,0
 "Nass","Sockeye","Total",-40,-3,"arrow-down",-1.5,"arrow-down",405992,2022,681081,522749,5,41,"1982-2022",0,0,0,0
 "Nass","Steelhead","Spawners",-8,1,"arrows-left-right",2.8,"arrow-up",10366,2022,11232,14608,5,29,"1994-2022",0,0,0,0
 "Nass","Steelhead","Total",-25,-1.6,"arrows-left-right",0.7,"arrows-left-right",13478,2022,18054,18959,5,29,"1994-2022",0,0,0,0
-"Skeena","Chinook","Spawners",-56,-7.1,"arrow-down",-1.3,"arrow-down",20930,2022,48065,34517,6,39,"1984-2022",0,0,0,0
+"Skeena","Chinook","Spawners",-56,-7.1,"arrow-down",-1.3,"arrow-down",20930,2022,48065,34517,6,39,"1984-2022",0,0,0,-4
 "Skeena","Chinook","Total",NA,NA,"",NA,"",NA,NA,NA,NA,6,NA,NA,0,0,0,0
 "Skeena","Chum","Spawners",-89,-5,"arrows-left-right",-6.2,"arrow-down",505,2022,4673,990,5,53,"1970-2022",0,0,0,0
 "Skeena","Chum","Total",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
@@ -49,13 +49,13 @@
 "Skeena","Coho","Total",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,0,0,0,0
 "Skeena","Pink","Spawners",80,35.5,"arrows-left-right",-0.8,"arrows-left-right",1466233,2022,815803,81610,2,73,"1950-2022",0,0,0,0
 "Skeena","Pink","Total",NA,NA,"",NA,"",NA,NA,NA,NA,2,NA,NA,0,0,0,0
-"Skeena","Sockeye","Spawners",30,1.4,"arrow-up",0.8,"arrow-up",1213962,2022,930536,933924,5,63,"1960-2022",0,0,0,0
+"Skeena","Sockeye","Spawners",30,1.4,"arrow-up",0.8,"arrow-up",1213962,2022,930536,933924,5,63,"1960-2022",0,0,0,-1
 "Skeena","Sockeye","Total",-11,-0.8,"arrows-left-right",0.2,"arrows-left-right",1790775,2022,2011150,1432733,5,63,"1960-2022",1,0,0,0
-"Skeena","Steelhead","Spawners",-50,-7.3,"arrow-down",0.9,"arrow-up",11172,2023,22393,30212,5,68,"1956-2023",0,-1,0,0
+"Skeena","Steelhead","Spawners",-50,-7.3,"arrow-down",0.9,"arrow-up",11172,2023,22393,30212,5,68,"1956-2023",0,-1,0,-1
 "Skeena","Steelhead","Total",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
-"Central Coast","Chinook","Spawners",-51,-3.5,"arrow-down",-0.3,"arrow-down",25675,2022,52003,40826,5,73,"1950-2022",0,-1,0,0
+"Central Coast","Chinook","Spawners",-51,-3.5,"arrow-down",-0.3,"arrow-down",25675,2022,52003,40826,5,73,"1950-2022",0,-1,0,-3
 "Central Coast","Chinook","Total",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
-"Central Coast","Chum","Spawners",-53,-3.8,"arrows-left-right",-0.4,"arrow-down",299456,2022,633921,687166,4,73,"1950-2022",0,1,0,0
+"Central Coast","Chum","Spawners",-53,-3.8,"arrows-left-right",-0.4,"arrow-down",299456,2022,633921,687166,4,73,"1950-2022",0,1,0,-2
 "Central Coast","Chum","Total",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,0,0,0,0
 "Central Coast","Coho","Spawners",-28,-6.9,"arrow-down",-0.7,"arrow-down",130674,2022,182709,160380,4,73,"1950-2022",0,0,0,0
 "Central Coast","Coho","Total",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,0,0,0,0
@@ -79,7 +79,7 @@
 "Vancouver Island & Mainland Inlets","Steelhead","Total",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
 "Fraser","Chinook","Spawners",-6,-1.7,"arrow-down",-0.1,"arrows-left-right",242717,2022,257200,237087,5,39,"1984-2022",0,0,0,0
 "Fraser","Chinook","Total",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
-"Fraser","Chum","Spawners",-54,-5.6,"arrow-down",-6.1,"arrow-down",572422,2022,1257476,979705,4,25,"1998-2022",0,-1,0,0
+"Fraser","Chum","Spawners",-54,-5.6,"arrow-down",-6.1,"arrow-down",572422,2022,1257476,979705,4,25,"1998-2022",0,-1,0,-4
 "Fraser","Chum","Total",-57,-5.8,"arrow-down",-5.6,"arrow-down",625533,2022,1447134,1245814,4,25,"1998-2022",0,0,0,0
 "Fraser","Coho","Spawners",78,4.9,"arrow-up",-1.6,"arrow-down",67234,2022,37762,29030,4,39,"1984-2022",0,0,0,0
 "Fraser","Coho","Total",22,5.2,"arrow-up",-5.1,"arrow-down",79322,2022,65049,33280,4,39,"1984-2022",1,0,0,0

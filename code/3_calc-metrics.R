@@ -381,7 +381,7 @@ for(i in 1:2){ # for spawners and run type
 				dum <- which(diff(sps_summary.is$current_status + sps_summary.is$status_offset_y + sps_summary.is$region_label_offset_y) < PL)
 			}
 			
-			sps_summary$status_offset_y[which(sps_summary$type == c("Spawners", "Total")[i] & sps_summary$species == species[s])] <- sps_summary.is$status_offset_y[match(sps_summary$region[which(sps_summary$type == c("Spawners", "Total")[i] & sps_summary$species == species[s])], sps_summary.is$region)]
+			sps_summary$region_label_offset_y[which(sps_summary$type == c("Spawners", "Total")[i] & sps_summary$species == species[s])] <- sps_summary.is$region_label_offset_y[match(sps_summary$region[which(sps_summary$type == c("Spawners", "Total")[i] & sps_summary$species == species[s])], sps_summary.is$region)]
 			
 		}
 	
