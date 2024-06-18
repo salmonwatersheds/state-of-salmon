@@ -322,8 +322,8 @@ sps_summary <- sps_metrics %>%
 	mutate(previous_gen_abundance = round(previous_gen_abundance)) %>%
 	filter(paste(region, species) %in% c("Yukon Pink", "Yukon Sockeye", "Yukon Steelhead", "Columbia Chum", "Columbia Coho", "Columbia Pink") == FALSE) # Filter out regions/species not known to exist
 	
-# Change from Run Size to Total [abundance]
-sps_summary$type[sps_summary$type == "Run Size"] <- "Total"
+# Change from Run Size to Total return [abundance]
+sps_summary$type[sps_summary$type == "Run Size"] <- "Total return"
 
 # Are there regions within a species that are within 5 percent
 # Within spawners and run size, for each species, offset status for regions if needed
@@ -332,7 +332,7 @@ PL <- 5 # threshold for label offset
 for(i in 1:2){ # for spawners and run type
 	for(s in 1:6){ # for each species
 		
-		sps_summary.is <- sps_summary[which(sps_summary$type ==  c("Spawners", "Total")[i] & sps_summary$species == species[s]), c("region", "current_status", "status_offset_x", "status_offset_y", "region_label_offset_y")]
+		sps_summary.is <- sps_summary[which(sps_summary$type ==  c("Spawners", "Total return")[i] & sps_summary$species == species[s]), c("region", "current_status", "status_offset_x", "status_offset_y", "region_label_offset_y")]
 		o <- order(sps_summary.is$current_status)
 		sps_summary.is <- sps_summary.is[o,]
 
@@ -344,7 +344,7 @@ for(i in 1:2){ # for spawners and run type
 				stop("More than one region has the same value.")
 			} else {
 				regions.same <- sps_summary.is$region[c(ind, ind + 1)]
-				sps_summary$status_offset_x[which(sps_summary$type == c("Spawners", "Total")[i] & sps_summary$species == species[s] & sps_summary$region %in% regions.same)] <- c(-1, 1)
+				sps_summary$status_offset_x[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species[s] & sps_summary$region %in% regions.same)] <- c(-1, 1)
 			}
 		}
 		
@@ -363,7 +363,7 @@ for(i in 1:2){ # for spawners and run type
 				dum <- which(diff(sps_summary.is$current_status + sps_summary.is$status_offset_y) < P & diff(sps_summary.is$current_status) > 0)
 			}
 			
-			sps_summary$status_offset_y[which(sps_summary$type == c("Spawners", "Total")[i] & sps_summary$species == species[s])] <- sps_summary.is$status_offset_y[match(sps_summary$region[which(sps_summary$type == c("Spawners", "Total")[i] & sps_summary$species == species[s])], sps_summary.is$region)]
+			sps_summary$status_offset_y[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species[s])] <- sps_summary.is$status_offset_y[match(sps_summary$region[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species[s])], sps_summary.is$region)]
 			
 		}
 		
@@ -381,12 +381,12 @@ for(i in 1:2){ # for spawners and run type
 				dum <- which(diff(sps_summary.is$current_status + sps_summary.is$status_offset_y + sps_summary.is$region_label_offset_y) < PL)
 			}
 			
-			sps_summary$region_label_offset_y[which(sps_summary$type == c("Spawners", "Total")[i] & sps_summary$species == species[s])] <- sps_summary.is$region_label_offset_y[match(sps_summary$region[which(sps_summary$type == c("Spawners", "Total")[i] & sps_summary$species == species[s])], sps_summary.is$region)]
+			sps_summary$region_label_offset_y[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species[s])] <- sps_summary.is$region_label_offset_y[match(sps_summary$region[which(sps_summary$type == c("Spawners", "Total")[i] & sps_summary$species == species[s])], sps_summary.is$region)]
 			
 		}
 	
 		
-		plot(rep(1,dim(sps_summary.is)[1]), sps_summary.is$current_status, pch = 19, cex = 1.5, col = rainbow(9), xlim = c(0.5, 3.5), main = paste(species[s], c("Spawners", "Total")[i]))
+		plot(rep(1,dim(sps_summary.is)[1]), sps_summary.is$current_status, pch = 19, cex = 1.5, col = rainbow(9), xlim = c(0.5, 3.5), main = paste(species[s], c("Spawners", "Total return")[i]))
 		points(rep(1.2,dim(sps_summary.is)[1]) + sps_summary.is$status_offset_x/25,  sps_summary.is$current_status + sps_summary.is$status_offset_y, pch = 19, cex = 1.5, col = rainbow(9))
 		points(rep(1.2,dim(sps_summary.is)[1])+ sps_summary.is$status_offset_x/25, sps_summary.is$current_status + sps_summary.is$status_offset_y, pch = 19, cex = 0.5)
 		segments(x0 = 1.2 + sps_summary.is$status_offset_x/25, x1 = 1.7, y0 = sps_summary.is$current_status + sps_summary.is$status_offset_y, y1 = sps_summary.is$current_status + sps_summary.is$status_offset_y + sps_summary.is$region_label_offset_y)
