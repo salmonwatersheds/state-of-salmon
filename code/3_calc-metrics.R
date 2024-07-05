@@ -381,7 +381,7 @@ for(i in 1:2){ # for spawners and run type
 				dum <- which(diff(sps_summary.is$current_status + sps_summary.is$status_offset_y + sps_summary.is$region_label_offset_y) < PL)
 			}
 			
-			sps_summary$region_label_offset_y[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species[s])] <- sps_summary.is$region_label_offset_y[match(sps_summary$region[which(sps_summary$type == c("Spawners", "Total")[i] & sps_summary$species == species[s])], sps_summary.is$region)]
+			sps_summary$region_label_offset_y[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species[s])] <- sps_summary.is$region_label_offset_y[match(sps_summary$region[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species[s])], sps_summary.is$region)]
 			
 		}
 	
@@ -395,6 +395,8 @@ for(i in 1:2){ # for spawners and run type
 		} # end species
 	}
 
+# Change region name
+sps_summary$region[sps_summary$region == "Transboundary"] <- "Northern Transboundary"
 
 write.csv(sps_summary, file = paste0("output/archive/sps-summary_", Sys.Date(), ".csv"), row.names = FALSE)
 write.csv(sps_summary, file = "output/sps-summary.csv", row.names = FALSE)
@@ -435,6 +437,8 @@ for(r in 1:length(regions)){ # for each region
 	} # end s
 } # end r
 
+# Change region name
+trends_plotting$region[trends_plotting$region == "Transboundary"] <- "Northern Transboundary"
 
 write.csv(trends_plotting, file = paste0("output/archive/sps-trends_plotting_", Sys.Date(), ".csv"), row.names = FALSE)
 write.csv(trends_plotting, file = "output/sps-trends_plotting.csv", row.names = FALSE)
