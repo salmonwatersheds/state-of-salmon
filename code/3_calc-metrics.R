@@ -402,6 +402,75 @@ write.csv(sps_summary, file = paste0("output/archive/sps-summary_", Sys.Date(), 
 write.csv(sps_summary, file = "output/sps-summary.csv", row.names = FALSE)
 
 #------------------------------------------------------------------------------
+# Region profile
+#------------------------------------------------------------------------------
+
+# Function to add commas if >= 10,000
+prettierNum <- function(x){
+	x1 <- character(length(x))
+	for(i in 1:length(x)){
+		if(is.na(x[i])){
+			x1[i] <- "Unknown"
+		} else {
+			if(x[i] >= 10000){
+				x1[i] <- prettyNum(x[i], big.mark=",", preserve.width="none")
+			} else {
+				x1[i] <- as.character(x[i])
+			}
+		}}
+	return(x1)
+}
+
+
+makePrettyNums <- function(x){
+	x1 <- rep(NA, length(x))
+	
+	for(i in 1:length(x)){
+	
+	if(!is.na(x[i])){
+		if(x[i] < 100){
+		x1[i] <- round(x[i])
+	} else if(x[i] < 1000){ # ROund to nearest 10
+		x1[i] <- round(x[i]*10^-1)*10^1
+	} else { # Round to nearest 100
+		x1[i] <- round(x[i]*10^-2)*10^2
+	}
+	}
+	}
+	
+	x2 <- prettierNum(x1)
+	
+	return(x2)
+}
+
+sps_profile <- sps_metrics %>%
+	filter(type == "Spawners") %>%
+	mutate(currentyears = paste(current_abundance_year - gen_length + 1, current_abundance_year, sep = "-")) %>%
+	select(region, species, current_abundance, currentyears, average_abundance, rangeyears) %>%
+	mutate(current_abundance = makePrettyNums(current_abundance)) %>%
+	mutate(average_abundance = makePrettyNums(average_abundance)) %>%
+	rename(spawner_current_years = "currentyears",  spawner_current_abundance = "current_abundance", spawner_average_abundance = "average_abundance", spawner_average_years = "rangeyears") %>%
+	# Add total abundance
+	left_join(sps_metrics %>%
+	filter(type == "Run Size") %>%
+		mutate(currentyears = paste(current_abundance_year - gen_length + 1, current_abundance_year, sep = "-")) %>%
+		select(region, species, current_abundance, currentyears, average_abundance, rangeyears) %>%
+		mutate(current_abundance = makePrettyNums(current_abundance)) %>%
+		mutate(average_abundance = makePrettyNums(average_abundance)) %>%
+		rename(total_current_years = "currentyears", total_current_abundance = "current_abundance", total_average_abundance = "average_abundance", total_average_years = "rangeyears")) %>%
+	# Filter out regions/species not known to exist
+	filter(paste(region, species) %in% c("Yukon Pink", "Yukon Sockeye", "Yukon Steelhead", "Columbia Chum", "Columbia Coho", "Columbia Pink") == FALSE) 
+
+# Change years to blank
+sps_profile[is.na(sps_profile$spawner_average_years), c("spawner_current_years", "spawner_average_years")] <- ""
+sps_profile[is.na(sps_profile$total_average_years), c("total_current_years", "total_average_years")] <- ""
+
+# Change region name
+sps_profile$region[sps_profile$region == "Transboundary"] <- "Northern Transboundary"
+
+write.csv(sps_profile, file = paste0("output/archive/sps_profile_", Sys.Date(), ".csv"), row.names = FALSE)
+write.csv(sps_profile, file = "output/sps-profile.csv", row.names = FALSE)
+#------------------------------------------------------------------------------
 # Trends
 #------------------------------------------------------------------------------
 
