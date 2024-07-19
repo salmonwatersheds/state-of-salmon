@@ -496,7 +496,7 @@ for(s in 2:5){
 #------------------------------------------------------------------------------
 
 # TCCHINOOK Table B3
-nass_ctc <- readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "A5:D53", col_types = "numeric")
+nass_ctc <- readxl::read_xlsx("data/TCCHINOOK-24-01-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "A4:D53", col_types = "numeric")
 
 # Reformat data for SPS
 nassck_sps <- data.frame(
@@ -505,7 +505,7 @@ nassck_sps <- data.frame(
 	year = nass_ctc$...1,
 	spawners = nass_ctc$Esc, 
 	smoothedSpawners = NA,
-	runsize = nass_ctc$`t. run`,
+	runsize = nass_ctc$t.run,
 	smoothedRunsize = NA
 ) 
 
@@ -711,7 +711,7 @@ for(s in c(2,4)){
 #------------------------------------------------------------------------------
 
 # TCCHINOOK Table B3
-sk_ctc <- readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "A5:G53", col_types = "numeric")
+sk_ctc <- readxl::read_xlsx("data/TCCHINOOK-24-01-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "A4:G53", col_types = "numeric")
 
 # # TCNB Table 32
 # tcnb_32 <-read.csv("data/TCNB-23-01_Table32_Area4escapement.csv")
@@ -728,14 +728,11 @@ skck_sps <- data.frame(
 	region = rep("Skeena", dim(sk_ctc)[1]),
 	species = rep("Chinook", dim(sk_ctc)[1]),
 	year = sk_ctc$...1,
-	spawners = sk_ctc$`GSI3 esc`, 
+	spawners = sk_ctc$`GSI esc3`, 
 	smoothedSpawners = NA,
 	runsize = NA,
 	smoothedRunsize = NA
 ) 
-
-# Remove last year (2022) that is NA
-skck_sps <- skck_sps[!is.na(skck_sps$spawners), ]
 
 # Smoothing
 skck_sps$smoothedSpawners <- genSmooth(
@@ -1027,7 +1024,7 @@ for(s in 1:6){
 # frck_run <- tapply(frck_run0$tot_run, frck_run0$year, sum)
 
 # (3) CTC data
-ctc_esc <- readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A6:P54", col_types = "numeric")
+ctc_esc <- readxl::read_xlsx("data/TCCHINOOK-24-01-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A3:P52", col_types = "numeric")
 ctc_esc_sum <- apply(ctc_esc[, grep("Esc", names(ctc_esc))], 1, sum)
 
 # ctc_catch <-  readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-A-Catch-Detailed.xlsx", sheet = "A14", range = "K4:M52") %>%
