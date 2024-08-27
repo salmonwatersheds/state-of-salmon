@@ -8,6 +8,9 @@
 
 library(tidyverse)
 
+# Write output files?
+write.output <- FALSE
+
 # Read in data 
 
 # Compiled spawner and run size
@@ -297,11 +300,13 @@ sps_metrics$current_status[which(sps_metrics$nyears < 20)] <- NA
 # Write output
 ###############################################################################
 
-write.csv(sps_metrics, file = "output/sps-metrics.csv", row.names = FALSE)
-write.csv(sps_dat, "output/sps-data.csv", row.names = FALSE)
-
-write.csv(sps_metrics, file = paste0("output/archive/sps-metrics_", Sys.Date(), ".csv"), row.names = FALSE)
-write.csv(sps_dat, file = paste0("output/archive/sps-data_", Sys.Date(), ".csv"), row.names = FALSE)
+if(write.output){
+	write.csv(sps_metrics, file = "output/sps-metrics.csv", row.names = FALSE)
+	write.csv(sps_dat, "output/sps-data.csv", row.names = FALSE)
+	
+	write.csv(sps_metrics, file = paste0("output/archive/sps-metrics_", Sys.Date(), ".csv"), row.names = FALSE)
+	write.csv(sps_dat, file = paste0("output/archive/sps-data_", Sys.Date(), ".csv"), row.names = FALSE)
+}
 
 ###############################################################################
 # Summary output for internal use, including total % change values
@@ -334,17 +339,20 @@ sps_summary_internal <- sps_metrics_temp %>%
 	mutate(current_status = round(current_status*100)) %>%
 	mutate(short_trend_per_yr = round(short_trend*100, 1)) %>%
 	mutate(short_trend_total = round((exp(log(short_trend + 1) * (3 * gen_length - 1)) - 1)*100, 1)) %>%
+	mutate(short_trend_years = paste(maxyear - 3 * gen_length + 1, maxyear, sep = "-")) %>%
 	mutate(long_trend_per_year = round(long_trend*100, 1)) %>%
 	mutate(long_trend_total = round((exp(log(long_trend + 1) * (rangeyears_length - 1)) - 1)*100, 1)) %>%
+	mutate(long_trend_years = paste(minyear, maxyear, sep = "-")) %>%
 	mutate(current_abundance = round(current_abundance)) %>%
 	mutate(average_abundance = round(average_abundance)) %>%
 	mutate(previous_gen_abundance = round(previous_gen_abundance)) %>%
-	select(region, species, type, current_status, short_trend_per_yr, short_trend_total, short_trend_cat, long_trend_per_year, long_trend_total, long_trend_cat, current_abundance, current_abundance_year, average_abundance, previous_gen_abundance, gen_length, nyears, rangeyears) %>%
+	select(region, species, type, current_status, short_trend_per_yr, short_trend_total, short_trend_years, short_trend_cat, long_trend_per_year, long_trend_total, long_trend_years, long_trend_cat, current_abundance, current_abundance_year, average_abundance, previous_gen_abundance, gen_length, nyears, rangeyears) %>%
 	filter(paste(region, species) %in% c("Yukon Pink", "Yukon Sockeye", "Yukon Steelhead", "Columbia Chum", "Columbia Coho", "Columbia Pink") == FALSE) # Filter out regions/species not known to exist
 
-write.csv(sps_summary_internal, file = paste0("output/archive/sps-summary-internal_", Sys.Date(), ".csv"), row.names = FALSE)
-write.csv(sps_summary_internal, file = "output/sps-summary-internal.csv", row.names = FALSE)
-
+if(write.output){
+	write.csv(sps_summary_internal, file = paste0("output/archive/sps-summary-internal_", Sys.Date(), ".csv"), row.names = FALSE)
+	write.csv(sps_summary_internal, file = "output/sps-summary-internal.csv", row.names = FALSE)
+}
 
 ###############################################################################
 # Clean up data for plotting by Tactica
@@ -442,8 +450,10 @@ for(i in 1:2){ # for spawners and run type
 # Change region name
 sps_summary$region[sps_summary$region == "Transboundary"] <- "Northern Transboundary"
 
-write.csv(sps_summary, file = paste0("output/archive/sps-summary_", Sys.Date(), ".csv"), row.names = FALSE)
-write.csv(sps_summary, file = "output/sps-summary.csv", row.names = FALSE)
+if(write.output){
+	write.csv(sps_summary, file = paste0("output/archive/sps-summary_", Sys.Date(), ".csv"), row.names = FALSE)
+	write.csv(sps_summary, file = "output/sps-summary.csv", row.names = FALSE)
+}
 
 #------------------------------------------------------------------------------
 # Region profile
@@ -512,8 +522,11 @@ sps_profile[is.na(sps_profile$total_average_years), c("total_current_years", "to
 # Change region name
 sps_profile$region[sps_profile$region == "Transboundary"] <- "Northern Transboundary"
 
-write.csv(sps_profile, file = paste0("output/archive/sps_profile_", Sys.Date(), ".csv"), row.names = FALSE)
-write.csv(sps_profile, file = "output/sps-profile.csv", row.names = FALSE)
+if(write.output){
+	write.csv(sps_profile, file = paste0("output/archive/sps_profile_", Sys.Date(), ".csv"), row.names = FALSE)
+	write.csv(sps_profile, file = "output/sps-profile.csv", row.names = FALSE)
+}
+
 #------------------------------------------------------------------------------
 # Trends
 #------------------------------------------------------------------------------
@@ -553,5 +566,7 @@ for(r in 1:length(regions)){ # for each region
 # Change region name
 trends_plotting$region[trends_plotting$region == "Transboundary"] <- "Northern Transboundary"
 
-write.csv(trends_plotting, file = paste0("output/archive/sps-trends_plotting_", Sys.Date(), ".csv"), row.names = FALSE)
-write.csv(trends_plotting, file = "output/sps-trends_plotting.csv", row.names = FALSE)
+if(write.output){
+	write.csv(trends_plotting, file = paste0("output/archive/sps-trends_plotting_", Sys.Date(), ".csv"), row.names = FALSE)
+	write.csv(trends_plotting, file = "output/sps-trends_plotting.csv", row.names = FALSE)
+}
