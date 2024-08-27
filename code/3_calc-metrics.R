@@ -271,7 +271,8 @@ dum_rs2 <- sps_dat %>% select(region, species, year, smoothedRunsize) %>%
 	filter(!is.na(smoothedRunsize)) %>%
 	mutate(regionspecies = paste(region, species)) %>%
 	group_by(regionspecies) %>%
-	summarise(region = unique(region), species = unique(species), nyears = length(year), minyear = min(year), maxyear = max(year))
+	summarise(region = unique(region), species = unique(species), nyears = length(year), minyear = min(year), maxyear = max(year)) %>% 
+	mutate(regionspeciestype = paste(regionspecies, "Run Size"))
 
 # Add spawners number of years and range of years to sps_metrics
 sps_metrics <- sps_metrics %>% 
@@ -301,6 +302,49 @@ write.csv(sps_dat, "output/sps-data.csv", row.names = FALSE)
 
 write.csv(sps_metrics, file = paste0("output/archive/sps-metrics_", Sys.Date(), ".csv"), row.names = FALSE)
 write.csv(sps_dat, file = paste0("output/archive/sps-data_", Sys.Date(), ".csv"), row.names = FALSE)
+
+###############################################################################
+# Summary output for internal use, including total % change values
+###############################################################################
+
+#------------------------------------------------------------------------------
+# Append years to sps_metrics_temp
+#------------------------------------------------------------------------------
+
+sps_metrics_temp <- sps_metrics %>% 
+	mutate(regionspeciestype = paste(region, species, type)) %>% 
+	left_join(
+		dum_sp2 %>% 
+			mutate(regionspeciestype = paste(regionspecies, "Spawners")) %>%
+			select(regionspeciestype, nyears, minyear, maxyear)
+	) 
+
+# Add run size number of years and range of years to sps_metrics
+
+sps_metrics_temp[match(dum_rs2$regionspeciestype, sps_metrics_temp$regionspeciestype), c("nyears", "minyear", "maxyear")] <- dum_rs2[, c("nyears", "minyear", "maxyear")]
+
+sps_metrics_temp <- sps_metrics_temp %>% 
+	mutate(rangeyears_length = maxyear - minyear + 1)
+
+#------------------------------------------------------------------------------
+# Create internal summary
+#------------------------------------------------------------------------------
+
+sps_summary_internal <- sps_metrics_temp %>%
+	mutate(current_status = round(current_status*100)) %>%
+	mutate(short_trend_per_yr = round(short_trend*100, 1)) %>%
+	mutate(short_trend_total = round((exp(log(short_trend + 1) * (3 * gen_length - 1)) - 1)*100, 1)) %>%
+	mutate(long_trend_per_year = round(long_trend*100, 1)) %>%
+	mutate(long_trend_total = round((exp(log(long_trend + 1) * (rangeyears_length - 1)) - 1)*100, 1)) %>%
+	mutate(current_abundance = round(current_abundance)) %>%
+	mutate(average_abundance = round(average_abundance)) %>%
+	mutate(previous_gen_abundance = round(previous_gen_abundance)) %>%
+	select(region, species, type, current_status, short_trend_per_yr, short_trend_total, short_trend_cat, long_trend_per_year, long_trend_total, long_trend_cat, current_abundance, current_abundance_year, average_abundance, previous_gen_abundance, gen_length, nyears, rangeyears) %>%
+	filter(paste(region, species) %in% c("Yukon Pink", "Yukon Sockeye", "Yukon Steelhead", "Columbia Chum", "Columbia Coho", "Columbia Pink") == FALSE) # Filter out regions/species not known to exist
+
+write.csv(sps_summary_internal, file = paste0("output/archive/sps-summary-internal_", Sys.Date(), ".csv"), row.names = FALSE)
+write.csv(sps_summary_internal, file = "output/sps-summary-internal.csv", row.names = FALSE)
+
 
 ###############################################################################
 # Clean up data for plotting by Tactica

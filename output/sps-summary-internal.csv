@@ -1,0 +1,97 @@
+"region","species","type","current_status","short_trend_per_yr","short_trend_total","short_trend_cat","long_trend_per_year","long_trend_total","long_trend_cat","current_abundance","current_abundance_year","average_abundance","previous_gen_abundance","gen_length","nyears","rangeyears"
+"Yukon","Chinook","Spawners",-46,-1.8,-26.8,"arrows-left-right",-0.3,-11.8,"arrows-left-right",27022,2023,50160,53406,6,42,"1982-2023"
+"Yukon","Chinook","Run Size",-67,-4.6,-55.3,"arrow-down",-3.1,-72.8,"arrow-down",36602,2023,112226,67936,6,42,"1982-2023"
+"Yukon","Chum","Spawners",-72,-13.9,-80.8,"arrow-down",2.7,213.5,"arrow-up",22699,2023,81731,173049,4,44,"1980-2023"
+"Yukon","Chum","Run Size",-86,-16.1,-85.4,"arrow-down",-2,-35.5,"arrows-left-right",23484,2023,164725,302125,4,23,"2001-2023"
+"Yukon","Coho","Spawners",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,NA,NA,NA
+"Yukon","Coho","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,NA,NA,NA
+"Transboundary","Chinook","Spawners",-49,-5.4,-54.2,"arrow-down",-1.2,-42.8,"arrow-down",28754,2023,56932,28934,5,48,"1976-2023"
+"Transboundary","Chinook","Run Size",-56,-8.5,-71.2,"arrow-down",-0.8,-30.6,"arrows-left-right",30893,2023,70203,36825,5,48,"1976-2023"
+"Transboundary","Chum","Spawners",-77,-12.8,-77.7,"arrow-down",-5,-86.6,"arrow-down",58,2023,257,88,4,40,"1984-2023"
+"Transboundary","Chum","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,4,NA,NA
+"Transboundary","Coho","Spawners",-14,-3.5,-38.9,"arrow-down",-0.3,-10.2,"arrows-left-right",71836,2023,83385,72043,5,32,"1992-2023"
+"Transboundary","Coho","Run Size",-23,-3.9,-42.7,"arrow-down",-1.1,-29.9,"arrow-down",91548,2023,118142,100386,5,32,"1992-2023"
+"Transboundary","Pink","Spawners",-60,-1.4,-7,"arrows-left-right",-2.5,-62.6,"arrow-down",3807,2023,9502,11301,2,40,"1984-2023"
+"Transboundary","Pink","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,2,NA,NA
+"Transboundary","Sockeye","Spawners",34,2.8,46.6,"arrow-up",-0.1,-3.4,"arrows-left-right",163056,2023,121634,117951,5,40,"1984-2023"
+"Transboundary","Sockeye","Run Size",-11,-1,-13.3,"arrow-down",-0.1,-4.5,"arrows-left-right",255462,2023,288298,255717,5,40,"1984-2023"
+"Transboundary","Steelhead","Spawners",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,NA,NA,NA
+"Transboundary","Steelhead","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,NA,NA,NA
+"Haida Gwaii","Chinook","Spawners",NA,7.3,168.6,"arrow-up",0.4,32.5,"arrows-left-right",NA,2006,1578,NA,5,72,"1935-2006"
+"Haida Gwaii","Chinook","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,5,NA,NA
+"Haida Gwaii","Chum","Spawners",-68,-5.2,-52.5,"arrow-down",-1.6,-69,"arrow-down",90242,2022,285337,150624,5,73,"1950-2022"
+"Haida Gwaii","Chum","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,5,NA,NA
+"Haida Gwaii","Coho","Spawners",-64,-7.8,-59,"arrow-down",-1,-52.2,"arrow-down",29294,2022,81181,80462,4,73,"1950-2022"
+"Haida Gwaii","Coho","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,4,NA,NA
+"Haida Gwaii","Pink","Spawners",-77,-21.3,-69.9,"arrows-left-right",-1.6,-68.9,"arrow-down",26783,2022,116406,140192,2,73,"1950-2022"
+"Haida Gwaii","Pink","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,2,NA,NA
+"Haida Gwaii","Sockeye","Spawners",-19,0,-0.5,"arrows-left-right",-0.5,-31.8,"arrow-down",27828,2022,34422,39408,5,73,"1950-2022"
+"Haida Gwaii","Sockeye","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,5,NA,NA
+"Haida Gwaii","Steelhead","Spawners",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,NA,NA,NA
+"Haida Gwaii","Steelhead","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,NA,NA,NA
+"Nass","Chinook","Spawners",-17,-4.4,-46.9,"arrow-down",-0.4,-17.1,"arrows-left-right",13936,2023,16763,11725,5,49,"1975-2023"
+"Nass","Chinook","Run Size",-11,-3.2,-36.7,"arrow-down",0,1.8,"arrows-left-right",20422,2023,23037,17758,5,49,"1975-2023"
+"Nass","Chum","Spawners",-39,0.7,7.8,"arrows-left-right",-0.7,-41.2,"arrow-down",17800,2022,29410,28587,4,73,"1950-2022"
+"Nass","Chum","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,4,NA,NA
+"Nass","Coho","Spawners",38,-2,-19.8,"arrows-left-right",2.4,104.3,"arrow-up",164423,2022,118911,109051,4,31,"1992-2022"
+"Nass","Coho","Run Size",22,-1.7,-17.5,"arrows-left-right",1.6,61.2,"arrow-up",318593,2022,261541,286163,4,31,"1992-2022"
+"Nass","Pink","Spawners",138,-0.5,-2.4,"arrows-left-right",2.4,466.4,"arrow-up",513698,2022,215701,143309,2,73,"1950-2022"
+"Nass","Pink","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,2,NA,NA
+"Nass","Sockeye","Spawners",13,1.7,26.2,"arrow-up",-0.2,-6.6,"arrows-left-right",283243,2022,251216,266105,5,41,"1982-2022"
+"Nass","Sockeye","Run Size",-40,-3,-34.8,"arrow-down",-1.5,-46.4,"arrow-down",405992,2022,681081,522749,5,41,"1982-2022"
+"Nass","Steelhead","Spawners",-8,1,15.4,"arrows-left-right",2.8,117.1,"arrow-up",10366,2022,11232,14608,5,29,"1994-2022"
+"Nass","Steelhead","Run Size",-25,-1.6,-20.4,"arrows-left-right",0.7,20.8,"arrows-left-right",13478,2022,18054,18959,5,29,"1994-2022"
+"Skeena","Chinook","Spawners",-51,-7,-71.1,"arrow-down",-1.5,-44,"arrow-down",23020,2023,47189,30931,6,40,"1984-2023"
+"Skeena","Chinook","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,6,NA,NA
+"Skeena","Chum","Spawners",-89,-5,-51,"arrows-left-right",-6.2,-96.5,"arrow-down",505,2022,4673,990,5,53,"1970-2022"
+"Skeena","Chum","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,5,NA,NA
+"Skeena","Coho","Spawners",-12,-2.7,-26.1,"arrows-left-right",-0.7,-40.8,"arrow-down",70006,2022,79632,87535,4,73,"1950-2022"
+"Skeena","Coho","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,4,NA,NA
+"Skeena","Pink","Spawners",80,35.5,357.6,"arrows-left-right",-0.8,-43.5,"arrows-left-right",1466233,2022,815803,81610,2,73,"1950-2022"
+"Skeena","Pink","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,2,NA,NA
+"Skeena","Sockeye","Spawners",30,1.4,21.7,"arrow-up",0.8,67.1,"arrow-up",1213962,2022,930536,933924,5,63,"1960-2022"
+"Skeena","Sockeye","Run Size",-11,-0.8,-10.3,"arrows-left-right",0.2,13.7,"arrows-left-right",1790775,2022,2011150,1432733,5,63,"1960-2022"
+"Skeena","Steelhead","Spawners",-50,-7.3,-65.2,"arrow-down",0.9,78.9,"arrow-up",11172,2023,22393,30212,5,68,"1956-2023"
+"Skeena","Steelhead","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,5,NA,NA
+"Central Coast","Chinook","Spawners",-51,-3.5,-39.4,"arrow-down",-0.3,-20.9,"arrow-down",25675,2022,52003,40826,5,73,"1950-2022"
+"Central Coast","Chinook","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,5,NA,NA
+"Central Coast","Chum","Spawners",-53,-3.8,-34.7,"arrows-left-right",-0.4,-27,"arrow-down",299456,2022,633921,687166,4,73,"1950-2022"
+"Central Coast","Chum","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,4,NA,NA
+"Central Coast","Coho","Spawners",-28,-6.9,-54.2,"arrow-down",-0.7,-40.4,"arrow-down",130674,2022,182709,160380,4,73,"1950-2022"
+"Central Coast","Coho","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,4,NA,NA
+"Central Coast","Pink","Spawners",-23,7.7,44.9,"arrows-left-right",0.6,57.1,"arrow-up",1958525,2022,2527692,2585748,2,73,"1950-2022"
+"Central Coast","Pink","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,2,NA,NA
+"Central Coast","Sockeye","Spawners",-39,1.7,26.8,"arrows-left-right",-1.5,-65.5,"arrow-down",244924,2022,403513,328766,5,73,"1950-2022"
+"Central Coast","Sockeye","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,5,NA,NA
+"Central Coast","Steelhead","Spawners",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,NA,NA,NA
+"Central Coast","Steelhead","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,NA,NA,NA
+"Vancouver Island & Mainland Inlets","Chinook","Spawners",96,6.1,92.8,"arrow-up",1.2,134.1,"arrow-up",211038,2022,107815,215243,4,70,"1953-2022"
+"Vancouver Island & Mainland Inlets","Chinook","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,4,NA,NA
+"Vancouver Island & Mainland Inlets","Chum","Spawners",-49,-5.1,-43.5,"arrow-down",0.7,64.3,"arrow-up",649375,2022,1276831,1649624,4,70,"1953-2022"
+"Vancouver Island & Mainland Inlets","Chum","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,4,NA,NA
+"Vancouver Island & Mainland Inlets","Coho","Spawners",-4,-3,-28.9,"arrow-down",-0.6,-35.5,"arrow-down",370333,2022,386139,316148,4,70,"1953-2022"
+"Vancouver Island & Mainland Inlets","Coho","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,4,NA,NA
+"Vancouver Island & Mainland Inlets","Pink","Spawners",94,18.2,130.7,"arrow-up",2.3,374.9,"arrow-up",2102868,2022,1082135,1343808,2,70,"1953-2022"
+"Vancouver Island & Mainland Inlets","Pink","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,2,NA,NA
+"Vancouver Island & Mainland Inlets","Sockeye","Spawners",-3,2.3,38.1,"arrows-left-right",-0.9,-46.1,"arrow-down",504908,2022,518789,570723,5,70,"1953-2022"
+"Vancouver Island & Mainland Inlets","Sockeye","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,5,NA,NA
+"Vancouver Island & Mainland Inlets","Steelhead","Spawners",-48,-2.2,-26.8,"arrows-left-right",-1.2,-42.8,"arrow-down",1066,2022,2068,1946,5,48,"1975-2022"
+"Vancouver Island & Mainland Inlets","Steelhead","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,5,NA,NA
+"Fraser","Chinook","Spawners",38,-0.4,-5.2,"arrows-left-right",0,0,"arrows-left-right",357659,2023,260087,211491,5,40,"1984-2023"
+"Fraser","Chinook","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,5,NA,NA
+"Fraser","Chum","Spawners",-54,-5.6,-47.2,"arrow-down",-6.1,-78.1,"arrow-down",572422,2022,1257476,979705,4,25,"1998-2022"
+"Fraser","Chum","Run Size",-57,-5.8,-48.1,"arrow-down",-5.6,-75.2,"arrow-down",625533,2022,1447134,1245814,4,25,"1998-2022"
+"Fraser","Coho","Spawners",78,4.9,70.1,"arrow-up",-1.6,-46.1,"arrow-down",67234,2022,37762,29030,4,39,"1984-2022"
+"Fraser","Coho","Run Size",22,5.2,73.9,"arrow-up",-5.1,-86.6,"arrow-down",79322,2022,65049,33280,4,39,"1984-2022"
+"Fraser","Pink","Spawners",110,3.6,19.4,"arrows-left-right",3.6,844.4,"arrow-up",9576629,2023,4554442,7827445,2,33,"1959-2023"
+"Fraser","Pink","Run Size",12,4.4,24,"arrows-left-right",1.1,105.4,"arrows-left-right",10520844,2023,9390666,8107514,2,33,"1959-2023"
+"Fraser","Sockeye","Spawners",-19,-12,-75.4,"arrow-down",1,258.8,"arrow-up",864250,2022,1067151,1228545,4,130,"1893-2022"
+"Fraser","Sockeye","Run Size",-61,-13.2,-78.9,"arrow-down",0,-2.3,"arrows-left-right",1812886,2023,4668966,1623599,4,131,"1893-2023"
+"Fraser","Steelhead","Spawners",-82,-10.1,-77.5,"arrow-down",-1.1,-43.2,"arrows-left-right",296,2021,1644,1220,5,50,"1972-2021"
+"Fraser","Steelhead","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,5,NA,NA
+"Columbia","Chinook","Spawners",NA,10.7,313,"arrow-up",6.7,183.4,"arrow-up",29,2022,21,48,5,17,"2006-2022"
+"Columbia","Chinook","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,5,NA,NA
+"Columbia","Sockeye","Spawners",70,-14.7,-82.5,"arrow-down",1.8,201.1,"arrow-up",32451,2022,19077,20580,4,62,"1961-2022"
+"Columbia","Sockeye","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,4,NA,NA
+"Columbia","Steelhead","Spawners",NA,-13,-85.7,"arrow-down",-12.7,-90.1,"arrow-down",9,2023,29,18,5,18,"2006-2023"
+"Columbia","Steelhead","Run Size",NA,NA,NA,"",NA,NA,"",NA,NA,NA,NA,5,NA,NA
