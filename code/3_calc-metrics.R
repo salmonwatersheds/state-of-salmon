@@ -522,6 +522,10 @@ sps_profile[is.na(sps_profile$total_average_years), c("total_current_years", "to
 # Change region name
 sps_profile$region[sps_profile$region == "Transboundary"] <- "Northern Transboundary"
 
+# Merge in text part
+sps_text <- read.csv("output/sps-profile-text.csv")
+sps_profile <- sps_profile %>% left_join(sps_text)
+
 if(write.output){
 	write.csv(sps_profile, file = paste0("output/archive/sps_profile_", Sys.Date(), ".csv"), row.names = FALSE)
 	write.csv(sps_profile, file = "output/sps-profile.csv", row.names = FALSE)
