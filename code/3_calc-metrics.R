@@ -526,6 +526,12 @@ sps_profile$region[sps_profile$region == "Transboundary"] <- "Northern Transboun
 sps_text <- read.csv("output/sps-profile-text.csv")
 sps_profile <- sps_profile %>% left_join(sps_text)
 
+# Include "unknown" text for regions/species with any data gaps
+unknown_text <- "A question mark indicates a lack of readily accessible data."
+
+sps_profile$text[sps_profile$spawner_current_abundance == "?" | sps_profile$total_current_abundance == "?"] <- paste(sps_profile$text[sps_profile$spawner_current_abundance == "?" | sps_profile$total_current_abundance == "?"], unknown_text, sep = " ") %>%
+	trimws() # Trim leading spaces created for regions/species with no text in sps-profile-text.csv
+
 if(write.output){
 	write.csv(sps_profile, file = paste0("output/archive/sps_profile_", Sys.Date(), ".csv"), row.names = FALSE)
 	write.csv(sps_profile, file = "output/sps-profile.csv", row.names = FALSE)
