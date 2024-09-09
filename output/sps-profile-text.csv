@@ -1,0 +1,49 @@
+region,species,text
+Yukon,Chinook,Numbers represent absolute estimates of Canadian-origin Chinook for the Yukon River mainstem.
+Yukon,Chum,Numbers represent absolute estimates of Canadian-origin chum salmon for the Yukon River mainstem.
+Yukon,Coho,A question mark indicates that status or trend has not yet been assessed due to a lack of readily accessible data.
+Northern Transboundary,Chinook,"Numbers represent the sum of estimated abundance for three major watersheds (Alsek, Stikine, and Taku)."
+Northern Transboundary,Chum,Numbers represent counts from a single fish wheel on the Taku River.
+Northern Transboundary,Coho,Numbers represent estimated abundance for a single watershed (Taku).
+Northern Transboundary,Pink,Numbers represent counts from a single fish wheel on the Taku River.
+Northern Transboundary,Sockeye,Numbers represent the sum of estimated abundance for two major watersheds (Stikine and Taku).
+Northern Transboundary,Steelhead,A question mark indicates that status or trend has not yet been assessed due to a lack of readily accessible data.
+Haida Gwaii,Chinook,Numbers represent estimated abundance for the Yakoun River.
+Haida Gwaii,Chum,Numbers represent the sum of estimated abundance for 207 surveyed streams in the region.
+Haida Gwaii,Coho,Numbers represent the sum of estimated abundance for 198 surveyed streams in the region.
+Haida Gwaii,Pink,Numbers represent the sum of estimated abundance for 146 surveyed streams in the region.
+Haida Gwaii,Sockeye,Numbers represent the sum of estimated abundance for 46 surveyed streams in the region.
+Haida Gwaii,Steelhead,A question mark indicates that status or trend has not yet been assessed due to a lack of readily accessible data.
+Nass,Chinook,Numbers represent absolute estimates of Chinook for the Nass River.
+Nass,Chum,Numbers represent the sum of estimated abundance for 32 surveyed streams in the region.
+Nass,Coho,Numbers represent the sum of estimated abundance for all 3 coho Conservation Units in the region.
+Nass,Pink,Numbers represent the sum of estimated abundance for 71 surveyed streams in the region.
+Nass,Sockeye,Numbers represent absolute estimates of sockeye for the Nass River.
+Nass,Steelhead,Numbers represent estimated abundance for one of two steelhead Conservation Units in the region.
+Skeena,Chinook,Numbers represent absolute estimates of Chinook for the Skeena River.
+Skeena,Chum,Numbers represent estimates of chum salmon for the Skeena River.
+Skeena,Coho,Numbers represent the sum of estimated abundance for 195 surveyed streams in the region.
+Skeena,Pink,Numbers represent the sum of estimated abundance for 138 surveyed streams in the region.
+Skeena,Sockeye,Numbers represent absolute estimates of sockeye for the Skeena River.
+Skeena,Steelhead,Numbers represent an index of steelhead abundance from the Tyee Test Fishery.
+Central Coast,Chinook,Numbers represent the sum of estimated abundance for 75 surveyed streams in the region.
+Central Coast,Chum,Numbers represent the sum of estimated abundance for 329 surveyed streams in the region.
+Central Coast,Coho,Numbers represent the sum of estimated abundance for 329 surveyed streams in the region.
+Central Coast,Pink,Numbers represent the sum of estimated abundance for 314 surveyed streams in the region.
+Central Coast,Sockeye,Numbers represent the sum of estimated abundance for 207 surveyed streams in the region.
+Central Coast,Steelhead,A question mark indicates that status or trend has not yet been assessed due to a lack of readily accessible data.
+Vancouver Island & Mainland Inlets,Chinook,Numbers represent the sum of estimated abundance for 241 surveyed streams in the region.
+Vancouver Island & Mainland Inlets,Chum,Numbers represent the sum of estimated abundance for 559 surveyed streams in the region.
+Vancouver Island & Mainland Inlets,Coho,Numbers represent the sum of estimated abundance for 585 surveyed streams in the region.
+Vancouver Island & Mainland Inlets,Pink,Numbers represent the sum of estimated abundance for 309 surveyed streams in the region.
+Vancouver Island & Mainland Inlets,Sockeye,Numbers represent the sum of estimated abundance for 230 surveyed streams in the region.
+Vancouver Island & Mainland Inlets,Steelhead,Numbers represent the sum of estimated abundance for 9 surveyed streams in the region.
+Fraser,Chinook,Numbers represent the sum of estimated abundance for 9 wild Chinook indicator stocks.
+Fraser,Chum,Numbers represent estimates of chum salmon for the Fraser River.
+Fraser,Coho,Numbers represent the sum of estimated abundance for 5 interior Fraser coho Conservation Units.
+Fraser,Pink,Numbers represent absolute estimates of pink salmon for the Fraser River.
+Fraser,Sockeye,Numbers represent absolute estimates of sockeye salmon for the Fraser River.
+Fraser,Steelhead,Numbers represent the sum of 2 out of 5 steelhead Conservation Units in the region.
+Columbia,Chinook,Numbers represent estimated abundance for the Okanagan Chinook Conservation Unit.
+Columbia,Sockeye,Numbers represent estimated abundance for the Osoyoos sockeye Conservation Unit.
+Columbia,Steelhead,Numbers represent estimated Canadian-spawning steelhead from surveys of akskw_kwant (Inkaneep Creek). 
