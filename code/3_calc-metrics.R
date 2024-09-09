@@ -466,7 +466,7 @@ prettierNum <- function(x){
 		if(is.na(x[i])){
 			x1[i] <- "?"
 		} else {
-			if(x[i] >= 10000){
+			if(x[i] >= 1000){
 				x1[i] <- prettyNum(x[i], big.mark=",", preserve.width="none")
 			} else {
 				x1[i] <- as.character(x[i])
