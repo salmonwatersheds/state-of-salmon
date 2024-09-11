@@ -497,6 +497,20 @@ makePrettyNums <- function(x){
 	return(x2)
 }
 
+# Read in CU list to calculate number of CUs
+cu_list <- read.csv("data/conservationunits_decoder.csv") %>%
+	distinct(pooledcuid, .keep_all = TRUE) %>% # there are duplicates for pooledcuid
+	filter(cuid %in% c(241,751) == FALSE) %>% # Remove two CUs (Sicintine Chinook and Adams & Momich-ES sockeye) that are binned but still exist in the decoder
+	mutate(species = case_when(
+		species_name %in% c("Lake sockeye", "River sockeye") ~ "Sockeye",
+		species_name == "Chinook" ~ "Chinook",
+		species_name == "Coho" ~ "Coho",
+		species_name == "Chum" ~ "Chum",
+		species_name %in% c("Pink (odd)", "Pink (even)") ~ "Pink",
+		species_name == "Steelhead" ~ "Steelhead"
+	))
+
+
 sps_profile <- sps_metrics %>%
 	filter(type == "Spawners") %>%
 	mutate(currentyears = paste(current_abundance_year - gen_length + 1, current_abundance_year, sep = "-")) %>%
@@ -512,6 +526,15 @@ sps_profile <- sps_metrics %>%
 		mutate(current_abundance = makePrettyNums(current_abundance)) %>%
 		mutate(average_abundance = makePrettyNums(average_abundance)) %>%
 		rename(total_current_years = "currentyears", total_current_abundance = "current_abundance", total_average_abundance = "average_abundance", total_average_years = "rangeyears")) %>%
+	# Add number of CUs
+	left_join(cu_list %>% 
+							select(region, species, cuid) %>%
+							group_by(paste(region, species, sep = "-")) %>%
+							summarise(region = unique(region),
+												species = unique(species), 
+												nCUs = length(cuid)) %>%
+							select(region, species, nCUs)
+						) %>%
 	# Filter out regions/species not known to exist
 	filter(paste(region, species) %in% c("Yukon Pink", "Yukon Sockeye", "Yukon Steelhead", "Columbia Chum", "Columbia Coho", "Columbia Pink") == FALSE) 
 
