@@ -1,0 +1,1168 @@
+[
+	{
+		"id": "BrownEtAl20202020SummaryAbundance",
+		"type": "article-journal",
+		"container-title": "Canadian Technical Report of Fisheries and Aquatic Sciences",
+		"page": "xii + 214 p.",
+		"title": "2020 Summary of Abundance Data for Chinook Salmon (Oncorhynchus tshawytscha) in Southern British Columbia, Canada.",
+		"URL": "https://salmonwatersheds.ca/library/lib_460/",
+		"volume": "3401",
+		"author": [
+			{
+				"family": "Brown",
+				"given": "G. S"
+			},
+			{
+				"family": "Thiess",
+				"given": "M. E"
+			},
+			{
+				"family": "Wor",
+				"given": "C."
+			},
+			{
+				"family": "Holt",
+				"given": "C. A."
+			},
+			{
+				"family": "Patten",
+				"given": "B."
+			},
+			{
+				"family": "Bailey",
+				"given": "R. E."
+			},
+			{
+				"family": "Parken",
+				"given": "C.K."
+			},
+			{
+				"family": "Baillie",
+				"given": "S.J."
+			},
+			{
+				"family": "Candy",
+				"given": "J.R."
+			},
+			{
+				"family": "Willis",
+				"given": "D.M."
+			},
+			{
+				"family": "Hertz",
+				"given": "E."
+			},
+			{
+				"family": "Connors",
+				"given": "B."
+			},
+			{
+				"family": "Pestal",
+				"given": "G. P."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020"
+				]
+			]
+		}
+	},
+	{
+		"id": "DEon-EggertsonEtAl2015ReliableIdentificationDeclining",
+		"type": "article-journal",
+		"container-title": "Conservation Letters",
+		"DOI": "10.1111/conl.12123",
+		"issue": "2",
+		"page": "86-96",
+		"title": "Reliable Identification of Declining Populations in an Uncertain World",
+		"URL": "https://conbio.onlinelibrary.wiley.com/doi/10.1111/conl.12123",
+		"volume": "8",
+		"author": [
+			{
+				"family": "D’Eon-Eggertson",
+				"given": "F"
+			},
+			{
+				"family": "Dulvy",
+				"given": "N K"
+			},
+			{
+				"family": "Peterman",
+				"given": "R. M."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2015"
+				]
+			]
+		}
+	},
+	{
+		"id": "StockwellHyatt2003SummaryOkanaganSockeye",
+		"type": "article-journal",
+		"container-title": "Can. Data. Rep. Fish. Aquat. Sci.",
+		"page": "34 p.",
+		"title": "A summary of Okanagan sockeye salmon (Oncorhynchus nerka) escapement surveys by date and river segment from 1947 to 2001.",
+		"URL": "https://salmonwatersheds.ca/library/lib_508/",
+		"volume": "1106",
+		"author": [
+			{
+				"family": "Stockwell",
+				"given": "M.M"
+			},
+			{
+				"family": "Hyatt",
+				"given": "K.D."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2003"
+				]
+			]
+		}
+	},
+	{
+		"id": "PeacockEtAl2020EvaluatingConsequencesCommon",
+		"type": "article-journal",
+		"abstract": "Information on biological status is essential for designing, implementing, and evaluating management strategies and recovery plans for threatened or exploited species. However, the data required to quantify status are often limited, and it is important to understand how assessments of status may be biased by assumptions in data analysis. For Pacific salmon, biological status assessments based on spawner abundances and spawner–recruitment (SR) analyses often involve “run reconstructions” that impute missing spawner data, expand observed spawner abundance to account for unmonitored streams, assign catch to individual stocks, and quantify age-at-return. Using a stochastic simulation approach, we quantified how common assumptions in run reconstructions biased assessments of biological status based on spawner abundance. We found that status assessments were robust to most common assumptions in run reconstructions, even in the face of declining monitoring coverage, but that overestimating catch tended to increase rates of status misclassification. Our results lend confidence to biological status assessments based on spawner abundances and SR analyses, even in the face of incomplete data.",
+		"archive": "https://cdnsciencepub.com/doi/10.1139/cjfas-2019-0432",
+		"container-title": "Canadian Journal of Fisheries and Aquatic Sciences",
+		"DOI": "10.1139/CJFAS-2019-0432/ASSET/IMAGES/CJFAS-2019-0432IEQ43.GIF",
+		"ISSN": "12057533",
+		"issue": "12",
+		"note": "publisher: Canadian Science Publishing",
+		"page": "1904-1920",
+		"title": "Evaluating the consequences of common assumptions in run reconstructions on Pacific salmon biological status assessments",
+		"URL": "https://salmonwatersheds.ca/document/lib_501/",
+		"volume": "77",
+		"author": [
+			{
+				"family": "Peacock",
+				"given": "Stephanie J."
+			},
+			{
+				"family": "Hertz",
+				"given": "Eric"
+			},
+			{
+				"family": "Holt",
+				"given": "Carrie A."
+			},
+			{
+				"family": "Connors",
+				"given": "Brendan"
+			},
+			{
+				"family": "Freshwater",
+				"given": "Cameron"
+			},
+			{
+				"family": "Connors",
+				"given": "Katrina"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					8,
+					16
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020"
+				]
+			]
+		}
+	},
+	{
+		"id": "EnglishEtAl2018NorthCentralCoast",
+		"type": "report",
+		"abstract": "English, K., Peacock, D., Challenger, W., Noble, C., Beveridge, I., Robichaud, D., Beach, K., Hertz, E., and Connors, K. 2018. North and Central Coast Salmon Escapement, Catch, Run Size and Exploitation Rate Estimates for each Salmon Conservation Unit for 1954-2017. Prepared by LGL Ltd. for the Pacific Salmon Foundation. 125p.",
+		"publisher": "Prepared by LGL Ltd. for the Pacific Salmon Foundation. 125p.",
+		"title": "North and Central Coast Salmon Escapement, Catch, Run Size and Exploitation Rate Estimates for each Salmon Conservation Unit for 1954-2017.",
+		"URL": "https://salmonwatersheds.ca/document/lib_451/",
+		"author": [
+			{
+				"family": "English",
+				"given": "K K"
+			},
+			{
+				"family": "Peacock",
+				"given": "D"
+			},
+			{
+				"family": "Challenger",
+				"given": "W"
+			},
+			{
+				"family": "Noble",
+				"given": "C"
+			},
+			{
+				"family": "Beveridge",
+				"given": "I"
+			},
+			{
+				"family": "Robichaud",
+				"given": "D"
+			},
+			{
+				"family": "Beach",
+				"given": "K"
+			},
+			{
+				"family": "Hertz",
+				"given": "E"
+			},
+			{
+				"family": "Connors",
+				"given": "K"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2018"
+				]
+			]
+		}
+	},
+	{
+		"id": "EnglishEtAl2016NorthCentralCoast",
+		"type": "article-journal",
+		"abstract": "Report prepared by LGL Limited for the Pacific Salmon Foundation and Fisheries and Oceans Canada",
+		"issue": "November",
+		"page": "102",
+		"title": "North and Central Coast Salmon Escapement, Catch, Run Size and Exploitation Rate Estimates for each Salmon Conservation Unit for 1954-2014",
+		"author": [
+			{
+				"family": "English",
+				"given": "Karl K"
+			},
+			{
+				"family": "Peacock",
+				"given": "Dave"
+			},
+			{
+				"family": "Challenger",
+				"given": "Wendell"
+			},
+			{
+				"family": "Mochizuki",
+				"given": "Tony"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2016"
+				]
+			]
+		}
+	},
+	{
+		"id": "OhlbergerEtAl2020ReproductiveValueLarge",
+		"type": "article-journal",
+		"abstract": "While conservation and fisheries management are often concerned with changes in population abundance and distribution, shifts in population age–size structure are commonly observed in response to human and environmental stressors. Chinook salmon (Oncorhynchus tshawytscha) have experienced widespread declines in mean age and size throughout their North American range. We investigated the consequences of declines in body size for spawner reproductive potential in terms of total egg mass per female. Our case study is the Yukon River where Chinook salmon have supported subsistence, commercial, and recreational fisheries. Using historical observations on individual body size from throughout the Yukon River and the relationship between female size and total egg mass from the Canadian portion, we estimate a decline in average female reproductive potential of 24%–35% since the 1970s. Because spawner abundances and the population sex ratio have not shown clear trends over time, our results suggest a reduced total population reproductive potential. Changes in spawner quality should be considered when developing management reference points, and conservation of population demographic structure may be necessary to sustain productive Chinook salmon systems.",
+		"container-title": "Canadian Journal of Fisheries and Aquatic Sciences",
+		"DOI": "10.1139/cjfas-2020-0012",
+		"ISSN": "12057533",
+		"issue": "8",
+		"page": "1292-1301",
+		"title": "The reproductive value of large females: Consequences of shifts in demographic structure for population reproductive potential in Chinook Salmon",
+		"volume": "77",
+		"author": [
+			{
+				"family": "Ohlberger",
+				"given": "Jan"
+			},
+			{
+				"family": "Schindler",
+				"given": "Daniel E."
+			},
+			{
+				"family": "Brown",
+				"given": "Randy J."
+			},
+			{
+				"family": "Harding",
+				"given": "Joel M.S."
+			},
+			{
+				"family": "Adkison",
+				"given": "Milo D."
+			},
+			{
+				"family": "Munro",
+				"given": "Andrew R."
+			},
+			{
+				"family": "Horstmann",
+				"given": "Lara"
+			},
+			{
+				"family": "Spaeder",
+				"given": "Joe"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020"
+				]
+			]
+		}
+	},
+	{
+		"id": "OBMEP2022ColumbiaSteelhead",
+		"type": "report",
+		"event-place": "Nespelem, WA",
+		"number": "Project No. 2003-022-00",
+		"publisher": "Okanogan Basin Monitoring and Evaluation Program. Colville Confederated Tribes Fish and Wildlife Department. Submitted to the Bonneville Power Administration.",
+		"publisher-place": "Nespelem, WA",
+		"title": "2021 Okanogan Subbasin Steelhead Spawning Abundance and Distribution",
+		"author": [
+			{
+				"family": "OBMEP",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2022"
+				]
+			]
+		}
+	},
+	{
+		"id": "JTC2023YukonRiverSalmon",
+		"type": "article-journal",
+		"container-title": "Yukon River Joint Technical Committee Report",
+		"page": "vi + 181 p.",
+		"title": "Yukon River Salmon 2022 Season Summary and 2023 Season Outlook",
+		"URL": "https://www.yukonriverpanel.com/publications/yukon-river-joint-technical-committee-reports/",
+		"volume": "YUKON JTC (23)-01",
+		"author": [
+			{
+				"family": "JTC",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2023",
+					3
+				]
+			]
+		}
+	},
+	{
+		"id": "EnglishEtAl2017SkeenaSockeyeInriver",
+		"type": "report",
+		"abstract": "The Pacific Salmon Foundation’s Salmon Watersheds Program works to provide a common understanding of the status of Pacific salmon, steelhead, and their habitats in Canada.",
+		"genre": "Report prepared for Pacific Salmon Foundation by LGL Ltd. and Fisheries and Oceans Canada",
+		"language": "en",
+		"number": "EA3892",
+		"page": "i + 44 p.",
+		"title": "Skeena Sockeye In-river Run Reconstruction Analysis Model and Analysis Results for 1982-2017",
+		"URL": "https://salmonwatersheds.ca/document/lib_452/",
+		"author": [
+			{
+				"family": "English",
+				"given": "Karl K."
+			},
+			{
+				"family": "Noble",
+				"given": "Cameron"
+			},
+			{
+				"family": "Carr-Harris",
+				"given": "Charmaine"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					11,
+					23
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2017",
+					7
+				]
+			]
+		}
+	},
+	{
+		"id": "EnglishEtAl2004AssessmentCanadianAlaskan",
+		"type": "report",
+		"language": "en",
+		"number": "Pacific Salmon Commission Technical Report No. 13",
+		"page": "viii + 92 p.",
+		"source": "Zotero",
+		"title": "Assessment of the Canadian and Alaskan Sockeye Stocks Harvested in the Northern Boundary Fisheries using Run Reconstruction Techniques, 1982-2001",
+		"URL": "https://salmonwatersheds.ca/document/lib_a_787_06/",
+		"author": [
+			{
+				"family": "English",
+				"given": "Karl K"
+			},
+			{
+				"family": "Gazey",
+				"given": "William J"
+			},
+			{
+				"family": "Peacock",
+				"given": "David"
+			},
+			{
+				"family": "Oliver",
+				"given": "Glen"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2004",
+					12
+				]
+			]
+		}
+	},
+	{
+		"id": "AtlasEtAl2023TrendsChinookSalmon",
+		"type": "article-journal",
+		"abstract": "Chinook salmon (Oncorhynchus tshawytscha, Salmonidae) are foundational to social-ecological systems of the Northeast Pacific Rim and exhibit a rich diversity of life histories including in their adult migration timing, age at critical life-history transitions and marine feeding distributions. In recent decades Chinook have experienced declines across much of their native range; however, changes in productivity and abundance have rarely been evaluated in relation to life-history variation. To understand trends in Chinook salmon production, and how they are related to life history, we compiled time series data from the Fraser River to the Sacramento River on total run size (pre-fishery abundance) and escapement (post-fishery spawner abundance) and fit time series models to estimate trends across this bioregion. Our analysis revealed that most Chinook populations are declining, with negative trends in escapement (57 of 79) and total run (16 of 23) size. Trends were most acutely negative for interior spring Chinook in the Fraser, Columbia and Snake Rivers and most populations in California. Summer and fall Chinook had mixed trends, with several summer and fall upriver bright populations in the interior Columbia and Fraser exhibiting increases in abundance from the 1990s to 2019. Our research reveals widespread declines of this important species, but local complexity in trends that are mediated by population-level life history, migratory behaviours and watershed-scale restoration actions. Understanding linkages between life histories and resilience should inform rebuilding efforts for Chinook salmon and highlight the need to conserve intraspecific biodiversity.",
+		"container-title": "Fish and Fisheries",
+		"DOI": "10.1111/faf.12750",
+		"ISSN": "14672979",
+		"issue": "4",
+		"page": "595-617",
+		"title": "Trends in Chinook salmon spawner abundance and total run size highlight linkages between life history, geography and decline",
+		"URL": "https://onlinelibrary.wiley.com/doi/full/10.1111/faf.12750",
+		"volume": "24",
+		"author": [
+			{
+				"family": "Atlas",
+				"given": "William I."
+			},
+			{
+				"family": "Sloat",
+				"given": "Matthew R."
+			},
+			{
+				"family": "Satterthwaite",
+				"given": "William H."
+			},
+			{
+				"family": "Buehrens",
+				"given": "Thomas W"
+			},
+			{
+				"family": "Parken",
+				"given": "Charles K."
+			},
+			{
+				"family": "Moore",
+				"given": "Jonathan W."
+			},
+			{
+				"family": "Mantua",
+				"given": "Nathan J"
+			},
+			{
+				"family": "Hart",
+				"given": "Jon"
+			},
+			{
+				"family": "Potapova",
+				"given": "Anna"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2023"
+				]
+			]
+		}
+	},
+	{
+		"id": "ChallengerEtAl2018NorthCentralCoast",
+		"type": "report",
+		"event-place": "Sidney, BC",
+		"note": "issue: September",
+		"page": "vi + 84",
+		"publisher": "LGL Limited for Pacific Salmon Foundation",
+		"publisher-place": "Sidney, BC",
+		"title": "North and Central Coast Salmon Database and Analysis System User Manual",
+		"author": [
+			{
+				"family": "Challenger",
+				"given": "Wendell"
+			},
+			{
+				"family": "Mochizuki",
+				"given": "Tony"
+			},
+			{
+				"family": "English",
+				"given": "Karl"
+			},
+			{
+				"family": "Bychkov",
+				"given": "Yury"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2018"
+				]
+			]
+		}
+	},
+	{
+		"id": "CTC2023AnnualReportCatch",
+		"type": "article-journal",
+		"container-title": "Pacific Salmon Commission Joint Chinook Technical Committtee Report",
+		"language": "en",
+		"page": "xiii + 202 p.",
+		"source": "Zotero",
+		"title": "Annual Report of Catch and Escapement for 2022",
+		"URL": "https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/",
+		"volume": "TCCHINOOK (23)-02",
+		"author": [
+			{
+				"family": "CTC",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2023",
+					7,
+					6
+				]
+			]
+		}
+	},
+	{
+		"id": "TCNB2023CanadaNorthernBoundary",
+		"type": "article-journal",
+		"container-title": "Pacific Salmon Commission Joint Northern Boundary Technical Committee Report",
+		"language": "en",
+		"page": "ii + 73 p.",
+		"source": "Zotero",
+		"title": "U.S./Canada Northern Boundary Area 2022 Salmon Fisheries Management Report and 2023 Preliminary Expectations",
+		"URL": "https://www.psc.org/publications/technical-reports/technical-committee-reports/northern-boundary/",
+		"volume": "TCNB (23)-01",
+		"author": [
+			{
+				"family": "TCNB",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2023",
+					5
+				]
+			]
+		}
+	},
+	{
+		"id": "PriceEtAl2021PortfolioSimplificationArising",
+		"type": "article-journal",
+		"abstract": "Population and life-history diversity can buffer species from environmental variability and contribute to long-term stability through differing responses to varying conditions akin to the stabilizing effect of asset diversity on financial portfolios. While it is well known that many salmon populations have declined in abundance over the last century, we understand less about how different dimensions of diversity may have shifted. Specifically, how has diminished wild abundance and increased artificial production (i.e. enhancement) changed portfolios of salmon populations, and how might such change influence fisheries and ecosystems? We apply modern genetic tools to century-old sockeye salmon Oncorhynchus nerka scales from Canada's Skeena River watershed to (a) reconstruct historical abundance and age-trait data for 1913–1947 to compare with recent information, (b) quantify changes in population and life-history diversity and the role of enhancement in population dynamics, and (c) quantify the risk to fisheries and local ecosystems resulting from observed changes in diversity and enhancement. The total number of wild sockeye returning to the Skeena River during the modern era is 69% lower than during the historical era; all wild populations have declined, several by more than 90%. However, enhancement of a single population has offset declines in wild populations such that aggregate abundances now are similar to historical levels. Population diversity has declined by 70%, and life-history diversity has shifted: populations are migrating from freshwater at an earlier age, and spending more time in the ocean. There also has been a contraction in abundance throughout the watershed, which likely has decreased the spatial extent of salmon provisions to Indigenous fisheries and local ecosystems. Despite the erosion of portfolio strength that this salmon complex hosted a century ago, total returns now are no more variable than they were historically perhaps in part due to the stabilizing effect of artificial production. Policy implications. Our study provides a rare example of the extent of erosion of within-species biodiversity over the last century of human influence. Rebuilding a diversity of abundant wild populations—that is, maintaining functioning portfolios—may help ensure that watershed complexes like the Skeena are robust to global change.",
+		"container-title": "Journal of Applied Ecology",
+		"DOI": "10.1111/1365-2664.13835",
+		"ISSN": "13652664",
+		"issue": "7",
+		"page": "1477-1486",
+		"title": "Portfolio simplification arising from a century of change in salmon population diversity and artificial production",
+		"volume": "58",
+		"author": [
+			{
+				"family": "Price",
+				"given": "Michael H.H."
+			},
+			{
+				"family": "Moore",
+				"given": "Jonathan W."
+			},
+			{
+				"family": "Connors",
+				"given": "Brendan M."
+			},
+			{
+				"family": "Wilson",
+				"given": "Kyle L."
+			},
+			{
+				"family": "Reynolds",
+				"given": "John D."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2021"
+				]
+			]
+		}
+	},
+	{
+		"id": "StandingCommitteeonScientificCooperation2023AssessmentManagementFrameworks",
+		"type": "report",
+		"event-place": "Vancouver, BC",
+		"publisher": "Pacific Salmon Commission",
+		"publisher-place": "Vancouver, BC",
+		"title": "Assessment and management frameworks of the Pacific Salmon Treaty and their robustness to environmental change",
+		"URL": "https://www.psc.org/download/333/special-reports/15065/assessment-and-management-frameworks-of-the-pacific-salmon-treaty-and-their-robustness-to-environmental-change.pdf",
+		"author": [
+			{
+				"family": "Standing Committee on Scientific Cooperation",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2023",
+					5
+				]
+			]
+		}
+	},
+	{
+		"id": "TTC2022FinalEstimatesTransboundary",
+		"type": "article-journal",
+		"container-title": "Pacific Salmon Commission Transboundary Technical Committee Report",
+		"page": "xii + 162 p.",
+		"title": "Final Estimates of Transboundary River Salmon Production, Harvest and Escapement and a Review of Joint Enhancement Activities in 2020",
+		"URL": "https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/",
+		"volume": "TCTR (22)-01",
+		"author": [
+			{
+				"family": "Transboundary Technical Committee",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					3
+				]
+			]
+		}
+	},
+	{
+		"id": "MacDonaldGrant2023StateCanadianPacific",
+		"type": "report",
+		"language": "en",
+		"number": "Department of Fisheries and Oceans Report 23-2305",
+		"page": "28 p.",
+		"source": "Zotero",
+		"title": "State of Canadian Pacific Salmon : Considerations for Pacific Salmon Management in a Changing Climate",
+		"URL": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41213531.pdf",
+		"author": [
+			{
+				"family": "MacDonald",
+				"given": "Bronwyn L."
+			},
+			{
+				"family": "Grant",
+				"given": "Sue C. H."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2023"
+				]
+			]
+		}
+	},
+	{
+		"id": "COSEWIC2017ChinookSalmonOncorhynchus",
+		"type": "webpage",
+		"abstract": "Information on Environment and Climate Change Canada’s Species at Risk Public Registry.",
+		"language": "eng",
+		"note": "Last Modified: 2017-12-11",
+		"title": "Chinook salmon (Oncorhynchus tshawytscha) Okanagan population: COSEWIC Assessment and Status Report 2017",
+		"title-short": "Chinook salmon (Oncorhynchus tshawytscha) Okanagan population",
+		"URL": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/chinook-salmon-okanagan-population-2017.html",
+		"author": [
+			{
+				"family": "COSEWIC",
+				"given": ""
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					12,
+					4
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2017"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/groups/5243880/items/UPUDMUPY",
+		"type": "document",
+		"title": "aqhaliat-volume-4-english.pdf",
+		"URL": "https://www.canada.ca/content/dam/polar-polaire/documents/publications/aqhaliat/volume-4/aqhaliat-volume-4-english.pdf",
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					12,
+					4
+				]
+			]
+		}
+	},
+	{
+		"id": "EnglishEtAl2023PreliminaryAreaSalmon",
+		"type": "report",
+		"number": "Nisga'a Fisheries Report #22-16",
+		"page": "vi + 75 p.",
+		"publisher": "Prepared by LGL Ltd. and Nisga’a Lisims Government - Fisheries & Wildlife Department for the Pacific Salmon Foundation and Nisga’a-Canada-BC Treaty’s Joint Fisheries Management Committee",
+		"title": "Preliminary Area 3 Salmon (2018–2022) and Nass River Summer-Run Steelhead (1994–2022) Escapement, Catch, Run Size, and Exploitation Rate Estimates",
+		"URL": "https://salmonwatersheds.ca/document/lib_526/",
+		"author": [
+			{
+				"family": "English",
+				"given": "K. K."
+			},
+			{
+				"family": "Alexander",
+				"given": "Richard F."
+			},
+			{
+				"literal": "Ian A. Beveridge"
+			},
+			{
+				"family": "Challenger",
+				"given": "Wendell"
+			},
+			{
+				"family": "Percival",
+				"given": "Niva"
+			},
+			{
+				"family": "Hertz",
+				"given": "Eric"
+			},
+			{
+				"family": "Atkinson",
+				"given": "Clare"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2023",
+					9
+				]
+			]
+		}
+	},
+	{
+		"id": "CoutureEtAl2024CombinedEffectsPredation",
+		"type": "article-journal",
+		"abstract": "Along the northeast Pacific coast, the salmon-eating southern resident killer whale population (SRKW, Orcinus orca) have been at very low levels since the 1970s. Previous research have suggested that reduction in food availability, especially of Chinook salmon (Oncorhynchus tshawytscha), could be the main limiting factor for the SRKW population. Using the ecosystem modelling platform Ecopath with Ecosim (EwE), this study evaluated if the decline of the Pacific salmon populations between 1979 and 2020 may have been impacted by a combination of factors, including marine mammal predation, fishing activities, and climatic patterns. We found that the total mortality of most Chinook salmon populations has been relatively stable for all mature returning fish despite strong reduction in fishing mortality since the 1990s. This mortality pattern was mainly driven by pinnipeds, with increases in predation between 1979 and 2020 mortality ranging by factors of 1.8 to 8.5 across the different Chinook salmon population groups. The predation mortality on fall-run Chinook salmon smolts originating from the Salish Sea increased 4.6 times from 1979 to 2020, whereas the predation mortality on coho salmon (Oncorhynchus kisutch) smolts increased by a factor of 7.3. The model also revealed that the north Pacific gyre oscillation (NPGO) was the most important large-scale climatic index affecting the stock productivity of Chinook salmon populations from California to northern British Columbia. Overall, the model provided evidence that multiple factors may have affected Chinook salmon populations between 1979 and 2020, and suggested that predation mortality by marine mammals could be an important driver of salmon population declines during that time.",
+		"container-title": "PLOS ONE",
+		"DOI": "10.1371/journal.pone.0296358",
+		"ISSN": "1932-6203",
+		"issue": "3",
+		"journalAbbreviation": "PLOS ONE",
+		"language": "en",
+		"note": "publisher: Public Library of Science",
+		"page": "e0296358",
+		"source": "PLoS Journals",
+		"title": "The combined effects of predation, fishing, and ocean productivity on salmon species targeted by marine mammals in the northeast Pacific",
+		"URL": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0296358",
+		"volume": "19",
+		"author": [
+			{
+				"family": "Couture",
+				"given": "Fanny"
+			},
+			{
+				"family": "Christensen",
+				"given": "Villy"
+			},
+			{
+				"family": "Walters",
+				"given": "Carl"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2024",
+					3,
+					22
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2024",
+					3,
+					14
+				]
+			]
+		}
+	},
+	{
+		"id": "20232019PostSeasonSummary",
+		"type": "article-journal",
+		"container-title": "Pacific Salmon Commission Joint Chum Technical Committee",
+		"page": "viii + 60",
+		"title": "2019 Post-Season Summary Report",
+		"URL": "https://www.psc.org/publications/technical-reports/technical-committee-reports/chum/",
+		"volume": "3-11",
+		"author": [
+			{
+				"family": "TTCHUM",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2023",
+					5
+				]
+			]
+		}
+	},
+	{
+		"id": "PacificSalmonCommission2024PSCAnnualReport",
+		"type": "dataset",
+		"title": "PSC Annual Report Application. Release 2024.04 [Updated 2024 apr 03; accessed 2024 Apr 05]",
+		"URL": "https://www.psc1.shinyapps.io/PSC_Annual_Fraser/",
+		"author": [
+			{
+				"family": "Pacific Salmon Commission",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2024"
+				]
+			]
+		}
+	},
+	{
+		"id": "CTC2023TCCHINOOK2306Pdf",
+		"type": "article-journal",
+		"container-title": "Pacific Salmon Commission Joint Chinook Technical Committtee Report",
+		"page": "xviii + 171 p.",
+		"title": "2023 Exploitation Rate Analysis",
+		"URL": "https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/",
+		"volume": "TCCHINOOK (2023)-06",
+		"author": [
+			{
+				"family": "CTC",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2023",
+					12,
+					8
+				]
+			]
+		}
+	},
+	{
+		"id": "SchoenEtAl2023NOAAArcticReport",
+		"type": "article-journal",
+		"abstract": "Pacific salmon populations in western Alaska have responded differently to recent climatic changes, with Chinook salmon (Oncorhynchus tshawytscha) and chum salmon (O. keta) reaching record low abundance levels, while sockeye salmon (O. nerka) have attained record high abundance levels since 2020 (Fig. 1). Why these species have responded differently has important implications for the future of Pacific salmon in a warming Arctic.",
+		"DOI": "10.25923/F2HV-5581",
+		"language": "en",
+		"license": "Creative Commons Zero v1.0 Universal",
+		"note": "publisher: [object Object]",
+		"source": "DOI.org (Datacite)",
+		"title": "NOAA Arctic Report Card 2023: Divergent Responses of Western Alaska Salmon to a Changing Climate",
+		"title-short": "NOAA Arctic Report Card 2023",
+		"URL": "https://repository.library.noaa.gov/view/noaa/56618",
+		"author": [
+			{
+				"family": "Schoen",
+				"given": "E. R."
+			},
+			{
+				"family": "Howard",
+				"given": "K. G."
+			},
+			{
+				"family": "Murphy",
+				"given": "J. M."
+			},
+			{
+				"family": "Schindler",
+				"given": "D. E."
+			},
+			{
+				"family": "Westley",
+				"given": "P. A. H."
+			},
+			{
+				"family": "Biela",
+				"given": "V. R.",
+				"non-dropping-particle": "von"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2024",
+					4,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2023"
+				]
+			]
+		}
+	},
+	{
+		"id": "Gregory-EavesEtAlTrackingSockeyeSalmon",
+		"type": "article-journal",
+		"language": "en",
+		"source": "Zotero",
+		"title": "Tracking Sockeye Salmon Population Dynamics from Lake Sediment Cores: A Review and Synthesis",
+		"author": [
+			{
+				"family": "Gregory-Eaves",
+				"given": "Irene"
+			},
+			{
+				"family": "Selbie",
+				"given": "Daniel T"
+			},
+			{
+				"family": "Sweetman",
+				"given": "Jon N"
+			},
+			{
+				"family": "Finney",
+				"given": "Bruce P"
+			},
+			{
+				"family": "Smol",
+				"given": "John P"
+			}
+		]
+	},
+	{
+		"id": "DeckerEtAl2014AssessmentInteriorFraser",
+		"type": "article-journal",
+		"abstract": "Interior Fraser Coho is the name for the management unit (MU) which refers to the Coho Salmon (Oncorhynchus kisutch) that return to the Fraser River and tributaries upstream of Hells Gate in the Fraser Canyon. In response to low abundance of southern BC Coho Salmon stocks, fisheries that intercept Interior Fraser Coho have been restricted since 1998. This document describes the fishery management actions that have been taken since 2006 to meet the 2006 Conservation Strategy recovery objectives for Interior Fraser Coho, provides an assessment of current status of the MU against these objectives, quantifies annual exploitation rates and the level of uncertainty in these estimates, and provides estimates of the probability of achieving the 2006 Conservation Strategy Recovery Objectives at a range of potential exploitation rates. Given that Wild Salmon Policy (WSP) benchmarks are not currently available for Interior Fraser Coho, the status of Interior Fraser Coho was assessed against two ‘short term’ and one ‘long term’ recovery objective originally proposed by the Interior Fraser Coho Recovery Team (IFCRT 2006). Short-term objective #1 consists of maintaining a minimum of 1,000 naturally spawning wild Coho Salmon (3-year geometric mean) in at least half of the 11 subpopulations that have been proposed within the five conservation units (CUs) (IFCRT 2006), while the long-term objective consists of maintaining 1,000 or more wild Coho Salmon in all 11 subpopulations. Our analyses showed that escapement levels of 20,000 and 40,000 spawners, respectively, would result in near 100% probability that these two objectives would be met. Generational average escapements for the Interior Fraser Coho aggregate exceeded 20,000 wild adults in every year from 2008 onward, but exceeded 40,000 wild adults in only the two most recent return years (2012 and 2013). Short-term objective #2 focuses on maintaining the productivity of Interior Fraser Coho. After controlling for brood escapement, we found strong evidence for two distinct periods of productivity: a relatively high productivity period during 1978-1993 return years, and a low productivity period during 1994-2012. There is no evidence that Interior Fraser Coho have moved above the ‘low’ productivity’ regime that has persisted since 1994 (return year). Modelled estimates of exploitation rates averaged 10% during 1998-2012. From 1986-1997, the average exploitation rate was nearly seven fold higher. The reliability of exploitation rate estimates for Interior Fraser Coho from 1998 onward is uncertain, owing primarily to uncertainty around the assumption that base period effort and exploitation rate (16-26 years ago) are representative of current effort and exploitation rate. A model selection analysis indicated that the Ricker model best explained the stock-recruitment relationship for Interior Fraser Coho during the period of low productivity (1994-2012), and was used to form the basis of the harvest impact projections. Assuming low productivity, there is a strong trade-off between the probability of achieving the short-term objective of 20,000 spawners (3-year geometric mean) and exploitation rate. The probability of meeting the long- term objective of 40,000 spawners at low productivity is low regardless of exploitation rate. A declining population trend was predicted at exploitation rates exceeding 30%. Assuming a continuation of the 1994-2012 low productivity regime, there appears to be limited potential for recovering the MU to abundance levels higher than 20,000-40,000 spawners. A relatively low escapement target within this range (20,000 spawners) could maximize harvest opportunities for other stocks while still maintaining Interior Fraser Coho at a relatively productive point along the stock-recruitment curve. However, this represents a riskier management strategy compared to a strategy of maximizing escapement given current productivity. This assessment must be considered as preliminary and not equivalent to a Wild Salmon Policy (WSP) status assessment since it relies primarily on the IFCRT recovery objectives and not formal WSP benchmarks",
+		"container-title": "DFO Can. Sci. Advis. Sec. Res. Doc.",
+		"issue": "086",
+		"page": "xi + 64",
+		"title": "Assessment of the Interior Fraser Coho Salmon (Oncorhynchus kisutch) Management Unit Relative to the 2006 Conservation Strategy Recovery Objectives",
+		"URL": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/360009.pdf",
+		"volume": "2014",
+		"author": [
+			{
+				"family": "Decker",
+				"given": "A Scott"
+			},
+			{
+				"family": "Hawkshaw",
+				"given": "Michael A"
+			},
+			{
+				"family": "Patten",
+				"given": "Bruce A"
+			},
+			{
+				"family": "Sawada",
+				"given": "Joel"
+			},
+			{
+				"family": "Jantz",
+				"given": "A Lester"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2014"
+				]
+			]
+		}
+	},
+	{
+		"id": "HodgsonEtAl2020ChangingEstuariesImpacts",
+		"type": "article-journal",
+		"abstract": "Estuaries are productive ecosystems providing important habitat for a diversity of species, yet they also experience intense levels of anthropogenic development. To inform decision-making, it is essential to understand the pathways of impacts of particular human activities, especially those that affect species such as salmon, which have high ecological, social-cultural and economic values. Salmon systems provide an opportunity to build from the substantial body of research on responses to estuary developments and take stock of what is known. We conducted a systematic English-language literature review on the responses of juvenile salmon to anthropogenic activities in estuaries and nearshore areas asking: what has been studied, where are the major knowledge gaps and how do stressors affect salmon? We found a substantial body of research (n = 167 studies; 1,369 comparative tests) to help understand responses of juvenile salmon to 24 activities and their 14 stressors. Across studies, 82% of the research was conducted in the eastern Pacific (Oregon and Washington, USA and British Columbia, Canada) showing a limited geographical scope. Using a semiquantitative approach to summarize the literature, including a weight-of-evidence metric, we found a range of results from low to moderate–high confidence in the consequences of the stressors. For example, we found moderate–high confidence in the negative impacts of pollutants and sea lice and moderate confidence in negative impacts from connectivity loss and changes in flow. Our results suggest that overall, multiple anthropogenic activities cause negative impacts across ecological scales. However, our results also reveal knowledge gaps resulting from minimal research on particular species (e.g. sockeye salmon), regions (e.g. Atlantic) or stressors (e.g. entrainment) that would be expedient areas for future research. With estuaries acting as a nexus of biological and societal importance and hotspots of ongoing development, the insights gained here can contribute to informed decision-making.",
+		"container-title": "Global Change Biology",
+		"DOI": "10.1111/gcb.14997",
+		"ISSN": "13652486",
+		"issue": "4",
+		"page": "1986-2001",
+		"title": "Changing estuaries and impacts on juvenile salmon: A systematic review",
+		"volume": "26",
+		"author": [
+			{
+				"family": "Hodgson",
+				"given": "Emma E."
+			},
+			{
+				"family": "Wilson",
+				"given": "Samantha M."
+			},
+			{
+				"family": "Moore",
+				"given": "Jonathan W."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020"
+				]
+			]
+		}
+	},
+	{
+		"id": "McMillanEtAl2023GlobalSynthesisPeerreviewed",
+		"type": "article-journal",
+		"abstract": "Hatcheries have long produced salmonids for fisheries and mitigation, though their widespread use is increasingly controversial because of potential impacts to wild salmonids. We conducted a global literature search of peer-reviewed publications (1970–2021) evaluating how hatchery salmonids affected wild salmonids, developed a publicly available database, and synthesized results. Two hundred six publications met our search criteria, with 83% reporting adverse/minimally adverse effects on wild salmonids. Adverse genetic effects on diversity were most common, followed by effects on productivity and abundance via ecological and genetic processes. Few publications (3%) reported beneficial hatchery effects on wild salmonids, nearly all from intensive recovery programs used to bolster highly depleted wild populations. Our review suggests hatcheries commonly have adverse impacts on wild salmonids in freshwater and marine environments. Future research on less studied effects—such as epigenetics—could improve knowledge and management of the full extent of hatchery impacts.",
+		"container-title": "Fisheries Management and Ecology",
+		"DOI": "10.1111/fme.12643",
+		"ISSN": "13652400",
+		"issue": "February",
+		"page": "1-18",
+		"title": "A global synthesis of peer-reviewed research on the effects of hatchery salmonids on wild salmonids",
+		"author": [
+			{
+				"family": "McMillan",
+				"given": "John R."
+			},
+			{
+				"family": "Morrison",
+				"given": "Brian"
+			},
+			{
+				"family": "Chambers",
+				"given": "Nick"
+			},
+			{
+				"family": "Ruggerone",
+				"given": "Greg"
+			},
+			{
+				"family": "Bernatchez",
+				"given": "Louis"
+			},
+			{
+				"family": "Stanford",
+				"given": "Jack"
+			},
+			{
+				"family": "Neville",
+				"given": "Helen"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2023"
+				]
+			]
+		}
+	},
+	{
+		"id": "JTC2024YukonRiverSalmon",
+		"type": "article-journal",
+		"container-title": "Yukon River Joint Technical Committee Report",
+		"page": "vi + 181 p.",
+		"title": "Yukon River Salmon 2023 Season Summary and 2024 Season Outlook",
+		"URL": "https://www.yukonriverpanel.com/publications/yukon-river-joint-technical-committee-reports/",
+		"volume": "YUKON JTC (24)-01",
+		"author": [
+			{
+				"literal": "JTC"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2024",
+					3
+				]
+			]
+		}
+	},
+	{
+		"id": "CTC2024AnnualReportCatch",
+		"type": "article-journal",
+		"container-title": "Pacific Salmon Commission Joint Chinook Technical Committtee Report",
+		"language": "en",
+		"page": "xvii + 173 p.",
+		"source": "Zotero",
+		"title": "Annual Report of Catch and Escapement for 2023",
+		"URL": "https://www.psc.org/reports/tcchinook-24-01",
+		"volume": "TCCHINOOK (24)-01",
+		"author": [
+			{
+				"family": "CTC",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2024",
+					7
+				]
+			]
+		}
+	}
+]
