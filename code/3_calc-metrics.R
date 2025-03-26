@@ -113,6 +113,7 @@ for(r in 1:length(regions)){ # for each region
 					
 					# Extract abundance (y) and year (x)
 					y <- sps_dat[ind_dat, c("smoothedSpawners", "smoothedRunsize")[i]]
+					y_raw <- sps_dat[ind_dat, c("spawners", "runsize")[i]]
 					x <- sps_dat$year[ind_dat]
 					
 					# Input current abundance and year into metrics output
@@ -120,7 +121,7 @@ for(r in 1:length(regions)){ # for each region
 					sps_metrics$current_abundance_year[ind[i]] <- tail(x[!is.na(y)], 1)
 					
 					# Historical (geometric mean) abundance
-					H <-  exp(mean(log(y), na.rm = TRUE))
+					H <-  exp(mean(log(y_raw), na.rm = TRUE))
 					sps_metrics$average_abundance[ind[i]] <- H
 					
 					# Previous generation abundance
@@ -239,7 +240,7 @@ sps_metrics[which(sps_metrics$current_abundance_year < max(sps_metrics$current_a
 # Is current spawner abundance < 1000?
 #------------------------------------------------------------------------------
 
-# sps_metrics[which(sps_metrics$current < 1000), ]
+# sps_metrics[which(sps_metrics$current_abundance < 1000), ]
 # 
 # # Create new variable to flag if abundance is below critical threshold of 1000 spawners
 # sps_metrics$critical <- ifelse(sps_metrics$current < 1000, 1, 0)
@@ -301,9 +302,15 @@ sps_metrics$current_status[which(sps_metrics$nyears < 20)] <- NA
 ###############################################################################
 
 if(write.output){
+	# Write output to base folder
 	write.csv(sps_metrics, file = "output/sps-metrics.csv", row.names = FALSE)
 	write.csv(sps_dat, "output/sps-data.csv", row.names = FALSE)
 	
+	# Write app copy
+	write.csv(sps_dat, "app/sps-data.csv", row.names = FALSE)
+	write.csv(sps_metrics, file = "app/sps-metrics.csv", row.names = FALSE)
+	
+	# Write dated archive copy
 	write.csv(sps_metrics, file = paste0("output/archive/sps-metrics_", Sys.Date(), ".csv"), row.names = FALSE)
 	write.csv(sps_dat, file = paste0("output/archive/sps-data_", Sys.Date(), ".csv"), row.names = FALSE)
 }
