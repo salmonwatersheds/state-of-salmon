@@ -35,17 +35,10 @@ pdf(file = paste0("output/ignore/figures/spawners_and_runsize_ALL_", Sys.Date(),
 #------------------------------------------------------------------------------
 # Yukon: Chinook
 #------------------------------------------------------------------------------
-# ytck0 <- read.csv('data/yukon_chinook_appendixB11.csv') # Pre-2023
-ytck <- read.csv('data/JTC 2023 B11.csv') # 2023 update
+ytck <- read.csv('data/yukon_chinook_appendixB11.csv')
 
-# # Compare RR estimates that started to be reported in 2024 for 2023 and historical
-# # Outcome: RR estimates tend to be slightly higher historically; may lead to more significant declines in trend metrics?
-# plot(ytck$Year, ytck$RR.Spawning.escapement.estimate, "o")
-# points(ytck0$Year, ytck0$Spawning.escapement.estimate, "o", col = grey(0.8), cex = 0.8, pch = 19)
-# 
-# plot(ytck$Year, ytck$RR.Canadian.origin.total.run.size.estimate, "o")
-# points(ytck$Year, ytck$Historic.Canadian.origin.total.run.size.estimate, col = 2, pch = 19, cex = 0.5)
-# points(ytck0$Year, ytck0$Canadian.origin.total.run.size.estimate, "o", col = grey(0.8), cex = 0.8, pch = 19)
+# Note: Use Run Reconstruction (RR) estimates of spawning escapement and total
+# run size, not "Historical" or Mark-Recapture estimates
 
 # Check if years are continuous
 unique(diff(ytck$Year)) # Yes, all one year apart
@@ -55,9 +48,9 @@ ytck_sps <- data.frame(
 	region = rep("Yukon", dim(ytck)[1]),
 	species = rep("Chinook", dim(ytck)[1]),
 	year = ytck$Year,
-	spawners = ytck$RR.Spawning.escapement.estimate, # ytck$Spawning.escapement.estimate, 
+	spawners = ytck$RR.Spawning.escapement.estimate, 
 	smoothedSpawners = NA,
-	runsize = ytck$RR.Canadian.origin.total.run.size.estimate, #ytck$Canadian.origin.total.run.size.estimate,
+	runsize = ytck$RR.Canadian.origin.total.run.size.estimate,
 	smoothedRunsize = NA
 ) 
 
@@ -82,22 +75,32 @@ sps_data <- ytck_sps
 #------------------------------------------------------------------------------
 # Yukon: Chum
 #------------------------------------------------------------------------------
-ytcm_spawners <- read.csv('data/yukon_chum_appendixB16.csv')
-ytcm_runsize <- read.csv('data/yukon_chum_appendixB20.csv')
+
+ytcm_B16 <- read.csv('data/yukon_chum_appendixB16.csv') # Historical data
+names(ytcm_B16)[1] <- "Year"
+ytcm_B20 <- read.csv('data/yukon_chum_appendixB20.csv') # Most recent estimates
+
+
+# Compare data from two appendices; note that spawning escapement is sometimes different
+plot(ytcm_B16$Year, ytcm_B16$Spawning.escapement.estimate*10^-3, "o", ylab = "Spawning escapement (thousands)", las = 1, bty = "l", xlab = "", pch = 21, bg = "white", main = "Canadian-origin chum salmon")
+abline(v = seq(1970, 2024, 2), col = "#00000060", lwd = 0.8, lty = 3)
+points(ytcm_B20$Year, ytcm_B20$Spawning.escapement*10^-3, col = 2, pch = 19, cex = 0.6)
+legend("topleft", pch= c(1, 19), pt.cex = c(1, 0.6), col = c(1,2), c("Appendix B16", "Appendix B20"))
+
+barplot(ytcm_B16$Spawning.escapement.estimate*10^-3)
 
 # Check if years are continuous
-unique(diff(ytcm_spawners$Date)) # Yes, all one year apart
-unique(diff(ytcm_runsize$Year)) # Yes, all one year apart
-# Note run size available for fewer years
+unique(diff(ytcm_B16$Year)) # Yes, all one year apart
+unique(diff(ytcm_B20$Year)) # Yes, all one year apart
 
 # Reformat data for SPS
 ytcm_sps <- data.frame(
-	region = rep("Yukon", dim(ytcm_spawners)[1]),
-	species = rep("Chum", dim(ytcm_spawners)[1]),
-	year = ytcm_spawners$Date,
-	spawners = ytcm_spawners$Spawning.escapement.estimate, 
+	region = rep("Yukon", dim(ytcm_B16)[1]),
+	species = rep("Chum", dim(ytcm_B16)[1]),
+	year = ytcm_B16$Year,
+	spawners = ytcm_B16$Spawning.escapement.estimate, 
 	smoothedSpawners = NA,
-	runsize = ytcm_runsize$Total.estimated.Canadian.origin.run.size[match(ytcm_spawners$Date, ytcm_runsize$Year)],
+	runsize = ytcm_B20$Total.estimated.Canadian.origin.run.size[match(ytcm_B16$Year, ytcm_B20$Year)],
 	smoothedRunsize = NA
 ) 
 
@@ -802,7 +805,7 @@ sps_data <- rbind(sps_data, skse_sps)
 
 # Use Skeena steelhead run size from BC Updates
 # sksh <- read.csv("data/Steelhead_total_runsize.csv")
-sksh <- read.csv("data/SkeenaSteelhead_1956-2023.csv")
+sksh <- read.csv("data/SkeenaSteelhead_1956-2024.csv")
 
 
 # Reformat data for SPS
@@ -1215,7 +1218,7 @@ sps_data <- rbind(sps_data, frpk_sps)
 #------------------------------------------------------------------------------
 
 # From PSC
-frse <- read.csv("data/Total Fraser_run_size_2024_04_05.csv")
+frse <- read.csv("data/Total Fraser_run_size_2025_03_18.csv")
 
 # Put in SPS format
 frse_sps <- data.frame(
@@ -1230,7 +1233,7 @@ frse_sps <- data.frame(
 
 # Fill in run size with in-season estimates if available
 if(sum(is.na(frse_sps$runsize)) > 0){
-	if(!is.na(frse$In.season.Run.Size[which(frse$Year %in% frse_sps$year[is.na(frse_sps$runsize)])])){
+	if(sum(!is.na(frse$In.season.Run.Size[which(frse$Year %in% frse_sps$year[is.na(frse_sps$runsize)])])) > 0){
 		frse_sps$runsize[which(frse$Year %in% frse_sps$year[is.na(frse_sps$runsize)])] <- frse$In.season.Run.Size[which(frse$Year %in% frse_sps$year[is.na(frse_sps$runsize)])]
 	}
 }
@@ -1248,8 +1251,8 @@ frse_sps$smoothedRunsize <- genSmooth(
 	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Sockeye"]
 )
 
+# plot_abund(frse_sps[frse$Year >= 1980,]); abline(v = 2024)
 plot_abund(frse_sps)
-
 # Add to master sps dataframe
 sps_data <- rbind(sps_data, frse_sps)
 
@@ -1297,16 +1300,20 @@ sps_data <- rbind(sps_data, frsh_sps)
 #------------------------------------------------------------------------------
 # Chinook
 #------------------------------------------------------------------------------
-colck <- read.csv("data/spawner_abundance.csv") %>% 
-	filter(region == "Columbia", species_name == "Chinook") %>%
-	filter(!is.na(estimated_count))
+# colck <- read.csv("data/spawner_abundance.csv") %>% 
+# 	filter(region == "Columbia", species_name == "Chinook") %>%
+# 	filter(!is.na(estimated_count))
+
+colck <- read.csv("data/Chinook_Okanagan_NEW.csv") %>% filter(Year >= 2006)
+# Downloaded from https://github.com/SOLV-Code/Scanner-Data-Processing/blame/main/DATA_IN/Chinook_Okanagan_NEW.csv
+# on March 18, 2025
 
 # Put in SPS format
 colck_sps <- data.frame(
-	region = rep("Columbia", length(colck$year)),
-	species = rep("Chinook", length(colck$year)),
-	year = colck$year,
-	spawners = as.numeric(colck$estimated_count), # Note this is the fish that returned to spawn, NOT a mistake!
+	region = rep("Columbia", length(colck$Year)),
+	species = rep("Chinook", length(colck$Year)),
+	year = colck$Year,
+	spawners = as.numeric(colck$NatOrigSpn + colck$HatchOrigSpn), # Note this is the fish that returned to spawn, NOT a mistake!
 	smoothedSpawners = NA,
 	runsize = NA,
 	smoothedRunsize = NA
@@ -1328,18 +1335,28 @@ sps_data <- rbind(sps_data, colck_sps)
 #------------------------------------------------------------------------------
 # Sockeye
 #------------------------------------------------------------------------------
-colse <- read.csv("data/spawner_abundance.csv") %>% 
+colse_old <- read.csv("data/spawner_abundance.csv") %>% 
 	subset(region == "Columbia" &  species_name == "Lake sockeye") %>%
 	subset(!is.na(estimated_count))
 
+colse <- read.csv("data/OkanaganSockeye.csv")
+
+# Compare
+plot(colse$year, colse$spawners*10^-3, "o", bty = "l", xlab = "", ylab = "Spawners (thousands)", las = 1, ylim = c(0, 210))
+points(colse_old$year, colse_old$estimated_count*10^-3, col = 2, pch = 19, cex = 0.6)
+legend("topleft", pch = c(1,19), col = c(1,2), pt.cex = c(1,0.6), legend = c("DFO (2024)", "PSE"))
+abline(v = 2003.5); text(c(1995, 2015), c(210, 210), c("Not used", "Used"))
+
+
 # Put in SPS format
+yrs <- c(2004:2023) # don't use pre-2004 (not comparable; DFO 2024)
 colse_sps <- data.frame(
-	region = rep("Columbia", length(colse$year)),
-	species = rep("Sockeye", length(colse$year)),
-	year = colse$year,
-	spawners = as.numeric(colse$estimated_count), # Note this is the fish that returned to spawn, NOT a mistake!
+	region = rep("Columbia", length(yrs)),
+	species = rep("Sockeye", length(yrs)),
+	year = yrs,
+	spawners = as.numeric(colse$spawners[match(yrs, colse$year)]), 
 	smoothedSpawners = NA,
-	runsize = NA,
+	runsize = as.numeric(colse$runsize[match(yrs, colse$year)]),
 	smoothedRunsize = NA
 ) 
 
@@ -1349,7 +1366,11 @@ colse_sps$smoothedSpawners <- genSmooth(
 	years = colse_sps$year,
 	genLength = genLength$gen_length[genLength$region == "Columbia" & genLength$species == "Sockeye"]
 )
-
+colse_sps$smoothedRunsize <- genSmooth(
+	abund = colse_sps$runsize,
+	years = colse_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Columbia" & genLength$species == "Sockeye"]
+)
 
 plot_abund(colse_sps)
 
