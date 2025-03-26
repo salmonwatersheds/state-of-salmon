@@ -16,14 +16,15 @@ plot_abund <- function(sps_data_subset, cols = c("#887A52", "#416191")){
 	abline(v = seq(1950, 2025, 1), col = grey(0.8), lwd = 0.8, lty = 3)
 	
 	# Add spawners
-	abline(h = mean(sps_data_subset$smoothedSpawners*10^-3, na.rm = TRUE), col = cols[2], lty = 2)
+	abline(h = exp(mean(log(sps_data_subset$spawners), na.rm = TRUE))*10^-3, col = cols[2], lty = 2)
+	
 	lines(sps_data_subset$year, sps_data_subset$spawners*10^-3, col = cols[2], lwd = 0.5, xpd = NA)
 	points(sps_data_subset$year, sps_data_subset$spawners*10^-3, col = cols[2], pch = 21, bg = "white", lwd = 0.5)
 	lines(sps_data_subset$year, sps_data_subset$smoothedSpawners*10^-3, col = cols[2], lwd = 2, xpd = NA)
 
 	# Add run size
 	if(sum(!is.na(sps_data_subset$runsize)) > 0){
-		abline(h = mean(sps_data_subset$smoothedRunsize*10^-3, na.rm = TRUE), col = cols[1], lty = 2)
+		abline(h = exp(mean(log(sps_data_subset$runsize), na.rm = TRUE))*10^-3, col = cols[1], lty = 2)
 	lines(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], xpd = NA, lwd = 0.5)
 	points(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], pch = 21, bg = "white", lwd = 0.5)
 	lines(sps_data_subset$year, sps_data_subset$smoothedRunsize*10^-3, col = cols[1], lwd = 2, xpd = NA)
@@ -656,4 +657,12 @@ btn_table.all <- function(
 			defaultPageSize = 18
 		)
 	
+}
+
+###############################################################################
+# Change time series to percent anomaly
+###############################################################################
+
+percAnomaly <- function(y, average){
+	return((y - average)/average * 100)
 }
