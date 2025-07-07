@@ -5,11 +5,16 @@
 1,"Skeena","SKNA","Lake sockeye","SEL",176,176,TRUE,"Kitsumkalum","Kitsumkalum","SEL-20-06","Current",5,1,1,44,"Skeena Sockeye Salmon"
 1,"Skeena","SKNA","Lake sockeye","SEL",177,177,TRUE,"Lakelse","Lakelse","SEL-20-07","Current",5,1,1,44,"Skeena Sockeye Salmon"
 1,"Skeena","SKNA","Lake sockeye","SEL",178,172,FALSE,"Mcdonell/Dennis/Aldrich","Aldrich","SEL-20-02","Current",5,1,1,44,"Skeena Sockeye Salmon"
+1,"Skeena","SKNA","Lake sockeye","SEL",178,173,FALSE,"Mcdonell/Dennis/Aldrich","Dennis","SEL-20-03","Current",5,1,1,44,"Skeena Sockeye Salmon"
+1,"Skeena","SKNA","Lake sockeye","SEL",178,178,TRUE,"Mcdonell/Dennis/Aldrich","Mcdonell","SEL-20-08","Current",5,1,1,44,"Skeena Sockeye Salmon"
 1,"Skeena","SKNA","Lake sockeye","SEL",180,180,TRUE,"Babine/Onerka","Babine","SEL-21-02-EW","Current",5,1,1,44,"Skeena Sockeye Salmon"
-1,"Skeena","SKNA","Lake sockeye","SEL",181,181,TRUE,"Bulkley/Maxan","Bulkley","SEL-21-03","Current",5,1,1,36,"Nass Sockeye Salmon"
+1,"Skeena","SKNA","Lake sockeye","SEL",180,243,FALSE,"Babine/Onerka","Onerka","SEL-21-13","Current",5,1,1,NA,NA
+1,"Skeena","SKNA","Lake sockeye","SEL",181,181,TRUE,"Bulkley/Maxan","Bulkley","SEL-21-03","Current",5,1,1,44,"Skeena Sockeye Salmon"
+1,"Skeena","SKNA","Lake sockeye","SEL",181,184,FALSE,"Bulkley/Maxan","Maxan","SEL-21-06","Current",5,1,1,44,"Skeena Sockeye Salmon"
 1,"Skeena","SKNA","Lake sockeye","SEL",183,183,TRUE,"Gitanyow (Kitwanga/Kitwancool)","Gitanyow","SEL-21-05","Current",5,1,1,44,"Skeena Sockeye Salmon"
 1,"Skeena","SKNA","Lake sockeye","SEL",185,179,FALSE,"Morice/Atna","Atna","SEL-21-01","Current",5,1,1,44,"Skeena Sockeye Salmon"
-1,"Skeena","SKNA","Lake sockeye","SEL",186,186,TRUE,"Nilkitkwa","Nilkitkwa","SEL-21-02-LW","-989898",5,1,1,44,"Skeena Sockeye Salmon"
+1,"Skeena","SKNA","Lake sockeye","SEL",185,185,TRUE,"Morice/Atna","Morice","SEL-21-07","Current",6,1,1,44,"Skeena Sockeye Salmon"
+1,"Skeena","SKNA","Lake sockeye","SEL",186,186,TRUE,"Nilkitkwa","Nilkitkwa","SEL-21-02-LW",NA,5,1,1,44,"Skeena Sockeye Salmon"
 1,"Skeena","SKNA","Lake sockeye","SEL",187,187,TRUE,"Stephens","Stephens","SEL-21-09","Current",5,1,1,44,"Skeena Sockeye Salmon"
 1,"Skeena","SKNA","Lake sockeye","SEL",189,189,TRUE,"Tahlo/Morrison","Tahlo/Morrison","SEL-21-11","Current",5,1,1,44,"Skeena Sockeye Salmon"
 1,"Skeena","SKNA","Lake sockeye","SEL",190,190,TRUE,"Asitika","Asitika","SEL-22-01","Current",5,1,1,44,"Skeena Sockeye Salmon"
@@ -24,10 +29,11 @@
 1,"Skeena","SKNA","Lake sockeye","SEL",199,199,TRUE,"Slamgeesh","Slamgeesh","SEL-22-10","Current",5,1,1,44,"Skeena Sockeye Salmon"
 1,"Skeena","SKNA","Lake sockeye","SEL",200,200,TRUE,"Spawning","Spawning","SEL-22-11","Current",5,1,1,44,"Skeena Sockeye Salmon"
 1,"Skeena","SKNA","Lake sockeye","SEL",201,201,TRUE,"Sustut","Sustut","SEL-22-12","Current",5,1,1,44,"Skeena Sockeye Salmon"
-1,"Skeena","SKNA","Lake sockeye","SEL",203,204,FALSE,"Babine (enhanced)","Babine-Pinkut","-989898","-989898",5,1,1,44,"Skeena Sockeye Salmon"
+1,"Skeena","SKNA","Lake sockeye","SEL",203,203,TRUE,"Babine (enhanced)","Babine (enhanced)","SEL-21-02-F","Current",5,1,1,44,"Skeena Sockeye Salmon"
+1,"Skeena","SKNA","Lake sockeye","SEL",203,204,FALSE,"Babine (enhanced)","Babine-Pinkut",NA,NA,5,1,1,44,"Skeena Sockeye Salmon"
 1,"Skeena","SKNA","Lake sockeye","SEL",230,230,TRUE,"Footsore/Hodder","Footsore/Hodder","SEL-21-12","Current",5,1,1,44,"Skeena Sockeye Salmon"
-1,"Skeena","SKNA","Lake sockeye","SEL",291,291,TRUE,"Prudhomme","Prudhomme","SEL-19-49","Current",5,1,1,-989898,"-989898"
-1,"Skeena","SKNA","Lake sockeye","SEL",292,292,TRUE,"Shawatlan","Shawatlan","SEL-19-54","Current",5,1,1,-989898,"-989898"
+1,"Skeena","SKNA","Lake sockeye","SEL",291,291,TRUE,"Prudhomme","Prudhomme","SEL-19-49","Current",5,1,1,NA,NA
+1,"Skeena","SKNA","Lake sockeye","SEL",292,292,TRUE,"Shawatlan","Shawatlan","SEL-19-54","Current",5,1,1,NA,NA
 1,"Skeena","SKNA","River sockeye","SER",216,216,TRUE,"Skeena River-High Interior (river-type)","Skeena River-high interior","SER-19","Current",5,1,2,44,"Skeena Sockeye Salmon"
 1,"Skeena","SKNA","River sockeye","SER",226,226,TRUE,"Skeena River (river-type)","Skeena River","SER-18","Current",5,1,2,44,"Skeena Sockeye Salmon"
 1,"Skeena","SKNA","Pink (odd)","PKO",209,209,TRUE,"Lower Skeena River (odd)","Lower Skeena (odd)","PKO-15","Current",2,1,3,45,"Skeena/Nass Pink Salmon"
@@ -46,7 +52,6 @@
 1,"Skeena","SKNA","Chinook","CK",224,224,TRUE,"Skeena Estuary","Skeena Estuary-CK","CK-45","Current",6,1,5,4,"Central Coast Chinook Salmon"
 1,"Skeena","SKNA","Chinook","CK",227,227,TRUE,"Lakelse","Lakelse-CK","CK-51","Current",6,1,5,42,"Skeena Chinook Salmon"
 1,"Skeena","SKNA","Chinook","CK",229,229,TRUE,"Zymoetz","Zymoetz","CK-80","Current",6,1,5,42,"Skeena Chinook Salmon"
-1,"Skeena","SKNA","Chinook","CK",241,241,TRUE,"Sicintine","Sicintine","CK-81","Current",6,1,5,42,"Skeena Chinook Salmon"
 1,"Skeena","SKNA","Coho","CO",202,202,TRUE,"Lower Skeena","Lower Skeena-CO","CO-32","Current",3,1,6,43,"Skeena Coho Salmon"
 1,"Skeena","SKNA","Coho","CO",215,215,TRUE,"Middle Skeena","Middle Skeena-CO","CO-33","Current",3,1,6,43,"Skeena Coho Salmon"
 1,"Skeena","SKNA","Coho","CO",225,225,TRUE,"Skeena Estuary","Skeena Estuary-CO","CO-31","Current",3,1,6,35,"Nass Coho Salmon"
@@ -54,20 +59,20 @@
 1,"Skeena","SKNA","Chum","CM",211,211,TRUE,"Lower Skeena","Lower Skeena-CM","CM-27","Current",4,1,7,46,"Skeena/Nass Chum Salmon"
 1,"Skeena","SKNA","Chum","CM",214,214,TRUE,"Middle Skeena","Middle Skeena-CM","CM-28","Current",4,1,7,46,"Skeena/Nass Chum Salmon"
 1,"Skeena","SKNA","Chum","CM",220,220,TRUE,"Skeena Estuary","Skeena Estuary-CM","CM-26","Current",4,1,7,46,"Skeena/Nass Chum Salmon"
-1,"Skeena","SKNA","Chum","CM",242,242,TRUE,"Upper Skeena","Upper Skeena","-989898","-989898",6,1,7,-989898,"-989898"
-1,"Skeena","SKNA","Steelhead","SH",280,280,TRUE,"Upper Skeena Headwaters","Upper Skeena Headwaters","-989898","-989898",5,1,10,-989898,"-989898"
-1,"Skeena","SKNA","Steelhead","SH",281,281,TRUE,"Upper Sustut","Upper Sustut","-989898","-989898",5,1,10,-989898,"-989898"
-1,"Skeena","SKNA","Steelhead","SH",282,282,TRUE,"Upper Skeena","Upper Skeena","-989898","-989898",5,1,10,-989898,"-989898"
-1,"Skeena","SKNA","Steelhead","SH",283,283,TRUE,"Kispiox","Kispiox","-989898","-989898",5,1,10,-989898,"-989898"
-1,"Skeena","SKNA","Steelhead","SH",284,284,TRUE,"Babine","Babine","-989898","-989898",5,1,10,-989898,"-989898"
-1,"Skeena","SKNA","Steelhead","SH",285,285,TRUE,"Middle Skeena","Middle Skeena","-989898","-989898",5,1,10,-989898,"-989898"
-1,"Skeena","SKNA","Steelhead","SH",286,286,TRUE,"Suskwa","Suskwa","-989898","-989898",5,1,10,-989898,"-989898"
-1,"Skeena","SKNA","Steelhead","SH",287,287,TRUE,"Bulkley","Bulkley","-989898","-989898",5,1,10,-989898,"-989898"
-1,"Skeena","SKNA","Steelhead","SH",288,288,TRUE,"Skeena Coastal Summers","Skeena Coastal Summers","-989898","-989898",5,1,10,-989898,"-989898"
-1,"Skeena","SKNA","Steelhead","SH",289,289,TRUE,"Morice","Morice","-989898","-989898",5,1,10,-989898,"-989898"
-1,"Skeena","SKNA","Steelhead","SH",290,290,TRUE,"Skeena Coastal Winters","Skeena Coastal Winters","-989898","-989898",5,1,10,-989898,"-989898"
-2,"Nass","NASS","Lake sockeye","SEL",418,418,TRUE,"Clements","Clements","SEL-23-01","-989898",5,2,1,44,"Skeena Sockeye Salmon"
-2,"Nass","NASS","Lake sockeye","SEL",419,419,TRUE,"Leverson","Leverson","SEL-23-02","-989898",5,2,1,44,"Skeena Sockeye Salmon"
+1,"Skeena","SKNA","Chum","CM",242,242,TRUE,"Upper Skeena","Upper Skeena",NA,NA,6,1,7,NA,NA
+1,"Skeena","SKNA","Steelhead","SH",280,280,TRUE,"Upper Skeena Headwaters","Upper Skeena Headwaters",NA,NA,5,1,10,NA,NA
+1,"Skeena","SKNA","Steelhead","SH",281,281,TRUE,"Upper Sustut","Upper Sustut",NA,NA,5,1,10,NA,NA
+1,"Skeena","SKNA","Steelhead","SH",282,282,TRUE,"Upper Skeena","Upper Skeena",NA,NA,5,1,10,NA,NA
+1,"Skeena","SKNA","Steelhead","SH",283,283,TRUE,"Kispiox","Kispiox",NA,NA,5,1,10,NA,NA
+1,"Skeena","SKNA","Steelhead","SH",284,284,TRUE,"Babine","Babine",NA,NA,5,1,10,NA,NA
+1,"Skeena","SKNA","Steelhead","SH",285,285,TRUE,"Middle Skeena","Middle Skeena",NA,NA,5,1,10,NA,NA
+1,"Skeena","SKNA","Steelhead","SH",286,286,TRUE,"Suskwa","Suskwa",NA,NA,5,1,10,NA,NA
+1,"Skeena","SKNA","Steelhead","SH",287,287,TRUE,"Bulkley","Bulkley",NA,NA,5,1,10,NA,NA
+1,"Skeena","SKNA","Steelhead","SH",288,288,TRUE,"Skeena Coastal Summers","Skeena Coastal Summers",NA,NA,5,1,10,NA,NA
+1,"Skeena","SKNA","Steelhead","SH",289,289,TRUE,"Morice","Morice",NA,NA,5,1,10,NA,NA
+1,"Skeena","SKNA","Steelhead","SH",290,290,TRUE,"Skeena Coastal Winters","Skeena Coastal Winters",NA,NA,5,1,10,NA,NA
+2,"Nass","NASS","Lake sockeye","SEL",418,418,TRUE,"Clements","Clements","SEL-23-01",NA,5,2,1,44,"Skeena Sockeye Salmon"
+2,"Nass","NASS","Lake sockeye","SEL",419,419,TRUE,"Leverson","Leverson","SEL-23-02",NA,5,2,1,44,"Skeena Sockeye Salmon"
 2,"Nass","NASS","Lake sockeye","SEL",420,420,TRUE,"Bowser","Bowser","SEL-24-01","Current",5,2,1,36,"Nass Sockeye Salmon"
 2,"Nass","NASS","Lake sockeye","SEL",421,421,TRUE,"Damdochax","Damdochax","SEL-24-02","Current",5,2,1,36,"Nass Sockeye Salmon"
 2,"Nass","NASS","Lake sockeye","SEL",422,422,TRUE,"Fred Wright","Fred Wright","SEL-24-03","Current",5,2,1,36,"Nass Sockeye Salmon"
@@ -87,16 +92,16 @@
 2,"Nass","NASS","Chum","CM",404,404,TRUE,"Portland Inlet","Portland Inlet","CM-30","Current",4,2,7,46,"Skeena/Nass Chum Salmon"
 2,"Nass","NASS","Chum","CM",405,405,TRUE,"Lower Nass","Lower Nass","CM-31","Current",4,2,7,46,"Skeena/Nass Chum Salmon"
 2,"Nass","NASS","Chum","CM",406,406,TRUE,"Portland Canal-Observatory","Portland Canal-Observatory","CM-32","Current",4,2,7,46,"Skeena/Nass Chum Salmon"
-2,"Nass","NASS","Steelhead","SH",480,480,TRUE,"Nass Summer","Nass Summer","-989898","-989898",5,2,10,-989898,"-989898"
-2,"Nass","NASS","Steelhead","SH",481,481,TRUE,"Nass Winter","Nass Winter","-989898","-989898",5,2,10,-989898,"-989898"
+2,"Nass","NASS","Steelhead","SH",480,480,TRUE,"Nass Summer","Nass Summer",NA,NA,5,2,10,NA,NA
+2,"Nass","NASS","Steelhead","SH",481,481,TRUE,"Nass Winter","Nass Winter",NA,NA,5,2,10,NA,NA
 3,"Central Coast","CC","Lake sockeye","SEL",524,524,TRUE,"Long","Long (Sockeye-Lake)","SEL-15-01","Current",5,3,1,41,"Rivers/Smith Sockeye Salmon"
 3,"Central Coast","CC","Lake sockeye","SEL",525,525,TRUE,"Owikeno","Owikeno (Sockeye-Lake)","SEL-15-02","Current",5,3,1,41,"Rivers/Smith Sockeye Salmon"
 3,"Central Coast","CC","Lake sockeye","SEL",527,527,TRUE,"Wannock (Owikeno)","Wannock[Owikeno] (Sockeye-Lake)","SEL-15-04","Current",5,3,1,41,"Rivers/Smith Sockeye Salmon"
 3,"Central Coast","CC","Lake sockeye","SEL",528,528,TRUE,"South Atnarko Lakes","South Atnarko Lakes (Sockeye-Lake)","SX_528","Current",5,3,1,41,"Rivers/Smith Sockeye Salmon"
-3,"Central Coast","CC","Lake sockeye","SEL",529,529,TRUE,"Backland","Backland (Sockeye-Lake)","SEL-18-01","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",530,530,TRUE,"Soda Creek","Soda Creek (Sockeye-Lake)","SEL-18-10","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",529,529,TRUE,"Backland","Backland (Sockeye-Lake)","SEL-18-01",NA,5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",530,530,TRUE,"Soda Creek","Soda Creek (Sockeye-Lake)","SEL-18-10",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",532,532,TRUE,"Canoona","Canoona (Sockeye-Lake)","SEL-18-02","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",533,533,TRUE,"Dome","Dome (Sockeye-Lake)","SEL-18-03","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",533,533,TRUE,"Dome","Dome (Sockeye-Lake)","SEL-18-03",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",534,534,TRUE,"Evelyn","Evelyn (Sockeye-Lake)","SEL-18-04","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",535,535,TRUE,"Kainet Creek","Kainet Creek (Sockeye-Lake)","SEL-18-05","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",536,536,TRUE,"Kimsquit","Kimsquit (Sockeye-Lake)","SEL-18-06","Current",5,3,1,7,"Central Coast Sockeye Salmon "
@@ -107,69 +112,69 @@
 3,"Central Coast","CC","Lake sockeye","SEL",541,541,TRUE,"Bloomfield","Bloomfield (Sockeye-Lake)","SEL-19-02","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",542,542,TRUE,"Bolton Creek","Bolton Creek (Sockeye-Lake)","SEL-19-03","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",543,543,TRUE,"Bonilla","Bonilla (Sockeye-Lake)","SEL-19-04","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",544,544,TRUE,"Borrowman Creek","Borrowman Creek (Sockeye-Lake)","SEL-19-05","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",545,545,TRUE,"Busey Creek","Busey Creek (Sockeye-Lake)","SEL-19-06","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",546,546,TRUE,"Cartwright Creek","Cartwright Creek (Sockeye-Lake)","SEL-19-07","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",547,547,TRUE,"Chic Chic","Chic Chic (Sockeye-Lake)","SEL-19-08","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",548,548,TRUE,"Tuwartz","Tuwartz (Sockeye-Lake)","SEL-19-09","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",544,544,TRUE,"Borrowman Creek","Borrowman Creek (Sockeye-Lake)","SEL-19-05",NA,5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",545,545,TRUE,"Busey Creek","Busey Creek (Sockeye-Lake)","SEL-19-06",NA,5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",546,546,TRUE,"Cartwright Creek","Cartwright Creek (Sockeye-Lake)","SEL-19-07",NA,5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",547,547,TRUE,"Chic Chic","Chic Chic (Sockeye-Lake)","SEL-19-08",NA,5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",548,548,TRUE,"Tuwartz","Tuwartz (Sockeye-Lake)","SEL-19-09",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",549,549,TRUE,"Fannie Cove","Fannie Cove (Sockeye-Lake)","SEL-19-10","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",550,550,TRUE,"Curtis Inlet","Curtis Inlet (Sockeye-Lake)","SEL-19-11","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",551,551,TRUE,"Dallain Creek","Dallain Creek (Sockeye-Lake)","SEL-19-12","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",552,552,TRUE,"Deer","Deer (Sockeye-Lake)","SEL-19-13","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",551,551,TRUE,"Dallain Creek","Dallain Creek (Sockeye-Lake)","SEL-19-12",NA,5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",552,552,TRUE,"Deer","Deer (Sockeye-Lake)","SEL-19-13",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",553,553,TRUE,"Devon","Devon (Sockeye-Lake)","SEL-19-14","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",554,554,TRUE,"Douglas Creek","Douglas Creek (Sockeye-Lake)","SEL-19-15","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",555,555,TRUE,"Elizabeth","Elizabeth (Sockeye-Lake)","SEL-19-16","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",554,554,TRUE,"Douglas Creek","Douglas Creek (Sockeye-Lake)","SEL-19-15",NA,5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",555,555,TRUE,"Elizabeth","Elizabeth (Sockeye-Lake)","SEL-19-16",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",556,556,TRUE,"Elsie/Hoy","Elsie/Hoy (Sockeye-Lake)","SEL-19-17","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",557,557,TRUE,"End Hill Creek","End Hill Creek (Sockeye-Lake)","SEL-19-18","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",558,558,TRUE,"Evinrude Inlet","Evinrude Inlet (Sockeye-Lake)","SEL-19-19","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",558,558,TRUE,"Evinrude Inlet","Evinrude Inlet (Sockeye-Lake)","SEL-19-19",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",559,559,TRUE,"Freeda","Freeda (Sockeye-Lake)","SEL-19-20","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",560,560,TRUE,"Hartley Bay","Hartley Bay (Sockeye-Lake)","SEL-19-21","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",561,561,TRUE,"Hevenor Inlet","Hevenor Inlet (Sockeye-Lake)","SEL-19-22","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",560,560,TRUE,"Hartley Bay","Hartley Bay (Sockeye-Lake)","SEL-19-21",NA,5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",561,561,TRUE,"Hevenor Inlet","Hevenor Inlet (Sockeye-Lake)","SEL-19-22",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",562,562,TRUE,"Higgins Lagoon","Higgins Lagoon (Sockeye-Lake)","SEL-19-23","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",563,563,TRUE,"Kadjusdis River","Kadjusdis River (Sockeye-Lake)","SEL-19-24","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",563,563,TRUE,"Kadjusdis River","Kadjusdis River (Sockeye-Lake)","SEL-19-24",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",564,564,TRUE,"Kdelmashan Creek","Kdelmashan Creek (Sockeye-Lake)","SEL-19-25","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",565,565,TRUE,"Keecha","Keecha (Sockeye-Lake)","SEL-19-26","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",566,566,TRUE,"Kent Inlet Lagoon Creek","Kent Inlet Lagoon Creek (Sockeye-Lake)","SEL-19-27","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",567,567,TRUE,"Kenzuwash Creeks","Kenzuwash Creeks (Sockeye-Lake)","SEL-19-28","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",568,568,TRUE,"Keswar Creek","Keswar Creek (Sockeye-Lake)","SEL-19-29","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",569,569,TRUE,"Kildidt Creek","Kildidt Creek (Sockeye-Lake)","SEL-19-30","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",567,567,TRUE,"Kenzuwash Creeks","Kenzuwash Creeks (Sockeye-Lake)","SEL-19-28",NA,5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",568,568,TRUE,"Keswar Creek","Keswar Creek (Sockeye-Lake)","SEL-19-29",NA,5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",569,569,TRUE,"Kildidt Creek","Kildidt Creek (Sockeye-Lake)","SEL-19-30",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",570,570,TRUE,"Kildidt Lagoon Creek","Kildidt Lagoon Creek (Sockeye-Lake)","SEL-19-31","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",571,571,TRUE,"Kisameet","Kisameet (Sockeye-Lake)","SEL-19-32","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",572,572,TRUE,"Koeye","Koeye (Sockeye-Lake)","SEL-19-33","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",573,573,TRUE,"Kooryet","Kooryet (Sockeye-Lake)","SEL-19-34","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",574,574,TRUE,"Kunsoot River","Kunsoot River (Sockeye-Lake)","SEL-19-35","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",574,574,TRUE,"Kunsoot River","Kunsoot River (Sockeye-Lake)","SEL-19-35",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",575,575,TRUE,"Kwakwa Creek","Kwakwa Creek (Sockeye-Lake)","SEL-19-36","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",576,576,TRUE,"Lewis Creek","Lewis Creek (Sockeye-Lake)","SEL-19-37","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",576,576,TRUE,"Lewis Creek","Lewis Creek (Sockeye-Lake)","SEL-19-37",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",577,577,TRUE,"Limestone Creek","Limestone Creek (Sockeye-Lake)","SEL-19-38","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",578,578,TRUE,"Lowe/Simpson/Weir","Lowe/Simpson/Weir (Sockeye-Lake)","SEL-19-39","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",578,578,TRUE,"Lowe/Simpson/Weir","Lowe/Simpson/Weir (Sockeye-Lake)","SEL-19-39",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",579,579,TRUE,"Mary Cove Creek","Mary Cove Creek (Sockeye-Lake)","SEL-19-40","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",580,580,TRUE,"Mcdonald Creek","Mcdonald Creek (Sockeye-Lake)","SEL-19-41","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",581,581,TRUE,"Mcloughlin","Mcloughlin (Sockeye-Lake)","SEL-19-42","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",580,580,TRUE,"Mcdonald Creek","Mcdonald Creek (Sockeye-Lake)","SEL-19-41",NA,5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",581,581,TRUE,"Mcloughlin","Mcloughlin (Sockeye-Lake)","SEL-19-42",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",582,582,TRUE,"Mikado","Mikado (Sockeye-Lake)","SEL-19-43","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",583,583,TRUE,"Monckton Inlet Creek","Monckton Inlet Creek (Sockeye-Lake)","SEL-19-44","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",583,583,TRUE,"Monckton Inlet Creek","Monckton Inlet Creek (Sockeye-Lake)","SEL-19-44",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",584,584,TRUE,"Namu","Namu (Sockeye-Lake)","SEL-19-45","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",585,585,TRUE,"Port John","Port John (Sockeye-Lake)","SEL-19-46","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",586,586,TRUE,"Powles Creek","Powles Creek (Sockeye-Lake)","SEL-19-47","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",587,587,TRUE,"Price Creek","Price Creek (Sockeye-Lake)","SEL-19-48","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",588,588,TRUE,"Roderick","Roderick (Sockeye-Lake)","SEL-19-50","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",587,587,TRUE,"Price Creek","Price Creek (Sockeye-Lake)","SEL-19-48",NA,5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",588,588,TRUE,"Roderick","Roderick (Sockeye-Lake)","SEL-19-50",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",589,589,TRUE,"Ryan Creek","Ryan Creek (Sockeye-Lake)","SEL-19-51","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",590,590,TRUE,"Salter","Salter (Sockeye-Lake)","SEL-19-52","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",591,591,TRUE,"Scoular/Kilpatrick","Scoular/Kilpatrick (Sockeye-Lake)","SEL-19-53","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",592,592,TRUE,"Sheneeza Inlet","Sheneeza Inlet (Sockeye-Lake)","SEL-19-55","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",593,593,TRUE,"Ship Point Creek","Ship Point Creek (Sockeye-Lake)","SEL-19-56","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",592,592,TRUE,"Sheneeza Inlet","Sheneeza Inlet (Sockeye-Lake)","SEL-19-55",NA,5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",593,593,TRUE,"Ship Point Creek","Ship Point Creek (Sockeye-Lake)","SEL-19-56",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",594,594,TRUE,"Spencer Creek","Spencer Creek (Sockeye-Lake)","SEL-19-57","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",595,595,TRUE,"Stannard Creek","Stannard Creek (Sockeye-Lake)","SEL-19-58","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",595,595,TRUE,"Stannard Creek","Stannard Creek (Sockeye-Lake)","SEL-19-58",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",596,596,TRUE,"Talamoosa Creek","Talamoosa Creek (Sockeye-Lake)","SEL-19-59","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",597,597,TRUE,"Tankeeah River","Tankeeah River (Sockeye-Lake)","SEL-19-60","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",598,598,TRUE,"Treneman Creek","Treneman Creek (Sockeye-Lake)","SEL-19-61","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",598,598,TRUE,"Treneman Creek","Treneman Creek (Sockeye-Lake)","SEL-19-61",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",599,599,TRUE,"Tsimtack/Moore/Roger","Tsimtack/Moore/Roger (Sockeye-Lake)","SEL-19-62","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",600,600,TRUE,"Tuno Creek East","Tuno Creek East (Sockeye-Lake)","SEL-19-63","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",600,600,TRUE,"Tuno Creek East","Tuno Creek East (Sockeye-Lake)","SEL-19-63",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",601,601,TRUE,"Tuno Creek West","Tuno Creek West (Sockeye-Lake)","SEL-19-64","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",602,602,TRUE,"Tyler Creek","Tyler Creek (Sockeye-Lake)","SEL-19-65","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",602,602,TRUE,"Tyler Creek","Tyler Creek (Sockeye-Lake)","SEL-19-65",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",603,603,TRUE,"Wale Creek","Wale Creek (Sockeye-Lake)","SEL-19-66","Current",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",604,604,TRUE,"Watt Bay","Watt Bay (Sockeye-Lake)","SEL-19-67","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",605,605,TRUE,"West Creek","West Creek (Sockeye-Lake)","SEL-19-68","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
-3,"Central Coast","CC","Lake sockeye","SEL",606,606,TRUE,"Yaaklele Lagoon","Yaaklele Lagoon (Sockeye-Lake)","SEL-19-69","-989898",5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",604,604,TRUE,"Watt Bay","Watt Bay (Sockeye-Lake)","SEL-19-67",NA,5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",605,605,TRUE,"West Creek","West Creek (Sockeye-Lake)","SEL-19-68",NA,5,3,1,7,"Central Coast Sockeye Salmon "
+3,"Central Coast","CC","Lake sockeye","SEL",606,606,TRUE,"Yaaklele Lagoon","Yaaklele Lagoon (Sockeye-Lake)","SEL-19-69",NA,5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","Lake sockeye","SEL",607,607,TRUE,"Yeo","Yeo (Sockeye-Lake)","SEL-19-70","Current",5,3,1,7,"Central Coast Sockeye Salmon "
 3,"Central Coast","CC","River sockeye","SER",613,613,TRUE,"Rivers-Smith Inlets (river-type)","Rivers-Smith Inlets (Sockeye-River)","SER-12","Current",4,3,2,41,"Rivers/Smith Sockeye Salmon"
 3,"Central Coast","CC","River sockeye","SER",614,614,TRUE,"Northern Coastal Fjords (river-type)","Northern Coastal Fjords (Sockeye-River)","SER-16","Current",4,3,2,7,"Central Coast Sockeye Salmon "
@@ -202,10 +207,10 @@
 3,"Central Coast","CC","Chum","CM",506,506,TRUE,"Hecate Lowlands","Hecate Lowlands (Chum)","CM-18","Current",4,3,7,5,"Central Coast Chum Salmon"
 3,"Central Coast","CC","Chum","CM",507,507,TRUE,"Mussel-Kynoch","Mussel-Kynock (Chum)","CM-19","Current",4,3,7,5,"Central Coast Chum Salmon"
 3,"Central Coast","CC","Chum","CM",508,508,TRUE,"Douglas-Gardner","Douglas-Gardner (Chum)","CM-20","Current",4,3,7,5,"Central Coast Chum Salmon"
-3,"Central Coast","CC","Steelhead","SH",680,680,TRUE,"North Coast Winter","North Coast Winter","-989898","-989898",5,3,10,-989898,"-989898"
-3,"Central Coast","CC","Steelhead","SH",681,681,TRUE,"North Coast Summer","North Coast Summer","-989898","-989898",5,3,10,-989898,"-989898"
-3,"Central Coast","CC","Steelhead","SH",682,682,TRUE,"Central Coast Winter","Central Coast Winter","-989898","-989898",5,3,10,-989898,"-989898"
-3,"Central Coast","CC","Steelhead","SH",683,683,TRUE,"Transition Summer","Transition Summer","-989898","-989898",5,3,10,-989898,"-989898"
+3,"Central Coast","CC","Steelhead","SH",680,680,TRUE,"North Coast Winter","North Coast Winter",NA,NA,5,3,10,NA,NA
+3,"Central Coast","CC","Steelhead","SH",681,681,TRUE,"North Coast Summer","North Coast Summer",NA,NA,5,3,10,NA,NA
+3,"Central Coast","CC","Steelhead","SH",682,682,TRUE,"Central Coast Winter","Central Coast Winter",NA,NA,5,3,10,NA,NA
+3,"Central Coast","CC","Steelhead","SH",683,683,TRUE,"Transition Summer","Transition Summer",NA,NA,5,3,10,NA,NA
 4,"Fraser","FRSR","Lake sockeye","SEL",711,711,TRUE,"Chilliwack-Early Summer (cyclic)","Chilliwack_Early Summer","SEL-03-01","Current",4,4,1,15,"Fraser Sockeye Salmon - Early Summer"
 4,"Fraser","FRSR","Lake sockeye","SEL",712,712,TRUE,"Cultus-Late","Cultus_Late","SEL-03-02","Current",4,4,1,16,"Fraser Sockeye Salmon - Late"
 4,"Fraser","FRSR","Lake sockeye","SEL",713,713,TRUE,"Harrison-Downstream Migrating-Late","Harrison-downstream migrating_Late","SEL-03-03","Current",4,4,1,16,"Fraser Sockeye Salmon - Late"
@@ -227,16 +232,15 @@
 4,"Fraser","FRSR","Lake sockeye","SEL",738,738,TRUE,"Shuswap-Early Summer (cyclic)","Shuswap_Early Summer","SEL-09-02","Current",4,4,1,15,"Fraser Sockeye Salmon - Early Summer"
 4,"Fraser","FRSR","Lake sockeye","SEL",739,739,TRUE,"Shuswap-Late (cyclic)","Shuswap_Late","SEL-09-03","Current",4,4,1,16,"Fraser Sockeye Salmon - Late"
 4,"Fraser","FRSR","Lake sockeye","SEL",740,740,TRUE,"Kamloops-Early Summer","Kamloops_Early Summer","SEL-10-01","Current",4,4,1,15,"Fraser Sockeye Salmon - Early Summer"
-4,"Fraser","FRSR","Lake sockeye","SEL",751,751,TRUE,"Adams & Momich Lakes-Early Summer","Adams and Momich Lakes_Early Summer <<Extinct>>","SEL-09-xx","Bin",4,4,1,-989898,"-989898"
 4,"Fraser","FRSR","Lake sockeye","SEL",752,752,TRUE,"North Barriere-Early Summer (de novo)","North Barriere_Early Summer <<de novo>>","SEL-10-03","Bin",4,4,1,15,"Fraser Sockeye Salmon - Early Summer"
-4,"Fraser","FRSR","Lake sockeye","SEL",753,753,TRUE,"Fraser-Early Summer","Fraser_Early Summer<<Extinct>>","SEL-06-06","Extinct",4,4,1,-989898,"-989898"
-4,"Fraser","FRSR","Lake sockeye","SEL",756,756,TRUE,"Alouette-Early Summer","Alouette - Early Summer <<Extinct>>","-989898","Extinct",4,4,1,-989898,"-989898"
-4,"Fraser","FRSR","Lake sockeye","SEL",757,757,TRUE,"Coquitlam-Early Summer","Coquitlam – Early Summer <<Extinct>>","-989898","Extinct",4,4,1,-989898,"-989898"
-4,"Fraser","FRSR","Lake sockeye","SEL",758,758,TRUE,"Kawkawa-Late","Kawkawa – Late <<Extinct>>","-989898","Extinct",4,4,1,-989898,"-989898"
-4,"Fraser","FRSR","Lake sockeye","SEL",759,759,TRUE,"Seton-Summer","Seton - Summer <<Extinct>>","-989898","Extinct",4,4,1,-989898,"-989898"
-4,"Fraser","FRSR","Lake sockeye","SEL",760,760,TRUE,"Adams-Early Summer","Adams - Early Summer <<Extinct>>","-989898","Extinct",4,4,1,-989898,"-989898"
-4,"Fraser","FRSR","Lake sockeye","SEL",761,761,TRUE,"Momich-Early Summer","Momich - Early Summer <<Extinct>>","-989898","Extinct",4,4,1,-989898,"-989898"
-4,"Fraser","FRSR","Lake sockeye","SEL",763,763,TRUE,"North Barriere-Early Summer","North Barriere - Early Summer <<Extinct>>","-989898","Extinct",4,4,1,-989898,"-989898"
+4,"Fraser","FRSR","Lake sockeye","SEL",753,753,TRUE,"Fraser-Early Summer","Fraser_Early Summer<<Extinct>>","SEL-06-06","Current",4,4,1,NA,NA
+4,"Fraser","FRSR","Lake sockeye","SEL",756,756,TRUE,"Alouette-Early Summer","Alouette - Early Summer <<Extinct>>",NA,"Current",4,4,1,NA,NA
+4,"Fraser","FRSR","Lake sockeye","SEL",757,757,TRUE,"Coquitlam-Early Summer","Coquitlam – Early Summer <<Extinct>>",NA,"Current",4,4,1,NA,NA
+4,"Fraser","FRSR","Lake sockeye","SEL",758,758,TRUE,"Kawkawa-Late","Kawkawa – Late <<Extinct>>",NA,"Extinct",4,4,1,NA,NA
+4,"Fraser","FRSR","Lake sockeye","SEL",759,759,TRUE,"Seton-Summer","Seton - Summer <<Extinct>>",NA,"Extinct",4,4,1,NA,NA
+4,"Fraser","FRSR","Lake sockeye","SEL",760,760,TRUE,"Adams-Early Summer","Adams - Early Summer <<Extinct>>",NA,"Extinct",4,4,1,NA,NA
+4,"Fraser","FRSR","Lake sockeye","SEL",761,761,TRUE,"Momich-Early Summer","Momich - Early Summer <<Extinct>>",NA,"Extinct",4,4,1,NA,NA
+4,"Fraser","FRSR","Lake sockeye","SEL",763,763,TRUE,"North Barriere-Early Summer","North Barriere - Early Summer <<Extinct>>",NA,"Extinct",4,4,1,NA,NA
 4,"Fraser","FRSR","River sockeye","SER",742,742,TRUE,"Widgeon (river-type)","Widgeon","SER-02","Current",4,4,2,17,"Fraser Sockeye Salmon - Summer"
 4,"Fraser","FRSR","River sockeye","SER",745,745,TRUE,"Harrison River (river-type)","Harrison River","SER-03","Current",4,4,2,17,"Fraser Sockeye Salmon - Summer"
 4,"Fraser","FRSR","Pink (odd)","PKO",710,710,TRUE,"Fraser River (odd)","Fraser River","PKO-1","Current",2,4,3,14,"Fraser Pink Salmon (odd)"
@@ -268,12 +272,12 @@
 4,"Fraser","FRSR","Coho","CO",750,750,TRUE,"Lower Fraser","Lower Fraser","CO-47","Current",3,4,6,33,"Lower Fraser Coho Salmon"
 4,"Fraser","FRSR","Coho","CO",906,906,TRUE,"Boundary Bay","Boundary Bay","CO-1","VREQ[Current]",3,4,6,50,"Georgia Strait Coho Salmon"
 4,"Fraser","FRSR","Chum","CM",701,701,TRUE,"Lower Fraser","Lower Fraser","CM-2","Current",4,4,7,12,"Fraser Chum Salmon"
-4,"Fraser","FRSR","Steelhead","SH",780,780,TRUE,"Mid Fraser Summer","Mid Fraser Summer","-989898","-989898",5,4,10,-989898,"-989898"
-4,"Fraser","FRSR","Steelhead","SH",781,781,TRUE,"Thompson Summer","Thompson Summer","-989898","-989898",5,4,10,-989898,"-989898"
-4,"Fraser","FRSR","Steelhead","SH",782,782,TRUE,"Lower Fraser Winter","Lower Fraser Winter","-989898","-989898",5,4,10,-989898,"-989898"
-4,"Fraser","FRSR","Steelhead","SH",783,783,TRUE,"Fraser Canyon Summer","Fraser Canyon Summer","-989898","-989898",5,4,10,-989898,"-989898"
-4,"Fraser","FRSR","Steelhead","SH",784,784,TRUE,"Lower Fraser Summer","Lower Fraser Summer","-989898","-989898",5,4,10,-989898,"-989898"
-4,"Fraser","FRSR","Steelhead","SH",785,785,TRUE,"Boundary Bay Winter","Boundary Bay Winter","-989898","-989898",5,4,10,-989898,"-989898"
+4,"Fraser","FRSR","Steelhead","SH",780,780,TRUE,"Mid Fraser Summer","Mid Fraser Summer",NA,NA,5,4,10,NA,NA
+4,"Fraser","FRSR","Steelhead","SH",781,781,TRUE,"Thompson Summer","Thompson Summer",NA,NA,5,4,10,NA,NA
+4,"Fraser","FRSR","Steelhead","SH",782,782,TRUE,"Lower Fraser Winter","Lower Fraser Winter",NA,NA,5,4,10,NA,NA
+4,"Fraser","FRSR","Steelhead","SH",783,783,TRUE,"Fraser Canyon Summer","Fraser Canyon Summer",NA,NA,5,4,10,NA,NA
+4,"Fraser","FRSR","Steelhead","SH",784,784,TRUE,"Lower Fraser Summer","Lower Fraser Summer",NA,NA,5,4,10,NA,NA
+4,"Fraser","FRSR","Steelhead","SH",785,785,TRUE,"Boundary Bay Winter","Boundary Bay Winter",NA,NA,5,4,10,NA,NA
 5,"Vancouver Island & Mainland Inlets","VIMI","Lake sockeye","SEL",927,927,TRUE,"Fulmore","Fulmore","SEL-11-01","Current",5,5,1,11,"ECVI/Mainland Sockeye Salmon "
 5,"Vancouver Island & Mainland Inlets","VIMI","Lake sockeye","SEL",928,928,TRUE,"Heydon","Heydon","SEL-11-02","Current",5,5,1,11,"ECVI/Mainland Sockeye Salmon "
 5,"Vancouver Island & Mainland Inlets","VIMI","Lake sockeye","SEL",929,929,TRUE,"Kakweiken","Kakweiken","SEL-11-03","Current",5,5,1,11,"ECVI/Mainland Sockeye Salmon "
@@ -314,10 +318,10 @@
 5,"Vancouver Island & Mainland Inlets","VIMI","Lake sockeye","SEL",969,969,TRUE,"Sproat","Sproat","SEL-13-25","Current",5,5,1,55,"WCVI/Barkley Sockeye Salmon"
 5,"Vancouver Island & Mainland Inlets","VIMI","Lake sockeye","SEL",970,970,TRUE,"William-Brink","William/Brink","SEL-13-26","Current",5,5,1,59,"WCVI - Other Sockeye Salmon"
 5,"Vancouver Island & Mainland Inlets","VIMI","Lake sockeye","SEL",976,976,TRUE,"Vernon","Vernon","SEL-12-09","Current",5,5,1,11,"ECVI/Mainland Sockeye Salmon "
-5,"Vancouver Island & Mainland Inlets","VIMI","River sockeye","SER",971,971,TRUE,"Southern Fjords (river-type)","Southern Fjords","SER-09","Current",4,5,2,-989898,"-989898"
-5,"Vancouver Island & Mainland Inlets","VIMI","River sockeye","SER",972,972,TRUE,"West Vancouver Island (river-type)","West Vancouver Island","SER-10","Current",4,5,2,-989898,"-989898"
-5,"Vancouver Island & Mainland Inlets","VIMI","River sockeye","SER",973,973,TRUE,"East Vancouver Island & Georgia Strait (river-type)","East Vancouver Island and Georgia Strait","SER-08","Current",4,5,2,-989898,"-989898"
-5,"Vancouver Island & Mainland Inlets","VIMI","River sockeye","SER",974,974,TRUE,"NW Vancouver Island (river-type)","NW Vancouver Island","SER-11","Current",4,5,2,-989898,"-989898"
+5,"Vancouver Island & Mainland Inlets","VIMI","River sockeye","SER",971,971,TRUE,"Southern Fjords (river-type)","Southern Fjords","SER-09","Current",4,5,2,NA,NA
+5,"Vancouver Island & Mainland Inlets","VIMI","River sockeye","SER",972,972,TRUE,"West Vancouver Island (river-type)","West Vancouver Island","SER-10","Current",4,5,2,NA,NA
+5,"Vancouver Island & Mainland Inlets","VIMI","River sockeye","SER",973,973,TRUE,"East Vancouver Island & Georgia Strait (river-type)","East Vancouver Island and Georgia Strait","SER-08","Current",4,5,2,NA,NA
+5,"Vancouver Island & Mainland Inlets","VIMI","River sockeye","SER",974,974,TRUE,"NW Vancouver Island (river-type)","NW Vancouver Island","SER-11","Current",4,5,2,NA,NA
 5,"Vancouver Island & Mainland Inlets","VIMI","Pink (odd)","PKO",921,921,TRUE,"East Howe Sound-Burrard Inlet (odd)","East Howe Sound-Burrard Inlet","PKO-2","Current",2,5,3,9,"ECVI/Mainland Pink Salmon"
 5,"Vancouver Island & Mainland Inlets","VIMI","Pink (odd)","PKO",922,922,TRUE,"Georgia Strait (odd)","Georgia Strait","PKO-3","Current",2,5,3,9,"ECVI/Mainland Pink Salmon"
 5,"Vancouver Island & Mainland Inlets","VIMI","Pink (odd)","PKO",923,923,TRUE,"East Vancouver Island-Johnstone Strait (odd)","East Vancouver Island-Johnstone Strait","PKO-4","Current",2,5,3,9,"ECVI/Mainland Pink Salmon"
@@ -361,25 +365,25 @@
 5,"Vancouver Island & Mainland Inlets","VIMI","Chum","CM",977,977,TRUE,"Northwest Vancouver Island","Northwest Vancouver Island","CM-11","Current",4,5,7,57,"WCVI Chum Salmon"
 5,"Vancouver Island & Mainland Inlets","VIMI","Chum","CM",978,978,TRUE,"Southwest & West Vancouver Island","Southwest & West  Vancouver Island","CM-10","Current",4,5,7,57,"WCVI Chum Salmon"
 5,"Vancouver Island & Mainland Inlets","VIMI","Chum","CM",979,979,TRUE,"Upper Knight","Upper Knight","CM-9","Current",4,5,7,57,"WCVI Chum Salmon"
-5,"Vancouver Island & Mainland Inlets","VIMI","Steelhead","SH",980,980,TRUE,"South Coast Winter","South Coast Winter","-989898","-989898",5,5,10,-989898,"-989898"
-5,"Vancouver Island & Mainland Inlets","VIMI","Steelhead","SH",981,981,TRUE,"East Vancouver Island Winter","East Vancouver Island Winter","-989898","-989898",5,5,10,-989898,"-989898"
-5,"Vancouver Island & Mainland Inlets","VIMI","Steelhead","SH",982,982,TRUE,"West Vancouver Island Winter","West Vancouver Island Winter","-989898","-989898",5,5,10,-989898,"-989898"
-5,"Vancouver Island & Mainland Inlets","VIMI","Steelhead","SH",983,983,TRUE,"South Coast Summer","South Coast Summer","-989898","-989898",5,5,10,-989898,"-989898"
-5,"Vancouver Island & Mainland Inlets","VIMI","Steelhead","SH",984,984,TRUE,"West Vancouver Island Summer","West Vancouver Island Summer","-989898","-989898",5,5,10,-989898,"-989898"
-5,"Vancouver Island & Mainland Inlets","VIMI","Steelhead","SH",985,985,TRUE,"East Vancouver Island Summer","East Vancouver Island Summer","-989898","-989898",5,5,10,-989898,"-989898"
+5,"Vancouver Island & Mainland Inlets","VIMI","Steelhead","SH",980,980,TRUE,"South Coast Winter","South Coast Winter",NA,NA,5,5,10,NA,NA
+5,"Vancouver Island & Mainland Inlets","VIMI","Steelhead","SH",981,981,TRUE,"East Vancouver Island Winter","East Vancouver Island Winter",NA,NA,5,5,10,NA,NA
+5,"Vancouver Island & Mainland Inlets","VIMI","Steelhead","SH",982,982,TRUE,"West Vancouver Island Winter","West Vancouver Island Winter",NA,NA,5,5,10,NA,NA
+5,"Vancouver Island & Mainland Inlets","VIMI","Steelhead","SH",983,983,TRUE,"South Coast Summer","South Coast Summer",NA,NA,5,5,10,NA,NA
+5,"Vancouver Island & Mainland Inlets","VIMI","Steelhead","SH",984,984,TRUE,"West Vancouver Island Summer","West Vancouver Island Summer",NA,NA,5,5,10,NA,NA
+5,"Vancouver Island & Mainland Inlets","VIMI","Steelhead","SH",985,985,TRUE,"East Vancouver Island Summer","East Vancouver Island Summer",NA,NA,5,5,10,NA,NA
 6,"Haida Gwaii","HG","Lake sockeye","SEL",819,819,TRUE,"Ain-Skundale-Ian","Ain/Skundale/Ian","SEL-17-01","Current",5,6,1,27,"Haida Gwaii Sockeye Salmon"
 6,"Haida Gwaii","HG","Lake sockeye","SEL",820,820,TRUE,"Awun","Awun","SEL-17-02","Current",5,6,1,27,"Haida Gwaii Sockeye Salmon"
 6,"Haida Gwaii","HG","Lake sockeye","SEL",821,821,TRUE,"Fairfax","Fairfax","SEL-17-03","Current",5,6,1,27,"Haida Gwaii Sockeye Salmon"
 6,"Haida Gwaii","HG","Lake sockeye","SEL",822,822,TRUE,"Jalun","Jalun","SEL-17-04","Current",5,6,1,27,"Haida Gwaii Sockeye Salmon"
-6,"Haida Gwaii","HG","Lake sockeye","SEL",823,823,TRUE,"Marian/Eden","Marian/Eden","SEL-17-05","-989898",5,6,1,27,"Haida Gwaii Sockeye Salmon"
+6,"Haida Gwaii","HG","Lake sockeye","SEL",823,823,TRUE,"Marian/Eden","Marian/Eden","SEL-17-05",NA,5,6,1,27,"Haida Gwaii Sockeye Salmon"
 6,"Haida Gwaii","HG","Lake sockeye","SEL",824,824,TRUE,"Mathers","Mathers","SEL-17-06","Current",5,6,1,27,"Haida Gwaii Sockeye Salmon"
 6,"Haida Gwaii","HG","Lake sockeye","SEL",825,825,TRUE,"Mercer","Mercer","SEL-17-07","Current",5,6,1,27,"Haida Gwaii Sockeye Salmon"
 6,"Haida Gwaii","HG","Lake sockeye","SEL",826,826,TRUE,"Skidegate","Skidegate","SEL-17-08","Current",5,6,1,27,"Haida Gwaii Sockeye Salmon"
 6,"Haida Gwaii","HG","Lake sockeye","SEL",827,827,TRUE,"Yakoun","Yakoun","SEL-17-09","Current",5,6,1,27,"Haida Gwaii Sockeye Salmon"
 6,"Haida Gwaii","HG","Lake sockeye","SEL",828,828,TRUE,"Marie","Marie","SEL-17-10","Current",5,6,1,27,"Haida Gwaii Sockeye Salmon"
-6,"Haida Gwaii","HG","River sockeye","SER",816,816,TRUE,"East Haida Gwaii (river-type)","East Haida Gwaii","SER-13","Current",5,6,2,-989898,"-989898"
-6,"Haida Gwaii","HG","River sockeye","SER",817,817,TRUE,"North Haida Gwaii (river-type)","North Haida Gwaii","SER-15","Current",5,6,2,-989898,"-989898"
-6,"Haida Gwaii","HG","River sockeye","SER",818,818,TRUE,"West Haida Gwaii (river-type)","West Haida Gwaii","SER-14","Current",5,6,2,-989898,"-989898"
+6,"Haida Gwaii","HG","River sockeye","SER",816,816,TRUE,"East Haida Gwaii (river-type)","East Haida Gwaii","SER-13","Current",5,6,2,NA,NA
+6,"Haida Gwaii","HG","River sockeye","SER",817,817,TRUE,"North Haida Gwaii (river-type)","North Haida Gwaii","SER-15","Current",5,6,2,NA,NA
+6,"Haida Gwaii","HG","River sockeye","SER",818,818,TRUE,"West Haida Gwaii (river-type)","West Haida Gwaii","SER-14","Current",5,6,2,NA,NA
 6,"Haida Gwaii","HG","Pink (odd)","PKO",813,813,TRUE,"East Haida Gwaii (odd)","East Haida Gwaii","PKO-9","Current",2,6,3,26,"Haida Gwaii Pink Salmon"
 6,"Haida Gwaii","HG","Pink (odd)","PKO",814,814,TRUE,"North Haida Gwaii (odd)","North Haida Gwaii","PKO-10","Current",2,6,3,26,"Haida Gwaii Pink Salmon"
 6,"Haida Gwaii","HG","Pink (odd)","PKO",815,815,TRUE,"West Haida Gwaii (odd)","West Haida Gwaii","PKO-11","Current",2,6,3,26,"Haida Gwaii Pink Salmon"
@@ -396,10 +400,10 @@
 6,"Haida Gwaii","HG","Chum","CM",802,802,TRUE,"North Haida Gwaii","North Haida Gwaii","CM-24","Current",5,6,7,24,"Haida Gwaii Chum Salmon"
 6,"Haida Gwaii","HG","Chum","CM",803,803,TRUE,"West Haida Gwaii","West Haida Gwaii","CM-23","Current",5,6,7,24,"Haida Gwaii Chum Salmon"
 6,"Haida Gwaii","HG","Chum","CM",804,804,TRUE,"Skidegate","Skidegate","CM-22","Current",5,6,7,24,"Haida Gwaii Chum Salmon"
-6,"Haida Gwaii","HG","Steelhead","SH",880,880,TRUE,"Haida Gwaii Winter","Haida Gwaii Winter","-989898","-989898",5,6,10,-989898,"-989898"
+6,"Haida Gwaii","HG","Steelhead","SH",880,880,TRUE,"Haida Gwaii Winter","Haida Gwaii Winter",NA,NA,5,6,10,NA,NA
 7,"Columbia","CLMB","Lake sockeye","SEL",1300,1300,TRUE,"Osoyoos","Osoyoos","SEL-01-01","Current",4,7,1,38,"Okanagan Sockeye Salmon"
 7,"Columbia","CLMB","Chinook","CK",301,301,TRUE,"Okanagan","CK001-Okanagan_1.x","CK-1","Current",5,7,5,37,"Okanagan Chinook Salmon"
-7,"Columbia","CLMB","Steelhead","SH",1380,1380,TRUE,"Mid Columbia Summer","Mid Columbia Summer","-989898","-989898",5,7,10,-989898,"-989898"
+7,"Columbia","CLMB","Steelhead","SH",1380,1380,TRUE,"Mid Columbia Summer","Mid Columbia Summer",NA,NA,5,7,10,NA,NA
 8,"Yukon","YT","Chinook","CK",1201,1201,TRUE,"Big Salmon","Big Salmon","CK-70","Current",6,8,5,61,"Yukon Chinook Salmon"
 8,"Yukon","YT","Chinook","CK",1202,1202,TRUE,"Nordenskiold","Nordenskiold","CK-71","Current",6,8,5,61,"Yukon Chinook Salmon"
 8,"Yukon","YT","Chinook","CK",1203,1203,TRUE,"Pelly","Pelly","CK-72","Current",6,8,5,61,"Yukon Chinook Salmon"
@@ -420,47 +424,47 @@
 8,"Yukon","YT","Chum","CM",1217,1217,TRUE,"Porcupine","Porcupine River (chum)","CM-46","Current",4,8,7,39,"Porcupine Chum Salmon"
 8,"Yukon","YT","Chum","CM",1218,1218,TRUE,"Stewart","Stewart","CM-48","VREQ[Current]",4,8,7,62,"Yukon Chum Salmon"
 8,"Yukon","YT","Chum","CM",1219,1219,TRUE,"Teslin","Teslin","CM-38","Current",4,8,7,62,"Yukon Chum Salmon"
-10,"Transboundary","TBR","Lake sockeye","SEL",1024,1024,TRUE,"Border","Border","SEL-25-01","Current",5,10,1,-989898,"-989898"
-10,"Transboundary","TBR","Lake sockeye","SEL",1025,1025,TRUE,"Christina","Christina","SEL-26-01","Current",5,10,1,49,"Stikine Sockeye Salmon"
-10,"Transboundary","TBR","Lake sockeye","SEL",1026,1026,TRUE,"Tahltan","Tahltan","SEL-26-02","Current",5,10,1,49,"Stikine Sockeye Salmon"
-10,"Transboundary","TBR","Lake sockeye","SEL",1027,1027,TRUE,"Kuthai","Kuthai","SEL-28-01","Current",5,10,1,53,"Taku Sockeye Salmon"
-10,"Transboundary","TBR","Lake sockeye","SEL",1028,1028,TRUE,"Little Trapper","Little Trapper","SEL-28-02","Current",5,10,1,53,"Taku Sockeye Salmon"
-10,"Transboundary","TBR","Lake sockeye","SEL",1029,1029,TRUE,"Tatsamenie","Tatsamenie","SEL-28-03","Current",5,10,1,53,"Taku Sockeye Salmon"
-10,"Transboundary","TBR","Lake sockeye","SEL",1031,1031,TRUE,"Blanchard","Blanchard","SEL-30-01","Current",5,10,1,3,"Alsek Sockeye Salmon"
-10,"Transboundary","TBR","Lake sockeye","SEL",1033,1033,TRUE,"King Salmon","King Salmon","SEL-28-05","Current",4,10,1,53,"Taku Sockeye Salmon"
-10,"Transboundary","TBR","Lake sockeye","SEL",1036,1036,TRUE,"Chutine","Chutine","SEL-26-03","Current",5,10,1,49,"Stikine Sockeye Salmon"
-10,"Transboundary","TBR","Lake sockeye","SEL",1037,1037,TRUE,"Whiting","Whiting","SEL-27-01","Current",5,10,1,-989898,"-989898"
-10,"Transboundary","TBR","Lake sockeye","SEL",1038,1038,TRUE,"Klukshu","Klukshu","SEL-30-02","Current",5,10,1,3,"Alsek Sockeye Salmon"
-10,"Transboundary","TBR","Lake sockeye","SEL",1039,1039,TRUE,"Nesketahin","Nesketahin","SEL-30-03","Current",5,10,1,3,"Alsek Sockeye Salmon"
-10,"Transboundary","TBR","River sockeye","SER",1021,1021,TRUE,"Alsek (river-type)","Alsek River","SER-24","Current",5,10,2,3,"Alsek Sockeye Salmon"
-10,"Transboundary","TBR","River sockeye","SER",1022,1022,TRUE,"Chilkat (river-type)","Chilkat River","SER-023","Current",5,10,2,-989898,"-989898"
-10,"Transboundary","TBR","River sockeye","SER",1023,1023,TRUE,"Northern Transboundary Fjords (river-type)","Northern Transboundary Fjords","SER-22","Current",5,10,2,-989898,"-989898"
-10,"Transboundary","TBR","Pink (odd)","PKO",1020,1020,TRUE,"Transboundary Fjords (odd)","Transboundary Fjords","PKO-19","Current",2,10,3,-989898,"-989898"
-10,"Transboundary","TBR","Pink (even)","PKE",1019,1019,TRUE,"Transboundary Fjords (even)","Transboundary Fjords","PKE-13","Current",2,10,4,-989898,"-989898"
-10,"Transboundary","TBR","Chinook","CK",1004,1004,TRUE,"Alsek","Alsek","CK-67","Current",5,10,5,1,"Alsek Chinook Salmon"
-10,"Transboundary","TBR","Chinook","CK",1005,1005,TRUE,"Lynn Canal","Lynn Canal","CK-66","Current",6,10,5,-989898,"-989898"
-10,"Transboundary","TBR","Chinook","CK",1006,1006,TRUE,"Taku-Early Timing","Taku-Early Timing","CK-63","Current",6,10,5,51,"Taku Chinook Salmon"
-10,"Transboundary","TBR","Chinook","CK",1007,1007,TRUE,"Taku-Mid Timing","Taku-Mid Timing","CK-64","Current",6,10,5,51,"Taku Chinook Salmon"
-10,"Transboundary","TBR","Chinook","CK",1008,1008,TRUE,"Taku-Late Timing","Taku-Late Timing","CK-65","Current",6,10,5,51,"Taku Chinook Salmon"
-10,"Transboundary","TBR","Chinook","CK",1009,1009,TRUE,"Whiting","Whiting","CK-62","Current",6,10,5,-989898,"-989898"
-10,"Transboundary","TBR","Chinook","CK",1010,1010,TRUE,"Stikine-Early Timing","Stikine-Early Timing","CK-60","Current",6,10,5,47,"Stikine Chinook Salmon"
-10,"Transboundary","TBR","Chinook","CK",1011,1011,TRUE,"Stikine-Late Timing","Stikine-Late Timing","CK-61","Current",6,10,5,47,"Stikine Chinook Salmon"
-10,"Transboundary","TBR","Chinook","CK",1012,1012,TRUE,"Unuk","Unuk","CK-59","Current",6,10,5,-989898,"-989898"
-10,"Transboundary","TBR","Coho","CO",1013,1013,TRUE,"Alsek","Alsek River","CO-45","Current",4,10,6,2,"Alsek Coho Salmon"
-10,"Transboundary","TBR","Coho","CO",1014,1014,TRUE,"Lynn Canal","Lynn Canal","CO-44","Current",4,10,6,-989898,"-989898"
-10,"Transboundary","TBR","Coho","CO",1015,1015,TRUE,"Taku-Late Timing","Taku-Late Timing","CO-42","Current",4,10,6,52,"Taku Coho Salmon"
-10,"Transboundary","TBR","Coho","CO",1016,1016,TRUE,"Whiting","Whiting River","CO-40","Current",4,10,6,-989898,"-989898"
-10,"Transboundary","TBR","Coho","CO",1017,1017,TRUE,"Lower Stikine","Lower Stikine","CO-39","Current",4,10,6,48,"Stikine Coho Salmon"
-10,"Transboundary","TBR","Coho","CO",1018,1018,TRUE,"Unuk","Unuk River","CO-38","Current",4,10,6,-989898,"-989898"
-10,"Transboundary","TBR","Coho","CO",1034,1034,TRUE,"Taku-Early Timing","Taku-Early Timing","CO-41","Current",4,10,6,52,"Taku Coho Salmon"
-10,"Transboundary","TBR","Coho","CO",1035,1035,TRUE,"Taku-Mid Timing","Taku-Mid Timing","CO-43","Current",4,10,6,52,"Taku Coho Salmon"
-10,"Transboundary","TBR","Chum","CM",1000,1000,TRUE,"Lynn Canal","Lynn Canal","CM-37","Current",4,10,7,-989898,"-989898"
-10,"Transboundary","TBR","Chum","CM",1001,1001,TRUE,"Taku","Taku","CM-36","Current",4,10,7,54,"Transboundary Chum Salmon"
-10,"Transboundary","TBR","Chum","CM",1002,1002,TRUE,"Whiting","Whiting","CM-35","Current",4,10,7,-989898,"-989898"
-10,"Transboundary","TBR","Chum","CM",1003,1003,TRUE,"Unuk","Unuk","CM-33","Current",4,10,7,-989898,"-989898"
-10,"Transboundary","TBR","Chum","CM",1032,1032,TRUE,"Lower Stikine","Lower Stikine","CM-34","Current",4,10,7,54,"Transboundary Chum Salmon"
-10,"Transboundary","TBR","Steelhead","SH",1080,1080,TRUE,"Alsek Summer","Alsek Summer","-989898","-989898",5,10,10,-989898,"-989898"
-10,"Transboundary","TBR","Steelhead","SH",1081,1081,TRUE,"Taku Summer","Taku Summer","-989898","-989898",5,10,10,-989898,"-989898"
-10,"Transboundary","TBR","Steelhead","SH",1082,1082,TRUE,"Taku Winter","Taku Winter","-989898","-989898",5,10,10,-989898,"-989898"
-10,"Transboundary","TBR","Steelhead","SH",1083,1083,TRUE,"Stikine Summer","Stikine Summer","-989898","-989898",5,10,10,-989898,"-989898"
-10,"Transboundary","TBR","Steelhead","SH",1084,1084,TRUE,"Stikine Winter","Stikine Winter","-989898","-989898",5,10,10,-989898,"-989898"
+10,"Northern Transboundary","TBR","Lake sockeye","SEL",1024,1024,TRUE,"Border","Border","SEL-25-01","Current",5,10,1,NA,NA
+10,"Northern Transboundary","TBR","Lake sockeye","SEL",1025,1025,TRUE,"Christina","Christina","SEL-26-01","Current",5,10,1,49,"Stikine Sockeye Salmon"
+10,"Northern Transboundary","TBR","Lake sockeye","SEL",1026,1026,TRUE,"Tahltan","Tahltan","SEL-26-02","Current",5,10,1,49,"Stikine Sockeye Salmon"
+10,"Northern Transboundary","TBR","Lake sockeye","SEL",1027,1027,TRUE,"Kuthai","Kuthai","SEL-28-01","Current",5,10,1,53,"Taku Sockeye Salmon"
+10,"Northern Transboundary","TBR","Lake sockeye","SEL",1028,1028,TRUE,"Little Trapper","Little Trapper","SEL-28-02","Current",5,10,1,53,"Taku Sockeye Salmon"
+10,"Northern Transboundary","TBR","Lake sockeye","SEL",1029,1029,TRUE,"Tatsamenie","Tatsamenie","SEL-28-03","Current",5,10,1,53,"Taku Sockeye Salmon"
+10,"Northern Transboundary","TBR","Lake sockeye","SEL",1031,1031,TRUE,"Blanchard","Blanchard","SEL-30-01","Current",5,10,1,3,"Alsek Sockeye Salmon"
+10,"Northern Transboundary","TBR","Lake sockeye","SEL",1033,1033,TRUE,"King Salmon","King Salmon","SEL-28-05","Current",4,10,1,53,"Taku Sockeye Salmon"
+10,"Northern Transboundary","TBR","Lake sockeye","SEL",1036,1036,TRUE,"Chutine","Chutine","SEL-26-03","Current",5,10,1,49,"Stikine Sockeye Salmon"
+10,"Northern Transboundary","TBR","Lake sockeye","SEL",1037,1037,TRUE,"Whiting","Whiting","SEL-27-01","Current",5,10,1,NA,NA
+10,"Northern Transboundary","TBR","Lake sockeye","SEL",1038,1038,TRUE,"Klukshu","Klukshu","SEL-30-02","Current",5,10,1,3,"Alsek Sockeye Salmon"
+10,"Northern Transboundary","TBR","Lake sockeye","SEL",1039,1039,TRUE,"Nesketahin","Nesketahin","SEL-30-03","Current",5,10,1,3,"Alsek Sockeye Salmon"
+10,"Northern Transboundary","TBR","River sockeye","SER",1021,1021,TRUE,"Alsek (river-type)","Alsek River","SER-24","Current",5,10,2,3,"Alsek Sockeye Salmon"
+10,"Northern Transboundary","TBR","River sockeye","SER",1022,1022,TRUE,"Chilkat (river-type)","Chilkat River","SER-023","Current",5,10,2,NA,NA
+10,"Northern Transboundary","TBR","River sockeye","SER",1023,1023,TRUE,"Northern Transboundary Fjords (river-type)","Northern Transboundary Fjords","SER-22","Current",5,10,2,NA,NA
+10,"Northern Transboundary","TBR","Pink (odd)","PKO",1020,1020,TRUE,"Transboundary Fjords (odd)","Transboundary Fjords","PKO-19","Current",2,10,3,NA,NA
+10,"Northern Transboundary","TBR","Pink (even)","PKE",1019,1019,TRUE,"Transboundary Fjords (even)","Transboundary Fjords","PKE-13","Current",2,10,4,NA,NA
+10,"Northern Transboundary","TBR","Chinook","CK",1004,1004,TRUE,"Alsek","Alsek","CK-67","Current",5,10,5,1,"Alsek Chinook Salmon"
+10,"Northern Transboundary","TBR","Chinook","CK",1005,1005,TRUE,"Lynn Canal","Lynn Canal","CK-66","Current",6,10,5,NA,NA
+10,"Northern Transboundary","TBR","Chinook","CK",1006,1006,TRUE,"Taku-Early Timing","Taku-Early Timing","CK-63","Current",6,10,5,51,"Taku Chinook Salmon"
+10,"Northern Transboundary","TBR","Chinook","CK",1007,1007,TRUE,"Taku-Mid Timing","Taku-Mid Timing","CK-64","Current",6,10,5,51,"Taku Chinook Salmon"
+10,"Northern Transboundary","TBR","Chinook","CK",1008,1008,TRUE,"Taku-Late Timing","Taku-Late Timing","CK-65","Current",6,10,5,51,"Taku Chinook Salmon"
+10,"Northern Transboundary","TBR","Chinook","CK",1009,1009,TRUE,"Whiting","Whiting","CK-62","Current",6,10,5,NA,NA
+10,"Northern Transboundary","TBR","Chinook","CK",1010,1010,TRUE,"Stikine-Early Timing","Stikine-Early Timing","CK-60","Current",6,10,5,47,"Stikine Chinook Salmon"
+10,"Northern Transboundary","TBR","Chinook","CK",1011,1011,TRUE,"Stikine-Late Timing","Stikine-Late Timing","CK-61","Current",6,10,5,47,"Stikine Chinook Salmon"
+10,"Northern Transboundary","TBR","Chinook","CK",1012,1012,TRUE,"Unuk","Unuk","CK-59","Current",6,10,5,NA,NA
+10,"Northern Transboundary","TBR","Coho","CO",1013,1013,TRUE,"Alsek","Alsek River","CO-45","Current",4,10,6,2,"Alsek Coho Salmon"
+10,"Northern Transboundary","TBR","Coho","CO",1014,1014,TRUE,"Lynn Canal","Lynn Canal","CO-44","Current",4,10,6,NA,NA
+10,"Northern Transboundary","TBR","Coho","CO",1015,1015,TRUE,"Taku-Late Timing","Taku-Late Timing","CO-42","Current",4,10,6,52,"Taku Coho Salmon"
+10,"Northern Transboundary","TBR","Coho","CO",1016,1016,TRUE,"Whiting","Whiting River","CO-40","Current",4,10,6,NA,NA
+10,"Northern Transboundary","TBR","Coho","CO",1017,1017,TRUE,"Lower Stikine","Lower Stikine","CO-39","Current",4,10,6,48,"Stikine Coho Salmon"
+10,"Northern Transboundary","TBR","Coho","CO",1018,1018,TRUE,"Unuk","Unuk River","CO-38","Current",4,10,6,NA,NA
+10,"Northern Transboundary","TBR","Coho","CO",1034,1034,TRUE,"Taku-Early Timing","Taku-Early Timing","CO-41","Current",4,10,6,52,"Taku Coho Salmon"
+10,"Northern Transboundary","TBR","Coho","CO",1035,1035,TRUE,"Taku-Mid Timing","Taku-Mid Timing","CO-43","Current",4,10,6,52,"Taku Coho Salmon"
+10,"Northern Transboundary","TBR","Chum","CM",1000,1000,TRUE,"Lynn Canal","Lynn Canal","CM-37","Current",4,10,7,NA,NA
+10,"Northern Transboundary","TBR","Chum","CM",1001,1001,TRUE,"Taku","Taku","CM-36","Current",4,10,7,54,"Transboundary Chum Salmon"
+10,"Northern Transboundary","TBR","Chum","CM",1002,1002,TRUE,"Whiting","Whiting","CM-35","Current",4,10,7,NA,NA
+10,"Northern Transboundary","TBR","Chum","CM",1003,1003,TRUE,"Unuk","Unuk","CM-33","Current",4,10,7,NA,NA
+10,"Northern Transboundary","TBR","Chum","CM",1032,1032,TRUE,"Lower Stikine","Lower Stikine","CM-34","Current",4,10,7,54,"Transboundary Chum Salmon"
+10,"Northern Transboundary","TBR","Steelhead","SH",1080,1080,TRUE,"Alsek Summer","Alsek Summer",NA,NA,5,10,10,NA,NA
+10,"Northern Transboundary","TBR","Steelhead","SH",1081,1081,TRUE,"Taku Summer","Taku Summer",NA,NA,5,10,10,NA,NA
+10,"Northern Transboundary","TBR","Steelhead","SH",1082,1082,TRUE,"Taku Winter","Taku Winter",NA,NA,5,10,10,NA,NA
+10,"Northern Transboundary","TBR","Steelhead","SH",1083,1083,TRUE,"Stikine Summer","Stikine Summer",NA,NA,5,10,10,NA,NA
+10,"Northern Transboundary","TBR","Steelhead","SH",1084,1084,TRUE,"Stikine Winter","Stikine Winter",NA,NA,5,10,10,NA,NA

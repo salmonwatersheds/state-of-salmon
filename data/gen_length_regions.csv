@@ -33,12 +33,18 @@ Transboundary,Coho,5
 Transboundary,Pink,2
 Transboundary,Sockeye,5
 Transboundary,Steelhead,5
-Vancouver Island & Mainland Inlets,Chinook,4
-Vancouver Island & Mainland Inlets,Chum,4
-Vancouver Island & Mainland Inlets,Coho,4
-Vancouver Island & Mainland Inlets,Pink,2
-Vancouver Island & Mainland Inlets,Sockeye,5
-Vancouver Island & Mainland Inlets,Steelhead,5
+East Vancouver Island & Mainland Inlets,Chinook,4
+East Vancouver Island & Mainland Inlets,Chum,4
+East Vancouver Island & Mainland Inlets,Coho,4
+East Vancouver Island & Mainland Inlets,Pink,2
+East Vancouver Island & Mainland Inlets,Sockeye,5
+East Vancouver Island & Mainland Inlets,Steelhead,5
+West Vancouver Island,Chinook,4
+West Vancouver Island,Chum,4
+West Vancouver Island,Coho,4
+West Vancouver Island,Pink,2
+West Vancouver Island,Sockeye,5
+West Vancouver Island,Steelhead,5
 Yukon,Chinook,6
 Yukon,Chum,4
 Yukon,Coho,4
