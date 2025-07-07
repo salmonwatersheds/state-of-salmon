@@ -9,7 +9,7 @@
 library(tidyverse)
 
 # Write output files?
-write.output <- FALSE
+write.output <- TRUE
 
 # Read in data 
 
@@ -106,7 +106,7 @@ for(r in 1:length(regions)){ # for each region
 			#---------------------------------------------------------------------------
 			# 2. Calculate metrics from data
 			#---------------------------------------------------------------------------
-			for(i in 1:2){ # For run size (aka total return) and current abundance
+			for(i in 1:2){ # For spawners and total abundance
 				
 				# If there are data...
 				if(sum(!is.na(sps_dat[ind_dat, c("smoothedSpawners", "smoothedRunsize")[i]])) > 0){
@@ -237,14 +237,18 @@ sps_metrics[which(sps_metrics$current_abundance_year < max(sps_metrics$current_a
 
 
 #------------------------------------------------------------------------------
-# Is current spawner abundance < 1000?
+# Is current spawner abundance < 1500?
 #------------------------------------------------------------------------------
 
-# sps_metrics[which(sps_metrics$current_abundance < 1000), ]
-# 
+sps_metrics[which(sps_metrics$current_abundance < 1500), ]
+
 # # Create new variable to flag if abundance is below critical threshold of 1000 spawners
-# sps_metrics$critical <- ifelse(sps_metrics$current < 1000, 1, 0)
-# 
+# sps_metrics$critical <- ifelse(sps_metrics$current_abundance < 1500, 1, 0)
+
+# If total abundance is <1500, and this can be considered an absolute count,
+# flag current state as critical -999999
+condition_critical <- which(sps_metrics$current_abundance < 1500 & sps_metrics$region == "Columbia" & sps_metrics$species %in% c("Chinook", "Steelhead"))
+sps_metrics$current_status[condition_critical] <- -999999
 
 #------------------------------------------------------------------------------
 # Are there at least 20 years of data to establish a meaningful baseline?
@@ -294,8 +298,8 @@ sps_metrics[match(dum_rs$regionspeciestype, sps_metrics$regionspeciestype), c("n
 # Remove dummy variable for matching
 sps_metrics <- sps_metrics %>% select(-regionspeciestype)
 
-# Change current status to Unknown for those
-sps_metrics$current_status[which(sps_metrics$nyears < 20)] <- NA
+# Change current status to Unknown for those with less than 20 years IF NOT critical
+sps_metrics$current_status[which(sps_metrics$nyears < 20 & sps_metrics$current_status != -999999)] <- NA
 
 ###############################################################################
 # Write output
@@ -507,7 +511,6 @@ makePrettyNums <- function(x){
 # Read in CU list to calculate number of CUs
 cu_list <- read.csv("data/conservationunits_decoder.csv") %>%
 	distinct(pooledcuid, .keep_all = TRUE) %>% # there are duplicates for pooledcuid
-	filter(cuid %in% c(241,751) == FALSE) %>% # Remove two CUs (Sicintine Chinook and Adams & Momich-ES sockeye) that are binned but still exist in the decoder
 	mutate(species = case_when(
 		species_name %in% c("Lake sockeye", "River sockeye") ~ "Sockeye",
 		species_name == "Chinook" ~ "Chinook",
@@ -610,3 +613,4 @@ if(write.output){
 	write.csv(trends_plotting, file = paste0("output/archive/sps-trends_plotting_", Sys.Date(), ".csv"), row.names = FALSE)
 	write.csv(trends_plotting, file = "output/sps-trends_plotting.csv", row.names = FALSE)
 }
+
