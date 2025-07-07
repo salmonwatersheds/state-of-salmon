@@ -5,6 +5,7 @@
 # Date: July 10, 2023
 
 ###############################################################################
+library(dplyr)
 
 ###############################################################################
 # Basic runsize plot
@@ -157,7 +158,7 @@ plot.regional_abund <- function(
 	
 	# Initiate blank plot
 	plot(range(dat$year), 
-			 c(min(dat[dat$year > 1970, 4]), quantile(dat[dat$year > 1970, 4], 0.99, na.rm = TRUE)),
+			 c(min(dat[dat$year > 1970, 4]), min(300, quantile(dat[dat$year > 1970, 4], 0.99, na.rm = TRUE))),
 			 "n", las = 1, ylab = "", xlab = "", bty = "l",
 			 main = paste(selected_region, c("Spawners", "Total Return")[as.numeric(abund == "runsize") + 1]),
 			 yaxt = "n")
@@ -241,41 +242,6 @@ plot.regional_abund <- function(
 		
 	}
 
-}
-
-###############################################################################
-# Plot regional expansion factors for all species through time
-###############################################################################
-
-plot.regional_expansion <- function(
-		selected_region, # Select region for which to create multi-species plot
-		spawners
-){
-	
-	# Subset selected species
-	ss <- spawners[which(spawners$region == selected_region & spawners$species != "Steelhead"), c("species", "year", "expansion_factor1", "expansion_factor2")]
-	yrs <- sort(unique(ss$year))
-	species <- sort(unique(ss$species))
-	n.species <- length(species)
-	
-	# Set margins
-	par(mar = c(4,5,2,10))
-	
-	# Initiate blank plot
-	plot(range(yrs), c(1, 5), "n", las = 1, ylab = "Expansion Factors", xlab = "", main = selected_region, bty = "l", xlim = c(1970, 2021))
-	
-	
-	# Add species lines
-	for(s in 1:length(species)){
-		# Expansion factor 1
-		lines(ss$year[ss$species == species[s]], ss$expansion_factor1[ss$species == species[s]], col = species_cols_light[species[s]], lwd = 2)
-		
-		# Expansion factor 2
-		lines(ss$year[ss$species == species[s]], ss$expansion_factor2[ss$species == species[s]], col = species_cols_dark[species[s]], lty = 2)
-	}
-	
-	# Add legend
-	legend("topleft", fill = species_cols_light, broder = species_cols_dark, legend = species, border = NA)
 }
 
 
@@ -543,35 +509,53 @@ btn_table <- function(
 ###############################################################################
 
 btn_table.all <- function(
-		sps_metrics_tab = sps_metrics[, c("region", "species","type", "current_status")] # data frame with region, species, metric
+		new_metrics,
+		old_metrics# data frame with region, species, metric
 ){
 	
-	species <- unique(sps_metrics_tab$species)
+	# Arrange so in order region > species
+	new_metrics <- new_metrics %>%
+		arrange(factor(region, levels = regions), species)
+	old_metrics <- old_metrics %>%
+		arrange(factor(region, levels = regions), species)
+	
+	species <- unique(new_metrics$species)
 	tab_long <- data.frame(
-		Region = rep(unique(sps_metrics_tab$region), each = 2),
-		Variable = rep(c("Spawners", "Total return"), length(unique(sps_metrics_tab$region)))
+		Region = rep(unique(new_metrics$region), 2)
 	)
 	
 	for(s in 1:length(species)){
-		tab_long <- cbind(tab_long, sps_metrics_tab[which(sps_metrics_tab$species == species[s]), 4])
+		
+		
+		tab_long <- cbind(
+			tab_long,
+			# Year
+			c(new_metrics$current_abundance_year[which(new_metrics$species == species[s])],
+				old_metrics$current_abundance_year[which(old_metrics$species == species[s])]),
+			# Current status
+			c(new_metrics$current_status[which(new_metrics$species == species[s])],
+				old_metrics$current_status[which(old_metrics$species == species[s])])#,
+			# # Different year?
+			# rep(c(new_metrics$current_abundance_year[which(new_metrics$species == species[s])]>old_metrics$current_abundance_year[which(old_metrics$species == species[s])]), 2)
+		)
 	}
-	names(tab_long) <- c("Region", "Variable", species)
+	names(tab_long) <- c("Region", rep(species, each = 2))
 	
+	names(tab_long)[seq(2, dim(tab_long)[2], 2)] <- paste0(names(tab_long)[seq(2, dim(tab_long)[2], 2)], "_Year")
+	# names(tab_long)[seq(4, dim(tab_long)[2], 3)] <- paste0(names(tab_long)[seq(4, dim(tab_long)[2], 3)], "_Updated")
+	
+	tab_long <- tab_long %>%
+		arrange(factor(Region, levels = regions))
 
+	# Add whether year is the same
+	
+	
 	# Set species that are not present
 	tab_long[tab_long$Region == "Yukon", which(names(tab_long) %in% c("Pink", "Sockeye", "Steelhead"))] <- -989898
 	tab_long[tab_long$Region == "Columbia", which(names(tab_long) %in% c("Pink", "Chum", "Coho"))] <- -989898
 	
-	
-	# # Okanagan Chinook are endangered - Apr 2024: set as unknown due to short baseline
-	# if(type == "Spawners"){
-	# 	tab_long[which(tab_long$Region == "Columbia"), "Chinook"] <- -1000
-	# }
-	
-	# tab_long_col <- ifelse(tab_long[, c(2:(dim(tab_long)[2]))] < 0, "#C06263", "#83B686")
-	# 
-	# tab <- cbind(tab_long, tab_long_col)
-	# names(tab)[11:19] <- paste0("col_", names(tab)[11:19])
+	tab_long$Region[tab_long$Region == "East Vancouver Island & Mainland Inlets"] <- "EVIMI"
+	tab_long$Region[tab_long$Region == "West Vancouver Island"] <- "WVI"
 	
 	# function which returns background colour based on cell value (using colour map)
 	# also takes column name as an input, which allows to get max and min
@@ -592,11 +576,14 @@ btn_table.all <- function(
 			color <- "#C06263"
 			background <- "#C0626330"
 		}
-		list(color = color, background = background, fontWeight = "bold")
+		
+		list(color = color, background = background, fontWeight = "bold", `border-right` = "thin solid")
 	}
 	
 	
-	
+	wyear <- 50
+	wstate <- 60
+	 
 	# replicate list to required length
 	coldefs <- list(
 		Region = colDef(
@@ -610,51 +597,99 @@ btn_table.all <- function(
           }
         }
       }")),
+		Chinook_Year = colDef(
+			name = "Year",
+			maxWidth = wyear#,
+			# style = function(index) {
+			# 	if (!is.na(tab_long[index, "Chinook_Updated"]) & tab_long[index, "Chinook_Updated"] == TRUE) {
+			# 		list(fontWeight = "bold")
+			# 	}
+			# }
+		),
+		# Chinook_Updated = colDef(
+		# 	show = FALSE
+		# ),
 		Chinook = colDef(
+			name = "State",
 			style = stylefunc, 
-			format = colFormat(digits = 1, percent = TRUE),
-			maxWidth = 77),
+			format = colFormat(digits = 0, percent = TRUE),
+			maxWidth = wstate),
+		Chum_Year = colDef(
+			name = "Year",
+			maxWidth = wyear
+		),
 		Chum = colDef(
+			name = "State",
 			style = stylefunc, 
-			format = colFormat(digits = 1, percent = TRUE),
-			maxWidth = 77),
+			format = colFormat(digits = 0, percent = TRUE),
+			maxWidth = wstate),
+		Coho_Year = colDef(
+			name = "Year",
+			maxWidth = wyear
+		),
 		Coho = colDef(
+			name = "State",
 			style = stylefunc, 
-			format = colFormat(digits = 1, percent = TRUE),
-			maxWidth = 77),
+			format = colFormat(digits = 0, percent = TRUE),
+			maxWidth = wstate),
+		Pink_Year = colDef(
+			name = "Year",
+			maxWidth = wyear
+		),
 		Pink = colDef(
+			name = "State",
 			style = stylefunc, 
-			format = colFormat(digits = 1, percent = TRUE),
-			maxWidth = 77),
+			format = colFormat(digits = 0, percent = TRUE),
+			maxWidth = wstate),
+		Sockeye_Year = colDef(
+			name = "Year",
+			maxWidth = wyear
+		),
 		Sockeye = colDef(
+			name = "State",
 			style = stylefunc, 
-			format = colFormat(digits = 1, percent = TRUE),
-			maxWidth = 77),
+			format = colFormat(digits = 0, percent = TRUE),
+			maxWidth = wstate),
+		Steelhead_Year = colDef(
+			name = "Year",
+			maxWidth = wyear
+		),
 		Steelhead = colDef(
+			name = "State",
 			style = stylefunc, 
-			format = colFormat(digits = 1, percent = TRUE),
-			maxWidth = 77))
+			format = colFormat(digits = 0, percent = TRUE),
+			maxWidth = wstate))
 	
 	# name elements of list according to cols
 	# names(coldefs) <- species
 	
 	# Render table
-	tab_long %>%
-		reactable(
-			., 
+	 reactable(
+			tab_long, 
+			rowStyle = function(index) {
+				if (index %in% seq(3, 20, 2)) {
+					list(`border-top` = "thin solid")
+				}
+			},
 			columns = coldefs,
-			# columnGroups = list(
-			# 	colGroup(name = "Region", columns = c("Yukon", "Transboundary", "Haida Gwaii", "Nass", "Skeena", "Central Coast", "Vancouver Island & Mainland Inlets", "Fraser", "Columbia"))
-			# 	),
+			columnGroups = list(
+				colGroup(name = "Chinook", columns = c("Chinook", "Chinook_Year")),
+				colGroup(name = "Chum", columns = c("Chum", "Chum_Year")),
+				colGroup(name = "Coho", columns = c("Coho", "Coho_Year")),
+				colGroup(name = "Pink", columns = c("Pink", "Pink_Year")),
+				colGroup(name = "Sockeye", columns = c("Sockeye", "Sockeye_Year")),
+				colGroup(name = "Steelhead", columns = c("Steelhead", "Steelhead_Year"))
+			),
 			bordered = TRUE,
 			highlight = TRUE,
 			striped = TRUE,
-			outlined = TRUE,
-			resizable = TRUE,
-			fullWidth = FALSE,
+			resizable = TRUE, 
 			wrap = TRUE,
+			searchable = TRUE,
 			style = list(fontSize = "1.25rem"),
-			defaultPageSize = 18
+			showSortIcon = TRUE,
+			height = 800,
+			pagination = FALSE
 		)
 	
 }
@@ -665,4 +700,58 @@ btn_table.all <- function(
 
 percAnomaly <- function(y, average){
 	return((y - average)/average * 100)
+}
+
+###############################################################################
+# Plot expansion factors 
+###############################################################################
+
+plot_expansions <- function(
+		speciesname = "Chum",
+		regionname = "Haida Gwaii", # For display
+		region_spawners, # rds saved output 
+		expansion_factors, # rds saved output 
+		added_series = NULL # added time series with columns year and value if desired
+		){
+
+	s <- match(speciesname, c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead"))
+	yrs <- as.numeric(dimnames(region_spawners)[[3]])
+	
+	par(mfrow = c(2,1), mar = c(3,4,2,1), oma = c(0,0,2,0))
+	
+	if(sum(!is.na(region_spawners[2, s,])) > 0){
+		
+		plot(yrs, region_spawners[2, s,]*10^-3, "o", lwd = 1.2, pch = 19, cex = 0.8, bty = "l", las = 1, xlab = "", ylab = "Spawners (thousands)", ylim = c(0, max(region_spawners[2, s,]*10^-3, na.rm = TRUE)), xpd = NA, yaxs = "i")
+		abline(v = 2024, lty = 3, lwd = 1.2)
+		text(2024, par('usr')[4], pos = 3, 2024, cex = 0.8, xpd = NA)
+		abline(v = seq(1940, 2025, 5), lty = 3, col = grey(0.6))
+		abline(h = pretty(region_spawners[2, s, ]*10^-3), lty = 3, col = grey(0.6))
+		lines(yrs, region_spawners[1, s, ]*10^-3, "o", col = "#74BDB8", xpd = NA, lwd = 1.2, pch = 19, cex = 0.6)
+		mtext(side = 3, outer = TRUE, paste0(regionname, " ", speciesname))
+		mtext(side = 3, adj = 0, line = 0.5, "(a)")
+		
+		if(is.null(added_series) == FALSE){
+			points(added_series$year, added_series$value*10^-3, pch = 1, cex = 1, lwd = 1.2, col = "#70212170", xpd = NA)
+			legend("topleft", pch = c(19, 19, 1), pt.cex = c(0.8, 0.8, 1), col = c(1,"#74BDB8","#70212170"), c("Expanded", "Observed (indicator)", "Alternate"), bg = "white", lwd = c(1.2, 1.2, NA))
+		} else {
+			legend("topleft", pch = 19, col = c(1,"#74BDB8"), c("Expanded", "Observed (indicator)"), bg = "white", lwd = 1.2)
+		}
+		
+		plot(yrs, expansion_factors[[s]]$exp1, col = ifelse(expansion_factors[[s]]$exp1 == 1, 1, "#9E6a5A"), las = 1, ylab = "Expansion Factor 1", xlab = "", bty = "l", pch = 19, cex = 0.8)
+		abline(v = seq(1940, 2025, 5), lty = 3, col = grey(0.6))
+		abline(h = pretty(expansion_factors[[s]]$exp1), lty = 3, col = grey(0.6))
+		mtext(side = 3, adj = 0, line = 0.5, "(b)")
+		
+		# if(length(expansion_factors[[s]]$exp2) == 1){
+		# 	exp2.s <- rep(expansion_factors[[s]]$exp2, length(yrs))
+		# } else {
+		# 	exp2.s <- expansion_factors[[s]]$exp2
+		# }
+		# 
+		# plot(yrs, exp2.s,  las = 1, ylab = "Expansion Factor 2", xlab = "", bty = "l")
+		# abline(v = seq(1940, 2025, 5), lty = 3, col = grey(0.6))
+		# abline(h = pretty(expansion_factors[[s]]$exp1), lty = 3, col = grey(0.6))
+		# mtext(side = 3, adj = 0, line = 0.5, "(c)")
+	}
+	
 }
