@@ -187,63 +187,10 @@
 	{
 		"id": "EnglishEtAl2018NorthCentralCoast",
 		"type": "report",
-		"abstract": "English, K., Peacock, D., Challenger, W., Noble, C., Beveridge, I., Robichaud, D., Beach, K., Hertz, E., and Connors, K. 2018. North and Central Coast Salmon Escapement, Catch, Run Size and Exploitation Rate Estimates for each Salmon Conservation Unit for 1954-2017. Prepared by LGL Ltd. for the Pacific Salmon Foundation. 125p.",
-		"publisher": "Prepared by LGL Ltd. for the Pacific Salmon Foundation. 125p.",
-		"title": "North and Central Coast Salmon Escapement, Catch, Run Size and Exploitation Rate Estimates for each Salmon Conservation Unit for 1954-2017.",
+		"genre": "Report prepared by LGL Limited for the Pacific Salmon Foundation",
+		"page": "vi + 117 p.",
+		"title": "North and Central Coast Salmon Escapement, Catch, Run Size and Exploitation Rate Estimates for each Salmon Conservation Unit for 1954-2017",
 		"URL": "https://salmonwatersheds.ca/document/lib_451/",
-		"author": [
-			{
-				"family": "English",
-				"given": "K K"
-			},
-			{
-				"family": "Peacock",
-				"given": "D"
-			},
-			{
-				"family": "Challenger",
-				"given": "W"
-			},
-			{
-				"family": "Noble",
-				"given": "C"
-			},
-			{
-				"family": "Beveridge",
-				"given": "I"
-			},
-			{
-				"family": "Robichaud",
-				"given": "D"
-			},
-			{
-				"family": "Beach",
-				"given": "K"
-			},
-			{
-				"family": "Hertz",
-				"given": "E"
-			},
-			{
-				"family": "Connors",
-				"given": "K"
-			}
-		],
-		"issued": {
-			"date-parts": [
-				[
-					"2018"
-				]
-			]
-		}
-	},
-	{
-		"id": "EnglishEtAl2016NorthCentralCoast",
-		"type": "article-journal",
-		"abstract": "Report prepared by LGL Limited for the Pacific Salmon Foundation and Fisheries and Oceans Canada",
-		"issue": "November",
-		"page": "102",
-		"title": "North and Central Coast Salmon Escapement, Catch, Run Size and Exploitation Rate Estimates for each Salmon Conservation Unit for 1954-2014",
 		"author": [
 			{
 				"family": "English",
@@ -258,14 +205,36 @@
 				"given": "Wendell"
 			},
 			{
-				"family": "Mochizuki",
-				"given": "Tony"
+				"family": "Noble",
+				"given": "Cameron"
+			},
+			{
+				"family": "Beveridge",
+				"given": "Ian"
+			},
+			{
+				"family": "Robichaud",
+				"given": "David"
+			},
+			{
+				"family": "Beach",
+				"given": "Katie"
+			},
+			{
+				"family": "Hertz",
+				"given": "Eric"
+			},
+			{
+				"family": "Connors",
+				"given": "Katrina"
 			}
 		],
 		"issued": {
 			"date-parts": [
 				[
-					"2016"
+					"2018",
+					11,
+					20
 				]
 			]
 		}
@@ -324,6 +293,24 @@
 		}
 	},
 	{
+		"id": "COSEWIC2021b",
+		"type": "report",
+		"publisher": "Climate Change and Environment Canada",
+		"title": "COSEWIC Report on Designatable Units for Chinook Salmon Oncorhynchus tshawytscha in Canada",
+		"author": [
+			{
+				"literal": "Committee on the Status of Endangered Wildlife in Canada"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2021"
+				]
+			]
+		}
+	},
+	{
 		"id": "OBMEP2022ColumbiaSteelhead",
 		"type": "report",
 		"event-place": "Nespelem, WA",
@@ -346,7 +333,7 @@
 		}
 	},
 	{
-		"id": "JTC2023YukonRiverSalmon",
+		"id": "YukonRiverJointTechnicalCommittee2023YukonRiverSalmon",
 		"type": "article-journal",
 		"container-title": "Yukon River Joint Technical Committee Report",
 		"page": "vi + 181 p.",
@@ -355,7 +342,7 @@
 		"volume": "YUKON JTC (23)-01",
 		"author": [
 			{
-				"family": "JTC",
+				"family": "Yukon River Joint Technical Committee",
 				"given": ""
 			}
 		],
@@ -540,7 +527,7 @@
 		}
 	},
 	{
-		"id": "CTC2023AnnualReportCatch",
+		"id": "ChinookTechnicalCommittee2023AnnualReportCatch",
 		"type": "article-journal",
 		"container-title": "Pacific Salmon Commission Joint Chinook Technical Committtee Report",
 		"language": "en",
@@ -551,7 +538,7 @@
 		"volume": "TCCHINOOK (23)-02",
 		"author": [
 			{
-				"family": "CTC",
+				"family": "Chinook Technical Committee",
 				"given": ""
 			}
 		],
@@ -566,7 +553,7 @@
 		}
 	},
 	{
-		"id": "TCNB2023CanadaNorthernBoundary",
+		"id": "NorthernBoundaryTechnicalCommittee2023USCanadaNorthern",
 		"type": "article-journal",
 		"container-title": "Pacific Salmon Commission Joint Northern Boundary Technical Committee Report",
 		"language": "en",
@@ -577,7 +564,7 @@
 		"volume": "TCNB (23)-01",
 		"author": [
 			{
-				"family": "TCNB",
+				"family": "Northern Boundary Technical Committee",
 				"given": ""
 			}
 		],
@@ -627,29 +614,6 @@
 			"date-parts": [
 				[
 					"2021"
-				]
-			]
-		}
-	},
-	{
-		"id": "StandingCommitteeonScientificCooperation2023AssessmentManagementFrameworks",
-		"type": "report",
-		"event-place": "Vancouver, BC",
-		"publisher": "Pacific Salmon Commission",
-		"publisher-place": "Vancouver, BC",
-		"title": "Assessment and management frameworks of the Pacific Salmon Treaty and their robustness to environmental change",
-		"URL": "https://www.psc.org/download/333/special-reports/15065/assessment-and-management-frameworks-of-the-pacific-salmon-treaty-and-their-robustness-to-environmental-change.pdf",
-		"author": [
-			{
-				"family": "Standing Committee on Scientific Cooperation",
-				"given": ""
-			}
-		],
-		"issued": {
-			"date-parts": [
-				[
-					"2023",
-					5
 				]
 			]
 		}
@@ -705,53 +669,6 @@
 		}
 	},
 	{
-		"id": "COSEWIC2017ChinookSalmonOncorhynchus",
-		"type": "webpage",
-		"abstract": "Information on Environment and Climate Change Canada’s Species at Risk Public Registry.",
-		"language": "eng",
-		"note": "Last Modified: 2017-12-11",
-		"title": "Chinook salmon (Oncorhynchus tshawytscha) Okanagan population: COSEWIC Assessment and Status Report 2017",
-		"title-short": "Chinook salmon (Oncorhynchus tshawytscha) Okanagan population",
-		"URL": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/chinook-salmon-okanagan-population-2017.html",
-		"author": [
-			{
-				"family": "COSEWIC",
-				"given": ""
-			}
-		],
-		"accessed": {
-			"date-parts": [
-				[
-					"2023",
-					12,
-					4
-				]
-			]
-		},
-		"issued": {
-			"date-parts": [
-				[
-					"2017"
-				]
-			]
-		}
-	},
-	{
-		"id": "http://zotero.org/groups/5243880/items/UPUDMUPY",
-		"type": "document",
-		"title": "aqhaliat-volume-4-english.pdf",
-		"URL": "https://www.canada.ca/content/dam/polar-polaire/documents/publications/aqhaliat/volume-4/aqhaliat-volume-4-english.pdf",
-		"accessed": {
-			"date-parts": [
-				[
-					"2023",
-					12,
-					4
-				]
-			]
-		}
-	},
-	{
 		"id": "EnglishEtAl2023PreliminaryAreaSalmon",
 		"type": "report",
 		"number": "Nisga'a Fisheries Report #22-16",
@@ -793,6 +710,29 @@
 				[
 					"2023",
 					9
+				]
+			]
+		}
+	},
+	{
+		"id": "StandingCommitteeonScientificCooperation2023AssessmentManagementFrameworks",
+		"type": "report",
+		"event-place": "Vancouver, BC",
+		"page": "168 p.",
+		"publisher": "Pacific Salmon Commission",
+		"publisher-place": "Vancouver, BC",
+		"title": "Assessment and management frameworks of the Pacific Salmon Treaty and their robustness to environmental change",
+		"URL": "https://www.psc.org/publications/workshop-reports/psc-special-reports/",
+		"author": [
+			{
+				"family": "Standing Committee on Scientific Cooperation",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2023"
 				]
 			]
 		}
@@ -853,10 +793,10 @@
 		"page": "viii + 60",
 		"title": "2019 Post-Season Summary Report",
 		"URL": "https://www.psc.org/publications/technical-reports/technical-committee-reports/chum/",
-		"volume": "3-11",
+		"volume": "TCCHUM (23)-01",
 		"author": [
 			{
-				"family": "TTCHUM",
+				"family": "Chum Technical Committee",
 				"given": ""
 			}
 		],
@@ -898,7 +838,7 @@
 		"volume": "TCCHINOOK (2023)-06",
 		"author": [
 			{
-				"family": "CTC",
+				"family": "Chinook Technical Committee",
 				"given": ""
 			}
 		],
@@ -1002,11 +942,10 @@
 		"type": "article-journal",
 		"abstract": "Interior Fraser Coho is the name for the management unit (MU) which refers to the Coho Salmon (Oncorhynchus kisutch) that return to the Fraser River and tributaries upstream of Hells Gate in the Fraser Canyon. In response to low abundance of southern BC Coho Salmon stocks, fisheries that intercept Interior Fraser Coho have been restricted since 1998. This document describes the fishery management actions that have been taken since 2006 to meet the 2006 Conservation Strategy recovery objectives for Interior Fraser Coho, provides an assessment of current status of the MU against these objectives, quantifies annual exploitation rates and the level of uncertainty in these estimates, and provides estimates of the probability of achieving the 2006 Conservation Strategy Recovery Objectives at a range of potential exploitation rates. Given that Wild Salmon Policy (WSP) benchmarks are not currently available for Interior Fraser Coho, the status of Interior Fraser Coho was assessed against two ‘short term’ and one ‘long term’ recovery objective originally proposed by the Interior Fraser Coho Recovery Team (IFCRT 2006). Short-term objective #1 consists of maintaining a minimum of 1,000 naturally spawning wild Coho Salmon (3-year geometric mean) in at least half of the 11 subpopulations that have been proposed within the five conservation units (CUs) (IFCRT 2006), while the long-term objective consists of maintaining 1,000 or more wild Coho Salmon in all 11 subpopulations. Our analyses showed that escapement levels of 20,000 and 40,000 spawners, respectively, would result in near 100% probability that these two objectives would be met. Generational average escapements for the Interior Fraser Coho aggregate exceeded 20,000 wild adults in every year from 2008 onward, but exceeded 40,000 wild adults in only the two most recent return years (2012 and 2013). Short-term objective #2 focuses on maintaining the productivity of Interior Fraser Coho. After controlling for brood escapement, we found strong evidence for two distinct periods of productivity: a relatively high productivity period during 1978-1993 return years, and a low productivity period during 1994-2012. There is no evidence that Interior Fraser Coho have moved above the ‘low’ productivity’ regime that has persisted since 1994 (return year). Modelled estimates of exploitation rates averaged 10% during 1998-2012. From 1986-1997, the average exploitation rate was nearly seven fold higher. The reliability of exploitation rate estimates for Interior Fraser Coho from 1998 onward is uncertain, owing primarily to uncertainty around the assumption that base period effort and exploitation rate (16-26 years ago) are representative of current effort and exploitation rate. A model selection analysis indicated that the Ricker model best explained the stock-recruitment relationship for Interior Fraser Coho during the period of low productivity (1994-2012), and was used to form the basis of the harvest impact projections. Assuming low productivity, there is a strong trade-off between the probability of achieving the short-term objective of 20,000 spawners (3-year geometric mean) and exploitation rate. The probability of meeting the long- term objective of 40,000 spawners at low productivity is low regardless of exploitation rate. A declining population trend was predicted at exploitation rates exceeding 30%. Assuming a continuation of the 1994-2012 low productivity regime, there appears to be limited potential for recovering the MU to abundance levels higher than 20,000-40,000 spawners. A relatively low escapement target within this range (20,000 spawners) could maximize harvest opportunities for other stocks while still maintaining Interior Fraser Coho at a relatively productive point along the stock-recruitment curve. However, this represents a riskier management strategy compared to a strategy of maximizing escapement given current productivity. This assessment must be considered as preliminary and not equivalent to a Wild Salmon Policy (WSP) status assessment since it relies primarily on the IFCRT recovery objectives and not formal WSP benchmarks",
 		"container-title": "DFO Can. Sci. Advis. Sec. Res. Doc.",
-		"issue": "086",
 		"page": "xi + 64",
 		"title": "Assessment of the Interior Fraser Coho Salmon (Oncorhynchus kisutch) Management Unit Relative to the 2006 Conservation Strategy Recovery Objectives",
 		"URL": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/360009.pdf",
-		"volume": "2014",
+		"volume": "2014/086",
 		"author": [
 			{
 				"family": "Decker",
@@ -1077,9 +1016,10 @@
 		"container-title": "Fisheries Management and Ecology",
 		"DOI": "10.1111/fme.12643",
 		"ISSN": "13652400",
-		"issue": "February",
-		"page": "1-18",
+		"page": "446-463",
 		"title": "A global synthesis of peer-reviewed research on the effects of hatchery salmonids on wild salmonids",
+		"URL": "https://onlinelibrary.wiley.com/doi/full/10.1111/fme.12643",
+		"volume": "30",
 		"author": [
 			{
 				"family": "McMillan",
@@ -1119,7 +1059,7 @@
 		}
 	},
 	{
-		"id": "JTC2024YukonRiverSalmon",
+		"id": "YukonRiverJointTechnicalCommittee2024YukonRiverSalmon",
 		"type": "article-journal",
 		"container-title": "Yukon River Joint Technical Committee Report",
 		"page": "vi + 181 p.",
@@ -1128,7 +1068,7 @@
 		"volume": "YUKON JTC (24)-01",
 		"author": [
 			{
-				"literal": "JTC"
+				"literal": "Yukon River Joint Technical Committee"
 			}
 		],
 		"issued": {
@@ -1143,7 +1083,7 @@
 	{
 		"id": "CTC2024AnnualReportCatch",
 		"type": "article-journal",
-		"container-title": "Pacific Salmon Commission Joint Chinook Technical Committtee Report",
+		"container-title": "Pacific Salmon Commission Joint Chinook Technical Committee Report",
 		"language": "en",
 		"page": "xvii + 173 p.",
 		"source": "Zotero",
@@ -1152,7 +1092,7 @@
 		"volume": "TCCHINOOK (24)-01",
 		"author": [
 			{
-				"family": "CTC",
+				"family": "Chinook Technical Committee",
 				"given": ""
 			}
 		],
@@ -1161,6 +1101,422 @@
 				[
 					"2024",
 					7
+				]
+			]
+		}
+	},
+	{
+		"id": "Usher2000TraditionalEcologicalKnowledge",
+		"type": "article-journal",
+		"container-title": "Arctic",
+		"issue": "2",
+		"page": "183-193",
+		"title": "Traditional Ecological Knowledge in Environmental Assessment and Management",
+		"URL": "https://www.jstor.org/stable/40512207",
+		"volume": "53",
+		"author": [
+			{
+				"family": "Usher",
+				"given": "Peter J"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2000"
+				]
+			]
+		}
+	},
+	{
+		"id": "PacificSalmonCommission2024ChinookTechnicalCommittee",
+		"type": "report",
+		"event-place": "Vancouver, B.C.",
+		"publisher-place": "Vancouver, B.C.",
+		"title": "Chinook Technical Committee Data Sets",
+		"URL": "https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/",
+		"author": [
+			{
+				"family": "Pacific Salmon Commission",
+				"given": ""
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2024",
+					9,
+					30
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2024"
+				]
+			]
+		}
+	},
+	{
+		"id": "DunmallEtAl2025InvadingRangeexpandingPink",
+		"type": "article-journal",
+		"abstract": "Species redistributions, whether resulting from invasions or range expansions, pose similar challenges for conservation and management. Redistribution impacts on host ecosystems and species combine with those from climate change, which are already acute at northern latitudes. Using pink salmon Oncorhynchus gorbuscha, which are native to the Pacific Ocean, we employ knowledge exchange to inform decision-making in non-native marine areas: they are expanding their range to the Arctic Ocean and are invasive in the Atlantic Ocean. The predicted future marine distribution of pink salmon focuses effort on where and when pink salmon are present and informs on potential interactions with native species. Management actions taken in the Atlantic Ocean to reduce invasive pink salmon are resource-intensive, but removed salmon could be a food resource. Addressing identified gaps regarding the invasion potential of pink salmon, interactions among pink salmon and other species, and current mitigation efforts would support forward-thinking management decisions given predictions of continued environmental change. We also highlight steps that can be taken immediately to coordinate actions and better inform responses. Managed for production in the Pacific and as an invasion in the Atlantic, pink salmon provide a tangible approach to informed decision-making through collaboration for marine species on the move.",
+		"container-title": "ICES Journal of Marine Science",
+		"DOI": "10.1093/icesjms/fsae199",
+		"ISSN": "1054-3139, 1095-9289",
+		"issue": "1",
+		"language": "en",
+		"license": "https://creativecommons.org/licenses/by/4.0/",
+		"page": "fsae199",
+		"source": "DOI.org (Crossref)",
+		"title": "Invading and range-expanding pink salmon inform management actions for marine species on the move",
+		"URL": "https://academic.oup.com/icesjms/article/doi/10.1093/icesjms/fsae199/7953412",
+		"volume": "82",
+		"author": [
+			{
+				"family": "Dunmall",
+				"given": "Karen M"
+			},
+			{
+				"family": "Bean",
+				"given": "Colin W"
+			},
+			{
+				"family": "Berntsen",
+				"given": "Henrik H"
+			},
+			{
+				"family": "Ensing",
+				"given": "Dennis"
+			},
+			{
+				"family": "Erkinaro",
+				"given": "Jaakko"
+			},
+			{
+				"family": "Irvine",
+				"given": "James R"
+			},
+			{
+				"family": "Kendall",
+				"given": "Neala W"
+			},
+			{
+				"family": "Kitching",
+				"given": "Tor"
+			},
+			{
+				"family": "Langan",
+				"given": "Joseph A"
+			},
+			{
+				"family": "Millane",
+				"given": "Michael"
+			},
+			{
+				"family": "Oxman",
+				"given": "Dion S"
+			},
+			{
+				"family": "Radchenko",
+				"given": "Vladimir I"
+			},
+			{
+				"family": "Thorstad",
+				"given": "Eva B"
+			},
+			{
+				"family": "Utne",
+				"given": "Kjell Rong"
+			}
+		],
+		"editor": [
+			{
+				"family": "Ojaveer",
+				"given": "Henn"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					29
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					22
+				]
+			]
+		}
+	},
+	{
+		"id": "PolarKnowledgeAqhaliat",
+		"type": "article-journal",
+		"container-title": "Polar Knowledge: Aqhaliat Report",
+		"DOI": "10.35298/pkc.2021.01.eng",
+		"page": "8-33",
+		"title": "Environmental change in the Kitikmeot Region of western Nunavut and Ulukhaktok region of eastern Northwest Territories",
+		"URL": "https://www.canada.ca/content/dam/polar-polaire/documents/publications/aqhaliat/volume-4/aqhaliat-volume-4-english.pdf",
+		"volume": "Volume 4",
+		"author": [
+			{
+				"family": "McLennan",
+				"given": "Donald"
+			},
+			{
+				"family": "Brown",
+				"given": ""
+			},
+			{
+				"family": "Scharien",
+				"given": "Randall"
+			},
+			{
+				"family": "Else",
+				"given": "Brent"
+			},
+			{
+				"family": "Wilson",
+				"given": "Katherine"
+			},
+			{
+				"family": "Humphreys",
+				"given": "Elyn"
+			},
+			{
+				"family": "Marsh",
+				"given": "Philip"
+			},
+			{
+				"family": "Ullulaq",
+				"given": "Jennifer"
+			},
+			{
+				"family": "Park",
+				"given": "Brian"
+			},
+			{
+				"family": "Cockney-Goose",
+				"given": "Tyra"
+			},
+			{
+				"family": "Aipellie",
+				"given": "Gary"
+			},
+			{
+				"family": "Qillaq",
+				"given": "Nysana"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					12,
+					4
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022"
+				]
+			]
+		}
+	},
+	{
+		"id": "FraserRiverPanel",
+		"type": "report",
+		"event-place": "Vancouver, BC",
+		"publisher": "Pacific Salmon Commission",
+		"publisher-place": "Vancouver, BC",
+		"title": "Fraser River Panel Annual Report on the 2023 Fraser River Sockeye and Pink Salmon Season",
+		"URL": "https://www.psc.org/reports/frpar-23",
+		"author": [
+			{
+				"family": "Fraser River Panel",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2024"
+				]
+			]
+		}
+	},
+	{
+		"id": "OBMEP20252024OkanoganSubbasin",
+		"type": "report",
+		"event-place": "Nespelem, WA",
+		"genre": "Report submitted to the Bonneville Power Administration, Project No. 2003-022-00.",
+		"publisher": "Colville Confederated Tribes Fish and Wildlife Department",
+		"publisher-place": "Nespelem, WA",
+		"title": "2024 Okanogan Subbasin Steelhead Spawning Abundance and Distribution",
+		"URL": "https://www.okanoganmonitoring.org/",
+		"author": [
+			{
+				"family": "OBMEP",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2025",
+					2
+				]
+			]
+		}
+	},
+	{
+		"id": "DFO2024WildSalmonPolicy",
+		"type": "article-journal",
+		"abstract": "Okanagan Sockeye salmon make up a single stock management unit (SMU), which contains a single conservation unit (CU) with three distinct spawning populations; these rear in Osoyoos Lake, Skaha Lake, and Okanagan Lake. Naturally returning spawners were re-established in Skaha Lake in 2011 and in Okanagan Lake in 2022, due to modifications to access barriers that allowed passage.",
+		"container-title": "Canadian Science Advisory Secretariat Science Advisory Report",
+		"language": "en",
+		"page": "17",
+		"source": "Zotero",
+		"title": "Wild Salmon Policy Status, Limit Reference Point, and Candidate Escapement Goals for Okanagan Sockeye Salmon",
+		"URL": "https://publications.gc.ca/collections/collection_2025/mpo-dfo/fs70-6/Fs70-6-2024-060-eng.pdf",
+		"volume": "2024/060",
+		"author": [
+			{
+				"family": "DFO",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2024"
+				]
+			]
+		}
+	},
+	{
+		"id": "PacificSalmonCommission2024ChinookTechnicalCommitteea",
+		"type": "webpage",
+		"title": "Chinook Technical Committee Annual Report Data App. Release 2024.01.v1",
+		"URL": "https://psc1.shinyapps.io/CTC_annual_report_data/_w_637af0d3/_w_8625d32f/",
+		"author": [
+			{
+				"family": "Pacific Salmon Commission",
+				"given": ""
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					4,
+					16
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2024"
+				]
+			]
+		}
+	},
+	{
+		"id": "Brown2024WestCoastVancouver",
+		"type": "report",
+		"genre": "West Coast of Vancouver Island Stock Assessment Bulletins",
+		"language": "en",
+		"page": "16 p.",
+		"source": "Zotero",
+		"title": "West Coast of Vancouver Island Chinook Terminal Return Forecast for 2024",
+		"URL": "https://publications.gc.ca/collections/collection_2024/mpo-dfo/Fs141-11-2024-eng.pdf",
+		"author": [
+			{
+				"family": "Brown",
+				"given": "Nicholas A W"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2024"
+				]
+			]
+		}
+	},
+	{
+		"id": "McHughKingSA20182016WestCoast",
+		"type": "article-journal",
+		"container-title": "Canadian Data Report of Fisheries and Aquatic Sciences",
+		"page": "vii + 256",
+		"title": "2016 West Coast of Vancouver Island Salmon Extensive Escapement Stream Summary",
+		"volume": "1288",
+		"author": [
+			{
+				"family": "McHugh",
+				"given": "Diana"
+			},
+			{
+				"family": "King, S A",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2018"
+				]
+			]
+		}
+	},
+	{
+		"id": "YukonRiverJointTechnicalCommittee2025YukonRiverSalmon",
+		"type": "article-journal",
+		"container-title": "Yukon River Joint Technical Committee Report",
+		"page": "vii + 186 p.",
+		"title": "Yukon River Salmon 2024 Season Summary and 2025 Season Outlook",
+		"URL": "https://www.yukonriverpanel.com/publications/yukon-river-joint-technical-committee-reports/",
+		"volume": "YUKON JTC (25)-01",
+		"author": [
+			{
+				"literal": "Yukon River Joint Technical Committee"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2025"
+				]
+			]
+		}
+	},
+	{
+		"id": "NisgaaFisheriesandWildlifeDepartment20242024NassRiver",
+		"type": "report",
+		"page": "21 p.",
+		"title": "2024 Nass River Salmon Stock Assessment - Post-Season Summary",
+		"author": [
+			{
+				"family": "Nisga'a Fisheries and Wildlife Department",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2024",
+					12,
+					3
 				]
 			]
 		}
