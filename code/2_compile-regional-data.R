@@ -1165,16 +1165,9 @@ for(s in 2:6){
 # Chinook
 #------------------------------------------------------------------------------
 
-wvi_ck_raw <- readxl::read_xlsx("data/TCCHINOOK-24-01-Appendix-B-Escapement-Detailed.xlsx", sheet = "B5", range = "A3:K52")
-names(wvi_ck_raw)[1] <- "Year"
-
-wvi_ck_raw <- wvi_ck_raw %>%
-	select(Year, 'WCVI 14-Stream Index1') %>%
-	rename("WCVI_14Stream_Index" = 'WCVI 14-Stream Index1') %>%
-	filter(!is.na(WCVI_14Stream_Index))
-
+wvi_ck_raw <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B5", range = "K24:K53", col_names = "WCVI_14Stream_Index") %>%
+	mutate(Year = c(1995:2024))
 # Escapement methods changed in 1995; only use earlier data for assessments
-wvi_ck_raw <- wvi_ck_raw %>% filter(Year >= 1995)
 
 # Put in SPS format
 wvick_sps <- data.frame(
@@ -1309,7 +1302,7 @@ for(s in c(2,3,4,6)){ # Chum, coho, pink, steelhead
 # frck_run <- tapply(frck_run0$tot_run, frck_run0$year, sum)
 
 # (3) CTC data
-ctc_esc <- readxl::read_xlsx("data/TCCHINOOK-24-01-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A3:P52", col_types = "numeric")
+ctc_esc <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A3:P52", col_types = "numeric")
 ctc_esc_sum <- apply(ctc_esc[, grep("Esc", names(ctc_esc))], 1, sum)
 
 # ctc_catch <-  readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-A-Catch-Detailed.xlsx", sheet = "A14", range = "K4:M52") %>%
