@@ -808,7 +808,7 @@ sps_data <- rbind(sps_data, nasscm_sps)
 #------------------------------------------------------------------------------
 
 # TCCHINOOK Table B3
-sk_ctc <- readxl::read_xlsx("data/TCCHINOOK-24-01-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "A4:G53", col_types = "numeric")
+sk_ctc <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "A5:G54", col_types = "numeric", col_names = c("Year", "Nass_Above_Gitwinksihlkw2", "Nass_Esc", "Nass_t.run", "Skeena_Total esc.", "Skeena_GSI esc", "Skeena_GSI SD"))
 
 # # TCNB Table 32
 # tcnb_32 <-read.csv("data/TCNB-23-01_Table32_Area4escapement.csv")
@@ -822,10 +822,10 @@ sk_ctc <- readxl::read_xlsx("data/TCCHINOOK-24-01-Appendix-B-Escapement-Detailed
 
 # Reformat data for SPS
 skck_sps <- data.frame(
-	region = rep("Skeena", dim(sk_ctc)[1]),
-	species = rep("Chinook", dim(sk_ctc)[1]),
-	year = sk_ctc$...1,
-	spawners = sk_ctc$`GSI esc3`, 
+	region = rep("Skeena", length(sk_ctc$Year)),
+	species = rep("Chinook", length(sk_ctc$Year)),
+	year = sk_ctc$Year,
+	spawners = sk_ctc$`Skeena_GSI esc`, 
 	smoothedSpawners = NA,
 	runsize = NA,
 	smoothedRunsize = NA
