@@ -1000,11 +1000,47 @@ for(s in c(2, 3, 4)){
 # Central Coast
 ###############################################################################
 
+#------------------------------------------------------------------------------
+# Central Coast Chinook
+#------------------------------------------------------------------------------
+ # Combo of CTC indicator stocks to Atnarko R. and Rivers Inlet from Table B3
+
+# TCCHINOOK Table B3
+cc_ctc <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "H5:K54", col_types = "numeric", col_names = c("Atnarko_Total_esc", "Atnarko_CV", "Atnarko_Wild", "Rivers_Inlet")) %>%
+	mutate(Year = c(1975:2024))
+
+# Reformat data for SPS
+ccck_sps <- data.frame(
+	region = rep("Central Coast", length(cc_ctc$Year)),
+	species = rep("Chinook", length(cc_ctc$Year)),
+	year = cc_ctc$Year,
+	spawners = cc_ctc$Atnarko_Total_esc + cc_ctc$Rivers_Inlet, 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA
+) 
+
+# Smoothing
+ccck_sps$smoothedSpawners <- genSmooth(
+	abund = ccck_sps$spawners,
+	years = ccck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Central Coast" & genLength$species == "Chinook"]
+)
+
+plot_abund(ccck_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, ccck_sps)
+
+
+#------------------------------------------------------------------------------
+# Central Coast chum, coho, pink, and sockeye 
+#------------------------------------------------------------------------------
 # Expansion from spawner surveys only; no steelhead data
 sp <- readRDS("output/expanded-spawners/Central Coast-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 
-for(s in 1:5){
+for(s in 2:5){
 	cc.s <- sp[2, species[s], ]
 	# cc.s <- cc.s[!is.na(cc.s)] # There is a missing year for Chinook in 2016...
 	

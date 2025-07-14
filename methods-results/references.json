@@ -1520,5 +1520,30 @@
 				]
 			]
 		}
+	},
+	{
+		"id": "ChinookTechnicalCommittee2025AnnualReportCatch",
+		"type": "article-journal",
+		"container-title": "Pacific Salmon Commission Joint Chinook Technical Committee Report",
+		"language": "en",
+		"page": "xviii + 180 p.",
+		"source": "Zotero",
+		"title": "Annual Report of Catch and Escapement for 2024",
+		"URL": "https://www.psc.org/reports/tcchinook-25-02",
+		"volume": "TCCHINOOK (25)-02",
+		"author": [
+			{
+				"family": "Chinook Technical Committee",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2025",
+					7
+				]
+			]
+		}
 	}
 ]
