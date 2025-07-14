@@ -141,14 +141,47 @@ tbrck_raw <- read.csv("data/CTC_Synoptic_evaluation_data_all_2025-04-16.csv") %>
 	select(Stock, Year, Escapement, RateType, Rate) %>%
 	mutate(TotalRun = Escapement/(1 - Rate))
 
+# average exploitation rate in last 5 years for Alsek
+mean(tbrck_raw$Rate[tbrck_raw$Stock == "Alsek" & tbrck_raw$Year %in% c(2019:2023)])
+
+# Fill in 2024 from Post-Season review
+tbrck_raw %>% filter(Year >= 2020) %>%
+	mutate(catch = TotalRun * Rate)
+
+
+tbrck_esc <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B2", range = "A5:G53", col_names = c("year", "Alsek_esc", "Alsek_cv", "Taku_esc", "Taku_cv", "Stikine_esc", "Stikine_cv"))
+# Ignore 1975 because not available for Alsek
+
+# # Spawner abundance
+# plot(tbrck_esc$year, tbrck_esc$Alsek_esc, col = 2, ylim = c(0, max(tbrck_raw$Escapement, na.rm = TRUE)), "o", pch = 21, bg = "white", cex = 0.8)
+# points(tbrck_esc$year, tbrck_esc$Taku_esc, "o", col = 3, pch = 21, bg = "white", cex = 0.8)
+# points(tbrck_esc$year, tbrck_esc$Stikine_esc, "o", col = 4, pch = 21, bg = "white", cex = 0.8)
+# for(i in 1:3) points(tbrck_raw$Year[tbrck_raw$Stock == c("Alsek", "Taku", "Stikine")[i]], tbrck_raw$Escapement[tbrck_raw$Stock == c("Alsek", "Taku", "Stikine")[i]], col = i+1, pch = 4)
+
+#Catch - WAIT! Appendix A does not include US catch of TBR stocks...this is under the TTC
+# tbrck_catch <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-A-Catch-Detailed.xlsx", sheet = "A4", range = "K5:M54", col_names = c("landed_catch", "releases", "incidental_mortality")) %>%
+	# mutate(year = 1975:2024) %>%
+	# mutate(total_mortality = landed_catch + incidental_mortality)
+
+# For 2024, take harvest from TTC B12, D8, and assume Alsek CK harvest rate is average of past 5 years 
 tbrck <- tbrck_raw %>%
 	group_by(Year) %>%
 	summarise(Escapement_all = sum(Escapement),
-						TotalRun_all = sum(TotalRun))
+						TotalRun_all = sum(TotalRun)) %>%
+	bind_rows(data.frame(Year = 2024,
+						Escapement_all = (tbrck_esc$Alsek_esc + tbrck_esc$Taku_esc + tbrck_esc$Stikine_esc)[tbrck_esc$year == 2024],
+						TotalRun_all = 730 + (tbrck_esc$Alsek_esc + tbrck_esc$Taku_esc + tbrck_esc$Stikine_esc)[tbrck_esc$year == 2024])) 
 
-# tbrck2 <- readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B2", range = "A4:G52")
+# plot(tbrck$Year, tbrck$TotalRun_all*10^-3, "o", pch = 19, bty= "l", xlab = "", ylab = "Total abundance (thousands)", ylim = c(0, 200))
+# for(i in 1:3) points(tbrck_raw$Year[tbrck_raw$Stock == c("Alsek", "Taku", "Stikine")[i]], tbrck_raw$TotalRun[tbrck_raw$Stock == c("Alsek", "Taku", "Stikine")[i]]*10^-3, col = i+1, pch = 4)
+# points(tbrck$Year, tbrck$Escapement_all*10^-3, "o", pch = 21, bg = "white")
+# 
 
 # # (2) TTC data
+# Prelimnary from aaron Foos with some assumptions suggests 2024 catch for all TBR Rivers is ~693
+
+
+# stikine terminal run 9,921
 # ttcck <- read.csv("data/TTC_MERGED.csv") %>%
 # 	filter(SPECIES == "Chinook", TableSource %in% c("E.7_full", "B.12", "D.7"))
 # 
@@ -235,6 +268,12 @@ max(tbrse_taku$Year) # 2024
 
 # Remove Stikine data prior to 1984
 tbrse_stik <- subset(tbrse_stik, tbrse_stik$Year >= 1984)
+
+plot(tbrse_taku$Year, tbrse_taku$Escapement*10^-3, "o", col = 2, pch = 21, bg = "white", ylim = c(0, 400), xlab = "", bty = "l")
+points(tbrse_taku$Year, tbrse_taku$Run*10^-3, "o", col = 2, pch = 19)
+points(tbrse_stik$Year, tbrse_stik$StikineRiver_EscapementBroodstock*10^-3, "o", col = 4, pch = 21, bg = "white")
+points(tbrse_stik$Year, tbrse_stik$StikineRiver_TerminalRun*10^-3, "o", col = 4, pch = 19)
+legend("topright", fill = c(2,4), c("Taku", "Stikine"))
 
 # Reformat data for SPS
 tbrse_sps <- data.frame(
@@ -467,6 +506,8 @@ sps_data <- rbind(sps_data, hgck_sps)
 sp <- readRDS("output/expanded-spawners/Haida Gwaii-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 
+sp[, "Coho",]
+
 for(s in 2:5){
 	hg.s <- sp[2, species[s], ]
 	# hg.s <- hg.s[!is.na(hg.s)]
@@ -512,26 +553,16 @@ nass_nisgaa <- read.csv("data/2024NassStockAssessment_combinedTables19-21.csv")
 #------------------------------------------------------------------------------
 
 # TCCHINOOK Table B3
-nass_ctc <- readxl::read_xlsx("data/TCCHINOOK-24-01-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "A4:D53", col_types = "numeric")
-names(nass_ctc) <- c("Year", "Above_Gitwinksihlkw2", "Esc", "t.run")
-
-# use most recent year (2024) from Nisga'a FWD:
-nass_ck <- rbind(
-	nass_ctc,
-	data.frame(Year = 2024,
-						 Above_Gitwinksihlkw2 = NA,
-						 Esc = nass_nisgaa$ESC_Chinook[nass_nisgaa$Year == 2024],
-						 t.run = nass_nisgaa$TOTAL_RUN_Chinook[nass_nisgaa$Year == 2024])
-)
+nass_ctc <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "A5:D54", col_types = "numeric", col_names = c("Year", "Above_Gitwinksihlkw2", "Esc", "t.run"))
 
 # Reformat data for SPS
 nassck_sps <- data.frame(
-	region = rep("Nass", dim(nass_ck)[1]),
-	species = rep("Chinook", dim(nass_ck)[1]),
-	year = nass_ck$Year,
-	spawners = nass_ck$Esc, 
+	region = rep("Nass", length(nass_ctc$Year)),
+	species = rep("Chinook", length(nass_ctc$Year)),
+	year = nass_ctc$Year,
+	spawners = nass_ctc$Esc, 
 	smoothedSpawners = NA,
-	runsize = nass_ck$t.run,
+	runsize = nass_ctc$t.run,
 	smoothedRunsize = NA
 ) 
 
