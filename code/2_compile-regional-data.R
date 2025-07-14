@@ -1036,6 +1036,7 @@ sps_data <- rbind(sps_data, ccck_sps)
 #------------------------------------------------------------------------------
 # Central Coast chum, coho, pink, and sockeye 
 #------------------------------------------------------------------------------
+
 # Expansion from spawner surveys only; no steelhead data
 sp <- readRDS("output/expanded-spawners/Central Coast-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
@@ -1078,10 +1079,9 @@ for(s in 2:5){
 #------------------------------------------------------------------------------
 
 # (1) CTC data
-evimi_ctc_raw <- readxl::read_xlsx("data/TCCHINOOK-24-01-Appendix-B-Escapement-Detailed.xlsx", sheet = "B4", range = "A4:G53", col_types = "numeric") # Southern BC
-names(evimi_ctc_raw) <- c("Year", "Nanaimo_esc", "Nanaimo_trun", "Cowichan_esc", "Cowichan_trun", "Phillips_esc", "Phillips_trun")
+evimi_ctc <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B4", range = "A5:G54", col_types = "numeric", col_names = c("Year", "Nanaimo_esc", "Nanaimo_trun", "Cowichan_esc", "Cowichan_trun", "Phillips_esc", "Phillips_trun")) # Southern BC
 
-evimi_ctc_summed <- evimi_ctc_raw %>%
+evimi_ctc_summed <- evimi_ctc %>%
 	group_by(Year) %>%
 	summarise(esc_sum = sum(Nanaimo_esc, Cowichan_esc, Phillips_esc),
 						trun_sum = sum(Nanaimo_trun, Cowichan_trun, Phillips_trun))
