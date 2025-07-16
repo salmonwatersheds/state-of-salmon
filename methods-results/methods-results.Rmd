@@ -99,45 +99,61 @@ Here we describe specific data sources for the abundance of salmon and steelhead
 
 ### Yukon
 
-<span style="color:red"> **Yukon has been updated with data to 2024.**</span>
-
 The Canadian portion of the Yukon River is home to Chinook, chum, and coho salmon. Border escapement and total abundance (i.e., run size) of Canadian-origin Chinook and fall chum salmon in the mainstem Yukon River are counted at the Eagle Sonar station on the Yukon/Alaska border, and are available from the [Yukon River Panel](https://www.yukonriverpanel.com/) in their Joint Technical Committee (JTC) Reports. Specifically, we used Chinook `RR Spawning escapement estimate` and `RR Canadian origin total run size estimate` from Appendix B11 of @YukonRiverJointTechnicalCommittee2025YukonRiverSalmon. Canadian-origin fall chum spawner abundance was taken as the `Spawning escapement estimate` in Appendix B16 and total abundance as the `Total estimated Canadian-origin run size` from Appendix B20 of @YukonRiverJointTechnicalCommittee2025YukonRiverSalmon. 
 
 There are also Chinook, chum, and coho salmon in the Canadian portion of the Porcupine River, which joins the mainstem Yukon River in Alaska. Data on escapement to the Porcupine River are more patchy and not currently included here.
 
-<!-- ```{r, echo = FALSE, include = TRUE, fig.cap = "**Above:** Map showing the Canadian portion of the Yukon River drainage. Out estimates of spawner abundance and total return are based on border escapement estimated from Eagle sonar. Enuneration of salmon in the Porcupine river is less consistent and was not included in our analysis."} -->
-
-<!-- ``` -->
+> Internal note: Processing of raw excel file from Aaron Foos to extract relevant tables and fields is in [population-data/transboundary-data/code/sos-data-extract.R](https://www.dropbox.com/scl/fi/zxgtulvx2p5iphr3rjx57/sos-data-extract.R?rlkey=f18myjpthqbee4ciz9ny0pjf9&dl=0)
 
 ### Transboundary
 
-The regional spawner abundance and total return of Chinook was calculated as the sum of escapement and total return, respectively, to the Stikine, Alsek, and Taku indicator stocks. For each of these stocks, we used escapement and exploitation rates provided by the [PSC's Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/) as part of their Synoptic Evaluations of Stock Status. These data were downloaded from their [Data Application](https://psc1.shinyapps.io/ctc-shiny-app/_w_efbbad27/). Total abundance was calculated from the escapement, $E$, and exploitation rate, $r$, as $E/(1-r)$. At the time of publication, the Synoptic Evaluations of Stock Status were not yet available for 2024 so we used the escapement estimates for Stikine, Alsek, and Taku Chinook from Table B2 of Appendix B - Detailed Escapement, available as a downloadable dataset from the [Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/). Canadian and US harvest of Chinook was provided by Aaron Foos (DFO) as updated tables from the Transboundary Technical Committee report. Specifically, harvest for Stikine Chinook from Table B12 and harvest of Taku Chinook from Table D8. Harvest of Alsek Chinook was not provided at time of publication, and so we estimated this assuming the average exploitation rate over the most recent five years (2019-2023) from the CTC's Synoptic Evaluations of Stock Status (noting that this is such a small number that it has minimal impact on the status outcomes we report).
-
-For coho, sockeye, pink, and chum, we assessed regional abundance in the Transboundary using estimates of border escapement provided in the PSC's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The most recent TTC report [@TTC2022FinalEstimatesTransboundary] includes data through 2021. Updated report appendices were provided by Aaron Foos (DFO) on April 15, 2025 in advance of report publication, and numbers for 2023 and 2024 should be considered **preliminary**.
-
-Sockeye spawner abundance and total return were taken from the updated TTC report appendices. Specifically, Stikine sockeye spawner and total abundance were the `Escapement/broodstock` and `Terminal Run`, respectively, summed across the Stikine River (Appendix B26) and the Taku River (Appendix D17). 
-
-Coho spawner abundance and total abundance are available for the Taku River only, taken from Appendix D22 (`Escapement` and `Terminal Run` respectively) of the TTC updated report appendices.
-
-Pink and chum salmon are less extensively monitored in the Transboundary, with ongoing escapement available only from the Canyon Island fish wheel on the Taku River. We used the index of escapement from the Canyon Island fish wheel as an index of regional spawner abundance for pink and chum [@TTC2022FinalEstimatesTransboundary]. There are some historical data for pink salmon spawner abundance in the Nakina River of the Taku watershed, but this location has not reported data since 1998 and thus we did not include this stream survey in our index of regional abundance.
-
-Steelhead trout have also been enumerated at the Canyon Island fish wheel since 1987, though recent estimates have been patchy and the timing of the fish wheel likely misses a substantial portion of the Taku summer run steelhead. Thus, we do not use the Canyon Island counts as an index of steelhead abundance.
+The best-available information on salmon abundance in the Northern Transboundary region is from the PSC's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The most recent TTC report [@TTC2022FinalEstimatesTransboundary] includes data through 2021. Updated report appendices were provided by Aaron Foos (DFO) on April 15, 2025 in advance of report publication, and numbers for 2023 and 2024 should be considered **preliminary**.
 
 We recognize that our approach in the Transboundary lacks information from many un-monitored watersheds, in particular the smaller watersheds of the Chilkat, Unuk, and Whiting Rivers. In the absence of better monitoring, we choose to report available data as a proxy for regional abundance, and note that the contribution of these smaller watersheds to total regional abundance for each species is likely small. 
 
-> Internal note: Processing of raw excel file from Aaron Foos to extract relevant tables and fields is in [population-data/transboundary-data/code/sos-data-extract.R](https://www.dropbox.com/scl/fi/zxgtulvx2p5iphr3rjx57/sos-data-extract.R?rlkey=f18myjpthqbee4ciz9ny0pjf9&dl=0)
+#### Chinook {.unnumbered}
+The regional spawner abundance and total return of Chinook was calculated as the sum of escapement and total return, respectively, to the Stikine, Alsek, and Taku indicator stocks. For each of these stocks, we used escapement and exploitation rates provided by the [PSC's Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/) as part of their Synoptic Evaluations of Stock Status. These data were downloaded from their [Data Application](https://psc1.shinyapps.io/ctc-shiny-app/_w_efbbad27/). Total abundance was calculated from the escapement, $E$, and exploitation rate, $r$, as $E/(1-r)$. At the time of publication, the Synoptic Evaluations of Stock Status were not yet available for 2024 so we used the escapement estimates for Stikine, Alsek, and Taku Chinook from Table B2 of Appendix B - Detailed Escapement, available as a downloadable dataset from the [Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/). Canadian and US harvest of Chinook was provided by Aaron Foos (DFO) as updated tables from the Transboundary Technical Committee report. Specifically, harvest for Stikine Chinook from Table B12 and harvest of Taku Chinook from Table D8. Harvest of Alsek Chinook was not provided at time of publication, and so we estimated this assuming the average exploitation rate over the most recent five years (2019-2023) from the CTC's Synoptic Evaluations of Stock Status (noting that this is such a small number that it has minimal impact on the status outcomes we report).
+
+#### Coho {.unnumbered}
+Coho spawner abundance and total abundance are available for the Taku River only, taken from Appendix D22 (`Escapement` and `Terminal Run` respectively) of the TTC updated report appendices.
+
+#### Pink and Chum {.unnumbered}
+Pink and chum salmon are less extensively monitored in the Transboundary, with ongoing escapement available only from the Canyon Island fish wheel on the Taku River. We used the index of escapement from the Canyon Island fish wheel as an index of regional spawner abundance for pink and chum [@TTC2022FinalEstimatesTransboundary]. There are some historical data for pink salmon spawner abundance in the Nakina River of the Taku watershed, but this location has not reported data since 1998 and thus we did not include this stream survey in our index of regional abundance.
+
+#### Sockeye {.unnumbered}
+Sockeye spawner abundance and total return were taken from the updated TTC report appendices. Specifically, Stikine sockeye spawner and total abundance were the `Escapement/broodstock` and `Terminal Run`, respectively, summed across the Stikine River (Appendix B26) and the Taku River (Appendix D17). 
+
+```{r, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** Sockeye salmon spawner abundance (open points) and total abundance (closed points) in the Taku (red) and Stikine (blue)."}
+
+# TBR Sockeye data are the sum of the Stikine (Appendix B26) and Taku (Appendix D17) 
+# In 2024, the Appendix numbers given were B21 and D15 respectively, but that's changed.
+tbrse_stik <- read.csv('data/tbr_sockeye_appendixB26.csv')
+tbrse_taku <- read.csv('data/tbr_sockeye_appendixD17.csv')
+
+plot(tbrse_taku$Year, tbrse_taku$Escapement*10^-3, "o", col = 2, pch = 21, bg = "white", ylim = c(0, 400), xlab = "", bty = "l", ylab = "Abundance (thousands)", las = 1, yaxs = "i")
+abline(v = seq(1980, 2025, 5), lty = 3, col = grey(0.8))
+abline(h = seq(0, 400, 100), lty = 3, col = grey(0.8))
+
+points(tbrse_taku$Year, tbrse_taku$Run*10^-3, "o", col = 2, pch = 19)
+points(tbrse_stik$Year, tbrse_stik$StikineRiver_EscapementBroodstock*10^-3, "o", col = 4, pch = 21, bg = "white")
+points(tbrse_stik$Year, tbrse_stik$StikineRiver_TerminalRun*10^-3, "o", col = 4, pch = 19)
+legend("topright", col = c(2,4), pch = 19, lwd = 1, c("Taku", "Stikine"), bty = "n")
+
+
+
+```
+
+
+#### Steelhead {.unnumbered}
+Steelhead trout have also been enumerated at the Canyon Island fish wheel since 1987, though recent estimates have been patchy and the timing of the fish wheel likely misses a substantial portion of the Taku summer run steelhead. Thus, we do not use the Canyon Island counts as an index of steelhead abundance.
 
 ### Haida Gwaii
 
-<span style="color:red">**Expansion factors have been updated to include the most recent spawner survey data, which goes to 2023.**</span>
+#### Chinook {.unnumbered}
+The only availabel data for Chinook salmon in Haida Gwaii are from a single enumeration project on the Yakoun River. Although monitoring on the Yakoun has recently been restored, the most recent estimate for Yakoun Chinook that is publicly available is from 2006. We show Yakoun River spawner abundance up to 2006, but no estimates were available for the most recent generation making the current status for Haida Gwaii Chinook "Unknown". 
 
-
-For Haida Gwaii, we followed the [Expansion Factors](#expansion-factors) approach described below, with the exception of Chinook salmon for which the only data are from a single enumeration project on the Yakoun River. We show Yakoun River spawner abundance up to 2006, but no estimates were available for the most recent generation making the current status for Haida Gwaii Chinook "Unknown". 
-
-For other species, we compared our expansion approach to estimates of escapement to Area 1 reported in the @NorthernBoundaryTechnicalCommittee2023USCanadaNorthern (Appendix 30) but found the Area 1 estimates were much lower (except for Chinook, for which Appendix 30 matched the Yakoun River estimates exactly). 
-
-#### Expansion Factors by Species {.tabset}
-
+#### Other Species: Expansion Factors {.unnumbered .tabset}
+For Haida Gwaii, we followed the [Expansion Factors](#expansion-factors) approach described below.We compared our expansion approach to estimates of escapement to Area 1 reported in the @NorthernBoundaryTechnicalCommittee2023USCanadaNorthern (Appendix 30) but found the Area 1 estimates were much lower (except for Chinook, for which Appendix 30 matched the Yakoun River estimates exactly). 
 
 ```{r, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (teal) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 30) is shown in red. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
 
@@ -171,9 +187,10 @@ plot_expansions(speciesname = species[s],
 
 ### Nass
 
-#### Chinook
+#### Chinook {.unnumbered}
 
 Chinook spawners and total return were taken from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @ChinookTechnicalCommittee2025AnnualReportCatch. Specifically, Nass River (Area 3) escapement and terminal run are provided in Table B3 (fields `Esc` and `t.run` respectively). In the figure below, these CTC estimates correspond closely to estimates of Nass Chinook available from the [Nisga'a Fisheries Nass Stock Assessment Updates](https://www.dropbox.com/scl/fo/ahrrza0aplzcnamatapar/h?rlkey=n51s6qgu0yze0vrphue8dk4ap&e=2&st=n0g2ox45&dl=0), especially in recent years. Historically, the Nisga'a estimates of total abundance tended to be higher than the CTC estimates. 
+
 ```{r, echo = FALSE, warnings = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 4, fig.cap = "**Above:** Comparison of Nass Chinook spawner and total abudnance from CTC and Nisga'a Fisheries Nass Stock Assessment in-season estiamtes of total return to Canada (TRTC)."}
 
 # TCCHINOOK Table B3
@@ -196,7 +213,7 @@ points(c(2024, 2024), c(tail(nass_nisgaa$TOTAL_RUN_Chinook*10^-3, 1),  tail(nass
 legend("topleft", pch = c(rep(1, 4), 19), lwd = c(rep(1, 4), NA), col = c(1, grey(0.6), 2, "#FF000050", 2), c("TCCHINOOK-24-01 - t.run", "TCCHINOOK-24-01 - Esc", "NFWD - Total Run", "NFWD - Esc.", "Used for 2024"), pt.cex = c(rep(1, 4), 0.8))
 ```
 
-#### Coho
+#### Coho {.unnumbered}
 
 Nass coho escapement and total return were available from the Nisga'a Fisheries and Wildlife Department (@NisgaaFisheriesandWildlifeDepartment20242024NassRiver) for 1992 to 2024. These data closely matched previous estimates from @EnglishEtAl2023PreliminaryAreaSalmon used in the 2024 report. Spawner surveys in NuSEDS tended to generally underestimate spawner abudnance to the region, and were not used because other data were available.
 
@@ -225,7 +242,7 @@ legend("topleft", pch = c(1,1,1,1,19), lwd = 1, col = c(1, grey(0.6), 2, "#FF000
 
 ```
 
-#### Sockeye
+#### Sockeye {.unnumbered}
 
 Nass sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 3 sockeye from the 2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast]. For 2023 and 2024, we obtained the same model output from @NisgaaFisheriesandWildlifeDepartment20242024NassRiver. As can be seen in the figure below, historical numbers from these two sources closely matched, giving us confidence that it was justifiable to combine the two sources.
 
@@ -250,7 +267,7 @@ legend("topleft", pch = c(1,1,1,1, 19), lwd = 1, col = c(1, grey(0.6), 2, "#FF00
 
 ```
 
-#### Steelhead 
+#### Steelhead {.unnumbered}
 
 The index of Nass steelhead spawner abundance and total return are for the Nass Summer CU, developed in collaboration with the Nisga’a Fish and Wildlife Department and LGL Ltd. [@EnglishEtAl2023PreliminaryAreaSalmon, @NisgaaFisheriesandWildlifeDepartment20242024NassRiver]. There is another steelhead CU in the Nass region - Nass Winter - which is not well monitored and therefore not included in our index of spawner abundance.
 
@@ -276,7 +293,7 @@ legend("topleft", pch = c(1,1,1,1), lwd = 1, col = c( 2, "#FF000050", 1, grey(0.
 
 ```
 
-#### Pink and Chum
+#### Pink and Chum {.unnumbered}
 
 Chum and pink salmon spawner abundances were expanded from available spawner surveys from 1950 to 1991, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Nass region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS. From 1992 to 2024, estimates of spawner and total abundance were provided in the 2024 post-season report from the Nisga'a Fisheries and Wildlife Department (@NisgaaFisheriesandWildlifeDepartment20242024NassRiver).
 
@@ -327,47 +344,21 @@ mtext(side = 4, "Expansion factor", line = 3)
 
 ```
 
-##### Expansion Factors by Species {.tabset}
-
-```{r, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
-
-
-	
-for(s in c(2,4)){ 
-	cat("###### ", species[s], " {.unnumbered} \n")
-	cat("\n")
-	
-	plot_expansions(speciesname = species[s],
-									regionname = "Nass",
-									region_spawners = region_spawners,
-									expansion_factors = expansion_factors,
-									added_series = NULL)
-		
-	cat("\n")
-}
-
-```
-
 
 ### Skeena
 
-#### Chinook
+#### Chinook {.unnumbered}
 Chinook spawners were taken from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @ChinookTechnicalCommittee2025AnnualReportCatch. Specifically, Skeena River (Area 4) escapement is provided in Table B3 (field `GSI esc`). There is no total return for the Skeena River provided in the CTC data sets.
 
-<!-- #### Chum -->
-<!-- For Skeena chum salmon, we used escapement to Area 4 reported in Table 32 of @NorthernBoundaryTechnicalCommittee2023USCanadaNorthern rather than expanding escapement from spawner surveys because surveys of indicator stream have been increasingly patchy over the last 30 years, making expansions uncertain. -->
+#### Sockeye {.unnumbered}
+Skeena sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 4 sockeye from the 2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast].
 
-#### Sockeye
-Skeena sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 4 sockeye from the  2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast].
-
-#### Steelhead
+#### Steelhead {.unnumbered}
 The index of Skeena steelhead spawner abundance is derived from estimated escapement of Skeena Summer steelhead at the Tyee Test Fishery (1956 - present), provided by the Province via email. As for other regions, these estimates may not capture winter-run steelhead, for which data are not available.
 
-Skeena coho and pink salmon were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS.
+#### Other Species: Expansion Factors {.unnumbered .tabset}
 
-#### Expansion Factors by Species {.tabset}
-
-Chum, coho, and pink salmon spawner abundances were expanded from spawner surveys.
+Skeena chum, coho, and pink salmon spawner abundances in the Skeena were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS.
 
 ```{r, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (teal) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 32) is shown in red. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
 
@@ -398,7 +389,7 @@ plot_expansions(speciesname = species[s],
 
 ### Central Coast
 
-#### Chinook
+#### Chinook {.unnumbered}
 
 For Central Coast Chinook, the PSC's Chinook Technical Committee (CTC) reported escapement for two indicator stocks on the Central Coast: the Atnarko River and Rivers Inlet [@ChinookTechnicalCommittee2025AnnualReportCatch]. Rivers Inlet is monitored "using an index of escapements to the Wannock, Kilbella, and Chuckwalla rivers" [@ChinookTechnicalCommittee2025AnnualReportCatch]. Because monitoring of Central Coast Chinook reported in NuSEDS has recently declined, expansions from spawner surveys are unreliable. As such, in 2025 we moved to using a composite indicator equal to the sum of the Atnarko River (`Total esc.`) and Rivers Inlet index reported by the CTC in Appendix Table B3.
 
@@ -432,11 +423,11 @@ legend("topleft", col = c(1,2,4, "purple"), c("NuSEDS expansion", "CTC Atnarko T
 
 ```
 
-#### Steelhead
+#### Steelhead {.unnumbered}
 
 There are two spawner surveys for Steelhead trout on the Central Coast that we report in the Pacific Salmon Explorer. However, these surveys have been patchy through time with the most recent estimates from 2016. Therefore, spawner abundance and total return for Central Coast steelhead was considered unknown.
 
-#### Other species: Expansion Factors {.tabset}
+#### Other Species: Expansion Factors  {.unnumbered .tabset}
 
 Estimates of spawner abundance for all other salmon species on the Central Coast were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Monitoring and reporting of observed spawners on the Central Coast has declined in recent decades, thus requiring larger expansion factors to arrive at an area-wide estimate that can be compared through time. As such, estimates of spawner abundance for the Central Coast over the past decade are more uncertain and should be interpreted with caution. 
 
@@ -469,7 +460,7 @@ for(s in 2:5){
 
 In the 2025 State of Salmon report, we have split the former "Vancouver Island & Mainland Inlets" region into two: East Vancouver Island & Mainland Inlets and West Vancouver Island. This split was made to better reflect the different ecology and habitats of salmon between the regions that may lead to different status and trends.
 
-#### Chinook
+#### Chinook {.unnumbered}
 
 PSC's Chinook Technical Committee (CTC) reports escapement (spawner abundance) and run size (total abundance) for three indicator stocks in the Strait of Georgia: Nanaimo, Cowichan, and Phillips [@ChinookTechnicalCommittee2025AnnualReportCatch]. We report spawner abundance and total abundance as the sum of `Esc` and `t.run`, respectively, across these three indicator stocks as reported in Appendix Table B4 available from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/).
 
@@ -493,7 +484,7 @@ legend("topleft", pch = 19, pt.cex = c(rep(0.8, 3), 1), lwd = 1, c("Nanaimo", "C
 
 ```
 
-#### Other Species: Expansion Factors {.tabset}
+#### Other Species: Expansion Factors {.unnumbered .tabset}
 
 Initial time series of spawner abundances for all other salmon in East Vancouver Island & Mainland Inlets were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). For the assessments, we truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
 
@@ -528,13 +519,13 @@ for(s in 1:5){
 
 In the 2025 State of Salmon report, we have split the former "Vancouver Island & Mainland Inlets" region into two: East Vancouver Island & Mainland Inlets and West Vancouver Island. This split was made to better reflect the different ecology and habitats of salmon between the regions that may lead to different status and trends. 
 
-#### Chinook
+#### Chinook {.unnumbered}
 For Chinook, we used the West Coast Vancouver Island (WCVI) 14-stream index escapements of Pacific Salmon Commission Chinook Technical Committee wild Chinook salmon escapement indicator stocks, available in Appendix B5 of @ChinookTechnicalCommittee2025AnnualReportCatch Streams were selected to represent WVI Chinook populations "with little or no hatchery influence" [@ChinookTechnicalCommittee2025AnnualReportCatch]. **We truncated this time series to only include years from 1995 onwards, because earlier escapement estimates used different methodology and have not been calibrated [@ChinookTechnicalCommittee2025AnnualReportCatch].** Although catch of WVI Chinook is also reported by the CTC, there is no allocation of catch to the index streams used for escapement or other calculation of total abundance that we could draw on for the State of Salmon report, so WVI Chinook are assessed by spawner abundance only.
 
-#### Sockeye
+#### Sockeye {.unnumbered}
 Reconstructions of sockeye spawners and recruitment are compelted by DFO (Nicholas Brown, pers. comm.) for three Conservation Units on West Vancouver Island: Sproat, Great Central, and Hucuktlis (formerly Henderson). We used the sum of spawners and total return for these three Conservation Units as the index of sockeye spawner and total abundance for WVI. We acknowledge that this index does not account for lake-type sockeye in other watersheds (e.g., Muchalat, Kennedy, Clayoquot) or river-type sockeye in West Vancouver Island and Northwest Vancouver Island CUs, which tend to be in much lower abundance.
 
-#### Other Species: Expansion Factors  {.tabset}
+#### Other Species: Expansion Factors   {.unnumbered .tabset}
 For chum, coho, pink, and steelhead, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). For the assessments, we trunctaed the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
 
 ```{r, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
@@ -568,25 +559,28 @@ for(s in 2:4){
 ```
 ### Fraser
 
-<span style="color:red">**Chinook awaiting PSC CTC data (July 2025).**</span>
-
+#### Chinook {.unnumbered}
 <!-- River-level spawner abundance for Fraser Chinook found in NuSEDS can be highly unreliable, thus we based our expansions on only the most intensively monitored streams that have been deemed as reliable estimates of abundance by @BrownEtAl20202020SummaryAbundance. These streams are those shown in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca), and the associated data can be accessed from the stream survey data in the [SWP Data Library](https://data.salmonwatersheds.ca/result?datasetid=1). We also truncated the Chinook index of abundance to 1984 and more recent data, as earlier years have been deemed unreliable [@BrownEtAl20202020SummaryAbundance] and from 1984 onward spawner estimates mirrored those reported by @AtlasEtAl2023TrendsChinookSalmon. For Chinook total return, we used the sum of total run for four Fraser populations (Harrison, Nicola, Lower Shuswap, and South Thompson - all) reported in @AtlasEtAl2023TrendsChinookSalmon and available from the associated [GitHub repository](https://github.com/willatlas/ChinookEscapement-RunSize). -->
 
-Escapement of Fraser Chinook is provided in the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @CTC2024AnnualReportCatch. We took the sum of escapement to indicator stocks in Table B6 (all Spring/Summer, Harrison, Lower Shuswap, Nicola, Lower Chilcotin, and Chilko) as an index of spawner abundance. Catch of Fraser Chinook is provided in Table A14 but cannot be directly added to indicator escapement to yield total return.  PSF is pursuing Chinook run reconstruction output for the Fraser to inform total return.
+Escapement of Fraser Chinook is provided in the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @ChinookTechnicalCommittee2025AnnualReportCatch. We took the sum of escapement to indicator stocks in Table B6 (all Spring/Summer, Harrison, Lower Shuswap, Nicola, Lower Chilcotin, and Chilko) as an index of spawner abundance. Catch of Fraser Chinook is provided in Table A14 but cannot be directly added to indicator escapement to yield total return.  PSF is pursuing Chinook run reconstruction output for the Fraser to inform total return.
 
+#### Chum {.unnumbered}
 Fraser chum catch and escapement are reported by PSC's Chum Technical Committee [@20232019PostSeasonSummary], and were provided to us on request to Brittany Jenewin (DFO, pers. comm.). For 2023 and 2024, estimates were extracted from the [Fraser Management Council post-season review](https://frasersalmon.ca/wp-content/uploads/2025/01/2024-Fraser-Coho-and-Chum-Post-season-Review-2025-01-28-FINAL-1.pdf).
 
+#### Coho {.unnumbered}
 For interior Fraser coho CUs, spawner abundance and total return to 2022 were provided by DFO on data request (pers. comm. Marissa Glavas, Data Manager, Fraser River Stock Assessment). We report total return as the sum of "Total Pre-Fishery Abundance" to all CUs and spawner abundance as the sum of "Total Return" (i.e., final spawner estimate plus fish removed from the system by DFO Salmon Enhancement Program or First Nations) to all CUs (we note the term "total return" is used differently in this data set to represent spawners!). We recognize that using these estimates ignores coastal coho populations, for which monitoring has been patchy through time. Spawner and run size for 2023 and preliminary spawner abundance for 2024 were taken from the presentation of [2025/26 Southern B.C. Salmon: Chum and Coho](https://frasersalmon.ca/wp-content/uploads/2025/02/2025-Forum-2_Richmond_Chum-and-Coho.pdf) dated February 2025. Preliminary 2024 spawner abundance is for natural-origin spawners only, and is a lower estimate of the total 2024 spawner abundance. However, the numbers of hatchery-origin spawners have been low (< 10\%) over the past two decades.
 
+#### Pink and Sockeye {.unnumbered}
 Data on total return and spawner abundance of pink salmon and sockeye salmon in the Fraser region are provided by the PSC and accessed through the Fraser Panel Annual Report: Data Application [@PacificSalmonCommission2024PSCAnnualReport]. Total escapement for Fraser sockeye was not yet available for 2023, and 2023 total return is considered preliminary. We note that Fraser River pink salmon are only counted in the dominant, odd-year run. 
 
+#### Steelhead {.unnumbered}
 Steelhead trout in the Fraser are monitored by the Province in at least 10 different streams, but these data are not readily available. Relatively reliable estimates of steelhead spawner abundance are available at the CU-level for interior Fraser steelhead from the Thompson Summer CU (monitored at the Thompson River) and Mid Fraser Summer CU (primarily monitored at the Chilcotin River; data in the [Pacific Salmon Explorer](https://salmonexplorer.ca)). We used the sum of CU-level spawner abundance for these two CUs as an index of Fraser steelhead abundance. We note that this approach does not include more coastal populations, such as the Lower Fraser Summer steelhead monitored in the Coquihalla River or Boundary Bay Winter steelhead, which may not have declined to the same extent over the past decade. However, a lack of publicly accessible data on coastal Fraser steelhead has limited our ability to include these CUs in our index of abundance.
 
 ### Columbia
 
 We used CU-level estimates of spawner abundance (run reconstructions) sourced from DFO (Athena Ogden, pers. comm.) for Chinook and sockeye. Spawner abundance for Columbia sockeye was the sum of estimates for Osoyoos and, more recently, Skaha Lakes and were the most up-to-date estimates as of June 2025 (Athena Ogden, pers. comm.). Total abundance for sockeye was extracted from DFO's 2024 Wild Salmon Policy assessment for Osoyoos sockeye [@DFO2024WildSalmonPolicy] from 1980-2023.
 
-There is no monitoring of steelhead trout in the Canadian portion of the Columbia region, but the Okanagan Nation Alliance does enumerate steelhead in akskwəkwant (Inkaneep Creek) and estimate a Canadian portion of steelhead spawning abundance. These data can be found in associated report (e.g. @OBMEP2022ColumbiaSteelhead) and are available in the Pacific Salmon Explorer as the CU-level spawner abundance for the Mid Columbia Summer CU.
+There is no monitoring of steelhead trout in the Canadian portion of the Columbia region, but the Okanagan Nation Alliance does enumerate steelhead in akskwəkwant (Inkaneep Creek) and estimate a Canadian portion of steelhead spawning abundance. These data can be found in associated report (e.g. @OBMEP2022ColumbiaSteelhead) and are available for the Mid Columbia Summer Conservation Unit [in the Pacific Salmon Explorer](https://salmonexplorer.ca/explore/data/spawner-abundance/columbia/steelhead/mid-columbia-summer-1380/).
 
 ## Expansion Factors 
 
@@ -767,11 +761,18 @@ source("code/functions.R")
 
 * Steelhead are still struggling, below average in all regions, though a lack of monitoring and reporting on their abundance makes it difficult to understand the extent of declines.
 
-## All regions {.tabset}
+## All regions
 
-### Spawners {.unnumbered}
+### 2024 compared to 2023
 
-**Below**: Summary of current status for **spawner abundance** across regions and species, comparing between previous years' outcomes and revised outcomes. Regions and species below historical average are in red and above historical average are in green. Black cells indicate species that are not thought to be present in the given region, and grey cells indicate status was Unknown. For some regions and species, numbers have changed even though the year is the same because (1) the long-term average is calculated from raw instead of smoothed abundances or (2) an updated or different data source was used (e.g., final "synoptic evaluations" have been published for Transboundary Chinook post-release of SOS2024, and final numbers changed slightly; see [Region-specific Data Sources](#data-sources)).
+Most of our results are based on **generational averages** (i.e., "smoothed" abundance), but in somep laces it's worth highlighting what happened in 2024. In particular, several regions/species seemed to have big returns in 2024 that are not reflected in the "current abundance" but we may want to highlight in the narrative. 
+
+
+
+### Overview results table {.tabset}
+**Below**: Summary of current status for **spawner or total abundance** (tabs) across regions and species, comparing between previous years' outcomes and revised outcomes. Regions and species below historical average are in red and above historical average are in green. Black cells indicate species that are not thought to be present in the given region, and grey cells indicate status was Unknown. For some regions and species, numbers have changed even though the year is the same because (1) the long-term average is calculated from raw instead of smoothed abundances or (2) an updated or different data source was used (e.g., final "synoptic evaluations" have been published for Transboundary Chinook post-release of the 2024 State of Salmon report, and final numbers changed slightly; see [Region-specific Data Sources](#data-sources)).
+
+#### Spawners {.unnumbered}
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 btn_table.all(
@@ -780,15 +781,15 @@ btn_table.all(
 )
 ```
 
-### Runsize {.unnumbered}
+#### Runsize {.unnumbered}
 
-**Below**: Summary of current status for **total abundance** across regions and species, comparing between previous years' outcomes and revised outcomes. Regions and species below historical average are in red and above historical average are in green. Black cells indicate species that are not thought to be present in the given region, and grey cells indicate status was Unknown. For some regions and species, numbers have changed even though the year is the same because (1) the long-term average is calculated from raw instead of smoothed abundances or (2) an updated or different data source was used (e.g., final "synoptic evaluations" have been published for Transboundary Chinook post-release of SOS2024, and final numbers changed slightly; see [Region-specific Data Sources](#data-sources)).
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 btn_table.all(
 	new_metrics = sps_metrics[which(sps_metrics$type == "Run Size"), ],
 	old_metrics = sps_metrics_2024[which(sps_metrics_2024$type == "Run Size"), ]
 )
 ```
+
 
 ## Yukon
 

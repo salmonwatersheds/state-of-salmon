@@ -12,7 +12,6 @@ references.bib
 # Ignore rendered methods-results doc, which is large
 methods-results/*.docx
 methods-results/methods-results.html
-methods-results/methods-results.Rmd
 methods-results/figures
 
 code/archive

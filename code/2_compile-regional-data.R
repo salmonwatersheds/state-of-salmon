@@ -170,7 +170,7 @@ tbrck <- tbrck_raw %>%
 						TotalRun_all = sum(TotalRun)) %>%
 	bind_rows(data.frame(Year = 2024,
 						Escapement_all = (tbrck_esc$Alsek_esc + tbrck_esc$Taku_esc + tbrck_esc$Stikine_esc)[tbrck_esc$year == 2024],
-						TotalRun_all = 730 + (tbrck_esc$Alsek_esc + tbrck_esc$Taku_esc + tbrck_esc$Stikine_esc)[tbrck_esc$year == 2024])) 
+						TotalRun_all = 717 + (tbrck_esc$Alsek_esc + tbrck_esc$Taku_esc + tbrck_esc$Stikine_esc)[tbrck_esc$year == 2024])) # Alsek harvest provided by email (Teresa Wallace, DFO)
 
 # plot(tbrck$Year, tbrck$TotalRun_all*10^-3, "o", pch = 19, bty= "l", xlab = "", ylab = "Total abundance (thousands)", ylim = c(0, 200))
 # for(i in 1:3) points(tbrck_raw$Year[tbrck_raw$Stock == c("Alsek", "Taku", "Stikine")[i]], tbrck_raw$TotalRun[tbrck_raw$Stock == c("Alsek", "Taku", "Stikine")[i]]*10^-3, col = i+1, pch = 4)
@@ -269,12 +269,12 @@ max(tbrse_taku$Year) # 2024
 # Remove Stikine data prior to 1984
 tbrse_stik <- subset(tbrse_stik, tbrse_stik$Year >= 1984)
 
-plot(tbrse_taku$Year, tbrse_taku$Escapement*10^-3, "o", col = 2, pch = 21, bg = "white", ylim = c(0, 400), xlab = "", bty = "l")
-points(tbrse_taku$Year, tbrse_taku$Run*10^-3, "o", col = 2, pch = 19)
-points(tbrse_stik$Year, tbrse_stik$StikineRiver_EscapementBroodstock*10^-3, "o", col = 4, pch = 21, bg = "white")
-points(tbrse_stik$Year, tbrse_stik$StikineRiver_TerminalRun*10^-3, "o", col = 4, pch = 19)
-legend("topright", fill = c(2,4), c("Taku", "Stikine"))
-
+# plot(tbrse_taku$Year, tbrse_taku$Escapement*10^-3, "o", col = 2, pch = 21, bg = "white", ylim = c(0, 400), xlab = "", bty = "l")
+# points(tbrse_taku$Year, tbrse_taku$Run*10^-3, "o", col = 2, pch = 19)
+# points(tbrse_stik$Year, tbrse_stik$StikineRiver_EscapementBroodstock*10^-3, "o", col = 4, pch = 21, bg = "white")
+# points(tbrse_stik$Year, tbrse_stik$StikineRiver_TerminalRun*10^-3, "o", col = 4, pch = 19)
+# legend("topright", fill = c(2,4), c("Taku", "Stikine"))
+# 
 # Reformat data for SPS
 tbrse_sps <- data.frame(
 	region = rep("Transboundary", dim(tbrse_stik)[1]),
@@ -1302,7 +1302,8 @@ for(s in c(2,3,4,6)){ # Chum, coho, pink, steelhead
 # frck_run <- tapply(frck_run0$tot_run, frck_run0$year, sum)
 
 # (3) CTC data
-ctc_esc <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A3:P52", col_types = "numeric")
+ctc_esc <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A3:P53", col_types = "numeric")
+names(ctc_esc)[1] <- "Year"
 ctc_esc_sum <- apply(ctc_esc[, grep("Esc", names(ctc_esc))], 1, sum)
 
 # ctc_catch <-  readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-A-Catch-Detailed.xlsx", sheet = "A14", range = "K4:M52") %>%

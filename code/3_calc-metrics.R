@@ -347,7 +347,7 @@ sps_metrics_temp <- sps_metrics_temp %>%
 #------------------------------------------------------------------------------
 
 sps_summary_internal <- sps_metrics_temp %>%
-	mutate(current_status = round(current_status*100)) %>%
+	mutate(current_status = ifelse(current_status == -999999, -999999, round(current_status*100))) %>%
 	mutate(short_trend_per_yr = round(short_trend*100, 1)) %>%
 	mutate(short_trend_total = round((exp(log(short_trend + 1) * (3 * gen_length - 1)) - 1)*100, 1)) %>%
 	mutate(short_trend_years = paste(maxyear - 3 * gen_length + 1, maxyear, sep = "-")) %>%
@@ -373,7 +373,7 @@ if(write.output){
 # Summary
 #------------------------------------------------------------------------------
 sps_summary <- sps_metrics %>%
-	mutate(current_status = round(current_status*100)) %>%
+	mutate(current_status = ifelse(current_status == -999999, -999999, round(current_status*100))) %>%
 	mutate(status_offset_x = 0) %>%
 	mutate(status_offset_y = 0) %>%
 	mutate(region_label_offset_x = 0) %>%
@@ -566,7 +566,7 @@ sps_profile$text[sps_profile$spawner_current_abundance == "?" | sps_profile$tota
 	trimws() # Trim leading spaces created for regions/species with no text in sps-profile-text.csv
 
 if(write.output){
-	write.csv(sps_profile, file = paste0("output/archive/sps_profile_", Sys.Date(), ".csv"), row.names = FALSE)
+	write.csv(sps_profile, file = paste0("output/archive/sps-profile_", Sys.Date(), ".csv"), row.names = FALSE)
 	write.csv(sps_profile, file = "output/sps-profile.csv", row.names = FALSE)
 }
 

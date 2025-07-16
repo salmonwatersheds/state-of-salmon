@@ -10,7 +10,9 @@ library(dplyr)
 ###############################################################################
 # Basic runsize plot
 ###############################################################################
-plot_abund <- function(sps_data_subset, cols = c("#887A52", "#416191")){
+plot_abund <- function(sps_data_subset, cols = c("#000000", grey(0.6))){
+	
+	par(mar = c(3,4,2,1), mfrow = c(1,1))
 	
 	plot(sps_data_subset$year, sps_data_subset$spawners*10^-3, "n", xlab = "", ylab = "Abundance (thousands)", las = 1, ylim = c(0, max(c(sps_data_subset$runsize, sps_data_subset$spawners)*10^-3, na.rm = TRUE)), bty = "l")
 	abline(v = seq(1950, 2025, 5), col = grey(0.8), lwd = 0.8)
@@ -29,13 +31,13 @@ plot_abund <- function(sps_data_subset, cols = c("#887A52", "#416191")){
 	lines(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], xpd = NA, lwd = 0.5)
 	points(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], pch = 21, bg = "white", lwd = 0.5)
 	lines(sps_data_subset$year, sps_data_subset$smoothedRunsize*10^-3, col = cols[1], lwd = 2, xpd = NA)
-	legend("topright", lwd = 2, col = cols, c("Total Return", "Spawners"), bty = "n")
+	legend("topleft", lwd = 2, col = cols, c("Total", "Spawner"), bty = "n")
 	
 	} else {
-		legend("topright", lwd = 2, col = cols[2], c("Spawners"), bty = "n")
+		legend("topleft", lwd = 2, col = cols[2], c("Spawner"), bty = "n")
 	}
 	
-	mtext(side = 3, line = 2, paste(unique(sps_data_subset$region), unique(sps_data_subset$species)))
+	mtext(side = 3, line = 1, paste(unique(sps_data_subset$region), unique(sps_data_subset$species)))
 
 	}
 
@@ -755,3 +757,4 @@ plot_expansions <- function(
 	}
 	
 }
+
