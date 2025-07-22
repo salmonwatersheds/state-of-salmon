@@ -847,20 +847,35 @@ sps_data <- rbind(sps_data, skck_sps)
 # Skeena: Sockeye
 #------------------------------------------------------------------------------
 # From Fig. 1 of PSC (2023) Assessment and management frameworks of the Pacific Salmon Treaty and their robustness to environmental change
-# skse <- read.csv('data/skeena_sockeye.csv')
+# skse_EnvChg <- read.csv('data/skeena_sockeye.csv')
 
 # Compare to NCC run reconstruction: https://github.com/LGLLimited/nccdbv2/tree/master/run/2022-nass-update/data/KarlEnglish-2023-05-29
 skse <- read.csv("data/nassskeena_sockeye_lgl.csv") %>%
 	subset(Region == "Skeena")
-# par(mfrow = c(2, 1), mar = c(3,4,2,1))
-# plot(skse$year, skse$escapement,"o", xlim = c(1960, 2023), bty = "l", ylab = "Escapement", ylim = c(0, max(nassse3$TE[nassse3$Region == "Skeena"])))
-# lines(nassse3$Year[nassse3$Region == "Skeena"], nassse3$TE[nassse3$Region == "Skeena"], "o", col = 2, pch = 19, cex = 0.6)
-# legend("topleft", pch = c(1, 19), col = c(1,2), pt.cex = c(1, 0.8), legend = c("SCSC figure", "NCCDB_v2 GitHub"), lty = 1, bty = "n")
-# 
-# plot(skse$year, skse$runsize,"o", xlim = c(1960, 2023), bty = "l", ylab = "Run Size")
-# lines(nassse3$Year[nassse3$Region == "Skeena"], nassse3$Total.Run[nassse3$Region == "Skeena"], "o", col = 2, pch = 19, cex = 0.6)
-# mtext(side = 3, line = -1, outer= TRUE, 'Skeena sockeye')
 
+# From PSC Run Size app:
+# skse_ch2 <- read.csv("data/Chapter2_Data_2025_07_22.csv") %>%
+	filter(Region == "Skeena River")
+
+# par(mfrow = c(1, 1), mar = c(3,4,2,1))
+# plot(skse$Year, skse$Total.Run * 10^-3,"o", xlim = c(1960, 2024), bty = "l", ylab = "Abundance", pch = 19, ylim = c(0, 7000), xpd = NA)
+# points(skse$Year, skse$TE * 10^-3, "o", pch =21, bg = "white")
+# legend("topleft", pch = c(1, 19), col = c(1,2), pt.cex = c(1, 0.8), legend = c("SCSC figure", "NCCDB_v2 GitHub"), lty = 1, bty = "n")
+# points(skse_EnvChg$year, skse_EnvChg$runsize * 10^-3, pch = 19, col = 2)
+# points(skse_EnvChg$year, skse_EnvChg$escapement * 10^-3, col = 2)
+# 
+# points(skse_ch2$Year, skse_ch2$Spawners * 10^-3, col = 4)
+# points(skse_ch2$Year, skse_ch2$Returns * 10^-3, col = 4, pch = 19)
+# 
+# legend("topleft", col = c(1,2,4), pch = 19, lwd = 1, c("LGL 2023", "PSC Env Chg report (2023)", "PSC app (2025)"))
+# 
+# # Look at Total Return to Canada
+# plot(skse$Year, skse$TRTC * 10^-3,"o", xlim = c(1960, 2024), bty = "l", ylab = "TRTC", pch = 19, ylim = c(0, 7000), xpd = NA)
+# points(2023, 1.87*10^6*10^-3)
+# points(2024, 2*10^6*10^-3)
+# 
+# plot(skse$TRTC, skse$Total.Run, xlab = "TRTC", ylab = "Total Run")
+# abline(v = c(1.87, 2)*10^6)
 # Check if years are continuous
 unique(diff(skse$Year)) # Yes, all one year apart
 
