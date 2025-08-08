@@ -562,7 +562,79 @@ for(s in 2:4){
 #### Chinook {.unnumbered}
 <!-- River-level spawner abundance for Fraser Chinook found in NuSEDS can be highly unreliable, thus we based our expansions on only the most intensively monitored streams that have been deemed as reliable estimates of abundance by @BrownEtAl20202020SummaryAbundance. These streams are those shown in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca), and the associated data can be accessed from the stream survey data in the [SWP Data Library](https://data.salmonwatersheds.ca/result?datasetid=1). We also truncated the Chinook index of abundance to 1984 and more recent data, as earlier years have been deemed unreliable [@BrownEtAl20202020SummaryAbundance] and from 1984 onward spawner estimates mirrored those reported by @AtlasEtAl2023TrendsChinookSalmon. For Chinook total return, we used the sum of total run for four Fraser populations (Harrison, Nicola, Lower Shuswap, and South Thompson - all) reported in @AtlasEtAl2023TrendsChinookSalmon and available from the associated [GitHub repository](https://github.com/willatlas/ChinookEscapement-RunSize). -->
 
-Escapement of Fraser Chinook is provided in the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @ChinookTechnicalCommittee2025AnnualReportCatch. We took the sum of escapement to indicator stocks in Table B6 (all Spring/Summer, Harrison, Lower Shuswap, Nicola, Lower Chilcotin, and Chilko) as an index of spawner abundance. Catch of Fraser Chinook is provided in Table A14 but cannot be directly added to indicator escapement to yield total return.  PSF is pursuing Chinook run reconstruction output for the Fraser to inform total return.
+Escapement of Fraser Chinook is provided in the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @ChinookTechnicalCommittee2025AnnualReportCatch. We took the sum of escapement to five major stocks from Table B6 (Fraser Spring 4-2 (age 1.2), Fraser Spring 5-2 (age 1.3), Fraser Summer 5-2 (age 1.3), Fraser Summer 4-1 (age 0.3), and Harrison (Fraser Fall 4-1, age 0.3)) as an index of spawner abundance. Total run size is also reported in Table B6 for the Spring/Summer runs, and we use this as an index of total abundance for Fraser Chinook, noting that it excludes the Fall 4-1 stock.
+
+```{r, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Aggregate escapement of Fraser Chinook (black open points; thick black line is smoothed spawner abundance) with the contribution of escapement to each of five stocks shown as coloured regions below the line. Note that the Harrison River (Fall 4-1) time series begins later (1984) than the other four stocks (1975), and thus we only report spawner abundance from 1984 onward. (b) The proportional contribution of each of five stocks to aggregate Fraser Chinook escapement."}
+ctc_fr <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A3:P53", col_types = "numeric")
+names(ctc_fr) <- c("Year", "Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Fraser Spring/Summer t.run", "Harrison Esc", "Harrison CV", "Lower Shuswap Esc", "Lower Shuswap CV", "Nicola Esc", "Nicola CV", "Lower Chilcotin Esc", "Lower Chilcotin CV", "Chilko Esc", "Chilko CV")
+ctc_esc <- ctc_fr %>% dplyr::select(c("Year", "Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Harrison Esc"))
+ctc_esc_sum <- apply(ctc_esc[, c("Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Harrison Esc")], 1, sum)
+
+ctc_trun_sum <- ctc_fr$`Fraser Spring/Summer t.run`
+
+col_frck <- viridisLite::viridis(n = 5)
+
+par(mfrow = c(2,1))
+plot(ctc_esc$Year, ctc_esc_sum*10^-3, "n", bty = "l", las = 1, ylab = "Spawner abundance (thousands)", ylim = c(0, 750), yaxs = "i")
+for(i in c(1:5)){
+	# lines(ctc_esc$Year, data.frame(ctc_esc)[,i] * 10^-3, "l", col = col_frck[i])
+	if(i == 1){
+		y1 <- rep(0, length(ctc_esc$Year))
+		y2 <- data.frame(ctc_esc)[,2]
+	} else if(i == 2){
+		y1 <-  data.frame(ctc_esc)[,2]
+		y2 <- apply(data.frame(ctc_esc)[,2:3], 1, sum)
+	} else { 
+		y1 <-  apply(data.frame(ctc_esc)[,2:i], 1, sum)
+		y2 <- apply(data.frame(ctc_esc)[,2:(i+1)], 1, sum)
+	}
+	
+	yr <- ctc_esc$Year
+	if(i == 5){
+		yr <- ctc_esc$Year[!is.na(ctc_esc$`Harrison Esc`)]
+		y1 <- y1[!is.na(ctc_esc$`Harrison Esc`)]
+		y2 <- y2[!is.na(ctc_esc$`Harrison Esc`)]
+	}
+	polygon(x = c(yr, rev(yr)),
+					y = c(y1, rev(y2))*10^-3,
+					col = col_frck[i], border = NA)
+}
+points(ctc_esc$Year, ctc_esc_sum*10^-3, "o", pch = 21, bg = "white", xpd = NA)
+lines(ctc_esc$Year, genSmooth(
+		abund = ctc_esc_sum,
+		years = ctc_esc$Year,
+		genLength = 5
+	)*10^-3, lwd = 1.5)
+legend("topleft", fill = col_frck, border = NA, bty = "n", c("Spring 4-2", "Spring 5-2", "Summer 4-1", "Summer 5-2", "Fall 4-1 (Harrison)"))
+mtext(side = 3, line = 0.5, "a) Escapement to five Fraser Chinook stocks", adj = 0)
+
+# Proportion
+plot(ctc_esc$Year, ctc_esc_sum, "n", bty = "l", las = 1, ylab = "Proportion of spawner abundance", ylim = c(0, 1), yaxs = "i")
+for(i in c(1:5)){
+	# lines(ctc_esc$Year, data.frame(ctc_esc)[,i] * 10^-3, "l", col = col_frck[i])
+	if(i == 1){
+		y1 <- rep(0, length(ctc_esc$Year))
+		y2 <- data.frame(ctc_esc)[,2]
+	} else if(i == 2){
+		y1 <-  data.frame(ctc_esc)[,2]
+		y2 <- apply(data.frame(ctc_esc)[,2:3], 1, sum)
+	} else { 
+		y1 <-  apply(data.frame(ctc_esc)[,2:i], 1, sum)
+		y2 <- apply(data.frame(ctc_esc)[,2:(i+1)], 1, sum)
+	}
+	
+	
+	polygon(x = c(ctc_esc$Year, rev(ctc_esc$Year)),
+					y = c(y1/ctc_esc_sum, rev(y2/ctc_esc_sum)),
+					col = col_frck[i], border = NA)
+}
+axis(side = 1, at = c(1975:2025), tck = -0.01, labels = FALSE)
+abline(v = seq(1975, 2025, 5))
+abline(v = seq(1970, 2024, 1), lty = 2, lwd = 0.5)
+mtext(side = 3, line = 0.5, "b) Proportional contribution of five stocks to aggregate escapement", adj = 0)
+
+
+```
 
 #### Chum {.unnumbered}
 Fraser chum catch and escapement are reported by PSC's Chum Technical Committee [@20232019PostSeasonSummary], and were provided to us on request to Brittany Jenewin (DFO, pers. comm.). For 2023 and 2024, estimates were extracted from the [Fraser Management Council post-season review](https://frasersalmon.ca/wp-content/uploads/2025/01/2024-Fraser-Coho-and-Chum-Post-season-Review-2025-01-28-FINAL-1.pdf).
@@ -766,8 +838,6 @@ source("code/functions.R")
 ### 2024 compared to 2023
 
 Most of our results are based on **generational averages** (i.e., "smoothed" abundance), but in somep laces it's worth highlighting what happened in 2024. In particular, several regions/species seemed to have big returns in 2024 that are not reflected in the "current abundance" but we may want to highlight in the narrative. 
-
-
 
 ### Overview results table {.tabset}
 **Below**: Summary of current status for **spawner or total abundance** (tabs) across regions and species, comparing between previous years' outcomes and revised outcomes. Regions and species below historical average are in red and above historical average are in green. Black cells indicate species that are not thought to be present in the given region, and grey cells indicate status was Unknown. For some regions and species, numbers have changed even though the year is the same because (1) the long-term average is calculated from raw instead of smoothed abundances or (2) an updated or different data source was used (e.g., final "synoptic evaluations" have been published for Transboundary Chinook post-release of the 2024 State of Salmon report, and final numbers changed slightly; see [Region-specific Data Sources](#data-sources)).

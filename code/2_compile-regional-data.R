@@ -138,7 +138,7 @@ sps_data <- rbind(sps_data, ytcm_sps)
 tbrck_raw <- read.csv("data/CTC_Synoptic_evaluation_data_all_2025-04-16.csv") %>%
 	filter(Year > 1975) %>% # Remove 1975 -> missing Alsek data
 	filter(Stock %in% c("Alsek", "Taku", "Stikine")) %>%
-	select(Stock, Year, Escapement, RateType, Rate) %>%
+	dplyr::select(Stock, Year, Escapement, RateType, Rate) %>%
 	mutate(TotalRun = Escapement/(1 - Rate))
 
 # average exploitation rate in last 5 years for Alsek
@@ -218,7 +218,7 @@ tbrck <- tbrck_raw %>%
 
 # Reformat data for SPS
 tbrck_sps <- data.frame(
-	region = rep("Transboundary", length(tbrck$Year)),
+	region = rep("Northern Transboundary", length(tbrck$Year)),
 	species = rep("Chinook", length(tbrck$Year)),
 	year = tbrck$Year,
 	spawners = tbrck$Escapement_all, 
@@ -236,13 +236,13 @@ tbrck_sps <- data.frame(
 tbrck_sps$smoothedSpawners <- genSmooth(
 	abund = tbrck_sps$spawners,
 	years = tbrck_sps$year,
-	genLength = genLength$gen_length[genLength$region == "Transboundary" & genLength$species == "Chinook"]
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Chinook"]
 )
 
 tbrck_sps$smoothedRunsize <- genSmooth(
 	abund = tbrck_sps$runsize,
 	years = tbrck_sps$year,
-	genLength = genLength$gen_length[genLength$region == "Transboundary" & genLength$species == "Chinook"]
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Chinook"]
 )
 
 plot_abund(tbrck_sps)
@@ -277,7 +277,7 @@ tbrse_stik <- subset(tbrse_stik, tbrse_stik$Year >= 1984)
 # 
 # Reformat data for SPS
 tbrse_sps <- data.frame(
-	region = rep("Transboundary", dim(tbrse_stik)[1]),
+	region = rep("Northern Transboundary", dim(tbrse_stik)[1]),
 	species = rep("Sockeye", dim(tbrse_stik)[1]),
 	year = tbrse_stik$Year,
 	spawners = tbrse_stik$StikineRiver_EscapementBroodstock + tbrse_taku$Escapement, 
@@ -290,13 +290,13 @@ tbrse_sps <- data.frame(
 tbrse_sps$smoothedSpawners <- genSmooth(
 	abund = tbrse_sps$spawners,
 	years = tbrse_sps$year,
-	genLength = genLength$gen_length[genLength$region == "Transboundary" & genLength$species == "Sockeye"]
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Sockeye"]
 )
 
 tbrse_sps$smoothedRunsize <- genSmooth(
 	abund = tbrse_sps$runsize,
 	years = tbrse_sps$year,
-	genLength = genLength$gen_length[genLength$region == "Transboundary" & genLength$species == "Sockeye"]
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Sockeye"]
 )
 
 plot_abund(tbrse_sps)
@@ -314,7 +314,7 @@ unique(diff(tbrco$Year)) # Yes, all one year apart
 
 # Reformat data for SPS
 tbrco_sps <- data.frame(
-	region = rep("Transboundary", dim(tbrco)[1]),
+	region = rep("Northern Transboundary", dim(tbrco)[1]),
 	species = rep("Coho", dim(tbrco)[1]),
 	year = tbrco$Year,
 	spawners = tbrco$Escapement, 
@@ -327,13 +327,13 @@ tbrco_sps <- data.frame(
 tbrco_sps$smoothedSpawners <- genSmooth(
 	abund = tbrco_sps$spawners,
 	years = tbrco_sps$year,
-	genLength = genLength$gen_length[genLength$region == "Transboundary" & genLength$species == "Coho"]
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Coho"]
 )
 
 tbrco_sps$smoothedRunsize <- genSmooth(
 	abund = tbrco_sps$runsize,
 	years = tbrco_sps$year,
-	genLength = genLength$gen_length[genLength$region == "Transboundary" & genLength$species == "Coho"]
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Coho"]
 )
 
 plot_abund(tbrco_sps)
@@ -368,7 +368,7 @@ unique(diff(tbrpk$Year)) # Yes, all one year apart
 
 # Reformat data for SPS
 tbrpk_sps <- data.frame(
-	region = rep("Transboundary", nrow(tbrpk)), #rep("Transboundary", length(which(tbrpkcm$species_pooled == "Pink"))),
+	region = rep("Northern Transboundary", nrow(tbrpk)), #rep("Transboundary", length(which(tbrpkcm$species_pooled == "Pink"))),
 	species = rep("Pink", nrow(tbrpk)), #length(which(tbrpkcm$species_pooled == "Pink"))),
 	year = tbrpk$Year, #sort(tbrpkcm$year[tbrpkcm$species_pooled == "Pink"]),
 	spawners = tbrpk$Value, # tbrpkcm$stream_observed_count[tbrpkcm$species_pooled == "Pink"][order(tbrpkcm$year[tbrpkcm$species_pooled == "Pink"])], 
@@ -380,7 +380,7 @@ tbrpk_sps <- data.frame(
 tbrpk_sps$smoothedSpawners <- genSmooth(
 	abund = tbrpk_sps$spawners,
 	years = tbrpk_sps$year,
-	genLength = genLength$gen_length[genLength$region == "Transboundary" & genLength$species == "Pink"]
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Pink"]
 )
 
 plot_abund(tbrpk_sps)
@@ -396,7 +396,7 @@ tbrcm <- read.csv("data/TTC_ManualExtract_Taku_Chum.csv") %>%
 
 # Reformat data for SPS
 tbrcm_sps <- data.frame(
-	region = rep("Transboundary", nrow(tbrcm)), #length(which(tbrpkcm$species_pooled == "Chum"))),
+	region = rep("Northern Transboundary", nrow(tbrcm)), #length(which(tbrpkcm$species_pooled == "Chum"))),
 	species = rep("Chum", nrow(tbrcm)), #length(which(tbrpkcm$species_pooled == "Chum"))),
 	year = tbrcm$Year, #sort(tbrpkcm$year[tbrpkcm$species_pooled == "Chum"]),
 	spawners = tbrcm$Value, #tbrpkcm$stream_observed_count[tbrpkcm$species_pooled == "Chum"][order(tbrpkcm$year[tbrpkcm$species_pooled == "Chum"])], 
@@ -408,7 +408,7 @@ tbrcm_sps <- data.frame(
 tbrcm_sps$smoothedSpawners <- genSmooth(
 	abund = tbrcm_sps$spawners,
 	years = tbrcm_sps$year,
-	genLength = genLength$gen_length[genLength$region == "Transboundary" & genLength$species == "Chum"]
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Chum"]
 )
 
 plot_abund(tbrcm_sps)
@@ -850,25 +850,41 @@ sps_data <- rbind(sps_data, skck_sps)
 # skse_EnvChg <- read.csv('data/skeena_sockeye.csv')
 
 # Compare to NCC run reconstruction: https://github.com/LGLLimited/nccdbv2/tree/master/run/2022-nass-update/data/KarlEnglish-2023-05-29
-skse <- read.csv("data/nassskeena_sockeye_lgl.csv") %>%
+skse_LGL <- read.csv("data/nassskeena_sockeye_lgl.csv") %>%
 	subset(Region == "Skeena")
 
 # From PSC Run Size app:
-# skse_ch2 <- read.csv("data/Chapter2_Data_2025_07_22.csv") %>%
+skse_ch2 <- read.csv("data/Chapter2_Data_2025_07_22.csv") %>%
 	filter(Region == "Skeena River")
 
+# Add recent year's data from Charmaine (pers. comm. July 24 2025)
+skse_2023 <- data.frame(
+	Year = 2023,
+	TE = 1437788,
+	catch = 656984
+) %>%
+	mutate(Total.Run = TE + catch)
+
 # par(mfrow = c(1, 1), mar = c(3,4,2,1))
-# plot(skse$Year, skse$Total.Run * 10^-3,"o", xlim = c(1960, 2024), bty = "l", ylab = "Abundance", pch = 19, ylim = c(0, 7000), xpd = NA)
-# points(skse$Year, skse$TE * 10^-3, "o", pch =21, bg = "white")
-# legend("topleft", pch = c(1, 19), col = c(1,2), pt.cex = c(1, 0.8), legend = c("SCSC figure", "NCCDB_v2 GitHub"), lty = 1, bty = "n")
-# points(skse_EnvChg$year, skse_EnvChg$runsize * 10^-3, pch = 19, col = 2)
-# points(skse_EnvChg$year, skse_EnvChg$escapement * 10^-3, col = 2)
+# plot(skse_LGL$Year, skse_LGL$Total.Run * 10^-6,"n", xlim = c(1960, 2024), bty = "l", ylab = "Abundance (millions)", ylim = c(0, 7.5), xpd = NA, las = 1, yaxs = "i")
+# abline(v = seq(1950, 2025, 2), lty = 3, col = grey(0.8))
+# abline(v = seq(1950, 2025, 10), col = grey(0.8))
+# abline(h = seq(0, 7, 1), lty = 3, col = grey(0.8))
 # 
-# points(skse_ch2$Year, skse_ch2$Spawners * 10^-3, col = 4)
-# points(skse_ch2$Year, skse_ch2$Returns * 10^-3, col = 4, pch = 19)
 # 
-# legend("topleft", col = c(1,2,4), pch = 19, lwd = 1, c("LGL 2023", "PSC Env Chg report (2023)", "PSC app (2025)"))
+# points(skse_LGL$Year, skse_LGL$Total.Run * 10^-6,"o", pch = 19, xpd = NA)
+# points(skse_LGL$Year, skse_LGL$TE * 10^-6, "o", pch =21, bg = "white")
+# # points(skse_EnvChg$year, skse_EnvChg$runsize * 10^-3, pch = 19, col = 2)
+# # points(skse_EnvChg$year, skse_EnvChg$escapement * 10^-3, col = 2)
 # 
+# points(skse_ch2$Year, skse_ch2$Spawners * 10^-6, col = 4, cex = 0.8, xpd = NA)
+# points(skse_ch2$Year, skse_ch2$Returns * 10^-6, col = 4, pch = 19, cex = 0.8, xpd = NA)
+# 
+# points(skse_2023$Year, skse_2023$TE * 10^-6, col = 2)
+# points(skse_2023$Year, skse_2023$Total.Run * 10^-6, col = 2, pch = 19)
+# 
+# legend("topleft", col = c(1,4, 2), pch = 19, lwd = c(1, 1, NA), c("English et al. (2023)", "PSC run size app", "2023 update"))
+
 # # Look at Total Return to Canada
 # plot(skse$Year, skse$TRTC * 10^-3,"o", xlim = c(1960, 2024), bty = "l", ylab = "TRTC", pch = 19, ylim = c(0, 7000), xpd = NA)
 # points(2023, 1.87*10^6*10^-3)
@@ -877,6 +893,16 @@ skse <- read.csv("data/nassskeena_sockeye_lgl.csv") %>%
 # plot(skse$TRTC, skse$Total.Run, xlab = "TRTC", ylab = "Total Run")
 # abline(v = c(1.87, 2)*10^6)
 # Check if years are continuous
+
+# combine sources
+skse <- skse_ch2[ , c("Year", "Spawners", "Returns")] %>%
+	rename(TE = Spawners,
+				 Total.Run  = Returns) %>%
+	bind_rows(skse_LGL[which(skse_LGL$Year < 1982), c("Year", "TE", "Total.Run")]) %>%
+	bind_rows(skse_2023[ c("Year", "TE", "Total.Run")]) %>%
+	arrange(Year)
+
+	
 unique(diff(skse$Year)) # Yes, all one year apart
 
 # Reformat data for SPS
@@ -1215,7 +1241,7 @@ sps_data <- rbind(sps_data, wvick_sps)
 wvi_se_raw <- readxl::read_xlsx("data/Barkley_Sockeye_stock-recruit_infilled.xlsx", sheet = "S-R data")
 
 wvi_se_summed <- wvi_se_raw %>%
-	select(year, stock, S, N) %>% # S = escapement, N = annual terminal run size
+	dplyr::select(year, stock, S, N) %>% # S = escapement, N = annual terminal run size
 	filter(year >= 1977) %>% # Remove 1972 to 2076 for HUC because not available for other stocks
 	group_by(year) %>%
 	summarise(totalS = sum(S),
@@ -1303,7 +1329,7 @@ for(s in c(2,3,4,6)){ # Chum, coho, pink, steelhead
 ###############################################################################
 
 #------------------------------------------------------------------------------
-# Chinook
+# Fraser Chinook
 #------------------------------------------------------------------------------
 # # (1) Use expanded spawner surveys from 1984 onward
 # sp <- readRDS("output/expanded-spawners/Fraser-spawners.rds")
@@ -1311,39 +1337,81 @@ for(s in c(2,3,4,6)){ # Chum, coho, pink, steelhead
 # 
 # # (2) Use Atlas et al. (2023) Fraser populations for run size
 # frck_run0 <- read.csv("data/Atlas2023/CK_TotalRun_FINAL.csv") %>% 
-# 	subset(group == "salish") %>% # select Salish group
+# 	subset(group == "salish") %>% # dplyr::select Salish group
 # 	subset(grepl("skagit", population) == FALSE & grepl("cowichan", population) == FALSE) # Remove VIMI populations
 # 
 # frck_run <- tapply(frck_run0$tot_run, frck_run0$year, sum)
 
 # (3) CTC data
-ctc_esc <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A3:P53", col_types = "numeric")
-names(ctc_esc)[1] <- "Year"
-ctc_esc_sum <- apply(ctc_esc[, grep("Esc", names(ctc_esc))], 1, sum)
+ctc_fr <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A3:P53", col_types = "numeric")
+names(ctc_fr) <- c("Year", "Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Fraser Spring/Summer t.run", "Harrison Esc", "Harrison CV", "Lower Shuswap Esc", "Lower Shuswap CV", "Nicola Esc", "Nicola CV", "Lower Chilcotin Esc", "Lower Chilcotin CV", "Chilko Esc", "Chilko CV")
+ctc_esc <- ctc_fr %>% dplyr::select(c("Year", "Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Harrison Esc"))
+ctc_esc_sum <- apply(ctc_esc[, c("Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Harrison Esc")], 1, sum)
 
-# ctc_catch <-  readxl::read_xlsx("data/TCCHINOOK-23-02-Appendix-A-Catch-Detailed.xlsx", sheet = "A14", range = "K4:M52") %>%
-# 	mutate(year = 1975:2022)
+ctc_trun_sum <- ctc_fr$`Fraser Spring/Summer t.run`
+
+# col_frck <- viridisLite::viridis(n = 5)
 # 
-# ctc_catch_sum <- apply(ctc_catch[, 1:3], 1, sum)
-# ctc_run <- ctc_esc_sum + ctc_catch_sum
-	
-# # Compare to CTC data# Compare to CTC datasum
-# plot(as.numeric(names(frck_run)), frck_run*10^-6, "o", pch = 19, las = 1, ylim = c(0, 1), xlim = c(1980, 2023), lwd = 1.5, ylab = "Abundance (millions)", xlab = "")
-# abline(v = seq(1980, 2023, 2), lty = 3, col = grey(0.6))
-# points(1975:2022, ctc_run*10^-6, "o", col = 2, lwd = 1.5, pch = 19)
-# points(yrs, sp[2, "Chinook", match(yrs, as.numeric(dimnames(sp)[[3]]))]*10^-6, "o",cex = 0.6)
-# points(1975:2022, ctc_esc_sum*10^-6, "o", col = 2, cex = 0.6)
-# legend("topleft", ncol = 2, pch = c(19, 1, 19, 1), pt.cex = c(1, 0.6, 1, 0.6), col = c(1,1,2,2), c("Atlas (2023)", "Expansion", "TCCHINOOK Table A14 - sum + Esc from below", "TCCHINOOK Table B6 - sum of Esc."))
+# par(mfrow = c(2,1))
+# plot(ctc_esc$Year, ctc_esc_sum*10^-3, "n", bty = "l", las = 1, ylab = "Spawner abundance (thousands)", ylim = c(0, 700))
+# for(i in c(1:5)){
+# 	# lines(ctc_esc$Year, data.frame(ctc_esc)[,i] * 10^-3, "l", col = col_frck[i])
+# 	if(i == 1){
+# 		y1 <- rep(0, length(ctc_esc$Year))
+# 		y2 <- data.frame(ctc_esc)[,2]
+# 	} else if(i == 2){
+# 		y1 <-  data.frame(ctc_esc)[,2]
+# 		y2 <- apply(data.frame(ctc_esc)[,2:3], 1, sum)
+# 	} else { 
+# 		y1 <-  apply(data.frame(ctc_esc)[,2:i], 1, sum)
+# 		y2 <- apply(data.frame(ctc_esc)[,2:(i+1)], 1, sum)
+# 	}
+# 	
+# 	yr <- ctc_esc$Year
+# 	if(i == 5){
+# 		yr <- ctc_esc$Year[!is.na(ctc_esc$`Harrison Esc`)]
+# 		y1 <- y1[!is.na(ctc_esc$`Harrison Esc`)]
+# 		y2 <- y2[!is.na(ctc_esc$`Harrison Esc`)]
+# 	}
+# 	polygon(x = c(yr, rev(yr)),
+# 					y = c(y1, rev(y2))*10^-3,
+# 					col = col_frck[i], border = NA)
+# }
+# points(ctc_esc$Year, ctc_esc_sum*10^-3, "o", lwd = 1.5, pch = 21, bg = "white", xpd = NA)
+# legend("topleft", fill = col_frck, border = NA, bty = "n", names(ctc_esc)[2:6])
+# mtext(side = 3, line = 0.5, "a) Escapement to five Fraser Chinook stocks", adj = 0)
+# 
+# # Proportion
+# plot(ctc_esc$Year, ctc_esc_sum, "n", bty = "l", las = 1, ylab = "Proportion of spawner abundance", ylim = c(0, 1))
+# for(i in c(1:5)){
+# 	# lines(ctc_esc$Year, data.frame(ctc_esc)[,i] * 10^-3, "l", col = col_frck[i])
+# 	if(i == 1){
+# 		y1 <- rep(0, length(ctc_esc$Year))
+# 		y2 <- data.frame(ctc_esc)[,2]
+# 	} else if(i == 2){
+# 		y1 <-  data.frame(ctc_esc)[,2]
+# 		y2 <- apply(data.frame(ctc_esc)[,2:3], 1, sum)
+# 	} else { 
+# 		y1 <-  apply(data.frame(ctc_esc)[,2:i], 1, sum)
+# 		y2 <- apply(data.frame(ctc_esc)[,2:(i+1)], 1, sum)
+# 	}
+# 	
+# 	
+# 	polygon(x = c(ctc_esc$Year, rev(ctc_esc$Year)),
+# 					y = c(y1/ctc_esc_sum, rev(y2/ctc_esc_sum)),
+# 					col = col_frck[i], border = NA)
+# }
+# mtext(side = 3, line = 0.5, "b) Proportional contribution of five stocks to aggregate escapement", adj = 0)
 
-yrs <- ctc_esc$Year[!is.na(ctc_esc_sum)]
+yrs <- ctc_esc$Year
 # Put in SPS format
 frck_sps <- data.frame(
 	region = rep("Fraser", length(yrs)),
 	species = rep("Chinook", length(yrs)),
 	year = yrs,
-	spawners = ctc_esc_sum[!is.na(ctc_esc_sum)], # sp[2, "Chinook", match(yrs, as.numeric(dimnames(sp)[[3]]))], 
+	spawners = ctc_esc_sum, # sp[2, "Chinook", match(yrs, as.numeric(dimnames(sp)[[3]]))], 
 	smoothedSpawners = NA,
-	runsize = NA, #ctc_run[!is.na(ctc_run)], # frck_run[match(yrs, as.numeric(names(frck_run)))],
+	runsize = ctc_trun_sum, #ctc_run[!is.na(ctc_run)], # frck_run[match(yrs, as.numeric(names(frck_run)))],
 	smoothedRunsize = NA
 ) 
 	
@@ -1354,11 +1422,11 @@ frck_sps$smoothedSpawners <- genSmooth(
 		genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chinook"]
 	)
 
-# frck_sps$smoothedRunsize <- genSmooth(
-# 	abund = frck_sps$runsize,
-# 	years = frck_sps$year,
-# 	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chinook"]
-# )
+frck_sps$smoothedRunsize <- genSmooth(
+	abund = frck_sps$runsize,
+	years = frck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chinook"]
+)
 
 plot_abund(frck_sps)
 
@@ -1379,12 +1447,12 @@ frcm_esc <- readxl::read_xlsx("data/ChumTC Report Tables - full time series up t
 
 frcm_catch1 <- readxl::read_xlsx("data/ChumTC Report Tables - full time series up to 2022.xlsx", sheet = "3-8", range = "A3:G30") %>%
 	rename(year = "Year", catch = "Total") %>%
-	select(year, catch)
+	dplyr::select(year, catch)
 
 
 frcm_catch2 <- readxl::read_xlsx("data/ChumTC Report Tables - full time series up to 2022.xlsx", sheet = "3-9", range = "A4:G31") %>%
 	rename(year = "...1", catch = "Total") %>%
-	select(year, catch)
+	dplyr::select(year, catch)
 
 # Find years when catch and escapement are reported
 yrs_tcchum <- c(max(c(min(frcm_esc$year), min(frcm_catch1$year), min(frcm_catch2$year))):min(c(max(frcm_esc$year), max(frcm_catch1$year), max(frcm_catch2$year)))) #1998:2022

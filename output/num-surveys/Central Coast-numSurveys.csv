@@ -1,7 +1,7 @@
-"species","indicator","nonindicator"
-"Chinook",11,67
-"Chum",89,204
-"Coho",30,268
-"Pink",87,215
-"Sockeye",23,177
-"Steelhead",1,1
+species,indicator,nonindicator,
+Chinook,11,67,78
+Chum,89,204,293
+Coho,30,268,298
+Pink,87,215,302
+Sockeye,23,177,200
+Steelhead,1,1,2

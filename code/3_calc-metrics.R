@@ -255,27 +255,27 @@ sps_metrics$current_status[condition_critical] <- -999999
 #------------------------------------------------------------------------------
 
 # Which regions and species have <20 years of spawner data?
-dum_sp <- sps_dat %>% select(region, species, year, smoothedSpawners) %>%
+dum_sp <- sps_dat %>% dplyr::select(region, species, year, smoothedSpawners) %>%
 	filter(!is.na(smoothedSpawners)) %>%
 	mutate(regionspecies = paste(region, species)) %>%
 	group_by(regionspecies) %>%
 	summarise(nyears = length(year), rangeyears = paste(min(year), max(year), sep = "-"))
 
-dum_sp2 <- sps_dat %>% select(region, species, year, smoothedSpawners) %>%
+dum_sp2 <- sps_dat %>% dplyr::select(region, species, year, smoothedSpawners) %>%
 	filter(!is.na(smoothedSpawners)) %>%
 	mutate(regionspecies = paste(region, species)) %>%
 	group_by(regionspecies) %>%
 	summarise(region = unique(region), species = unique(species), nyears = length(year), minyear = min(year), maxyear = max(year))
 
 # Which regions and species have <20 years of run size data?
-dum_rs <- sps_dat %>% select(region, species, year, smoothedRunsize) %>%
+dum_rs <- sps_dat %>% dplyr::select(region, species, year, smoothedRunsize) %>%
 	filter(!is.na(smoothedRunsize)) %>%
 	mutate(regionspecies = paste(region, species)) %>%
 	group_by(regionspecies) %>%
 	summarise(nyears = length(year), rangeyears = paste(min(year), max(year), sep = "-")) %>% 
 	mutate(regionspeciestype = paste(regionspecies, "Run Size"))
 
-dum_rs2 <- sps_dat %>% select(region, species, year, smoothedRunsize) %>%
+dum_rs2 <- sps_dat %>% dplyr::select(region, species, year, smoothedRunsize) %>%
 	filter(!is.na(smoothedRunsize)) %>%
 	mutate(regionspecies = paste(region, species)) %>%
 	group_by(regionspecies) %>%
@@ -288,7 +288,7 @@ sps_metrics <- sps_metrics %>%
 	left_join(
 		dum_sp %>% 
 			mutate(regionspeciestype = paste(regionspecies, "Spawners")) %>%
-			select(regionspeciestype, nyears, rangeyears)
+			dplyr::select(regionspeciestype, nyears, rangeyears)
 	) 
 
 # Add run size number of years and range of years to sps_metrics
@@ -296,10 +296,13 @@ sps_metrics <- sps_metrics %>%
 sps_metrics[match(dum_rs$regionspeciestype, sps_metrics$regionspeciestype), c("nyears", "rangeyears")] <- dum_rs[, c("nyears", "rangeyears")]
 
 # Remove dummy variable for matching
-sps_metrics <- sps_metrics %>% select(-regionspeciestype)
+sps_metrics <- sps_metrics %>% dplyr::select(-regionspeciestype)
 
 # Change current status to Unknown for those with less than 20 years IF NOT critical
 sps_metrics$current_status[which(sps_metrics$nyears < 20 & sps_metrics$current_status != -999999)] <- NA
+
+# Remove species that are not present in certain regions
+sps_metrics <- sps_metrics[- which(paste(sps_metrics$region, sps_metrics$species) %in% c("Yukon Pink", "Yukon Sockeye", "Yukon Steelhead", "Columbia Chum", "Columbia Coho", "Columbia Pink")), ]
 
 ###############################################################################
 # Write output
@@ -332,7 +335,7 @@ sps_metrics_temp <- sps_metrics %>%
 	left_join(
 		dum_sp2 %>% 
 			mutate(regionspeciestype = paste(regionspecies, "Spawners")) %>%
-			select(regionspeciestype, nyears, minyear, maxyear)
+			dplyr::select(regionspeciestype, nyears, minyear, maxyear)
 	) 
 
 # Add run size number of years and range of years to sps_metrics
@@ -357,7 +360,7 @@ sps_summary_internal <- sps_metrics_temp %>%
 	mutate(current_abundance = round(current_abundance)) %>%
 	mutate(average_abundance = round(average_abundance)) %>%
 	mutate(previous_gen_abundance = round(previous_gen_abundance)) %>%
-	select(region, species, type, current_status, short_trend_per_yr, short_trend_total, short_trend_years, short_trend_cat, long_trend_per_year, long_trend_total, long_trend_years, long_trend_cat, current_abundance, current_abundance_year, average_abundance, previous_gen_abundance, gen_length, nyears, rangeyears) %>%
+	dplyr::select(region, species, type, current_status, short_trend_per_yr, short_trend_total, short_trend_years, short_trend_cat, long_trend_per_year, long_trend_total, long_trend_years, long_trend_cat, current_abundance, current_abundance_year, average_abundance, previous_gen_abundance, gen_length, nyears, rangeyears) %>%
 	filter(paste(region, species) %in% c("Yukon Pink", "Yukon Sockeye", "Yukon Steelhead", "Columbia Chum", "Columbia Coho", "Columbia Pink") == FALSE) # Filter out regions/species not known to exist
 
 if(write.output){
@@ -458,8 +461,6 @@ for(i in 1:2){ # for spawners and run type
 		} # end species
 	}
 
-# Change region name
-sps_summary$region[sps_summary$region == "Transboundary"] <- "Northern Transboundary"
 
 if(write.output){
 	write.csv(sps_summary, file = paste0("output/archive/sps-summary_", Sys.Date(), ".csv"), row.names = FALSE)
@@ -524,7 +525,7 @@ cu_list <- read.csv("data/conservationunits_decoder.csv") %>%
 sps_profile <- sps_metrics %>%
 	filter(type == "Spawners") %>%
 	mutate(currentyears = paste(current_abundance_year - gen_length + 1, current_abundance_year, sep = "-")) %>%
-	select(region, species, current_abundance, currentyears, average_abundance, rangeyears) %>%
+	dplyr::select(region, species, current_abundance, currentyears, average_abundance, rangeyears) %>%
 	mutate(current_abundance = makePrettyNums(current_abundance)) %>%
 	mutate(average_abundance = makePrettyNums(average_abundance)) %>%
 	rename(spawner_current_years = "currentyears",  spawner_current_abundance = "current_abundance", spawner_average_abundance = "average_abundance", spawner_average_years = "rangeyears") %>%
@@ -532,18 +533,18 @@ sps_profile <- sps_metrics %>%
 	left_join(sps_metrics %>%
 	filter(type == "Run Size") %>%
 		mutate(currentyears = paste(current_abundance_year - gen_length + 1, current_abundance_year, sep = "-")) %>%
-		select(region, species, current_abundance, currentyears, average_abundance, rangeyears) %>%
+		dplyr::select(region, species, current_abundance, currentyears, average_abundance, rangeyears) %>%
 		mutate(current_abundance = makePrettyNums(current_abundance)) %>%
 		mutate(average_abundance = makePrettyNums(average_abundance)) %>%
 		rename(total_current_years = "currentyears", total_current_abundance = "current_abundance", total_average_abundance = "average_abundance", total_average_years = "rangeyears")) %>%
 	# Add number of CUs
 	left_join(cu_list %>% 
-							select(region, species, cuid) %>%
+							dplyr::select(region, species, cuid) %>%
 							group_by(paste(region, species, sep = "-")) %>%
 							summarise(region = unique(region),
 												species = unique(species), 
 												nCUs = length(cuid)) %>%
-							select(region, species, nCUs)
+							dplyr::select(region, species, nCUs)
 						) %>%
 	# Filter out regions/species not known to exist
 	filter(paste(region, species) %in% c("Yukon Pink", "Yukon Sockeye", "Yukon Steelhead", "Columbia Chum", "Columbia Coho", "Columbia Pink") == FALSE) 
@@ -551,9 +552,6 @@ sps_profile <- sps_metrics %>%
 # Change years to blank
 sps_profile[is.na(sps_profile$spawner_average_years), c("spawner_current_years", "spawner_average_years")] <- ""
 sps_profile[is.na(sps_profile$total_average_years), c("total_current_years", "total_average_years")] <- ""
-
-# Change region name
-sps_profile$region[sps_profile$region == "Transboundary"] <- "Northern Transboundary"
 
 # Merge in text part
 sps_text <- read.csv("output/sps-profile-text.csv")
@@ -575,7 +573,7 @@ if(write.output){
 #------------------------------------------------------------------------------
 
 trends_plotting <- sps_dat %>%
-	select(region, species, year) %>%
+	dplyr::select(region, species, year) %>%
 	mutate(spawners = NA, 
 				 spawners_short_trend = NA,
 				 spawners_long_trend = NA,
@@ -588,7 +586,7 @@ for(r in 1:length(regions)){ # for each region
 	for(s in 1:length(species)){ # for each species
 		
 		ind <- which(trends_plotting$region == regions[r] & trends_plotting$species == species[s])
-		
+		if(length(ind > 0)){
 		for(i in 1:2){ # for spawners and total return (aka run size)
 			# Extract historical baseline
 			H <- sps_metrics$average_abundance[which(sps_metrics$region == regions[r] & sps_metrics$species == species[s] & sps_metrics$type == c("Spawners", "Run Size")[i])]
@@ -603,11 +601,10 @@ for(r in 1:length(regions)){ # for each region
 				rm(var1, var2, H)
 			} 
 		} # end i
+		}
 	} # end s
 } # end r
 
-# Change region name
-trends_plotting$region[trends_plotting$region == "Transboundary"] <- "Northern Transboundary"
 
 if(write.output){
 	write.csv(trends_plotting, file = paste0("output/archive/sps-trends_plotting_", Sys.Date(), ".csv"), row.names = FALSE)
