@@ -27,12 +27,12 @@ Skeena,Coho,4
 Skeena,Pink,2
 Skeena,Sockeye,5
 Skeena,Steelhead,5
-Transboundary,Chinook,5
-Transboundary,Chum,4
-Transboundary,Coho,5
-Transboundary,Pink,2
-Transboundary,Sockeye,5
-Transboundary,Steelhead,5
+Northern Transboundary,Chinook,5
+Northern Transboundary,Chum,4
+Northern Transboundary,Coho,5
+Northern Transboundary,Pink,2
+Northern Transboundary,Sockeye,5
+Northern Transboundary,Steelhead,5
 East Vancouver Island & Mainland Inlets,Chinook,4
 East Vancouver Island & Mainland Inlets,Chum,4
 East Vancouver Island & Mainland Inlets,Coho,4
@@ -48,8 +48,6 @@ West Vancouver Island,Steelhead,5
 Yukon,Chinook,6
 Yukon,Chum,4
 Yukon,Coho,4
-Yukon,Pink,2
-Yukon,Sockeye,4
 Columbia,Sockeye,4
 Columbia,Chinook,5
 Columbia,Steelhead,5

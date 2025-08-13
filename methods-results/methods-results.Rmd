@@ -24,6 +24,9 @@ knitr::opts_chunk$set(echo = TRUE)
 # sp_cols <- viridis(5)
 # sp_cols <- c("#332288", "#44AA99", "#88CCEE", "#CC6677", "#882255", "#DDCC77") #https://davidmathlogic.com/colorblind
 # names(sp_cols) <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead")
+library(dplyr)
+library(viridisLite)
+
 
 source("code/colours.R")
 source("code/functions.R")
@@ -75,19 +78,19 @@ Currently, there is no place where the public can readily find answers to genera
 
 This lack of publicly accessible information about the state of Pacific salmon and opens the door to misinformation that can hinder and harm our ability to conserve salmon. 
 
-The [Pacific Salmon Foundation (PSF)](https://www.psf.ca) is developing an inaugural **State of Salmon** report, which will address these questions and be tailored to the questions of a salmon-informed public audience. The outputs will be updated regularly (e.g. annually or biennially) to reflect new data and changes to the state of Pacific salmon populations.
+The [Pacific Salmon Foundation (PSF)](https://www.psf.ca) has developed a **State of Salmon** report, first released in September 2024, which addresses these questions and is tailored for a salmon-informed public audience. The outputs are being updated annually to reflect new data and changes to the state of Pacific salmon populations.
 
-As part of the State of Salmon report, PSF's [Salmon Watersheds Program](https://www.salmonwatersheds.ca) is developing simple metrics to report on the status and trends in regional abundance for each species. This document outlines the data sources and analytical approach used to estimate time series of spawner abundance and total returns (including catch) for each species and region, as well as draft results. **This information is intended to be shared with external partners in order to garner feedback on preliminary results that will inform our approach moving forward.** Our analyses are ongoing, and the information here is subject to change on a regular basis, but we will endeavor to keep it up-to-date.
+As part of this work, PSF's [Salmon Watersheds Program](https://www.salmonwatersheds.ca) has developed simple metrics to report on the status and trends in regional abundance for each species. This document outlines the data sources and analytical approach used to estimate time series of spawner abundance and total returns (including catch) for each species and region, as well as draft results. Our analyses are ongoing, and the information here is subject to change on a regular basis, but we will endeavor to keep it up-to-date.
 
 # Methods
 
 ## General Approach
 
-We report spawner abundance for each of nine regions that represent all major Pacific salmon-bearing watersheds in Canada: Yukon, Transboundary, Haida Gwaii, Nass, Skeena,  Central Coast, Vancouver Island & Mainland Inlets, Fraser, and Columbia. These regions are also used to organize data in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca). There are a relatively small number of Pacific salmon that spawn in the MacKenzie River basin in Arctic Canada that are currently not considered here.
+We report spawner abundance for each of ten regions that represent all major Pacific salmon-bearing watersheds in Canada: Yukon, Northern Transboundary, Haida Gwaii, Nass, Skeena, Central Coast, Fraser, East Vancouver Island & Mainland Inlets, West Vancouver Island, and Columbia. These regions are also used to organize data in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca). There are a relatively small number of Pacific salmon that spawn in the MacKenzie River basin in Arctic Canada that are currently not included in the State of Salmon report.
 
-We separate five species of Pacific salmon: Chinook, chum, coho, pink, and sockeye. We also report status of steelhead trout for regions where spawner data are are available and can reasonably be expanded to yield an estimate of regional abundance (Nass, Skeena, interior Fraser, and Columbia). When assessing biological status, pink salmon are often separated into even- and odd-year lineages due to their consistent 2-year life cycle. However, for the general overviews provided in State of Salmon we consider generational averages, which take the running average of even- and odd-year lineages for pink salmon. This approach of using generation running averages also smooths over dominant years for sockeye salmon, for which many populations display cyclic dominance. Shifts in dominance between even- and odd-year pink populations or declines in sub-dominant years of sockeye salmon are considered in a more nuanced way in our reporting when discussing how changes in abundance have been reflected in the diversity and distribution of each species within the region. 
+We report on six species of Pacific salmon (*Oncorhynchus* spp.): Chinook, chum, coho, pink, sockeye, and steelhead. For each species, we report on state and trends based on generational averages. For pink salmon, we take the running average of even- and odd-year lineages, but do not separate assessments of even- and odd-year pink populations as is sometimes done in status assessments due to their consistent 2-year life cycle. Our approach of using generation running averages also smooths over dominant years for sockeye salmon, for which many populations display cyclic dominance. Shifts in dominance between even- and odd-year pink populations or declines in sub-dominant years of sockeye salmon are considered in a more nuanced way in our reporting when discussing how changes in abundance have been reflected in the diversity and distribution of each species within the region. 
 
-For each of these species, where data are available, we construct an index of **spawner abundance** at the regional scale. We focus on spawner abundance because these data are more readily accessible and easily summarised at different spatial scales. Spawners represent the abundance of salmon available to reproduce and contribute to future generations, as well as to meet cultural and ecological needs within watersheds, and thus provides a measure of status relevant to communities and ecosystems. We recognize that commercial catch has historically been a substantial portion of salmon that return to the coast, and that ignoring declines in catch will underestimate the declines in overall salmon abundance. Therefore, we include information on **total abundance** (i.e. spawners plus catch) for species and regions with reliable data. **This assessment of the data landscape is ongoing, and one of the reasons why the results here should be considered preliminary.** 
+For each of these species, where data are available, we construct an index of **spawner abundance** at the regional scale. We focus on spawner abundance because these data are more readily accessible and easily summarised at different spatial scales. Spawners represent the abundance of salmon available to reproduce and contribute to future generations, as well as to meet cultural and ecological needs within watersheds, and thus provides a measure of status relevant to communities and ecosystems. We recognize that commercial catch has historically been a substantial portion of salmon that return to the coast, and that ignoring declines in catch will underestimate the declines in overall salmon abundance. There is also increasing rates of pre-spawn mortality (i.e. mortality of salmon after their enter the river but before they successfully spawn) that mean that spawner abundance may be less than the number of fish that survive to maturity Therefore, where data are available, we include information on **total abundance** (i.e. the number of salmon that survive to maturity, calculated as spawners plus catch plus pre-spawn mortality (where applicable)). 
 
 We have based our assessments on the best available data for each region and species. For example, stocks that are governed by international treaties may be monitored by the [Pacific Salmon Commission (PSC)](https://www.psc.org/), and tend to have reliable time series of abundance available at regional scales. These data sources are outlined in the [Region-Specific Data section](#region-specific-data). For species and regions where aggregate abundance is not reported by the PSC or DFO at the scale needed, we adapted our approach to make the best use of available data. In most cases, this meant expanding spawner abundance from stream-level estimates to get a regional scale index of spawner abundance using two types of expansion factors [@EnglishEtAl2018NorthCentralCoast]. This expansion process is described in the [Expansion Factors section](#expansion-factors).  
 
@@ -99,20 +102,113 @@ Here we describe specific data sources for the abundance of salmon and steelhead
 
 ### Yukon
 
-The Canadian portion of the Yukon River is home to Chinook, chum, and coho salmon. Border escapement and total abundance (i.e., run size) of Canadian-origin Chinook and fall chum salmon in the mainstem Yukon River are counted at the Eagle Sonar station on the Yukon/Alaska border, and are available from the [Yukon River Panel](https://www.yukonriverpanel.com/) in their Joint Technical Committee (JTC) Reports. Specifically, we used Chinook `RR Spawning escapement estimate` and `RR Canadian origin total run size estimate` from Appendix B11 of @YukonRiverJointTechnicalCommittee2025YukonRiverSalmon. Canadian-origin fall chum spawner abundance was taken as the `Spawning escapement estimate` in Appendix B16 and total abundance as the `Total estimated Canadian-origin run size` from Appendix B20 of @YukonRiverJointTechnicalCommittee2025YukonRiverSalmon. 
+The Canadian portion of the Yukon River is home to Chinook, chum, and coho salmon. Border escapement and total abundance (i.e. run size) of Canadian-origin Chinook and fall chum salmon in the mainstem Yukon River are counted at the Eagle Sonar station on the Yukon/Alaska border, and are available from the [Yukon River Panel](https://www.yukonriverpanel.com/) in their Joint Technical Committee (JTC) Reports. Specifically, we used Chinook `RR Spawning escapement estimate` and `RR Canadian origin total run size estimate` from Appendix B11 of @YukonRiverJointTechnicalCommittee2025YukonRiverSalmon. Canadian-origin fall chum spawner abundance was taken as the `Spawning escapement estimate` in Appendix B16 and total abundance as the `Total estimated Canadian-origin run size` from Appendix B20 of @YukonRiverJointTechnicalCommittee2025YukonRiverSalmon. 
 
 There are also Chinook, chum, and coho salmon in the Canadian portion of the Porcupine River, which joins the mainstem Yukon River in Alaska. Data on escapement to the Porcupine River are more patchy and not currently included here.
 
-> Internal note: Processing of raw excel file from Aaron Foos to extract relevant tables and fields is in [population-data/transboundary-data/code/sos-data-extract.R](https://www.dropbox.com/scl/fi/zxgtulvx2p5iphr3rjx57/sos-data-extract.R?rlkey=f18myjpthqbee4ciz9ny0pjf9&dl=0)
-
 ### Transboundary
+
+<!-- > Internal note: Processing of raw excel file from Aaron Foos to extract relevant tables and fields is in [population-data/transboundary-data/code/sos-data-extract.R](https://www.dropbox.com/scl/fi/zxgtulvx2p5iphr3rjx57/sos-data-extract.R?rlkey=f18myjpthqbee4ciz9ny0pjf9&dl=0) -->
 
 The best-available information on salmon abundance in the Northern Transboundary region is from the PSC's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The most recent TTC report [@TTC2022FinalEstimatesTransboundary] includes data through 2021. Updated report appendices were provided by Aaron Foos (DFO) on April 15, 2025 in advance of report publication, and numbers for 2023 and 2024 should be considered **preliminary**.
 
 We recognize that our approach in the Transboundary lacks information from many un-monitored watersheds, in particular the smaller watersheds of the Chilkat, Unuk, and Whiting Rivers. In the absence of better monitoring, we choose to report available data as a proxy for regional abundance, and note that the contribution of these smaller watersheds to total regional abundance for each species is likely small. 
 
 #### Chinook {.unnumbered}
-The regional spawner abundance and total return of Chinook was calculated as the sum of escapement and total return, respectively, to the Stikine, Alsek, and Taku indicator stocks. For each of these stocks, we used escapement and exploitation rates provided by the [PSC's Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/) as part of their Synoptic Evaluations of Stock Status. These data were downloaded from their [Data Application](https://psc1.shinyapps.io/ctc-shiny-app/_w_efbbad27/). Total abundance was calculated from the escapement, $E$, and exploitation rate, $r$, as $E/(1-r)$. At the time of publication, the Synoptic Evaluations of Stock Status were not yet available for 2024 so we used the escapement estimates for Stikine, Alsek, and Taku Chinook from Table B2 of Appendix B - Detailed Escapement, available as a downloadable dataset from the [Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/). Canadian and US harvest of Chinook was provided by Aaron Foos (DFO) as updated tables from the Transboundary Technical Committee report. Specifically, harvest for Stikine Chinook from Table B12 and harvest of Taku Chinook from Table D8. Harvest of Alsek Chinook was not provided at time of publication, and so we estimated this assuming the average exploitation rate over the most recent five years (2019-2023) from the CTC's Synoptic Evaluations of Stock Status (noting that this is such a small number that it has minimal impact on the status outcomes we report).
+The regional spawner abundance and total return of Chinook was calculated as the sum of escapement and total return, respectively, to the Stikine, Alsek, and Taku indicator stocks. For each of these stocks, we used escapement and exploitation rates provided by the [PSC's Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/) as part of their Synoptic Evaluations of Stock Status. These data were downloaded from their [Data Application](https://psc1.shinyapps.io/ctc-shiny-app/_w_efbbad27/). Total abundance was calculated from the escapement, $E$, and exploitation rate, $r$, as $E/(1-r)$. 
+
+At the time of publication, the Synoptic Evaluations of Stock Status were not yet available for 2024 so we used the escapement estimates for Stikine, Alsek, and Taku Chinook from Table B2 of Appendix B - Detailed Escapement, available as a downloadable dataset from the [Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/). Canadian and US harvest of Chinook was provided by Aaron Foos (DFO) as updated tables from the Transboundary Technical Committee report. Specifically, harvest for Stikine Chinook from Table B12 and harvest of Taku Chinook from Table D8. Total harvest of Alsek Chinook was 235, provided by Teresa Wallace (DFO, pers. comm.): US Commercial: 187, US Subsistence: 8, CAN (Aboriginal): 40, CAN Recreational: 0 (No CAN recreational harvest permitted in 2024).
+
+```{r, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** Chinook salmon spawner abundance (open points) and total abundance (closed points) showing the breakdwon in the Alsek, Taku, and Stikine river basins."}
+
+#------------------------------------------------------------------------------
+# Data
+#------------------------------------------------------------------------------
+
+# CTC Synoptic Eval data from app to 2023
+tbrck_raw <- read.csv("data/CTC_Synoptic_evaluation_data_all_2025-04-16.csv") %>%
+	filter(Year > 1975) %>% # Remove 1975 -> missing Alsek data
+	filter(Stock %in% c("Alsek", "Taku", "Stikine")) %>%
+	dplyr::select(Stock, Year, Escapement, RateType, Rate) %>%
+	mutate(TotalRun = Escapement/(1 - Rate))
+
+# Read in CTC data for 2024 
+tbrck_esc <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B2", range = "A5:G53", col_names = c("year", "Alsek_esc", "Alsek_cv", "Taku_esc", "Taku_cv", "Stikine_esc", "Stikine_cv"))
+
+# Merge 2024 data
+tbrck_raw_updated <- tbrck_raw %>%
+	rbind(data.frame(
+		Stock = c("Alsek", "Taku", "Stikine"),
+		Year = rep(2024, 3),
+		Escapement = as.numeric(tbrck_esc %>% filter(year == 2024) %>% dplyr::select("Alsek_esc", "Taku_esc", "Stikine_esc")),
+		RateType = rep(NA, 3),
+		Rate = rep(NA, 3),
+		TotalRun = rep(NA, 3)))
+
+tbrck_raw_updated$TotalRun[tbrck_raw_updated$Year == 2024] <- tbrck_raw_updated$Escapement[tbrck_raw_updated$Year == 2024] + c((40 + 195), (22 + 374), (49 + 37))
+	
+# For 2024, take harvest from TTC B12, D8, and assume Alsek CK harvest rate is average of past 5 years 
+tbrck <- tbrck_raw_updated %>%
+	group_by(Year) %>%
+	summarise(Escapement_all = sum(Escapement),
+						TotalRun_all = sum(TotalRun))
+
+#------------------------------------------------------------------------------
+# Plot
+#------------------------------------------------------------------------------
+tbr_ck_col<- viridisLite::viridis(n = 3)
+
+par(mfrow = c(2,1), mar = c(4,4,2,1))
+
+# SPawner abundance
+plot(tbrck$Year, tbrck$Escapement_all*10^-3, "l", xlab = "", ylab = "Spawner abundance (thousands)", bty = "l", las = 1, ylim = c(0, 150), yaxs = "i")
+for(i in 1:3){
+	
+	if(i == 1){
+		y1 <- rep(0, length(tbrck$Year))
+		y2 <- data.frame(tbrck_raw_updated %>% filter(Stock == c("Alsek", "Taku", "Stikine")[i]) %>% arrange(Year) %>% dplyr::select(Escapement))[,1]
+	} else if(i == 2){
+		y1 <-  data.frame(tbrck_raw_updated %>% filter(Stock == c("Alsek", "Taku", "Stikine")[i-1]) %>% arrange(Year) %>% dplyr::select(Escapement))[,1]
+		y2 <- data.frame(tbrck_raw_updated %>% filter(Stock %in% c("Alsek", "Taku", "Stikine")[1:2]) %>% arrange(Year) %>% group_by(Year) %>% summarise(sum(Escapement)))[,2]
+	} else {
+			y1 <- data.frame(tbrck_raw_updated %>% filter(Stock %in% c("Alsek", "Taku", "Stikine")[1:2]) %>% arrange(Year) %>% group_by(Year) %>% summarise(sum(Escapement)))[,2]
+			y2 <- tbrck$Escapement_all
+	}
+
+	yr <- tbrck$Year
+	
+	polygon(x = c(yr, rev(yr)),
+					y = c(y1, rev(y2))*10^-3,
+					col = tbr_ck_col[i], border = NA)
+}
+
+lines(tbrck$Year, tbrck$Escapement_all*10^-3, "o", pch = 21, bg = "#FFFFFF", lwd = 1.5, xpd = NA)
+legend("topright", fill = tbr_ck_col, border = NA, legend = c("Alsek", "Taku", "Stikine"), bty = "n")
+
+# Total abundance
+plot(tbrck$Year, tbrck$TotalRun_all*10^-3, "l", xlab = "", ylab = "Total abundance (thousands)", bty = "l", las = 1, ylim = c(0, 180), yaxs = "i")
+for(i in 1:3){
+	
+	if(i == 1){
+		y1 <- rep(0, length(tbrck$Year))
+		y2 <- data.frame(tbrck_raw_updated %>% filter(Stock == c("Alsek", "Taku", "Stikine")[i]) %>% arrange(Year) %>% dplyr::select(TotalRun))[,1]
+	} else if(i == 2){
+		y1 <-  data.frame(tbrck_raw_updated %>% filter(Stock == c("Alsek", "Taku", "Stikine")[i-1]) %>% arrange(Year) %>% dplyr::select(TotalRun))[,1]
+		y2 <- data.frame(tbrck_raw_updated %>% filter(Stock %in% c("Alsek", "Taku", "Stikine")[1:2]) %>% arrange(Year) %>% group_by(Year) %>% summarise(sum(TotalRun)))[,2]
+	} else {
+			y1 <- data.frame(tbrck_raw_updated %>% filter(Stock %in% c("Alsek", "Taku", "Stikine")[1:2]) %>% arrange(Year) %>% group_by(Year) %>% summarise(sum(TotalRun)))[,2]
+			y2 <- tbrck$TotalRun_all
+	}
+
+	yr <- tbrck$Year
+	
+	polygon(x = c(yr, rev(yr)),
+					y = c(y1, rev(y2))*10^-3,
+					col = tbr_ck_col[i], border = NA)
+}
+
+lines(tbrck$Year, tbrck$TotalRun_all*10^-3, "o", pch = 21, bg = "#FFFFFF", lwd = 1.5, xpd = NA)
+```
 
 #### Coho {.unnumbered}
 Coho spawner abundance and total abundance are available for the Taku River only, taken from Appendix D22 (`Escapement` and `Terminal Run` respectively) of the TTC updated report appendices.
@@ -123,21 +219,24 @@ Pink and chum salmon are less extensively monitored in the Transboundary, with o
 #### Sockeye {.unnumbered}
 Sockeye spawner abundance and total return were taken from the updated TTC report appendices. Specifically, Stikine sockeye spawner and total abundance were the `Escapement/broodstock` and `Terminal Run`, respectively, summed across the Stikine River (Appendix B26) and the Taku River (Appendix D17). 
 
-```{r, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** Sockeye salmon spawner abundance (open points) and total abundance (closed points) in the Taku (red) and Stikine (blue)."}
+```{r, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 4, fig.cap = "**Above:** Sockeye salmon spawner abundance (open points) and total abundance (closed points) in the Taku (red) and Stikine (blue)."}
 
+tbr_se <- viridisLite::viridis(n = 3)
 # TBR Sockeye data are the sum of the Stikine (Appendix B26) and Taku (Appendix D17) 
 # In 2024, the Appendix numbers given were B21 and D15 respectively, but that's changed.
 tbrse_stik <- read.csv('data/tbr_sockeye_appendixB26.csv')
 tbrse_taku <- read.csv('data/tbr_sockeye_appendixD17.csv')
 
-plot(tbrse_taku$Year, tbrse_taku$Escapement*10^-3, "o", col = 2, pch = 21, bg = "white", ylim = c(0, 400), xlab = "", bty = "l", ylab = "Abundance (thousands)", las = 1, yaxs = "i")
+par(mfrow = c(1,1), mar = c(4,4,2,1))
+plot(tbrse_taku$Year, tbrse_taku$Escapement*10^-3, "o", col = tbr_se[1], pch = 21, bg = "white", ylim = c(0, 400), xlab = "", bty = "l", ylab = "Abundance (thousands)", las = 1, yaxs = "i")
 abline(v = seq(1980, 2025, 5), lty = 3, col = grey(0.8))
 abline(h = seq(0, 400, 100), lty = 3, col = grey(0.8))
 
-points(tbrse_taku$Year, tbrse_taku$Run*10^-3, "o", col = 2, pch = 19)
-points(tbrse_stik$Year, tbrse_stik$StikineRiver_EscapementBroodstock*10^-3, "o", col = 4, pch = 21, bg = "white")
-points(tbrse_stik$Year, tbrse_stik$StikineRiver_TerminalRun*10^-3, "o", col = 4, pch = 19)
-legend("topright", col = c(2,4), pch = 19, lwd = 1, c("Taku", "Stikine"), bty = "n")
+points(tbrse_taku$Year, tbrse_taku$Run*10^-3, "o", col = tbr_se[1], pch = 19)
+points(tbrse_stik$Year, tbrse_stik$StikineRiver_EscapementBroodstock*10^-3, "o", col = tbr_se[2], pch = 21, bg = "white")
+points(tbrse_stik$Year, tbrse_stik$StikineRiver_TerminalRun*10^-3, "o", col = tbr_se[2], pch = 19)
+legend("topright", col = rep(tbr_se, each = 2), pch = c(21, 19, 21, 19), pt.bg = c(
+	"#FFFFFF", NA,"#FFFFFF", NA), lwd = 1, c("Taku spawner", "Taku total", "Stikine spawner", "Stikine total"), bty = "n")
 
 
 
@@ -191,27 +290,29 @@ plot_expansions(speciesname = species[s],
 
 Chinook spawners and total return were taken from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @ChinookTechnicalCommittee2025AnnualReportCatch. Specifically, Nass River (Area 3) escapement and terminal run are provided in Table B3 (fields `Esc` and `t.run` respectively). In the figure below, these CTC estimates correspond closely to estimates of Nass Chinook available from the [Nisga'a Fisheries Nass Stock Assessment Updates](https://www.dropbox.com/scl/fo/ahrrza0aplzcnamatapar/h?rlkey=n51s6qgu0yze0vrphue8dk4ap&e=2&st=n0g2ox45&dl=0), especially in recent years. Historically, the Nisga'a estimates of total abundance tended to be higher than the CTC estimates. 
 
-```{r, echo = FALSE, warnings = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 4, fig.cap = "**Above:** Comparison of Nass Chinook spawner and total abudnance from CTC and Nisga'a Fisheries Nass Stock Assessment in-season estiamtes of total return to Canada (TRTC)."}
+<!-- ```{r, echo = FALSE, warnings = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 4, fig.cap = "**Above:** Comparison of Nass Chinook spawner and total abudnance from CTC and Nisga'a Fisheries Nass Stock Assessment in-season estiamtes of total return to Canada (TRTC)."} -->
 
-# TCCHINOOK Table B3
-nass_ctc <- readxl::read_xlsx("data/TCCHINOOK-24-01-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "A4:D53", col_types = "numeric")
-names(nass_ctc) <- c("Year", "Above_Gitwinksihlkw2", "Esc", "t.run")
+<!-- # TCCHINOOK Table B3 -->
+<!-- nass_col <- viridisLite::viridis(n = 3) -->
 
-nass_nisgaa <- read.csv("data/2024NassStockAssessment_combinedTables19-21.csv")
+<!-- nass_ctc <- readxl::read_xlsx("data/TCCHINOOK-24-01-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "A4:D53", col_types = "numeric") -->
+<!-- names(nass_ctc) <- c("Year", "Above_Gitwinksihlkw2", "Esc", "t.run") -->
 
-
-plot(nass_ctc$Year, nass_ctc$t.run*10^-3, "o", bty = "l", las = 1, ylab = "Chinook abundance (thousands)", xlab = "", ylim = c(0, 50))
-abline(v = seq(1970, 2025, 2), lty = 3, col = grey(0.8), lwd = 0.8)
-abline(h = pretty(nass_ctc$t.run*10^-3), lty = 3, col = grey(0.8), lwd = 0.8)
-abline(v = seq(1970, 2025, 10), col = grey(0.8), lwd = 0.8)
-points(nass_ctc$Year, nass_ctc$Esc*10^-3, "o", col = grey(0.6))
-points(nass_nisgaa$Year, nass_nisgaa$TOTAL_RUN_Chinook*10^-3, "o", col = 2, xpd = NA)
-points(nass_nisgaa$Year, nass_nisgaa$ESC_Chinook*10^-3, "o", col = "#FF000050", xpd = NA)
+<!-- nass_nisgaa <- read.csv("data/2024NassStockAssessment_combinedTables19-21.csv") -->
 
 
-points(c(2024, 2024), c(tail(nass_nisgaa$TOTAL_RUN_Chinook*10^-3, 1),  tail(nass_nisgaa$ESC_Chinook*10^-3, 1)), pch = 19, col = 2, cex = 0.8)
-legend("topleft", pch = c(rep(1, 4), 19), lwd = c(rep(1, 4), NA), col = c(1, grey(0.6), 2, "#FF000050", 2), c("TCCHINOOK-24-01 - t.run", "TCCHINOOK-24-01 - Esc", "NFWD - Total Run", "NFWD - Esc.", "Used for 2024"), pt.cex = c(rep(1, 4), 0.8))
-```
+<!-- plot(nass_ctc$Year, nass_ctc$t.run*10^-3, "o", bty = "l", las = 1, ylab = "Chinook abundance (thousands)", xlab = "", ylim = c(0, 50), pch = 19, col = nass_col[1]) -->
+<!-- abline(v = seq(1970, 2025, 2), lty = 3, col = grey(0.8), lwd = 0.8) -->
+<!-- abline(h = pretty(nass_ctc$t.run*10^-3), lty = 3, col = grey(0.8), lwd = 0.8) -->
+<!-- abline(v = seq(1970, 2025, 10), col = grey(0.8), lwd = 0.8) -->
+<!-- points(nass_ctc$Year, nass_ctc$Esc*10^-3, "o", col = grey(0.6)) -->
+<!-- points(nass_nisgaa$Year, nass_nisgaa$TOTAL_RUN_Chinook*10^-3, "o", col = 2, xpd = NA) -->
+<!-- points(nass_nisgaa$Year, nass_nisgaa$ESC_Chinook*10^-3, "o", col = "#FF000050", xpd = NA) -->
+
+
+<!-- points(c(2024, 2024), c(tail(nass_nisgaa$TOTAL_RUN_Chinook*10^-3, 1),  tail(nass_nisgaa$ESC_Chinook*10^-3, 1)), pch = 19, col = 2, cex = 0.8) -->
+<!-- legend("topleft", pch = c(rep(1, 4), 19), lwd = c(rep(1, 4), NA), col = c(1, grey(0.6), 2, "#FF000050", 2), c("TCCHINOOK-24-01 - t.run", "TCCHINOOK-24-01 - Esc", "NFWD - Total Run", "NFWD - Esc.", "Used for 2024"), pt.cex = c(rep(1, 4), 0.8)) -->
+<!-- ``` -->
 
 #### Coho {.unnumbered}
 
@@ -220,6 +321,9 @@ Nass coho escapement and total return were available from the Nisga'a Fisheries 
 ```{r, echo = FALSE, warnings = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 4, fig.cap = "**Above:** Comparison of Nass coho data: for the 2024SOS we used the sum of three CU estimates from English et al. (2023) (black and grey open points). This is not being updated for 2024, but there is an in-season estimate of run size from the Nisga'a Fisheries and/or estimates of spawner abundance expanded from NuSEDS."}
 
 region_spawners <- readRDS("output/expanded-spawners/Nass-spawners.rds")
+
+# Read in NFWD 2024 post-season estimates
+nass_nisgaa <- read.csv("data/2024NassStockAssessment_combinedTables19-21.csv")
 
 # Read in LGL data
 nassco_lgl <- readxl::read_xlsx("data/LGL_nass_update_TRTC_age.xlsx", sheet = "ConservationUnit TRTC") %>%
@@ -807,6 +911,7 @@ library(tools)
 sps_dat <- read.csv("output/sps-data.csv")
 sps_metrics <- read.csv("output/sps-metrics.csv")
 
+	
 # Read in last-year's metrics (duplicate VIMI results)
 sps_metrics_2024 <- read.csv("output/archive/sps-metrics_2024-07-19.csv")
 wvi_2024 <- sps_metrics_2024 %>%
@@ -814,6 +919,9 @@ wvi_2024 <- sps_metrics_2024 %>%
 wvi_2024$region <- "West Vancouver Island"
 sps_metrics_2024$region[sps_metrics_2024$region == "Vancouver Island & Mainland Inlets"] <- "East Vancouver Island & Mainland Inlets"
 sps_metrics_2024 <- rbind(sps_metrics_2024, wvi_2024)
+sps_metrics_2024$region[sps_metrics_2024$region == "Transboundary"] <- "Northern Transboundary"
+
+sps_metrics <- sps_metrics %>% rbind(sps_metrics_2024 %>% filter((region == "Columbia" & species %in% c("Chum", "Coho", "Pink")) | (region == "Yukon" & species %in% c("Pink", "Sockeye", "Steelhead"))))
 
 regions <- unique(unique(sps_metrics$region))
 
@@ -908,7 +1016,7 @@ btn_table(
 
 ```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
 plot.regional_abund(
-  selected_region = "Transboundary",
+  selected_region = "Northern Transboundary",
 	abund = "spawners", # Select "spawners" or "runsize"
 	sps_metrics = sps_metrics, 
 	sps_dat = sps_dat)
@@ -917,7 +1025,7 @@ plot.regional_abund(
 
 ```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
 plot.regional_abund(
-  selected_region = "Transboundary",
+  selected_region = "Northern Transboundary",
 	abund = "runsize", # Select "spawners" or "runsize"
 	sps_metrics = sps_metrics, 
 	sps_dat = sps_dat)
@@ -929,7 +1037,7 @@ plot.regional_abund(
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
 btn_table(
-  selected_region = "Transboundary",
+  selected_region = "Northern Transboundary",
   sps_metrics = sps_metrics
 )
 ```
