@@ -13,6 +13,8 @@ references.bib
 methods-results/*.docx
 methods-results/methods-results.html
 methods-results/figures
+methods-results/encrypt.R
+methods-results/rsconnect
 
 code/archive
 code/ignore
@@ -25,6 +27,7 @@ output/num-surveys
 output/sps-trends_plotting.csv
 output/sps-summary_table_totalreturn.csv
 output/sps-summary_table_spawners.csv
+output/print-figures
 
 # Ignore large datasets
 data/spawner_surveys.csv
@@ -34,3 +37,4 @@ data/spawner_abundance.csv
 data/sources
 data/ignore
 
+app
