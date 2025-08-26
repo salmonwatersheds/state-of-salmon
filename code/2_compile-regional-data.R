@@ -1210,14 +1210,21 @@ wvi_ck_raw <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Deta
 	mutate(Year = c(1995:2024))
 # Escapement methods changed in 1995; only use earlier data for assessments
 
+# West Vancouver Island from Brown et al. 2025
+wvi_ck_tot_raw <- read_xlsx("data/WCVI_Chinook_total_abundance.xlsx")
+
+wvi_ck_tot_raw$total_abundance <-  wvi_ck_tot_raw$`Hatchery origin Terminal Return` + wvi_ck_tot_raw$`Natural origin Terminal Return` +  wvi_ck_tot_raw$`non-terminal Ocean catch`
+
+yrs <- sort(unique(c(wvi_ck_tot_raw$`Return year`, wvi_ck_raw$Year)))
+
 # Put in SPS format
 wvick_sps <- data.frame(
-	region = rep("West Vancouver Island", dim(wvi_ck_raw)[1]),
-	species = rep("Chinook", dim(wvi_ck_raw)[1]),
-	year = wvi_ck_raw$Year,
-	spawners = wvi_ck_raw$WCVI_14Stream_Index, 
+	region = rep("West Vancouver Island", length(yrs)),
+	species = rep("Chinook", length(yrs)),
+	year = yrs,
+	spawners = wvi_ck_raw$WCVI_14Stream_Index[match(yrs, wvi_ck_raw$Year)], 
 	smoothedSpawners = NA,
-	runsize = NA,
+	runsize = wvi_ck_tot_raw$total_abundance[match(yrs, wvi_ck_tot_raw$`Return year`)],
 	smoothedRunsize = NA
 ) 
 
@@ -1228,8 +1235,23 @@ wvick_sps$smoothedSpawners <- genSmooth(
 	genLength = genLength$gen_length[genLength$region == "West Vancouver Island" & genLength$species == "Chinook"]
 )
 
+wvick_sps$smoothedRunsize <- genSmooth(
+	abund = wvick_sps$runsize,
+	years = wvick_sps$year,
+	genLength = genLength$gen_length[genLength$region == "West Vancouver Island" & genLength$species == "Chinook"]
+)
+
 plot_abund(wvick_sps)
 
+if(1 == 2){
+	avg <- c(spawners = exp(mean(log(wvick_sps$spawners), na.rm = TRUE)),
+	total = exp(mean(log(wvick_sps$runsize), na.rm = TRUE)))
+
+	plot(wvick_sps$year, (wvick_sps$smoothedRunsize - avg[2])/avg[2], "o", pch = 19)
+	abline(h= avg[2])
+	points(wvick_sps$year, (wvick_sps$smoothedSpawners - avg[1])/avg[1], "o", col = grey(0.6))
+
+}
 # Add to master sps dataframe
 sps_data <- rbind(sps_data, wvick_sps)
 
