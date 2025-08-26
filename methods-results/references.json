@@ -1159,6 +1159,68 @@
 		}
 	},
 	{
+		"id": "AtkinsonEtAl2024MonitoringFisheriesFish",
+		"type": "article",
+		"abstract": "Monitoring of salmon in Pacific Canada has been declining for decades. Spawner timeseries enable researchers to quantify impacts of local stressors, identify when and where management interventions are required to avoid extirpations, and evaluate the efficacy of recovery efforts. These data are more important now than ever, as uniquely adapted spawning populations underlie salmon resilience and their ability to adapt to climate change, and fine-scale data can inform terminal fisheries being revitalized by First Nations. We revisit the state of spawner data from the Yukon to southern BC. Almost two-thirds of salmon populations that were historically monitored have no reported estimates in 2013-2022 – the worst decade for data since monitoring programs began in the 1950s. We found strong correlations between the number of populations monitored and catch for each species, suggesting that monitoring is primarily motivated by commercial fisheries management. We recommend clarifying monitoring objectives and strategic investments to improve monitoring outcomes for salmon and communities. We emphasize data stewardship, as ensuring access to these baseline data is a cornerstone for rebuilding wild Pacific salmon.",
+		"DOI": "10.1101/2024.12.01.626233",
+		"language": "en",
+		"license": "© 2024, Posted by Cold Spring Harbor Laboratory. This pre-print is available under a Creative Commons License (Attribution-NonCommercial-NoDerivs 4.0 International), CC BY-NC-ND 4.0, as described at http://creativecommons.org/licenses/by-nc-nd/4.0/",
+		"note": "page: 2024.12.01.626233\nsection: New Results",
+		"publisher": "bioRxiv",
+		"source": "bioRxiv",
+		"title": "Monitoring for fisheries or for fish? Declines in monitoring of salmon spawners continue despite a conservation crisis",
+		"title-short": "Monitoring for fisheries or for fish?",
+		"URL": "https://www.biorxiv.org/content/10.1101/2024.12.01.626233v1",
+		"author": [
+			{
+				"family": "Atkinson",
+				"given": "Emma M."
+			},
+			{
+				"family": "Carturan",
+				"given": "Bruno S."
+			},
+			{
+				"family": "Atkinson",
+				"given": "Clare P."
+			},
+			{
+				"family": "Bateman",
+				"given": "Andrew W."
+			},
+			{
+				"family": "Connors",
+				"given": "Katrina"
+			},
+			{
+				"family": "Hertz",
+				"given": "Eric"
+			},
+			{
+				"family": "Peacock",
+				"given": "Stephanie J."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					10
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2024",
+					12,
+					5
+				]
+			]
+		}
+	},
+	{
 		"id": "DunmallEtAl2025InvadingRangeexpandingPink",
 		"type": "article-journal",
 		"abstract": "Species redistributions, whether resulting from invasions or range expansions, pose similar challenges for conservation and management. Redistribution impacts on host ecosystems and species combine with those from climate change, which are already acute at northern latitudes. Using pink salmon Oncorhynchus gorbuscha, which are native to the Pacific Ocean, we employ knowledge exchange to inform decision-making in non-native marine areas: they are expanding their range to the Arctic Ocean and are invasive in the Atlantic Ocean. The predicted future marine distribution of pink salmon focuses effort on where and when pink salmon are present and informs on potential interactions with native species. Management actions taken in the Atlantic Ocean to reduce invasive pink salmon are resource-intensive, but removed salmon could be a food resource. Addressing identified gaps regarding the invasion potential of pink salmon, interactions among pink salmon and other species, and current mitigation efforts would support forward-thinking management decisions given predictions of continued environmental change. We also highlight steps that can be taken immediately to coordinate actions and better inform responses. Managed for production in the Pacific and as an invasion in the Atlantic, pink salmon provide a tangible approach to informed decision-making through collaboration for marine species on the move.",
@@ -1517,6 +1579,29 @@
 					"2024",
 					12,
 					3
+				]
+			]
+		}
+	},
+	{
+		"id": "DFO2025WestCoastVancouver",
+		"type": "article-journal",
+		"container-title": "DFO Canadian Science Response",
+		"language": "en",
+		"source": "Zotero",
+		"title": "West Coast of Vancouver Island Natural-Origin Chinook Salmon (Oncorhynchus tshawytscha) Stock Assessment in 2024",
+		"URL": "https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2025/2025_021-eng.html",
+		"volume": "2025/021",
+		"author": [
+			{
+				"family": "DFO",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2025"
 				]
 			]
 		}
