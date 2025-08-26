@@ -117,8 +117,8 @@ fishheight <- 0.5 * image_info(fish)$height/image_info(fish)$width
 
 for(k in 1:2){
 
-	quartz(width = 2246/350, height = 2676/350, pointsize = 10, family = "Sofia Pro Bold")
-	# png(file = paste0("output/print-figures/main_", type_name[k], ".png"), width = 2246, height = 2676, res = 350, pointsize = 10, family = "Sofia Pro Bold")
+	# quartz(width = 2246/350, height = 2676/350, pointsize = 10, family = "Sofia Pro Bold")
+	png(file = paste0("output/print-figures/main_", type_name[k], ".png"), width = 2246, height = 2676, res = 350, pointsize = 10, family = "Sofia Pro Bold")
 	# svg(file = paste0("output/print-figures/main_", type_name[k], ".svg"), width = 2246/350, height = 2676/350, pointsize = 10, family = "Sofia Pro Bold")
 	
 	par(mai = c(0, mar_width, mar_width, 0), mfrow = c(1,1), family = "Sofia Pro Bold")
@@ -236,7 +236,7 @@ for(k in 1:2){
 		text(s - 0.13, y_loc + sps_summary.s$region_label_offset_y[cs_ind], region_abbr[match(sps_summary.s$region[cs_ind], regions)], col = grey(0.6), font = 2, cex = text_cex)
 		
 	} # end s
-	quartz.save(paste0("output/print-figures/main_", type_name[k], ".pdf"), type = "pdf")
+	# quartz.save(paste0("output/print-figures/main_", type_name[k], ".pdf"), type = "pdf")
 	dev.off()
 	# embed_fonts(paste0("output/print-figures/main_", type_name[k], ".pdf"), outfile=paste0("output/print-figures/main_", type_name[k], ".pdf"))
 	
