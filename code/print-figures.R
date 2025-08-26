@@ -738,7 +738,7 @@ fishwidth <- 1
 fishheight <- fishwidth * image_info(fish)$height/image_info(fish)$width
 
 # quartz(width = 7, height = 7, pointsize = 10, family = "Sofia Pro Bold")
-png(file = paste0("output/ignore/", type_name[k], "_highlight_fig.png"), width = 7, height = 7, units = "in", res = 350, pointsize = 10, family = "Sofia Pro Semi Bold", bg = NA)
+png(file = paste0("output/ignore/", type_name[k], "_highlight_fig_2025-08-25.png"), width = 7, height = 7, units = "in", res = 350, pointsize = 10, family = "Sofia Pro Semi Bold", bg = NA)
 
 par(mar = rep(0,4), family = "Sofia Pro Semi Bold", bg = "#FFFFFF")
 plot(1,1,"n", xlab = "", ylab = "", bty = "n", xaxt  = "n", yaxt = "n", xlim = c(0.02,5.98), ylim = c(0.02, 9.98), xaxs = "i", yaxs = "i")
