@@ -716,6 +716,8 @@ plot_expansions <- function(
 		added_series = NULL # added time series with columns year and value if desired
 		){
 
+	col.exp <- viridisLite::viridis(n = 3, alpha = 0.8)
+	
 	s <- match(speciesname, c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead"))
 	yrs <- as.numeric(dimnames(region_spawners)[[3]])
 	
@@ -726,22 +728,23 @@ plot_expansions <- function(
 		plot(yrs, region_spawners[2, s,]*10^-3, "o", lwd = 1.2, pch = 19, cex = 0.8, bty = "l", las = 1, xlab = "", ylab = "Spawners (thousands)", ylim = c(0, max(region_spawners[2, s,]*10^-3, na.rm = TRUE)), xpd = NA, yaxs = "i")
 		abline(v = 2024, lty = 3, lwd = 1.2)
 		text(2024, par('usr')[4], pos = 3, 2024, cex = 0.8, xpd = NA)
-		abline(v = seq(1940, 2025, 5), lty = 3, col = grey(0.6))
-		abline(h = pretty(region_spawners[2, s, ]*10^-3), lty = 3, col = grey(0.6))
-		lines(yrs, region_spawners[1, s, ]*10^-3, "o", col = "#74BDB8", xpd = NA, lwd = 1.2, pch = 19, cex = 0.6)
+		abline(v = seq(1940, 2025, 5), lty = 3, col = grey(0.8), lwd = 0.8)
+		abline(h = pretty(region_spawners[2, s, ]*10^-3), lty = 3, col = grey(0.8), lwd = 0.8)
+		points(yrs, region_spawners[1, s, ]*10^-3,  col = col.exp[1], xpd = NA, pch = 21, bg = "white", cex = 0.8)
 		mtext(side = 3, outer = TRUE, paste0(regionname, " ", speciesname))
 		mtext(side = 3, adj = 0, line = 0.5, "(a)")
 		
 		if(is.null(added_series) == FALSE){
-			points(added_series$year, added_series$value*10^-3, pch = 1, cex = 1, lwd = 1.2, col = "#70212170", xpd = NA)
-			legend("topleft", pch = c(19, 19, 1), pt.cex = c(0.8, 0.8, 1), col = c(1,"#74BDB8","#70212170"), c("Expanded", "Observed (indicator)", "Alternate"), bg = "white", lwd = c(1.2, 1.2, NA))
+			points(added_series$year, added_series$value*10^-3, pch = 1, cex = 1, lwd = 1.2, col = col.exp[2], xpd = NA)
+			legend("topleft", pch = c(19, 21, 1), pt.cex = c(0.8, 0.8, 1), pt.bg = c(NA, "white", NA), col = c(1,col.exp[1],col.exp[2]), c("Expanded", "Observed (indicator)", "Alternate"), bg = "white", lwd = c(1.2, NA, NA))
 		} else {
-			legend("topleft", pch = 19, col = c(1,"#74BDB8"), c("Expanded", "Observed (indicator)"), bg = "white", lwd = 1.2)
+			legend("topleft", pch = c(19, 21), col = c(1,col.exp[1]), c("Expanded", "Observed (indicator)"), bg = "white", pt.bg = "white", lwd = c(1.2, NA))
 		}
 		
-		plot(yrs, expansion_factors[[s]]$exp1, col = ifelse(expansion_factors[[s]]$exp1 == 1, 1, "#9E6a5A"), las = 1, ylab = "Expansion Factor 1", xlab = "", bty = "l", pch = 19, cex = 0.8)
-		abline(v = seq(1940, 2025, 5), lty = 3, col = grey(0.6))
-		abline(h = pretty(expansion_factors[[s]]$exp1), lty = 3, col = grey(0.6))
+		plot(yrs, expansion_factors[[s]]$exp1, las = 1, ylab = "Expansion Factor 1", xlab = "", bty = "l", pch = 19, cex = 0.8)
+		abline(v = seq(1940, 2025, 5), lty = 3, col = grey(0.8), lwd = 0.8)
+		abline(h = pretty(expansion_factors[[s]]$exp1), lty = 3, col = grey(0.8), lwd = 0.8)
+		abline(h = 1, col = col.exp[3], lwd = 2)
 		mtext(side = 3, adj = 0, line = 0.5, "(b)")
 		
 		# if(length(expansion_factors[[s]]$exp2) == 1){
