@@ -70,6 +70,28 @@
 		}
 	},
 	{
+		"id": "COSEWIC2017COSEWICAssessmentStatus",
+		"type": "report",
+		"event-place": "Ottawa, Canada",
+		"page": "xii + 62 p.",
+		"publisher": "Committee on the Status of Endangered Wildlife in Canada",
+		"publisher-place": "Ottawa, Canada",
+		"title": "COSEWIC Assessment and status report on the Chinook Salmon (Oncorhynchus tshawytscha), Okanagan population in Canada",
+		"URL": "https://salmonwatersheds.ca/document/lib_503/",
+		"author": [
+			{
+				"literal": "COSEWIC"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2017"
+				]
+			]
+		}
+	},
+	{
 		"id": "DEon-EggertsonEtAl2015ReliableIdentificationDeclining",
 		"type": "article-journal",
 		"container-title": "Conservation Letters",
@@ -1627,6 +1649,73 @@
 				[
 					"2025",
 					7
+				]
+			]
+		}
+	},
+	{
+		"id": "FarleyJrEtAl2024CriticalPeriodsMarine",
+		"type": "article-journal",
+		"abstract": "Recent precipitous declines in western Alaska chum salmon Oncorhynchus keta returns followed unprecedented warming in the northern Bering Sea ecosystem. To better understand the role of anomalous events on the early marine ecology of juvenile chum salmon in the northern Bering Sea, we utilized time-series observations over a 17 yr period (2003–2019) of sea surface temperature (SST) and juvenile chum salmon size (length and weight), diet, energy density, and relative abundance. Particular attention was paid to more recent (2014–2019) years in which there was unprecedented loss of sea ice in the northern Being Sea in comparison to previous warm (2003–2005) and cold (2006–2013) periods. Our findings indicate significant correlations between SST and juvenile chum salmon relative biomass (positive) and energy density (negative). We found that juvenile chum salmon were larger during warm periods than during cold periods; however, there was no significant difference in their length and weight between the warm periods. Juvenile chum salmon fed on lower quality prey during warm periods than during cold periods, with an increase in the proportion of lower quality prey during the recent warm period. Consequently, the energy density of juvenile chum salmon was also lower during warm periods than during cold periods, with the lowest values occurring during the recent warm period (2014–2019). These results identify a shift in energy allocation and/or prey quality of juvenile chum salmon with temperature and illustrate how marine ecosystems have altered the nutritional condition of juvenile chum salmon prior to winter, when energy reserves are considered critical to survival.",
+		"container-title": "Marine Ecology Progress Series",
+		"DOI": "10.3354/meps14491",
+		"ISSN": "0171-8630, 1616-1599",
+		"journalAbbreviation": "Mar. Ecol. Prog. Ser.",
+		"language": "en",
+		"page": "149-160",
+		"source": "DOI.org (Crossref)",
+		"title": "Critical periods in the marine life history of juvenile western Alaska chum salmon in a changing climate",
+		"URL": "https://www.int-res.com/abstracts/meps/v726/p149-160/",
+		"volume": "726",
+		"author": [
+			{
+				"family": "Farley Jr",
+				"given": "Ev"
+			},
+			{
+				"family": "Yasumiishi",
+				"given": "Em"
+			},
+			{
+				"family": "Murphy",
+				"given": "Jm"
+			},
+			{
+				"family": "Strasburger",
+				"given": "W"
+			},
+			{
+				"family": "Sewall",
+				"given": "F"
+			},
+			{
+				"family": "Howard",
+				"given": "K"
+			},
+			{
+				"family": "Garcia",
+				"given": "S"
+			},
+			{
+				"family": "Moss",
+				"given": "Jh"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2024",
+					6,
+					3
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2024",
+					1,
+					11
 				]
 			]
 		}

@@ -70,23 +70,21 @@ sps_data <- read.csv("output/sps-data.csv")
 
 # Overview 
 
-Currently, there is no place where the public can readily find answers to general questions regarding the state of salmon in BC and the Yukon. It is difficult to find credible answers to questions such as:
+The Pacific Salmon Foundation's [State of Salmon Report](https://stateofsalmon.ca) aims to provide the public with answers to general questions regarding the state of salmon in British Columbia (BC) and the Yukon, such as:
 
 * How are salmon populations doing? 
 * What are the major factors influencing the state of salmon? 
 * What is being done - and what could be done - to mitigate threats and recover salmon populations and the habitats they depend on?
 
-This lack of publicly accessible information about the state of Pacific salmon and opens the door to misinformation that can hinder and harm our ability to conserve salmon. 
+This report, first released in September 2024, takes a data-driven approach to provide historical perspective and context for current news about salmon returns. The State of Salmon Report is being updated annually to reflect new data and changes to the state of Pacific salmon populations. 
 
-The [Pacific Salmon Foundation (PSF)](https://www.psf.ca) has developed a **State of Salmon** report, first released in September 2024, which addresses these questions and is tailored for a salmon-informed public audience. The outputs are being updated annually to reflect new data and changes to the state of Pacific salmon populations.
-
-As part of this work, PSF's [Salmon Watersheds Program](https://www.salmonwatersheds.ca) has developed simple metrics to report on the status and trends in regional abundance for each species. This document outlines the data sources and analytical approach used to estimate time series of spawner abundance and total returns (including catch) for each species and region, as well as draft results. Our analyses are ongoing, and the information here is subject to change on a regular basis, but we will endeavor to keep it up-to-date.
+As part of this work, PSF's [Salmon Watersheds Program](https://www.salmonwatersheds.ca) has developed simple metrics to report on the status and trends in regional abundance for each species. This document outlines the  specific data sources and analytical approach that we used to estimate time series of spawner abundance and total abundance (including catch) for each species and region, as well as draft results. Our analyses are ongoing, and the information here is subject to change on a regular basis, but we will endeavor to keep it up-to-date.
 
 # Methods
 
 ## General Approach
 
-We report spawner abundance for each of ten regions that represent all major Pacific salmon-bearing watersheds in Canada: Yukon, Northern Transboundary, Haida Gwaii, Nass, Skeena, Central Coast, Fraser, East Vancouver Island & Mainland Inlets, West Vancouver Island, and Columbia. These regions are also used to organize data in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca). There are a relatively small number of Pacific salmon that spawn in the MacKenzie River basin in Arctic Canada that are currently not included in the State of Salmon report.
+We report spawner abundance for each of ten regions that represent all major Pacific salmon-bearing watersheds in Canada: Yukon, Northern Transboundary, Haida Gwaii, Nass, Skeena, Central Coast, Fraser, East Vancouver Island & Mainland Inlets, West Vancouver Island, and Columbia. These regions are also used to organize data in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca). Note that there was a change from the 2024 Report to split the former Vancouver Island & Mainland Inlets region into two to better reflect the unique ecology and environments of salmon between West Vancouver Island and East Vancouver Island & Mainland Inlets. There are a relatively small number of Pacific salmon that spawn in the MacKenzie River basin in Arctic Canada that are currently not included in the State of Salmon report.
 
 We report on six species of Pacific salmon (*Oncorhynchus* spp.): Chinook, chum, coho, pink, sockeye, and steelhead. For each species, we report on state and trends based on generational averages. For pink salmon, we take the running average of even- and odd-year lineages, but do not separate assessments of even- and odd-year pink populations as is sometimes done in status assessments due to their consistent 2-year life cycle. Our approach of using generation running averages also smooths over dominant years for sockeye salmon, for which many populations display cyclic dominance. Shifts in dominance between even- and odd-year pink populations or declines in sub-dominant years of sockeye salmon are considered in a more nuanced way in our reporting when discussing how changes in abundance have been reflected in the diversity and distribution of each species within the region. 
 
@@ -156,12 +154,14 @@ tbrck <- tbrck_raw_updated %>%
 #------------------------------------------------------------------------------
 # Plot
 #------------------------------------------------------------------------------
-tbr_ck_col<- viridisLite::viridis(n = 3)
+tbr_ck_col<- viridisLite::viridis(n = 3, alpha = 0.6)
 
 par(mfrow = c(2,1), mar = c(4,4,2,1))
 
 # SPawner abundance
 plot(tbrck$Year, tbrck$Escapement_all*10^-3, "l", xlab = "", ylab = "Spawner abundance (thousands)", bty = "l", las = 1, ylim = c(0, 150), yaxs = "i")
+abline(h = pretty(tbrck$Escapement_all*10^-3), lty = 2, col = grey(0.8), lwd = 0.8)
+abline(v = seq(1970, 2025, 5), lty = 2, col = grey(0.8), lwd = 0.8)
 for(i in 1:3){
 	
 	if(i == 1){
@@ -187,6 +187,9 @@ legend("topright", fill = tbr_ck_col, border = NA, legend = c("Alsek", "Taku", "
 
 # Total abundance
 plot(tbrck$Year, tbrck$TotalRun_all*10^-3, "l", xlab = "", ylab = "Total abundance (thousands)", bty = "l", las = 1, ylim = c(0, 180), yaxs = "i")
+abline(h = pretty(tbrck$TotalRun_all*10^-3), lty = 2, col = grey(0.8), lwd = 0.8)
+abline(v = seq(1970, 2025, 5), lty = 2, col = grey(0.8), lwd = 0.8)
+
 for(i in 1:3){
 	
 	if(i == 1){
@@ -455,7 +458,7 @@ mtext(side = 4, "Expansion factor", line = 3)
 Chinook spawners were taken from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @ChinookTechnicalCommittee2025AnnualReportCatch. Specifically, Skeena River (Area 4) escapement is provided in Table B3 (field `GSI esc`). There is no total return for the Skeena River provided in the CTC data sets.
 
 #### Sockeye {.unnumbered}
-Skeena sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 4 sockeye from the 2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast].
+Skeena sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 4 sockeye from the 2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast]. Data for 2023 were provided by Charmaine Carr-Harris (DFO) on request.
 
 #### Steelhead {.unnumbered}
 The index of Skeena steelhead spawner abundance is derived from estimated escapement of Skeena Summer steelhead at the Tyee Test Fishery (1956 - present), provided by the Province via email. As for other regions, these estimates may not capture winter-run steelhead, for which data are not available.
@@ -882,9 +885,7 @@ The standardized approach to quantifying change described above was applied acro
 
 1. If the species and region had no data in the most recent generation, the current status was "Unknown" even if historical abundance information was available. This was the case for **Haida Gwaii Chinook**, for which there were no reliable estimates of spawners since 2006.
 
-2. If the time series of abundance (spawners or total return) contained fewer than 20 years of data, we could not reliably establish a historical baseline and the current status was therefore "Unknown". This applied to **Columbia Chinook** and **Columbia steelhead**, both of which have been monitored since 2006.
-
-<!-- 2. If there was reliable information that the absolute population size was < 1000 spawners, then the species and region was considered at risk of extirpation regardless of the outcome of the metrics above. This was the case for **Columbia Chinook** which have been assessed as Endangered by COSEWIC due to low population size [@COSEWIC2017ChinookSalmonOncorhynchus]. There were four other regions and species that had spawner abundance < 1000, but none of these had reliable estimates of **absolute** spawner abundance and all four were already assessed as having current abundance 85% to 96% below historical average. -->
+2. If there was reliable information that the absolute population size was < 1,500 spawners, then the species and region was considered at risk of extirpation regardless of the outcome of the metrics above. This was the case for **Columbia Chinook** which have been assessed as Endangered by COSEWIC due to low population size [@COSEWIC2017ChinookSalmonOncorhynchus] and **Columbia sockeye**. There were other regions and species that had spawner abundance < 1,500, but none of these had reliable estimates of **absolute** spawner abundance.
 
 # Results 
 
