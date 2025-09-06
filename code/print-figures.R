@@ -12,6 +12,8 @@ library(raster)
 library(magick)
 library(extrafont)
 
+file_type <- "pdf" # Choose one of "pdf" or "png"
+
 # Import fonts
 # font_import(paths = "data/print-report/fonts")
 loadfonts()
@@ -25,24 +27,24 @@ fishy_cols <- c("#9c2323", "#b85657", "#ffcaca", "#98df8a", "#54a35c", "#299330"
 crit_col <- c("#600918")
 fishy_bgcols <- c(bg = "#f1f8fa", dd = "#f5f6f6", crit = "#f2dcd7", high = "#e7eee3")
 
-#' Create a linear scale for colours negative values in red and green positive
-# fishy_cols_func <- function(x){
-# 	col_out <- rep(NA, length(x))
-# 	for(i in 1:length(x)){
-# 		if(is.na(x[i])){
-# 			col_out[i] <- "#A8A9AB"
-# 		} else if (x[i] == -999999){
-# 			col_out[i] <- "#600918"
-# 		} else if(x[i] < 0){
-# 			col_out[i] <- colorRampPalette(c('#ffcaca', '#b85657', '#9c2323'))(n = 100)[round(abs(x[i]))]
-# 		}	else if (x[i] >=0 & x[i] <= 150){
-# 			col_out[i] <- colorRampPalette(c('#98df8a', '#54a35c', '#288330'))(n = 150)[round(abs(x[i]))]
-# 		} else if(x[i] > 150){
-# 			col_out[i] <- "#1B4E1F"
-# 		}
-# 	}
-# 	return(col_out)
-# }
+# Create a linear scale for colours negative values in red and green positive
+fishy_cols_func <- function(x){
+	col_out <- rep(NA, length(x))
+	for(i in 1:length(x)){
+		if(is.na(x[i])){
+			col_out[i] <- "#A8A9AB"
+		} else if (x[i] == -999999){
+			col_out[i] <- "#600918"
+		} else if(x[i] < 0){
+			col_out[i] <- colorRampPalette(c('#ffcaca', '#b85657', '#9c2323'))(n = 100)[round(abs(x[i]))]
+		}	else if (x[i] >=0 & x[i] <= 150){
+			col_out[i] <- colorRampPalette(c('#98df8a', '#54a35c', '#288330'))(n = 150)[round(abs(x[i]))]
+		} else if(x[i] > 150){
+			col_out[i] <- "#1B4E1F"
+		}
+	}
+	return(col_out)
+}
 
 fishy_cols_func <- function(x){
 	col_out <- rep(NA, length(x))
@@ -118,8 +120,12 @@ fishheight <- 0.5 * image_info(fish)$height/image_info(fish)$width
 for(k in 1:2){
 
 	# quartz(width = 2246/350, height = 2676/350, pointsize = 10, family = "Sofia Pro Bold")
-	png(file = paste0("output/print-figures/main_", type_name[k], ".png"), width = 2246, height = 2676, res = 350, pointsize = 10, family = "Sofia Pro Bold")
-	# svg(file = paste0("output/print-figures/main_", type_name[k], ".svg"), width = 2246/350, height = 2676/350, pointsize = 10, family = "Sofia Pro Bold")
+	if(file_type == "png"){
+		 png(file = paste0("output/print-figures/png/main_", type_name[k], ".png"), width = 2246, height = 2676, res = 350, pointsize = 10, family = "Sofia Pro Bold")
+	} else if(file_type == "pdf"){
+		pdf(file = paste0("output/print-figures/pdf/main_", type_name[k], ".pdf"), width = 2246/350, height = 2676/350, pointsize = 10, family = "Sofia Pro Bold")
+	}
+	
 	
 	par(mai = c(0, mar_width, mar_width, 0), mfrow = c(1,1), family = "Sofia Pro Bold")
 	plot(1,1,"n", xlab = "", ylab = "", bty = "n", xaxt  = "n", yaxt = "n", xlim = c(0.02,5.98), ylim = c(min(dd_range), max(green_range)), xaxs = "i", yaxs = "i")
@@ -238,8 +244,9 @@ for(k in 1:2){
 	} # end s
 	# quartz.save(paste0("output/print-figures/main_", type_name[k], ".pdf"), type = "pdf")
 	dev.off()
-	# embed_fonts(paste0("output/print-figures/main_", type_name[k], ".pdf"), outfile=paste0("output/print-figures/main_", type_name[k], ".pdf"))
-	
+	if(file_type == "pdf"){
+		embed_fonts(paste0("output/print-figures/pdf/main_", type_name[k], ".pdf"), outfile = paste0("output/print-figures/pdf/main_", type_name[k], ".pdf"))
+	}
 } # end k
 
 ###############################################################################
@@ -249,11 +256,15 @@ for(k in 1:2){
 for(s in 1:6){
 	species.s <- species[s]
 	
+	if(file_type == "png"){
+		
+	png(file = paste0("output/print-figures/png/species_", species[s], ".png"), width = 875, height = 2625, res = 350, pointsize = 10, family = "Sofia Pro Bold")
 	
-	png(file = paste0("output/print-figures/species_", species[s], ".png"), width = 875, height = 2625, res = 350, pointsize = 10, family = "Sofia Pro Bold")
-	# quartz(width = 2.37, height = 2.37*2625/875, pointsize = 10, family = "Sofia Pro Bold")
+	} else if(file_type == "pdf"){
+		pdf(file = paste0("output/print-figures/pdf/species_", species[s], ".pdf"), width = 875/350, height = 2625/350, pointsize = 10, family = "Sofia Pro Bold")
+	}
 
-	par(mai = rep(0, 4), mfrow = c(1,1), family = "Sofia Pro")
+	par(mai = rep(0, 4), mfrow = c(1,1), family = "Sofia Pro Bold")
 	plot(1,1,"n", xlab = "", ylab = "", bty = "n", xaxt  = "n", yaxt = "n", xlim = c(0.04,1.96), ylim = c(min(dd_range), max(green_range)), xaxs = "i", yaxs = "i")
 	polygon(x = c(0, 0, 2, 2), y = c(green_range, rev(green_range)), col = fishy_bgcols['high'], border = NA)
 	polygon(x = c(0, 0, 2, 2), y = c(y_range, rev(y_range)), col = fishy_bgcols['bg'], border = NA)
@@ -370,6 +381,11 @@ for(s in 1:6){
 		
 	} # end k
 		dev.off()
+		
+		if(file_type == "pdf"){
+			embed_fonts(paste0("output/print-figures/pdf/species_", species[s], ".pdf"), outfile = paste0("output/print-figures/pdf/species_", species[s], ".pdf"))
+		}
+		
 	} # end s
 
 ###############################################################################
@@ -397,7 +413,11 @@ for(r in 1:length(regions)){
 			arrange(1/current_status)
 		
 		
-	png(file = paste0("output/print-figures/region_", region_abbr[r], "_", type_name[k], ".png"), width = 1925, height = 2538, res = 350, pointsize = 10, family = "Sofia Pro Bold")
+	if(file_type == "png"){
+		png(file = paste0("output/print-figures/png/region_", region_abbr[r], "_", type_name[k], ".png"), width = 1925, height = 2538, res = 350, pointsize = 10, family = "Sofia Pro Bold")
+	} else if(file_type == "pdf"){
+		pdf(file = paste0("output/print-figures/pdf/region_", region_abbr[r], "_", type_name[k], ".pdf"), width = 1925/350, height = 2538/350, pointsize = 10, family = "Sofia Pro Bold")
+	}
 	# quartz(width = 5, height = 5 * 2538/1925, pointsize = 10, family = "Sofia Pro Bold")
 	
 	par(mai = c(0, mar_width, mar_width, 0), mfrow = c(1,1), family = "Sofia Pro Bold")
@@ -567,6 +587,11 @@ for(r in 1:length(regions)){
 	
 		dev.off()
 		
+		# Embed fonts if pdf
+		if(file_type == "pdf"){
+			embed_fonts(paste0("output/print-figures/pdf/region_", region_abbr[r], "_", type_name[k], ".pdf"), outfile = paste0("output/print-figures/pdf/region_", region_abbr[r], "_", type_name[k], ".pdf"))
+		}
+		
 	} # end k
 } # end r
 
@@ -604,7 +629,11 @@ for(r in 1:length(regions)){
 			
 			if(dim(summ.rsk)[1] > 0){
 				
-				png(filename = paste0("output/print-figures/trend_", region_abbr[r], "_", species[s], "_", type_name[k], ".png"), width = 1633, height = 1167, res = 350, pointsize = 10, family = "Sofia Pro Bold")
+				if(file_type == "png"){
+					png(file = paste0("output/print-figures/png/trend_", region_abbr[r], "_", species[s], "_", type_name[k], ".png"), width = 1633, height = 1167, res = 350, pointsize = 10, family = "Sofia Pro Bold")
+				} else if(file_type == "pdf"){
+					pdf(file = paste0("output/print-figures/pdf/trend_", region_abbr[r], "_", species[s], "_", type_name[k], ".pdf"), width = 1633/350, height = 1167/350, pointsize = 10, family = "Sofia Pro Bold")
+				}
 				# quartz(width = 1633/350, height = 1167/350, pointsize = 10, family = "Sofia Pro")
 				
 				par(mfrow = c(1,1), family = "Sofia Pro Bold", bg = "#FFFFFF")
@@ -724,6 +753,11 @@ for(r in 1:length(regions)){
 				
 				
 				dev.off()
+				
+				# Embed fonts if pdf
+				if(file_type == "pdf"){
+					embed_fonts(paste0("output/print-figures/pdf/trend_", region_abbr[r], "_", species[s], "_", type_name[k], ".pdf"), outfile = paste0("output/print-figures/pdf/trend_", region_abbr[r], "_", species[s], "_", type_name[k], ".pdf"))
+				}
 				
 			} # end if 
 		} # end k
