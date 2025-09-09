@@ -772,9 +772,13 @@ fishwidth <- 1
 fishheight <- fishwidth * image_info(fish)$height/image_info(fish)$width
 
 # quartz(width = 7, height = 7, pointsize = 10, family = "Sofia Pro Bold")
-png(file = paste0("output/ignore/", type_name[k], "_highlight_fig_2025-08-25.png"), width = 7, height = 7, units = "in", res = 350, pointsize = 10, family = "Sofia Pro Semi Bold", bg = NA)
+# png(file = paste0("output/ignore/", type_name[k], "_highlight_fig_2025-08-25.png"), width = 7, height = 7, units = "in", res = 350, pointsize = 10, family = "Sofia Pro Semi Bold", bg = NA)
 
-par(mar = rep(0,4), family = "Sofia Pro Semi Bold", bg = "#FFFFFF")
+pdf(file = paste0("output/ignore/", type_name[k], "_highlight_fig_", Sys.Date(), ".pdf"), width = 7, height = 7, pointsize = 10, family = "Sofia Pro Semi Bold", bg = NA)
+
+
+
+par(mar = rep(0,4), family = "Sofia Pro Semi Bold")
 plot(1,1,"n", xlab = "", ylab = "", bty = "n", xaxt  = "n", yaxt = "n", xlim = c(0.02,5.98), ylim = c(0.02, 9.98), xaxs = "i", yaxs = "i")
 for(r in 1:10){
 	for(s in 1:6){
@@ -784,11 +788,11 @@ for(r in 1:10){
 		summ.rsk <- sps_summary %>% filter(region == region.r & species == species.s & type == type.k)
 		if(dim(summ.rsk)[1] > 0){
 			if(is.na(summ.rsk$current_status)){
-				polygon(x = c(s-1, s-1, s, s), y = c(r-1, r, r, r-1), col = fishy_bgcols['dd'], border = NA)
+				polygon(x = c(s-0.98, s-0.98, s-0.02, s-0.02), y = c(r-0.97, r-0.03, r-0.03, r-0.97), col = fishy_bgcols['dd'], border = NA)
 			} else if(summ.rsk$current_status == -999999){
-				polygon(x = c(s-1, s-1, s, s), y = c(r-1, r, r, r-1), col = fishy_bgcols['crit'], border = NA)
+				polygon(x = c(s-0.98, s-0.98, s-0.02, s-0.02), y = c(r-0.97, r-0.03, r-0.03, r-0.97), col = fishy_bgcols['crit'], border = NA)
 			} else {
-				polygon(x = c(s-1, s-1, s, s), y = c(r-1, r, r, r-1), col = fishy_bgcols['bg'], border = NA)
+				polygon(x = c(s-0.98, s-0.98, s-0.02, s-0.02), y = c(r-0.97, r-0.03, r-0.03, r-0.97), col = fishy_bgcols['bg'], border = NA)
 			}
 			
 			rasterImage(image_colorize(image = fish, opacity = 100, color = fishy_cols_func(summ.rsk$current_status)),
@@ -811,7 +815,10 @@ for(r in 1:10){
 		} # end s
 } # end r
 
-abline(v = seq(0, 6, 1), lwd = 5, col = "white")
-abline(h = seq(0, 10, 1), lwd = 5, col = "white")
+# abline(v = seq(0, 6, 1), lwd = 5, col = "white")
+# abline(h = seq(0, 10, 1), lwd = 5, col = "white")
 dev.off()
 
+if(file_type == "pdf"){
+	embed_fonts(paste0("output/ignore/", type_name[k], "_highlight_fig_", Sys.Date(), ".pdf"), outfile = paste0("output/ignore/", type_name[k], "_highlight_fig_", Sys.Date(), ".pdf"))
+}
