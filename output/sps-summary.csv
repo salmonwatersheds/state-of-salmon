@@ -1,109 +1,109 @@
-"region","species","type","current_status","short_trend","short_trend_cat","long_trend","long_trend_cat","current_abundance","current_abundance_year","average_abundance","previous_gen_abundance","gen_length","nyears","rangeyears","status_offset_x","status_offset_y","region_label_offset_x","region_label_offset_y"
-"Yukon","Chinook","Spawners",-50,-2.4,"arrow-down",-0.5,"arrows-left-right",23593,2024,46738,58263,6,43,"1982-2024",-1,0,0,-6
-"Yukon","Chinook","Total return",-68,-5.2,"arrow-down",-3.3,"arrow-down",30415,2024,96469,72588,6,43,"1982-2024",0,0,0,0
-"Yukon","Chum","Spawners",-74,-18.3,"arrow-down",2.1,"arrow-up",20672,2024,78297,109762,4,45,"1980-2024",0,1,0,0
-"Yukon","Chum","Total return",-85,-21.6,"arrow-down",-3.7,"arrows-left-right",21005,2024,136947,162599,4,24,"2001-2024",0,0,0,0
-"Yukon","Coho","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,0,0,0,0
-"Yukon","Coho","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,0,0,0,0
-"Northern Transboundary","Chinook","Spawners",-46,-4.8,"arrow-down",-1.3,"arrow-down",29921,2024,55702,26281,5,49,"1976-2024",0,0,0,0
-"Northern Transboundary","Chinook","Total return",-53,-7.7,"arrow-down",-0.9,"arrow-down",32247,2024,68481,32351,5,49,"1976-2024",0,0,0,0
-"Northern Transboundary","Chum","Spawners",-76,-13.4,"arrow-down",-5.2,"arrow-down",55,2024,230,79,4,41,"1984-2024",0,-1,0,-1
-"Northern Transboundary","Chum","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,0,0,0,0
-"Northern Transboundary","Coho","Spawners",-14,-3,"arrow-down",0.6,"arrows-left-right",68447,2024,79287,66428,5,38,"1987-2024",0,0,0,0
-"Northern Transboundary","Coho","Total return",-22,-3.7,"arrow-down",-1.2,"arrow-down",88863,2024,113408,90981,5,33,"1992-2024",0,0,0,0
-"Northern Transboundary","Pink","Spawners",-84,-23.8,"arrows-left-right",-3,"arrow-down",1420,2024,8609,7418,2,41,"1984-2024",0,0,0,0
-"Northern Transboundary","Pink","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,2,NA,NA,0,0,0,0
-"Northern Transboundary","Sockeye","Spawners",34,1.7,"arrow-up",0.4,"arrows-left-right",187383,2024,139553,142543,5,41,"1984-2024",0,0,0,0
-"Northern Transboundary","Sockeye","Total return",-11,-2,"arrow-down",0.1,"arrows-left-right",281941,2024,318359,296228,5,41,"1984-2024",0,-1,0,-2
-"Northern Transboundary","Steelhead","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,0,0,0,0
-"Northern Transboundary","Steelhead","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,0,0,0,0
-"Haida Gwaii","Chinook","Spawners",NA,7.3,"arrow-up",0.4,"arrows-left-right",NA,2006,1609,NA,5,72,"1935-2006",0,0,0,0
-"Haida Gwaii","Chinook","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
-"Haida Gwaii","Chum","Spawners",-67,-6,"arrow-down",-1.6,"arrow-down",79087,2023,238595,147956,5,74,"1950-2023",0,0,0,0
-"Haida Gwaii","Chum","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
-"Haida Gwaii","Coho","Spawners",-76,-11.7,"arrow-down",-1,"arrow-down",17171,2023,71550,58772,4,74,"1950-2023",0,0,0,0
-"Haida Gwaii","Coho","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,0,0,0,0
-"Haida Gwaii","Pink","Spawners",-30,-18.8,"arrows-left-right",-1.6,"arrow-down",77535,2023,109980,44268,2,74,"1950-2023",0,0,0,0
-"Haida Gwaii","Pink","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,2,NA,NA,0,0,0,0
-"Haida Gwaii","Sockeye","Spawners",-3,-0.7,"arrows-left-right",-0.4,"arrows-left-right",25788,2023,26694,30069,5,74,"1950-2023",0,0,0,0
-"Haida Gwaii","Sockeye","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
-"Haida Gwaii","Steelhead","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,0,0,0,0
-"Haida Gwaii","Steelhead","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,0,0,0,0
-"Nass","Chinook","Spawners",-16,-3,"arrow-down",-0.4,"arrows-left-right",13941,2024,16649,11510,5,50,"1975-2024",0,0,0,0
-"Nass","Chinook","Total return",-11,-2,"arrows-left-right",0,"arrows-left-right",20676,2024,23113,17560,5,50,"1975-2024",0,0,0,0
-"Nass","Chum","Spawners",118,21.6,"arrow-up",-1,"arrow-down",92250,2024,42379,40117,4,75,"1950-2024",0,0,0,0
-"Nass","Chum","Total return",129,21.5,"arrow-up",-3.4,"arrow-down",114895,2024,50241,44693,4,33,"1992-2024",0,0,0,0
-"Nass","Coho","Spawners",74,1.1,"arrows-left-right",2.6,"arrow-up",222713,2024,127772,117673,4,33,"1992-2024",0,0,0,0
-"Nass","Coho","Total return",53,-1.3,"arrows-left-right",1.8,"arrow-up",422409,2024,275431,234642,4,33,"1992-2024",0,0,0,0
-"Nass","Pink","Spawners",564,47.7,"arrow-up",2.5,"arrow-up",1572554,2024,236898,505420,2,75,"1950-2024",0,0,0,0
-"Nass","Pink","Total return",232,47.2,"arrow-up",0,"arrows-left-right",1821191,2024,548719,576437,2,33,"1992-2024",0,0,0,0
-"Nass","Sockeye","Spawners",49,2.8,"arrow-up",0.1,"arrows-left-right",388585,2024,261344,266004,5,43,"1982-2024",0,0,0,0
-"Nass","Sockeye","Total return",-18,-1.4,"arrows-left-right",-1.5,"arrow-down",546804,2024,667258,442223,5,43,"1982-2024",0,0,0,-1
-"Nass","Steelhead","Spawners",-13,-3.5,"arrow-down",2.3,"arrow-up",9849,2024,11358,17048,5,33,"1992-2024",0,0,0,0
-"Nass","Steelhead","Total return",-26,-4.7,"arrow-down",0.6,"arrows-left-right",13206,2024,17832,21890,5,33,"1992-2024",0,0,0,0
-"Skeena","Chinook","Spawners",-50,-6.9,"arrow-down",-1.6,"arrow-down",22415,2024,45276,33516,6,41,"1984-2024",1,0,0,-1
-"Skeena","Chinook","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,6,NA,NA,0,0,0,0
-"Skeena","Chum","Spawners",-84,-10.3,"arrow-down",-2.6,"arrow-down",1382,2023,8842,2232,5,74,"1950-2023",0,0,0,0
-"Skeena","Chum","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
-"Skeena","Coho","Spawners",-6,-7.4,"arrow-down",-1.1,"arrow-down",84977,2023,89925,56468,4,74,"1950-2023",0,0,0,-1
-"Skeena","Coho","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,0,0,0,0
-"Skeena","Pink","Spawners",237,116.5,"arrow-up",-0.6,"arrows-left-right",3189545,2023,946883,243186,2,74,"1950-2023",0,0,0,0
-"Skeena","Pink","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,2,NA,NA,0,0,0,0
-"Skeena","Sockeye","Spawners",29,2.2,"arrow-up",0.8,"arrow-up",1252708,2023,971200,1158376,5,64,"1960-2023",0,0,0,0
-"Skeena","Sockeye","Total return",-10,0.2,"arrows-left-right",0.2,"arrows-left-right",1852037,2023,2067870,1860182,5,64,"1960-2023",0,1,0,0
-"Skeena","Steelhead","Spawners",-41,-8.3,"arrow-down",0.8,"arrow-up",13001,2024,21853,26466,5,69,"1956-2024",0,0,0,0
-"Skeena","Steelhead","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
-"Central Coast","Chinook","Spawners",10,2.6,"arrows-left-right",1.1,"arrow-up",18278,2024,16615,21910,5,50,"1975-2024",0,0,0,0
-"Central Coast","Chinook","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
-"Central Coast","Chum","Spawners",-57,-8.6,"arrow-down",-0.7,"arrow-down",210944,2023,494330,343675,4,74,"1950-2023",0,1,0,0
-"Central Coast","Chum","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,0,0,0,0
-"Central Coast","Coho","Spawners",-18,-5.8,"arrow-down",-0.4,"arrow-down",135175,2023,164734,124641,4,74,"1950-2023",0,0,0,-1
-"Central Coast","Coho","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,0,0,0,0
-"Central Coast","Pink","Spawners",-24,17.4,"arrows-left-right",0.6,"arrow-up",1628315,2023,2149065,3333341,2,74,"1950-2023",0,0,0,0
-"Central Coast","Pink","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,2,NA,NA,0,0,0,0
-"Central Coast","Sockeye","Spawners",-44,2.5,"arrows-left-right",-1.6,"arrow-down",226513,2023,405193,330711,5,74,"1950-2023",0,0,0,0
-"Central Coast","Sockeye","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
-"Central Coast","Steelhead","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,0,0,0,0
-"Central Coast","Steelhead","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,0,0,0,0
-"East Vancouver Island & Mainland Inlets","Chinook","Spawners",236,13.4,"arrow-up",1.1,"arrows-left-right",26382,2024,7847,16960,4,46,"1979-2024",0,0,0,0
-"East Vancouver Island & Mainland Inlets","Chinook","Total return",215,12.9,"arrow-up",1.5,"arrow-up",30119,2024,9577,19200,4,50,"1975-2024",0,0,0,0
-"East Vancouver Island & Mainland Inlets","Chum","Spawners",-58,-10,"arrow-down",0.6,"arrow-up",345309,2023,816432,905331,4,71,"1953-2023",0,-1,0,-2
-"East Vancouver Island & Mainland Inlets","Chum","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,0,0,0,0
-"East Vancouver Island & Mainland Inlets","Coho","Spawners",20,0.4,"arrows-left-right",-0.4,"arrow-down",319430,2023,265705,206205,4,71,"1953-2023",0,0,0,0
-"East Vancouver Island & Mainland Inlets","Coho","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,0,0,0,0
-"East Vancouver Island & Mainland Inlets","Pink","Spawners",164,23.6,"arrow-up",2.2,"arrow-up",2986455,2023,1131532,1872974,2,71,"1953-2023",0,0,0,0
-"East Vancouver Island & Mainland Inlets","Pink","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,2,NA,NA,0,0,0,0
-"East Vancouver Island & Mainland Inlets","Sockeye","Spawners",-13,2.4,"arrows-left-right",-1,"arrow-down",97047,2023,111119,117152,5,71,"1953-2023",0,0,0,0
-"East Vancouver Island & Mainland Inlets","Sockeye","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
-"East Vancouver Island & Mainland Inlets","Steelhead","Spawners",-44,-4.4,"arrow-down",-2.2,"arrow-down",731,2024,1306,1123,5,49,"1976-2024",0,0,0,-2
-"East Vancouver Island & Mainland Inlets","Steelhead","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
-"West Vancouver Island","Chinook","Spawners",32,1.7,"arrows-left-right",2.3,"arrow-up",16323,2024,12362,14265,4,30,"1995-2024",0,0,0,0
-"West Vancouver Island","Chinook","Total return",47,6.9,"arrow-up",0,"arrows-left-right",355233,2023,242134,297638,4,39,"1985-2023",0,0,0,0
-"West Vancouver Island","Chum","Spawners",-42,-7,"arrow-down",0.6,"arrow-up",257860,2024,442138,343921,4,72,"1953-2024",0,0,0,0
-"West Vancouver Island","Chum","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,0,0,0,0
-"West Vancouver Island","Coho","Spawners",-2,-4.3,"arrow-down",0.3,"arrows-left-right",126408,2024,129606,145036,4,72,"1953-2024",0,0,0,0
-"West Vancouver Island","Coho","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,0,0,0,0
-"West Vancouver Island","Pink","Spawners",-89,11.5,"arrows-left-right",-8.6,"arrow-down",665,2024,6290,567,2,69,"1953-2024",0,0,0,0
-"West Vancouver Island","Pink","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,2,NA,NA,0,0,0,0
-"West Vancouver Island","Sockeye","Spawners",11,-2.2,"arrows-left-right",0.5,"arrows-left-right",440852,2024,397532,365859,5,48,"1977-2024",0,0,0,0
-"West Vancouver Island","Sockeye","Total return",-4,-2.7,"arrows-left-right",-1,"arrow-down",669218,2024,697391,622280,5,48,"1977-2024",0,0,0,0
-"West Vancouver Island","Steelhead","Spawners",-34,-5.9,"arrow-down",-0.7,"arrows-left-right",413,2024,631,416,5,50,"1975-2024",0,0,0,0
-"West Vancouver Island","Steelhead","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
-"Fraser","Chinook","Spawners",45,1,"arrows-left-right",0.1,"arrows-left-right",331275,2024,229157,181667,5,41,"1984-2024",0,0,0,0
-"Fraser","Chinook","Total return",95,1.5,"arrows-left-right",2.6,"arrow-up",285740,2024,146550,155415,5,50,"1975-2024",0,0,0,0
-"Fraser","Chum","Spawners",-29,-6.5,"arrow-down",-5.7,"arrow-down",809178,2024,1131748,535697,4,27,"1998-2024",0,0,0,0
-"Fraser","Chum","Total return",-35,-7.8,"arrow-down",-5.4,"arrow-down",841198,2024,1291221,639791,4,27,"1998-2024",0,0,0,0
-"Fraser","Coho","Spawners",104,8.4,"arrow-up",-0.9,"arrows-left-right",79999,2024,39187,40529,4,41,"1984-2024",0,0,0,0
-"Fraser","Coho","Total return",36,6,"arrow-up",-4.7,"arrow-down",85926,2023,62957,45811,4,40,"1984-2023",0,0,0,0
-"Fraser","Pink","Spawners",110,3.5,"arrows-left-right",3.6,"arrow-up",9542025,2023,4553942,7827445,2,33,"1959-2023",0,0,0,0
-"Fraser","Pink","Total return",12,4.4,"arrows-left-right",1.1,"arrows-left-right",10513292,2023,9391273,8107514,2,33,"1959-2023",0,0,0,0
-"Fraser","Sockeye","Spawners",8,-11.1,"arrow-down",1,"arrow-up",1139550,2023,1052628,873283,4,131,"1893-2023",0,0,0,-2
-"Fraser","Sockeye","Total return",-60,-12.2,"arrow-down",-0.1,"arrows-left-right",1819994,2024,4504830,1347292,4,132,"1893-2024",0,0,0,0
-"Fraser","Steelhead","Spawners",-81,-12.3,"arrow-down",-1.8,"arrow-down",271,2023,1452,672,5,52,"1972-2023",0,0,0,0
-"Fraser","Steelhead","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
-"Columbia","Chinook","Spawners",-999999,10.9,"arrow-up",6.5,"arrow-up",33,2023,23,37,5,18,"2006-2023",0,0,0,0
-"Columbia","Chinook","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
-"Columbia","Sockeye","Spawners",187,-3.4,"arrow-down",2.5,"arrow-up",64656,2024,22538,44982,4,64,"1961-2024",0,0,0,0
-"Columbia","Sockeye","Total return",230,-7.5,"arrow-down",4.6,"arrow-up",212551,2023,64504,110142,4,44,"1980-2023",0,0,0,0
-"Columbia","Steelhead","Spawners",-999999,-13.8,"arrow-down",-13,"arrow-down",7,2024,21,20,5,19,"2006-2024",0,0,0,0
-"Columbia","Steelhead","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
+region,species,type,current_status,short_trend,short_trend_cat,long_trend,long_trend_cat,current_abundance,current_abundance_year,average_abundance,previous_gen_abundance,gen_length,nyears,rangeyears,status_offset_x,status_offset_y,region_label_offset_x,region_label_offset_y
+Yukon,Chinook,Spawners,-50,-2.4,arrow-down,-0.5,arrows-left-right,23593,2024,46738,58263,6,43,1982-2024,-1,0,0,-6
+Yukon,Chinook,Total return,-68,-5.2,arrow-down,-3.3,arrow-down,30415,2024,96469,72588,6,43,1982-2024,0,0,0,0
+Yukon,Chum,Spawners,-74,-18.3,arrow-down,2.1,arrow-up,20672,2024,78297,109762,4,45,1980-2024,0,1,0,0
+Yukon,Chum,Total return,-85,-21.6,arrow-down,-3.7,arrows-left-right,21005,2024,136947,162599,4,24,2001-2024,0,0,0,0
+Yukon,Coho,Spawners,NA,NA,,NA,,NA,NA,NA,NA,NA,NA,NA,0,0,0,0
+Yukon,Coho,Total return,NA,NA,,NA,,NA,NA,NA,NA,NA,NA,NA,0,0,0,0
+Northern Transboundary,Chinook,Spawners,-46,-4.8,arrow-down,-1.3,arrow-down,29921,2024,55702,26281,5,49,1976-2024,0,0,0,0
+Northern Transboundary,Chinook,Total return,-53,-7.7,arrow-down,-0.9,arrow-down,32247,2024,68481,32351,5,49,1976-2024,0,0,0,0
+Northern Transboundary,Chum,Spawners,-76,-13.4,arrow-down,-5.2,arrow-down,55,2024,230,79,4,41,1984-2024,0,-1,0,-1
+Northern Transboundary,Chum,Total return,NA,NA,,NA,,NA,NA,NA,NA,4,NA,NA,0,0,0,0
+Northern Transboundary,Coho,Spawners,-14,-3,arrow-down,0.6,arrows-left-right,68447,2024,79287,66428,5,38,1987-2024,0,0,0,0
+Northern Transboundary,Coho,Total return,-22,-3.7,arrow-down,-1.2,arrow-down,88863,2024,113408,90981,5,33,1992-2024,0,0,0,0
+Northern Transboundary,Pink,Spawners,-84,-23.8,arrows-left-right,-3,arrow-down,1420,2024,8609,7418,2,41,1984-2024,0,0,0,0
+Northern Transboundary,Pink,Total return,NA,NA,,NA,,NA,NA,NA,NA,2,NA,NA,0,0,0,0
+Northern Transboundary,Sockeye,Spawners,34,1.7,arrow-up,0.4,arrows-left-right,187383,2024,139553,142543,5,41,1984-2024,0,0,0,0
+Northern Transboundary,Sockeye,Total return,-11,-2,arrow-down,0.1,arrows-left-right,281941,2024,318359,296228,5,41,1984-2024,-1,-1,0,-2
+Northern Transboundary,Steelhead,Spawners,NA,NA,,NA,,NA,NA,NA,NA,NA,NA,NA,0,0,0,0
+Northern Transboundary,Steelhead,Total return,NA,NA,,NA,,NA,NA,NA,NA,NA,NA,NA,0,0,0,0
+Haida Gwaii,Chinook,Spawners,NA,7.3,arrow-up,0.4,arrows-left-right,NA,2006,1609,NA,5,72,1935-2006,0,0,0,0
+Haida Gwaii,Chinook,Total return,NA,NA,,NA,,NA,NA,NA,NA,5,NA,NA,0,0,0,0
+Haida Gwaii,Chum,Spawners,-67,-6,arrow-down,-1.6,arrow-down,79087,2023,238595,147956,5,74,1950-2023,0,0,0,0
+Haida Gwaii,Chum,Total return,NA,NA,,NA,,NA,NA,NA,NA,5,NA,NA,0,0,0,0
+Haida Gwaii,Coho,Spawners,-76,-11.7,arrow-down,-1,arrow-down,17171,2023,71550,58772,4,74,1950-2023,0,0,0,0
+Haida Gwaii,Coho,Total return,NA,NA,,NA,,NA,NA,NA,NA,4,NA,NA,0,0,0,0
+Haida Gwaii,Pink,Spawners,-30,-18.8,arrows-left-right,-1.6,arrow-down,77535,2023,109980,44268,2,74,1950-2023,0,0,0,0
+Haida Gwaii,Pink,Total return,NA,NA,,NA,,NA,NA,NA,NA,2,NA,NA,0,0,0,0
+Haida Gwaii,Sockeye,Spawners,-3,-0.7,arrows-left-right,-0.4,arrows-left-right,25788,2023,26694,30069,5,74,1950-2023,0,0,0,0
+Haida Gwaii,Sockeye,Total return,NA,NA,,NA,,NA,NA,NA,NA,5,NA,NA,0,0,0,0
+Haida Gwaii,Steelhead,Spawners,NA,NA,,NA,,NA,NA,NA,NA,NA,NA,NA,0,0,0,0
+Haida Gwaii,Steelhead,Total return,NA,NA,,NA,,NA,NA,NA,NA,NA,NA,NA,0,0,0,0
+Nass,Chinook,Spawners,-16,-3,arrow-down,-0.4,arrows-left-right,13941,2024,16649,11510,5,50,1975-2024,0,0,0,0
+Nass,Chinook,Total return,-11,-2,arrows-left-right,0,arrows-left-right,20676,2024,23113,17560,5,50,1975-2024,0,0,0,0
+Nass,Chum,Spawners,118,21.6,arrow-up,-1,arrow-down,92250,2024,42379,40117,4,75,1950-2024,0,0,0,0
+Nass,Chum,Total return,129,21.5,arrow-up,-3.4,arrow-down,114895,2024,50241,44693,4,33,1992-2024,0,0,0,0
+Nass,Coho,Spawners,74,1.1,arrows-left-right,2.6,arrow-up,222713,2024,127772,117673,4,33,1992-2024,0,0,0,0
+Nass,Coho,Total return,53,-1.3,arrows-left-right,1.8,arrow-up,422409,2024,275431,234642,4,33,1992-2024,0,0,0,0
+Nass,Pink,Spawners,564,47.7,arrow-up,2.5,arrow-up,1572554,2024,236898,505420,2,75,1950-2024,0,0,0,0
+Nass,Pink,Total return,232,47.2,arrow-up,0,arrows-left-right,1821191,2024,548719,576437,2,33,1992-2024,0,0,0,0
+Nass,Sockeye,Spawners,49,2.8,arrow-up,0.1,arrows-left-right,388585,2024,261344,266004,5,43,1982-2024,0,0,0,0
+Nass,Sockeye,Total return,-18,-1.4,arrows-left-right,-1.5,arrow-down,546804,2024,667258,442223,5,43,1982-2024,0,0,0,-1
+Nass,Steelhead,Spawners,-13,-3.5,arrow-down,2.3,arrow-up,9849,2024,11358,17048,5,33,1992-2024,0,0,0,0
+Nass,Steelhead,Total return,-26,-4.7,arrow-down,0.6,arrows-left-right,13206,2024,17832,21890,5,33,1992-2024,0,0,0,0
+Skeena,Chinook,Spawners,-50,-6.9,arrow-down,-1.6,arrow-down,22415,2024,45276,33516,6,41,1984-2024,1,0,0,-1
+Skeena,Chinook,Total return,NA,NA,,NA,,NA,NA,NA,NA,6,NA,NA,0,0,0,0
+Skeena,Chum,Spawners,-84,-10.3,arrow-down,-2.6,arrow-down,1382,2023,8842,2232,5,74,1950-2023,0,0,0,0
+Skeena,Chum,Total return,NA,NA,,NA,,NA,NA,NA,NA,5,NA,NA,0,0,0,0
+Skeena,Coho,Spawners,-6,-7.4,arrow-down,-1.1,arrow-down,84977,2023,89925,56468,4,74,1950-2023,0,0,0,-1
+Skeena,Coho,Total return,NA,NA,,NA,,NA,NA,NA,NA,4,NA,NA,0,0,0,0
+Skeena,Pink,Spawners,237,116.5,arrow-up,-0.6,arrows-left-right,3189545,2023,946883,243186,2,74,1950-2023,0,0,0,0
+Skeena,Pink,Total return,NA,NA,,NA,,NA,NA,NA,NA,2,NA,NA,0,0,0,0
+Skeena,Sockeye,Spawners,29,2.2,arrow-up,0.8,arrow-up,1252708,2023,971200,1158376,5,64,1960-2023,0,0,0,0
+Skeena,Sockeye,Total return,-10,0.2,arrows-left-right,0.2,arrows-left-right,1852037,2023,2067870,1860182,5,64,1960-2023,1,1,0,0
+Skeena,Steelhead,Spawners,-41,-8.3,arrow-down,0.8,arrow-up,13001,2024,21853,26466,5,69,1956-2024,0,0,0,0
+Skeena,Steelhead,Total return,NA,NA,,NA,,NA,NA,NA,NA,5,NA,NA,0,0,0,0
+Central Coast,Chinook,Spawners,10,2.6,arrows-left-right,1.1,arrow-up,18278,2024,16615,21910,5,50,1975-2024,0,0,0,0
+Central Coast,Chinook,Total return,NA,NA,,NA,,NA,NA,NA,NA,5,NA,NA,0,0,0,0
+Central Coast,Chum,Spawners,-57,-8.6,arrow-down,-0.7,arrow-down,210944,2023,494330,343675,4,74,1950-2023,0,1,0,0
+Central Coast,Chum,Total return,NA,NA,,NA,,NA,NA,NA,NA,4,NA,NA,0,0,0,0
+Central Coast,Coho,Spawners,-18,-5.8,arrow-down,-0.4,arrow-down,135175,2023,164734,124641,4,74,1950-2023,0,0,0,-1
+Central Coast,Coho,Total return,NA,NA,,NA,,NA,NA,NA,NA,4,NA,NA,0,0,0,0
+Central Coast,Pink,Spawners,-24,17.4,arrows-left-right,0.6,arrow-up,1628315,2023,2149065,3333341,2,74,1950-2023,0,0,0,0
+Central Coast,Pink,Total return,NA,NA,,NA,,NA,NA,NA,NA,2,NA,NA,0,0,0,0
+Central Coast,Sockeye,Spawners,-44,2.5,arrows-left-right,-1.6,arrow-down,226513,2023,405193,330711,5,74,1950-2023,0,0,0,0
+Central Coast,Sockeye,Total return,NA,NA,,NA,,NA,NA,NA,NA,5,NA,NA,0,0,0,0
+Central Coast,Steelhead,Spawners,NA,NA,,NA,,NA,NA,NA,NA,NA,NA,NA,0,0,0,0
+Central Coast,Steelhead,Total return,NA,NA,,NA,,NA,NA,NA,NA,NA,NA,NA,0,0,0,0
+East Vancouver Island & Mainland Inlets,Chinook,Spawners,236,13.4,arrow-up,1.1,arrows-left-right,26382,2024,7847,16960,4,46,1979-2024,0,0,0,0
+East Vancouver Island & Mainland Inlets,Chinook,Total return,215,12.9,arrow-up,1.5,arrow-up,30119,2024,9577,19200,4,50,1975-2024,0,0,0,0
+East Vancouver Island & Mainland Inlets,Chum,Spawners,-58,-10,arrow-down,0.6,arrow-up,345309,2023,816432,905331,4,71,1953-2023,0,-1,0,-2
+East Vancouver Island & Mainland Inlets,Chum,Total return,NA,NA,,NA,,NA,NA,NA,NA,4,NA,NA,0,0,0,0
+East Vancouver Island & Mainland Inlets,Coho,Spawners,20,0.4,arrows-left-right,-0.4,arrow-down,319430,2023,265705,206205,4,71,1953-2023,0,0,0,0
+East Vancouver Island & Mainland Inlets,Coho,Total return,NA,NA,,NA,,NA,NA,NA,NA,4,NA,NA,0,0,0,0
+East Vancouver Island & Mainland Inlets,Pink,Spawners,164,23.6,arrow-up,2.2,arrow-up,2986455,2023,1131532,1872974,2,71,1953-2023,0,0,0,0
+East Vancouver Island & Mainland Inlets,Pink,Total return,NA,NA,,NA,,NA,NA,NA,NA,2,NA,NA,0,0,0,0
+East Vancouver Island & Mainland Inlets,Sockeye,Spawners,-13,2.4,arrows-left-right,-1,arrow-down,97047,2023,111119,117152,5,71,1953-2023,0,0,0,0
+East Vancouver Island & Mainland Inlets,Sockeye,Total return,NA,NA,,NA,,NA,NA,NA,NA,5,NA,NA,0,0,0,0
+East Vancouver Island & Mainland Inlets,Steelhead,Spawners,-44,-4.4,arrow-down,-2.2,arrow-down,731,2024,1306,1123,5,49,1976-2024,0,0,0,-2
+East Vancouver Island & Mainland Inlets,Steelhead,Total return,NA,NA,,NA,,NA,NA,NA,NA,5,NA,NA,0,0,0,0
+West Vancouver Island,Chinook,Spawners,32,1.7,arrows-left-right,2.3,arrow-up,16323,2024,12362,14265,4,30,1995-2024,0,0,0,0
+West Vancouver Island,Chinook,Total return,47,6.9,arrow-up,0,arrows-left-right,355233,2023,242134,297638,4,39,1985-2023,0,0,0,0
+West Vancouver Island,Chum,Spawners,-42,-7,arrow-down,0.6,arrow-up,257860,2024,442138,343921,4,72,1953-2024,0,0,0,0
+West Vancouver Island,Chum,Total return,NA,NA,,NA,,NA,NA,NA,NA,4,NA,NA,0,0,0,0
+West Vancouver Island,Coho,Spawners,-2,-4.3,arrow-down,0.3,arrows-left-right,126408,2024,129606,145036,4,72,1953-2024,0,0,0,0
+West Vancouver Island,Coho,Total return,NA,NA,,NA,,NA,NA,NA,NA,4,NA,NA,0,0,0,0
+West Vancouver Island,Pink,Spawners,-89,11.5,arrows-left-right,-8.6,arrow-down,665,2024,6290,567,2,69,1953-2024,0,0,0,0
+West Vancouver Island,Pink,Total return,NA,NA,,NA,,NA,NA,NA,NA,2,NA,NA,0,0,0,0
+West Vancouver Island,Sockeye,Spawners,11,-2.2,arrows-left-right,0.5,arrows-left-right,440852,2024,397532,365859,5,48,1977-2024,0,0,0,0
+West Vancouver Island,Sockeye,Total return,-4,-2.7,arrows-left-right,-1,arrow-down,669218,2024,697391,622280,5,48,1977-2024,0,0,0,0
+West Vancouver Island,Steelhead,Spawners,-34,-5.9,arrow-down,-0.7,arrows-left-right,413,2024,631,416,5,50,1975-2024,0,0,0,0
+West Vancouver Island,Steelhead,Total return,NA,NA,,NA,,NA,NA,NA,NA,5,NA,NA,0,0,0,0
+Fraser,Chinook,Spawners,45,1,arrows-left-right,0.1,arrows-left-right,331275,2024,229157,181667,5,41,1984-2024,0,0,0,0
+Fraser,Chinook,Total return,95,1.5,arrows-left-right,2.6,arrow-up,285740,2024,146550,155415,5,50,1975-2024,0,0,0,0
+Fraser,Chum,Spawners,-29,-6.5,arrow-down,-5.7,arrow-down,809178,2024,1131748,535697,4,27,1998-2024,0,0,0,0
+Fraser,Chum,Total return,-35,-7.8,arrow-down,-5.4,arrow-down,841198,2024,1291221,639791,4,27,1998-2024,0,0,0,0
+Fraser,Coho,Spawners,104,8.4,arrow-up,-0.9,arrows-left-right,79999,2024,39187,40529,4,41,1984-2024,0,0,0,0
+Fraser,Coho,Total return,36,6,arrow-up,-4.7,arrow-down,85926,2023,62957,45811,4,40,1984-2023,0,0,0,0
+Fraser,Pink,Spawners,110,3.5,arrows-left-right,3.6,arrow-up,9542025,2023,4553942,7827445,2,33,1959-2023,0,0,0,0
+Fraser,Pink,Total return,12,4.4,arrows-left-right,1.1,arrows-left-right,10513292,2023,9391273,8107514,2,33,1959-2023,0,0,0,0
+Fraser,Sockeye,Spawners,8,-11.1,arrow-down,1,arrow-up,1139550,2023,1052628,873283,4,131,1893-2023,0,0,0,-2
+Fraser,Sockeye,Total return,-60,-12.2,arrow-down,-0.1,arrows-left-right,1819994,2024,4504830,1347292,4,132,1893-2024,0,0,0,0
+Fraser,Steelhead,Spawners,-81,-12.3,arrow-down,-1.8,arrow-down,271,2023,1452,672,5,52,1972-2023,0,0,0,0
+Fraser,Steelhead,Total return,NA,NA,,NA,,NA,NA,NA,NA,5,NA,NA,0,0,0,0
+Columbia,Chinook,Spawners,-999999,10.9,arrow-up,6.5,arrow-up,33,2023,23,37,5,18,2006-2023,0,0,0,0
+Columbia,Chinook,Total return,NA,NA,,NA,,NA,NA,NA,NA,5,NA,NA,0,0,0,0
+Columbia,Sockeye,Spawners,187,-3.4,arrow-down,2.5,arrow-up,64656,2024,22538,44982,4,64,1961-2024,0,0,0,0
+Columbia,Sockeye,Total return,230,-7.5,arrow-down,4.6,arrow-up,212551,2023,64504,110142,4,44,1980-2023,0,0,0,0
+Columbia,Steelhead,Spawners,-999999,-13.8,arrow-down,-13,arrow-down,7,2024,21,20,5,19,2006-2024,0,0,0,0
+Columbia,Steelhead,Total return,NA,NA,,NA,,NA,NA,NA,NA,5,NA,NA,0,0,0,0
