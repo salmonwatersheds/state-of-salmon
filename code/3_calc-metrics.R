@@ -9,7 +9,7 @@
 library(tidyverse)
 
 # Write output files?
-write.output <- TRUE
+write.output <- FALSE
 
 # Read in data 
 
@@ -562,6 +562,9 @@ unknown_text <- "A question mark indicates a lack of readily accessible data."
 
 sps_profile$text[sps_profile$spawner_current_abundance == "?" | sps_profile$total_current_abundance == "?"] <- paste(sps_profile$text[sps_profile$spawner_current_abundance == "?" | sps_profile$total_current_abundance == "?"], unknown_text, sep = " ") %>%
 	trimws() # Trim leading spaces created for regions/species with no text in sps-profile-text.csv
+
+# Fix Haida Gwaii Chinook 
+sps_profile$spawner_current_years[which(sps_profile$spawner_current_abundance == "?")] <- ""
 
 if(write.output){
 	write.csv(sps_profile, file = paste0("output/archive/sps-profile_", Sys.Date(), ".csv"), row.names = FALSE)
