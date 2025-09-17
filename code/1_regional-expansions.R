@@ -10,6 +10,8 @@
 # info currently in the PSE.
 
 library(dplyr)
+library(sf)
+library(PNWColors)
 
 # Source functions to apply expansion factors based on indicator/non-indicator
 # streams (English et al. 2018; code provided by LGL Ltd.)
