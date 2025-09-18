@@ -19,6 +19,10 @@ species <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead")
 # Generation length by species and region (for smoothing)
 genLength <- read.csv("data/gen_length_regions.csv") 
 
+# Set version of NuSEDS for source_id
+nuseds_id <- "NuSEDS_20250221"
+ctc_id <- "CTC_20250714"
+
 ###############################################################################
 ###############################################################################
 # Go through each region and add data
@@ -51,7 +55,8 @@ ytck_sps <- data.frame(
 	spawners = ytck$RR.Spawning.escapement.estimate, 
 	smoothedSpawners = NA,
 	runsize = ytck$RR.Canadian.origin.total.run.size.estimate,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep("JTC_202503", dim(ytck)[1])
 ) 
 
 # Smoothing
@@ -87,8 +92,6 @@ abline(v = seq(1970, 2024, 2), col = "#00000060", lwd = 0.8, lty = 3)
 points(ytcm_B20$Year, ytcm_B20$Spawning.escapement*10^-3, col = 2, pch = 19, cex = 0.6)
 legend("topleft", pch= c(1, 19), pt.cex = c(1, 0.6), col = c(1,2), c("Appendix B16", "Appendix B20"))
 
-barplot(ytcm_B16$Spawning.escapement.estimate*10^-3)
-
 # Check if years are continuous
 unique(diff(ytcm_B16$Year)) # Yes, all one year apart
 unique(diff(ytcm_B20$Year)) # Yes, all one year apart
@@ -101,7 +104,8 @@ ytcm_sps <- data.frame(
 	spawners = ytcm_B16$Spawning.escapement.estimate, 
 	smoothedSpawners = NA,
 	runsize = ytcm_B20$Total.estimated.Canadian.origin.run.size[match(ytcm_B16$Year, ytcm_B20$Year)],
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep("JTC_202503", dim(ytcm_B16)[1])
 ) 
 
 # Smoothing
@@ -163,14 +167,15 @@ tbrck_esc <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detai
 	# mutate(year = 1975:2024) %>%
 	# mutate(total_mortality = landed_catch + incidental_mortality)
 
-# For 2024, take harvest from TTC B12, D8, and assume Alsek CK harvest rate is average of past 5 years 
+# For 2024, take harvest from TTC B12, D8, Alsek harvest provided by email (Teresa Wallace, DFO)
 tbrck <- tbrck_raw %>%
 	group_by(Year) %>%
 	summarise(Escapement_all = sum(Escapement),
-						TotalRun_all = sum(TotalRun)) %>%
+						TotalRun_all = sum(TotalRun), 
+						source_id = "PSC_20250416") %>%
 	bind_rows(data.frame(Year = 2024,
 						Escapement_all = (tbrck_esc$Alsek_esc + tbrck_esc$Taku_esc + tbrck_esc$Stikine_esc)[tbrck_esc$year == 2024],
-						TotalRun_all = 717 + (tbrck_esc$Alsek_esc + tbrck_esc$Taku_esc + tbrck_esc$Stikine_esc)[tbrck_esc$year == 2024])) # Alsek harvest provided by email (Teresa Wallace, DFO)
+						TotalRun_all = 717 + (tbrck_esc$Alsek_esc + tbrck_esc$Taku_esc + tbrck_esc$Stikine_esc)[tbrck_esc$year == 2024], source_id = "Foos_20250415"))  
 
 # plot(tbrck$Year, tbrck$TotalRun_all*10^-3, "o", pch = 19, bty= "l", xlab = "", ylab = "Total abundance (thousands)", ylim = c(0, 200))
 # for(i in 1:3) points(tbrck_raw$Year[tbrck_raw$Stock == c("Alsek", "Taku", "Stikine")[i]], tbrck_raw$TotalRun[tbrck_raw$Stock == c("Alsek", "Taku", "Stikine")[i]]*10^-3, col = i+1, pch = 4)
@@ -224,7 +229,8 @@ tbrck_sps <- data.frame(
 	spawners = tbrck$Escapement_all, 
 	smoothedSpawners = NA,
 	runsize = tbrck$TotalRun_all,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = tbrck$source_id
 ) 
 
 # # Catch (for comparison to TCCHINOOL Table A4)
@@ -283,7 +289,8 @@ tbrse_sps <- data.frame(
 	spawners = tbrse_stik$StikineRiver_EscapementBroodstock + tbrse_taku$Escapement, 
 	smoothedSpawners = NA,
 	runsize = tbrse_stik$StikineRiver_TerminalRun + tbrse_taku$Run,
-	smoothedRunsize = NA
+	smoothedRunsize = NA, 
+	source_id = rep("Foos_20250415", dim(tbrse_stik)[1])
 ) 
 
 # Smoothing
@@ -320,7 +327,8 @@ tbrco_sps <- data.frame(
 	spawners = tbrco$Escapement, 
 	smoothedSpawners = NA,
 	runsize = tbrco$TerminalRun,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep("Foos_20250415", dim(tbrco)[1])
 ) 
 
 # Smoothing
@@ -374,7 +382,8 @@ tbrpk_sps <- data.frame(
 	spawners = tbrpk$Value, # tbrpkcm$stream_observed_count[tbrpkcm$species_pooled == "Pink"][order(tbrpkcm$year[tbrpkcm$species_pooled == "Pink"])], 
 	smoothedSpawners = NA,
 	runsize = NA,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep("Foos_20250415", nrow(tbrpk))
 ) 
 # Smoothing
 tbrpk_sps$smoothedSpawners <- genSmooth(
@@ -402,7 +411,8 @@ tbrcm_sps <- data.frame(
 	spawners = tbrcm$Value, #tbrpkcm$stream_observed_count[tbrpkcm$species_pooled == "Chum"][order(tbrpkcm$year[tbrpkcm$species_pooled == "Chum"])], 
 	smoothedSpawners = NA,
 	runsize = NA,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep("Foos_20250415", nrow(tbrcm))
 ) 
 # Smoothing
 tbrcm_sps$smoothedSpawners <- genSmooth(
@@ -479,7 +489,8 @@ hgck_sps <- data.frame(
 	spawners = hgck$stream_observed_count[match(hgck_years, hgck$year)], 
 	smoothedSpawners = NA,
 	runsize = NA,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep(nuseds_id, length(hgck_years))
 ) 
 
 # Smoothing
@@ -520,7 +531,8 @@ for(s in 2:5){
 		spawners = as.numeric(hg.s), 
 		smoothedSpawners = NA,
 		runsize = NA,
-		smoothedRunsize = NA
+		smoothedRunsize = NA,
+		source_id = rep(nuseds_id, length(hg.s))
 	) 
 	
 	# Smoothing
@@ -563,7 +575,8 @@ nassck_sps <- data.frame(
 	spawners = nass_ctc$Esc, 
 	smoothedSpawners = NA,
 	runsize = nass_ctc$t.run,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep(ctc_id, length(nass_ctc$Year))
 ) 
 
 # Smoothing
@@ -591,10 +604,12 @@ sps_data <- rbind(sps_data, nassck_sps)
 # use NBSRR data provided by LGL up to 2022 and Nisga'a Post-season for 2023, 2024
 nassse <- read.csv("data/nassskeena_sockeye_lgl.csv") %>%
 	subset(Region == "Nass") %>%
+	mutate(source_id = "English_20230930") %>%
 	bind_rows(
 		data.frame(Year = c(2023, 2024),
 							 TE = nass_nisgaa$ESC_Sockeye[nass_nisgaa$Year %in% c(2023, 2024)],
-							 Total.Run = nass_nisgaa$TOTAL_RUN_Sockeye[nass_nisgaa$Year %in% c(2023, 2024)]
+							 Total.Run = nass_nisgaa$TOTAL_RUN_Sockeye[nass_nisgaa$Year %in% c(2023, 2024)],
+							 source_id = rep("Nisgaa_20241203", 2)
 		)
 	)
 
@@ -607,7 +622,8 @@ nassse_sps <- data.frame(
 	spawners = nassse$TE, 
 	smoothedSpawners = NA,
 	runsize = nassse$Total.Run,
-	smoothedRunsize = NA
+	smoothedRunsize = NA, 
+	source_id = nassse$source_id
 ) 
 
 # Smoothing
@@ -644,7 +660,8 @@ nasssh_sps <- data.frame(
 	spawners = nass_nisgaa$ESC_Steelhead, 
 	smoothedSpawners = NA,
 	runsize = nass_nisgaa$TOTAL_RUN_Steelhead,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep("Nisgaa_20241203",length(nass_nisgaa$Year))
 ) 
 
 # Smoothing
@@ -694,7 +711,8 @@ nassco_sps <- data.frame(
 	spawners = nass_nisgaa$ESC_Coho, 
 	smoothedSpawners = NA,
 	runsize = nass_nisgaa$TOTAL_RUN_Coho,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep("Nisgaa_20241203",length(nass_nisgaa$Year))
 ) 
 
 # Smoothing
@@ -726,7 +744,8 @@ yrs <- as.numeric(dimnames(sp)[[3]])
 nasspk <- data.frame(
 	year = c(yrs, 2024),
 	esc = c(round(sp["expanded", "Pink", which(yrs %in% c(1950:1991))]), nass_nisgaa$ESC_Pink),
-	run = c(rep(NA, length(c(1950:1991))), nass_nisgaa$TOTAL_RUN_Pink)
+	run = c(rep(NA, length(c(1950:1991))), nass_nisgaa$TOTAL_RUN_Pink),
+	source_id = c(rep(nuseds_id, length(c(1950:1991))), rep("Nisgaa_20241203", length(nass_nisgaa$TOTAL_RUN_Pink)))
 )
 
 # Reformat data for SPS
@@ -737,7 +756,8 @@ nasspk_sps <- data.frame(
 	spawners = nasspk$esc,
 	smoothedSpawners = NA,
 	runsize = nasspk$run,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = nasspk$source_id
 )
 
 # Smoothing
@@ -766,7 +786,8 @@ sps_data <- rbind(sps_data, nasspk_sps)
 nasscm <- data.frame(
 	year = c(yrs, 2024),
 	esc = c(round(sp["expanded", "Chum", which(yrs %in% c(1950:1991))]), nass_nisgaa$ESC_Chum),
-	run = c(rep(NA, length(c(1950:1991))), nass_nisgaa$TOTAL_RUN_Chum)
+	run = c(rep(NA, length(c(1950:1991))), nass_nisgaa$TOTAL_RUN_Chum),
+	source_id = c(rep(nuseds_id, length(c(1950:1991))), rep("Nisgaa_20241203", length(nass_nisgaa$TOTAL_RUN_Chum)))
 )
 
 # Reformat data for SPS
@@ -777,7 +798,8 @@ nasscm_sps <- data.frame(
 	spawners = nasscm$esc,
 	smoothedSpawners = NA,
 	runsize = nasscm$run,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = nasscm$source_id
 )
 
 # Smoothing
@@ -828,7 +850,8 @@ skck_sps <- data.frame(
 	spawners = sk_ctc$`Skeena_GSI esc`, 
 	smoothedSpawners = NA,
 	runsize = NA,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep(ctc_id, length(sk_ctc$Year))
 ) 
 
 # Smoothing
@@ -851,11 +874,13 @@ sps_data <- rbind(sps_data, skck_sps)
 
 # Compare to NCC run reconstruction: https://github.com/LGLLimited/nccdbv2/tree/master/run/2022-nass-update/data/KarlEnglish-2023-05-29
 skse_LGL <- read.csv("data/nassskeena_sockeye_lgl.csv") %>%
-	subset(Region == "Skeena")
+	subset(Region == "Skeena") %>%
+	mutate(source_id = "English_20230930")
 
 # From PSC Run Size app:
 skse_ch2 <- read.csv("data/Chapter2_Data_2025_07_22.csv") %>%
-	filter(Region == "Skeena River")
+	filter(Region == "Skeena River") %>%
+	mutate(source_id = "PSC_20250722")
 
 # Add recent year's data from Charmaine (pers. comm. July 24 2025)
 skse_2023 <- data.frame(
@@ -863,7 +888,8 @@ skse_2023 <- data.frame(
 	TE = 1437788,
 	catch = 656984
 ) %>%
-	mutate(Total.Run = TE + catch)
+	mutate(Total.Run = TE + catch,
+	source_id = "CarrHarris_20250724")
 
 # par(mfrow = c(1, 1), mar = c(3,4,2,1))
 # plot(skse_LGL$Year, skse_LGL$Total.Run * 10^-6,"n", xlim = c(1960, 2024), bty = "l", ylab = "Abundance (millions)", ylim = c(0, 7.5), xpd = NA, las = 1, yaxs = "i")
@@ -895,11 +921,11 @@ skse_2023 <- data.frame(
 # Check if years are continuous
 
 # combine sources
-skse <- skse_ch2[ , c("Year", "Spawners", "Returns")] %>%
+skse <- skse_ch2[ , c("Year", "Spawners", "Returns", "source_id")] %>%
 	rename(TE = Spawners,
 				 Total.Run  = Returns) %>%
-	bind_rows(skse_LGL[which(skse_LGL$Year < 1982), c("Year", "TE", "Total.Run")]) %>%
-	bind_rows(skse_2023[ c("Year", "TE", "Total.Run")]) %>%
+	bind_rows(skse_LGL[which(skse_LGL$Year < 1982), c("Year", "TE", "Total.Run", "source_id")]) %>%
+	bind_rows(skse_2023[ c("Year", "TE", "Total.Run", "source_id")]) %>%
 	arrange(Year)
 
 	
@@ -913,7 +939,8 @@ skse_sps <- data.frame(
 	spawners = skse$TE, 
 	smoothedSpawners = NA,
 	runsize = skse$Total.Run,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = skse$source_id
 ) 
 
 # Smoothing
@@ -951,7 +978,8 @@ sksh_sps <- data.frame(
 	spawners = sksh$TyeeEscapement, 
 	smoothedSpawners = NA,
 	runsize = NA,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = "ProvBC_20240929"
 ) 
 
 # Smoothing
@@ -1020,7 +1048,8 @@ for(s in c(2, 3, 4)){
 		spawners = as.numeric(skeena.s), 
 		smoothedSpawners = NA,
 		runsize = NA,
-		smoothedRunsize = NA
+		smoothedRunsize = NA,
+		source_id = rep(nuseds_id, length(skeena.s))
 	) 
 	
 	# Smoothing
@@ -1058,7 +1087,8 @@ ccck_sps <- data.frame(
 	spawners = cc_ctc$Atnarko_Total_esc + cc_ctc$Rivers_Inlet, 
 	smoothedSpawners = NA,
 	runsize = NA,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep(ctc_id, length(cc_ctc$Year))
 ) 
 
 # Smoothing
@@ -1094,7 +1124,8 @@ for(s in 2:5){
 		spawners = as.numeric(cc.s), 
 		smoothedSpawners = NA,
 		runsize = NA,
-		smoothedRunsize = NA
+		smoothedRunsize = NA,
+		source_id = rep(nuseds_id, length(cc.s))
 	) 
 	
 	# Smoothing
@@ -1135,7 +1166,8 @@ evimick_sps <- data.frame(
 	spawners = evimi_ctc_summed$esc_sum, 
 	smoothedSpawners = NA,
 	runsize = evimi_ctc_summed$trun_sum,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep(ctc_id, dim(evimi_ctc_summed)[1])
 ) 
 
 # Smoothing
@@ -1181,7 +1213,8 @@ for(s in 2:6){
 		spawners = as.numeric(evimi.s), 
 		smoothedSpawners = NA,
 		runsize = NA,
-		smoothedRunsize = NA
+		smoothedRunsize = NA,
+		source_id = rep(nuseds_id, length(evimi.s))
 	) 
 	
 	# Smoothing
@@ -1225,7 +1258,8 @@ wvick_sps <- data.frame(
 	spawners = wvi_ck_raw$WCVI_14Stream_Index[match(yrs, wvi_ck_raw$Year)], 
 	smoothedSpawners = NA,
 	runsize = wvi_ck_tot_raw$total_abundance[match(yrs, wvi_ck_tot_raw$`Return year`)],
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep(paste(ctc_id, "Brown_20250703", sep = ", "), length(yrs))
 ) 
 
 # Smoothing
@@ -1282,7 +1316,8 @@ wvise_sps <- data.frame(
 	spawners = wvi_se_summed$totalS, 
 	smoothedSpawners = NA,
 	runsize = wvi_se_summed$totalN,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep("Brown_20250417", dim(wvi_se_summed)[1])
 ) 
 
 # Smoothing
@@ -1328,7 +1363,8 @@ for(s in c(2,3,4,6)){ # Chum, coho, pink, steelhead
 		spawners = as.numeric(wvi.s), 
 		smoothedSpawners = NA,
 		runsize = NA,
-		smoothedRunsize = NA
+		smoothedRunsize = NA,
+		source_id = rep(nuseds_id, length(wvi.s))
 	) 
 	
 	# Smoothing
@@ -1434,7 +1470,8 @@ frck_sps <- data.frame(
 	spawners = ctc_esc_sum, # sp[2, "Chinook", match(yrs, as.numeric(dimnames(sp)[[3]]))], 
 	smoothedSpawners = NA,
 	runsize = ctc_trun_sum, #ctc_run[!is.na(ctc_run)], # frck_run[match(yrs, as.numeric(names(frck_run)))],
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep(ctc_id, length(yrs))
 ) 
 	
 	# Smoothing
@@ -1490,7 +1527,7 @@ frcm_PSC <- read.csv("data/FraserChum_PSC.csv")
 
 # # Compare
 # plot(yrs, sp[2, "Chum", match(yrs, as.numeric(dimnames(sp)[[3]]))]*10^-6, "o", pch = 19, bty = "l", xlab = "", ylab = "Abundance (millions)", las = 1, main = "
-# 		 Fraser Chum", xlim = c(1950, 2025), cex = 0.6)
+# 		 Fraser Chum", xlim = c(1980, 2025), cex = 0.6, ylim = c(0, 3))
 # abline(v = seq(1950, 2025, 5), col = "#00000030")
 # points(yrs_tcchum, frcm_esc$esc*10^-6, "o", col = 2, pch = 19, cex = 0.8, xpd = NA)
 # polygon(x = c(yrs_tcchum, rev(yrs_tcchum)),
@@ -1507,10 +1544,13 @@ frcm_PSC <- read.csv("data/FraserChum_PSC.csv")
 # points(frcm_FMC$year, frcm_FMC$escapement*10^-6, pch = 3, col = 4)
 # points(frcm_FMC$year, frcm_FMC$runsize*10^-6, pch = 4, col = 4)
 # 
-# legend("topleft", pch = c(19, 19, 21, 3, 4, 3, 4), pt.cex = c(1, 0.8, 0.8, 1, 1, 1, 1), col = c(1,2,2, 2, 2, 4, 4), pt.bg = c(NA, NA, "white", NA, NA, NA, NA), c("PSF-expanded from NuSEDS indicator streams", "TCCHUM (23)-01 Table 3-11", "TCCHUM esc + catch", "PSC post-season esc.", "PSC post-season run", "FMC esc.", "FMC run"), lwd = c(1, 1, 1, NA, NA, NA, NA), cex = 0.7)
+# abline(v = 2024, lty = 2)
 # 
+# legend("topleft", pch = c(19, 19, 21, 3, 4, 3, 4), pt.cex = c(1, 0.8, 0.8, 1, 1, 1, 1), col = c(1,2,2, 2, 2, 4, 4), pt.bg = c(NA, NA, "white", NA, NA, NA, NA), c("PSF-expanded from NuSEDS indicator streams", "TCCHUM (23)-01 Table 3-11", "TCCHUM esc + catch", "PSC post-season esc.", "PSC post-season run", "FMC esc.", "FMC run"), lwd = c(1, 1, 1, NA, NA, NA, NA), cex = 0.7)
+
 
 # Add recent PSC data to previous tables up to 2022
+# Note: these data are very close to the FMC presentation; can be considered the same
 frcm <- frcm_esc %>%
 	mutate(runsize = frcm_run) %>%
 	bind_rows(data.frame(
@@ -1528,7 +1568,8 @@ frcm_sps <- data.frame(
 	spawners = frcm$esc,  
 	smoothedSpawners = NA,
 	runsize = frcm$runsize,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = c(rep("Jenewin_20240416", nrow(frcm_esc)), rep("DFO_20250128", 2))
 ) 
 
 # Smoothing
@@ -1601,7 +1642,8 @@ frco_sps <- data.frame(
 	spawners = frco$spawners, # Note this is the fish that returned to spawn, NOT a mistake!
 	smoothedSpawners = NA,
 	runsize = frco$runsize,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = c(rep("Glavas_20231006", length(frco$year) - 2), rep("DFO_20250225", 2))
 ) 
 
 # Smoothing
@@ -1625,9 +1667,9 @@ sps_data <- rbind(sps_data, frco_sps)
 #------------------------------------------------------------------------------
 # Pink
 #------------------------------------------------------------------------------
-
-# From PSC (updated to include)
-frpk <- read.csv("data/pink_run_size_2025-04-24.csv")
+# Note: Only odd year data, so no change 2024 -> 2025 (data still to 2023)
+# From PSC 
+frpk <- read.csv("data/pink_run_size_2025-04-24.csv") # No changes from Apr 24, 2025 version to Sept 18, 2025, but cite Sept because fraser sockeye in-season estimate for 2024 DID change (and don't want to change that number at this point)
 
 # Put in SPS format
 frpk_sps <- data.frame(
@@ -1637,7 +1679,8 @@ frpk_sps <- data.frame(
 	spawners = frpk$Escapement, # Note this is the fish that returned to spawn, NOT a mistake!
 	smoothedSpawners = NA,
 	runsize = frpk$Run.Size,
-	smoothedRunsize = NA
+	smoothedRunsize = NA, 
+	source_id = rep("PSC_20250424", length(frpk$Year))
 ) 
 
 # Smoothing - don't do this for pink salmon in the Fraser - no even year data!
@@ -1657,6 +1700,12 @@ sps_data <- rbind(sps_data, frpk_sps)
 frse <- read.csv("data/Fraser Sockeye Run Size_2025-04-24.csv") %>%
 	filter(Management.Group == "Total Fraser")
 
+# frse2 <- read.csv("~/Downloads/Data 13/Fraser Sockeye Run Size_2025-09-18.csv") %>%
+# 	filter(Management.Group == "Total Fraser")
+# cbind(frse$Run.Size, frse2$Run.Size)
+# cbind(frse$In.season.Run.Size, frse2$In.season.Run.Size) # CHANGED, stick with April data until next year
+# cbind(frse$Spawning.Escapement, frse2$Spawning.Escapement)
+
 # Put in SPS format
 frse_sps <- data.frame(
 	region = rep("Fraser", length(frse$Year)),
@@ -1665,7 +1714,8 @@ frse_sps <- data.frame(
 	spawners = frse$Spawning.Escapement, # Note this is the fish that returned to spawn, NOT a mistake!
 	smoothedSpawners = NA,
 	runsize = frse$Run.Size,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep("PSC_20250424", length(frse$Year))
 ) 
 
 # Fill in run size with in-season estimates if available
@@ -1714,7 +1764,8 @@ frsh_sps <- data.frame(
 	spawners = frsh_sum, # Note this is the fish that returned to spawn, NOT a mistake!
 	smoothedSpawners = NA,
 	runsize = NA,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep("Bison_20241129", length(frsh_sum))
 ) 
 
 # Smoothing
@@ -1753,7 +1804,8 @@ colck_sps <- data.frame(
 	spawners = as.numeric(colck$NatOrigSpn + colck$HatchOrigSpn), # Note this is the fish that returned to spawn, NOT a mistake!
 	smoothedSpawners = NA,
 	runsize = NA,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep("DFO_20250318", length(colck$Year))
 ) 
 
 # Smoothing
@@ -1805,7 +1857,8 @@ colse_sps <- data.frame(
 	spawners = round(colse2$`Total spawners`[match(yrs, colse2$Year)]), 
 	smoothedSpawners = NA,
 	runsize = colse$runsize[match(yrs, colse$year)],
-	smoothedRunsize = NA
+	smoothedRunsize = NA, 
+	source_id = c(rep("Ogden_20250627, DFO_20241101", length(yrs) - 1), "Ogden_20250627")
 ) 
 
 # Smoothing
@@ -1838,7 +1891,8 @@ colsh_sps <- data.frame(
 	spawners = colsh$natural_spawners, # Note this is the fish that returned to spawn, NOT a mistake!
 	smoothedSpawners = NA,
 	runsize = NA,
-	smoothedRunsize = NA
+	smoothedRunsize = NA,
+	source_id = rep("OBMEP_20250228", length(colsh$year))
 ) 
 
 # Smoothing
