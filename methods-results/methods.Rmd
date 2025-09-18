@@ -551,7 +551,7 @@ for(s in 1:5){
 
 ```
 
-### West Vancouver Island & Mainland Inlets
+### West Vancouver Island
 
 In the 2025 State of Salmon report, we have split the former "Vancouver Island & Mainland Inlets" region into two: East Vancouver Island & Mainland Inlets and West Vancouver Island. This split was made to better reflect the different ecology and habitats of salmon between the regions that may lead to different status and trends. 
 
@@ -562,7 +562,9 @@ For Chinook spawner abundance, we used the West Coast Vancouver Island (WCVI) 14
 Reconstructions of sockeye spawners and recruitment are compelted by DFO (Nicholas Brown, pers. comm.) for three Conservation Units on West Vancouver Island: Sproat, Great Central, and Hucuktlis (formerly Henderson). We used the sum of spawners and total return for these three Conservation Units as the index of sockeye spawner and total abundance for WVI. We acknowledge that this index does not account for lake-type sockeye in other watersheds (e.g., Muchalat, Kennedy, Clayoquot) or river-type sockeye in West Vancouver Island and Northwest Vancouver Island CUs, which tend to be in much lower abundance.
 
 #### Other Species: Expansion Factors   {.unnumbered .tabset}
-For chum, coho, pink, and steelhead, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). For the assessments, we trunctaed the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+For chum, coho, pink, and steelhead, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2024) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+
+For most species we relied on NuSEDS' designations of indicator or non-indicator streams, but for pink salmon in this region we designated indicator streams as those with at least 10 years of data in the most recent 20 years. As a result, expansion factors were higher in historical years, but data from both indicator and non-indicator streams show markedly higher counts in the period 1960-1980 then in subsequent decades and it is unlikely that the observed decline is a result of uncertain expansions. 
 
 ```{r, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
@@ -574,16 +576,16 @@ for(s in 2:4){
 	cat("##### ", species[s], " {.unnumbered} \n")
 	cat("\n")
 	
-	added_series.s <- sps_data %>% 
-		filter(region == "West Vancouver Island", species == species[s]) %>%
-		select(year, spawners) %>%
-		rename("value" = "spawners")
+	# added_series.s <- sps_data %>%
+	# 	filter(region == "West Vancouver Island", species == species[s]) %>%
+	# 	select(year, spawners) %>%
+	# 	rename("value" = "spawners")
 		
 	plot_expansions(speciesname = species[s],
 									regionname = "West Vancouver Island",
 									region_spawners = region_spawners,
-									expansion_factors = expansion_factors,
-									added_series = added_series.s)
+									expansion_factors = expansion_factors)#,
+									# added_series = added_series.s)
 		abline(v = 1952.5)
 		text(1953, par('usr')[4]/3, "Data prior to 1953 were discarded", adj = 0)
 	

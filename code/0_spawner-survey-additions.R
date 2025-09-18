@@ -3,7 +3,7 @@
 # April 29, 2025
 # Steph Peacock (speacock@psf.ca)
 ###############################################################################
-
+libraray(dplyr)
 # Here, we read in spawner survey data in the PSE, and revise the indicator/
 # non-indicator designations that are used in expansions where needed
 # Also add 2024 data from escapement bulletin for WVI
@@ -15,8 +15,8 @@ source(paste0(Dropbox_directory, "code/functions_general.R"))
 # Read in spawner survey data from PSE
 
 spawner_surveys.all <-read.csv(paste0(Dropbox_directory, "spawner-surveys/output/archive/dataset2_spawner-surveys_2025-04-15.csv")) %>%
-	filter(year >= 1950, !is.na(stream_observed_count)) %>% # Use only data from 1950 to present
-	select(region, species_name, species_qualified, streamid, stream_name_pse, GFE_ID, indicator, latitude, longitude, year, stream_observed_count, source_id)
+	dplyr::filter(year >= 1950, !is.na(stream_observed_count)) %>% # Use only data from 1950 to present
+	dplyr::select(region, species_name, species_qualified, streamid, stream_name_pse, GFE_ID, indicator, latitude, longitude, year, stream_observed_count, source_id)
 
 ###############################################################################
 # Change indicator/non-indicator designations from NuSEDS
@@ -24,7 +24,7 @@ spawner_surveys.all <-read.csv(paste0(Dropbox_directory, "spawner-surveys/output
 
 # Check indicator designation from LGL - does it match NuSEDS?
 lgl <- read.csv("data/ignore/OUTPUT_NCCStreams_2017.csv") %>%
-	select(POP_ID, Indicator, SPP, GFE_ID, SYS_NM)#, CU_findex, CU_name, CU_index)
+	dplyr::select(POP_ID, Indicator, SPP, GFE_ID, SYS_NM)#, CU_findex, CU_name, CU_index)
 species_qualified <- sort(unique(lgl$SPP))
 
 for(s in 1:length(species_qualified)){ # For each species
@@ -43,8 +43,8 @@ for(s in 1:length(species_qualified)){ # For each species
 	print(unique(ss.s$species_name))
 	
 	ss.s_different <- ss.s %>%
-		filter(indicator != Indicator) %>%
-		select(region, species_qualified, streamid, stream_name_pse, indicator, SYS_NM, Indicator)
+		dplyr::filter(indicator != Indicator) %>%
+		dplyr::select(region, species_qualified, streamid, stream_name_pse, indicator, SYS_NM, Indicator)
 		
 	if(s == 1){
 		indicator_change <- ss.s_different
@@ -129,10 +129,14 @@ pink_nyrs %>% filter(nyrs_20 <= 10, grepl("Y", indicator))
 
 spawner_surveys.all$indicator[which(spawner_surveys.all$species_name == "Pink" & spawner_surveys.all$region == "Vancouver Island & Mainland Inlets" & spawner_surveys.all$stream_name_pse %in% c("HEYDON CREEK", "WAKEMAN RIVER", "EMBLEY CREEK", "WORTLEY CREEK" ))] <- "Y"
 
-# z <- spawner_surveys.all %>% 
+# z <- spawner_surveys.all %>%
 # 	filter(species_name == "Pink", region == "Vancouver Island & Mainland Inlets", stream_name_pse == "GRASSY CREEK") %>%
 # 	arrange(year)
 # plot(z$year, z$stream_observed_count, "o", main = paste(unique(z$stream_name_pse), unique(z$species_name), sep = " - "))
+
+spawner_surveys.all %>% filter(species_name == "Pink" & region == "Vancouver Island & Mainland Inlets") %>%
+	dplyr::select(stream_name_pse, indicator) %>%
+	distinct(.keep_all = TRUE) %>% arrange(indicator)
 
 ###############################################################################
 # Write .csv of revised spawner survey data
