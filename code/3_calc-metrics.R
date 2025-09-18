@@ -9,7 +9,7 @@
 library(tidyverse)
 
 # Write output files?
-write.output <- FALSE
+write.output <- TRUE
 
 # Read in data 
 
