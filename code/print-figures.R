@@ -786,21 +786,23 @@ for(r in 1:10){
 		species.s <- species[s]
 		type.k <- c("Spawners", "Total return")[k]
 		summ.rsk <- sps_summary %>% filter(region == region.r & species == species.s & type == type.k)
+		
+		
 		if(dim(summ.rsk)[1] > 0){
-			if(is.na(summ.rsk$current_status)){
+				if(is.na(summ.rsk$current_status)){
 				polygon(x = c(s-0.98, s-0.98, s-0.02, s-0.02), y = c(r-0.97, r-0.03, r-0.03, r-0.97), col = fishy_bgcols['dd'], border = NA)
 			} else if(summ.rsk$current_status == -999999){
 				polygon(x = c(s-0.98, s-0.98, s-0.02, s-0.02), y = c(r-0.97, r-0.03, r-0.03, r-0.97), col = fishy_bgcols['crit'], border = NA)
 			} else {
 				polygon(x = c(s-0.98, s-0.98, s-0.02, s-0.02), y = c(r-0.97, r-0.03, r-0.03, r-0.97), col = fishy_bgcols['bg'], border = NA)
 			}
-			
+
 			rasterImage(image_colorize(image = fish, opacity = 100, color = fishy_cols_func(summ.rsk$current_status)),
-									xleft = s - 0.08 - xinch(fishwidth), 
-									ybottom = r - 0.5 - yinch(fishheight)/2, 
+									xleft = s - 0.08 - xinch(fishwidth),
+									ybottom = r - 0.5 - yinch(fishheight)/2,
 									xright = s - 0.08,
 									ytop = r - 0.5 + yinch(fishheight)/2)
-			
+
 			if(is.na(summ.rsk$current_status)){
 				text(s - 0.5, r - 0.5, "?", cex = 1.3)
 			} else if(summ.rsk$current_status == -999999){
