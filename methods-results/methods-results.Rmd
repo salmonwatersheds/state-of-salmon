@@ -887,7 +887,7 @@ The standardized approach to quantifying change described above was applied acro
 
 1. If the species and region had no data in the most recent generation, the current status was "Unknown" even if historical abundance information was available. This was the case for **Haida Gwaii Chinook**, for which there were no reliable estimates of spawners since 2006.
 
-2. If there was reliable information that the absolute population size was < 1,500 spawners, then the species and region was considered at risk of extirpation regardless of the outcome of the metrics above. This was the case for **Columbia Chinook** which have been assessed as Endangered by COSEWIC due to low population size [@COSEWIC2017ChinookSalmonOncorhynchus] and **Columbia sockeye**. There were other regions and species that had spawner abundance < 1,500, but none of these had reliable estimates of **absolute** spawner abundance.
+2. If there was reliable information that the absolute population size was < 1,500 spawners, then the species and region was considered at risk of extirpation regardless of the outcome of the metrics above. This was the case for **Columbia Chinook** which have been assessed as Endangered by COSEWIC due to low population size [@COSEWIC2017ChinookSalmonOncorhynchus] and **Columbia steelhead**. There were other regions and species that had spawner abundance < 1,500, but none of these had reliable estimates of **absolute** spawner abundance.
 
 # Results 
 

@@ -1,7 +1,7 @@
 ---
 title: "State of Salmon: Technical Documentation"
 author: "Pacific Salmon Foundation"
-date: "Version 2.0 (`r format(Sys.time(), '%Y-%b-%d')`)"
+date: "Version 2.1 (`r format(Sys.time(), '%Y-%b-%d')`)"
 bibliography: references.json
 csl: canadian-journal-of-fisheries-and-aquatic-sciences.csl 
 link-citations: true
@@ -727,7 +727,7 @@ The standardized approach to quantifying change described above was applied acro
 
 1. If the species and region had no data in the most recent generation, the current status was "Unknown" even if historical abundance information was available. This was the case for **Haida Gwaii Chinook**, for which there were no reliable estimates of spawners since 2006.
 
-2. If there was reliable information that the absolute population size was < 1,500 spawners, then the species and region was considered at risk of extirpation regardless of the outcome of the metrics above. This was the case for **Columbia Chinook** which have been assessed as Endangered by COSEWIC due to low population size [@COSEWIC2017COSEWICAssessmentStatus] and **Columbia sockeye**. There were other regions and species that had spawner abundance < 1,500, but none of these had reliable estimates of **absolute** spawner abundance.
+2. If there was reliable information that the absolute population size was < 1,500 spawners, then the species and region was considered at risk of extirpation regardless of the outcome of the metrics above. This was the case for **Columbia Chinook** which have been assessed as Endangered by COSEWIC due to low population size [@COSEWIC2017COSEWICAssessmentStatus] and **Columbia steelhead**. There were other regions and species that had spawner abundance < 1,500, but none of these had reliable estimates of **absolute** spawner abundance.
 
 # References
 
