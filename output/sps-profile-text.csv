@@ -38,13 +38,13 @@ East Vancouver Island & Mainland Inlets,Coho,Numbers represent the sum of estima
 East Vancouver Island & Mainland Inlets,Pink,Numbers represent the sum of estimated abundance for 205 surveyed streams in the region.
 East Vancouver Island & Mainland Inlets,Sockeye,Numbers represent the sum of estimated abundance for 92 surveyed streams in the region.
 East Vancouver Island & Mainland Inlets,Steelhead,Numbers represent the sum of estimated abundance for 6 surveyed streams in the region.
-West Vancouver Island,Chinook,Numbers represent a 14-stream index of spawner abundance from the Pacific Salmon Commission and the total abundance of Chinook in the entire region from DFO.
+West Vancouver Island,Chinook,"Numbers represent a 14-stream spawner abundance index compiled by the Pacific Salmon Commission, and the total Chinook abundance in the region provided by Fisheries and Oceans Canada."
 West Vancouver Island,Chum,Numbers represent the sum of estimated abundance for 259 surveyed streams in the region.
 West Vancouver Island,Coho,Numbers represent the sum of estimated abundance for 270 surveyed streams in the region.
 West Vancouver Island,Pink,Numbers represent the sum of estimated abundance for 128 surveyed streams in the region.
 West Vancouver Island,Sockeye,"Numbers represent the sum of estimated abundance for 3 Conservation Units (Great Central, Sproat, and Hucuktlis)."
 West Vancouver Island,Steelhead,Numbers represent the sum of estimated abundance for 3 surveyed streams in the region.
-Fraser,Chinook,Numbers represent the sum of estimated abundance for 9 wild Chinook indicator stocks.
+Fraser,Chinook,"Numbers represent the sum of spawner abundance to five run-timing groups, and the sum of total abundance for the Pacific Salmon Commission's indicator stocks."
 Fraser,Chum,Numbers represent estimates of chum salmon for the Fraser River.
 Fraser,Coho,Numbers represent the estimated abundance for interior Fraser coho.
 Fraser,Pink,Numbers represent absolute estimates of pink salmon for the Fraser River.
