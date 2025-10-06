@@ -761,7 +761,7 @@ Steelhead trout in the Fraser are monitored by the Province in at least 10 diffe
 
 We used CU-level estimates of spawner abundance (run reconstructions) sourced from DFO (Athena Ogden, pers. comm.) for Chinook and sockeye. Spawner abundance for Columbia sockeye was the sum of estimates for Osoyoos and, more recently, Skaha Lakes and were the most up-to-date estimates as of June 2025 (Athena Ogden, pers. comm.). Total abundance for sockeye was extracted from DFO's 2024 Wild Salmon Policy assessment for Osoyoos sockeye [@DFO2024WildSalmonPolicy] from 1980-2023.
 
-There is no monitoring of steelhead trout in the Canadian portion of the Columbia region, but the Okanagan Nation Alliance does enumerate steelhead in akskwəkwant (Inkaneep Creek) and estimate a Canadian portion of steelhead spawning abundance. These data can be found in associated report (e.g. @OBMEP2022ColumbiaSteelhead) and are available for the Mid Columbia Summer Conservation Unit [in the Pacific Salmon Explorer](https://salmonexplorer.ca/explore/data/spawner-abundance/columbia/steelhead/mid-columbia-summer-1380/).
+There is no monitoring of steelhead trout in the Canadian portion of the Columbia region, but the Okanagan Nation Alliance does enumerate steelhead in akskwəkwant (Inkaneep Creek) and estimate a Canadian portion of steelhead spawning abundance. These data can be found in associated report (e.g. @OBMEP20252024OkanoganSubbasin) and are available for the Mid Columbia Summer Conservation Unit [in the Pacific Salmon Explorer](https://salmonexplorer.ca/explore/data/spawner-abundance/columbia/steelhead/mid-columbia-summer-1380/).
 
 ## Expansion Factors 
 
