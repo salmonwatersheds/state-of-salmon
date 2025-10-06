@@ -1,7 +1,7 @@
 ---
 title: "State of Salmon: Technical Documentation"
 author: "Pacific Salmon Foundation"
-date: "Version 2.1 (`r format(Sys.time(), '%Y-%b-%d')`)"
+date: "Version 2.2 (`r format(Sys.time(), '%Y-%b-%d')`)"
 bibliography: references.json
 csl: canadian-journal-of-fisheries-and-aquatic-sciences.csl 
 link-citations: true
