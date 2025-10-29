@@ -1408,6 +1408,23 @@ ctc_esc_sum <- apply(ctc_esc[, c("Fraser Spring Age 1.2 Esc", "Fraser Spring Age
 
 ctc_trun_sum <- ctc_fr$`Fraser Spring/Summer t.run`
 
+# Data from Chuck Parken (shared 23-Oct-2025 via email)
+frck_cp <- readxl::read_xlsx("data/Fraser Chinook escapement and terminal run by SMU.xlsx", range = "A3:K52", col_names = c("year", "spr12_esc", "spr12_run", "spr13_esc", "spr13_run", "sum13_esc", "sum13_run", "sum03_esc", "sum03_run", "harrisonfall03_esc", "harrisonfall03_run"))
+
+# frck_cp$spr12_esc - ctc_fr$`Fraser Spring Age 1.2 Esc`
+# range(frck_cp$sum03_esc - ctc_fr$`Fraser Summer Age 0.3 Esc`)
+
+# Numbers match CTC except that t.run from CTC doesn't include Harrison fall. So need to add that in
+frck_cp_esc <- apply(frck_cp[, grep("esc", names(frck_cp))], 1, sum)
+frck_cp_run <- apply(frck_cp[, grep("run", names(frck_cp))], 1, sum)
+
+# par(mfrow = c(2,1))
+# plot(frck_cp$year, frck_cp_run*10^-3, "o", bty = "l", las = 1, ylab = "Total abundance (thousands)", ylim = c(0, 800), pch = 19, cex = 0.7, col = col_frck[1], xpd = NA)
+# points(ctc_esc$Year, ctc_trun_sum*10^-3, col = col_frck[3], "o", pch = 19, cex = 0.7)
+# points(ctc_esc$Year, ctc_esc_sum*10^-3, col = col_frck[3], "o", pch = 21, bg = 'white', cex = 0.7)
+# legend("topleft")
+# #----------------------
+# # Plot
 # col_frck <- viridisLite::viridis(n = 5)
 # 
 # par(mfrow = c(2,1))
@@ -1420,11 +1437,11 @@ ctc_trun_sum <- ctc_fr$`Fraser Spring/Summer t.run`
 # 	} else if(i == 2){
 # 		y1 <-  data.frame(ctc_esc)[,2]
 # 		y2 <- apply(data.frame(ctc_esc)[,2:3], 1, sum)
-# 	} else { 
+# 	} else {
 # 		y1 <-  apply(data.frame(ctc_esc)[,2:i], 1, sum)
 # 		y2 <- apply(data.frame(ctc_esc)[,2:(i+1)], 1, sum)
 # 	}
-# 	
+# 
 # 	yr <- ctc_esc$Year
 # 	if(i == 5){
 # 		yr <- ctc_esc$Year[!is.na(ctc_esc$`Harrison Esc`)]
@@ -1449,17 +1466,18 @@ ctc_trun_sum <- ctc_fr$`Fraser Spring/Summer t.run`
 # 	} else if(i == 2){
 # 		y1 <-  data.frame(ctc_esc)[,2]
 # 		y2 <- apply(data.frame(ctc_esc)[,2:3], 1, sum)
-# 	} else { 
+# 	} else {
 # 		y1 <-  apply(data.frame(ctc_esc)[,2:i], 1, sum)
 # 		y2 <- apply(data.frame(ctc_esc)[,2:(i+1)], 1, sum)
 # 	}
-# 	
-# 	
+# 
+# 
 # 	polygon(x = c(ctc_esc$Year, rev(ctc_esc$Year)),
 # 					y = c(y1/ctc_esc_sum, rev(y2/ctc_esc_sum)),
 # 					col = col_frck[i], border = NA)
 # }
 # mtext(side = 3, line = 0.5, "b) Proportional contribution of five stocks to aggregate escapement", adj = 0)
+
 
 yrs <- ctc_esc$Year
 # Put in SPS format
@@ -1469,7 +1487,7 @@ frck_sps <- data.frame(
 	year = yrs,
 	spawners = ctc_esc_sum, # sp[2, "Chinook", match(yrs, as.numeric(dimnames(sp)[[3]]))], 
 	smoothedSpawners = NA,
-	runsize = ctc_trun_sum, #ctc_run[!is.na(ctc_run)], # frck_run[match(yrs, as.numeric(names(frck_run)))],
+	runsize = frck_cp_run, #ctc_trun_sum, #ctc_run[!is.na(ctc_run)], # frck_run[match(yrs, as.numeric(names(frck_run)))],
 	smoothedRunsize = NA,
 	source_id = rep(ctc_id, length(yrs))
 ) 
@@ -1488,6 +1506,7 @@ frck_sps$smoothedRunsize <- genSmooth(
 )
 
 plot_abund(frck_sps)
+(tail(frck_sps$smoothedRunsize, 1) - exp(mean(log(frck_sps$runsize), na.rm = TRUE)))/exp(mean(log(frck_sps$runsize), na.rm = TRUE))
 
 # Add to master sps dataframe
 sps_data <- rbind(sps_data, frck_sps)
