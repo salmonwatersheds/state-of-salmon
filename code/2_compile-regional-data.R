@@ -9,6 +9,7 @@
 
 library(dplyr)
 library(abind)
+library(readxl)
 
 source("code/functions.R")
 
@@ -1401,22 +1402,26 @@ for(s in c(2,3,4,6)){ # Chum, coho, pink, steelhead
 # frck_run <- tapply(frck_run0$tot_run, frck_run0$year, sum)
 
 # (3) CTC data
-ctc_fr <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A3:P53", col_types = "numeric")
-names(ctc_fr) <- c("Year", "Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Fraser Spring/Summer t.run", "Harrison Esc", "Harrison CV", "Lower Shuswap Esc", "Lower Shuswap CV", "Nicola Esc", "Nicola CV", "Lower Chilcotin Esc", "Lower Chilcotin CV", "Chilko Esc", "Chilko CV")
-ctc_esc <- ctc_fr %>% dplyr::select(c("Year", "Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Harrison Esc"))
-ctc_esc_sum <- apply(ctc_esc[, c("Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Harrison Esc")], 1, sum)
-
-ctc_trun_sum <- ctc_fr$`Fraser Spring/Summer t.run`
+# ctc_fr <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A3:P53", col_types = "numeric")
+# names(ctc_fr) <- c("Year", "Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Fraser Spring/Summer t.run", "Harrison Esc", "Harrison CV", "Lower Shuswap Esc", "Lower Shuswap CV", "Nicola Esc", "Nicola CV", "Lower Chilcotin Esc", "Lower Chilcotin CV", "Chilko Esc", "Chilko CV")
+# ctc_esc <- ctc_fr %>% dplyr::select(c("Year", "Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Harrison Esc"))
+# ctc_esc_sum <- apply(ctc_esc[, c("Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Harrison Esc")], 1, sum)
+# 
+# ctc_trun_sum <- ctc_fr$`Fraser Spring/Summer t.run`
 
 # Data from Chuck Parken (shared 23-Oct-2025 via email)
 frck_cp <- readxl::read_xlsx("data/Fraser Chinook escapement and terminal run by SMU.xlsx", range = "A3:K52", col_names = c("year", "spr12_esc", "spr12_run", "spr13_esc", "spr13_run", "sum13_esc", "sum13_run", "sum03_esc", "sum03_run", "harrisonfall03_esc", "harrisonfall03_run"))
+
+# Cut data to only 1984 onward when Harrison data were available.
+frck_cp <- frck_cp %>% dplyr::filter(year >= 1984)
 
 # frck_cp$spr12_esc - ctc_fr$`Fraser Spring Age 1.2 Esc`
 # range(frck_cp$sum03_esc - ctc_fr$`Fraser Summer Age 0.3 Esc`)
 
 # Numbers match CTC except that t.run from CTC doesn't include Harrison fall. So need to add that in
-frck_cp_esc <- apply(frck_cp[, grep("esc", names(frck_cp))], 1, sum)
-frck_cp_run <- apply(frck_cp[, grep("run", names(frck_cp))], 1, sum)
+frck_cp_esc <- round(apply(frck_cp[, grep("esc", names(frck_cp))], 1, sum))
+frck_cp_run <- round(apply(frck_cp[, grep("run", names(frck_cp))], 1, sum))
+
 
 # par(mfrow = c(2,1))
 # plot(frck_cp$year, frck_cp_run*10^-3, "o", bty = "l", las = 1, ylab = "Total abundance (thousands)", ylim = c(0, 800), pch = 19, cex = 0.7, col = col_frck[1], xpd = NA)
@@ -1479,17 +1484,17 @@ frck_cp_run <- apply(frck_cp[, grep("run", names(frck_cp))], 1, sum)
 # mtext(side = 3, line = 0.5, "b) Proportional contribution of five stocks to aggregate escapement", adj = 0)
 
 
-yrs <- ctc_esc$Year
+yrs <- frck_cp$year
 # Put in SPS format
 frck_sps <- data.frame(
 	region = rep("Fraser", length(yrs)),
 	species = rep("Chinook", length(yrs)),
 	year = yrs,
-	spawners = ctc_esc_sum, # sp[2, "Chinook", match(yrs, as.numeric(dimnames(sp)[[3]]))], 
+	spawners = frck_cp_esc,
 	smoothedSpawners = NA,
-	runsize = frck_cp_run, #ctc_trun_sum, #ctc_run[!is.na(ctc_run)], # frck_run[match(yrs, as.numeric(names(frck_run)))],
+	runsize = frck_cp_run,
 	smoothedRunsize = NA,
-	source_id = rep(ctc_id, length(yrs))
+	source_id = rep("Parken_20251023", length(yrs))
 ) 
 	
 	# Smoothing
@@ -1851,6 +1856,11 @@ colse <- read.csv("data/OkanaganSockeye.csv")
 
 colse2 <- readxl::read_xlsx("data/Okanagan Sockeye Esc for KR_revJn2025.xlsx", sheet = "CAN Escapement", range = "A1:E65")
 
+# # Plot tpo reproduce fig 27A of Ogden et al, (2025)
+# bp <- barplot(rbind(colse$spawners, colse$harvest, colse$enroute_loss)*10^-3, beside = FALSE, col = c('lightblue', grey(0.8), "white"), las = 1, ylab = "year", yaxs = "i")
+# axis(side = 1, at = bp[seq(1, length(bp), 10)], labels = seq(1980, 2025, 10))
+# legend("topleft", fill = c('lightblue', grey(0.8), "white"), c("Spawners", "Harvest", "Enroute Loss"), bty = "n")
+
 # # Compare
 # plot(c(1960,2025), c(0,600), "n", ylab = "Abundance (thousands)", xlab = "", las = 1, bty = "l")
 # segments(x0 = colse$year, x1 = colse$year, y0 = rep(0, length(colse$year)), y1 = colse$runsize*10^-3, lend = 2, lwd = 8, col = grey(0.8))
@@ -1877,7 +1887,7 @@ colse_sps <- data.frame(
 	smoothedSpawners = NA,
 	runsize = colse$runsize[match(yrs, colse$year)],
 	smoothedRunsize = NA, 
-	source_id = c(rep("Ogden_20250627, DFO_20241101", length(yrs) - 1), "Ogden_20250627")
+	source_id = c(rep("Ogden_20250627, Ogden_20250901", length(yrs) - 1), "Ogden_20250627")
 ) 
 
 # Smoothing

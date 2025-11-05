@@ -89,8 +89,8 @@
 "West Vancouver Island","Sockeye","Total return",-4,-2.7,"arrows-left-right",-1,"arrow-down",669218,2024,697391,622280,5,48,"1977-2024",0,0,0,0
 "West Vancouver Island","Steelhead","Spawners",-34,-5.9,"arrow-down",-0.7,"arrows-left-right",413,2024,631,416,5,50,"1975-2024",0,0,0,0
 "West Vancouver Island","Steelhead","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
-"Fraser","Chinook","Spawners",45,1,"arrows-left-right",0.1,"arrows-left-right",331275,2024,229157,181667,5,41,"1984-2024",0,0,0,0
-"Fraser","Chinook","Total return",95,1.5,"arrows-left-right",2.6,"arrow-up",285740,2024,146550,155415,5,50,"1975-2024",0,0,0,0
+"Fraser","Chinook","Spawners",44,1,"arrows-left-right",0.1,"arrows-left-right",331766,2024,229960,182281,5,41,"1984-2024",0,0,0,0
+"Fraser","Chinook","Total return",39,0.6,"arrows-left-right",0.1,"arrows-left-right",370350,2024,265565,207250,5,41,"1984-2024",0,0,0,0
 "Fraser","Chum","Spawners",-29,-6.5,"arrow-down",-5.7,"arrow-down",809178,2024,1131748,535697,4,27,"1998-2024",0,0,0,0
 "Fraser","Chum","Total return",-35,-7.8,"arrow-down",-5.4,"arrow-down",841198,2024,1291221,639791,4,27,"1998-2024",0,0,0,0
 "Fraser","Coho","Spawners",104,8.4,"arrow-up",-0.9,"arrows-left-right",79999,2024,39187,40529,4,41,"1984-2024",0,0,0,0
@@ -104,6 +104,6 @@
 "Columbia","Chinook","Spawners",-999999,10.9,"arrow-up",6.5,"arrow-up",33,2023,23,37,5,18,"2006-2023",0,0,0,0
 "Columbia","Chinook","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
 "Columbia","Sockeye","Spawners",187,-3.4,"arrow-down",2.5,"arrow-up",64656,2024,22538,44982,4,64,"1961-2024",0,0,0,0
-"Columbia","Sockeye","Total return",230,-7.5,"arrow-down",4.6,"arrow-up",212551,2023,64504,110142,4,44,"1980-2023",0,0,0,0
+"Columbia","Sockeye","Total return",298,-5.5,"arrows-left-right",4.8,"arrow-up",267956,2023,67344,110511,4,44,"1980-2023",0,0,0,0
 "Columbia","Steelhead","Spawners",-999999,-13.8,"arrow-down",-13,"arrow-down",7,2024,21,20,5,19,"2006-2024",0,0,0,0
 "Columbia","Steelhead","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,0,0,0,0
