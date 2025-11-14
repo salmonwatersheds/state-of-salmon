@@ -1181,68 +1181,6 @@
 		}
 	},
 	{
-		"id": "AtkinsonEtAl2024MonitoringFisheriesFish",
-		"type": "article",
-		"abstract": "Monitoring of salmon in Pacific Canada has been declining for decades. Spawner timeseries enable researchers to quantify impacts of local stressors, identify when and where management interventions are required to avoid extirpations, and evaluate the efficacy of recovery efforts. These data are more important now than ever, as uniquely adapted spawning populations underlie salmon resilience and their ability to adapt to climate change, and fine-scale data can inform terminal fisheries being revitalized by First Nations. We revisit the state of spawner data from the Yukon to southern BC. Almost two-thirds of salmon populations that were historically monitored have no reported estimates in 2013-2022 – the worst decade for data since monitoring programs began in the 1950s. We found strong correlations between the number of populations monitored and catch for each species, suggesting that monitoring is primarily motivated by commercial fisheries management. We recommend clarifying monitoring objectives and strategic investments to improve monitoring outcomes for salmon and communities. We emphasize data stewardship, as ensuring access to these baseline data is a cornerstone for rebuilding wild Pacific salmon.",
-		"DOI": "10.1101/2024.12.01.626233",
-		"language": "en",
-		"license": "© 2024, Posted by Cold Spring Harbor Laboratory. This pre-print is available under a Creative Commons License (Attribution-NonCommercial-NoDerivs 4.0 International), CC BY-NC-ND 4.0, as described at http://creativecommons.org/licenses/by-nc-nd/4.0/",
-		"note": "page: 2024.12.01.626233\nsection: New Results",
-		"publisher": "bioRxiv",
-		"source": "bioRxiv",
-		"title": "Monitoring for fisheries or for fish? Declines in monitoring of salmon spawners continue despite a conservation crisis",
-		"title-short": "Monitoring for fisheries or for fish?",
-		"URL": "https://www.biorxiv.org/content/10.1101/2024.12.01.626233v1",
-		"author": [
-			{
-				"family": "Atkinson",
-				"given": "Emma M."
-			},
-			{
-				"family": "Carturan",
-				"given": "Bruno S."
-			},
-			{
-				"family": "Atkinson",
-				"given": "Clare P."
-			},
-			{
-				"family": "Bateman",
-				"given": "Andrew W."
-			},
-			{
-				"family": "Connors",
-				"given": "Katrina"
-			},
-			{
-				"family": "Hertz",
-				"given": "Eric"
-			},
-			{
-				"family": "Peacock",
-				"given": "Stephanie J."
-			}
-		],
-		"accessed": {
-			"date-parts": [
-				[
-					"2025",
-					1,
-					10
-				]
-			]
-		},
-		"issued": {
-			"date-parts": [
-				[
-					"2024",
-					12,
-					5
-				]
-			]
-		}
-	},
-	{
 		"id": "DunmallEtAl2025InvadingRangeexpandingPink",
 		"type": "article-journal",
 		"abstract": "Species redistributions, whether resulting from invasions or range expansions, pose similar challenges for conservation and management. Redistribution impacts on host ecosystems and species combine with those from climate change, which are already acute at northern latitudes. Using pink salmon Oncorhynchus gorbuscha, which are native to the Pacific Ocean, we employ knowledge exchange to inform decision-making in non-native marine areas: they are expanding their range to the Arctic Ocean and are invasive in the Atlantic Ocean. The predicted future marine distribution of pink salmon focuses effort on where and when pink salmon are present and informs on potential interactions with native species. Management actions taken in the Atlantic Ocean to reduce invasive pink salmon are resource-intensive, but removed salmon could be a food resource. Addressing identified gaps regarding the invasion potential of pink salmon, interactions among pink salmon and other species, and current mitigation efforts would support forward-thinking management decisions given predictions of continued environmental change. We also highlight steps that can be taken immediately to coordinate actions and better inform responses. Managed for production in the Pacific and as an invasion in the Atlantic, pink salmon provide a tangible approach to informed decision-making through collaboration for marine species on the move.",
@@ -1579,7 +1517,8 @@
 		"issued": {
 			"date-parts": [
 				[
-					"2025"
+					"2025",
+					3
 				]
 			]
 		}
@@ -1601,6 +1540,62 @@
 					"2024",
 					12,
 					3
+				]
+			]
+		}
+	},
+	{
+		"id": "BaileyEtAl2025OsoyoosLakeSockeye",
+		"type": "report",
+		"abstract": "Ce rapport présente l'abondance historique des retours de saumons rouges adultes d'Osoyoos à l'embouchure du fleuve Columbia de 1977 à 2023, la composition par âge depuis 1985 et les taux de survie des saumoneaux aux adultes pour les années d’entrée dans l’océan de 1998 à 2021, d’après les données disponibles sur l’abondance des juvéniles. Les ensembles de données ont été obtenus à partir de diverses sources, y compris des estimations de l’abondance annuelle des saumons rouges adultes par l’intermédiaire du portail de données CBR-DART (Columbia Basin Research Data Access in Real Time), des données sur les prises du Washington Department of Fisheries and Wildlife (WDFW), la composition par âge des stocks de la Columbia River Intertribal Fish Commission (CRITFC), des données de relevés sur les frayères de l’Okanagan Nation Alliance (ONA) et des estimations de l’abondance des présaumoneaux provenant des relevés acoustiques et des relevés au chalut en Lac Osoyoos (ONA et MPO).",
+		"language": "en",
+		"note": "DOI: 10.60825/V3G8-JW96\nISSN: 1488-5387\nmedium: application/pdf\ncontainer-title: Canadian manuscript report of fisheries and aquatic sciences",
+		"publisher": "Fisheries and Oceans Canada",
+		"source": "DOI.org (Datacite)",
+		"title": "Osoyoos Lake Sockeye Salmon (Oncorhynchus nerka) return abundance (1977-2023), adult age composition (1985-2023), and marine survival (1998-2021)",
+		"URL": "https://science-catalogue.canada.ca/record=4127396~S6",
+		"author": [
+			{
+				"family": "Bailey",
+				"given": "Colin J."
+			},
+			{
+				"family": "Stiff",
+				"given": "Howard W."
+			},
+			{
+				"family": "Thompson",
+				"given": "Patrick L."
+			},
+			{
+				"family": "Judson",
+				"given": "Braden"
+			},
+			{
+				"family": "Ogden",
+				"given": "Athena D."
+			}
+		],
+		"contributor": [
+			{
+				"literal": "Fisheries And Oceans Canada"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					7,
+					2
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					21
 				]
 			]
 		}
@@ -1716,6 +1711,58 @@
 					"2024",
 					1,
 					11
+				]
+			]
+		}
+	},
+	{
+		"id": "Ogden2025WildSalmonPolicy",
+		"type": "article-journal",
+		"container-title": "Canadian Science Advisory Secretariat Research Document",
+		"language": "en",
+		"note": "OCLC: 1546217115",
+		"page": "xii + 102 p.",
+		"source": "Open WorldCat",
+		"title": "Wild Salmon Policy Status, Limit Reference Point, and Candidate Escapement Goals for Okanagan Sockeye Salmon",
+		"volume": "2025/046",
+		"author": [
+			{
+				"family": "Ogden",
+				"given": "Athena Dawn"
+			},
+			{
+				"family": "Alex",
+				"given": "Karilyn"
+			},
+			{
+				"family": "Pestal",
+				"given": "Gottfried"
+			},
+			{
+				"family": "Alameddine",
+				"given": "Ibrahim"
+			},
+			{
+				"family": "Davis",
+				"given": "Brooke"
+			},
+			{
+				"family": "Judson",
+				"given": "Braden"
+			},
+			{
+				"family": "Stiff",
+				"given": "Howard"
+			},
+			{
+				"family": "Pham",
+				"given": "Samantha"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2025"
 				]
 			]
 		}

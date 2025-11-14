@@ -1,7 +1,7 @@
 ---
 title: "State of Salmon: Technical Documentation"
 author: "Pacific Salmon Foundation"
-date: "Version 2.2 (`r format(Sys.time(), '%Y-%b-%d')`)"
+date: "Version 2.3 (`r format(Sys.time(), '%Y-%b-%d')`)"
 bibliography: references.json
 csl: canadian-journal-of-fisheries-and-aquatic-sciences.csl 
 link-citations: true
@@ -53,6 +53,14 @@ This Technical Documentation augments the high-level description of Methods on t
 
 > Pacific Salmon Foundation (2025). State of Salmon 2025 Report. Pacific Salmon Foundation, Vancouver, BC, Canada. https://doi.org/10.60740/stateofsalmon.2025
 
+### Version notes
+
+**2.3** (November 14, 2025) - Updated to include revised **total abundance** data for Fraser Chinook (all run timing groups now included, not just spring/summer; Chuck Parken pers. comm.) and recently published data for Columbia sockeye [@Ogden2025WildSalmonPolicy].
+
+**2.2** (October 6, 2025) - Updated description of Okanagan steelhead data to clarify that we include natural-origin spawners only in our assessment.
+
+**2.1** (September 24, 2025) - Original release of 2025 technical documentation.
+
 ## More Information
 
 Code and raw data are available in the [state-of-salmon](https://github.com/salmonwatersheds/state-of-salmon) GitHub repository. Compiled data and output summary statistics on status and trends for each region and species are available for download in the Salmon Watershed Program's [Data Library](https://data.salmonwatersheds.ca/).
@@ -67,9 +75,7 @@ We report spawner abundance for each of ten regions that represent all major Pac
 
 We report on six species of Pacific salmon (*Oncorhynchus* spp.): Chinook, chum, coho, pink, sockeye, and steelhead. For each species, we report on state and trends based on generational averages. For pink salmon, we take the running average of even- and odd-year lineages, but do not separate assessments of even- and odd-year pink populations as is sometimes done in status assessments due to their consistent 2-year life cycle. Our approach of using generation running averages also smooths over dominant years for sockeye salmon, for which many populations display cyclic dominance. Shifts in dominance between even- and odd-year pink populations or declines in sub-dominant years of sockeye salmon are considered in a more nuanced way in our reporting when discussing how changes in abundance have been reflected in the diversity and distribution of each species within the region. 
 
-For each of these species, where data are available, we construct an index of **spawner abundance** at the regional scale. We focus on spawner abundance because these data are more readily accessible and easily summarised at different spatial scales. Spawners represent the abundance of salmon available to reproduce and contribute to future generations, as well as to meet cultural and ecological needs within watersheds, and thus provides a measure of status relevant to communities and ecosystems. We recognize that commercial catch has historically been a substantial portion of salmon that return to the coast, and that ignoring declines in catch will underestimate the declines in overall salmon abundance. Therefore, we include information on **total abundance** (i.e. spawners plus catch) for species and regions with reliable data. 
-
-For each of these species, where data are available, we construct an index of **spawner abundance** at the regional scale. We focus on spawner abundance because these data are more readily accessible and easily summarised at different spatial scales. Spawners represent the abundance of salmon available to reproduce and contribute to future generations, as well as to meet cultural and ecological needs within watersheds, and thus provides a measure of status relevant to communities and ecosystems. We recognize that commercial catch has historically been a substantial portion of salmon that return to the coast, and that ignoring declines in catch will underestimate the declines in overall salmon abundance. There is also increasing rates of pre-spawn mortality (i.e. mortality of salmon after their enter the river but before they successfully spawn) that mean that spawner abundance may be less than the number of fish that survive to maturity Therefore, where data are available, we include information on **total abundance** (i.e. the number of salmon that survive to maturity, calculated as spawners plus catch plus pre-spawn mortality (where applicable)). 
+For each of these species, where data are available, we construct an index of **spawner abundance** at the regional scale. We focus on spawner abundance because these data are more readily accessible and easily summarised at different spatial scales. Spawners represent the abundance of salmon available to reproduce and contribute to future generations, as well as to meet cultural and ecological needs within watersheds, and thus provides a measure of status relevant to communities and ecosystems. We recognize that commercial catch has historically been a substantial portion of salmon that return to the coast, and that ignoring declines in catch will underestimate the declines in overall salmon abundance. There is also increasing rates of pre-spawn mortality (i.e. mortality of salmon after their enter the river but before they successfully spawn) that mean that spawner abundance may be less than the number of fish that survive to maturity Therefore, where data are available, we include information on **total abundance** (i.e. the number of salmon that survive to maturity, calculated as spawners plus catch plus en route or pre-spawn mortality (where applicable)). 
 
 We have based our assessments on the best available data for each region and species. For example, stocks that are governed by international treaties may be monitored by the [Pacific Salmon Commission (PSC)](https://www.psc.org/), and tend to have reliable time series of abundance available at regional scales. These data sources are outlined in the [Region-Specific Data section](#region-specific-data). For species and regions where aggregate abundance is not reported by the PSC or DFO at the scale needed, we adapted our approach to make the best use of available data. In most cases, this meant expanding spawner abundance from stream-level estimates to get a regional scale index of spawner abundance using two types of expansion factors [@EnglishEtAl2018NorthCentralCoast]. This expansion process is described in the [Expansion Factors section](#expansion-factors).  
 
@@ -402,83 +408,89 @@ for(s in 2:5){
 
 #### Chinook {.unnumbered}
 
-Escapement of Fraser Chinook is provided in the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @ChinookTechnicalCommittee2025AnnualReportCatch. We took the sum of escapement to five major stocks from Table B6 (Fraser Spring 4-2 (age 1.2), Fraser Spring 5-2 (age 1.3), Fraser Summer 5-2 (age 1.3), Fraser Summer 4-1 (age 0.3), and Harrison (Fraser Fall 4-1, age 0.3)) as an index of spawner abundance. Total run size is also reported in Table B6 for the Spring/Summer runs, and we use this as an index of total abundance for Fraser Chinook, noting that it excludes the Fall 4-1 stock.
+Escapement of Fraser Chinook is reported by the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are described in @ChinookTechnicalCommittee2025AnnualReportCatch. These data were shared with us by DFO (Chuck Parken, pers. comm.), along with corresponding estimates of total run size for each of five run timing groups: Fraser Spring 4-2 (age 1.2), Fraser Spring 5-2 (age 1.3), Fraser Summer 5-2 (age 1.3), Fraser Summer 4-1 (age 0.3), and Fraser Fall 4-1 Harrison (age 0.3).
 
 ```{r, echo = FALSE, warning = FALSE, include = FALSE}
 
-ctc_fr <- readxl::read_xlsx("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A3:P53", col_types = "numeric")
-names(ctc_fr) <- c("Year", "Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Fraser Spring/Summer t.run", "Harrison Esc", "Harrison CV", "Lower Shuswap Esc", "Lower Shuswap CV", "Nicola Esc", "Nicola CV", "Lower Chilcotin Esc", "Lower Chilcotin CV", "Chilko Esc", "Chilko CV")
-ctc_esc <- ctc_fr %>% dplyr::select(c("Year", "Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Harrison Esc"))
-ctc_esc_sum <- apply(ctc_esc[, c("Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Harrison Esc")], 1, sum)
+# Data from Chuck Parken (shared 23-Oct-2025 via email)
+frck_cp <- readxl::read_xlsx("data/Fraser Chinook escapement and terminal run by SMU.xlsx", range = "A3:K52", col_names = c("year", "spr12_esc", "spr12_run", "spr13_esc", "spr13_run", "sum13_esc", "sum13_run", "sum03_esc", "sum03_run", "harrisonfall03_esc", "harrisonfall03_run"))
 
-ctc_trun_sum <- ctc_fr$`Fraser Spring/Summer t.run`
+# Totals
+frck_cp <- frck_cp %>% 
+	mutate(esc_total = spr12_esc + spr13_esc + sum13_esc + sum03_esc + harrisonfall03_esc,
+				 run_total = spr12_run + spr13_run + sum13_run + sum03_run + harrisonfall03_run
+				 )
 
 ```
 
-```{r, echo = FALSE, warning = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 8, fig.cap = "**Above:** (a) Aggregate escapement of Fraser Chinook (black open points; thick black line is smoothed spawner abundance) with the contribution of escapement to each of five stocks shown as coloured regions below the line. Note that the Harrison River (Fall 4-1) time series begins later (1984) than the other four stocks (1975), and thus we only report spawner abundance from 1984 onward. (b) The proportional contribution of each of five stocks to aggregate Fraser Chinook escapement."}
+```{r, echo = FALSE, warning = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 14, fig.cap = "**Above:** (a) Aggregate escapement of Fraser Chinook (black open points; thick black line is smoothed spawner abundance) with the contribution of escapement to each of five stocks shown as coloured regions below the line. Note that the Harrison River (Fall 4-1) time series begins later (1984) than the other four stocks (1975), and thus we only report spawner abundance from 1984 onward. (b) The proportional contribution of each of five stocks to aggregate Fraser Chinook escapement. (c-d) Similar plots for total abundance (run size) among stock groups."}
 
 
 col_frck <- viridisLite::viridis(n = 5)
 
-par(mfrow = c(2,1))
-plot(ctc_esc$Year, ctc_esc_sum*10^-3, "n", bty = "l", las = 1, ylab = "Spawner abundance (thousands)", ylim = c(0, 750), yaxs = "i")
-for(i in c(1:5)){
-	# lines(ctc_esc$Year, data.frame(ctc_esc)[,i] * 10^-3, "l", col = col_frck[i])
-	if(i == 1){
-		y1 <- rep(0, length(ctc_esc$Year))
-		y2 <- data.frame(ctc_esc)[,2]
-	} else if(i == 2){
-		y1 <-  data.frame(ctc_esc)[,2]
-		y2 <- apply(data.frame(ctc_esc)[,2:3], 1, sum)
-	} else { 
-		y1 <-  apply(data.frame(ctc_esc)[,2:i], 1, sum)
-		y2 <- apply(data.frame(ctc_esc)[,2:(i+1)], 1, sum)
-	}
+par(mfrow = c(4,1), mar = c(3, 4, 2, 1))
+
+for(k in 1:2){
 	
-	yr <- ctc_esc$Year
-	if(i == 5){
-		yr <- ctc_esc$Year[!is.na(ctc_esc$`Harrison Esc`)]
-		y1 <- y1[!is.na(ctc_esc$`Harrison Esc`)]
-		y2 <- y2[!is.na(ctc_esc$`Harrison Esc`)]
+	dat.k <- frck_cp %>% select(grep(c("esc", "run")[k], names(frck_cp)))
+	names(dat.k) <- c("spr12", "spr13", "sum13", "sum03", "harrisonfall03", "sum")
+	
+	plot(frck_cp$year, dat.k$sum*10^-3, "n", bty = "l", las = 1, ylab = c("Spawner abundance (000s)", "Total abundance (000s)")[k], yaxs = "i", xlab = "", ylim = c(0, max(dat.k$sum*10^-3, na.rm = TRUE)))
+	for(i in c(1:5)){
+		if(i == 1){
+			y1 <- rep(0, length(frck_cp$year))
+			y2 <- data.frame(dat.k)[,1]
+		} else if (i == 2){ 
+			y1 <-  data.frame(dat.k)[,1:(i-1)]
+			y2 <- apply(data.frame(dat.k)[,1:i], 1, sum)
+		} else { 
+			y1 <-  apply(data.frame(dat.k)[,1:(i-1)], 1, sum)
+			y2 <- apply(data.frame(dat.k)[,1:i], 1, sum)
+		}
+		
+		yr <- frck_cp$year
+		if(i == 5){
+			yr <- frck_cp$year[!is.na(frck_cp$harrisonfall03_esc)]
+			y1 <- y1[!is.na(frck_cp$harrisonfall03_esc)]
+			y2 <- y2[!is.na(frck_cp$harrisonfall03_esc)]
+		}
+		polygon(x = c(yr, rev(yr)),
+						y = c(y1, rev(y2))*10^-3,
+						col = col_frck[i], border = NA, xpd = NA)
 	}
-	polygon(x = c(yr, rev(yr)),
-					y = c(y1, rev(y2))*10^-3,
-					col = col_frck[i], border = NA)
-}
-points(ctc_esc$Year, ctc_esc_sum*10^-3, "o", pch = 21, bg = "white", xpd = NA)
-lines(ctc_esc$Year, genSmooth(
-		abund = ctc_esc_sum,
-		years = ctc_esc$Year,
+	points(frck_cp$year, dat.k$sum*10^-3, "o", pch = 21, bg = "white", xpd = NA)
+	lines(frck_cp$year, genSmooth(
+		abund =  dat.k$sum,
+		years = frck_cp$year,
 		genLength = 5
 	)*10^-3, lwd = 1.5)
-legend("topleft", fill = col_frck, border = NA, bty = "n", c("Spring 4-2", "Spring 5-2", "Summer 4-1", "Summer 5-2", "Fall 4-1 (Harrison)"))
-mtext(side = 3, line = 0.5, "a) Escapement to five Fraser Chinook stocks", adj = 0)
-
-# Proportion
-plot(ctc_esc$Year, ctc_esc_sum, "n", bty = "l", las = 1, ylab = "Proportion of spawner abundance", ylim = c(0, 1), yaxs = "i")
-for(i in c(1:5)){
-	# lines(ctc_esc$Year, data.frame(ctc_esc)[,i] * 10^-3, "l", col = col_frck[i])
-	if(i == 1){
-		y1 <- rep(0, length(ctc_esc$Year))
-		y2 <- data.frame(ctc_esc)[,2]
-	} else if(i == 2){
-		y1 <-  data.frame(ctc_esc)[,2]
-		y2 <- apply(data.frame(ctc_esc)[,2:3], 1, sum)
-	} else { 
-		y1 <-  apply(data.frame(ctc_esc)[,2:i], 1, sum)
-		y2 <- apply(data.frame(ctc_esc)[,2:(i+1)], 1, sum)
+	# abline(h = seq(0, 800, 50), lty = 2, col =grey(0.8))
+	if(k == 1) legend("topleft", fill = col_frck, border = NA, bty = "n", c("Spring 4-2", "Spring 5-2", "Summer 5-2", "Summer 4-1", "Fall 4-1 (Harrison)"))
+	mtext(side = 3, line = 0.5, c("a) Escapement to five Fraser Chinook stocks", "c) Run size for five Fraser Chinook stocks")[k], adj = 0)
+	
+	# Proportion
+	plot(frck_cp$year, frck_cp$esc_total, "n", bty = "l", las = 1, ylab = c("Proportion of spawner abundance", "Proportion of total abundance")[k], ylim = c(0, 1), yaxs = "i")
+	for(i in c(1:5)){
+		if(i == 1){
+			y1 <- rep(0, length(frck_cp$year))
+			y2 <- data.frame(dat.k)[,1]
+		} else if (i == 2){ 
+			y1 <-  data.frame(dat.k)[,1:(i-1)]
+			y2 <- apply(data.frame(dat.k)[,1:i], 1, sum)
+		} else { 
+			y1 <-  apply(data.frame(dat.k)[,1:(i-1)], 1, sum)
+			y2 <- apply(data.frame(dat.k)[,1:i], 1, sum)
+		}
+		
+		polygon(x = c(frck_cp$year, rev(frck_cp$year)),
+						y = c(y1/frck_cp$esc_total, rev(y2/frck_cp$esc_total)),
+						col = col_frck[i], border = NA)
 	}
-	
-	
-	polygon(x = c(ctc_esc$Year, rev(ctc_esc$Year)),
-					y = c(y1/ctc_esc_sum, rev(y2/ctc_esc_sum)),
-					col = col_frck[i], border = NA)
+	axis(side = 1, at = c(1975:2025), tck = -0.01, labels = FALSE)
+	abline(v = seq(1975, 2025, 5))
+	abline(v = seq(1970, 2024, 1), lty = 2, lwd = 0.5)
+	mtext(side = 3, line = 0.5, c("b) Proportional contribution of five stocks to aggregate escapement", "d) Proportional contribution of five stocks to aggregate run size")[k], adj = 0)
 }
-axis(side = 1, at = c(1975:2025), tck = -0.01, labels = FALSE)
-abline(v = seq(1975, 2025, 5))
-abline(v = seq(1970, 2024, 1), lty = 2, lwd = 0.5)
-mtext(side = 3, line = 0.5, "b) Proportional contribution of five stocks to aggregate escapement", adj = 0)
-
 
 ```
 
@@ -600,7 +612,7 @@ for(s in 2:4){
 
 ### Columbia
 
-We used CU-level estimates of spawner abundance (run reconstructions) sourced from DFO (Athena Ogden, pers. comm.) for Chinook and sockeye. Spawner abundance for Columbia sockeye was the sum of estimates for Osoyoos and, more recently, Skaha Lakes and were the most up-to-date estimates as of June 2025 (Athena Ogden, pers. comm.). Total abundance for sockeye was extracted from DFO's 2024 Wild Salmon Policy assessment for Osoyoos sockeye [@DFO2024WildSalmonPolicy] from 1980-2023.
+We used CU-level estimates of spawner abundance (run reconstructions) sourced from DFO (Athena Ogden, pers. comm.) for Chinook and sockeye. Spawner abundance for Columbia sockeye was the sum of estimates for Osoyoos and, more recently, Skaha Lakes and were the most up-to-date estimates as of June 2025 (Athena Ogden, pers. comm.). Total abundance for sockeye was extracted from DFO's 2024 Wild Salmon Policy assessment for Osoyoos sockeye [@DFO2024WildSalmonPolicy] from 1980-2023 and later revised to match the more-recently published CSAS Research Document [@Ogden2025WildSalmonPolicy].
 
 There is no monitoring of steelhead trout in the Canadian portion of the Columbia region, but the Okanagan Nation Alliance does enumerate steelhead in akskwəkwant (Inkaneep Creek) and estimate a Canadian portion of steelhead spawning abundance. We report on the number of **natural-origin** spawners, but note that the number of hatchery-origin spawners spawning in the most recent generation has also been low. These data can be found in associated report (e.g. @OBMEP20252024OkanoganSubbasin) and are available for the Mid Columbia Summer Conservation Unit [in the Pacific Salmon Explorer](https://salmonexplorer.ca/explore/data/spawner-abundance/columbia/steelhead/mid-columbia-summer-1380/).
 
