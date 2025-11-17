@@ -61,6 +61,11 @@ dat552 <- sps_metrics %>%
 var_to_smooth <- c("current_abundance", "average_abundance", "previous_gen_abundance")
 dat552[, var_to_smooth] <- round(dat552[, var_to_smooth])
 
+# Add NAs as requested by Katy (https://pacificsalmonfdn.slack.com/archives/CKNVB4MCG/p1763413860237679?thread_ts=1762990928.939799&cid=CKNVB4MCG)
+dat552$short_trend_cat[dat552$short_trend_cat == ""] <- NA 
+dat552$long_trend_cat[dat552$long_trend_cat == ""] <- NA
+
+
 # Write
 write.csv(dat552, file = "../Data Library/dataset552_sps-metrics.csv", row.names = FALSE)
 write.csv(dat552, file = paste0("../Data Library/archive/dataset552_sps-metrics_", Sys.Date(), ".csv"), row.names = FALSE)
