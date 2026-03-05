@@ -1,0 +1,2101 @@
+---
+title: "compile-regional-data"
+author: "Salmon Watersheds Program, Steph Peacock, Hannah Hunter"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+bibliography: references.json
+csl: canadian-journal-of-fisheries-and-aquatic-sciences.csl 
+link-citations: true
+header-includes:
+   - \usepackage{draftwatermark}
+output: 
+ html_document:
+    toc: true
+    toc_depth: 4
+    toc_float: true
+    number_sections: true
+    code_folding: hide
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Set colour palette for species
+# sp_cols <- viridis(5)
+# sp_cols <- c("#332288", "#44AA99", "#88CCEE", "#CC6677", "#882255", "#DDCC77") #https://davidmathlogic.com/colorblind
+# names(sp_cols) <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead")
+library(dplyr)
+library(viridisLite)
+library(abind)
+library(readxl)
+library(ggplot2)
+
+source("../code/colours.R")
+source("../code/functions.R")
+
+```
+
+<head>
+<meta name="robots" content="noindex">
+</head>
+
+<style type="text/css">
+
+.watermark {
+  opacity: 0.2;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-size: 500%;
+  color: #000000;
+}
+
+.blackbox {
+  padding: 1em;
+  background: black;
+  color: white;
+  border: 2px solid orange;
+  border-radius: 10px;
+}
+.center {
+  text-align: center;
+}
+
+</style>
+
+
+<!--- <div class="watermark">DRAFT</div> -->
+
+
+# Overview 
+
+The Pacific Salmon Foundation's [State of Salmon Report](https://stateofsalmon.ca) aims to provide the public with answers to general questions regarding the state of salmon in British Columbia (BC) and the Yukon, such as:
+
+* How are salmon populations doing? 
+* What are the major factors influencing the state of salmon? 
+* What is being done - and what could be done - to mitigate threats and recover salmon populations and the habitats they depend on?
+
+This report, first released in September 2024, takes a data-driven approach to provide historical perspective and context for current news about salmon returns. The State of Salmon Report is being updated annually to reflect new data and changes to the state of Pacific salmon populations. 
+
+As part of this work, PSF's [Salmon Watersheds Program](https://www.salmonwatersheds.ca) has developed simple metrics to report on the status and trends in regional abundance for each species. This document outlines the  specific data sources and analytical approach that we used to estimate time series of spawner abundance and total abundance (including catch) for each species and region, as well as draft results. Our analyses are ongoing, and the information here is subject to change on a regular basis, but we will endeavor to keep it up-to-date.
+
+# Methods
+
+## General Approach
+
+We report spawner abundance for each of ten regions that represent all major Pacific salmon-bearing watersheds in Canada: Yukon, Northern Transboundary, Haida Gwaii, Nass, Skeena, Central Coast, Fraser, East Vancouver Island & Mainland Inlets, West Vancouver Island, and Columbia. These regions are also used to organize data in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca). Note that there was a change from the 2024 Report to split the former Vancouver Island & Mainland Inlets region into two to better reflect the unique ecology and environments of salmon between West Vancouver Island and East Vancouver Island & Mainland Inlets. There are a relatively small number of Pacific salmon that spawn in the MacKenzie River basin in Arctic Canada that are currently not included in the State of Salmon report.
+
+We report on six species of Pacific salmon (*Oncorhynchus* spp.): Chinook, chum, coho, pink, sockeye, and steelhead. For each species, we report on state and trends based on generational averages. For pink salmon, we take the running average of even- and odd-year lineages, but do not separate assessments of even- and odd-year pink populations as is sometimes done in status assessments due to their consistent 2-year life cycle. Our approach of using generation running averages also smooths over dominant years for sockeye salmon, for which many populations display cyclic dominance. Shifts in dominance between even- and odd-year pink populations or declines in sub-dominant years of sockeye salmon are considered in a more nuanced way in our reporting when discussing how changes in abundance have been reflected in the diversity and distribution of each species within the region. 
+
+For each of these species, where data are available, we construct an index of **spawner abundance** at the regional scale. We focus on spawner abundance because these data are more readily accessible and easily summarised at different spatial scales. Spawners represent the abundance of salmon available to reproduce and contribute to future generations, as well as to meet cultural and ecological needs within watersheds, and thus provides a measure of status relevant to communities and ecosystems. We recognize that commercial catch has historically been a substantial portion of salmon that return to the coast, and that ignoring declines in catch will underestimate the declines in overall salmon abundance. There is also increasing rates of pre-spawn mortality (i.e. mortality of salmon after their enter the river but before they successfully spawn) that mean that spawner abundance may be less than the number of fish that survive to maturity Therefore, where data are available, we include information on **total abundance** (i.e. the number of salmon that survive to maturity, calculated as spawners plus catch plus pre-spawn mortality (where applicable)). 
+
+We have based our assessments on the best available data for each region and species. For example, stocks that are governed by international treaties may be monitored by the [Pacific Salmon Commission (PSC)](https://www.psc.org/), and tend to have reliable time series of abundance available at regional scales. These data sources are outlined in the [Region-Specific Data section](#region-specific-data). For species and regions where aggregate abundance is not reported by the PSC or DFO at the scale needed, we adapted our approach to make the best use of available data. In most cases, this meant expanding spawner abundance from stream-level estimates to get a regional scale index of spawner abundance using two types of expansion factors [@EnglishEtAl2018NorthCentralCoast]. This expansion process is described in the [Expansion Factors section](#expansion-factors).  
+
+`R` code and data for the analyses described here are available on GitHub at https://github.com/salmonwatersheds/state-of-salmon.
+
+## Region-Specific Data Sources
+
+Here we describe specific data sources for the abundance of salmon and steelhead at the regional scale. 
+
+```{r load data dependencies, echo=FALSE}
+
+regions <- c("Yukon", "Transboundary", "Haida Gwaii", "Nass", "Skeena", "Central Coast", "East Vancouver Island & Mainland Inlets", "West Vancouver Island", "Fraser", "Columbia")
+
+species <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead")
+
+# Generation length by species and region (for smoothing)
+genLength <- read.csv("../data/gen_length_regions.csv") 
+
+# Set version of NuSEDS for source_id
+nuseds_id <- "NuSEDS_20250221"
+ctc_id <- "CTC_20250714"
+
+# Initiate dataframe
+sps_data <- NULL
+```
+
+### Yukon
+The Canadian portion of the Yukon River is home to Chinook, chum, and coho salmon. Border escapement and total abundance (i.e. run size) of Canadian-origin Chinook and fall chum salmon in the mainstem Yukon River are counted at the Eagle Sonar station on the Yukon/Alaska border, and are available from the [Yukon River Panel](https://www.yukonriverpanel.com/) in their Joint Technical Committee (JTC) Reports. Specifically, we used Chinook `RR Spawning escapement estimate` and `RR Canadian origin total run size estimate` from Appendix B11 of @YukonRiverJointTechnicalCommittee2025YukonRiverSalmon. Canadian-origin fall chum spawner abundance was taken as the `Spawning escapement estimate` in Appendix B16 and total abundance as the `Total estimated Canadian-origin run size` from Appendix B20 of @YukonRiverJointTechnicalCommittee2025YukonRiverSalmon. 
+
+There are also Chinook, chum, and coho salmon in the Canadian portion of the Porcupine River, which joins the mainstem Yukon River in Alaska. Data on escapement to the Porcupine River are more patchy and not currently included here.
+
+<!--> There is no coho compiled here - why listed above? -->
+
+```{r yukon chinook}
+
+# Load data ---
+ytck <- read.csv('../data/yukon_chinook_appendixB11.csv') 
+# Note: Use Run Reconstruction (RR) estimates of spawning escapement and total
+# run size, not "Historical" or Mark-Recapture estimates
+
+# Check if years are continuous
+unique(diff(ytck$Year)) # Yes, all one year apart
+
+# Reformat data for SPS ---
+ytck_sps <- data.frame(
+	region = rep("Yukon", dim(ytck)[1]),
+	species = rep("Chinook", dim(ytck)[1]),
+	year = ytck$Year,
+	spawners = ytck$RR.Spawning.escapement.estimate, 
+	smoothedSpawners = NA,
+	runsize = ytck$RR.Canadian.origin.total.run.size.estimate,
+	smoothedRunsize = NA,
+	source_id = rep("JTC_202503", dim(ytck)[1])
+) 
+
+# Smoothing
+ytck_sps$smoothedSpawners <- genSmooth(
+	abund = ytck_sps$spawners,
+	years = ytck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Yukon" & genLength$species == "Chinook"]
+	)
+
+ytck_sps$smoothedRunsize <- genSmooth(
+	abund = ytck_sps$runsize,
+	years = ytck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Yukon" & genLength$species == "Chinook"]
+)
+plot_abund(ytck_sps)
+
+# Add to SPS data
+sps_data <- rbind(sps_data, ytck_sps)
+
+```
+
+```{r yukon chum}
+# Load data ---
+ytcm_B16 <- read.csv('../data/yukon_chum_appendixB16.csv') # Historical data
+names(ytcm_B16)[1] <- "Year"
+ytcm_B20 <- read.csv('../data/yukon_chum_appendixB20.csv') # Most recent estimates
+
+
+# Compare data from two appendices; note that spawning escapement is sometimes different
+plot(ytcm_B16$Year, ytcm_B16$Spawning.escapement.estimate*10^-3, "o", ylab = "Spawning escapement (thousands)", las = 1, bty = "l", xlab = "", pch = 21, bg = "white", main = "Canadian-origin chum salmon")
+abline(v = seq(1970, 2024, 2), col = "#00000060", lwd = 0.8, lty = 3)
+points(ytcm_B20$Year, ytcm_B20$Spawning.escapement*10^-3, col = 2, pch = 19, cex = 0.6)
+legend("topleft", pch= c(1, 19), pt.cex = c(1, 0.6), col = c(1,2), c("Appendix B16", "Appendix B20"))
+
+# Check if years are continuous
+unique(diff(ytcm_B16$Year)) # Yes, all one year apart
+unique(diff(ytcm_B20$Year)) # Yes, all one year apart
+
+# Reformat data for SPS
+ytcm_sps <- data.frame(
+	region = rep("Yukon", dim(ytcm_B16)[1]),
+	species = rep("Chum", dim(ytcm_B16)[1]),
+	year = ytcm_B16$Year,
+	spawners = ytcm_B16$Spawning.escapement.estimate, 
+	smoothedSpawners = NA,
+	runsize = ytcm_B20$Total.estimated.Canadian.origin.run.size[match(ytcm_B16$Year, ytcm_B20$Year)],
+	smoothedRunsize = NA,
+	source_id = rep("JTC_202503", dim(ytcm_B16)[1])
+) 
+
+# Smoothing
+ytcm_sps$smoothedSpawners <- genSmooth(
+	abund = ytcm_sps$spawners,
+	years = ytcm_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Yukon" & genLength$species == "Chum"]
+)
+
+ytcm_sps$smoothedRunsize <- genSmooth(
+	abund = ytcm_sps$runsize,
+	years = ytcm_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Yukon" & genLength$species == "Chum"]
+)
+
+plot_abund(ytcm_sps)
+
+# Add to SPS data
+sps_data <- rbind(sps_data, ytcm_sps)
+
+```
+
+
+### Transboundary
+<!-- > Internal note: Processing of raw excel file from Aaron Foos to extract relevant tables and fields is in [population-data/transboundary-data/code/sos-data-extract.R](https://www.dropbox.com/scl/fi/zxgtulvx2p5iphr3rjx57/sos-data-extract.R?rlkey=f18myjpthqbee4ciz9ny0pjf9&dl=0) -->
+
+The best-available information on salmon abundance in the Northern Transboundary region is from the PSC's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The most recent TTC report [@TTC2022FinalEstimatesTransboundary] includes data through 2021. Updated report appendices were provided by Aaron Foos (DFO) on April 15, 2025 in advance of report publication, and numbers for 2023 and 2024 should be considered **preliminary**.
+
+We recognize that our approach in the Transboundary lacks information from many un-monitored watersheds, in particular the smaller watersheds of the Chilkat, Unuk, and Whiting Rivers. In the absence of better monitoring, we choose to report available data as a proxy for regional abundance, and note that the contribution of these smaller watersheds to total regional abundance for each species is likely small. 
+
+
+#### Chinook {.unnumbered}
+The regional spawner abundance and total return of Chinook was calculated as the sum of escapement and total return, respectively, to the Stikine, Alsek, and Taku indicator stocks. For each of these stocks, we used escapement and exploitation rates provided by the [PSC's Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/) as part of their Synoptic Evaluations of Stock Status. These data were downloaded from their [Data Application](https://psc1.shinyapps.io/ctc-shiny-app/_w_efbbad27/). Total abundance was calculated from the escapement, $E$, and exploitation rate, $r$, as $E/(1-r)$. 
+
+At the time of publication, the Synoptic Evaluations of Stock Status were not yet available for 2024 so we used the escapement estimates for Stikine, Alsek, and Taku Chinook from Table B2 of Appendix B - Detailed Escapement, available as a downloadable dataset from the [Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/). Canadian and US harvest of Chinook was provided by Aaron Foos (DFO) as updated tables from the Transboundary Technical Committee report. Specifically, harvest for Stikine Chinook from Table B12 and harvest of Taku Chinook from Table D8. Total harvest of Alsek Chinook was 235, provided by Teresa Wallace (DFO, pers. comm.): US Commercial: 187, US Subsistence: 8, CAN (Aboriginal): 40, CAN Recreational: 0 (No CAN recreational harvest permitted in 2024).
+
+```{r transboundary chinook}
+# Load data ---
+tbrck_raw <- read.csv("../data/CTC_Synoptic_evaluation_data_all_2025-04-16.csv") %>%
+	filter(Year > 1975) %>% # Remove 1975 -> missing Alsek data
+	filter(Stock %in% c("Alsek", "Taku", "Stikine")) %>%
+	dplyr::select(Stock, Year, Escapement, RateType, Rate) %>%
+	mutate(TotalRun = Escapement/(1 - Rate))
+
+tbrck_esc <- readxl::read_xlsx("../data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B2", range = "A5:G53", col_names = c("year", "Alsek_esc", "Alsek_cv", "Taku_esc", "Taku_cv", "Stikine_esc", "Stikine_cv"))
+# Ignore 1975 because not available for Alsek
+
+# For 2024, take harvest from TTC B12, D8, Alsek harvest provided by email (Teresa Wallace, DFO)
+tbrck <- tbrck_raw %>%
+	group_by(Year) %>%
+	summarise(Escapement_all = sum(Escapement),
+						TotalRun_all = sum(TotalRun), 
+						source_id = "PSC_20250416") %>%
+	bind_rows(data.frame(Year = 2024,
+						Escapement_all = (tbrck_esc$Alsek_esc + tbrck_esc$Taku_esc + tbrck_esc$Stikine_esc)[tbrck_esc$year == 2024],
+						TotalRun_all = 717 + (tbrck_esc$Alsek_esc + tbrck_esc$Taku_esc + tbrck_esc$Stikine_esc)[tbrck_esc$year == 2024], source_id = "Foos_20250415")) 
+
+# Reformat data for SPS
+tbrck_sps <- data.frame(
+	region = rep("Northern Transboundary", length(tbrck$Year)),
+	species = rep("Chinook", length(tbrck$Year)),
+	year = tbrck$Year,
+	spawners = tbrck$Escapement_all, 
+	smoothedSpawners = NA,
+	runsize = tbrck$TotalRun_all,
+	smoothedRunsize = NA,
+	source_id = tbrck$source_id
+) 
+
+# Smoothing
+tbrck_sps$smoothedSpawners <- genSmooth(
+	abund = tbrck_sps$spawners,
+	years = tbrck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Chinook"]
+)
+
+tbrck_sps$smoothedRunsize <- genSmooth(
+	abund = tbrck_sps$runsize,
+	years = tbrck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Chinook"]
+)
+
+plot_abund(tbrck_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, tbrck_sps)
+
+```
+
+```{r transboundary chinook figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** Chinook salmon spawner abundance (open points) and total abundance (closed points) showing the breakdwon in the Alsek, Taku, and Stikine river basins."}
+
+# Update 2024 data for each system -- different than above, this method from previous Rmd, updates each system
+tbrck_raw_updated <- tbrck_raw %>%
+	rbind(data.frame(
+		Stock = c("Alsek", "Taku", "Stikine"),
+		Year = rep(2024, 3),
+		Escapement = as.numeric(tbrck_esc %>% filter(year == 2024) %>% dplyr::select("Alsek_esc", "Taku_esc", "Stikine_esc")),
+		RateType = rep(NA, 3),
+		Rate = rep(NA, 3),
+		TotalRun = rep(NA, 3)))
+
+tbrck_raw_updated$TotalRun[tbrck_raw_updated$Year == 2024] <- tbrck_raw_updated$Escapement[tbrck_raw_updated$Year == 2024] + c((40 + 195), (22 + 374), (49 + 37))
+
+# Plot ---
+
+# Spawner abundance
+tbrck_raw_updated %>% ggplot() +
+	geom_area(aes(x=Year, y=Escapement/1000, fill=factor(Stock, levels=c("Stikine", "Taku", "Alsek"))), 
+								alpha=0.6) + 
+	scale_fill_viridis_d() +
+	labs(y="Spawner abundance (thousands)", fill="") +
+	theme_minimal() 
+
+# Total abundance
+tbrck_raw_updated %>% ggplot() +
+	geom_area(aes(x=Year, y=TotalRun/1000, fill=factor(Stock, levels=c("Stikine", "Taku", "Alsek"))), 
+								alpha=0.6) + 
+	scale_fill_viridis_d() +
+	labs(y="Total abundance (thousands)", fill="") +
+	theme_minimal() 
+
+```
+
+#### Sockeye and Coho {.unnumbered}
+
+Placeholder for description of sockeye data sources?
+
+```{r transboundary sockeye}
+
+# TBR Sockeye data are the sum of the Stikine (Appendix B26) and Taku (Appendix D17) 
+# In 2024, the Appendix numbers given were B21 and D15 respectively, but that's changed.
+tbrse_stik <- read.csv('../data/tbr_sockeye_appendixB26.csv')
+tbrse_taku <- read.csv('../data/tbr_sockeye_appendixD17.csv')
+
+# Remove Stikine data prior to 1984
+tbrse_stik <- subset(tbrse_stik, tbrse_stik$Year >= 1984)
+
+# Reformat data for SPS
+tbrse_sps <- data.frame(
+	region = rep("Northern Transboundary", dim(tbrse_stik)[1]),
+	species = rep("Sockeye", dim(tbrse_stik)[1]),
+	year = tbrse_stik$Year,
+	spawners = tbrse_stik$StikineRiver_EscapementBroodstock + tbrse_taku$Escapement, 
+	smoothedSpawners = NA,
+	runsize = tbrse_stik$StikineRiver_TerminalRun + tbrse_taku$Run,
+	smoothedRunsize = NA, 
+	source_id = rep("Foos_20250415", dim(tbrse_stik)[1])
+) 
+
+# Smoothing
+tbrse_sps$smoothedSpawners <- genSmooth(
+	abund = tbrse_sps$spawners,
+	years = tbrse_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Sockeye"]
+)
+
+tbrse_sps$smoothedRunsize <- genSmooth(
+	abund = tbrse_sps$runsize,
+	years = tbrse_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Sockeye"]
+)
+
+plot_abund(tbrse_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, tbrse_sps)
+
+```
+
+```{r transboundary coho}
+
+# Load data ---
+
+tbrco <- read.csv('../data/tbr_coho_appendixD22.csv')
+
+# Check if years are continuous
+unique(diff(tbrco$Year)) # Yes, all one year apart
+
+# Reformat data for SPS
+tbrco_sps <- data.frame(
+	region = rep("Northern Transboundary", dim(tbrco)[1]),
+	species = rep("Coho", dim(tbrco)[1]),
+	year = tbrco$Year,
+	spawners = tbrco$Escapement, 
+	smoothedSpawners = NA,
+	runsize = tbrco$TerminalRun,
+	smoothedRunsize = NA,
+	source_id = rep("Foos_20250415", dim(tbrco)[1])
+) 
+
+# Smoothing
+tbrco_sps$smoothedSpawners <- genSmooth(
+	abund = tbrco_sps$spawners,
+	years = tbrco_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Coho"]
+)
+
+tbrco_sps$smoothedRunsize <- genSmooth(
+	abund = tbrco_sps$runsize,
+	years = tbrco_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Coho"]
+)
+
+plot_abund(tbrco_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, tbrco_sps)
+
+```
+
+#### Pink and Chum {.unnumbered}
+
+Monitoring of pink and chum salmon in the Transboundary region is limited, and the best available information is the Canyon Island fish wheel. 
+
+```{r transboundary pink}
+
+# Load data ---
+tbrpk <- read.csv("../data/TTC_ManualExtract_Taku_Pink.csv") %>%
+	filter(!is.na(Value))
+
+# Check if years are continuous
+unique(diff(tbrpk$Year)) # Yes, all one year apart
+
+# Reformat data for SPS
+tbrpk_sps <- data.frame(
+	region = rep("Northern Transboundary", nrow(tbrpk)), 
+	species = rep("Pink", nrow(tbrpk)), 
+	year = tbrpk$Year, 
+	spawners = tbrpk$Value,
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep("Foos_20250415", nrow(tbrpk))
+) 
+# Smoothing
+tbrpk_sps$smoothedSpawners <- genSmooth(
+	abund = tbrpk_sps$spawners,
+	years = tbrpk_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Pink"]
+)
+
+plot_abund(tbrpk_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, tbrpk_sps)
+
+```
+
+```{r transboundary chum}
+
+# Load data ---
+tbrcm <- read.csv("../data/TTC_ManualExtract_Taku_Chum.csv") %>%
+	filter(!is.na(Value))
+
+# Reformat data for SPS
+tbrcm_sps <- data.frame(
+	region = rep("Northern Transboundary", nrow(tbrcm)), #length(which(tbrpkcm$species_pooled == "Chum"))),
+	species = rep("Chum", nrow(tbrcm)), #length(which(tbrpkcm$species_pooled == "Chum"))),
+	year = tbrcm$Year, #sort(tbrpkcm$year[tbrpkcm$species_pooled == "Chum"]),
+	spawners = tbrcm$Value, #tbrpkcm$stream_observed_count[tbrpkcm$species_pooled == "Chum"][order(tbrpkcm$year[tbrpkcm$species_pooled == "Chum"])], 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep("Foos_20250415", nrow(tbrcm))
+) 
+# Smoothing
+tbrcm_sps$smoothedSpawners <- genSmooth(
+	abund = tbrcm_sps$spawners,
+	years = tbrcm_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Chum"]
+)
+
+plot_abund(tbrcm_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, tbrcm_sps)
+
+```
+
+#### Steelhead {.unnumbered}
+Steelhead trout have also been enumerated at the Canyon Island fish wheel since 1987, though recent estimates have been patchy and the timing of the fish wheel likely misses a substantial portion of the Taku summer run steelhead. Thus, we do not use the Canyon Island counts as an index of steelhead abundance.
+
+
+### Haida Gwaii
+
+#### Chinook {.unnumbered}
+The only available data for Chinook salmon in Haida Gwaii are from a single enumeration project on the Yakoun River. Although monitoring on the Yakoun has recently been restored, the most recent estimate for Yakoun Chinook that is publicly available is from 2006. We show Yakoun River spawner abundance up to 2006, but no estimates were available for the most recent generation making the current status for Haida Gwaii Chinook "Unknown". 
+
+```{r haida gwaii chinook}
+# No recent data, but at least show what we have for Yakoun
+# These are consistent with the TCNB escapement data for Area 1 (Table 30)
+
+hgck <- read.csv("../data/spawner_surveys.csv", na.strings = c(-989898)) %>%
+	subset(species_name == "Chinook" & region == "Haida Gwaii") %>%
+	subset(stream_name_pse == "YAKOUN RIVER")
+
+# There are some missing years of data; want to impute in between when smoothing
+diff(hgck$year)
+hgck_years <- min(hgck$year):max(hgck$year)
+
+# Reformat data for SPS
+hgck_sps <- data.frame(
+	region = rep("Haida Gwaii", length(hgck_years)),
+	species = rep("Chinook", length(hgck_years)),
+	year = hgck_years,
+	spawners = hgck$stream_observed_count[match(hgck_years, hgck$year)], 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep(nuseds_id, length(hgck_years))
+) 
+
+# Smoothing
+hgck_sps$smoothedSpawners <- genSmooth(
+	abund = hgck_sps$spawners,
+	years = hgck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Haida Gwaii" & genLength$species == "Chinook"]
+)
+
+plot_abund(hgck_sps)
+# lines(hg_table30$year, hg_table30$Chinook*10^-3, lty = 2, col = 2)
+# legend("topleft", lty = 2, col = 2, "NBTC Table 30 (Area 1) escapement")
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, hgck_sps)
+```
+
+#### Other Species: Expansion Factors {.unnumbered .tabset}
+For Haida Gwaii, we followed the [Expansion Factors](#expansion-factors) approach described below.We compared our expansion approach to estimates of escapement to Area 1 reported in the @NorthernBoundaryTechnicalCommittee2023USCanadaNorthern (Appendix 30) but found the Area 1 estimates were much lower (except for Chinook, for which Appendix 30 matched the Yakoun River estimates exactly). 
+
+
+```{r haida gwaii other species, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (teal) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 30) is shown in red. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
+# Load data ---
+sp <- readRDS("../output/expanded-spawners/Haida Gwaii-spawners.rds")
+yrs <- as.numeric(dimnames(sp)[[3]])
+expansion_factors <- readRDS("../output/expanded-spawners/Haida Gwaii-expansion-factors.rds")
+
+# PSC Northern Boundary data (Appendix 30) for comparison 
+hg_table30 <- read.csv("../data/TCNB-23-01_Table30_Area1escapement.csv")
+names(hg_table30) <- c("year", "Sockeye", "Coho", "Pink", "Chum", "Chinook") # Change names to be consistent with species
+
+for(s in 2:5){
+	hg.s <- sp[2, species[s], ]
+	
+	# Reformat data for SPS
+	hg.s_sps <- data.frame(
+		region = rep("Haida Gwaii", length(hg.s)),
+		species = rep(species[s], length(hg.s)),
+		year = as.numeric(names(hg.s)),
+		spawners = as.numeric(hg.s), 
+		smoothedSpawners = NA,
+		runsize = NA,
+		smoothedRunsize = NA,
+		source_id = rep(nuseds_id, length(hg.s))
+	) 
+	
+	# Smoothing
+	hg.s_sps$smoothedSpawners <- genSmooth(
+		abund = hg.s_sps$spawners,
+		years = hg.s_sps$year,
+		genLength = genLength$gen_length[genLength$region == "Haida Gwaii" & genLength$species == species[s]]
+	)
+	
+	# Add to master sps dataframe
+	sps_data <- rbind(sps_data, hg.s_sps)
+
+	
+	# Set up tabs for figures
+	cat("##### ", species[s], " {.unnumbered} \n")
+	cat("\n")
+	
+	added_series.s <- hg_table30 %>% 
+		select(year, species[s]) %>%
+		rename("value" = species[s])
+	
+	plot_expansions(speciesname = species[s],
+									regionname = "Haida Gwaii",
+									region_spawners = sp,
+									expansion_factors = expansion_factors,
+									added_series = added_series.s)
+	
+	#plot_abund(hg.s_sps) # tabs not working with this included can try
+
+	cat("\n")	
+
+}	# end species
+
+```
+
+### Nass
+
+<!-- All plots in Nass section - in Rmd but not in final html? -->
+
+#### Chinook {.unnumbered}
+
+Chinook spawners and total return were taken from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @ChinookTechnicalCommittee2025AnnualReportCatch. Specifically, Nass River (Area 3) escapement and terminal run are provided in Table B3 (fields `Esc` and `t.run` respectively). In the figure below, these CTC estimates correspond closely to estimates of Nass Chinook available from the [Nisga'a Fisheries Nass Stock Assessment Updates](https://www.dropbox.com/scl/fo/ahrrza0aplzcnamatapar/h?rlkey=n51s6qgu0yze0vrphue8dk4ap&e=2&st=n0g2ox45&dl=0), especially in recent years. Historically, the Nisga'a estimates of total abundance tended to be higher than the CTC estimates. 
+
+```{r nass chinook}
+# Load data ---
+# TCCHINOOK Table B3
+nass_ctc <- readxl::read_xlsx("../data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "A5:D54", col_types = "numeric", col_names = c("Year", "Above_Gitwinksihlkw2", "Esc", "t.run"))
+
+# Reformat data for SPS
+nassck_sps <- data.frame(
+	region = rep("Nass", length(nass_ctc$Year)),
+	species = rep("Chinook", length(nass_ctc$Year)),
+	year = nass_ctc$Year,
+	spawners = nass_ctc$Esc, 
+	smoothedSpawners = NA,
+	runsize = nass_ctc$t.run,
+	smoothedRunsize = NA,
+	source_id = rep(ctc_id, length(nass_ctc$Year))
+) 
+
+# Smoothing
+nassck_sps$smoothedSpawners <- genSmooth(
+	abund = nassck_sps$spawners,
+	years = nassck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Nass" & genLength$species == "Chinook"]
+)
+
+nassck_sps$smoothedRunsize <- genSmooth(
+	abund = nassck_sps$runsize,
+	years = nassck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Nass" & genLength$species == "Chinook"]
+)
+
+plot_abund(nassck_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, nassck_sps)
+```
+
+#### Sockeye {.unnumbered}
+
+Nass sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 3 sockeye from the 2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast]. For 2023 and 2024, we obtained the same model output from @NisgaaFisheriesandWildlifeDepartment20242024NassRiver. As can be seen in the figure below, historical numbers from these two sources closely matched, giving us confidence that it was justifiable to combine the two sources.
+
+```{r nass sockeye}
+
+# Load Nisgaa data
+nass_nisgaa <- read.csv("../data/2024NassStockAssessment_combinedTables19-21.csv")
+
+# use NBSRR data provided by LGL up to 2022 and Nisga'a Post-season for 2023, 2024
+nassse <- read.csv("../data/nassskeena_sockeye_lgl.csv") %>%
+	subset(Region == "Nass") %>%
+	mutate(source_id = "English_20230930") %>%
+	bind_rows(
+		data.frame(Year = c(2023, 2024),
+							 TE = nass_nisgaa$ESC_Sockeye[nass_nisgaa$Year %in% c(2023, 2024)],
+							 Total.Run = nass_nisgaa$TOTAL_RUN_Sockeye[nass_nisgaa$Year %in% c(2023, 2024)],
+							 source_id = rep("Nisgaa_20241203", 2)
+		)
+	)
+
+
+# Reformat data for SPS
+nassse_sps <- data.frame(
+	region = rep("Nass", dim(nassse)[1]),
+	species = rep("Sockeye", dim(nassse)[1]),
+	year = nassse$Year,
+	spawners = nassse$TE, 
+	smoothedSpawners = NA,
+	runsize = nassse$Total.Run,
+	smoothedRunsize = NA, 
+	source_id = nassse$source_id
+) 
+
+# Smoothing
+nassse_sps$smoothedSpawners <- genSmooth(
+	abund = nassse_sps$spawners,
+	years = nassse_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Nass" & genLength$species == "Sockeye"]
+)
+
+nassse_sps$smoothedRunsize <- genSmooth(
+	abund = nassse_sps$runsize,
+	years = nassse_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Nass" & genLength$species == "Sockeye"]
+)
+
+plot_abund(nassse_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, nassse_sps)
+```
+
+#### Coho {.unnumbered}
+
+Nass coho escapement and total return were available from the Nisga'a Fisheries and Wildlife Department (@NisgaaFisheriesandWildlifeDepartment20242024NassRiver) for 1992 to 2024. These data closely matched previous estimates from @EnglishEtAl2023PreliminaryAreaSalmon used in the 2024 report. Spawner surveys in NuSEDS tended to generally underestimate spawner abudnance to the region, and were not used because other data were available.
+
+```{r nass coho}
+
+# Reformat data for SPS
+nassco_sps <- data.frame(
+	region = rep("Nass", length(nass_nisgaa$Year)),
+	species = rep("Coho", length(nass_nisgaa$Year)),
+	year = nass_nisgaa$Year,
+	spawners = nass_nisgaa$ESC_Coho, 
+	smoothedSpawners = NA,
+	runsize = nass_nisgaa$TOTAL_RUN_Coho,
+	smoothedRunsize = NA,
+	source_id = rep("Nisgaa_20241203",length(nass_nisgaa$Year))
+) 
+
+# Smoothing
+nassco_sps$smoothedSpawners <- genSmooth(
+	abund = nassco_sps$spawners,
+	years = nassco_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Nass" & genLength$species == "Coho"]
+)
+
+nassco_sps$smoothedRunsize <- genSmooth(
+	abund = nassco_sps$runsize,
+	years = nassco_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Nass" & genLength$species == "Coho"]
+)
+
+plot_abund(nassco_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, nassco_sps)
+
+```
+
+
+#### Pink and Chum {.unnumbered}
+
+Chum and pink salmon spawner abundances were expanded from available spawner surveys from 1950 to 1991, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Nass region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS. From 1992 to 2024, estimates of spawner and total abundance were provided in the 2024 post-season report from the Nisga'a Fisheries and Wildlife Department (@NisgaaFisheriesandWildlifeDepartment20242024NassRiver).
+
+```{r nass pink}
+# Use expanded spawner abundance to 1991 then Nisga'a final report data
+sp <- readRDS("../output/expanded-spawners/Nass-spawners.rds")
+yrs <- as.numeric(dimnames(sp)[[3]])
+
+nasspk <- data.frame(
+	year = c(yrs, 2024),
+	esc = c(round(sp["expanded", "Pink", which(yrs %in% c(1950:1991))]), nass_nisgaa$ESC_Pink),
+	run = c(rep(NA, length(c(1950:1991))), nass_nisgaa$TOTAL_RUN_Pink),
+	source_id = c(rep(nuseds_id, length(c(1950:1991))), rep("Nisgaa_20241203", length(nass_nisgaa$TOTAL_RUN_Pink)))
+)
+
+# Reformat data for SPS
+nasspk_sps <- data.frame(
+	region = rep("Nass", length(nasspk$year)),
+	species = rep("Pink", length(nasspk$year)),
+	year = nasspk$year,
+	spawners = nasspk$esc,
+	smoothedSpawners = NA,
+	runsize = nasspk$run,
+	smoothedRunsize = NA,
+	source_id = nasspk$source_id
+)
+
+# Smoothing
+nasspk_sps$smoothedSpawners <- genSmooth(
+	abund = nasspk_sps$spawners,
+	years = nasspk_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Nass" & genLength$species == "Pink"]
+)
+
+nasspk_sps$smoothedRunsize <- genSmooth(
+	abund = nasspk_sps$runsize,
+	years = nasspk_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Nass" & genLength$species == "Pink"]
+)
+
+plot_abund(nasspk_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, nasspk_sps)
+	
+	
+```
+
+```{r nass chum}
+
+nasscm <- data.frame(
+	year = c(yrs, 2024),
+	esc = c(round(sp["expanded", "Chum", which(yrs %in% c(1950:1991))]), nass_nisgaa$ESC_Chum),
+	run = c(rep(NA, length(c(1950:1991))), nass_nisgaa$TOTAL_RUN_Chum),
+	source_id = c(rep(nuseds_id, length(c(1950:1991))), rep("Nisgaa_20241203", length(nass_nisgaa$TOTAL_RUN_Chum)))
+)
+
+# Reformat data for SPS
+nasscm_sps <- data.frame(
+	region = rep("Nass", length(nasscm$year)),
+	species = rep("Chum", length(nasscm$year)),
+	year = nasscm$year,
+	spawners = nasscm$esc,
+	smoothedSpawners = NA,
+	runsize = nasscm$run,
+	smoothedRunsize = NA,
+	source_id = nasscm$source_id
+)
+
+# Smoothing
+nasscm_sps$smoothedSpawners <- genSmooth(
+	abund = nasscm_sps$spawners,
+	years = nasscm_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Nass" & genLength$species == "Chum"]
+)
+
+nasscm_sps$smoothedRunsize <- genSmooth(
+	abund = nasscm_sps$runsize,
+	years = nasscm_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Nass" & genLength$species == "Chum"]
+)
+
+plot_abund(nasscm_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, nasscm_sps)
+	
+```
+
+
+#### Steelhead {.unnumbered}
+
+The index of Nass steelhead spawner abundance and total return are for the Nass Summer CU, developed in collaboration with the Nisga’a Fish and Wildlife Department and LGL Ltd. [@EnglishEtAl2023PreliminaryAreaSalmon, @NisgaaFisheriesandWildlifeDepartment20242024NassRiver]. There is another steelhead CU in the Nass region - Nass Winter - which is not well monitored and therefore not included in our index of spawner abundance.
+
+```{r nass steelhead}
+
+# Reformat data for SPS
+nasssh_sps <- data.frame(
+	region = rep("Nass", length(nass_nisgaa$Year)),
+	species = rep("Steelhead", length(nass_nisgaa$Year)),
+	year = nass_nisgaa$Year,
+	spawners = nass_nisgaa$ESC_Steelhead, 
+	smoothedSpawners = NA,
+	runsize = nass_nisgaa$TOTAL_RUN_Steelhead,
+	smoothedRunsize = NA,
+	source_id = rep("Nisgaa_20241203",length(nass_nisgaa$Year))
+) 
+
+# Smoothing
+nasssh_sps$smoothedSpawners <- genSmooth(
+	abund = nasssh_sps$spawners,
+	years = nasssh_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Nass" & genLength$species == "Steelhead"]
+)
+
+nasssh_sps$smoothedRunsize <- genSmooth(
+	abund = nasssh_sps$runsize,
+	years = nasssh_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Nass" & genLength$species == "Steelhead"]
+)
+
+plot_abund(nasssh_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, nasssh_sps)
+
+```
+
+### Skeena
+
+#### Chinook {.unnumbered}
+Chinook spawners were taken from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @ChinookTechnicalCommittee2025AnnualReportCatch. Specifically, Skeena River (Area 4) escapement is provided in Table B3 (field `GSI esc`). There is no total return for the Skeena River provided in the CTC data sets.
+
+```{r skeena chinook}
+# Load data ---
+# TCCHINOOK Table B3
+sk_ctc <- readxl::read_xlsx("../data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "A5:G54", col_types = "numeric", col_names = c("Year", "Nass_Above_Gitwinksihlkw2", "Nass_Esc", "Nass_t.run", "Skeena_Total esc.", "Skeena_GSI esc", "Skeena_GSI SD"))
+
+# Reformat data for SPS
+skck_sps <- data.frame(
+	region = rep("Skeena", length(sk_ctc$Year)),
+	species = rep("Chinook", length(sk_ctc$Year)),
+	year = sk_ctc$Year,
+	spawners = sk_ctc$`Skeena_GSI esc`, 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep(ctc_id, length(sk_ctc$Year))
+) 
+
+# Smoothing
+skck_sps$smoothedSpawners <- genSmooth(
+	abund = skck_sps$spawners,
+	years = skck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Skeena" & genLength$species == "Chinook"]
+)
+
+plot_abund(skck_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, skck_sps)
+```
+
+
+#### Sockeye {.unnumbered}
+Skeena sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 4 sockeye from the 2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast]. Data for 2023 were provided by Charmaine Carr-Harris (DFO) on request.
+
+```{r skeena sockeye}
+
+# Compare to NCC run reconstruction: https://github.com/LGLLimited/nccdbv2/tree/master/run/2022-nass-update/data/KarlEnglish-2023-05-29
+skse_LGL <- read.csv("../data/nassskeena_sockeye_lgl.csv") %>%
+	subset(Region == "Skeena") %>%
+	mutate(source_id = "English_20230930")
+
+# From PSC Run Size app:
+skse_ch2 <- read.csv("../data/Chapter2_Data_2025_07_22.csv") %>%
+	filter(Region == "Skeena River") %>%
+	mutate(source_id = "PSC_20250722")
+
+# Add recent year's data from Charmaine (pers. comm. July 24 2025)
+skse_2023 <- data.frame(
+	Year = 2023,
+	TE = 1437788,
+	catch = 656984
+) %>%
+	mutate(Total.Run = TE + catch,
+	source_id = "CarrHarris_20250724")
+
+# combine sources
+skse <- skse_ch2[ , c("Year", "Spawners", "Returns", "source_id")] %>%
+	rename(TE = Spawners,
+				 Total.Run  = Returns) %>%
+	bind_rows(skse_LGL[which(skse_LGL$Year < 1982), c("Year", "TE", "Total.Run", "source_id")]) %>%
+	bind_rows(skse_2023[ c("Year", "TE", "Total.Run", "source_id")]) %>%
+	arrange(Year)
+
+	
+unique(diff(skse$Year)) # Yes, all one year apart
+
+# Reformat data for SPS
+skse_sps <- data.frame(
+	region = rep("Skeena", dim(skse)[1]),
+	species = rep("Sockeye", dim(skse)[1]),
+	year = skse$Year,
+	spawners = skse$TE, 
+	smoothedSpawners = NA,
+	runsize = skse$Total.Run,
+	smoothedRunsize = NA,
+	source_id = skse$source_id
+) 
+
+# Smoothing
+skse_sps$smoothedSpawners <- genSmooth(
+	abund = skse_sps$spawners,
+	years = skse_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Skeena" & genLength$species == "Sockeye"]
+)
+
+skse_sps$smoothedRunsize <- genSmooth(
+	abund = skse_sps$runsize,
+	years = skse_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Skeena" & genLength$species == "Sockeye"]
+)
+
+plot_abund(skse_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, skse_sps)
+```
+
+
+#### Steelhead {.unnumbered}
+The index of Skeena steelhead spawner abundance is derived from estimated escapement of Skeena Summer steelhead at the Tyee Test Fishery (1956 - present), provided by the Province via email. As for other regions, these estimates may not capture winter-run steelhead, for which data are not available.
+
+```{r skeena steelhead}
+# Load data ---
+# Use Skeena steelhead run size from BC Updates
+sksh <- read.csv("../data/SkeenaSteelhead_1956-2024.csv")
+
+
+# Reformat data for SPS
+sksh_sps <- data.frame(
+	region = rep("Skeena", dim(sksh)[1]),
+	species = rep("Steelhead", dim(sksh)[1]),
+	year = sksh$Year,
+	spawners = sksh$TyeeEscapement, 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = "ProvBC_20240929"
+) 
+
+# Smoothing
+sksh_sps$smoothedSpawners <- genSmooth(
+	abund = sksh_sps$spawners,
+	years = sksh_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Skeena" & genLength$species == "Steelhead"]
+)
+
+plot_abund(sksh_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, sksh_sps)
+
+```
+
+
+#### Other Species: Expansion Factors {.unnumbered .tabset}
+
+Skeena chum, coho, and pink salmon spawner abundances in the Skeena were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS.
+
+```{r skeena other species, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (teal) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 32) is shown in red. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
+
+region_spawners <- sp <- readRDS("../output/expanded-spawners/Skeena-spawners.rds")
+yrs <- as.numeric(dimnames(sp)[[3]])
+expansion_factors <- readRDS("../output/expanded-spawners/Skeena-expansion-factors.rds")
+
+sk_table32 <- read.csv("../data/TCNB-23-01_Table32_Area4escapement.csv")
+names(sk_table32) <- c("year", "Sockeye", "Coho", "Pink", "Chum", "Chinook") # Change names to be consistent with species
+
+for(s in 2:4){ 
+	
+	## Make Expansion plots
+	cat("##### ", species[s], " {.unnumbered} \n")
+	cat("\n")
+	
+	added_series.s <- sk_table32 %>% 
+		select(year, species[s]) %>%
+		rename("value" = species[s]) 
+	
+plot_expansions(speciesname = species[s],
+									regionname = "Skeena",
+									region_spawners = region_spawners,
+									expansion_factors = expansion_factors,
+									added_series = added_series.s)
+
+	cat("\n")
+	
+	## Process data 
+	skeena.s <- sp[2, species[s], ]
+	skeena.s <- skeena.s[!is.na(skeena.s)]
+	
+	# Reformat data for SPS
+	skeena.s_sps <- data.frame(
+		region = rep("Skeena", length(skeena.s)),
+		species = rep(species[s], length(skeena.s)),
+		year = as.numeric(names(skeena.s)),
+		spawners = as.numeric(skeena.s), 
+		smoothedSpawners = NA,
+		runsize = NA,
+		smoothedRunsize = NA,
+		source_id = rep(nuseds_id, length(skeena.s))
+	) 
+	
+	# Smoothing
+	skeena.s_sps$smoothedSpawners <- genSmooth(
+		abund = skeena.s_sps$spawners,
+		years = skeena.s_sps$year,
+		genLength = genLength$gen_length[genLength$region == "Skeena" & genLength$species == species[s]]
+	)
+	
+	#plot_abund(skeena.s_sps) # messes up tabs - figure out how to include?
+	
+	# Add to master sps dataframe
+	sps_data <- rbind(sps_data, skeena.s_sps)
+}
+
+```
+
+### Central Coast
+
+#### Chinook {.unnumbered}
+
+For Central Coast Chinook, the PSC's Chinook Technical Committee (CTC) reported escapement for two indicator stocks on the Central Coast: the Atnarko River and Rivers Inlet [@ChinookTechnicalCommittee2025AnnualReportCatch]. Rivers Inlet is monitored "using an index of escapements to the Wannock, Kilbella, and Chuckwalla rivers" [@ChinookTechnicalCommittee2025AnnualReportCatch]. Because monitoring of Central Coast Chinook reported in NuSEDS has recently declined, expansions from spawner surveys are unreliable. As such, in 2025 we moved to using a composite indicator equal to the sum of the Atnarko River (`Total esc.`) and Rivers Inlet index reported by the CTC in Appendix Table B3.
+
+```{r central coast chinook, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** Comparison of Chinook escapements on the Central Coast."}
+
+## Load data ---
+# TCCHINOOK Table B3
+cc_ctc <- readxl::read_xlsx("../data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "H5:K54", col_types = "numeric", col_names = c("Atnarko_Total_esc", "Atnarko_CV", "Atnarko_Wild", "Rivers_Inlet")) %>%
+	mutate(Year = c(1975:2024))
+
+# Reformat data for SPS
+ccck_sps <- data.frame(
+	region = rep("Central Coast", length(cc_ctc$Year)),
+	species = rep("Chinook", length(cc_ctc$Year)),
+	year = cc_ctc$Year,
+	spawners = cc_ctc$Atnarko_Total_esc + cc_ctc$Rivers_Inlet, 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep(ctc_id, length(cc_ctc$Year))
+) 
+
+# Smoothing
+ccck_sps$smoothedSpawners <- genSmooth(
+	abund = ccck_sps$spawners,
+	years = ccck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Central Coast" & genLength$species == "Chinook"]
+)
+
+plot_abund(ccck_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, ccck_sps)
+
+
+## Code to generate index comparison plot:
+# Expanded spawner estimate
+ccck_ex <- readRDS("../output/expanded-spawners/Central Coast-spawners.rds")[2, "Chinook", ]
+yrs <- as.numeric(names(ccck_ex))
+
+e <- readRDS("../output/expanded-spawners/Central Coast-expansion-factors.rds")[[1]]
+
+# TCCHINOOK Table B3
+cc_ctc <- readxl::read_xlsx("../data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B3", range = "H5:K54", col_types = "numeric", col_names = c("Atnarko_Total_esc", "Atnarko_CV", "Atnarko_Wild", "Rivers_Inlet")) %>%
+	mutate(Year = c(1975:2024))
+
+par(mar = c(3,4,2,4))
+plot(yrs, e$exp1, pch = 4, bty = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "", col = grey(0.6), ylim = c(0, 30), lwd = 2)
+axis(side = 4, col = grey(0.6), las = 1)
+mtext(side = 4, line = 2.5, "Expansion factor x", col = grey(0.6))
+par(new = TRUE)
+
+plot(yrs, ccck_ex*10^-3, "o", pch = 21, bg = "white", bty = "l", xlab = "", ylab = "Spawner abundance (thousands)", ylim = c(0, 150), las = 1, yaxs = "i")
+abline(v = seq(1950, 2025, 5), lty = 3, col = grey(0.8))
+abline(h = seq(0, 150, 50), lty = 3, col = grey(0.8))
+points(cc_ctc$Year, cc_ctc$Atnarko_Total_esc*10^-3, "o", pch = 21, bg = "white", col = 2)
+points(cc_ctc$Year, cc_ctc$Rivers_Inlet*10^-3, "o", pch = 21, bg = "white", col = 4)
+points(cc_ctc$Year, cc_ctc$Atnarko_Total_esc*10^-3 + cc_ctc$Rivers_Inlet*10^-3, pch = 19, col = "purple", cex = 0.6)
+
+legend("topleft", col = c(1,2,4, "purple"), c("NuSEDS expansion", "CTC Atnarko Total esc.", "CTC Rivers Inlet index esc.", "CTC sum"), pch = c(rep(21, 3), 19), pt.bg = "white", lwd = c(rep(1, 3),NA), bty = "n")
+
+
+```
+
+#### Steelhead {.unnumbered}
+
+There are two spawner surveys for Steelhead trout on the Central Coast that we report in the Pacific Salmon Explorer. However, these surveys have been patchy through time with the most recent estimates from 2016. Therefore, spawner abundance and total return for Central Coast steelhead was considered unknown.
+
+#### Other Species: Expansion Factors  {.unnumbered .tabset}
+
+Estimates of spawner abundance for all other salmon species on the Central Coast were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Monitoring and reporting of observed spawners on the Central Coast has declined in recent decades, thus requiring larger expansion factors to arrive at an area-wide estimate that can be compared through time. As such, estimates of spawner abundance for the Central Coast over the past decade are more uncertain and should be interpreted with caution. 
+
+
+```{r, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+
+region_spawners <- sp <- readRDS("../output/expanded-spawners/Central Coast-spawners.rds")
+yrs <- as.numeric(dimnames(sp)[[3]])
+expansion_factors <- readRDS("../output/expanded-spawners/Central Coast-expansion-factors.rds")
+
+	
+for(s in 2:5){ 
+	
+	## Process data
+	cc.s <- sp[2, species[s], ]
+	# cc.s <- cc.s[!is.na(cc.s)] # There is a missing year for Chinook in 2016...
+	
+	# Reformat data for SPS
+	cc.s_sps <- data.frame(
+		region = rep("Central Coast", length(cc.s)),
+		species = rep(species[s], length(cc.s)),
+		year = as.numeric(names(cc.s)),
+		spawners = as.numeric(cc.s), 
+		smoothedSpawners = NA,
+		runsize = NA,
+		smoothedRunsize = NA,
+		source_id = rep(nuseds_id, length(cc.s))
+	) 
+	
+	# Smoothing
+	cc.s_sps$smoothedSpawners <- genSmooth(
+		abund = cc.s_sps$spawners,
+		years = cc.s_sps$year,
+		genLength = genLength$gen_length[genLength$region == "Central Coast" & genLength$species == species[s]]
+	)
+	
+	plot_abund(cc.s_sps)
+	
+	# Add to master sps dataframe
+	sps_data <- rbind(sps_data, cc.s_sps)
+	
+	## Generate expansion plots
+	cat("##### ", species[s], " {.unnumbered} \n")
+	cat("\n")
+	
+	plot_expansions(speciesname = species[s],
+									regionname = "Central Coast",
+									region_spawners = region_spawners,
+									expansion_factors = expansion_factors,
+									added_series = NULL)
+		
+	cat("\n")
+}
+
+```
+
+<!-- Note that the designation of indicator streams for the Central Coast region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS. SP: Not the case for 2025 update. -->
+
+### East Vancouver Island & Mainland Inlets
+
+In the 2025 State of Salmon report, we have split the former "Vancouver Island & Mainland Inlets" region into two: East Vancouver Island & Mainland Inlets and West Vancouver Island. This split was made to better reflect the different ecology and habitats of salmon between the regions that may lead to different status and trends.
+
+#### Chinook {.unnumbered}
+
+PSC's Chinook Technical Committee (CTC) reports escapement (spawner abundance) and run size (total abundance) for three indicator stocks in the Strait of Georgia: Nanaimo, Cowichan, and Phillips [@ChinookTechnicalCommittee2025AnnualReportCatch]. We report spawner abundance and total abundance as the sum of `Esc` and `t.run`, respectively, across these three indicator stocks as reported in Appendix Table B4 available from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/).
+
+```{r east VI chinook}
+## Load data --
+# (1) CTC data
+evimi_ctc <- readxl::read_xlsx("../data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B4", range = "A5:G54", col_types = "numeric", col_names = c("Year", "Nanaimo_esc", "Nanaimo_trun", "Cowichan_esc", "Cowichan_trun", "Phillips_esc", "Phillips_trun")) # Southern BC
+
+evimi_ctc_summed <- evimi_ctc %>%
+	group_by(Year) %>%
+	summarise(esc_sum = sum(Nanaimo_esc, Cowichan_esc, Phillips_esc),
+						trun_sum = sum(Nanaimo_trun, Cowichan_trun, Phillips_trun))
+
+# Put in SPS format
+evimick_sps <- data.frame(
+	region = rep("East Vancouver Island & Mainland Inlets", dim(evimi_ctc_summed)[1]),
+	species = rep("Chinook", dim(evimi_ctc_summed)[1]),
+	year = evimi_ctc_summed$Year,
+	spawners = evimi_ctc_summed$esc_sum, 
+	smoothedSpawners = NA,
+	runsize = evimi_ctc_summed$trun_sum,
+	smoothedRunsize = NA,
+	source_id = rep(ctc_id, dim(evimi_ctc_summed)[1])
+) 
+
+# Smoothing
+evimick_sps$smoothedSpawners <- genSmooth(
+	abund = evimick_sps$spawners,
+	years = evimick_sps$year,
+	genLength = genLength$gen_length[genLength$region == "East Vancouver Island & Mainland Inlets" & genLength$species == "Chinook"]
+)
+
+evimick_sps$smoothedRunsize <- genSmooth(
+	abund = evimick_sps$runsize,
+	years = evimick_sps$year,
+	genLength = genLength$gen_length[genLength$region == "East Vancouver Island & Mainland Inlets" & genLength$species == "Chinook"]
+)
+
+plot_abund(evimick_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, evimick_sps)
+```
+
+
+```{r east VI chinook figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** Spanwer abundance (open, light) and total abundance (closed, dark) for three CTC indicator stocks and the sum, used to assess EVIMI Chinook."}
+
+evimi_ctc <- readxl::read_xlsx("../data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B4", range = "A5:G54", col_types = "numeric", col_names = c("Year", "Nanaimo_esc", "Nanaimo_trun", "Cowichan_esc", "Cowichan_trun", "Phillips_esc", "Phillips_trun")) # Southern BC
+	
+plot(evimi_ctc$Year, (evimi_ctc$Nanaimo_trun + evimi_ctc$Cowichan_trun + evimi_ctc$Phillips_trun)*10^-3, "o", pch = 19, bty = "l", ylim = c(0, 35), yaxs = "i", las = 1, xlab = "", ylab = "Abundance (thousands)", xpd = NA)
+abline(v = seq(1975, 2025, 5), lty = 3, col = grey(0.8))
+abline(h = seq(0, 35, 5), lty = 3, col = grey(0.8))
+
+points(evimi_ctc$Year, (evimi_ctc$Nanaimo_esc + evimi_ctc$Cowichan_esc + evimi_ctc$Phillips_esc)*10^-3, "o", col = "#00000050", pch = 21, bg = "white")
+
+ind_cols <- c("#F8766D", "#7CAE00", "#00BFC4", "#C77CFF")
+for(i in 1:3){
+	points(evimi_ctc$Year, data.frame(evimi_ctc)[, i*2]*10^-3, "o", col = paste0(ind_cols[i], "60"), pch = 21, bg = "white", cex = 0.8)
+	points(evimi_ctc$Year, data.frame(evimi_ctc)[, i*2 + 1]*10^-3, "o", col = ind_cols[i], pch = 19, cex = 0.8)
+}
+
+legend("topleft", pch = 19, pt.cex = c(rep(0.8, 3), 1), lwd = 1, c("Nanaimo", "Cowichan", "Phillips", "Sum of indices"), col = c(ind_cols[1:3], 1), bty = "n")
+
+```
+
+#### Other Species: Expansion Factors {.unnumbered .tabset}
+
+Initial time series of spawner abundances for all other salmon in East Vancouver Island & Mainland Inlets were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). For the assessments, we truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+
+```{r, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+
+region_spawners <- readRDS("../output/expanded-spawners/East Vancouver Island & Mainland Inlets-spawners.rds")
+yrs <- as.numeric(dimnames(sp)[[3]])
+expansion_factors <- readRDS("../output/expanded-spawners/East Vancouver Island & Mainland Inlets-expansion-factors.rds")
+
+	
+for(s in 2:6){ ## CHANGED from 1:5 by HH - should include steelhead, not Chinook?
+	## Process data
+	evimi.s <- sp[2, species[s], ]
+	
+	# Get rid of NAs (esp in 2024)
+	evimi.s <- evimi.s[1:max(which(!is.na(evimi.s)))]
+	
+	# For all VIMI species, start in 1953 - earlier expansion factors are large
+	evimi.s	<- evimi.s[which(as.numeric(names(evimi.s)) >= 1953)]
+	
+	# Reformat data for SPS
+	evimi.s_sps <- data.frame(
+		region = rep("East Vancouver Island & Mainland Inlets", length(evimi.s)),
+		species = rep(species[s], length(evimi.s)),
+		year = as.numeric(names(evimi.s)),
+		spawners = as.numeric(evimi.s), 
+		smoothedSpawners = NA,
+		runsize = NA,
+		smoothedRunsize = NA,
+		source_id = rep(nuseds_id, length(evimi.s))
+	) 
+	
+	# Smoothing
+	evimi.s_sps$smoothedSpawners <- genSmooth(
+		abund = evimi.s_sps$spawners,
+		years = evimi.s_sps$year,
+		genLength = genLength$gen_length[genLength$region == "East Vancouver Island & Mainland Inlets" & genLength$species == species[s]]
+	)
+	
+	plot_abund(evimi.s_sps)
+	
+	# Add to master sps dataframe
+	sps_data <- rbind(sps_data, evimi.s_sps)
+	
+	## Make expansion plots
+	cat("##### ", species[s], " {.unnumbered} \n")
+	cat("\n")
+	
+	added_series.s <- sps_data %>% 
+		filter(region == "East Vancouver Island & Mainland Inlets", species == species[s]) %>%
+		select(year, spawners) %>%
+		rename("value" = "spawners")
+	
+	plot_expansions(speciesname = species[s],
+									regionname = "East Vancouver Island & Mainland Inlets",
+									region_spawners = region_spawners,
+									expansion_factors = expansion_factors,
+									added_series = added_series.s)
+		abline(v = 1952.5)
+		text(1953, 5, "Data prior to 1953 were discarded", adj = 0)
+	cat("\n")
+}
+
+```
+
+
+### West VI
+
+In the 2025 State of Salmon report, we have split the former "Vancouver Island & Mainland Inlets" region into two: East Vancouver Island & Mainland Inlets and West Vancouver Island. This split was made to better reflect the different ecology and habitats of salmon between the regions that may lead to different status and trends. 
+
+#### Chinook {.unnumbered}
+For Chinook spawner abundance, we used the West Coast Vancouver Island (WCVI) 14-stream index escapements of Pacific Salmon Commission Chinook Technical Committee wild Chinook salmon escapement indicator stocks, available in Appendix B5 of @ChinookTechnicalCommittee2025AnnualReportCatch Streams were selected to represent WVI Chinook populations "with little or no hatchery influence" [@ChinookTechnicalCommittee2025AnnualReportCatch]. **We truncated this time series to only include years from 1995 onwards, because earlier escapement estimates used different methodology and have not been calibrated [@ChinookTechnicalCommittee2025AnnualReportCatch].** Chinook total abundance was recently reported bg DFO  [@DFO2025WestCoastVancouver]. The data shown in Figure 3 of @DFO2025WestCoastVancouver are available for download at https://zenodo.org/records/14847020 [accessed 25-Aug-2025]. We assumed that total abundance is the sum of the (non-terminal) ocean catch, hatchery-origin terminal return, and natural-origin terminal return. We note that this estimate of total abundance represents a total count of all Chinook from the region, and thus cannot be compared to the index of spawner abundance, which represents only a proportion of those fish. 
+
+```{r west VI chinook}
+## Load data ---
+wvi_ck_raw <- readxl::read_xlsx("../data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B5", range = "K24:K53", col_names = "WCVI_14Stream_Index") %>%
+	mutate(Year = c(1995:2024))
+# Escapement methods changed in 1995; only use earlier data for assessments
+
+# West Vancouver Island from Brown et al. 2025
+wvi_ck_tot_raw <- read_xlsx("../data/WCVI_Chinook_total_abundance.xlsx")
+
+wvi_ck_tot_raw$total_abundance <-  wvi_ck_tot_raw$`Hatchery origin Terminal Return` + wvi_ck_tot_raw$`Natural origin Terminal Return` +  wvi_ck_tot_raw$`non-terminal Ocean catch`
+
+yrs <- sort(unique(c(wvi_ck_tot_raw$`Return year`, wvi_ck_raw$Year)))
+
+# Put in SPS format
+wvick_sps <- data.frame(
+	region = rep("West Vancouver Island", length(yrs)),
+	species = rep("Chinook", length(yrs)),
+	year = yrs,
+	spawners = wvi_ck_raw$WCVI_14Stream_Index[match(yrs, wvi_ck_raw$Year)], 
+	smoothedSpawners = NA,
+	runsize = wvi_ck_tot_raw$total_abundance[match(yrs, wvi_ck_tot_raw$`Return year`)],
+	smoothedRunsize = NA,
+	source_id = rep(paste(ctc_id, "Brown_20250703", sep = ", "), length(yrs))
+) 
+
+# Smoothing
+wvick_sps$smoothedSpawners <- genSmooth(
+	abund = wvick_sps$spawners,
+	years = wvick_sps$year,
+	genLength = genLength$gen_length[genLength$region == "West Vancouver Island" & genLength$species == "Chinook"]
+)
+
+wvick_sps$smoothedRunsize <- genSmooth(
+	abund = wvick_sps$runsize,
+	years = wvick_sps$year,
+	genLength = genLength$gen_length[genLength$region == "West Vancouver Island" & genLength$species == "Chinook"]
+)
+
+plot_abund(wvick_sps)
+
+if(1 == 2){
+	avg <- c(spawners = exp(mean(log(wvick_sps$spawners), na.rm = TRUE)),
+	total = exp(mean(log(wvick_sps$runsize), na.rm = TRUE)))
+
+	plot(wvick_sps$year, (wvick_sps$smoothedRunsize - avg[2])/avg[2], "o", pch = 19)
+	abline(h= avg[2])
+	points(wvick_sps$year, (wvick_sps$smoothedSpawners - avg[1])/avg[1], "o", col = grey(0.6))
+
+}
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, wvick_sps)
+```
+
+
+#### Sockeye {.unnumbered}
+Reconstructions of sockeye spawners and recruitment are compelted by DFO (Nicholas Brown, pers. comm.) for three Conservation Units on West Vancouver Island: Sproat, Great Central, and Hucuktlis (formerly Henderson). We used the sum of spawners and total return for these three Conservation Units as the index of sockeye spawner and total abundance for WVI. We acknowledge that this index does not account for lake-type sockeye in other watersheds (e.g., Muchalat, Kennedy, Clayoquot) or river-type sockeye in West Vancouver Island and Northwest Vancouver Island CUs, which tend to be in much lower abundance.
+
+```{r west VI sockeye}
+
+# Sum of CU abundance from Sproat, Great Central, and Henderson
+## Load data ---
+wvi_se_raw <- readxl::read_xlsx("../data/Barkley_Sockeye_stock-recruit_infilled.xlsx", sheet = "S-R data")
+
+wvi_se_summed <- wvi_se_raw %>%
+	dplyr::select(year, stock, S, N) %>% # S = escapement, N = annual terminal run size
+	filter(year >= 1977) %>% # Remove 1972 to 2076 for HUC because not available for other stocks
+	group_by(year) %>%
+	summarise(totalS = sum(S),
+						totalN = sum(N))
+
+# plot(wvi_se_summed$year, wvi_se_summed$totalN, "o", ylim = c(0, 2e6), main = "WVI Sockeye", xlab = "", ylab = "")
+# points(wvi_se_summed$year, wvi_se_summed$totalS, "o",  col = 2)
+# points(yrs, sp[2, "Sockeye", ], "o", col = 4)
+# legend("topleft", col = c(1,2,4), c("3 CU - Total run", "3 CU - Escape.", "NuSEDS expanded"), pch = 1, lty = 1)
+
+# Reformat data for SPS
+wvise_sps <- data.frame(
+	region = rep("West Vancouver Island", dim(wvi_se_summed)[1]),
+	species = rep("Sockeye", dim(wvi_se_summed)[1]),
+	year = wvi_se_summed$year,
+	spawners = wvi_se_summed$totalS, 
+	smoothedSpawners = NA,
+	runsize = wvi_se_summed$totalN,
+	smoothedRunsize = NA,
+	source_id = rep("Brown_20250417", dim(wvi_se_summed)[1])
+) 
+
+# Smoothing
+wvise_sps$smoothedSpawners <- genSmooth(
+	abund = wvise_sps$spawners,
+	years = wvise_sps$year,
+	genLength = genLength$gen_length[genLength$region == "West Vancouver Island" & genLength$species == "Sockeye"]
+)
+
+wvise_sps$smoothedRunsize <- genSmooth(
+	abund = wvise_sps$runsize,
+	years = wvise_sps$year,
+	genLength = genLength$gen_length[genLength$region == "West Vancouver Island" & genLength$species == "Sockeye"]
+)
+
+plot_abund(wvise_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, wvise_sps)
+```
+
+
+#### Other Species: Expansion Factors   {.unnumbered .tabset}
+For chum, coho, pink, and steelhead, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2024) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+
+For most species we relied on NuSEDS' designations of indicator or non-indicator streams, but for pink salmon in this region we designated indicator streams as those with at least 10 years of data in the most recent 20 years. As a result, expansion factors were higher in historical years, but data from both indicator and non-indicator streams show markedly higher counts in the period 1960-1980 then in subsequent decades and it is unlikely that the observed decline is a result of uncertain expansions. 
+
+```{r west VI other species, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+
+region_spawners <- sp <- readRDS("../output/expanded-spawners/West Vancouver Island-spawners.rds")
+yrs <- as.numeric(dimnames(sp)[[3]])
+expansion_factors <- readRDS("../output/expanded-spawners/West Vancouver Island-expansion-factors.rds")
+
+	
+for(s in c(2,3,4,6)){ # CHANGED by HH from 2:4 to include steelhead
+	
+	## Process data ---
+		wvi.s <- sp[2, species[s], ]
+	# Get rid of NAs (esp in 2024)
+	wvi.s <- wvi.s[1:max(which(!is.na(wvi.s)))]
+	
+	# For all VIMI species, start in 1953 - earlier expansion factors are large
+	wvi.s	<- wvi.s[which(as.numeric(names(wvi.s)) >= 1953)]
+	
+	# Reformat data for SPS
+	wvi.s_sps <- data.frame(
+		region = rep("West Vancouver Island", length(wvi.s)),
+		species = rep(species[s], length(wvi.s)),
+		year = as.numeric(names(wvi.s)),
+		spawners = as.numeric(wvi.s), 
+		smoothedSpawners = NA,
+		runsize = NA,
+		smoothedRunsize = NA,
+		source_id = rep(nuseds_id, length(wvi.s))
+	) 
+	
+	# Smoothing
+	wvi.s_sps$smoothedSpawners <- genSmooth(
+		abund = wvi.s_sps$spawners,
+		years = wvi.s_sps$year,
+		genLength = genLength$gen_length[genLength$region == "West Vancouver Island" & genLength$species == species[s]]
+	)
+	
+	#plot_abund(wvi.s_sps) # breaks tabs - figure out how to include it
+	
+	# Add to master sps dataframe
+	sps_data <- rbind(sps_data, wvi.s_sps)
+	
+	## Make expansion plots ---
+	cat("##### ", species[s], " {.unnumbered} \n")
+	cat("\n")
+	
+	# added_series.s <- sps_data %>%
+	# 	filter(region == "West Vancouver Island", species == species[s]) %>%
+	# 	select(year, spawners) %>%
+	# 	rename("value" = "spawners")
+		
+	plot_expansions(speciesname = species[s],
+									regionname = "West Vancouver Island",
+									region_spawners = region_spawners,
+									expansion_factors = expansion_factors)#,
+									# added_series = added_series.s)
+		abline(v = 1952.5)
+		text(1953, par('usr')[4]/3, "Data prior to 1953 were discarded", adj = 0)
+	
+		rm(added_series.s)
+		cat("\n")
+	
+}
+
+```
+
+
+### Fraser
+
+#### Chinook {.unnumbered}
+<!-- River-level spawner abundance for Fraser Chinook found in NuSEDS can be highly unreliable, thus we based our expansions on only the most intensively monitored streams that have been deemed as reliable estimates of abundance by @BrownEtAl20202020SummaryAbundance. These streams are those shown in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca), and the associated data can be accessed from the stream survey data in the [SWP Data Library](https://data.salmonwatersheds.ca/result?datasetid=1). We also truncated the Chinook index of abundance to 1984 and more recent data, as earlier years have been deemed unreliable [@BrownEtAl20202020SummaryAbundance] and from 1984 onward spawner estimates mirrored those reported by @AtlasEtAl2023TrendsChinookSalmon. For Chinook total return, we used the sum of total run for four Fraser populations (Harrison, Nicola, Lower Shuswap, and South Thompson - all) reported in @AtlasEtAl2023TrendsChinookSalmon and available from the associated [GitHub repository](https://github.com/willatlas/ChinookEscapement-RunSize). -->
+
+Escapement of Fraser Chinook is provided in the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @ChinookTechnicalCommittee2025AnnualReportCatch. We took the sum of escapement to five major stocks from Table B6 (Fraser Spring 4-2 (age 1.2), Fraser Spring 5-2 (age 1.3), Fraser Summer 5-2 (age 1.3), Fraser Summer 4-1 (age 0.3), and Harrison (Fraser Fall 4-1, age 0.3)) as an index of spawner abundance. Total run size is also reported in Table B6 for the Spring/Summer runs, and we use this as an index of total abundance for Fraser Chinook, noting that it excludes the Fall 4-1 stock.
+
+```{r fraser chinook}
+# Data from Chuck Parken (shared 23-Oct-2025 via email)
+frck_cp <- readxl::read_xlsx("../data/Fraser Chinook escapement and terminal run by SMU.xlsx", range = "A3:K52", col_names = c("year", "spr12_esc", "spr12_run", "spr13_esc", "spr13_run", "sum13_esc", "sum13_run", "sum03_esc", "sum03_run", "harrisonfall03_esc", "harrisonfall03_run"))
+
+# Cut data to only 1984 onward when Harrison data were available.
+frck_cp <- frck_cp %>% dplyr::filter(year >= 1984)
+
+# Numbers match CTC except that t.run from CTC doesn't include Harrison fall. So need to add that in
+frck_cp_esc <- round(apply(frck_cp[, grep("esc", names(frck_cp))], 1, sum))
+frck_cp_run <- round(apply(frck_cp[, grep("run", names(frck_cp))], 1, sum))
+
+
+yrs <- frck_cp$year
+# Put in SPS format
+frck_sps <- data.frame(
+	region = rep("Fraser", length(yrs)),
+	species = rep("Chinook", length(yrs)),
+	year = yrs,
+	spawners = frck_cp_esc,
+	smoothedSpawners = NA,
+	runsize = frck_cp_run,
+	smoothedRunsize = NA,
+	source_id = rep("Parken_20251023", length(yrs))
+) 
+	
+	# Smoothing
+frck_sps$smoothedSpawners <- genSmooth(
+		abund = frck_sps$spawners,
+		years = frck_sps$year,
+		genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chinook"]
+	)
+
+frck_sps$smoothedRunsize <- genSmooth(
+	abund = frck_sps$runsize,
+	years = frck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chinook"]
+)
+
+plot_abund(frck_sps)
+(tail(frck_sps$smoothedRunsize, 1) - exp(mean(log(frck_sps$runsize), na.rm = TRUE)))/exp(mean(log(frck_sps$runsize), na.rm = TRUE))
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, frck_sps)
+```
+
+
+```{r fraser chinook figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Aggregate escapement of Fraser Chinook (black open points; thick black line is smoothed spawner abundance) with the contribution of escapement to each of five stocks shown as coloured regions below the line. Note that the Harrison River (Fall 4-1) time series begins later (1984) than the other four stocks (1975), and thus we only report spawner abundance from 1984 onward. (b) The proportional contribution of each of five stocks to aggregate Fraser Chinook escapement."}
+ctc_fr <- readxl::read_xlsx("../data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A3:P53", col_types = "numeric")
+names(ctc_fr) <- c("Year", "Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Fraser Spring/Summer t.run", "Harrison Esc", "Harrison CV", "Lower Shuswap Esc", "Lower Shuswap CV", "Nicola Esc", "Nicola CV", "Lower Chilcotin Esc", "Lower Chilcotin CV", "Chilko Esc", "Chilko CV")
+ctc_esc <- ctc_fr %>% dplyr::select(c("Year", "Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Harrison Esc"))
+ctc_esc_sum <- apply(ctc_esc[, c("Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Harrison Esc")], 1, sum)
+
+ctc_trun_sum <- ctc_fr$`Fraser Spring/Summer t.run`
+
+col_frck <- viridisLite::viridis(n = 5)
+
+par(mfrow = c(2,1))
+plot(ctc_esc$Year, ctc_esc_sum*10^-3, "n", bty = "l", las = 1, ylab = "Spawner abundance (thousands)", ylim = c(0, 750), yaxs = "i")
+for(i in c(1:5)){
+	# lines(ctc_esc$Year, data.frame(ctc_esc)[,i] * 10^-3, "l", col = col_frck[i])
+	if(i == 1){
+		y1 <- rep(0, length(ctc_esc$Year))
+		y2 <- data.frame(ctc_esc)[,2]
+	} else if(i == 2){
+		y1 <-  data.frame(ctc_esc)[,2]
+		y2 <- apply(data.frame(ctc_esc)[,2:3], 1, sum)
+	} else { 
+		y1 <-  apply(data.frame(ctc_esc)[,2:i], 1, sum)
+		y2 <- apply(data.frame(ctc_esc)[,2:(i+1)], 1, sum)
+	}
+	
+	yr <- ctc_esc$Year
+	if(i == 5){
+		yr <- ctc_esc$Year[!is.na(ctc_esc$`Harrison Esc`)]
+		y1 <- y1[!is.na(ctc_esc$`Harrison Esc`)]
+		y2 <- y2[!is.na(ctc_esc$`Harrison Esc`)]
+	}
+	polygon(x = c(yr, rev(yr)),
+					y = c(y1, rev(y2))*10^-3,
+					col = col_frck[i], border = NA)
+}
+points(ctc_esc$Year, ctc_esc_sum*10^-3, "o", pch = 21, bg = "white", xpd = NA)
+lines(ctc_esc$Year, genSmooth(
+		abund = ctc_esc_sum,
+		years = ctc_esc$Year,
+		genLength = 5
+	)*10^-3, lwd = 1.5)
+legend("topleft", fill = col_frck, border = NA, bty = "n", c("Spring 4-2", "Spring 5-2", "Summer 4-1", "Summer 5-2", "Fall 4-1 (Harrison)"))
+mtext(side = 3, line = 0.5, "a) Escapement to five Fraser Chinook stocks", adj = 0)
+
+# Proportion
+plot(ctc_esc$Year, ctc_esc_sum, "n", bty = "l", las = 1, ylab = "Proportion of spawner abundance", ylim = c(0, 1), yaxs = "i")
+for(i in c(1:5)){
+	# lines(ctc_esc$Year, data.frame(ctc_esc)[,i] * 10^-3, "l", col = col_frck[i])
+	if(i == 1){
+		y1 <- rep(0, length(ctc_esc$Year))
+		y2 <- data.frame(ctc_esc)[,2]
+	} else if(i == 2){
+		y1 <-  data.frame(ctc_esc)[,2]
+		y2 <- apply(data.frame(ctc_esc)[,2:3], 1, sum)
+	} else { 
+		y1 <-  apply(data.frame(ctc_esc)[,2:i], 1, sum)
+		y2 <- apply(data.frame(ctc_esc)[,2:(i+1)], 1, sum)
+	}
+	
+	
+	polygon(x = c(ctc_esc$Year, rev(ctc_esc$Year)),
+					y = c(y1/ctc_esc_sum, rev(y2/ctc_esc_sum)),
+					col = col_frck[i], border = NA)
+}
+axis(side = 1, at = c(1975:2025), tck = -0.01, labels = FALSE)
+abline(v = seq(1975, 2025, 5))
+abline(v = seq(1970, 2024, 1), lty = 2, lwd = 0.5)
+mtext(side = 3, line = 0.5, "b) Proportional contribution of five stocks to aggregate escapement", adj = 0)
+
+
+```
+
+#### Chum {.unnumbered}
+Fraser chum catch and escapement are reported by PSC's Chum Technical Committee [@20232019PostSeasonSummary], and were provided to us on request to Brittany Jenewin (DFO, pers. comm.). For 2023 and 2024, estimates were extracted from the [Fraser Management Council post-season review](https://frasersalmon.ca/wp-content/uploads/2025/01/2024-Fraser-Coho-and-Chum-Post-season-Review-2025-01-28-FINAL-1.pdf).
+
+```{r fraser chum}
+# (2) Use TCCHUM Fraser data
+frcm_esc <- readxl::read_xlsx("../data/ChumTC Report Tables - full time series up to 2022.xlsx", sheet = "3-11", range = "A4:B29") %>%
+	rename(year = "...1", esc = "Fraser River")
+
+frcm_catch1 <- readxl::read_xlsx("../data/ChumTC Report Tables - full time series up to 2022.xlsx", sheet = "3-8", range = "A3:G30") %>%
+	rename(year = "Year", catch = "Total") %>%
+	dplyr::select(year, catch)
+
+
+frcm_catch2 <- readxl::read_xlsx("../data/ChumTC Report Tables - full time series up to 2022.xlsx", sheet = "3-9", range = "A4:G31") %>%
+	rename(year = "...1", catch = "Total") %>%
+	dplyr::select(year, catch)
+
+# Find years when catch and escapement are reported
+yrs_tcchum <- c(max(c(min(frcm_esc$year), min(frcm_catch1$year), min(frcm_catch2$year))):min(c(max(frcm_esc$year), max(frcm_catch1$year), max(frcm_catch2$year)))) #1998:2022
+
+frcm_run <- frcm_esc$esc[match(yrs_tcchum, frcm_esc$year)] + frcm_catch1$catch[match(yrs_tcchum, frcm_catch1$year)] + frcm_catch2$catch[match(yrs_tcchum, frcm_catch2$year)] 
+	
+# Data extracted from Fraser Management council post-season review presentation
+# https://frasersalmon.ca/wp-content/uploads/2025/01/2024-Fraser-Coho-and-Chum-Post-season-Review-2025-01-28-FINAL-1.pdf
+frcm_FMC <- read.csv("../data/FraserChum_FMC.csv")
+
+# Data from PSC post-season (Brittany Jenewin)
+frcm_PSC <- read.csv("../data/FraserChum_PSC.csv")
+
+frcm <- frcm_esc %>%
+	mutate(runsize = frcm_run) %>%
+	bind_rows(data.frame(
+		year = c(2023, 2024),
+		esc = frcm_PSC$escapement[match(c(2023, 2024), frcm_PSC$year)],
+		runsize = frcm_PSC$total_run[match(c(2023, 2024), frcm_PSC$year)]
+	))
+
+
+# Put in SPS format
+frcm_sps <- data.frame(
+	region = rep("Fraser", length(frcm$year)), 
+	species = rep("Chum", length(frcm$year)), 
+	year = frcm$year, 
+	spawners = frcm$esc,  
+	smoothedSpawners = NA,
+	runsize = frcm$runsize,
+	smoothedRunsize = NA,
+	source_id = c(rep("Jenewin_20240416", nrow(frcm_esc)), rep("DFO_20250128", 2))
+) 
+
+# Smoothing
+frcm_sps$smoothedSpawners <- genSmooth(
+	abund = frcm_sps$spawners,
+	years = frcm_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chum"]
+)
+
+frcm_sps$smoothedRunsize <- genSmooth(
+	abund = frcm_sps$runsize,
+	years = frcm_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chum"]
+)
+
+plot_abund(frcm_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, frcm_sps)
+
+```
+
+
+#### Coho {.unnumbered}
+For interior Fraser coho CUs, spawner abundance and total return to 2022 were provided by DFO on data request (pers. comm. Marissa Glavas, Data Manager, Fraser River Stock Assessment). We report total return as the sum of "Total Pre-Fishery Abundance" to all CUs and spawner abundance as the sum of "Total Return" (i.e., final spawner estimate plus fish removed from the system by DFO Salmon Enhancement Program or First Nations) to all CUs (we note the term "total return" is used differently in this data set to represent spawners!). We recognize that using these estimates ignores coastal coho populations, for which monitoring has been patchy through time. Spawner and run size for 2023 and preliminary spawner abundance for 2024 were taken from the presentation of [2025/26 Southern B.C. Salmon: Chum and Coho](https://frasersalmon.ca/wp-content/uploads/2025/02/2025-Forum-2_Richmond_Chum-and-Coho.pdf) dated February 2025. Preliminary 2024 spawner abundance is for natural-origin spawners only, and is a lower estimate of the total 2024 spawner abundance. However, the numbers of hatchery-origin spawners have been low (< 10\%) over the past two decades.
+
+```{r fraser coho}
+## Load data ---
+frco <- read.csv("../data/IFC_data_compiled.csv")
+# Put in SPS format
+frco_sps <- data.frame(
+	region = rep("Fraser", length(frco$year)),
+	species = rep("Coho", length(frco$year)),
+	year = frco$year,
+	spawners = frco$spawners, # Note this is the fish that returned to spawn, NOT a mistake!
+	smoothedSpawners = NA,
+	runsize = frco$runsize,
+	smoothedRunsize = NA,
+	source_id = c(rep("Glavas_20231006", length(frco$year) - 2), rep("DFO_20250225", 2))
+) 
+
+# Smoothing
+frco_sps$smoothedSpawners <- genSmooth(
+	abund = frco_sps$spawners,
+	years = frco_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Coho"]
+)
+
+frco_sps$smoothedRunsize <- genSmooth(
+	abund = frco_sps$runsize,
+	years = frco_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Coho"]
+)
+
+plot_abund(frco_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, frco_sps)
+```
+
+
+#### Pink and Sockeye {.unnumbered}
+Data on total return and spawner abundance of pink salmon and sockeye salmon in the Fraser region are provided by the PSC and accessed through the Fraser Panel Annual Report: Data Application [@PacificSalmonCommission2024PSCAnnualReport]. Total escapement for Fraser sockeye was not yet available for 2023, and 2023 total return is considered preliminary. We note that Fraser River pink salmon are only counted in the dominant, odd-year run. 
+
+```{r fraser pink}
+## Load data ---
+# Note: Only odd year data, so no change 2024 -> 2025 (data still to 2023)
+# From PSC 
+frpk <- read.csv("../data/pink_run_size_2025-04-24.csv") # No changes from Apr 24, 2025 version to Sept 18, 2025, but cite Sept because fraser sockeye in-season estimate for 2024 DID change (and don't want to change that number at this point)
+
+# Put in SPS format
+frpk_sps <- data.frame(
+	region = rep("Fraser", length(frpk$Year)),
+	species = rep("Pink", length(frpk$Year)),
+	year = frpk$Year,
+	spawners = frpk$Escapement, # Note this is the fish that returned to spawn, NOT a mistake!
+	smoothedSpawners = NA,
+	runsize = frpk$Run.Size,
+	smoothedRunsize = NA, 
+	source_id = rep("PSC_20250424", length(frpk$Year))
+) 
+
+# Smoothing - don't do this for pink salmon in the Fraser - no even year data!
+frpk_sps$smoothedSpawners <- frpk_sps$spawners
+frpk_sps$smoothedRunsize <- frpk_sps$runsize
+
+plot_abund(frpk_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, frpk_sps)
+
+```
+
+```{r fraser sockeye}
+## Load data ---
+# From PSC
+frse <- read.csv("../data/Fraser Sockeye Run Size_2025-04-24.csv") %>%
+	filter(Management.Group == "Total Fraser")
+
+# Put in SPS format
+frse_sps <- data.frame(
+	region = rep("Fraser", length(frse$Year)),
+	species = rep("Sockeye", length(frse$Year)),
+	year = frse$Year,
+	spawners = frse$Spawning.Escapement, # Note this is the fish that returned to spawn, NOT a mistake!
+	smoothedSpawners = NA,
+	runsize = frse$Run.Size,
+	smoothedRunsize = NA,
+	source_id = rep("PSC_20250424", length(frse$Year))
+) 
+
+# Fill in run size with in-season estimates if available
+if(sum(is.na(frse_sps$runsize)) > 0){
+	if(sum(!is.na(frse$In.season.Run.Size[which(frse$Year %in% frse_sps$year[is.na(frse_sps$runsize)])])) > 0){
+		frse_sps$runsize[which(frse$Year %in% frse_sps$year[is.na(frse_sps$runsize)])] <- frse$In.season.Run.Size[which(frse$Year %in% frse_sps$year[is.na(frse_sps$runsize)])]
+	}
+}
+
+# Smoothing
+frse_sps$smoothedSpawners <- genSmooth(
+	abund = frse_sps$spawners,
+	years = frse_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Sockeye"]
+)
+
+frse_sps$smoothedRunsize <- genSmooth(
+	abund = frse_sps$runsize,
+	years = frse_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Sockeye"]
+)
+
+# plot_abund(frse_sps[frse$Year >= 1980,]); abline(v = 2024)
+plot_abund(frse_sps)
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, frse_sps)
+
+```
+
+
+#### Steelhead {.unnumbered}
+Steelhead trout in the Fraser are monitored by the Province in at least 10 different streams, but these data are not readily available. Relatively reliable estimates of steelhead spawner abundance are available at the CU-level for interior Fraser steelhead from the Thompson Summer CU (monitored at the Thompson River) and Mid Fraser Summer CU (primarily monitored at the Chilcotin River; data in the [Pacific Salmon Explorer](https://salmonexplorer.ca)). We used the sum of CU-level spawner abundance for these two CUs as an index of Fraser steelhead abundance. We note that this approach does not include more coastal populations, such as the Lower Fraser Summer steelhead monitored in the Coquihalla River or Boundary Bay Winter steelhead, which may not have declined to the same extent over the past decade. However, a lack of publicly accessible data on coastal Fraser steelhead has limited our ability to include these CUs in our index of abundance.
+
+```{r fraser steelhead}
+## Load data ---
+# Use sum of two main Fraser steelhead CUs
+frsh <- read.csv("../data/dataset1cu_steelhead_20250117.csv") %>% 
+	filter(region == "Fraser", species_name == "Steelhead") %>%
+	filter(cu_name_pse %in% c("Thompson Summer", "Mid Fraser Summer")) %>%
+	filter(!is.na(estimated_count) & estimated_count != -989898)
+
+frsh_sum <- tapply(as.numeric(frsh$estimated_count), frsh$year, sum)
+frsh_sum <- frsh_sum[min(which(!is.na(frsh_sum))): max(which(!is.na(frsh_sum)))]
+
+# Put in SPS format
+frsh_sps <- data.frame(
+	region = rep("Fraser", length(frsh_sum)),
+	species = rep("Steelhead", length(frsh_sum)),
+	year = as.numeric(names(frsh_sum)),
+	spawners = frsh_sum, # Note this is the fish that returned to spawn, NOT a mistake!
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep("Bison_20241129", length(frsh_sum))
+) 
+
+# Smoothing
+frsh_sps$smoothedSpawners <- genSmooth(
+	abund = frsh_sps$spawners,
+	years = frsh_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Steelhead"]
+)
+
+
+plot_abund(frsh_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, frsh_sps)
+```
+
+
+### Columbia
+
+#### Chinook {.unnumbered}
+
+We used CU-level estimates of spawner abundance (run reconstructions) sourced from DFO (Athena Ogden, pers. comm.) for Chinook and sockeye.
+
+```{r columbia chinook}
+colck <- read.csv("../data/Chinook_Okanagan_NEW.csv") %>% filter(Year >= 2006)
+# Downloaded from https://github.com/SOLV-Code/Scanner-Data-Processing/blame/main/DATA_IN/Chinook_Okanagan_NEW.csv
+# on March 18, 2025
+
+# Put in SPS format
+colck_sps <- data.frame(
+	region = rep("Columbia", length(colck$Year)),
+	species = rep("Chinook", length(colck$Year)),
+	year = colck$Year,
+	spawners = as.numeric(colck$NatOrigSpn + colck$HatchOrigSpn), # Note this is the fish that returned to spawn, NOT a mistake!
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep("DFO_20250318", length(colck$Year))
+) 
+
+# Smoothing
+colck_sps$smoothedSpawners <- genSmooth(
+	abund = colck_sps$spawners,
+	years = colck_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Columbia" & genLength$species == "Chinook"]
+)
+
+
+plot_abund(colck_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, colck_sps)
+```
+
+#### Sockeye {.unnumbered}
+
+We used CU-level estimates of spawner abundance (run reconstructions) sourced from DFO (Athena Ogden, pers. comm.) for Chinook and sockeye. Spawner abundance for Columbia sockeye was the sum of estimates for Osoyoos and, more recently, Skaha Lakes and were the most up-to-date estimates as of June 2025 (Athena Ogden, pers. comm.). Total abundance for sockeye was extracted from DFO's 2024 Wild Salmon Policy assessment for Osoyoos sockeye [@DFO2024WildSalmonPolicy] from 1980-2023.
+
+```{r columbia sockeye}
+colse_old <- read.csv("../data/spawner_abundance.csv") %>% 
+	subset(region == "Columbia" &  species_name == "Lake sockeye") %>%
+	subset(!is.na(estimated_count))
+
+colse <- read.csv("../data/OkanaganSockeye.csv")
+
+colse2 <- readxl::read_xlsx("../data/Okanagan Sockeye Esc for KR_revJn2025.xlsx", sheet = "CAN Escapement", range = "A1:E65")
+
+# Put in SPS format
+yrs <- sort(colse2$Year) # don't use pre-2004 (not comparable; DFO 2024)
+colse_sps <- data.frame(
+	region = rep("Columbia", length(yrs)),
+	species = rep("Sockeye", length(yrs)),
+	year = yrs,
+	spawners = round(colse2$`Total spawners`[match(yrs, colse2$Year)]), 
+	smoothedSpawners = NA,
+	runsize = colse$runsize[match(yrs, colse$year)],
+	smoothedRunsize = NA, 
+	source_id = c(rep("Ogden_20250627, Ogden_20250901", length(yrs) - 1), "Ogden_20250627")
+) 
+
+# Smoothing
+colse_sps$smoothedSpawners <- genSmooth(
+	abund = colse_sps$spawners,
+	years = colse_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Columbia" & genLength$species == "Sockeye"]
+)
+colse_sps$smoothedRunsize <- genSmooth(
+	abund = colse_sps$runsize,
+	years = colse_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Columbia" & genLength$species == "Sockeye"]
+)
+
+plot_abund(colse_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, colse_sps)
+```
+
+#### Steelhead {.unnumbered}
+
+There is no monitoring of steelhead trout in the Canadian portion of the Columbia region, but the Okanagan Nation Alliance does enumerate steelhead in akskwəkwant (Inkaneep Creek) and estimate a Canadian portion of steelhead spawning abundance. These data can be found in associated report (e.g. @OBMEP20252024OkanoganSubbasin) and are available for the Mid Columbia Summer Conservation Unit [in the Pacific Salmon Explorer](https://salmonexplorer.ca/explore/data/spawner-abundance/columbia/steelhead/mid-columbia-summer-1380/).
+
+```{r columbia steelhead}
+colsh <- read.csv("../data/Columbia_Steelhead_OBMEP.csv")
+
+# Put in SPS format
+colsh_sps <- data.frame(
+	region = rep("Columbia", length(colsh$year)),
+	species = rep("Steelhead", length(colsh$year)),
+	year = colsh$year,
+	spawners = colsh$natural_spawners, # Note this is the fish that returned to spawn, NOT a mistake!
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep("OBMEP_20250228", length(colsh$year))
+) 
+
+# Smoothing
+colsh_sps$smoothedSpawners <- genSmooth(
+	abund = colsh_sps$spawners,
+	years = colsh_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Columbia" & genLength$species == "Steelhead"]
+)
+
+
+plot_abund(colsh_sps)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, colsh_sps)
+
+```
+
+
+<!--- This code chunk must go after the last data processing step --->
+```{r save processed data}
+#write.csv(sps_data, "output/sps-data.csv", row.names = FALSE) # Always have most recent # Not until this script is confirmed to be working 
+write.csv(sps_data, paste0("../output/archive/sps-data_", Sys.Date(), ".csv"), row.names = FALSE) # Archive with date
+
+```
+
+
+## Expansion Factors 
+
+For species and regions that lacked reliable data on spawner abundance and total return at the appropriate scale, we estimated regional-scale abundance from stream-level surveys. We started with spawner survey data shown in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca). Spawner surveys were each assigned to one of the nine regions we considered based on their geographic location. We note that this is slightly different from how spawner survey data are organized in the Pacific Salmon Explorer, where data are organized by Conservation Units (CUs) that may span regional boundaries (e.g. for pink salmon that have relatively geographically large CUs). In cases of trans-regional CUs, the spawner surveys appear in both regions in the Pacific Salmon Explorer, whereas here we assign spawner surveys to the region in which they fall geographically, regardless of the CU boundary. 
+
+Spawner survey data are largely derived from river-level estimates in  DFO’s [New Salmon Escapement Database System (NuSEDS)](https://open.canada.ca/data/en/dataset/c48669a3-045b-400d-b730-48aafe8c5ee6), but are cleaned up to address issues of, for example, inconsistent naming of streams through time or duplicate data. The spawner survey abundance is equal to the `MAX_ESTIMATE` in NUSEDS for each year and river population, calculated as the maximum of all fields containing spawner abundance data (e.g. natural adult spawners, natural jack spawners, total broodstock removals). Each of these river populations has been designated as an **indicator** stream or **non-indicator**. Indicator streams are observed more consistently in recent decades, tend to have higher spawner abundance, and tend to be monitored using more intensive methods that provide greater accuracy [@EnglishEtAl2018NorthCentralCoast]. For further information on the compilation of spawner survey data, see the [Pacific Salmon Explorer Technical Report](https://bookdown.org/salmonwatersheds/tech-report/analytical-approach.html#spawner-surveys).
+
+Expansion Factor 1, $F_{1,y/d}$, expands the observed spawner abundances in indicator streams to account for indicator streams that are not monitored in a given year. It is calculated for each year $y$ of the spawner time series, and relies on a decadal contribution of each indicator stream to the total escapement to all indicator streams, $P_{d,i}$ in decade $d$ [@EnglishEtAl2018NorthCentralCoast]. The calculation of this decadal contribution requires at least one estimate from each indicator stream for the decade. If a decade does not contain sufficient information (i.e. one or more indicator streams are not monitored at all in a decade), then a reference decade is used to calculate $P_{d,i}$. This reference decade is chosen to be: (1) the closest decade (historical or future) with sufficient information, or failing (1), (2) the 20-year period from 1980-1999 [@ChallengerEtAl2018NorthCentralCoast].
+
+For each decade (or reference decade if insufficient information) $d$, the average number of spawners returning to indicator stream $i$ is calculated as:
+
+$$\bar{S}_{d,i} = \sum_{y = 1}^{Y_{d,i}} \frac{\hat{S}_{y/d, i}}{Y_{d,i}} $$
+where $Y_{d,i}$ is the number of years for which spawner estimates are available within decade $d$ for stream $i$.  From the average number of spawners for all indicator streams, the decadal proportional contribution of each indicator stream is calculated as:
+
+$$P_{d,i} = \frac{\bar{S}_{d,i}}{\sum_{i=1}^{I} \bar{S}_{d,i}}$$
+where $I$ is the total number of indicator streams.
+
+Expansion Factor 1 is then calculated for each year within the decade $y/d$ based on the decadal contributions and which streams were monitored or not in a given year:
+
+$$F_{1,y/d}=\left( \sum_{i=1}^I P_{d,i} w_{y/d,i} \right)$$
+where $w_{y/d,i}$ is 1 if stream $i$ was monitored in year $y$ and 0 if stream $i$ was not monitored in year $y$. Expansion Factor 1 is then multiplied by the sum of the observed spawners in all indicator stream to yield the expanded estimate of spawner abundances in all indicator streams in the region:
+
+$$S'_{y} = F_{1,y/d} \sum_{i=1}^I \hat{S}_{y,i}$$
+
+Expansion Factor 2 $F_{2,d}$ expands the spawner abundance to all indicator streams, $S'_{y}$, to account for non-indcator streams. Unlike Expansion Factor 1, this is calculated for each decade (rather than each year) and then applied to all years within a decade. Like Expansion Factor 1, there needs to be sufficient information within the given decade in order to calculate $F_{2,d}$, or else a reference decade is chosen. See @EnglishEtAl2018NorthCentralCoast for detailed on how reference decades are chosen in that case.
+
+Expansion Factor 2 is calculated as:
+
+$$F_{2,d} = \frac{\sum_{i = 1}^I \bar{S}_{d,i} + \sum_{j = 1}^{J} \bar{S}_{d,j}}{\sum_{i = 1}^I \bar{S}_{d,i}}$$
+where $\bar{S}_{d,i}$ and $\bar{S}_{d,j}$ are the deacdal average number of spawners in indicator and non-indicator streams, respectively, calculated above.  $J$ is the total number of non-indicator streams.  The adjusted total number of spawners in both indicator and non-indicator streams is then calculated as:
+$$ S''_{y} = F_{2,d} S'_{y} $$
+
+Note that when expanding spawner abundance for spawner-recruit analysis, a third expansion factor is applied to account for streams that are never monitored and for observer (in)efficiency [@PeacockEtAl2020EvaluatingConsequencesCommon]. We did not apply this third expansion factor because it is highly undertain and we are interested in relative changes in abundance through time, so we do not require to expand to absolute abundance.
+
+## Smoothing
+We smoothed time series of spawner abundance and total return using a right-aligned running geometric mean over the length of a generation. This reduces the influence of dominant years and produces an index that is less sensitive to stochastic interannual variability that is common in salmon population dynamics. The generation length was based on the dominant life-history type for each species in a particular region. The smoothed spawner abundance in year $y$ given a generation length $g$ was calculated as:
+$$ \bar{S_{y}} = \left( \prod_{t = y-g+1}^y {S''_t} \right)^{1/g} $$
+
+We smoothed abundance from the first year to the most recent year of raw abundance data. If there were intermediate years with missing data, the smoothed abundance was still calculated using the available years (i.e. ignoring the missing data, with the exponent $1/g$ adjusted so that $g$ reflected the number of years with data in the generation). If all years in a generation were missing data, than the smoothed abundance was `NA`.
+
+When plotting, we show the smoothed abundance relative to the long-term historical average, so that species that have vastly different abundances within a region can be plotted on the same y-axis for comparison.
+
+## Quantifying change
+We summarize the time series of smoothed spawner abundance or total return at the regional scale using three different metrics:
+
+1. **Current status** relative to historical average;
+2. **Long-term trend** over the entire time series; and
+3. **Short-term trend** over the most recent three generations.
+
+The currents status provides information on how the most recent spawner abundance compares to past values, while the two trend metrics provide information on the average direction of change and are less sensitive to the magnitude of current abundance.
+
+The **current status** relative to historical average is calculated as:
+$$ (\bar{S_{y}} - \bf{S}) / \bf{S} $$
+where $y$ is the most recent year for which the index of spawner abundance could be calculated and $\bf{S}$ is the average smoothed spawner abundance over the entire time series.
+
+The **long-term trend** is calculated following the recommendations of @DEon-EggertsonEtAl2015ReliableIdentificationDeclining, who found that the correct identification of declines in salmon population abundance may be most reliable when considering the entire time series, and applying regression-based estimates of change calculated from log-transformed and smoothed spawner abundances. As such, we fit a simple linear model to the time series of $\log ( \bar{S}_{y} )$ over $y$. The resulting slope, $m$, gives an average estimate of annual change:
+
+$$ m = \log \left( \frac{\bar{S}_{y}}{\bar{S}_{y-1}} \right)$$.
+
+With some rearranging, we can calculate the average annual percent change as:
+$$ \frac{\bar{S}_{y} - \bar{S}_{y-1}}{\bar{S}_{y-1}} = \frac{ e^m \bar{S}_{y-1} - \bar{S}_{y-1}}{\bar{S}_{y-1}} = e^m - 1$$.
+If the slope $m$ is not significantly different from zero ($p \geq 0.05$), then the trend is classified as "stable" regardless of the magnitude of the estimated slope. If the slope is significantly different from zero ($p < 0.05$), then the trend is classified as increasing if $m > 0$ or decreasing if $m < 0$.
+
+The **short-term trend** is calculated as described above, but only using the time series over the most recent three generations.
+
+```{r, echo = FALSE, include = TRUE, fig.width = 8, fig.height = 3.5, fig.cap = "**Above:** Simulated time series of spawner abundance (grey line), smoothed with a running geometric mean over the generation length (4 years; black line). The three metrics are illustrated: **Current status** relative to historical average (black);  **Long-term trend** over the entire time series (green); and **Short-term trend** over the most recent three generations (clay). The shaded regions of the regression lines indicate the 95% prediction intervals. In this example, the short-term trend is not statistically significant (p > 0.05), and so the trend is characterized as 'stable' despite the negative slope."}
+
+# Simulate time series over 72 years (1950 - 2021)
+S <- numeric(72)
+set.seed(23435543)
+S[1] <- 12
+for(i in 2:72){
+	S[i] <- rlnorm(n = 1, meanlog = log(S[i-1] * exp(1.3 - S[i-1]/seq(14, 10, length.out = 72)[i])), sd = 0.2)
+}
+S[72] <- 12
+
+g <- 4 # generation length
+SS <- numeric(72)
+for(i in 1:72){
+	SS[i] <- prod(S[max(1, (i - g + 1)):i])^(1/length(max(1, (i - g + 1)):i))
+}
+
+# Plot
+par(mfrow = c(1,1), mar = c(4,4,2,1), cex.lab = 1)
+
+# Current status relative to historical average
+plot(1950:2021, SS, "n", bty = "l", las = 1, ylab = "Spawner abundance (thousands)", xlab = "", ylim = c(10, 22))
+lines(1950:2021, S, col = SWP_cols['stone1'])
+abline(h = mean(SS), lty = 2, col = SWP_cols['stone3'])
+points(2021, SS[72], pch = 21, bg = SWP_cols['stone1'], cex = 2)
+arrows(2021, mean(SS), 2021, SS[72], lwd = 2, col = 1, length = 0.08)
+text(2018, mean(SS), paste0("Current status:\n", round((SS[72] - mean(SS))/SS[72]*100, 1), "%"), col = 1, pos = 3, xpd = NA, font = 2)
+# mtext(side = 3, adj = 0, "  a) Current status relative to historical average", cex = 0.8)
+
+# 2. Change over the entire time series
+fit <- lm(log(SS) ~ c(1950:2021))
+predSS <- predict(fit, se.fit = TRUE)
+
+# plot(1950:2021, SS, "l", bty = "l", lwd = 1.5, las = 1, ylab = "Spawner abundance (thousands)", xlab = "")
+polygon(x = c(1950:2021, rev(1950:2021)),
+        y = c(exp(predSS$fit - 1.96*predSS$se.fit), rev(exp(predSS$fit + 1.96*predSS$se.fit))),
+        border = NA, col = paste0(SWP_cols['tidal2'], 30))
+lines(1950:2021, exp(predSS$fit), col = SWP_cols['tidal2'], lwd = 2)
+
+text(1992, 18, paste0("Long-term trend: ", round(coefficients(fit)[2]*100, 1), "% per year (declining)"), col = SWP_cols['tidal2'], xpd = NA, font = 2)
+# mtext(side = 3, adj = 0, "  b) Long-term trend over the entire time series", cex = 0.8)
+
+# 2. Change over 3 gens
+fit2 <- lm(log(SS[(72 - 3*g + 1):72]) ~ c(1950:2021)[(72 - 3*g + 1):72])
+predSS2 <- predict(fit2, se.fit = TRUE)
+
+polygon(x = c(c(1950:2021)[(72 - 3*g + 1):72], rev(c(1950:2021)[(72 - 3*g + 1):72])),
+        y = c(exp(predSS2$fit - 1.96*predSS2$se.fit), rev(exp(predSS2$fit + 1.96*predSS2$se.fit))),
+        border = NA, col = paste0(SWP_cols['clay1'], 50))
+lines(c(1950:2021)[(72 - 3*g + 1):72], exp(predSS2$fit), col = SWP_cols['clay1'], lwd = 2)
+text(2007, 11, paste0("Short-term trend: ", round(coefficients(fit2)[2]*100, 1), "% per year (stable)"), col = SWP_cols['clay1'], xpd = NA, font = 2)
+
+lines(1950:2021, SS, lwd = 1.5)
+```
+
+### Additional Considerations
+The standardized approach to quantifying change described above was applied across regions and species. We then considered two additional attributes prior to reporting on the State of Salmon:
+
+1. If the species and region had no data in the most recent generation, the current status was "Unknown" even if historical abundance information was available. This was the case for **Haida Gwaii Chinook**, for which there were no reliable estimates of spawners since 2006.
+
+2. If there was reliable information that the absolute population size was < 1,500 spawners, then the species and region was considered at risk of extirpation regardless of the outcome of the metrics above. This was the case for **Columbia Chinook** which have been assessed as Endangered by COSEWIC due to low population size [@COSEWIC2017ChinookSalmonOncorhynchus] and **Columbia steelhead**. There were other regions and species that had spawner abundance < 1,500, but none of these had reliable estimates of **absolute** spawner abundance.
