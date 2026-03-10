@@ -548,7 +548,7 @@ For chum, coho, pink, and sockeye in Haida Gwaii, we followed the [Expansion Fac
 
 ```{r haida gwaii expansion data}
 # Load data ---
-sp <- readRDS("../output/expanded-spawners/Haida Gwaii-spawners.rds")
+region_spawners <- sp <- readRDS("../output/expanded-spawners/Haida Gwaii-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 expansion_factors <- readRDS("../output/expanded-spawners/Haida Gwaii-expansion-factors.rds")
 
@@ -601,7 +601,7 @@ added_series.s <- hg_table30 %>%
 # Expansion plot(s)
 plot_expansions(speciesname = "Chum",
 								regionname = "Haida Gwaii",
-								region_spawners = sp,
+								region_spawners = region_spawners,
 								expansion_factors = expansion_factors,
 								added_series = added_series.s)
 
@@ -653,7 +653,7 @@ added_series.s <- hg_table30 %>%
 # Expansion plot(s)
 plot_expansions(speciesname = "Coho",
 								regionname = "Haida Gwaii",
-								region_spawners = sp,
+								region_spawners = region_spawners,
 								expansion_factors = expansion_factors,
 								added_series = added_series.s)
 
@@ -705,7 +705,7 @@ added_series.s <- hg_table30 %>%
 # Expansion plot(s)
 plot_expansions(speciesname = "Pink",
 								regionname = "Haida Gwaii",
-								region_spawners = sp,
+								region_spawners = region_spawners,
 								expansion_factors = expansion_factors,
 								added_series = added_series.s)
 
@@ -756,7 +756,7 @@ added_series.s <- hg_table30 %>%
 # Expansion plot(s)
 plot_expansions(speciesname = "Sockeye",
 								regionname = "Haida Gwaii",
-								region_spawners = sp,
+								region_spawners = region_spawners,
 								expansion_factors = expansion_factors,
 								added_series = added_series.s)
 
@@ -1181,10 +1181,8 @@ plot_abund(sksh_sps)
 ```
 
 
-#### Other Species: Expansion Factors {.unnumbered .tabset}
-
 #### Chum {.unnumbered}
-Skeena chum, coho, and pink salmon spawner abundances in the Skeena were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS.
+Chum salmon spawner abundances in the Skeena were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS.
 
 ```{r skeena expansion data}
 region_spawners <- sp <- readRDS("../output/expanded-spawners/Skeena-spawners.rds")
@@ -1197,7 +1195,7 @@ names(sk_table32) <- c("year", "Sockeye", "Coho", "Pink", "Chum", "Chinook") # C
 ```
 
 
-```{r skeena chum, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**Spawner abundance of Haida Gwaii chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r skeena chum, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**Spawner abundance of Skeena chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 ## Process data 
 skeena.s <- sp[2, "Chum", ]
@@ -1247,8 +1245,8 @@ plot_expansions(speciesname = "Chum",
 
 
 #### Coho {.unnumbered}
-Skeena chum, coho, and pink salmon spawner abundances in the Skeena were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS.
-```{r skeena coho, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**Spawner abundance of Haida Gwaii chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+Coho salmon spawner abundances in the Skeena were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS.
+```{r skeena coho, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**Spawner abundance of Skeena coho salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 ## Process data 
 skeena.s <- sp[2, "Coho", ]
@@ -1298,7 +1296,7 @@ plot_expansions(speciesname = "Coho",
 
 
 #### Pink {.unnumbered}
-Skeena chum, coho, and pink salmon spawner abundances in the Skeena were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS.
+Skeena pink salmon spawner abundances were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS.
 ```{r skeena pink, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**Spawner abundance of Haida Gwaii chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 ## Process data 
@@ -1388,7 +1386,7 @@ plot_abund(ccck_sps)
 ```
 
 
-```{r central coast chinook figs, fig.cap = "**Above:** Comparison of Chinook escapements on the Central Coast."}
+```{r central coast chinook figs, fig.cap = "**Above:** Comparison of Chinook escapements on the Central Coast. The sum of Atnarko escapement (red) and Rivers Inlet escapement index (blue) from the CTC (purple points) was used in 2025. The expanded data from NuSEDS, not used, are in black with expansion factors used shown by grey 'x'"}
 ## Code to generate index comparison plot:
 # Expanded spawner estimate
 ccck_ex <- readRDS("../output/expanded-spawners/Central Coast-spawners.rds")[2, "Chinook", ]
@@ -1420,66 +1418,198 @@ legend("topleft", col = c(1,2,4, "purple"), c("NuSEDS expansion", "CTC Atnarko T
 
 ```
 
+
+
 #### Steelhead {.unnumbered}
 
 There are two spawner surveys for Steelhead trout on the Central Coast that we report in the Pacific Salmon Explorer. However, these surveys have been patchy through time with the most recent estimates from 2016. Therefore, spawner abundance and total return for Central Coast steelhead was considered unknown.
 
-#### Other Species: Expansion Factors  {.unnumbered .tabset}
 
-Estimates of spawner abundance for all other salmon species on the Central Coast were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Monitoring and reporting of observed spawners on the Central Coast has declined in recent decades, thus requiring larger expansion factors to arrive at an area-wide estimate that can be compared through time. As such, estimates of spawner abundance for the Central Coast over the past decade are more uncertain and should be interpreted with caution. 
+#### Chum {.unnumbered}
 
+Estimates of spawner abundance for chum salmon on the Central Coast were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Monitoring and reporting of observed spawners on the Central Coast has declined in recent decades, thus requiring larger expansion factors to arrive at an area-wide estimate that can be compared through time. As such, estimates of spawner abundance for the Central Coast over the past decade are more uncertain and should be interpreted with caution. 
 
-```{r, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
-
+```{r central coast expansion data}
 region_spawners <- sp <- readRDS("../output/expanded-spawners/Central Coast-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 expansion_factors <- readRDS("../output/expanded-spawners/Central Coast-expansion-factors.rds")
 
-	
-for(s in 2:5){ 
-	
-	## Process data
-	cc.s <- sp[2, species[s], ]
-	# cc.s <- cc.s[!is.na(cc.s)] # There is a missing year for Chinook in 2016...
-	
-	# Reformat data for SPS
-	cc.s_sps <- data.frame(
-		region = rep("Central Coast", length(cc.s)),
-		species = rep(species[s], length(cc.s)),
-		year = as.numeric(names(cc.s)),
-		spawners = as.numeric(cc.s), 
-		smoothedSpawners = NA,
-		runsize = NA,
-		smoothedRunsize = NA,
-		source_id = rep(nuseds_id, length(cc.s))
-	) 
-	
-	# Smoothing
-	cc.s_sps$smoothedSpawners <- genSmooth(
-		abund = cc.s_sps$spawners,
-		years = cc.s_sps$year,
-		genLength = genLength$gen_length[genLength$region == "Central Coast" & genLength$species == species[s]]
-	)
-	
-	plot_abund(cc.s_sps)
-	
-	# Add to master sps dataframe
-	sps_data <- rbind(sps_data, cc.s_sps)
-	
-	## Generate expansion plots
-	cat("##### ", species[s], " {.unnumbered} \n")
-	cat("\n")
-	
-	plot_expansions(speciesname = species[s],
-									regionname = "Central Coast",
-									region_spawners = region_spawners,
-									expansion_factors = expansion_factors,
-									added_series = NULL)
-		
-	cat("\n")
-}
+```
+
+
+```{r central coast chum, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of Central Coast chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+
+## Process data 
+cc.s <- sp[2, "Chum", ]
+
+# Reformat data for SPS
+cc.s_sps <- data.frame(
+	region = rep("Central Coast", length(cc.s)),
+	species = rep("Chum", length(cc.s)),
+	year = as.numeric(names(cc.s)),
+	spawners = as.numeric(cc.s), 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep(nuseds_id, length(cc.s)))
+
+# Smoothing
+cc.s_sps$smoothedSpawners <- genSmooth(
+	abund = cc.s_sps$spawners,
+	years = cc.s_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Central Coast" & genLength$species == "Chum"])
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, cc.s_sps)
+
+# Generate standard figure
+plot_abund(cc.s_sps)
+```
+
+
+```{r central coast chum figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+
+plot_expansions(speciesname = "Chum",
+								regionname = "Central Coast",
+								region_spawners = region_spawners,
+								expansion_factors = expansion_factors,
+								added_series = NULL)
 
 ```
+
+#### Coho {.unnumbered}
+
+Estimates of spawner abundance for coho salmon on the Central Coast were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Monitoring and reporting of observed spawners on the Central Coast has declined in recent decades, thus requiring larger expansion factors to arrive at an area-wide estimate that can be compared through time. As such, estimates of spawner abundance for the Central Coast over the past decade are more uncertain and should be interpreted with caution. 
+
+```{r central coast coho, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of Central Coast coho salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+
+## Process data 
+cc.s <- sp[2, "Coho", ]
+
+# Reformat data for SPS
+cc.s_sps <- data.frame(
+	region = rep("Central Coast", length(cc.s)),
+	species = rep("Coho", length(cc.s)),
+	year = as.numeric(names(cc.s)),
+	spawners = as.numeric(cc.s), 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep(nuseds_id, length(cc.s)))
+
+# Smoothing
+cc.s_sps$smoothedSpawners <- genSmooth(
+	abund = cc.s_sps$spawners,
+	years = cc.s_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Central Coast" & genLength$species == "Coho"])
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, cc.s_sps)
+
+# Generate standard figure
+plot_abund(cc.s_sps)
+```
+
+
+```{r central coast coho figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+
+plot_expansions(speciesname = "Coho",
+								regionname = "Central Coast",
+								region_spawners = region_spawners,
+								expansion_factors = expansion_factors,
+								added_series = NULL)
+
+```
+
+#### Pink {.unnumbered}
+
+Estimates of spawner abundance for pink salmon on the Central Coast were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Monitoring and reporting of observed spawners on the Central Coast has declined in recent decades, thus requiring larger expansion factors to arrive at an area-wide estimate that can be compared through time. As such, estimates of spawner abundance for the Central Coast over the past decade are more uncertain and should be interpreted with caution. 
+
+```{r central coast pink, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of Central Coast pink salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+
+## Process data 
+cc.s <- sp[2, "Pink", ]
+
+# Reformat data for SPS
+cc.s_sps <- data.frame(
+	region = rep("Central Coast", length(cc.s)),
+	species = rep("Pink", length(cc.s)),
+	year = as.numeric(names(cc.s)),
+	spawners = as.numeric(cc.s), 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep(nuseds_id, length(cc.s)))
+
+# Smoothing
+cc.s_sps$smoothedSpawners <- genSmooth(
+	abund = cc.s_sps$spawners,
+	years = cc.s_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Central Coast" & genLength$species == "Pink"])
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, cc.s_sps)
+
+# Generate standard figure
+plot_abund(cc.s_sps)
+```
+
+
+```{r central coast pink figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+
+plot_expansions(speciesname = "Pink",
+								regionname = "Central Coast",
+								region_spawners = region_spawners,
+								expansion_factors = expansion_factors,
+								added_series = NULL)
+
+```
+
+
+#### Sockeye {.unnumbered}
+
+Estimates of spawner abundance for sockeye salmon on the Central Coast were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Monitoring and reporting of observed spawners on the Central Coast has declined in recent decades, thus requiring larger expansion factors to arrive at an area-wide estimate that can be compared through time. As such, estimates of spawner abundance for the Central Coast over the past decade are more uncertain and should be interpreted with caution. 
+
+```{r central coast sockeye, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of Central Coast sockeye salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+
+## Process data 
+cc.s <- sp[2, "Sockeye", ]
+
+# Reformat data for SPS
+cc.s_sps <- data.frame(
+	region = rep("Central Coast", length(cc.s)),
+	species = rep("Sockeye", length(cc.s)),
+	year = as.numeric(names(cc.s)),
+	spawners = as.numeric(cc.s), 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep(nuseds_id, length(cc.s)))
+
+# Smoothing
+cc.s_sps$smoothedSpawners <- genSmooth(
+	abund = cc.s_sps$spawners,
+	years = cc.s_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Central Coast" & genLength$species == "Sockeye"])
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, cc.s_sps)
+
+# Generate standard figure
+plot_abund(cc.s_sps)
+```
+
+
+```{r central coast sockeye figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+
+plot_expansions(speciesname = "Sockeye",
+								regionname = "Central Coast",
+								region_spawners = region_spawners,
+								expansion_factors = expansion_factors,
+								added_series = NULL)
+
+```
+
 
 <!-- Note that the designation of indicator streams for the Central Coast region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS. SP: Not the case for 2025 update. -->
 
@@ -1549,7 +1679,7 @@ spwn.stack <- evimi_ctc %>%
 	geom_area(aes(x=Year, y=esc/1000, fill=stock), 
 								alpha=0.6) + 
 	scale_fill_viridis_d() +
-	labs(y="Spawner abundance (thousands)", fill="") + lims(y=c(0,40)) +
+	labs(y="Spawner abundance (thousands)", fill="") + lims(y=c(0,50)) +
 	theme_minimal() + theme(legend.position = "none")
 
 # Total abundance
@@ -1562,77 +1692,299 @@ tot.stack <- evimi_ctc %>%
 	geom_area(aes(x=Year, y=trun/1000, fill=stock), 
 								alpha=0.6) + 
 	scale_fill_viridis_d() +
-	labs(y="Spawner abundance (thousands)", fill="") + lims(y=c(0,40)) +
+	labs(y="Spawner abundance (thousands)", fill="") + lims(y=c(0,50)) +
 	theme_minimal() + theme(legend.position = "right")
 
 cowplot::plot_grid(spwn.stack, tot.stack, rel_widths = c(0.75,1), labels="auto")
 
 ```
 
-#### Other Species: Expansion Factors {.unnumbered .tabset}
 
-Initial time series of spawner abundances for all other salmon in East Vancouver Island & Mainland Inlets were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). For the assessments, we truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+#### Chum {.unnumbered}
+Initial time series of spawner abundances for chum salmon in East Vancouver Island & Mainland Inlets were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). For the assessments, we truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
 
-```{r east VI other species, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
-
-region_spawners <- readRDS("../output/expanded-spawners/East Vancouver Island & Mainland Inlets-spawners.rds")
+```{r east VI expansion data}
+region_spawners <- sp <- readRDS("../output/expanded-spawners/East Vancouver Island & Mainland Inlets-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 expansion_factors <- readRDS("../output/expanded-spawners/East Vancouver Island & Mainland Inlets-expansion-factors.rds")
+```
 
-	
-for(s in 2:6){ ## CHANGED from 1:5 by HH - should include steelhead, not Chinook?
-	## Process data
-	evimi.s <- sp[2, species[s], ]
-	
-	# Get rid of NAs (esp in 2024)
-	evimi.s <- evimi.s[1:max(which(!is.na(evimi.s)))]
-	
-	# For all VIMI species, start in 1953 - earlier expansion factors are large
-	evimi.s	<- evimi.s[which(as.numeric(names(evimi.s)) >= 1953)]
-	
-	# Reformat data for SPS
-	evimi.s_sps <- data.frame(
-		region = rep("East Vancouver Island & Mainland Inlets", length(evimi.s)),
-		species = rep(species[s], length(evimi.s)),
-		year = as.numeric(names(evimi.s)),
-		spawners = as.numeric(evimi.s), 
-		smoothedSpawners = NA,
-		runsize = NA,
-		smoothedRunsize = NA,
-		source_id = rep(nuseds_id, length(evimi.s))
-	) 
-	
-	# Smoothing
-	evimi.s_sps$smoothedSpawners <- genSmooth(
-		abund = evimi.s_sps$spawners,
-		years = evimi.s_sps$year,
-		genLength = genLength$gen_length[genLength$region == "East Vancouver Island & Mainland Inlets" & genLength$species == species[s]]
-	)
-	
-	plot_abund(evimi.s_sps)
-	
-	# Add to master sps dataframe
-	sps_data <- rbind(sps_data, evimi.s_sps)
-	
-	## Make expansion plots
-	cat("##### ", species[s], " {.unnumbered} \n")
-	cat("\n")
-	
-	added_series.s <- sps_data %>% 
-		filter(region == "East Vancouver Island & Mainland Inlets", species == species[s]) %>%
-		select(year, spawners) %>%
-		rename("value" = "spawners")
-	
-	plot_expansions(speciesname = species[s],
-									regionname = "East Vancouver Island & Mainland Inlets",
-									region_spawners = region_spawners,
-									expansion_factors = expansion_factors,
-									added_series = added_series.s)
-		abline(v = 1952.5)
-		text(1953, 5, "Data prior to 1953 were discarded", adj = 0)
-	cat("\n")
-}
+```{r east VI chum, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of East Vancouver Island & Mainland Inlets chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+## Process data
+evimi.s <- sp[2, "Chum", ]
 
+# Get rid of NAs (esp in 2024)
+evimi.s <- evimi.s[1:max(which(!is.na(evimi.s)))]
+
+# For all VIMI species, start in 1953 - earlier expansion factors are large
+evimi.s	<- evimi.s[which(as.numeric(names(evimi.s)) >= 1953)]
+
+# Reformat data for SPS
+evimi.s_sps <- data.frame(
+	region = rep("East Vancouver Island & Mainland Inlets", length(evimi.s)),
+	species = rep("Chum", length(evimi.s)),
+	year = as.numeric(names(evimi.s)),
+	spawners = as.numeric(evimi.s), 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep(nuseds_id, length(evimi.s))
+) 
+
+# Smoothing
+evimi.s_sps$smoothedSpawners <- genSmooth(
+	abund = evimi.s_sps$spawners,
+	years = evimi.s_sps$year,
+	genLength = genLength$gen_length[genLength$region == "East Vancouver Island & Mainland Inlets" & genLength$species == "Chum"]
+)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, evimi.s_sps)
+
+# Generate standard figure
+plot_abund(evimi.s_sps)
+
+```
+
+```{r east VI chum figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+
+added_series.s <- sps_data %>% 
+	filter(region == "East Vancouver Island & Mainland Inlets", species == "Chum") %>%
+	select(year, spawners) %>%
+	rename("value" = "spawners")
+
+plot_expansions(speciesname = "Chum",
+								regionname = "East Vancouver Island & Mainland Inlets",
+								region_spawners = region_spawners,
+								expansion_factors = expansion_factors,
+								added_series = added_series.s)
+	abline(v = 1952.5)
+	text(1953, 5, "Data prior to 1953 were discarded", adj = 0)
+```
+
+#### Coho {.unnumbered}
+Initial time series of spawner abundances for coho salmon in East Vancouver Island & Mainland Inlets were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). For the assessments, we truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+
+```{r east VI coho, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of East Vancouver Island & Mainland Inlets coho salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+## Process data
+evimi.s <- sp[2, "Coho", ]
+
+# Get rid of NAs (esp in 2024)
+evimi.s <- evimi.s[1:max(which(!is.na(evimi.s)))]
+
+# For all VIMI species, start in 1953 - earlier expansion factors are large
+evimi.s	<- evimi.s[which(as.numeric(names(evimi.s)) >= 1953)]
+
+# Reformat data for SPS
+evimi.s_sps <- data.frame(
+	region = rep("East Vancouver Island & Mainland Inlets", length(evimi.s)),
+	species = rep("Coho", length(evimi.s)),
+	year = as.numeric(names(evimi.s)),
+	spawners = as.numeric(evimi.s), 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep(nuseds_id, length(evimi.s))
+) 
+
+# Smoothing
+evimi.s_sps$smoothedSpawners <- genSmooth(
+	abund = evimi.s_sps$spawners,
+	years = evimi.s_sps$year,
+	genLength = genLength$gen_length[genLength$region == "East Vancouver Island & Mainland Inlets" & genLength$species == "Coho"]
+)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, evimi.s_sps)
+
+# Generate standard figure
+plot_abund(evimi.s_sps)
+
+```
+
+```{r east VI coho figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+
+added_series.s <- sps_data %>% 
+	filter(region == "East Vancouver Island & Mainland Inlets", species == "Coho") %>%
+	select(year, spawners) %>%
+	rename("value" = "spawners")
+
+plot_expansions(speciesname = "Coho",
+								regionname = "East Vancouver Island & Mainland Inlets",
+								region_spawners = region_spawners,
+								expansion_factors = expansion_factors,
+								added_series = added_series.s)
+	abline(v = 1952.5)
+	text(1953, 5, "Data prior to 1953 were discarded", adj = 0)
+```
+
+#### Pink {.unnumbered}
+Initial time series of spawner abundances for pink salmon in East Vancouver Island & Mainland Inlets were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). For the assessments, we truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+
+```{r east VI pink, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of East Vancouver Island & Mainland Inlets pink salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+## Process data
+evimi.s <- sp[2, "Pink", ]
+
+# Get rid of NAs (esp in 2024)
+evimi.s <- evimi.s[1:max(which(!is.na(evimi.s)))]
+
+# For all VIMI species, start in 1953 - earlier expansion factors are large
+evimi.s	<- evimi.s[which(as.numeric(names(evimi.s)) >= 1953)]
+
+# Reformat data for SPS
+evimi.s_sps <- data.frame(
+	region = rep("East Vancouver Island & Mainland Inlets", length(evimi.s)),
+	species = rep("Pink", length(evimi.s)),
+	year = as.numeric(names(evimi.s)),
+	spawners = as.numeric(evimi.s), 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep(nuseds_id, length(evimi.s))
+) 
+
+# Smoothing
+evimi.s_sps$smoothedSpawners <- genSmooth(
+	abund = evimi.s_sps$spawners,
+	years = evimi.s_sps$year,
+	genLength = genLength$gen_length[genLength$region == "East Vancouver Island & Mainland Inlets" & genLength$species == "Pink"]
+)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, evimi.s_sps)
+
+# Generate standard figure
+plot_abund(evimi.s_sps)
+
+```
+
+```{r east VI pink figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+
+added_series.s <- sps_data %>% 
+	filter(region == "East Vancouver Island & Mainland Inlets", species == "Pink") %>%
+	select(year, spawners) %>%
+	rename("value" = "spawners")
+
+plot_expansions(speciesname = "Pink",
+								regionname = "East Vancouver Island & Mainland Inlets",
+								region_spawners = region_spawners,
+								expansion_factors = expansion_factors,
+								added_series = added_series.s)
+	abline(v = 1952.5)
+	text(1953, 5, "Data prior to 1953 were discarded", adj = 0)
+```
+
+#### Sockeye {.unnumbered}
+Initial time series of spawner abundances for sockeye salmon in East Vancouver Island & Mainland Inlets were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). For the assessments, we truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+
+```{r east VI sockeye, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of East Vancouver Island & Mainland Inlets sockeye salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+## Process data
+evimi.s <- sp[2, "Sockeye", ]
+
+# Get rid of NAs (esp in 2024)
+evimi.s <- evimi.s[1:max(which(!is.na(evimi.s)))]
+
+# For all VIMI species, start in 1953 - earlier expansion factors are large
+evimi.s	<- evimi.s[which(as.numeric(names(evimi.s)) >= 1953)]
+
+# Reformat data for SPS
+evimi.s_sps <- data.frame(
+	region = rep("East Vancouver Island & Mainland Inlets", length(evimi.s)),
+	species = rep("Sockeye", length(evimi.s)),
+	year = as.numeric(names(evimi.s)),
+	spawners = as.numeric(evimi.s), 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep(nuseds_id, length(evimi.s))
+) 
+
+# Smoothing
+evimi.s_sps$smoothedSpawners <- genSmooth(
+	abund = evimi.s_sps$spawners,
+	years = evimi.s_sps$year,
+	genLength = genLength$gen_length[genLength$region == "East Vancouver Island & Mainland Inlets" & genLength$species == "Sockeye"]
+)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, evimi.s_sps)
+
+# Generate standard figure
+plot_abund(evimi.s_sps)
+
+```
+
+```{r east VI sockeye figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+
+added_series.s <- sps_data %>% 
+	filter(region == "East Vancouver Island & Mainland Inlets", species == "Sockeye") %>%
+	select(year, spawners) %>%
+	rename("value" = "spawners")
+
+plot_expansions(speciesname = "Sockeye",
+								regionname = "East Vancouver Island & Mainland Inlets",
+								region_spawners = region_spawners,
+								expansion_factors = expansion_factors,
+								added_series = added_series.s)
+	abline(v = 1952.5)
+	text(1953, 5, "Data prior to 1953 were discarded", adj = 0)
+```
+
+
+#### Steelhead {.unnumbered}
+Initial time series of spawner abundances for steelhead salmon in East Vancouver Island & Mainland Inlets were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). For the assessments, we truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+
+```{r east VI steelhead, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of East Vancouver Island & Mainland Inlets steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+## Process data
+evimi.s <- sp[2, "Steelhead", ]
+
+# Get rid of NAs (esp in 2024)
+evimi.s <- evimi.s[1:max(which(!is.na(evimi.s)))]
+
+# For all VIMI species, start in 1953 - earlier expansion factors are large
+evimi.s	<- evimi.s[which(as.numeric(names(evimi.s)) >= 1953)]
+
+# Reformat data for SPS
+evimi.s_sps <- data.frame(
+	region = rep("East Vancouver Island & Mainland Inlets", length(evimi.s)),
+	species = rep("Steelhead", length(evimi.s)),
+	year = as.numeric(names(evimi.s)),
+	spawners = as.numeric(evimi.s), 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep(nuseds_id, length(evimi.s))
+) 
+
+# Smoothing
+evimi.s_sps$smoothedSpawners <- genSmooth(
+	abund = evimi.s_sps$spawners,
+	years = evimi.s_sps$year,
+	genLength = genLength$gen_length[genLength$region == "East Vancouver Island & Mainland Inlets" & genLength$species == "Steelhead"]
+)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, evimi.s_sps)
+
+# Generate standard figure
+plot_abund(evimi.s_sps)
+
+```
+
+```{r east VI steelhead figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+
+added_series.s <- sps_data %>% 
+	filter(region == "East Vancouver Island & Mainland Inlets", species == "Steelhead") %>%
+	select(year, spawners) %>%
+	rename("value" = "spawners")
+
+plot_expansions(speciesname = "Steelhead",
+								regionname = "East Vancouver Island & Mainland Inlets",
+								region_spawners = region_spawners,
+								expansion_factors = expansion_factors,
+								added_series = added_series.s)
+	abline(v = 1952.5)
+	text(1953, 5, "Data prior to 1953 were discarded", adj = 0)
 ```
 
 
@@ -1754,76 +2106,239 @@ plot_abund(wvise_sps)
 ```
 
 
-#### Other Species: Expansion Factors   {.unnumbered .tabset}
-For chum, coho, pink, and steelhead, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2024) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+#### Chum {.unnumbered}
+For West Vancouver Island chum salmon, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2024) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
 
-For most species we relied on NuSEDS' designations of indicator or non-indicator streams, but for pink salmon in this region we designated indicator streams as those with at least 10 years of data in the most recent 20 years. As a result, expansion factors were higher in historical years, but data from both indicator and non-indicator streams show markedly higher counts in the period 1960-1980 then in subsequent decades and it is unlikely that the observed decline is a result of uncertain expansions. 
-
-```{r west VI other species, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+```{r west VI expansion data}
 
 region_spawners <- sp <- readRDS("../output/expanded-spawners/West Vancouver Island-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 expansion_factors <- readRDS("../output/expanded-spawners/West Vancouver Island-expansion-factors.rds")
 
-	
-for(s in c(2,3,4,6)){ # CHANGED by HH from 2:4 to include steelhead
-	
-	## Process data ---
-		wvi.s <- sp[2, species[s], ]
-	# Get rid of NAs (esp in 2024)
-	wvi.s <- wvi.s[1:max(which(!is.na(wvi.s)))]
-	
-	# For all VIMI species, start in 1953 - earlier expansion factors are large
-	wvi.s	<- wvi.s[which(as.numeric(names(wvi.s)) >= 1953)]
-	
-	# Reformat data for SPS
-	wvi.s_sps <- data.frame(
-		region = rep("West Vancouver Island", length(wvi.s)),
-		species = rep(species[s], length(wvi.s)),
-		year = as.numeric(names(wvi.s)),
-		spawners = as.numeric(wvi.s), 
-		smoothedSpawners = NA,
-		runsize = NA,
-		smoothedRunsize = NA,
-		source_id = rep(nuseds_id, length(wvi.s))
-	) 
-	
-	# Smoothing
-	wvi.s_sps$smoothedSpawners <- genSmooth(
-		abund = wvi.s_sps$spawners,
-		years = wvi.s_sps$year,
-		genLength = genLength$gen_length[genLength$region == "West Vancouver Island" & genLength$species == species[s]]
-	)
-	
-	#plot_abund(wvi.s_sps) # breaks tabs - figure out how to include it
-	
-	# Add to master sps dataframe
-	sps_data <- rbind(sps_data, wvi.s_sps)
-	
-	## Make expansion plots ---
-	cat("##### ", species[s], " {.unnumbered} \n")
-	cat("\n")
-	
-	# added_series.s <- sps_data %>%
-	# 	filter(region == "West Vancouver Island", species == species[s]) %>%
-	# 	select(year, spawners) %>%
-	# 	rename("value" = "spawners")
-		
-	plot_expansions(speciesname = species[s],
-									regionname = "West Vancouver Island",
-									region_spawners = region_spawners,
-									expansion_factors = expansion_factors)#,
-									# added_series = added_series.s)
-		abline(v = 1952.5)
-		text(1953, par('usr')[4]/3, "Data prior to 1953 were discarded", adj = 0)
-	
-		rm(added_series.s)
-		cat("\n")
-	
-}
-
 ```
 
+```{r west VI chum, fig.width = 7, fig.height = 6, fig.cap="**Above:**Spawner abundance of West Vancouver Island chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+## Process data ---
+wvi.s <- sp[2, "Chum", ]
+# Get rid of NAs (esp in 2024)
+wvi.s <- wvi.s[1:max(which(!is.na(wvi.s)))]
+
+# For all VIMI species, start in 1953 - earlier expansion factors are large
+wvi.s	<- wvi.s[which(as.numeric(names(wvi.s)) >= 1953)]
+
+# Reformat data for SPS
+wvi.s_sps <- data.frame(
+	region = rep("West Vancouver Island", length(wvi.s)),
+	species = rep("Chum", length(wvi.s)),
+	year = as.numeric(names(wvi.s)),
+	spawners = as.numeric(wvi.s), 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep(nuseds_id, length(wvi.s))
+) 
+
+# Smoothing
+wvi.s_sps$smoothedSpawners <- genSmooth(
+	abund = wvi.s_sps$spawners,
+	years = wvi.s_sps$year,
+	genLength = genLength$gen_length[genLength$region == "West Vancouver Island" & genLength$species == "Chum"]
+)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, wvi.s_sps)
+
+# Generate standard figure
+plot_abund(wvi.s_sps) 
+```
+
+```{r west VI chum figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+
+# added_series.s <- sps_data %>%
+# 	filter(region == "West Vancouver Island", species == species[s]) %>%
+# 	select(year, spawners) %>%
+# 	rename("value" = "spawners")
+	
+plot_expansions(speciesname = "Chum",
+								regionname = "West Vancouver Island",
+								region_spawners = region_spawners,
+								expansion_factors = expansion_factors)#,
+								# added_series = added_series.s)
+	abline(v = 1952.5)
+	text(1953, par('usr')[4]/3, "Data prior to 1953 were discarded", adj = 0)
+
+#rm(added_series.s)
+```
+
+
+#### Coho {.unnumbered}
+For West Vancouver Island coho salmon, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2024) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+```{r west VI coho, fig.width = 7, fig.height = 6, fig.cap="**Above:**Spawner abundance of West Vancouver Island coho salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+## Process data ---
+wvi.s <- sp[2, "Coho", ]
+# Get rid of NAs (esp in 2024)
+wvi.s <- wvi.s[1:max(which(!is.na(wvi.s)))]
+
+# For all VIMI species, start in 1953 - earlier expansion factors are large
+wvi.s	<- wvi.s[which(as.numeric(names(wvi.s)) >= 1953)]
+
+# Reformat data for SPS
+wvi.s_sps <- data.frame(
+	region = rep("West Vancouver Island", length(wvi.s)),
+	species = rep("Coho", length(wvi.s)),
+	year = as.numeric(names(wvi.s)),
+	spawners = as.numeric(wvi.s), 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep(nuseds_id, length(wvi.s))
+) 
+
+# Smoothing
+wvi.s_sps$smoothedSpawners <- genSmooth(
+	abund = wvi.s_sps$spawners,
+	years = wvi.s_sps$year,
+	genLength = genLength$gen_length[genLength$region == "West Vancouver Island" & genLength$species == "Coho"]
+)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, wvi.s_sps)
+
+# Generate standard figure
+plot_abund(wvi.s_sps) 
+```
+
+```{r west VI coho figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+
+# added_series.s <- sps_data %>%
+# 	filter(region == "West Vancouver Island", species == species[s]) %>%
+# 	select(year, spawners) %>%
+# 	rename("value" = "spawners")
+	
+plot_expansions(speciesname = "Coho",
+								regionname = "West Vancouver Island",
+								region_spawners = region_spawners,
+								expansion_factors = expansion_factors)#,
+								# added_series = added_series.s)
+	abline(v = 1952.5)
+	text(1953, par('usr')[4]/3, "Data prior to 1953 were discarded", adj = 0)
+
+#rm(added_series.s)
+```
+
+#### Pink {.unnumbered}
+For West Vancouver Island pink salmon, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2024) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+
+For chum, coho, and steelhead, we relied on NuSEDS' designations of indicator or non-indicator streams, but for pink salmon in this region we designated indicator streams as those with at least 10 years of data in the most recent 20 years. As a result, expansion factors were higher in historical years, but data from both indicator and non-indicator streams show markedly higher counts in the period 1960-1980 then in subsequent decades and it is unlikely that the observed decline is a result of uncertain expansions. 
+
+```{r west VI pink, fig.width = 7, fig.height = 6, fig.cap="**Above:**Spawner abundance of West Vancouver Island pink salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+## Process data ---
+wvi.s <- sp[2, "Pink", ]
+# Get rid of NAs (esp in 2024)
+wvi.s <- wvi.s[1:max(which(!is.na(wvi.s)))]
+
+# For all VIMI species, start in 1953 - earlier expansion factors are large
+wvi.s	<- wvi.s[which(as.numeric(names(wvi.s)) >= 1953)]
+
+# Reformat data for SPS
+wvi.s_sps <- data.frame(
+	region = rep("West Vancouver Island", length(wvi.s)),
+	species = rep("Pink", length(wvi.s)),
+	year = as.numeric(names(wvi.s)),
+	spawners = as.numeric(wvi.s), 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep(nuseds_id, length(wvi.s))
+) 
+
+# Smoothing
+wvi.s_sps$smoothedSpawners <- genSmooth(
+	abund = wvi.s_sps$spawners,
+	years = wvi.s_sps$year,
+	genLength = genLength$gen_length[genLength$region == "West Vancouver Island" & genLength$species == "Pink"]
+)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, wvi.s_sps)
+
+# Generate standard figure
+plot_abund(wvi.s_sps) 
+```
+
+```{r west VI pink figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+
+# added_series.s <- sps_data %>%
+# 	filter(region == "West Vancouver Island", species == species[s]) %>%
+# 	select(year, spawners) %>%
+# 	rename("value" = "spawners")
+	
+plot_expansions(speciesname = "Pink",
+								regionname = "West Vancouver Island",
+								region_spawners = region_spawners,
+								expansion_factors = expansion_factors)#,
+								# added_series = added_series.s)
+	abline(v = 1952.5)
+	text(1953, par('usr')[4]/3, "Data prior to 1953 were discarded", adj = 0)
+
+#rm(added_series.s)
+```
+
+#### Steelhead {.unnumbered}
+For West Vancouver Island steelhead, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2024) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+
+```{r west VI steelhead, fig.width = 7, fig.height = 6, fig.cap="**Above:**Spawner abundance of West Vancouver Island steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+## Process data ---
+wvi.s <- sp[2, "Steelhead", ]
+# Get rid of NAs (esp in 2024)
+wvi.s <- wvi.s[1:max(which(!is.na(wvi.s)))]
+
+# For all VIMI species, start in 1953 - earlier expansion factors are large
+wvi.s	<- wvi.s[which(as.numeric(names(wvi.s)) >= 1953)]
+
+# Reformat data for SPS
+wvi.s_sps <- data.frame(
+	region = rep("West Vancouver Island", length(wvi.s)),
+	species = rep("Steelhead", length(wvi.s)),
+	year = as.numeric(names(wvi.s)),
+	spawners = as.numeric(wvi.s), 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep(nuseds_id, length(wvi.s))
+) 
+
+# Smoothing
+wvi.s_sps$smoothedSpawners <- genSmooth(
+	abund = wvi.s_sps$spawners,
+	years = wvi.s_sps$year,
+	genLength = genLength$gen_length[genLength$region == "West Vancouver Island" & genLength$species == "Steelhead"]
+)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, wvi.s_sps)
+
+# Generate standard figure
+plot_abund(wvi.s_sps) 
+```
+
+```{r west VI steelhead figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+
+# added_series.s <- sps_data %>%
+# 	filter(region == "West Vancouver Island", species == species[s]) %>%
+# 	select(year, spawners) %>%
+# 	rename("value" = "spawners")
+	
+plot_expansions(speciesname = "Steelhead",
+								regionname = "West Vancouver Island",
+								region_spawners = region_spawners,
+								expansion_factors = expansion_factors)#,
+								# added_series = added_series.s)
+	abline(v = 1952.5)
+	text(1953, par('usr')[4]/3, "Data prior to 1953 were discarded", adj = 0)
+
+#rm(added_series.s)
+```
 
 ### Fraser
 
@@ -1880,76 +2395,56 @@ plot_abund(frck_sps)
 ```
 
 
-```{r fraser chinook figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Aggregate escapement of Fraser Chinook (black open points; thick black line is smoothed spawner abundance) with the contribution of escapement to each of five stocks shown as coloured regions below the line. Note that the Harrison River (Fall 4-1) time series begins later (1984) than the other four stocks (1975), and thus we only report spawner abundance from 1984 onward. (b) The proportional contribution of each of five stocks to aggregate Fraser Chinook escapement."}
-ctc_fr <- readxl::read_xlsx("../data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A3:P53", col_types = "numeric")
+```{r fraser chinook figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 9, fig.height = 6, fig.cap = "**Above:** (a) Aggregate escapement of Fraser Chinook with the contribution of escapement to each of five stocks shown as coloured regions. Note that the Harrison River (Fall 4-1) time series begins later (1984) than the other four stocks (1975), and thus we only report spawner abundance from 1984 onward. (b) The proportional contribution of each of five stocks to aggregate Fraser Chinook escapement."}
+suppressMessages(
+ctc_fr <- readxl::read_xlsx("../data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B6", range = "A3:P53", col_types = "numeric", ) )
 names(ctc_fr) <- c("Year", "Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Fraser Spring/Summer t.run", "Harrison Esc", "Harrison CV", "Lower Shuswap Esc", "Lower Shuswap CV", "Nicola Esc", "Nicola CV", "Lower Chilcotin Esc", "Lower Chilcotin CV", "Chilko Esc", "Chilko CV")
 ctc_esc <- ctc_fr %>% dplyr::select(c("Year", "Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Harrison Esc"))
+ctc_trun <- ctc_fr %>% dplyr::select(c(Year, ))
 ctc_esc_sum <- apply(ctc_esc[, c("Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Harrison Esc")], 1, sum)
 
 ctc_trun_sum <- ctc_fr$`Fraser Spring/Summer t.run`
 
 col_frck <- viridisLite::viridis(n = 5)
 
-par(mfrow = c(2,1))
-plot(ctc_esc$Year, ctc_esc_sum*10^-3, "n", bty = "l", las = 1, ylab = "Spawner abundance (thousands)", ylim = c(0, 750), yaxs = "i")
-for(i in c(1:5)){
-	# lines(ctc_esc$Year, data.frame(ctc_esc)[,i] * 10^-3, "l", col = col_frck[i])
-	if(i == 1){
-		y1 <- rep(0, length(ctc_esc$Year))
-		y2 <- data.frame(ctc_esc)[,2]
-	} else if(i == 2){
-		y1 <-  data.frame(ctc_esc)[,2]
-		y2 <- apply(data.frame(ctc_esc)[,2:3], 1, sum)
-	} else { 
-		y1 <-  apply(data.frame(ctc_esc)[,2:i], 1, sum)
-		y2 <- apply(data.frame(ctc_esc)[,2:(i+1)], 1, sum)
-	}
-	
-	yr <- ctc_esc$Year
-	if(i == 5){
-		yr <- ctc_esc$Year[!is.na(ctc_esc$`Harrison Esc`)]
-		y1 <- y1[!is.na(ctc_esc$`Harrison Esc`)]
-		y2 <- y2[!is.na(ctc_esc$`Harrison Esc`)]
-	}
-	polygon(x = c(yr, rev(yr)),
-					y = c(y1, rev(y2))*10^-3,
-					col = col_frck[i], border = NA)
-}
-points(ctc_esc$Year, ctc_esc_sum*10^-3, "o", pch = 21, bg = "white", xpd = NA)
-lines(ctc_esc$Year, genSmooth(
-		abund = ctc_esc_sum,
-		years = ctc_esc$Year,
-		genLength = 5
-	)*10^-3, lwd = 1.5)
-legend("topleft", fill = col_frck, border = NA, bty = "n", c("Spring 4-2", "Spring 5-2", "Summer 4-1", "Summer 5-2", "Fall 4-1 (Harrison)"))
-mtext(side = 3, line = 0.5, "a) Escapement to five Fraser Chinook stocks", adj = 0)
+# Plot ---
 
-# Proportion
-plot(ctc_esc$Year, ctc_esc_sum, "n", bty = "l", las = 1, ylab = "Proportion of spawner abundance", ylim = c(0, 1), yaxs = "i")
-for(i in c(1:5)){
-	# lines(ctc_esc$Year, data.frame(ctc_esc)[,i] * 10^-3, "l", col = col_frck[i])
-	if(i == 1){
-		y1 <- rep(0, length(ctc_esc$Year))
-		y2 <- data.frame(ctc_esc)[,2]
-	} else if(i == 2){
-		y1 <-  data.frame(ctc_esc)[,2]
-		y2 <- apply(data.frame(ctc_esc)[,2:3], 1, sum)
-	} else { 
-		y1 <-  apply(data.frame(ctc_esc)[,2:i], 1, sum)
-		y2 <- apply(data.frame(ctc_esc)[,2:(i+1)], 1, sum)
-	}
-	
-	
-	polygon(x = c(ctc_esc$Year, rev(ctc_esc$Year)),
-					y = c(y1/ctc_esc_sum, rev(y2/ctc_esc_sum)),
-					col = col_frck[i], border = NA)
-}
-axis(side = 1, at = c(1975:2025), tck = -0.01, labels = FALSE)
-abline(v = seq(1975, 2025, 5))
-abline(v = seq(1970, 2024, 1), lty = 2, lwd = 0.5)
-mtext(side = 3, line = 0.5, "b) Proportional contribution of five stocks to aggregate escapement", adj = 0)
+# Spawner abundance
+esc.stacked <- ctc_esc %>% 
+	rename('Spring 4-2' = 'Fraser Spring Age 1.2 Esc',
+				 'Spring 5-2' = 'Fraser Spring Age 1.3 Esc',
+				 'Summer 5-2' = 'Fraser Summer Age 1.3 Esc',
+				 'Summer 4-1' = 'Fraser Summer Age 0.3 Esc', 
+				 'Fall 4-1 (Harrison)' = 'Harrison Esc') %>% 
+	tidyr::pivot_longer(-1, names_to="Stock", values_to="Escapement") %>% 
+	ggplot() +
+	geom_area(aes(x=Year, y=Escapement/1000, fill=factor(Stock, levels=rev(unique(Stock)))), 
+								alpha=0.6) + 
+	scale_fill_viridis_d() +
+	labs(y="Spawner abundance (thousands)", fill="") +
+	theme_minimal() + theme(legend.position = "none")
 
 
+
+
+esc.sum <- ctc_esc %>% 
+	rename('Spring 4-2' = 'Fraser Spring Age 1.2 Esc',
+				 'Spring 5-2' = 'Fraser Spring Age 1.3 Esc',
+				 'Summer 5-2' = 'Fraser Summer Age 1.3 Esc',
+				 'Summer 4-1' = 'Fraser Summer Age 0.3 Esc', 
+				 'Fall 4-1 (Harrison)' = 'Harrison Esc') %>% 
+	tidyr::pivot_longer(-1, names_to="Stock", values_to="Escapement") %>% 
+	filter(Year >= 1984) %>% 
+	ggplot() +
+	geom_area(aes(x=Year, y=Escapement/1000, fill=factor(Stock, levels=rev(unique(Stock)))), 
+								alpha=0.6, position="fill") + 
+	scale_fill_viridis_d() +
+	labs(y="Proportion of spawner abundance (thousands)", fill="") +
+	theme_minimal() + theme(legend.position = "right")
+
+suppressWarnings(
+cowplot::plot_grid(esc.stacked, esc.sum, labels="auto", rel_widths=c(0.75, 1))
+)
 ```
 
 #### Chum {.unnumbered}
@@ -1957,17 +2452,20 @@ Fraser chum catch and escapement are reported by PSC's Chum Technical Committee 
 
 ```{r fraser chum, echo=FALSE, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Fraser Chum salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 # (2) Use TCCHUM Fraser data
+suppressMessages(
 frcm_esc <- readxl::read_xlsx("../data/ChumTC Report Tables - full time series up to 2022.xlsx", sheet = "3-11", range = "A4:B29") %>%
-	rename(year = "...1", esc = "Fraser River")
+	rename(year = "...1", esc = "Fraser River") )
 
+suppressMessages(
 frcm_catch1 <- readxl::read_xlsx("../data/ChumTC Report Tables - full time series up to 2022.xlsx", sheet = "3-8", range = "A3:G30") %>%
 	rename(year = "Year", catch = "Total") %>%
-	dplyr::select(year, catch)
+	dplyr::select(year, catch) )
 
-
+suppressMessages(
 frcm_catch2 <- readxl::read_xlsx("../data/ChumTC Report Tables - full time series up to 2022.xlsx", sheet = "3-9", range = "A4:G31") %>%
 	rename(year = "...1", catch = "Total") %>%
-	dplyr::select(year, catch)
+	dplyr::select(year, catch) )
+
 
 # Find years when catch and escapement are reported
 yrs_tcchum <- c(max(c(min(frcm_esc$year), min(frcm_catch1$year), min(frcm_catch2$year))):min(c(max(frcm_esc$year), max(frcm_catch1$year), max(frcm_catch2$year)))) #1998:2022
