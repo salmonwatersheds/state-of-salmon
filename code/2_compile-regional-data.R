@@ -689,8 +689,8 @@ sps_data <- rbind(sps_data, nasssh_sps)
 #------------------------------------------------------------------------------
 
 # Read in LGL data
-nassco_lgl <- readxl::read_xlsx("data/LGL_nass_update_TRTC_age.xlsx", sheet = "ConservationUnit TRTC") %>%
-	filter(SpeciesId == "CO" & Year >= 1992)
+# nassco_lgl <- readxl::read_xlsx("data/LGL_nass_update_TRTC_age.xlsx", sheet = "ConservationUnit TRTC") %>%
+	# filter(SpeciesId == "CO" & Year >= 1992)
 
 # Just use Nisga'a data, which goes back to 1992 and matches English et al. (2023)
 # nassco <- nassco_lgl %>%
