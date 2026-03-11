@@ -1679,7 +1679,7 @@ spwn.stack <- evimi_ctc %>%
 	geom_area(aes(x=Year, y=esc/1000, fill=stock), 
 								alpha=0.6) + 
 	scale_fill_viridis_d() +
-	labs(y="Spawner abundance (thousands)", fill="") + lims(y=c(0,50)) +
+	labs(y="Spawner abundance (thousands)", fill="") + lims(y=c(0,40)) +
 	theme_minimal() + theme(legend.position = "none")
 
 # Total abundance
@@ -1692,10 +1692,11 @@ tot.stack <- evimi_ctc %>%
 	geom_area(aes(x=Year, y=trun/1000, fill=stock), 
 								alpha=0.6) + 
 	scale_fill_viridis_d() +
-	labs(y="Spawner abundance (thousands)", fill="") + lims(y=c(0,50)) +
+	labs(y="Spawner abundance (thousands)", fill="") + lims(y=c(0,40)) +
 	theme_minimal() + theme(legend.position = "right")
 
-cowplot::plot_grid(spwn.stack, tot.stack, rel_widths = c(0.75,1), labels="auto")
+suppressWarnings(
+cowplot::plot_grid(spwn.stack, tot.stack, rel_widths = c(0.75,1), labels="auto") )
 
 ```
 
