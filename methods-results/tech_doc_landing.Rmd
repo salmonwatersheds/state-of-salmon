@@ -8,8 +8,8 @@ output: html_document
 The methods for the State of Salmon reports are detailed in the technical documentation. Click through below to view the documentation corresponding to each year's report.
 
 
-[2025 Report](https://salmonwatersheds.github.io/state-of-salmon/docs/2025/index_23.html)
+[2025 Report](https://salmonwatersheds.github.io/state-of-salmon/2025/index_23.html)
 
 
-[2024 Report](https://salmonwatersheds.github.io/state-of-salmon/docs/2024/index.html)
+[2024 Report](https://salmonwatersheds.github.io/state-of-salmon/2024/index.html)
 
