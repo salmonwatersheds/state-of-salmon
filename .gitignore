@@ -15,7 +15,7 @@ methods-results/methods-results.html
 methods-results/figures
 methods-results/encrypt.R
 methods-results/rsconnect
-#methods-results/*.html
+methods-results/*.html
 
 code/archive
 code/ignore
