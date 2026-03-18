@@ -12,3 +12,4 @@ The methods for the State of Salmon reports are detailed in the technical docume
 
 
 [2024 Report](https://salmonwatersheds.github.io/state-of-salmon/docs/2024/index.html)
+
