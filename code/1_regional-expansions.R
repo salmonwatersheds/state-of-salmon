@@ -17,9 +17,7 @@ library(PNWColors)
 # streams (English et al. 2018; code provided by LGL Ltd.)
 source("code/expansion-functions.R")
 
-Dropbox_directory <- "/Users/stephaniepeacock/Salmon Watersheds Dropbox/Stephanie Peacock/X Drive/1_PROJECTS/1_Active/Population Methods and Analysis/population-indicators/"
-
-source(paste0(Dropbox_directory, "code/functions_general.R"))
+source("https://raw.githubusercontent.com/salmonwatersheds/population-indicators/refs/heads/master/code/functions_general.R")
 
 ###############################################################################
 # Import spawner survey data

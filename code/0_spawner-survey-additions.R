@@ -3,18 +3,15 @@
 # April 29, 2025
 # Steph Peacock (speacock@psf.ca)
 ###############################################################################
-libraray(dplyr)
+library(dplyr)
 # Here, we read in spawner survey data in the PSE, and revise the indicator/
 # non-indicator designations that are used in expansions where needed
 # Also add 2024 data from escapement bulletin for WVI
-
-Dropbox_directory <- "/Users/stephaniepeacock/Salmon Watersheds Dropbox/Stephanie Peacock/X Drive/1_PROJECTS/1_Active/Population Methods and Analysis/population-indicators/"
-
-source(paste0(Dropbox_directory, "code/functions_general.R"))
+source("https://raw.githubusercontent.com/salmonwatersheds/population-indicators/refs/heads/master/code/functions_general.R")
 
 # Read in spawner survey data from PSE
 
-spawner_surveys.all <-read.csv(paste0(Dropbox_directory, "spawner-surveys/output/archive/dataset2_spawner-surveys_2025-04-15.csv")) %>%
+spawner_surveys.all <-read.csv("data/dataset2_spawner-surveys_2025-04-15.csv") %>%
 	dplyr::filter(year >= 1950, !is.na(stream_observed_count)) %>% # Use only data from 1950 to present
 	dplyr::select(region, species_name, species_qualified, streamid, stream_name_pse, GFE_ID, indicator, latitude, longitude, year, stream_observed_count, source_id)
 
