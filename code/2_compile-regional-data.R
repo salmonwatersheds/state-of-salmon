@@ -15,7 +15,7 @@ source("code/functions.R")
 
 regions <- c("Yukon", "Transboundary", "Haida Gwaii", "Nass", "Skeena", "Central Coast", "East Vancouver Island & Mainland Inlets", "West Vancouver Island", "Fraser", "Columbia")
 
-species <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead")
+species_vec <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead")
 
 # Generation length by species and region (for smoothing)
 genLength <- read.csv("data/gen_length_regions.csv") 
@@ -521,13 +521,13 @@ yrs <- as.numeric(dimnames(sp)[[3]])
 sp[, "Coho",]
 
 for(s in 2:5){
-	hg.s <- sp[2, species[s], ]
+	hg.s <- sp[2, species_vec[s], ]
 	# hg.s <- hg.s[!is.na(hg.s)]
 
 	# Reformat data for SPS
 	hg.s_sps <- data.frame(
 		region = rep("Haida Gwaii", length(hg.s)),
-		species = rep(species[s], length(hg.s)),
+		species = rep(species_vec[s], length(hg.s)),
 		year = as.numeric(names(hg.s)),
 		spawners = as.numeric(hg.s), 
 		smoothedSpawners = NA,
@@ -540,11 +540,11 @@ for(s in 2:5){
 	hg.s_sps$smoothedSpawners <- genSmooth(
 		abund = hg.s_sps$spawners,
 		years = hg.s_sps$year,
-		genLength = genLength$gen_length[genLength$region == "Haida Gwaii" & genLength$species == species[s]]
+		genLength = genLength$gen_length[genLength$region == "Haida Gwaii" & genLength$species == species_vec[s]]
 	)
 	
 	plot_abund(hg.s_sps)
-	# lines(hg_table30$year, hg_table30[, species[s]]*10^-3, col = 2)
+	# lines(hg_table30$year, hg_table30[, species_vec[s]]*10^-3, col = 2)
 	# legend("topleft", lty = 1, col = 2, "NBTC Table 30 (Area 1) escapement", bty = "n")
 	
 	# Add to master sps dataframe
@@ -1038,13 +1038,13 @@ sp <- readRDS("output/expanded-spawners/Skeena-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 
 for(s in c(2, 3, 4)){
-	skeena.s <- sp[2, species[s], ]
+	skeena.s <- sp[2, species_vec[s], ]
 	skeena.s <- skeena.s[!is.na(skeena.s)]
 	
 	# Reformat data for SPS
 	skeena.s_sps <- data.frame(
 		region = rep("Skeena", length(skeena.s)),
-		species = rep(species[s], length(skeena.s)),
+		species = rep(species_vec[s], length(skeena.s)),
 		year = as.numeric(names(skeena.s)),
 		spawners = as.numeric(skeena.s), 
 		smoothedSpawners = NA,
@@ -1057,7 +1057,7 @@ for(s in c(2, 3, 4)){
 	skeena.s_sps$smoothedSpawners <- genSmooth(
 		abund = skeena.s_sps$spawners,
 		years = skeena.s_sps$year,
-		genLength = genLength$gen_length[genLength$region == "Skeena" & genLength$species == species[s]]
+		genLength = genLength$gen_length[genLength$region == "Skeena" & genLength$species == species_vec[s]]
 	)
 	
 	plot_abund(skeena.s_sps)
@@ -1114,13 +1114,13 @@ sp <- readRDS("output/expanded-spawners/Central Coast-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 
 for(s in 2:5){
-	cc.s <- sp[2, species[s], ]
+	cc.s <- sp[2, species_vec[s], ]
 	# cc.s <- cc.s[!is.na(cc.s)] # There is a missing year for Chinook in 2016...
 	
 	# Reformat data for SPS
 	cc.s_sps <- data.frame(
 		region = rep("Central Coast", length(cc.s)),
-		species = rep(species[s], length(cc.s)),
+		species = rep(species_vec[s], length(cc.s)),
 		year = as.numeric(names(cc.s)),
 		spawners = as.numeric(cc.s), 
 		smoothedSpawners = NA,
@@ -1133,7 +1133,7 @@ for(s in 2:5){
 	cc.s_sps$smoothedSpawners <- genSmooth(
 		abund = cc.s_sps$spawners,
 		years = cc.s_sps$year,
-		genLength = genLength$gen_length[genLength$region == "Central Coast" & genLength$species == species[s]]
+		genLength = genLength$gen_length[genLength$region == "Central Coast" & genLength$species == species_vec[s]]
 	)
 	
 	plot_abund(cc.s_sps)
@@ -1198,7 +1198,7 @@ sp <- readRDS("output/expanded-spawners/East Vancouver Island & Mainland Inlets-
 yrs <- as.numeric(dimnames(sp)[[3]])
 
 for(s in 2:6){
-	evimi.s <- sp[2, species[s], ]
+	evimi.s <- sp[2, species_vec[s], ]
 	
 	# Get rid of NAs (esp in 2024)
 	evimi.s <- evimi.s[1:max(which(!is.na(evimi.s)))]
@@ -1209,7 +1209,7 @@ for(s in 2:6){
 	# Reformat data for SPS
 	evimi.s_sps <- data.frame(
 		region = rep("East Vancouver Island & Mainland Inlets", length(evimi.s)),
-		species = rep(species[s], length(evimi.s)),
+		species = rep(species_vec[s], length(evimi.s)),
 		year = as.numeric(names(evimi.s)),
 		spawners = as.numeric(evimi.s), 
 		smoothedSpawners = NA,
@@ -1222,7 +1222,7 @@ for(s in 2:6){
 	evimi.s_sps$smoothedSpawners <- genSmooth(
 		abund = evimi.s_sps$spawners,
 		years = evimi.s_sps$year,
-		genLength = genLength$gen_length[genLength$region == "East Vancouver Island & Mainland Inlets" & genLength$species == species[s]]
+		genLength = genLength$gen_length[genLength$region == "East Vancouver Island & Mainland Inlets" & genLength$species == species_vec[s]]
 	)
 	
 	plot_abund(evimi.s_sps)
@@ -1349,7 +1349,7 @@ sp <- readRDS("output/expanded-spawners/West Vancouver Island-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 
 for(s in c(2,3,4,6)){ # Chum, coho, pink, steelhead
-	wvi.s <- sp[2, species[s], ]
+	wvi.s <- sp[2, species_vec[s], ]
 	# Get rid of NAs (esp in 2024)
 	wvi.s <- wvi.s[1:max(which(!is.na(wvi.s)))]
 	
@@ -1359,7 +1359,7 @@ for(s in c(2,3,4,6)){ # Chum, coho, pink, steelhead
 	# Reformat data for SPS
 	wvi.s_sps <- data.frame(
 		region = rep("West Vancouver Island", length(wvi.s)),
-		species = rep(species[s], length(wvi.s)),
+		species = rep(species_vec[s], length(wvi.s)),
 		year = as.numeric(names(wvi.s)),
 		spawners = as.numeric(wvi.s), 
 		smoothedSpawners = NA,
@@ -1372,7 +1372,7 @@ for(s in c(2,3,4,6)){ # Chum, coho, pink, steelhead
 	wvi.s_sps$smoothedSpawners <- genSmooth(
 		abund = wvi.s_sps$spawners,
 		years = wvi.s_sps$year,
-		genLength = genLength$gen_length[genLength$region == "West Vancouver Island" & genLength$species == species[s]]
+		genLength = genLength$gen_length[genLength$region == "West Vancouver Island" & genLength$species == species_vec[s]]
 	)
 	
 	plot_abund(wvi.s_sps)

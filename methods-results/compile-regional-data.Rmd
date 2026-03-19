@@ -108,7 +108,7 @@ Here we describe specific data sources for the abundance of salmon and steelhead
 
 regions <- c("Yukon", "Transboundary", "Haida Gwaii", "Nass", "Skeena", "Central Coast", "East Vancouver Island & Mainland Inlets", "West Vancouver Island", "Fraser", "Columbia")
 
-species <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead")
+species_vec <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead")
 
 # Generation length by species and region (for smoothing)
 genLength <- read.csv("../data/gen_length_regions.csv") 
@@ -2156,7 +2156,7 @@ plot_abund(wvi.s_sps)
 ```{r west VI chum figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 # added_series.s <- sps_data %>%
-# 	filter(region == "West Vancouver Island", species == species[s]) %>%
+# 	filter(region == "West Vancouver Island", species == "Chum") %>%
 # 	select(year, spawners) %>%
 # 	rename("value" = "spawners")
 	
@@ -2212,7 +2212,7 @@ plot_abund(wvi.s_sps)
 ```{r west VI coho figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 # added_series.s <- sps_data %>%
-# 	filter(region == "West Vancouver Island", species == species[s]) %>%
+# 	filter(region == "West Vancouver Island", species == "Coho") %>%
 # 	select(year, spawners) %>%
 # 	rename("value" = "spawners")
 	
@@ -2270,7 +2270,7 @@ plot_abund(wvi.s_sps)
 ```{r west VI pink figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 # added_series.s <- sps_data %>%
-# 	filter(region == "West Vancouver Island", species == species[s]) %>%
+# 	filter(region == "West Vancouver Island", species == "Pink") %>%
 # 	select(year, spawners) %>%
 # 	rename("value" = "spawners")
 	
@@ -2326,7 +2326,7 @@ plot_abund(wvi.s_sps)
 ```{r west VI steelhead figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 # added_series.s <- sps_data %>%
-# 	filter(region == "West Vancouver Island", species == species[s]) %>%
+# 	filter(region == "West Vancouver Island", species == "Steelhead") %>%
 # 	select(year, spawners) %>%
 # 	rename("value" = "spawners")
 	
