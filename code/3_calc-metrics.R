@@ -24,7 +24,7 @@ genLength <-read.csv("data/gen_length_regions.csv")
 
 # Define variables
 regions <- unique(unique(sps_dat$region))
-species <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead")
+species_vec <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead")
 
 # Source script with code for plotting functions
 source("code/functions.R")
@@ -77,30 +77,30 @@ pdf(file = "output/ignore/figures/sps-metrics_detailed.pdf", width = 6, height =
 par(mar = c(3, 4, 2, 1))
 
 for(r in 1:length(regions)){ # for each region
-	for(s in 1:length(species)){ # for each species
+	for(s in 1:length(species_vec)){ # for each species
 		
 		#----------
 		# Check if there are any data	
-		if(length(which(sps_dat$region == regions[r] & sps_dat$species == species[s])) == 0){ # If no data
+		if(length(which(sps_dat$region == regions[r] & sps_dat$species == species_vec[s])) == 0){ # If no data
 			
-			# sps_metrics[which(sps_metrics$region == regions[r] & sps_metrics$species == species[s]), c("n_indicator", "n_nonindicator")] <- 0
+			# sps_metrics[which(sps_metrics$region == regions[r] & sps_metrics$species == species_vec[s]), c("n_indicator", "n_nonindicator")] <- 0
 			
 		#----------
 		} else { # If there ARE data
 			
 			# 0. Index for relevant rows of sps_metrics and sps_dat:
-			ind <- which(sps_metrics$region == regions[r] & sps_metrics$species == species[s])
-			ind_dat <- which(sps_dat$region == regions[r] & sps_dat$species == species[s])
+			ind <- which(sps_metrics$region == regions[r] & sps_metrics$species == species_vec[s])
+			ind_dat <- which(sps_dat$region == regions[r] & sps_dat$species == species_vec[s])
 			
 			# 1. Input generation length into metrics output
-			g <- genLength$gen_length[which(genLength$region == regions[r] & genLength$species == species[s])]
+			g <- genLength$gen_length[which(genLength$region == regions[r] & genLength$species == species_vec[s])]
 			if(length(g) > 0){
 				sps_metrics$gen_length[ind] <- g
 			}
 			
 			# # Indicator and non-indicator streams (removed from output)
-			# if(length(which(numStreams$region == regions[r] & numStreams$species == species[s])) > 0){
-			# 	sps_metrics[ind[1], c("n_indicator", "n_nonindicator")] <- numStreams[which(numStreams$region == regions[r] & numStreams$species == species[s]), c("indicator", "nonindicator")]
+			# if(length(which(numStreams$region == regions[r] & numStreams$species == species_vec[s])) > 0){
+			# 	sps_metrics[ind[1], c("n_indicator", "n_nonindicator")] <- numStreams[which(numStreams$region == regions[r] & numStreams$species == species_vec[s]), c("indicator", "nonindicator")]
 			# }	
 			
 			#---------------------------------------------------------------------------
@@ -208,7 +208,7 @@ for(r in 1:length(regions)){ # for each region
 					text(x[1], 0.95 * max(yraw, na.rm = TRUE)*10^-3, paste0("Long-term trend: ", round(sps_metrics$long_trend[ind[i]]*100, 1), "% (", sps_metrics$long_trend_cat[ind[i]], ")"), col = SWP_cols['tidal2'], adj = 0, cex = 0.8)
 					
 					text(x[1], max(yraw, na.rm = TRUE)*10^-3, paste0("Current status: ", round(sps_metrics$current_status[ind[i]]*100, 1), "%"), adj = 0, cex = 0.8, col = SWP_cols['stone3'])
-					mtext(side= 3, paste(regions[r], species[s], c("spawners", "run size")[i]))
+					mtext(side= 3, paste(regions[r], species_vec[s], c("spawners", "run size")[i]))
 					
 					legend("topright", lwd = c(1.5, 1), lty = c(1, 3), col = c(SWP_cols['stone3'], SWP_cols['stone1']), c("Smoothed", "Raw"), bty = "n", cex = 0.8)
 
@@ -398,7 +398,7 @@ PL <- 5 # threshold for label offset
 for(i in 1:2){ # for spawners and run type
 	for(s in 1:6){ # for each species
 		
-		sps_summary.is <- sps_summary[which(sps_summary$type ==  c("Spawners", "Total return")[i] & sps_summary$species == species[s]), c("region", "current_status", "status_offset_x", "status_offset_y", "region_label_offset_y")]
+		sps_summary.is <- sps_summary[which(sps_summary$type ==  c("Spawners", "Total return")[i] & sps_summary$species == species_vec[s]), c("region", "current_status", "status_offset_x", "status_offset_y", "region_label_offset_y")]
 		o <- order(sps_summary.is$current_status)
 		sps_summary.is <- sps_summary.is[o,]
 
@@ -410,7 +410,7 @@ for(i in 1:2){ # for spawners and run type
 				stop("More than one region has the same value.")
 			} else {
 				regions.same <- sps_summary.is$region[c(ind, ind + 1)]
-				sps_summary$status_offset_x[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species[s] & sps_summary$region %in% regions.same)] <- c(-1, 1)
+				sps_summary$status_offset_x[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species_vec[s] & sps_summary$region %in% regions.same)] <- c(-1, 1)
 			}
 		}
 		
@@ -429,7 +429,7 @@ for(i in 1:2){ # for spawners and run type
 				dum <- which(diff(sps_summary.is$current_status + sps_summary.is$status_offset_y) < P & diff(sps_summary.is$current_status) > 0)
 			}
 			
-			sps_summary$status_offset_y[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species[s])] <- sps_summary.is$status_offset_y[match(sps_summary$region[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species[s])], sps_summary.is$region)]
+			sps_summary$status_offset_y[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species_vec[s])] <- sps_summary.is$status_offset_y[match(sps_summary$region[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species_vec[s])], sps_summary.is$region)]
 			
 		}
 		
@@ -447,12 +447,12 @@ for(i in 1:2){ # for spawners and run type
 				dum <- which(diff(sps_summary.is$current_status + sps_summary.is$status_offset_y + sps_summary.is$region_label_offset_y) < PL)
 			}
 			
-			sps_summary$region_label_offset_y[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species[s])] <- sps_summary.is$region_label_offset_y[match(sps_summary$region[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species[s])], sps_summary.is$region)]
+			sps_summary$region_label_offset_y[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species_vec[s])] <- sps_summary.is$region_label_offset_y[match(sps_summary$region[which(sps_summary$type == c("Spawners", "Total return")[i] & sps_summary$species == species_vec[s])], sps_summary.is$region)]
 			
 		}
 	
 		
-		plot(rep(1,dim(sps_summary.is)[1]), sps_summary.is$current_status, pch = 19, cex = 1.5, col = rainbow(9), xlim = c(0.5, 3.5), main = paste(species[s], c("Spawners", "Total return")[i]))
+		plot(rep(1,dim(sps_summary.is)[1]), sps_summary.is$current_status, pch = 19, cex = 1.5, col = rainbow(9), xlim = c(0.5, 3.5), main = paste(species_vec[s], c("Spawners", "Total return")[i]))
 		points(rep(1.2,dim(sps_summary.is)[1]) + sps_summary.is$status_offset_x/25,  sps_summary.is$current_status + sps_summary.is$status_offset_y, pch = 19, cex = 1.5, col = rainbow(9))
 		points(rep(1.2,dim(sps_summary.is)[1])+ sps_summary.is$status_offset_x/25, sps_summary.is$current_status + sps_summary.is$status_offset_y, pch = 19, cex = 0.5)
 		segments(x0 = 1.2 + sps_summary.is$status_offset_x/25, x1 = 1.7, y0 = sps_summary.is$current_status + sps_summary.is$status_offset_y, y1 = sps_summary.is$current_status + sps_summary.is$status_offset_y + sps_summary.is$region_label_offset_y)
@@ -588,11 +588,11 @@ trends_plotting <- sps_dat %>%
 for(r in 1:length(regions)){ # for each region
 	for(s in 1:length(species)){ # for each species
 		
-		ind <- which(trends_plotting$region == regions[r] & trends_plotting$species == species[s])
+		ind <- which(trends_plotting$region == regions[r] & trends_plotting$species == species_vec[s])
 		if(length(ind > 0)){
 		for(i in 1:2){ # for spawners and total return (aka run size)
 			# Extract historical baseline
-			H <- sps_metrics$average_abundance[which(sps_metrics$region == regions[r] & sps_metrics$species == species[s] & sps_metrics$type == c("Spawners", "Run Size")[i])]
+			H <- sps_metrics$average_abundance[which(sps_metrics$region == regions[r] & sps_metrics$species == species_vec[s] & sps_metrics$type == c("Spawners", "Run Size")[i])]
 			
 			if(!is.na(H)){ # If there is a baseline
 				
