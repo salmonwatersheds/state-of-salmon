@@ -1,41 +1,25 @@
+# Ignore R-specific memory files
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
 
+# Ignore all word docs
 *.docx
 
-README.Rmd
-README_files/
-references.bib
-
-# Ignore rendered methods-results doc, which is large
-methods-results/*.docx
-methods-results/methods-results.html
-methods-results/figures
-methods-results/encrypt.R
-methods-results/rsconnect
+# Ignore rendered methods-results doc, which may be large.
 methods-results/*.html
 
+# Old code files archived on individual local repos
 code/archive
 code/ignore
 
-# Ignore certain output files
+# Output files on Dropbox
 output/ignore
 output/archive
-output/data-library
-output/num-surveys
-output/sps-trends_plotting.csv
-output/sps-summary_table_totalreturn.csv
-output/sps-summary_table_spawners.csv
 output/print-figures
 
-# Ignore large datasets
-data/spawner_surveys.csv
-data/spawner_abundance.csv
-
-# Ignore pdf source files (for now)
+# Original or sensitive data sources on Dropbox
 data/sources
 data/ignore
 
-app
