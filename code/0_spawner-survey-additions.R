@@ -19,6 +19,8 @@ spawner_surveys.all <-read.csv("data/dataset2_spawner-surveys_2025-04-15.csv") %
 # Change indicator/non-indicator designations from NuSEDS
 ###############################################################################
 
+# Hannah to check if there are any indicator changed streams...
+
 # Check indicator designation from LGL - does it match NuSEDS?
 lgl <- read.csv("data/ignore/OUTPUT_NCCStreams_2017.csv") %>%
 	dplyr::select(POP_ID, Indicator, SPP, GFE_ID, SYS_NM)#, CU_findex, CU_name, CU_index)
@@ -68,6 +70,8 @@ spawner_surveys.all <- spawner_surveys.all[-which(spawner_surveys.all$year == 20
 # Add 2024 WVI estimated and re-visit indicator designation
 ###############################################################################
 
+# Steph to find this year's bulletin and forward to Hannah for updating 2024_WCVI_Esc_Bulletin 9_Nov 15.csv
+
 species  <- sort(unique(spawner_surveys.all$species_name))
 
 # Set Malksope coho as an indicator (McHugh & King 2018)
@@ -89,7 +93,7 @@ for(s in 1:5){
 			spawner_surveys.add <- spawner_surveys.si %>% tail(1)
 			spawner_surveys.add$year <- 2024
 			spawner_surveys.add$stream_observed_count <- wvi2024.s$Count[i]
-			spawner_surveys.add$source_id <- "McHugh_20241115"
+			spawner_surveys.add$source_id <- "McHugh_20241115" # Will need to update
 			
 			spawner_surveys.all <- spawner_surveys.all %>% bind_rows(spawner_surveys.add)
 			
