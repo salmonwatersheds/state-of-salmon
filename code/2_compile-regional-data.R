@@ -30,7 +30,7 @@ ctc_id <- "CTC_20250714"
 ###############################################################################
 ###############################################################################
 
-pdf(file = paste0("output/ignore/figures/spawners_and_runsize_ALL_", Sys.Date(), ".pdf"),
+pdf(file = paste0(Dropbox_dir, "/output/ignore/figures/spawners_and_runsize_ALL_", Sys.Date(), ".pdf"),
 		width = 6, height = 4, pointsize = 10)
 
 ###############################################################################
@@ -1948,4 +1948,4 @@ dev.off()
 ###############################################################################
 
 write.csv(sps_data, "output/sps-data.csv", row.names = FALSE) # Always have most recent
-write.csv(sps_data, paste0("output/archive/sps-data_", Sys.Date(), ".csv"), row.names = FALSE) # Archive with date
+write.csv(sps_data, paste0(Dropbox_dir, "/output/archive/sps-data_", Sys.Date(), ".csv"), row.names = FALSE) # Archive with date in shared location

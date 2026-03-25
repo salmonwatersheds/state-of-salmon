@@ -10,6 +10,7 @@ library(tidyverse)
 
 # Write output files?
 write.output <- TRUE
+source("code/get-dropbox-dir.R")
 
 # Read in data 
 
@@ -318,7 +319,7 @@ if(write.output){
 	write.csv(sps_metrics, file = "app/sps-metrics.csv", row.names = FALSE)
 	
 	# Write dated archive copy
-	write.csv(sps_metrics, file = paste0("output/archive/sps-metrics_", Sys.Date(), ".csv"), row.names = FALSE)
+	write.csv(sps_metrics, file = paste0(Dropbox_dir, "/output/archive/sps-metrics_", Sys.Date(), ".csv"), row.names = FALSE)
 	write.csv(sps_dat, file = paste0("output/archive/sps-data_", Sys.Date(), ".csv"), row.names = FALSE)
 }
 
@@ -364,7 +365,7 @@ sps_summary_internal <- sps_metrics_temp %>%
 	filter(paste(region, species) %in% c("Yukon Pink", "Yukon Sockeye", "Yukon Steelhead", "Columbia Chum", "Columbia Coho", "Columbia Pink") == FALSE) # Filter out regions/species not known to exist
 
 if(write.output){
-	write.csv(sps_summary_internal, file = paste0("output/archive/sps-summary-internal_", Sys.Date(), ".csv"), row.names = FALSE)
+	write.csv(sps_summary_internal, file = paste0(Dropbox_dir, "/output/archive/sps-summary-internal_", Sys.Date(), ".csv"), row.names = FALSE)
 	write.csv(sps_summary_internal, file = "output/sps-summary-internal.csv", row.names = FALSE)
 }
 
@@ -463,7 +464,7 @@ for(i in 1:2){ # for spawners and run type
 
 
 if(write.output){
-	write.csv(sps_summary, file = paste0("output/archive/sps-summary_", Sys.Date(), ".csv"), row.names = FALSE)
+	write.csv(sps_summary, file = paste0(Dropbox_dir, "/output/archive/sps-summary_", Sys.Date(), ".csv"), row.names = FALSE)
 	write.csv(sps_summary, file = "output/sps-summary.csv", row.names = FALSE)
 }
 
@@ -567,7 +568,7 @@ sps_profile$text[sps_profile$spawner_current_abundance == "?" | sps_profile$tota
 sps_profile$spawner_current_years[which(sps_profile$spawner_current_abundance == "?")] <- ""
 
 if(write.output){
-	write.csv(sps_profile, file = paste0("output/archive/sps-profile_", Sys.Date(), ".csv"), row.names = FALSE)
+	write.csv(sps_profile, file = paste0(Dropbox_dir, "/output/archive/sps-profile_", Sys.Date(), ".csv"), row.names = FALSE)
 	write.csv(sps_profile, file = "output/sps-profile.csv", row.names = FALSE)
 }
 
@@ -610,7 +611,7 @@ for(r in 1:length(regions)){ # for each region
 
 
 if(write.output){
-	write.csv(trends_plotting, file = paste0("output/archive/sps-trends_plotting_", Sys.Date(), ".csv"), row.names = FALSE)
+	write.csv(trends_plotting, file = paste0(Dropbox_dir, "/output/archive/sps-trends_plotting_", Sys.Date(), ".csv"), row.names = FALSE)
 	write.csv(trends_plotting, file = "output/sps-trends_plotting.csv", row.names = FALSE)
 }
 
