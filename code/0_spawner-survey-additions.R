@@ -11,7 +11,7 @@ source("https://raw.githubusercontent.com/salmonwatersheds/population-indicators
 
 # Read in spawner survey data from PSE
 
-spawner_surveys.all <-read.csv("data/dataset2_spawner-surveys_2025-04-15.csv") %>%
+spawner_surveys.all <-read.csv("data/dataset2_spawner-surveys_2026-03-16.csv") %>%
 	dplyr::filter(year >= 1950, !is.na(stream_observed_count)) %>% # Use only data from 1950 to present
 	dplyr::select(region, species_name, species_qualified, streamid, stream_name_pse, GFE_ID, indicator, latitude, longitude, year, stream_observed_count, source_id)
 
