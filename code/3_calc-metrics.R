@@ -7,10 +7,14 @@
 ###############################################################################
 
 library(tidyverse)
+# Load functions
+source("https://raw.githubusercontent.com/salmonwatersheds/population-indicators/refs/heads/master/code/functions_general.R")
+# Get dropbox directory
+Dropbox_dir <- get_XDrive()
+
 
 # Write output files?
 write.output <- TRUE
-source("code/get-dropbox-dir.R")
 
 # Read in data 
 

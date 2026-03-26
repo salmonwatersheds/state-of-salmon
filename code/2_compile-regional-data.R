@@ -12,6 +12,11 @@ library(abind)
 library(readxl)
 
 source("code/functions.R")
+# Load extra functions
+source("https://raw.githubusercontent.com/salmonwatersheds/population-indicators/refs/heads/master/code/functions_general.R")
+# Get dropbox directory
+Dropbox_dir <- get_XDrive()
+
 
 regions <- c("Yukon", "Transboundary", "Haida Gwaii", "Nass", "Skeena", "Central Coast", "East Vancouver Island & Mainland Inlets", "West Vancouver Island", "Fraser", "Columbia")
 
