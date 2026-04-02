@@ -9,17 +9,19 @@
 
 # Ignore rendered methods-results doc, which may be large.
 methods-results/*.html
+code/*.html
 
-# Old code files archived on individual local repos
+
+# Old code files archived on local repos
 code/archive
 code/ignore
 
-# Output files on Dropbox
+# Output files - these should be saved to Dropbox in the 'shadow repo'
 output/ignore
 output/archive
 output/print-figures
 
-# Original or sensitive data sources on Dropbox
+# Original or sensitive data sources - these should be saved to Dropbox in the 'shadow repo'
 data/sources
 data/ignore
 
