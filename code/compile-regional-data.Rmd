@@ -815,17 +815,17 @@ Nass sockeye escapement and total return were derived from the Northern Boundary
 ```{r nass sockeye, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Nass sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 # Load Nisgaa data
-nass_nisgaa <- read.csv("../data/2024NassStockAssessment_combinedTables19-21.csv")
+nass_nisgaa <- read.csv("../data/2025NassStockAssessment_Table20+22.csv")
 
 # use NBSRR data provided by LGL up to 2022 and Nisga'a Post-season for 2023, 2024
 nassse <- read.csv("../data/nassskeena_sockeye_lgl.csv") %>%
 	subset(Region == "Nass") %>%
 	mutate(source_id = "English_20230930") %>%
 	bind_rows(
-		data.frame(Year = c(2023, 2024),
-							 TE = nass_nisgaa$ESC_Sockeye[nass_nisgaa$Year %in% c(2023, 2024)],
-							 Total.Run = nass_nisgaa$TOTAL_RUN_Sockeye[nass_nisgaa$Year %in% c(2023, 2024)],
-							 source_id = rep("Nisgaa_20241203", 2)
+		data.frame(Year = c(2023:2025),
+							 TE = nass_nisgaa$ESC_Sockeye[nass_nisgaa$Year %in% c(2023:2025)],
+							 Total.Run = nass_nisgaa$TOTAL_RUN_Sockeye[nass_nisgaa$Year %in% c(2023:2025)],
+							 source_id = rep("Nisgaa_20241203", 3)
 		)
 	)
 
@@ -1996,6 +1996,8 @@ In the 2025 State of Salmon report, we have split the former "Vancouver Island &
 #### Chinook {.unnumbered}
 For Chinook spawner abundance, we used the West Coast Vancouver Island (WCVI) 14-stream index escapements of Pacific Salmon Commission Chinook Technical Committee wild Chinook salmon escapement indicator stocks, available in Appendix B5 of @ChinookTechnicalCommittee2025AnnualReportCatch Streams were selected to represent WVI Chinook populations "with little or no hatchery influence" [@ChinookTechnicalCommittee2025AnnualReportCatch]. **We truncated this time series to only include years from 1995 onwards, because earlier escapement estimates used different methodology and have not been calibrated [@ChinookTechnicalCommittee2025AnnualReportCatch].** Chinook total abundance was recently reported bg DFO  [@DFO2025WestCoastVancouver]. The data shown in Figure 3 of @DFO2025WestCoastVancouver are available for download at https://zenodo.org/records/14847020 [accessed 25-Aug-2025]. We assumed that total abundance is the sum of the (non-terminal) ocean catch, hatchery-origin terminal return, and natural-origin terminal return. We note that this estimate of total abundance represents a total count of all Chinook from the region, and thus cannot be compared to the index of spawner abundance, which represents only a proportion of those fish. 
 
+
+<!--- GET infilled esc data from recent WCVI Chinook ResDoc (https://github.com/SCA-stock-assess/WCVI-CN-ResDoc/blob/main/3.%20R%20outputs/Escapement%20infill/R-OUT_infilled_indicators_escapement_timeseries.csv) and COMPARE to CTC spawner data used in 2025 report. --> 
 ```{r west VI chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of West Vancouver Island chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 ## Load data ---
 wvi_ck_raw <- readxl::read_xlsx("../data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx", sheet = "B5", range = "K24:K53", col_names = "WCVI_14Stream_Index") %>%
