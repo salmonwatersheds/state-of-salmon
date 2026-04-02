@@ -26,7 +26,7 @@ source("https://raw.githubusercontent.com/salmonwatersheds/population-indicators
 # # Read in all spawner survey data
 # See 0_spawner-survey-additions.R for changes made to what's in the PSE, 
 # mostly related to indicator/non-indicator designations and adding preliminary
-# 2024 data for WVI
+# 2025 data for WVI
 
 spawner_surveys.all <- read.csv("data/spawner_surveys_revised2025.csv")
 
@@ -38,7 +38,7 @@ spawner_surveys.all <- read.csv("data/spawner_surveys_revised2025.csv")
 # Note: VIMI split not yet reflected in spawner survey output; deal with this lower
 # down when assigning regions based on location of survey
 
-regions <- c("Yukon", "Transboundary", "Haida Gwaii", "Nass", "Skeena", "Central Coast", "Vancouver Island & Mainland Inlets", "Fraser", "Columbia")
+regions <- c("Yukon", "Transboundary", "Haida Gwaii", "Nass", "Skeena", "Central Coast", "West Vancouver Island", "East Vancouver Island & Mainland Inlets", "Fraser", "Columbia")
 spawner_surveys.all$region <- factor(spawner_surveys.all$region, levels = regions)
 
 # Arrange species (already done in new output)
@@ -85,11 +85,11 @@ for(R in c(1:length(regionnames))){
 	# buffer out to ensure all points are included
 	pse_region_buffered <- st_buffer(pse_region, dist = 100)
 	
-	
+	# Process spatial points
 	intrscts <- st_intersects(stream_points, pse_region_buffered, sparse = FALSE)
-	
 	incl <- which(c(intrscts) == TRUE)
 	
+	# Plot region boundaries and streams
 	plot(st_geometry(pse_region), main = r)
 	plot(st_geometry(pse_region_buffered), add = TRUE, border = 4)
 	plot(st_geometry(stream_points[incl,]), pch = 1, col = 3, cex = 0.8, add = TRUE)
@@ -98,13 +98,10 @@ for(R in c(1:length(regionnames))){
 	spawner_surveys <- spawner_surveys.all[which(spawner_surveys.all$streamid %in% streamid[incl]), ]
 	
 	
-	# DO NOT Remove Cheakamus for VIMI Steelhead
-	# spawner_surveys <- spawner_surveys[-which(spawner_surveys$stream_name_pse == "CHEAKAMUS RIVER" & spawner_surveys$species_pooled == "Steelhead"),]
-	
 	# Not all species are necessarily present in each region
 	# E.g., no sockeye or pink in Yukon
 	# Create vector of species that are present in the selected region:
-	species <- sort(unique(spawner_surveys$species_name))
+	species_vec <- sort(unique(spawner_surveys$species_name))
 	n.species <- length(species)
 	
 	# Extract years (note: include continuous vector of years even if there are no
@@ -128,7 +125,7 @@ for(R in c(1:length(regionnames))){
 	
 	indicator <- list(); length(indicator) <- n.species
 	
-	# Create data table of number of indicator and non-indicator per species
+	# Create empty data table for number of indicator and non-indicator per species
 	numStreams <- data.frame(
 		species = species_all,
 		indicator = rep(0, length(species_all)),
@@ -137,20 +134,20 @@ for(R in c(1:length(regionnames))){
 	
 	for(s in 1:n.species){
 		
-		spawner_surveys.s <- subset(spawner_surveys, species_name == species[s])
+		spawner_surveys.s <- subset(spawner_surveys, species_name == species_vec[s])
 		
 		# Which streams are monitored for that species
 		streams.s <- sort(unique(spawner_surveys.s$stream_name_pse))
 		
 		# Extract indicator (Y/N) for each stream for species s
 		indicator[[s]] <- tapply(spawner_surveys.s$indicator, spawner_surveys.s$stream_name_pse, unique)
-		numStreams$indicator[which(numStreams$species == species[s])] <- length(which(indicator[[s]] == "Y"))
-		numStreams$nonindicator[which(numStreams$species == species[s])] <- length(which(indicator[[s]] == "N"))
+		numStreams$indicator[which(numStreams$species == species_vec[s])] <- length(which(indicator[[s]] == "Y"))
+		numStreams$nonindicator[which(numStreams$species == species_vec[s])] <- length(which(indicator[[s]] == "N"))
 		
 		# Extract spawner data for each year
 		spawner_surveys_mat[[s]] <- array(NA, dim = c(length(streams.s), n.yrs), dimnames = list(streams.s, yrs))
 		for(y in 1:n.yrs){ 
-			spawner_surveys.sy <- subset(spawner_surveys, species_name == species[s] & year == yrs[y])
+			spawner_surveys.sy <- subset(spawner_surveys, species_name == species_vec[s] & year == yrs[y])
 			spawner_surveys_mat[[s]][, y]  <- spawner_surveys.sy$stream_observed_count[match(streams.s, spawner_surveys.sy$stream_name_pse)] 
 		} # end yrs
 	} # end species
@@ -160,17 +157,17 @@ for(R in c(1:length(regionnames))){
 	#------------------------------------------------------------------------------
 	# Create arrays to store observed and expanded counts for each species
 	#------------------------------------------------------------------------------
-	region_spawners <- array(NA, dim = c(2, n.species, n.yrs), dimnames = list(c("observed", "expanded"), species, yrs))
+	region_spawners <- array(NA, dim = c(2, n.species, n.yrs), dimnames = list(c("observed", "expanded"), species_vec, yrs))
 	expansion_factors <- list(); length(expansion_factors) <- n.species
 	
 	for(s in 1:n.species){
 		
 		if(length(which(indicator[[s]] == "Y")) == 0){
 			
-			warning(paste0("No indicator stream for ", species[s], " in ", r, ". No expansion done."))
+			warning(paste0("No indicator stream for ", species_vec[s], " in ", r, ". No expansion done."))
 			
 		} else if(length(which(indicator[[s]] == "Y")) == 1){
-			warning(paste0("Only one indicator stream for ", species[s], " in ", r, ". Observed = expanded."))
+			warning(paste0("Only one indicator stream for ", species_vec[s], " in ", r, ". Observed = expanded."))
 			
 			region_spawners[1, s, ] <- spawner_surveys_mat[[s]][which(indicator[[s]] == "Y"), ]
 			region_spawners[2, s, ] <- spawner_surveys_mat[[s]][which(indicator[[s]] == "Y"), ]
@@ -194,7 +191,7 @@ for(R in c(1:length(regionnames))){
 			# returned 8090 = no decades have sufficient data...
 			
 			if(length(unique(exp2[[1]])) > 1){
-				stop(paste0("Expansion Factor 2 differs by decade for ", species[s], ". Check"))
+				stop(paste0("Expansion Factor 2 differs by decade for ", species_vec[s], ". Check"))
 			}
 			
 			# return time series for region/species
@@ -225,7 +222,7 @@ for(R in c(1:length(regionnames))){
 # 			abline(v = seq(1940, 2025, 5), lty = 3, col = grey(0.6))
 # 			abline(h = pretty(region_spawners[2, s, ]*10^-3), lty = 3, col = grey(0.6))
 # 			points(yrs, region_spawners[1, s, ]*10^-3, "o", col = 2, xpd = NA)
-# 			mtext(side = 3, outer = TRUE, paste0(r, " ", species[s]))
+# 			mtext(side = 3, outer = TRUE, paste0(r, " ", species_vec[s]))
 # 			legend("topright", pch = 1, col = c(1,2), c("Expanded", "Observed (indicator)"), bg = "white", lwd = 1)
 # 			
 # 			plot(yrs, expansion_factors[[s]]$exp1, col = ifelse(expansion_factors[[s]]$exp1 == 1, 1, 4), las = 1, ylab = "Expansion Factor 1", xlab = "", bty = "l")
