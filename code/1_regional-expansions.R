@@ -28,7 +28,7 @@ source("https://raw.githubusercontent.com/salmonwatersheds/population-indicators
 # mostly related to indicator/non-indicator designations and adding preliminary
 # 2025 data for WVI
 
-spawner_surveys.all <- read.csv("data/spawner_surveys_revised2025.csv")
+spawner_surveys.all <- read.csv("data/spawner_surveys_revised2026.csv")
 
 #------------------------------------------------------------------------------
 # Define variables
@@ -102,7 +102,7 @@ for(R in c(1:length(regionnames))){
 	# E.g., no sockeye or pink in Yukon
 	# Create vector of species that are present in the selected region:
 	species_vec <- sort(unique(spawner_surveys$species_name))
-	n.species <- length(species)
+	n.species <- length(species_vec)
 	
 	# Extract years (note: include continuous vector of years even if there are no
 	# data for a certain year; this is required by the expansion functions)

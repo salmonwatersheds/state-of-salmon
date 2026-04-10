@@ -2,8 +2,8 @@
 title: "compile-regional-data"
 author: "Salmon Watersheds Program, Steph Peacock, Hannah Hunter"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-bibliography: references.json
-csl: canadian-journal-of-fisheries-and-aquatic-sciences.csl 
+bibliography: "../methods-results/references.json"
+csl: "../methods-results/canadian-journal-of-fisheries-and-aquatic-sciences.csl"
 link-citations: true
 header-includes:
    - \usepackage{draftwatermark}
@@ -34,6 +34,8 @@ library(cowplot)
 
 source("../code/colours.R")
 source("../code/functions.R")
+source("https://raw.githubusercontent.com/salmonwatersheds/population-indicators/refs/heads/master/code/functions_general.R")
+
 
 ```
 
@@ -119,6 +121,9 @@ ctc_id <- "CTC_20250714"
 
 # Initiate dataframe
 sps_data <- NULL
+
+# Dropbox location for archiving
+Dropbox_dir <- paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/2_Data & Analysis/state-of-salmon/")
 ```
 
 ### Yukon
@@ -135,7 +140,7 @@ We used Chinook `RR Spawning escapement estimate` and `RR Canadian origin total 
 ```{r yukon chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Yukon River Chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 # Load data ---
-ytck <- read.csv('../data/yukon_chinook_appendixB11.csv') 
+ytck <- read.csv('../data/yukon_chinook_appendixB11.csv', na.strings = "-") 
 # Note: Use Run Reconstruction (RR) estimates of spawning escapement and total
 # run size, not "Historical" or Mark-Recapture estimates
 
@@ -151,7 +156,7 @@ ytck_sps <- data.frame(
 	smoothedSpawners = NA,
 	runsize = ytck$RR.Canadian.origin.total.run.size.estimate,
 	smoothedRunsize = NA,
-	source_id = rep("JTC_202503", dim(ytck)[1])
+	source_id = rep("JTC_202603", dim(ytck)[1])
 ) 
 
 # Smoothing
@@ -198,7 +203,7 @@ ytcm_sps <- data.frame(
 	smoothedSpawners = NA,
 	runsize = ytcm_B20$Total.estimated.Canadian.origin.run.size[match(ytcm_B16$Year, ytcm_B20$Year)],
 	smoothedRunsize = NA,
-	source_id = rep("JTC_202503", dim(ytcm_B16)[1])
+	source_id = rep("JTC_202603", dim(ytcm_B16)[1])
 ) 
 
 # Smoothing
@@ -810,7 +815,7 @@ plot_abund(nassck_sps)
 
 #### Sockeye {.unnumbered}
 
-Nass sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 3 sockeye from the 2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast]. For 2023 and 2024, we obtained the same model output from @NisgaaFisheriesandWildlifeDepartment20242024NassRiver. As can be seen in the figure below, historical numbers from these two sources closely matched, giving us confidence that it was justifiable to combine the two sources.
+Nass sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 3 sockeye from the 2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast]. For 2023-2025, we obtained the same model output from @NisgaaFisheriesandWildlifeDepartment20242024NassRiver. As can be seen in the figure below, historical numbers from these two sources closely matched, giving us confidence that it was justifiable to combine the two sources.
 
 ```{r nass sockeye, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Nass sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
@@ -825,7 +830,7 @@ nassse <- read.csv("../data/nassskeena_sockeye_lgl.csv") %>%
 		data.frame(Year = c(2023:2025),
 							 TE = nass_nisgaa$ESC_Sockeye[nass_nisgaa$Year %in% c(2023:2025)],
 							 Total.Run = nass_nisgaa$TOTAL_RUN_Sockeye[nass_nisgaa$Year %in% c(2023:2025)],
-							 source_id = rep("Nisgaa_20241203", 3)
+							 source_id = rep("Nisgaa_20251202", 3)
 		)
 	)
 
@@ -880,7 +885,7 @@ nassco_sps <- data.frame(
 	smoothedSpawners = NA,
 	runsize = nass_nisgaa$TOTAL_RUN_Coho,
 	smoothedRunsize = NA,
-	source_id = rep("Nisgaa_20241203",length(nass_nisgaa$Year))
+	source_id = rep("Nisgaa_20251202",length(nass_nisgaa$Year))
 ) 
 
 # Smoothing
@@ -916,10 +921,10 @@ sp <- readRDS("../output/expanded-spawners/Nass-spawners.rds")
 yrs <- as.numeric(dimnames(sp)[[3]])
 
 nasspk <- data.frame(
-	year = c(yrs, 2024),
+	year = c(yrs, 2025),
 	esc = c(round(sp["expanded", "Pink", which(yrs %in% c(1950:1991))]), nass_nisgaa$ESC_Pink),
 	run = c(rep(NA, length(c(1950:1991))), nass_nisgaa$TOTAL_RUN_Pink),
-	source_id = c(rep(nuseds_id, length(c(1950:1991))), rep("Nisgaa_20241203", length(nass_nisgaa$TOTAL_RUN_Pink)))
+	source_id = c(rep(nuseds_id, length(c(1950:1991))), rep("Nisgaa_20251202", length(nass_nisgaa$TOTAL_RUN_Pink)))
 )
 
 # Reformat data for SPS
@@ -958,10 +963,10 @@ plot_abund(nasspk_sps)
 ```{r nass chum, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Nass chum salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 nasscm <- data.frame(
-	year = c(yrs, 2024),
+	year = c(yrs, 2025),
 	esc = c(round(sp["expanded", "Chum", which(yrs %in% c(1950:1991))]), nass_nisgaa$ESC_Chum),
 	run = c(rep(NA, length(c(1950:1991))), nass_nisgaa$TOTAL_RUN_Chum),
-	source_id = c(rep(nuseds_id, length(c(1950:1991))), rep("Nisgaa_20241203", length(nass_nisgaa$TOTAL_RUN_Chum)))
+	source_id = c(rep(nuseds_id, length(c(1950:1991))), rep("Nisgaa_20251202", length(nass_nisgaa$TOTAL_RUN_Chum)))
 )
 
 # Reformat data for SPS
@@ -1013,7 +1018,7 @@ nasssh_sps <- data.frame(
 	smoothedSpawners = NA,
 	runsize = nass_nisgaa$TOTAL_RUN_Steelhead,
 	smoothedRunsize = NA,
-	source_id = rep("Nisgaa_20241203",length(nass_nisgaa$Year))
+	source_id = rep("Nisgaa_20251202",length(nass_nisgaa$Year))
 ) 
 
 # Smoothing
@@ -2110,7 +2115,7 @@ plot_abund(wvise_sps)
 
 
 #### Chum {.unnumbered}
-For West Vancouver Island chum salmon, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2024) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+For West Vancouver Island chum salmon, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2025) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
 
 ```{r west VI expansion data}
 
@@ -2175,7 +2180,7 @@ plot_expansions(speciesname = "Chum",
 
 
 #### Coho {.unnumbered}
-For West Vancouver Island coho salmon, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2024) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+For West Vancouver Island coho salmon, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2025) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
 ```{r west VI coho, fig.width = 7, fig.height = 6, fig.cap="**Above:**Spawner abundance of West Vancouver Island coho salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 ## Process data ---
 wvi.s <- sp[2, "Coho", ]
@@ -2230,14 +2235,17 @@ plot_expansions(speciesname = "Coho",
 ```
 
 #### Pink {.unnumbered}
-For West Vancouver Island pink salmon, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2024) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+
+2026 report update: NO INDICATOR STREAMS FOR WVI PINK
+
+For West Vancouver Island pink salmon, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2025) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
 
 For chum, coho, and steelhead, we relied on NuSEDS' designations of indicator or non-indicator streams, but for pink salmon in this region we designated indicator streams as those with at least 10 years of data in the most recent 20 years. As a result, expansion factors were higher in historical years, but data from both indicator and non-indicator streams show markedly higher counts in the period 1960-1980 then in subsequent decades and it is unlikely that the observed decline is a result of uncertain expansions. 
 
-```{r west VI pink, fig.width = 7, fig.height = 6, fig.cap="**Above:**Spawner abundance of West Vancouver Island pink salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r west VI pink, fig.width = 7, fig.height = 6, fig.cap="**Above:**Spawner abundance of West Vancouver Island pink salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average.", eval=FALSE}
 ## Process data ---
 wvi.s <- sp[2, "Pink", ]
-# Get rid of NAs (esp in 2024)
+# Get rid of NAs 
 wvi.s <- wvi.s[1:max(which(!is.na(wvi.s)))]
 
 # For all VIMI species, start in 1953 - earlier expansion factors are large
@@ -2269,7 +2277,7 @@ sps_data <- rbind(sps_data, wvi.s_sps)
 plot_abund(wvi.s_sps) 
 ```
 
-```{r west VI pink figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+```{r west VI pink figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade.", eval=FALSE}
 
 # added_series.s <- sps_data %>%
 # 	filter(region == "West Vancouver Island", species == "Pink") %>%
@@ -2288,7 +2296,7 @@ plot_expansions(speciesname = "Pink",
 ```
 
 #### Steelhead {.unnumbered}
-For West Vancouver Island steelhead, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2024) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
+For West Vancouver Island steelhead, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2025) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
 
 ```{r west VI steelhead, fig.width = 7, fig.height = 6, fig.cap="**Above:**Spawner abundance of West Vancouver Island steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 ## Process data ---
@@ -2808,8 +2816,8 @@ plot_abund(colsh_sps)
 
 <!--- This code chunk must go after the last data processing step --->
 ```{r save processed data}
-#write.csv(sps_data, "output/sps-data.csv", row.names = FALSE) # Always have most recent # Not until this script is confirmed to be working 
-write.csv(sps_data, paste0("../output/archive/sps-data_", Sys.Date(), ".csv"), row.names = FALSE) # Archive with date
+write.csv(sps_data, "../output/sps-data.csv", row.names = FALSE) # Always have most recent # Not until this script is confirmed to be working 
+write.csv(sps_data, paste0(Dropbox_dir, "output/archive/", "sps-data", Sys.Date(), ".csv"), row.names = FALSE) # Archive with date
 
 ```
 
