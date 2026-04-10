@@ -83,9 +83,9 @@ spawner_surveys.all$indicator[which(spawner_surveys.all$species_name == "Coho" &
 
 # More recent data for WVI
 wvi2025 <- read.csv("data/2025_WVI_Esc_Bulletin_7_Oct_24.csv")
-for(s in 1:5){
+for(s in 1:5){ # No steelhead
 	wvi2025.s <- wvi2025 %>% filter(Species == species_vec[s])
-	spawner_surveys.s <- spawner_surveys.all %>% filter(species_name == species_vec[s], region == "East Vancouver Island & Mainland Inlets")
+	spawner_surveys.s <- spawner_surveys.all %>% filter(species_name == species_vec[s], region == "West Vancouver Island")
 	
 	for(i in 1:dim(wvi2025.s)[1]){
 		if(wvi2025.s$System[i] %in% unique(spawner_surveys.s$stream_name_pse)){ 
@@ -94,9 +94,9 @@ for(s in 1:5){
 				arrange(year)
 			
 			spawner_surveys.add <- spawner_surveys.si %>% tail(1)
-			spawner_surveys.add$year <- 2025 # Update?
+			spawner_surveys.add$year <- 2025 
 			spawner_surveys.add$stream_observed_count <- wvi2025.s$Count[i]
-			spawner_surveys.add$source_id <- "McHugh_20251115" # Hannah find correct source ID and update for 2025
+			spawner_surveys.add$source_id <- "McHugh_20261024" 
 			
 			spawner_surveys.all <- spawner_surveys.all %>% bind_rows(spawner_surveys.add)
 			
@@ -112,7 +112,10 @@ for(s in 1:5){
 
 # For Pink salmon, declare indicators as those with >10 years of data in the past 20 years
 pink_nyrs <- spawner_surveys.all %>% 
-	filter(species_name == "Pink", region == "East Vancouver Island & Mainland Inlets", year > 2005) %>%
+	filter(species_name == "Pink", 
+				 region %in% c("East Vancouver Island & Mainland Inlets",
+												"West Vancouver Island"),
+				 year > 2005) %>%
 	group_by(stream_name_pse) %>%
 	summarise(species_name = unique(species_name),
 						nyrs_20 = length(unique(year)),
@@ -123,12 +126,14 @@ pink_nyrs <- spawner_surveys.all %>%
 
 # Designate streams with > 10 years as indicators
 spawner_surveys.all$indicator[which(spawner_surveys.all$species_name == "Pink" & 
-																			spawner_surveys.all$region == "East Vancouver Island & Mainland Inlets" & 
+																			spawner_surveys.all$region %in% c("East Vancouver Island & Mainland Inlets",
+																																				"West Vancouver Island") & 
 																			spawner_surveys.all$stream_name_pse %in% pink_nyrs$stream_name_pse[pink_nyrs$nyrs_20 > 10])] <- "Y"
 
 # Designate streams with <= 10 years as non-indicators
 spawner_surveys.all$indicator[which(spawner_surveys.all$species_name == "Pink" & 
-																			spawner_surveys.all$region == "East Vancouver Island & Mainland Inlets" & 
+																			spawner_surveys.all$region %in% c("East Vancouver Island & Mainland Inlets",
+																																				"West Vancouver Island") & 
 																			spawner_surveys.all$stream_name_pse %in% pink_nyrs$stream_name_pse[pink_nyrs$nyrs_20 <= 10])] <- "N"
 
 # Keep a couple of indicators that have < 10 years but recent monitoring and were designated indicators
@@ -136,7 +141,8 @@ pink_nyrs %>% filter(nyrs_20 <= 10, grepl("Y", indicator))
 # Most have no recent data
 
 spawner_surveys.all$indicator[which(spawner_surveys.all$species_name == "Pink" & 
-																			spawner_surveys.all$region == "East Vancouver Island & Mainland Inlets" & 
+																			spawner_surveys.all$region %in% c("East Vancouver Island & Mainland Inlets",
+																																				"West Vancouver Island") & 
 																			spawner_surveys.all$stream_name_pse %in% c("HEYDON CREEK", "WAKEMAN RIVER", "EMBLEY CREEK" ))] <- "Y"
 
 # z <- spawner_surveys.all %>%
@@ -144,7 +150,8 @@ spawner_surveys.all$indicator[which(spawner_surveys.all$species_name == "Pink" &
 # 	arrange(year)
 # plot(z$year, z$stream_observed_count, "o", main = paste(unique(z$stream_name_pse), unique(z$species_name), sep = " - "))
 
-spawner_surveys.all %>% filter(species_name == "Pink" & region == "East Vancouver Island & Mainland Inlets") %>%
+spawner_surveys.all %>% filter(species_name == "Pink" & region %in% c("East Vancouver Island & Mainland Inlets",
+																																			"West Vancouver Island")) %>%
 	dplyr::select(stream_name_pse, indicator) %>%
 	distinct(.keep_all = TRUE) %>% arrange(indicator)
 
@@ -152,5 +159,5 @@ spawner_surveys.all %>% filter(species_name == "Pink" & region == "East Vancouve
 # Write .csv of revised spawner survey data
 ###############################################################################
 
-write.csv(spawner_surveys.all, file = "data/spawner_surveys_revised2025.csv")
+write.csv(spawner_surveys.all, file = "data/spawner_surveys_revised2026.csv")
 	
