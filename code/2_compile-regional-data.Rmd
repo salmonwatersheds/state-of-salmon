@@ -35,7 +35,7 @@ library(here)
 
 # Get functions and colours
 source(here("code/colours.R"))
-source(here("/code/functions.R"))
+source(here("code/functions.R"))
 source("https://raw.githubusercontent.com/salmonwatersheds/population-indicators/refs/heads/master/code/functions_general.R")
 
 
@@ -506,18 +506,18 @@ Steelhead trout have also been enumerated at the Canyon Island fish wheel since 
 ### Haida Gwaii
 
 #### Chinook {.unnumbered}
-The only available data for Chinook salmon in Haida Gwaii are from a single enumeration project on the Yakoun River. Although monitoring on the Yakoun has recently been restored, the most recent estimate for Yakoun Chinook that is publicly available is from 2006. We show Yakoun River spawner abundance up to 2006, but no estimates were available for the most recent generation making the current status for Haida Gwaii Chinook "Unknown". 
+The only available data for Chinook salmon in Haida Gwaii are from a single enumeration project on the Yakoun River. Monitoring on the Yakoun has recently been restored. **More information about methods**
 
-These estimates also match the estimated escapement to Area 1 in the  @NorthernBoundaryTechnicalCommittee2023USCanadaNorthern (Appendix 30).
+These estimates (prior to 2006) also match the estimated escapement to Area 1 in the  @NorthernBoundaryTechnicalCommittee2023USCanadaNorthern (Appendix 30).
 
-```{r haida gwaii chinook, fig.cap="**Above:**Spawner abundance of Haida Gwaii chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r haida gwaii chinook, fig.cap="**Above:**Spawner abundance of Haida Gwaii chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average. here, purple points are from NuSEDS spawner surveys and grey are from recent enumeration project."}
 
-# No recent data, but at least show what we have for Yakoun
-# These are consistent with the TCNB escapement data for Area 1 (Table 30)
-
-hgck <- read.csv(here("data/spawner_surveys.csv"), na.strings = c(-989898)) %>%
+# Get spawner survey data to compare
+hgck_ss <- read.csv(here("data/spawner_surveys.csv")) %>%
 	subset(species_name == "Chinook" & region == "Haida Gwaii") %>%
 	subset(stream_name_pse == "YAKOUN RIVER")
+
+hgck <- read.csv(here("data/Yakoun_Chinook_1952-2025.csv"))
 
 # There are some missing years of data; want to impute in between when smoothing
 #diff(hgck$year)
@@ -532,8 +532,11 @@ hgck_sps <- data.frame(
 	smoothedSpawners = NA,
 	runsize = NA,
 	smoothedRunsize = NA,
-	source_id = rep(nuseds_id, length(hgck_years))
+	source_id = c(rep(hgck$source_id[1], length(hgck_years[1]:2020)), 
+								rep(hgck$source_id[nrow(hgck)], length(2021:2025)))
 ) 
+
+
 
 # Smoothing
 hgck_sps$smoothedSpawners <- genSmooth(
@@ -547,6 +550,7 @@ sps_data <- rbind(sps_data, hgck_sps)
 
 # Generate standard plot
 plot_abund(hgck_sps)
+points(hgck_ss$year, hgck_ss$stream_observed_count/1000, col="purple")
 
 ```
 
@@ -1158,7 +1162,7 @@ The index of Skeena steelhead spawner abundance is derived from estimated escape
 ```{r skeena steelhead, fig.cap="**Above:**Spawner abundance of Skeena steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 # Load data ---
 # Use Skeena steelhead run size from BC Updates
-sksh <- read.csv(here("data/SkeenaSteelhead_1956-2024.csv"))
+sksh <- read.csv(here("data/SkeenaSteelhead_1956-2025.csv"))
 
 
 # Reformat data for SPS
@@ -1170,7 +1174,7 @@ sksh_sps <- data.frame(
 	smoothedSpawners = NA,
 	runsize = NA,
 	smoothedRunsize = NA,
-	source_id = "ProvBC_20240929"
+	source_id = "ProvBC_20250903"
 ) 
 
 # Smoothing
