@@ -118,7 +118,7 @@ species_vec <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead")
 genLength <- read.csv(here("data/gen_length_regions.csv"))
 
 # Set version of NuSEDS for source_id
-nuseds_id <- "NuSEDS_20250221"
+nuseds_id <- "NuSEDS_20251103"
 ctc_id <- "CTC_20250714"
 
 # Initiate dataframe
