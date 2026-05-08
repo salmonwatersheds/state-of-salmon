@@ -2577,13 +2577,13 @@ plot_abund(frco_sps)
 
 
 #### Pink and Sockeye {.unnumbered}
-Data on total return and spawner abundance of pink salmon and sockeye salmon in the Fraser region are provided by the PSC and accessed through the Fraser Panel Annual Report: Data Application [@PacificSalmonCommission2024PSCAnnualReport]. Total escapement for Fraser sockeye was not yet available for 2023, and 2023 total return is considered preliminary. We note that Fraser River pink salmon are only counted in the dominant, odd-year run. 
+Data on total return and spawner abundance of pink salmon and sockeye salmon in the Fraser region are provided by the PSC and accessed through the Fraser Panel Annual Report: Data Application [@PacificSalmonCommission2024PSCAnnualReport]. Total escapement for Fraser sockeye was not yet available for 2025, and 2025 total return is considered preliminary. We note that Fraser River pink salmon are only counted in the dominant, odd-year run. 
 
 ```{r fraser pink, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Fraser pink salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 ## Load data ---
 # Note: Only odd year data, so no change 2024 -> 2025 (data still to 2023)
 # From PSC 
-frpk <- read.csv(here("data/pink_run_size_2025-04-24.csv")) # No changes from Apr 24, 2025 version to Sept 18, 2025, but cite Sept because fraser sockeye in-season estimate for 2024 DID change (and don't want to change that number at this point)
+frpk <- read.csv(here("data/pink_run_size_2026-04-20.csv")) # No changes from Apr 24, 2025 version to Sept 18, 2025, but cite Sept because fraser sockeye in-season estimate for 2024 DID change (and don't want to change that number at this point)
 
 # Put in SPS format
 frpk_sps <- data.frame(
@@ -2594,7 +2594,7 @@ frpk_sps <- data.frame(
 	smoothedSpawners = NA,
 	runsize = frpk$Run.Size,
 	smoothedRunsize = NA, 
-	source_id = rep("PSC_20250424", length(frpk$Year))
+	source_id = rep("PSC_20260417", length(frpk$Year))
 ) 
 
 # Smoothing - don't do this for pink salmon in the Fraser - no even year data!
@@ -2612,7 +2612,7 @@ plot_abund(frpk_sps)
 ```{r fraser sockeye, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Fraser sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 ## Load data ---
 # From PSC
-frse <- read.csv(here("data/Fraser Sockeye Run Size_2025-04-24.csv")) %>%
+frse <- read.csv(here("data/Fraser Sockeye Run Size_2026-04-20.csv")) %>%
 	filter(Management.Group == "Total Fraser")
 
 # Put in SPS format
@@ -2624,7 +2624,7 @@ frse_sps <- data.frame(
 	smoothedSpawners = NA,
 	runsize = frse$Run.Size,
 	smoothedRunsize = NA,
-	source_id = rep("PSC_20250424", length(frse$Year))
+	source_id = rep("PSC_20260417", length(frse$Year))
 ) 
 
 # Fill in run size with in-season estimates if available
