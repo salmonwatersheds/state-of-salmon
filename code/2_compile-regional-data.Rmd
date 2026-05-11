@@ -2364,16 +2364,23 @@ Escapement of Fraser Chinook is provided in the [PSC's Chinook Technical Committ
 
 ```{r fraser chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Fraser chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 # Data from Chuck Parken (shared 23-Oct-2025 via email)
-frck_cp <- readxl::read_xlsx(here("data/Fraser Chinook escapement and terminal run by SMU.xlsx"), range = "A3:K52", col_names = c("year", "spr12_esc", "spr12_run", "spr13_esc", "spr13_run", "sum13_esc", "sum13_run", "sum03_esc", "sum03_run", "harrisonfall03_esc", "harrisonfall03_run"))
+frck_cp <- readxl::read_xlsx(here("data/1975-2025 Fraser Chinook escapement and terminal run by SMU - for PSF.xlsx"), skip=1)
+frck_smu <- readxl::read_xlsx(here("data/1975-2025 Fraser Chinook escapement and terminal run by SMU - for PSF.xlsx"), range="A1:K1", col_names=F) # get smu names
+frck_smu <- rep(stringr::str_remove_all(frck_smu, "Fraser|age|-run|[[:punct:]]|[[:space:]]")[!is.na(frck_smu)], each=2)
+names(frck_cp)[2:ncol(frck_cp)] <- paste(frck_smu, stringr::str_extract_all(names(frck_cp)[2:ncol(frck_cp)], "Esc|Run"), sep="_") # stitch together smu and col names
+names(frck_cp) <- stringr::str_to_lower(names(frck_cp))
 
 # Cut data to only 1984 onward when Harrison data were available.
-#frck_cp <- frck_cp %>% dplyr::filter(year >= 1984)
+frck_cp <- frck_cp %>% dplyr::filter(year >= 1984)
 
 # Numbers match CTC except that t.run from CTC doesn't include Harrison fall. So need to add that in
+
+# Sum across SMUs
 frck_cp_esc <- round(apply(frck_cp[, grep("esc", names(frck_cp))], 1, sum))
 frck_cp_run <- round(apply(frck_cp[, grep("run", names(frck_cp))], 1, sum))
 
 yrs <- frck_cp$year
+
 # Put in SPS format
 frck_sps <- data.frame(
 	region = rep("Fraser", length(yrs)),
@@ -2581,9 +2588,9 @@ Data on total return and spawner abundance of pink salmon and sockeye salmon in 
 
 ```{r fraser pink, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Fraser pink salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 ## Load data ---
-# Note: Only odd year data, so no change 2024 -> 2025 (data still to 2023)
+# Note: Only odd year data, so no change in some years
 # From PSC 
-frpk <- read.csv(here("data/pink_run_size_2026-04-20.csv")) # No changes from Apr 24, 2025 version to Sept 18, 2025, but cite Sept because fraser sockeye in-season estimate for 2024 DID change (and don't want to change that number at this point)
+frpk <- read.csv(here("data/pink_run_size_2026-04-20.csv"))
 
 # Put in SPS format
 frpk_sps <- data.frame(
@@ -2784,7 +2791,7 @@ plot_abund(colse_sps)
 
 #### Steelhead {.unnumbered}
 
-There is no monitoring of steelhead trout in the Canadian portion of the Columbia region, but the Okanagan Nation Alliance does enumerate steelhead in akskwəkwant (Inkaneep Creek) and estimate a Canadian portion of steelhead spawning abundance. These data can be found in associated report (e.g. @OBMEP20252024OkanoganSubbasin) and are available for the Mid Columbia Summer Conservation Unit [in the Pacific Salmon Explorer](https://salmonexplorer.ca/explore/data/spawner-abundance/columbia/steelhead/mid-columbia-summer-1380/).
+There is no monitoring of steelhead trout in the Canadian portion of the Columbia region, but the Okanagan Nation Alliance does enumerate steelhead in akskwəkwant (Inkaneep Creek) and estimate a Canadian portion of steelhead spawning abundance. These data can be found in Table 8 of the associated report (e.g. @OBMEP20252024OkanoganSubbasin) and are available for the Mid Columbia Summer Conservation Unit [in the Pacific Salmon Explorer](https://salmonexplorer.ca/explore/data/spawner-abundance/columbia/steelhead/mid-columbia-summer-1380/).
 
 ```{r columbia steelhead, fig.cap="**Above:**Spawner abundance of Columbia steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 colsh <- read.csv(here("data/Columbia_Steelhead_OBMEP.csv"))
