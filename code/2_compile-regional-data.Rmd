@@ -2005,33 +2005,44 @@ plot_expansions(speciesname = "Steelhead",
 In the 2025 State of Salmon report, we have split the former "Vancouver Island & Mainland Inlets" region into two: East Vancouver Island & Mainland Inlets and West Vancouver Island. This split was made to better reflect the different ecology and habitats of salmon between the regions that may lead to different status and trends. 
 
 #### Chinook {.unnumbered}
-For Chinook spawner abundance, we used the West Coast Vancouver Island (WCVI) 14-stream index escapements of Pacific Salmon Commission Chinook Technical Committee wild Chinook salmon escapement indicator stocks, available in Appendix B5 of @ChinookTechnicalCommittee2025AnnualReportCatch Streams were selected to represent WVI Chinook populations "with little or no hatchery influence" [@ChinookTechnicalCommittee2025AnnualReportCatch]. **We truncated this time series to only include years from 1995 onwards, because earlier escapement estimates used different methodology and have not been calibrated [@ChinookTechnicalCommittee2025AnnualReportCatch].** Chinook total abundance was recently reported bg DFO  [@DFO2025WestCoastVancouver]. The data shown in Figure 3 of @DFO2025WestCoastVancouver are available for download at https://zenodo.org/records/14847020 [accessed 25-Aug-2025]. We assumed that total abundance is the sum of the (non-terminal) ocean catch, hatchery-origin terminal return, and natural-origin terminal return. We note that this estimate of total abundance represents a total count of all Chinook from the region, and thus cannot be compared to the index of spawner abundance, which represents only a proportion of those fish. 
+For Chinook spawner abundance, we used a 17-stream index of escapements from DFO. Streams were selected to represent WVI Chinook populations with minimal hatchery influence and infilling was done using data from neighbouring streams. We compare this below to the Chinook Technical Committee 14-stream index [@ChinookTechnicalCommittee2025AnnualReportCatch] used in last year's report and find them similar [@ChinookTechnicalCommittee2025AnnualReportCatch].
+
+Chinook total abundance was reported by DFO in 2025 [@DFO2025WestCoastVancouver]. The data shown in Figure 3 of @DFO2025WestCoastVancouver are available for download at https://zenodo.org/records/14847020 [accessed 25-Aug-2025]. We assumed that total abundance is the sum of the (non-terminal) ocean catch, hatchery-origin terminal return, and natural-origin terminal return. We note that this estimate of total abundance represents a total count of all Chinook from the region, and thus cannot be compared to the index of spawner abundance, which represents only a proportion of those fish. 
 
 
-<!--- GET infilled esc data from recent WCVI Chinook ResDoc (https://github.com/SCA-stock-assess/WCVI-CN-ResDoc/blob/main/3.%20R%20outputs/Escapement%20infill/R-OUT_infilled_indicators_escapement_timeseries.csv) and COMPARE to CTC spawner data used in 2025 report. --> 
 ```{r west VI chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of West Vancouver Island chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 ## Load data ---
-wvi_ck_raw <- readxl::read_xlsx(here("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B5", range = "K24:K53", col_names = "WCVI_14Stream_Index") %>%
-	mutate(Year = c(1995:2024))
-# Escapement methods changed in 1995; only use earlier data for assessments
+# 17 stream index from Nicholas Brown @ DFO (pers comm.)
+wvi_ck <- read.csv(here("data/R-OUT_infilled_indicators_escapement_timeseries.csv")) %>% 
+	group_by(year) %>% summarize(tot_esc = sum(escapement))
 
-# West Vancouver Island from Brown et al. 2025
-wvi_ck_tot_raw <- read_xlsx(here("data/WCVI_Chinook_total_abundance.xlsx"))
+# 14 Stream index from CTC
+wvi_ck_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B5", range = "K24:K53", col_names = "WCVI_14Stream_Index") %>%
+	mutate(Year = c(1995:2024)) # Escapement methods changed in 1995; only use earlier data for assessments
 
-wvi_ck_tot_raw$total_abundance <-  wvi_ck_tot_raw$`Hatchery origin Terminal Return` + wvi_ck_tot_raw$`Natural origin Terminal Return` +  wvi_ck_tot_raw$`non-terminal Ocean catch`
+# Compare the CTC and DFO indices
+wvi_ck %>% ggplot(aes(x=year, y=tot_esc/1000)) + geom_line(aes(col="DFO 17-Stream Index")) +
+	geom_line(data=wvi_ck_ctc, aes(x=Year, y=WCVI_14Stream_Index/1000, col="CTC 14-Stream Index")) +
+	scale_colour_manual(values = c("DFO 17-Stream Index" = "blue", "CTC 14-Stream Index" = "red")) +
+	labs(col="Source", y="Spawner escapement (000s)", x="Year")
+	
+# Total abundance from Brown et al. 2025
+wvi_ck_tot <- read_xlsx(here("data/WCVI_Chinook_total_abundance.xlsx"))
 
-yrs <- sort(unique(c(wvi_ck_tot_raw$`Return year`, wvi_ck_raw$Year)))
+wvi_ck_tot$total_abundance <-  wvi_ck_tot$`Hatchery origin Terminal Return` + wvi_ck_tot$`Natural origin Terminal Return` +  wvi_ck_tot$`non-terminal Ocean catch`
+
+yrs <- sort(unique(c(wvi_ck_tot$`Return year`, wvi_ck$Year)))
 
 # Put in SPS format
 wvick_sps <- data.frame(
 	region = rep("West Vancouver Island", length(yrs)),
 	species = rep("Chinook", length(yrs)),
 	year = yrs,
-	spawners = wvi_ck_raw$WCVI_14Stream_Index[match(yrs, wvi_ck_raw$Year)], 
+	spawners = wvi_ck$tot_esc[match(yrs, wvi_ck$year)], 
 	smoothedSpawners = NA,
-	runsize = wvi_ck_tot_raw$total_abundance[match(yrs, wvi_ck_tot_raw$`Return year`)],
+	runsize = wvi_ck_tot$total_abundance[match(yrs, wvi_ck_tot$`Return year`)],
 	smoothedRunsize = NA,
-	source_id = rep(paste(ctc_id, "Brown_20250703", sep = ", "), length(yrs))
+	source_id = rep(paste("Brown_20260421", "Brown_20250703", sep = ", "), length(yrs)) # update source ID 
 ) 
 
 # Smoothing
@@ -2048,7 +2059,7 @@ wvick_sps$smoothedRunsize <- genSmooth(
 )
 
 
-if(1 == 2){
+if(1 == 2){ # Visualize the time peries put on the same scale
 	avg <- c(spawners = exp(mean(log(wvick_sps$spawners), na.rm = TRUE)),
 	total = exp(mean(log(wvick_sps$runsize), na.rm = TRUE)))
 
@@ -2096,7 +2107,7 @@ wvise_sps <- data.frame(
 	smoothedSpawners = NA,
 	runsize = wvi_se_summed$totalN,
 	smoothedRunsize = NA,
-	source_id = rep("Brown_20250417", dim(wvi_se_summed)[1])
+	source_id = rep("Brown_20260420", dim(wvi_se_summed)[1])
 ) 
 
 # Smoothing
