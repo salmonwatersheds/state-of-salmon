@@ -2,6 +2,7 @@
 
 
 library(dplyr)
+library(ggplot2)
 # Here, we read in spawner survey data in the PSE, and revise the indicator/
 # non-indicator designations that are used in expansions where needed
 # Also add 2024 data from escapement bulletin for WVI
@@ -115,6 +116,16 @@ spwn %>% group_by(region, year, species_name, ind_lgl) %>% summarize(n_streams =
 	geom_line(aes(x=year, y=n_streams, col=species_name)) + 
 	facet_grid(rows=vars(region), cols=vars(ind_lgl))
 
+# Story roughly the same for LGL indicator streams
+
+spwn %>% group_by(region, year, species_name, ind_lgl) %>% summarize(n_streams = n_distinct(POP_ID)) %>%
+	ungroup() %>% mutate(pr_streams = n_streams/max(n_streams), .by=c(region, species_name, ind_lgl)) %>%
+	filter(ind_lgl %in% c("Y", "N")) %>% 
+	ggplot() + geom_point(aes(x=year, y=pr_streams, col=species_name)) + 
+	geom_line(aes(x=year, y=pr_streams, col=species_name)) + 
+	facet_grid(rows=vars(region), cols=vars(ind_lgl))
+
+# View as proportion
 
 ########################################################
 # 3. What NuSEDS indicator designations are replaced by 
@@ -145,7 +156,8 @@ spwn %>% filter(streamid %in% ind_changed$streamid) %>%
 	summarize(n_yrs = n()) %>% ungroup(streamid) %>%
 	summarize(mean_nyrs = mean(n_yrs)) %>% 
 	ggplot(aes(x=decade, y=mean_nyrs, col=species_name)) + geom_point() + geom_line() + 
-	facet_grid(rows=vars(region), cols=vars(added_removed))
+	facet_grid(rows=vars(region), cols=vars(added_removed)) +
+	labs(x="Decade", y="Years monitored (in 10)")
 
 # In general, the nuseds indicator designations that are "replaced" by LGL indicators are jusified, 
 # but they are getting out of date (LGL assessment in 2017)
