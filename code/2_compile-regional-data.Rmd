@@ -118,7 +118,7 @@ species_vec <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead")
 genLength <- read.csv(here("data/gen_length_regions.csv"))
 
 # Set version of NuSEDS for source_id
-nuseds_id <- "NuSEDS_20251103"
+nuseds_id <- "PSF_20260428"
 ctc_id <- "CTC_20250714"
 
 # Initiate dataframe
@@ -785,16 +785,20 @@ Chinook spawners and total return were taken from the [PSC's Chinook Technical C
 # TCCHINOOK Table B3
 nass_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B3", range = "A5:D54", col_types = "numeric", col_names = c("Year", "Above_Gitwinksihlkw2", "Esc", "t.run"))
 
+# TEMPORARY - use Nisgaa Data until CTC is ready # Compare them
+nass_nisgaa <- read.csv(here("data/2025NassStockAssessment_Table20+22.csv"))
+
 # Reformat data for SPS
 nassck_sps <- data.frame(
-	region = rep("Nass", length(nass_ctc$Year)),
-	species = rep("Chinook", length(nass_ctc$Year)),
-	year = nass_ctc$Year,
-	spawners = nass_ctc$Esc, 
+	region = rep("Nass", length(nass_nisgaa$Year)),
+	species = rep("Chinook", length(nass_nisgaa$Year)),
+	year = nass_nisgaa$Year,
+	spawners = nass_nisgaa$ESC_Chinook, 
 	smoothedSpawners = NA,
-	runsize = nass_ctc$t.run,
+	runsize = nass_nisgaa$TOTAL_RUN_Chinook,
 	smoothedRunsize = NA,
-	source_id = rep(ctc_id, length(nass_ctc$Year))
+	source_id = rep("Nisgaa_20251202", length(nass_nisgaa$Year))
+	#source_id = rep(ctc_id, length(nass_nisgaa$Year))
 ) 
 
 # Smoothing
@@ -1088,7 +1092,7 @@ plot_abund(skck_sps)
 
 
 #### Sockeye {.unnumbered}
-Skeena sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 4 sockeye from the 2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast]. Data for 2023 were provided by Charmaine Carr-Harris (DFO) on request.
+Skeena sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 4 sockeye from the 2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast]. Data for 2023 were provided by Charmaine Carr-Harris (DFO) on request. **Data for 2024 are preliminary numbers from Joint Northern Boundary Technical Report [@JointNorthernBoundaryTechnicalCommittee2026USCanadaNorthern]**
 
 ```{r skeena sockeye, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Skeena sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
@@ -1102,7 +1106,7 @@ skse_ch2 <- read.csv(here("data/Chapter2_Data_2025_07_22.csv")) %>%
 	filter(Region == "Skeena River") %>%
 	mutate(source_id = "PSC_20250722")
 
-# Add recent year's data from Charmaine (pers. comm. July 24 2025)
+# Add 2023 data from Charmaine (pers. comm. July 24 2025)
 skse_2023 <- data.frame(
 	Year = 2023,
 	TE = 1437788,
@@ -1111,12 +1115,22 @@ skse_2023 <- data.frame(
 	mutate(Total.Run = TE + catch,
 	source_id = "CarrHarris_20250724")
 
+# Add 2024 data from Joint Northern Boundary Tech Report
+skse_2024 <- data.frame(
+	Year = 2024,
+	TE = 2683467,
+	catch = NA
+) %>%
+	mutate(Total.Run = 2807467,
+	source_id = NA)
+
 # combine sources
 skse <- skse_ch2[ , c("Year", "Spawners", "Returns", "source_id")] %>%
 	rename(TE = Spawners,
 				 Total.Run  = Returns) %>%
 	bind_rows(skse_LGL[which(skse_LGL$Year < 1982), c("Year", "TE", "Total.Run", "source_id")]) %>%
 	bind_rows(skse_2023[ c("Year", "TE", "Total.Run", "source_id")]) %>%
+	bind_rows(skse_2024[ c("Year", "TE", "Total.Run", "source_id")]) %>%
 	arrange(Year)
 
 	
