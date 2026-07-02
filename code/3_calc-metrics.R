@@ -11,7 +11,7 @@ library(here)
 # Load functions
 source("https://raw.githubusercontent.com/salmonwatersheds/population-indicators/refs/heads/master/code/functions_general.R")
 # Get dropbox directory
-Dropbox_dir <- here(get_XDrive(), "1_PROJECTS", "1_Active", "State of Salmon", "2_Data & Analysis", "state-of-salmon")
+Dropbox_dir <- paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/2_Data & Analysis/state-of-salmon")
 
 
 # Write output files?
@@ -253,7 +253,6 @@ sps_metrics[which(sps_metrics$current_abundance_year < max(sps_metrics$current_a
 #------------------------------------------------------------------------------
 
 sps_metrics[which(sps_metrics$current_abundance < 1500), ] # Flagging any <1500, but many are indices of spawners not absolute counts
-# Fraser Steelhead could be absolute??
 
 # # Create new variable to flag if abundance is below critical threshold of 1000 spawners
 # sps_metrics$critical <- ifelse(sps_metrics$current_abundance < 1500, 1, 0)
@@ -273,13 +272,15 @@ dum_sp <- sps_dat %>% dplyr::select(region, species, year, smoothedSpawners) %>%
 	filter(!is.na(smoothedSpawners)) %>%
 	mutate(regionspecies = paste(region, species)) %>%
 	group_by(regionspecies) %>%
-	summarise(nyears = length(year), rangeyears = paste(min(year), max(year), sep = "-"))
+	summarise(nyears = length(year), rangeyears = paste(min(year), max(year), sep = "-")) %>%
+	mutate(regionspeciestype = paste(regionspecies, "Spawners"))
 
 dum_sp2 <- sps_dat %>% dplyr::select(region, species, year, smoothedSpawners) %>%
 	filter(!is.na(smoothedSpawners)) %>%
 	mutate(regionspecies = paste(region, species)) %>%
 	group_by(regionspecies) %>%
-	summarise(region = unique(region), species = unique(species), nyears = length(year), minyear = min(year), maxyear = max(year))
+	summarise(region = unique(region), species = unique(species), nyears = length(year), minyear = min(year), maxyear = max(year)) %>%
+	mutate(regionspeciestype = paste(regionspecies, "Spawners"))
 
 # Which regions and species have <20 years of run size data?
 dum_rs <- sps_dat %>% dplyr::select(region, species, year, smoothedRunsize) %>%
@@ -298,16 +299,9 @@ dum_rs2 <- sps_dat %>% dplyr::select(region, species, year, smoothedRunsize) %>%
 
 # Add spawners number of years and range of years to sps_metrics
 sps_metrics <- sps_metrics %>% 
-	mutate(regionspeciestype = paste(region, species_vec, type)) %>% 
-	left_join(
-		dum_sp %>% 
-			mutate(regionspeciestype = paste(regionspecies, "Spawners")) %>%
-			dplyr::select(regionspeciestype, nyears, rangeyears)
+	mutate(regionspeciestype = paste(region, species, type)) %>% 
+	left_join(rbind(dum_sp, dum_rs), by=c("regionspeciestype")
 	) 
-
-# Add run size number of years and range of years to sps_metrics
-# CHECK this line - why isn't it working?
-sps_metrics[match(dum_rs$regionspeciestype, sps_metrics$regionspeciestype), c("nyears", "rangeyears")] <- dum_rs[, c("nyears", "rangeyears")]
 
 # Remove dummy variable for matching
 sps_metrics <- sps_metrics %>% dplyr::select(-regionspeciestype)
@@ -326,10 +320,6 @@ if(write.output){
 	# Write output to base folder
 	write.csv(sps_metrics, file = "output/sps-metrics.csv", row.names = FALSE)
 	write.csv(sps_dat, "output/sps-data.csv", row.names = FALSE)
-	
-	# Write app copy
-	#write.csv(sps_dat, "app/sps-data.csv", row.names = FALSE)
-	#write.csv(sps_metrics, file = "app/sps-metrics.csv", row.names = FALSE)
 	
 	# Write dated archive copy
 	write.csv(sps_metrics, file = paste0(Dropbox_dir, "/output/archive/sps-metrics_", Sys.Date(), ".csv"), row.names = FALSE)
@@ -378,13 +368,14 @@ sps_summary_internal <- sps_metrics_temp %>%
 	filter(paste(region, species) %in% c("Yukon Pink", "Yukon Sockeye", "Yukon Steelhead", "Columbia Chum", "Columbia Coho", "Columbia Pink") == FALSE) # Filter out regions/species not known to exist
 
 if(write.output){
-	write.csv(sps_summary_internal, file = paste0(Dropbox_dir, "/output/archive/sps-summary-internal_", Sys.Date(), ".csv"), row.names = FALSE)
+	write.csv(sps_summary_internal, file = paste0(Dropbox_dir, "/output/ignore/sps-summary-internal_", Sys.Date(), ".csv"), row.names = FALSE)
 	write.csv(sps_summary_internal, file = "output/sps-summary-internal.csv", row.names = FALSE)
 }
 
 ###############################################################################
 # Clean up data for plotting by Tactica
 ###############################################################################
+# Offsets are for displaying very close values
 
 #------------------------------------------------------------------------------
 # Summary
@@ -588,6 +579,8 @@ if(write.output){
 #------------------------------------------------------------------------------
 # Trends
 #------------------------------------------------------------------------------
+
+# Predictions, transforming them to % anomaly
 
 trends_plotting <- sps_dat %>%
 	dplyr::select(region, species, year) %>%
