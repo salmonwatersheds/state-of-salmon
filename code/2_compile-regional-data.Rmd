@@ -125,7 +125,7 @@ ctc_id <- "CTC_20250714"
 sps_data <- NULL
 
 # Dropbox location for archiving
-Dropbox_dir <- paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/2_Data & Analysis/state-of-salmon/")
+Dropbox_dir <- paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/2_Data & Analysis/state-of-salmon")
 ```
 
 ### Yukon
@@ -2853,7 +2853,7 @@ plot_abund(colsh_sps)
 <!--- This code chunk must go after the last data processing step --->
 ```{r save processed data}
 write.csv(sps_data, here("output/sps-data.csv"), row.names = FALSE) # Always have most recent # Not until this script is confirmed to be working 
-write.csv(sps_data, paste0(Dropbox_dir, "output/archive/", "sps-data", Sys.Date(), ".csv"), row.names = FALSE) # Archive with date
+write.csv(sps_data, paste0(Dropbox_dir, "/output/archive/", "sps-data", Sys.Date(), ".csv"), row.names = FALSE) # Archive with date
 
 ```
 
@@ -2983,3 +2983,444 @@ The standardized approach to quantifying change described above was applied acro
 1. If the species and region had no data in the most recent generation, the current status was "Unknown" even if historical abundance information was available. This was the case for **Haida Gwaii Chinook**, for which there were no reliable estimates of spawners since 2006.
 
 2. If there was reliable information that the absolute population size was < 1,500 spawners, then the species and region was considered at risk of extirpation regardless of the outcome of the metrics above. This was the case for **Columbia Chinook** which have been assessed as Endangered by COSEWIC due to low population size [@COSEWIC2017ChinookSalmonOncorhynchus] and **Columbia steelhead**. There were other regions and species that had spawner abundance < 1,500, but none of these had reliable estimates of **absolute** spawner abundance.
+
+
+# Results 
+
+:::: {.blackbox data-latex=""}
+::: {.center data-latex=""}
+**NOTICE!**
+:::
+
+**These are PRELIMINARY results and the following figures should not be taken as a statement on the status of salmon in these regions. Text "Highlights are LAST YEAR'S text.** At this time, we are working to verify datasets and refine our methods.
+::::
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+# library(viridis)
+library(reactable)
+library(reactablefmtr)
+library(dplyr)
+library(abind)
+library(tools)
+
+# Run 3_calc-metrics to get updated sps-metrics
+source(here("code/3_calc-metrics.R"))
+
+
+# Read in data for plots
+sps_dat <- read.csv("output/sps-data.csv")
+sps_metrics <- read.csv("output/sps-metrics.csv")
+sps_metrics <- sps_metrics %>% select(!regionspecies)
+
+	
+# Read in last-year's metrics 
+sps_metrics_2025 <- read.csv(here(Dropbox_dir, "output/archive/sps-metrics_2025-11-05.csv"))
+
+regions <- unique(sps_metrics$region)
+
+
+```
+
+* These trends in aggregated spawner abundance provide a broad overview of how salmon are doing, but must be interpreted with caution due to the diversity of populations with potentially different outlooks within each region and species. 
+* The status of spawner abundance is, in most cases, more positive than the status in total return, highlighting that declines in fisheries have been pervasive. 
+
+**Highlights**
+
+* Chum salmon have managed a comeback in some regions after being highlighted as one of the worst-off species in our 2024 report. In particular, chum spawner _and_ total abundance in the **Nass** more than doubled from 2023 to 2024, though other regions (e.g., Yukon, Fraser) are still posting below-average current abundances.
+
+* The Nass showed some of the most promising returns in 2024, with chum, coho, pink, and sockeye all above-average for spawner abundance and healthy catches for most species. 
+
+* Steelhead are still struggling, below average in all regions, though a lack of monitoring and reporting on their abundance makes it difficult to understand the extent of declines.
+
+## All regions
+
+### 2024 compared to 2023 {.unnumbered}
+
+Most of our results are based on **generational averages** (i.e., "smoothed" abundance), but in some places it's worth highlighting what happened in 2024. In particular, several regions/species seemed to have big returns in 2024 that are not reflected in the "current abundance" but we may want to highlight in the narrative. 
+
+### Overview results table {.tabset .unnumbered}
+**Below**: Summary of current status for **spawner or total abundance** (tabs) across regions and species, comparing between previous years' outcomes and revised outcomes. Regions and species below historical average are in red and above historical average are in green. Black cells indicate species that are not thought to be present in the given region, and grey cells indicate status was Unknown. For some regions and species, numbers have changed even though the year is the same because (1) the long-term average is calculated from raw instead of smoothed abundances or (2) an updated or different data source was used (e.g., final "synoptic evaluations" have been published for Transboundary Chinook post-release of the 2024 State of Salmon report, and final numbers changed slightly; see [Region-specific Data Sources](#data-sources)).
+
+#### Spawners {.unnumbered}
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+btn_table.all(
+	new_metrics = sps_metrics[which(sps_metrics$type == "Spawners"), ],
+	old_metrics = sps_metrics_2025[which(sps_metrics_2025$type == "Spawners"), ]
+)
+```
+
+#### Runsize {.unnumbered}
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+btn_table.all(
+	new_metrics = sps_metrics[which(sps_metrics$type == "Run Size"), ],
+	old_metrics = sps_metrics_2025[which(sps_metrics_2025$type == "Run Size"), ]
+)
+```
+
+
+## Yukon
+
+**Highlights**
+
+<!-- * Chinook and chum salmon spawners have both experienced precipitous declines in recent years. -->
+<!-- * Trends in Chinook total return show statistically significant declines of 3% and 4% **per year** over long and short time frames, respectively, highlighting the significant, persistent decline that has led to closure of fisheries, including First Nations subsistence fishing, throughout in the Canadian portion of the Yukon.    -->
+<!-- * Accompanying declines in **abundance**, there is also evidence that Yukon Chinook body size and reproductive capacity have been reduced [@OhlbergerEtAl2020ReproductiveValueLarge]. -->
+<!-- * These shifts in quality of escapement, combined with warming rivers during spawning migrations and shifting ocean conditions with climate change, may continue to challenge recovery efforts for Yukon salmon [@SchoenEtAl2023NOAAArcticReport]. -->
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "Yukon",
+	abund = "spawners", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "Yukon",
+	abund = "runsize", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+
+**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
+
+btn_table(
+  selected_region = "Yukon",
+  sps_metrics = sps_metrics
+)
+```
+
+## Transboundary
+
+**Highlights**
+
+<!-- * Most species in the Transboundary are below historical average spawner abundance, except sockeye salmon which have shown a recent increase, driven by increases in river-type type sockeye in the Taku River. -->
+<!-- * As in many other regions, the most recent index of spawner abundance is lower than the index of total return for the three Transboundary species that have both types of data (Chinook: `r round(sps_metrics$current_status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Chinook" & sps_metrics$type == "Spawners"]*100, 1)`% compared to `r round(sps_metrics$current_status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Chinook" & sps_metrics$type == "Run Size"]*100, 1)`%, coho: `r round(sps_metrics$current_status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Coho" & sps_metrics$type == "Spawners"]*100, 1)`% compared to `r round(sps_metrics$current_status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Coho" & sps_metrics$type == "Run Size"]*100, 1)`%, and sockeye: `r round(sps_metrics$current_status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Spawners"]*100, 1)`% compared to `r round(sps_metrics$current_status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`%), indicating that **declines in catch** have also occurred in recent years. -->
+
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "Northern Transboundary",
+	abund = "spawners", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "Northern Transboundary",
+	abund = "runsize", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+
+**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
+
+btn_table(
+  selected_region = "Northern Transboundary",
+  sps_metrics = sps_metrics
+)
+```
+
+## Haida Gwaii
+
+**Highlights**
+
+<!-- * All species for which we had reliable data are currently below their historical average, with long-term trends either stable or declining. -->
+<!-- * Unlike in other regions, where pink salmon have been doing relatively well, pink salmon have shown the most dramatic declines, and most recent spawner abundance was `r -round(sps_metrics$current_status[sps_metrics$region == "Haida Gwaii" & sps_metrics$species == "Pink" & sps_metrics$type == "Spawners"]*100, 1)`% **lower** than the historical average. -->
+<!-- * There is only one indicator stream for Chinook in Haida Gwaii,the Yakoun River, which has not been monitored since 2006 and although abundance was relatively high at that time, current status is unknown. -->
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "Haida Gwaii",
+	abund = "spawners", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "Haida Gwaii",
+	abund = "runsize", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+
+**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
+
+btn_table(
+  selected_region = "Haida Gwaii",
+  sps_metrics = sps_metrics
+)
+```
+
+## Nass
+
+**Highlights**
+
+<!-- * While most species show declines over both long- and short-time frames, Nass pink and coho salmon have rebounded to above historical average abundance in the most recent generation with positive long-term trends. -->
+<!-- * Chum salmon are the species furthest below their historical average (`r round(sps_metrics$current_status[sps_metrics$region == "Nass" & sps_metrics$species == "Chum" & sps_metrics$type == "Spawners"]*100, 1)`%) with an average long-term decline of `r round(sps_metrics$long_trend[sps_metrics$region == "Nass" & sps_metrics$species == "Chum" & sps_metrics$type == "Spawners"]*100, 1)`%. -->
+<!-- * Although sockeye total return is `r -round(sps_metrics$current_status[sps_metrics$region == "Nass" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`% **below** historical average with concerning negative short- and long-term trends, increases over the last two years have put **spawner abundance** above historical average with an increasing short-term trend over the most recent three generations.  -->
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "Nass",
+	abund = "spawners", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "Nass",
+	abund = "runsize", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+
+**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
+
+btn_table(
+  selected_region = "Nass",
+  sps_metrics = sps_metrics
+)
+```
+
+## Skeena
+
+**Highlights**
+
+<!-- * Most species are below historical average spawner abundance, with chum salmon having declined by `r -round(sps_metrics$current_status[sps_metrics$region == "Skeena" & sps_metrics$species == "Chum" & sps_metrics$type == "Spawners"]*100, 1)`%. Exceptons include sockeye spawner abundance, which has recently increased to `r round(sps_metrics$current_status[sps_metrics$region == "Skeena" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Spawners"]*100, 1)`% above historical average in 2022 and pink salmon which were `r +round(sps_metrics$current_status[sps_metrics$region == "Skeena" & sps_metrics$species == "Pink" & sps_metrics$type == "Spawners"]*100, 1)`% in 2022. -->
+<!-- * Total return was only available for Skeena sockeye, and shows increases in the 1980s and 90s, with a decline from the peak in 1996. Slight increases over the last two years put current total return `r -round(sps_metrics$current_status[sps_metrics$region == "Skeena" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`% below historical average, with stable long-term and short-term trends. Other research has found that the decline in sockeye abundance from the 1980s has been accompanied by erosion of diversity, with enhanced stocks increasingly dominating returns [@PriceEtAl2021PortfolioSimplificationArising]. -->
+<!-- * Estimates of regional spawner abundance have become increasingly uncertain since 2000, especially for coho, due to a decline in monitoring of indicator streams. -->
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "Skeena",
+	abund = "spawners", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "Skeena",
+	abund = "runsize", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+
+**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
+
+btn_table(
+  selected_region = "Skeena",
+  sps_metrics = sps_metrics
+)
+```
+
+
+## Central Coast
+
+**Highlights**
+
+<!-- * All species are below historical average abundance, with dramatic declines of culturally and economically important sockeye, Chinook, and chum salmon. -->
+<!-- * Pink salmon, which tend to fluctuate in abundance more than other species, have increased only recently from an all-time low in 2019, more than doubling between 2019 and 2021. -->
+<!-- * Expansion factors for regional-scale reconstructions have increased substantially since the mid-2000s, with a decline in monitoring creating uncertainties in our results for all species, but especially coho, sockeye, and Chinook. -->
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "Central Coast",
+	abund = "spawners", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "Central Coast",
+	abund = "runsize", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+
+**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
+
+btn_table(
+  selected_region = "Central Coast",
+  sps_metrics = sps_metrics
+)
+```
+
+
+## East Vancouver Island & Mainland Inlets
+
+**Highlights**
+
+<!-- * Most species are currently below historical average, with the exception of Chinook and pink salmon. -->
+<!-- * Aggregate Chinook abundance is `r round(sps_metrics$current_status[sps_metrics$region == "Vancouver Island & Mainland Inlets" & sps_metrics$species == "Chinook" & sps_metrics$type == "Spawners"]*100, 1)`% above historical average, but some populations have concerning declines (e.g., West Coast Vancouver Island Chinook are at low enough abundance to have triggered a Recovery Potential Assessment in recent years) while others are increasing - including Cowichan River which has seen consistent increases in spawner abundance **and total return** since 2010 [@AtlasEtAl2023TrendsChinookSalmon].  -->
+<!-- * Coho were below average and declining - poor outcomes under all 3 metrics. -->
+<!-- * Short-term trends are stable or increasing for Chinook, pink, and sockeye, suggestion possibility for recovery. -->
+<!-- * Dynamics through time are more stable for the regional aggregate because there are many component populations in this large area, but some local trends are concerning highlighting a need to understand and conserve the diversity represented by component populations (for more detailed information on populations within regions, see the [Pacific Salmon Explorer](https://www.salmonexplorer.ca)). -->
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "East Vancouver Island & Mainland Inlets",
+	abund = "spawners", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "East Vancouver Island & Mainland Inlets",
+	abund = "runsize", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+
+**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
+
+btn_table(
+  selected_region = "East Vancouver Island & Mainland Inlets",
+  sps_metrics = sps_metrics
+)
+```
+
+## West Vancouver Island 
+
+**Highlights**
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "West Vancouver Island",
+	abund = "spawners", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "West Vancouver Island",
+	abund = "runsize", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+
+**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
+
+btn_table(
+  selected_region = "West Vancouver Island",
+  sps_metrics = sps_metrics
+)
+```
+
+## Fraser
+
+**Highlights**
+
+<!-- * Despite the uptick in Fraser sockeye spawner abundance in the early 2010s, the most recent spawner abundance and total return are below the devastating returns in 2009 that triggered a federal inquiry. The in-season estimate for Fraser sockeye total return in 2023 was `r -round(sps_metrics$current_status[sps_metrics$region == "Fraser" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`% below historical average. -->
+<!-- * Chinook spawner abundance were below historical average with recent short-term declines. However some life-history types are doing better than others [@AtlasEtAl2023TrendsChinookSalmon], highlighting the need to conserve the within-species diversity that makes salmon resilient to environmental change. -->
+<!-- * Spawner abundance of coho and pink salmon are above historical average, with total return slightly above average.  -->
+
+<!-- * Declines of Chinook, chum, pink, sockeye, and steelhead since the early 2000s may reflect the increasing pressures of climate change on these southern and interior populations. -->
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "Fraser",
+	abund = "spawners", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "Fraser",
+	abund = "runsize", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+
+**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
+
+btn_table(
+  selected_region = "Fraser",
+  sps_metrics = sps_metrics
+)
+```
+
+## Columbia
+
+**Highlights**
+
+<!-- * The current status of Columbia Chinook and steelhead is categorized as Unknown because the are insufficient data to establish a meaningful baseline (fewer than 20 years; Chinook 2006-2022 and steelhead 2006-2021). -->
+<!-- * Columbia Chinook and sockeye show promise of rebuilding, with positive long-term trends.  -->
+<!-- * The time series for Chinook and steelhead are short, making it difficult to establish a meaningful baseline. For this reason, we show the current status relative to the historical average as "Unknown" for Columbia Chinook and steelhead. -->
+<!-- * Although Chinook spawner abundance has increased from a low in 2011, the absolute abundance is still less than 1000 spawners and the Okanagan population of Chinook was listed as Endangered in 2017 by COSEWIC [@COSEWIC2017ChinookSalmonOncorhynchus]. Recent increases should be cautiously celebrated, knowing that this population is still at risk of extirpation. -->
+<!-- * Columbia steelhead have declined precipitously since a peak spawner abundance in 2012. -->
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "Columbia",
+	abund = "spawners", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
+plot.regional_abund(
+  selected_region = "Columbia",
+	abund = "runsize", # Select "spawners" or "runsize"
+	sps_metrics = sps_metrics, 
+	sps_dat = sps_dat)
+
+```
+
+
+**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
+
+btn_table(
+  selected_region = "Columbia",
+  sps_metrics = sps_metrics
+)
+```
