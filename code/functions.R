@@ -107,7 +107,7 @@ calcPercDecline <- function(
 	
 	# Define species and year variables for use
 	yrs <- sort(unique(ss$year))
-	species <- sort(unique(ss$species[!is.na(ss$smoothedSpawners)]))
+	species_vec <- sort(unique(ss$species[!is.na(ss$smoothedSpawners)]))
 	n.species <- length(species)
 	
 	# Loop through species to calculate percent decline in the most recent generation
@@ -115,10 +115,10 @@ calcPercDecline <- function(
 	percDecline <- rep(NA, n.species); names(percDecline) <- species
 	for(s in 1:n.species){
 		# Extract relevant generation length
-		g <- genLength$gen_length[which(genLength$region == selected_region & genLength$species == species[s])]
+		g <- genLength$gen_length[which(genLength$region == selected_region & genLength$species == species_vec[s])]
 		
 		# Compute percent decline
-		percDecline[s] <- (ss$smoothedSpawners[which(ss$species == species[s] & ss$year == max.yrs[s])] - ss$smoothedSpawners[which(ss$species == species[s] & ss$year == max.yrs[s] - g)]) / ss$smoothedSpawners[which(ss$species == species[s] & ss$year == max.yrs[s] - g)]
+		percDecline[s] <- (ss$smoothedSpawners[which(ss$species == species_vec[s] & ss$year == max.yrs[s])] - ss$smoothedSpawners[which(ss$species == species_vec[s] & ss$year == max.yrs[s] - g)]) / ss$smoothedSpawners[which(ss$species == species_vec[s] & ss$year == max.yrs[s] - g)]
 	}
 	
 	return(percDecline)
@@ -521,27 +521,31 @@ btn_table.all <- function(
 	old_metrics <- old_metrics %>%
 		arrange(factor(region, levels = regions), species)
 	
-	species <- unique(new_metrics$species)
+	species_vec <- unique(new_metrics$species)
+	region_tbl <- data.frame(region = unique(new_metrics$region))
 	tab_long <- data.frame(
 		Region = rep(unique(new_metrics$region), 2)
 	)
+
 	
-	for(s in 1:length(species)){
-		
+	for(s in 1:length(species_vec)){
+
+		new_s <- left_join(region_tbl, new_metrics[which(new_metrics$species == species_vec[s]),c("region", "current_status", "current_abundance_year")])
+		old_s <- left_join(region_tbl, old_metrics[which(old_metrics$species == species_vec[s]),c("region", "current_status", "current_abundance_year")])
 		
 		tab_long <- cbind(
 			tab_long,
 			# Year
-			c(new_metrics$current_abundance_year[which(new_metrics$species == species[s])],
-				old_metrics$current_abundance_year[which(old_metrics$species == species[s])]),
+			c(new_s[,"current_abundance_year"],
+				old_s[,"current_abundance_year"]),
 			# Current status
-			c(new_metrics$current_status[which(new_metrics$species == species[s])],
-				old_metrics$current_status[which(old_metrics$species == species[s])])#,
+			c(new_s[,"current_status"],
+				old_s[,"current_status"])
 			# # Different year?
-			# rep(c(new_metrics$current_abundance_year[which(new_metrics$species == species[s])]>old_metrics$current_abundance_year[which(old_metrics$species == species[s])]), 2)
+			# rep(c(new_metrics$current_abundance_year[which(new_metrics$species == species_vec[s])]>old_metrics$current_abundance_year[which(old_metrics$species == species_vec[s])]), 2)
 		)
 	}
-	names(tab_long) <- c("Region", rep(species, each = 2))
+	names(tab_long) <- c("Region", rep(species_vec, each = 2))
 	
 	names(tab_long)[seq(2, dim(tab_long)[2], 2)] <- paste0(names(tab_long)[seq(2, dim(tab_long)[2], 2)], "_Year")
 	# names(tab_long)[seq(4, dim(tab_long)[2], 3)] <- paste0(names(tab_long)[seq(4, dim(tab_long)[2], 3)], "_Updated")
