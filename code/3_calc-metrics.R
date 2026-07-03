@@ -7,10 +7,11 @@
 ###############################################################################
 
 library(tidyverse)
+library(here)
 # Load functions
 source("https://raw.githubusercontent.com/salmonwatersheds/population-indicators/refs/heads/master/code/functions_general.R")
 # Get dropbox directory
-Dropbox_dir <- get_XDrive()
+Dropbox_dir <- paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/2_Data & Analysis/state-of-salmon")
 
 
 # Write output files?
@@ -63,9 +64,9 @@ columns.long <- rbind(grep("spawners_long_trend", names(sps_dat)),
 
 # Set up empty data frame to store metrics output
 sps_metrics <- data.frame(
-	region = rep(regions, each = length(species) * 2),
-	species = rep(rep(species, each = 2), length(regions)),
-	type = rep(c("Spawners", "Run Size"), length(species) * length(regions)),
+	region = rep(regions, each = length(species_vec) * 2),
+	species = rep(rep(species_vec, each = 2), length(regions)),
+	type = rep(c("Spawners", "Run Size"), length(species_vec) * length(regions)),
 	current_status = NA,
 	short_trend = NA,
 	short_trend_cat = "", # cateogrical: stable, increasing, decreasing
@@ -78,7 +79,7 @@ sps_metrics <- data.frame(
 	gen_length = NA
 )
 
-pdf(file = "output/ignore/figures/sps-metrics_detailed.pdf", width = 6, height = 4, pointsize = 10)
+pdf(file = here("output/ignore/figures/sps-metrics_detailed.pdf"), width = 6, height = 4, pointsize = 10)
 par(mar = c(3, 4, 2, 1))
 
 for(r in 1:length(regions)){ # for each region
@@ -115,6 +116,11 @@ for(r in 1:length(regions)){ # for each region
 				
 				# If there are data...
 				if(sum(!is.na(sps_dat[ind_dat, c("smoothedSpawners", "smoothedRunsize")[i]])) > 0){
+					
+					
+					# -------------
+					## Calculate current state
+					# -------------
 					
 					# Extract abundance (y) and year (x)
 					y <- sps_dat[ind_dat, c("smoothedSpawners", "smoothedRunsize")[i]]
@@ -232,10 +238,11 @@ dev.off()
 #------------------------------------------------------------------------------
 # Is there a spawner abundance estimate in the most recent generation?
 #------------------------------------------------------------------------------
+# No rows should show up
 
 sps_metrics[which(sps_metrics$current_abundance_year < max(sps_metrics$current_abundance_year, na.rm = TRUE) - sps_metrics$gen_length), ]
 
-# Just Haida Gwaii Chinook; set to NA
+# Set to NA
 sps_metrics[which(sps_metrics$current_abundance_year < max(sps_metrics$current_abundance_year, na.rm = TRUE) - sps_metrics$gen_length), c("current_status", "current_abundance", "previous_gen_abundance")] <- NA
 
 # sps_metrics[which(sps_metrics$current_abundance_year < max(sps_metrics$current_abundance_year, na.rm = TRUE) - sps_metrics$gen_length), c("short_trend_cat", "long_trend_cat")] <- ""
@@ -245,12 +252,13 @@ sps_metrics[which(sps_metrics$current_abundance_year < max(sps_metrics$current_a
 # Is current spawner abundance < 1500?
 #------------------------------------------------------------------------------
 
-sps_metrics[which(sps_metrics$current_abundance < 1500), ]
+sps_metrics[which(sps_metrics$current_abundance < 1500), ] # Flagging any <1500, but many are indices of spawners not absolute counts
 
 # # Create new variable to flag if abundance is below critical threshold of 1000 spawners
 # sps_metrics$critical <- ifelse(sps_metrics$current_abundance < 1500, 1, 0)
 
 # If total abundance is <1500, and this can be considered an absolute count,
+# The only region we have complete counts for is Columbia! 
 # flag current state as critical -999999
 condition_critical <- which(sps_metrics$current_abundance < 1500 & sps_metrics$region == "Columbia" & sps_metrics$species %in% c("Chinook", "Steelhead"))
 sps_metrics$current_status[condition_critical] <- -999999
@@ -264,13 +272,15 @@ dum_sp <- sps_dat %>% dplyr::select(region, species, year, smoothedSpawners) %>%
 	filter(!is.na(smoothedSpawners)) %>%
 	mutate(regionspecies = paste(region, species)) %>%
 	group_by(regionspecies) %>%
-	summarise(nyears = length(year), rangeyears = paste(min(year), max(year), sep = "-"))
+	summarise(nyears = length(year), rangeyears = paste(min(year), max(year), sep = "-")) %>%
+	mutate(regionspeciestype = paste(regionspecies, "Spawners"))
 
 dum_sp2 <- sps_dat %>% dplyr::select(region, species, year, smoothedSpawners) %>%
 	filter(!is.na(smoothedSpawners)) %>%
 	mutate(regionspecies = paste(region, species)) %>%
 	group_by(regionspecies) %>%
-	summarise(region = unique(region), species = unique(species), nyears = length(year), minyear = min(year), maxyear = max(year))
+	summarise(region = unique(region), species = unique(species), nyears = length(year), minyear = min(year), maxyear = max(year)) %>%
+	mutate(regionspeciestype = paste(regionspecies, "Spawners"))
 
 # Which regions and species have <20 years of run size data?
 dum_rs <- sps_dat %>% dplyr::select(region, species, year, smoothedRunsize) %>%
@@ -290,15 +300,8 @@ dum_rs2 <- sps_dat %>% dplyr::select(region, species, year, smoothedRunsize) %>%
 # Add spawners number of years and range of years to sps_metrics
 sps_metrics <- sps_metrics %>% 
 	mutate(regionspeciestype = paste(region, species, type)) %>% 
-	left_join(
-		dum_sp %>% 
-			mutate(regionspeciestype = paste(regionspecies, "Spawners")) %>%
-			dplyr::select(regionspeciestype, nyears, rangeyears)
+	left_join(rbind(dum_sp, dum_rs), by=c("regionspeciestype")
 	) 
-
-# Add run size number of years and range of years to sps_metrics
-
-sps_metrics[match(dum_rs$regionspeciestype, sps_metrics$regionspeciestype), c("nyears", "rangeyears")] <- dum_rs[, c("nyears", "rangeyears")]
 
 # Remove dummy variable for matching
 sps_metrics <- sps_metrics %>% dplyr::select(-regionspeciestype)
@@ -318,13 +321,9 @@ if(write.output){
 	write.csv(sps_metrics, file = "output/sps-metrics.csv", row.names = FALSE)
 	write.csv(sps_dat, "output/sps-data.csv", row.names = FALSE)
 	
-	# Write app copy
-	write.csv(sps_dat, "app/sps-data.csv", row.names = FALSE)
-	write.csv(sps_metrics, file = "app/sps-metrics.csv", row.names = FALSE)
-	
 	# Write dated archive copy
 	write.csv(sps_metrics, file = paste0(Dropbox_dir, "/output/archive/sps-metrics_", Sys.Date(), ".csv"), row.names = FALSE)
-	write.csv(sps_dat, file = paste0("output/archive/sps-data_", Sys.Date(), ".csv"), row.names = FALSE)
+	#write.csv(sps_dat, file = here(paste0("output/archive/sps-data_", Sys.Date(), ".csv")), row.names = FALSE)
 }
 
 ###############################################################################
@@ -369,13 +368,14 @@ sps_summary_internal <- sps_metrics_temp %>%
 	filter(paste(region, species) %in% c("Yukon Pink", "Yukon Sockeye", "Yukon Steelhead", "Columbia Chum", "Columbia Coho", "Columbia Pink") == FALSE) # Filter out regions/species not known to exist
 
 if(write.output){
-	write.csv(sps_summary_internal, file = paste0(Dropbox_dir, "/output/archive/sps-summary-internal_", Sys.Date(), ".csv"), row.names = FALSE)
+	write.csv(sps_summary_internal, file = paste0(Dropbox_dir, "/output/ignore/sps-summary-internal_", Sys.Date(), ".csv"), row.names = FALSE)
 	write.csv(sps_summary_internal, file = "output/sps-summary-internal.csv", row.names = FALSE)
 }
 
 ###############################################################################
 # Clean up data for plotting by Tactica
 ###############################################################################
+# Offsets are for displaying very close values
 
 #------------------------------------------------------------------------------
 # Summary
@@ -580,6 +580,8 @@ if(write.output){
 # Trends
 #------------------------------------------------------------------------------
 
+# Predictions, transforming them to % anomaly
+
 trends_plotting <- sps_dat %>%
 	dplyr::select(region, species, year) %>%
 	mutate(spawners = NA, 
@@ -591,7 +593,7 @@ trends_plotting <- sps_dat %>%
 
 # Loop through each species and region and normalize fields to yield % of historical baseline
 for(r in 1:length(regions)){ # for each region
-	for(s in 1:length(species)){ # for each species
+	for(s in 1:length(species_vec)){ # for each species
 		
 		ind <- which(trends_plotting$region == regions[r] & trends_plotting$species == species_vec[s])
 		if(length(ind > 0)){
