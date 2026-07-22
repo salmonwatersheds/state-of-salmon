@@ -242,7 +242,7 @@ legend("topleft", pch= c(1, 19), pt.cex = c(1, 0.6), col = c(1,2), c("Appendix B
 ### Northern Transboundary
 <!-- > Internal note: Processing of raw excel file from Aaron Foos to extract relevant tables and fields is in [population-data/transboundary-data/code/sos-data-extract.R](https://www.dropbox.com/scl/fi/zxgtulvx2p5iphr3rjx57/sos-data-extract.R?rlkey=f18myjpthqbee4ciz9ny0pjf9&dl=0) -->
 
-The best-available information on salmon abundance in the Northern Transboundary region is from the PSC's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The most recent TTC report [@TTC2022FinalEstimatesTransboundary] includes data through 2021. Updated report appendices were provided by Aaron Foos (DFO) on April 15, 2025 in advance of report publication, and numbers for 2023 and 2024 should be considered **preliminary**.
+The best-available information on salmon abundance in the Northern Transboundary region is from the PSC's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The most recent TTC report [@TTC2022FinalEstimatesTransboundary] includes data through 2021. Updated report appendices were provided by Aaron Foos (DFO) on July 8, 2026 in advance of report publication, and numbers for 2023-2025 should be considered **preliminary**.
 
 We recognize that our approach in the Transboundary lacks information from many un-monitored watersheds, in particular the smaller watersheds of the Chilkat, Unuk, and Whiting Rivers. In the absence of better monitoring, we choose to report available data as a proxy for regional abundance, and note that the contribution of these smaller watersheds to total regional abundance for each species is likely small. 
 
@@ -250,7 +250,11 @@ We recognize that our approach in the Transboundary lacks information from many 
 #### Chinook {.unnumbered}
 The regional spawner abundance and total return of Chinook was calculated as the sum of escapement and total return, respectively, to the Stikine, Alsek, and Taku indicator stocks. For each of these stocks, we used escapement and exploitation rates provided by the [PSC's Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/) as part of their Synoptic Evaluations of Stock Status. These data were downloaded from their [Data Application](https://psc1.shinyapps.io/ctc-shiny-app/_w_efbbad27/). Total abundance was calculated from the escapement, $E$, and exploitation rate, $r$, as $E/(1-r)$. 
 
-At the time of publication, the Synoptic Evaluations of Stock Status were not yet available for 2024 so we used the escapement estimates for Stikine, Alsek, and Taku Chinook from Table B2 of Appendix B - Detailed Escapement, available as a downloadable dataset from the [Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/). Canadian and US harvest of Chinook was provided by Aaron Foos (DFO) as updated tables from the Transboundary Technical Committee report. Specifically, harvest for Stikine Chinook from Table B12 and harvest of Taku Chinook from Table D8. Total harvest of Alsek Chinook was 235, provided by Teresa Wallace (DFO, pers. comm.): US Commercial: 187, US Subsistence: 8, CAN (Aboriginal): 40, CAN Recreational: 0 (No CAN recreational harvest permitted in 2024).
+**2024 updates:**
+The Synoptic Evaluations of Stock Status are not yet available for 2024 so we used the escapement estimates for Stikine, Alsek, and Taku Chinook from Table B2 of Appendix B - Detailed Escapement, available as a downloadable dataset from the [Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/). Canadian and US harvest of Chinook was provided by Aaron Foos (DFO) as updated tables from the Transboundary Technical Committee report. Specifically, harvest for Stikine Chinook from Table B12 and harvest of Taku Chinook from Table D8. Total harvest of Alsek Chinook was 235, provided by Teresa Wallace (DFO, pers. comm.): US Commercial: 187, US Subsistence: 8, CAN (Aboriginal): 40, CAN Recreational: 0 (No CAN recreational harvest permitted in 2024).
+
+**2025 updates:**
+2025 data are available for the Taku and Stikine systems (escapement and harvest) as provided as preliminary pre-publication data from Aaron Foos on July 8, 2026. Awaiting Updated CTC datasets coming in July 2026 for final escapement for all stocks, and Alsek harvest estimate (source TBD). (Use 'Escapement detailed' to 2025 + harvest from Aaron Foos email + get Alsek Chinook harvest) 
 
 ```{r transboundary chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Transboundary chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 # Load data ---
@@ -272,6 +276,7 @@ tbrck <- tbrck_raw %>%
 	bind_rows(data.frame(Year = 2024,
 						Escapement_all = (tbrck_esc$Alsek_esc + tbrck_esc$Taku_esc + tbrck_esc$Stikine_esc)[tbrck_esc$year == 2024],
 						TotalRun_all = 717 + (tbrck_esc$Alsek_esc + tbrck_esc$Taku_esc + tbrck_esc$Stikine_esc)[tbrck_esc$year == 2024], source_id = "Foos_20250415")) 
+
 
 # Reformat data for SPS
 tbrck_sps <- data.frame(
@@ -308,22 +313,42 @@ sps_data <- rbind(sps_data, tbrck_sps)
 ```{r transboundary chinook figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 9, fig.height = 5, fig.cap = "**Above:** (a) Chinook salmon spawner abundance and (b) total abundance showing the contributions of the Alsek, Taku, and Stikine river basins."}
 
 # Update 2024 data for each system -- different than above, this method from previous Rmd, updates each system
+# Update 2025 data for systems available -- Taku + Stikine
 tbrck_raw_updated <- tbrck_raw %>%
-	rbind(data.frame(
+	rbind(data.frame( # 2024 data
 		Stock = c("Alsek", "Taku", "Stikine"),
 		Year = rep(2024, 3),
 		Escapement = as.numeric(tbrck_esc %>% filter(year == 2024) %>% dplyr::select("Alsek_esc", "Taku_esc", "Stikine_esc")),
 		RateType = rep(NA, 3),
 		Rate = rep(NA, 3),
-		TotalRun = rep(NA, 3)))
+		TotalRun = rep(NA, 3))) %>%
+	rbind(data.frame( # 2025 datan  (From data provided by Aaron Foos, not same source as 2024 data)
+		Stock = c("Taku", "Stikine"),
+		Year = rep(2025, 2),
+		Escapement = c(42972, 14813), # 'unadjusted CAD spawning escapement' for Taku, 'Canadian escapement' for Stikine
+		RateType = rep(NA, 2),
+		Rate = rep(NA, 2),
+		TotalRun = rep(NA, 2)))
 
-tbrck_raw_updated$TotalRun[tbrck_raw_updated$Year == 2024] <- tbrck_raw_updated$Escapement[tbrck_raw_updated$Year == 2024] + c((40 + 195), (22 + 374), (49 + 37))
+# Harbest data - from data provided by Aaron Foos on 2026-07-08
+tbrck_harvest <- data.frame(Year = rep(c(2024:2025), 3), 
+													 Stock = rep(c("Alsek", "Taku", "Stikine"), each=2),
+													 CAD_harv = c(40, NA, 22, 44, 49, 263),
+													 USA_harv = c(195, NA, 372, 857, 37, 12)) 
+
+# Calculate Total Run for 2024 and 2025
+tbrck_raw_updated_24_25 <- tbrck_raw_updated %>% 
+	filter(Year %in% 2024:2025) %>%
+	left_join(tbrck_harvest, by=c("Year", "Stock")) %>%
+	mutate(TotalRun = Escapement + CAD_harv + USA_harv)
+	
+tbrck_raw_updated$TotalRun[tbrck_raw_updated$Year >= 2024] <- tbrck_raw_updated_24_25$TotalRun
 
 # Plot ---
 
 # Spawner abundance
 spwn.stack <- tbrck_raw_updated %>% ggplot() +
-	geom_area(aes(x=Year, y=Escapement/1000, fill=factor(Stock, levels=c("Stikine", "Taku", "Alsek"))), 
+	geom_area(aes(x=Year, y=Escapement/1000, fill=factor(Stock, levels=c("Alsek", "Taku", "Stikine"))), 
 								alpha=0.6) + 
 	scale_fill_viridis_d() +
 	labs(y="Spawner abundance (thousands)", fill="") + lims(y=c(0,185)) +
@@ -331,7 +356,7 @@ spwn.stack <- tbrck_raw_updated %>% ggplot() +
 
 # Total abundance
 tot.stack <- tbrck_raw_updated %>% ggplot() +
-	geom_area(aes(x=Year, y=TotalRun/1000, fill=factor(Stock, levels=c("Stikine", "Taku", "Alsek"))), 
+	geom_area(aes(x=Year, y=TotalRun/1000, fill=factor(Stock, levels=c("Alsek", "Taku", "Stikine"))), 
 								alpha=0.6) + 
 	scale_fill_viridis_d() +
 	labs(y="Total abundance (thousands)", fill="") + lims(y=c(0,185)) +
@@ -341,7 +366,7 @@ cowplot::plot_grid(spwn.stack, tot.stack, rel_widths = c(0.75,1), labels="auto")
 
 ```
 
-#### Sockeye and Coho {.unnumbered}
+#### Sockeye {.unnumbered}
 
 ```{r transboundary sockeye, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Transboundary sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
@@ -386,6 +411,9 @@ plot_abund(tbrse_sps)
 
 ```
 
+
+#### Coho {.unnumbered}
+
 ```{r transboundary coho, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Transboundary coho salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 # Load data ---
@@ -428,15 +456,14 @@ plot_abund(tbrco_sps)
 
 ```
 
-#### Pink and Chum {.unnumbered}
+#### Pink {.unnumbered}
 
-Monitoring of pink and chum salmon in the Transboundary region is limited, and the best available information is the Canyon Island fish wheel on the Taku River. 
+Monitoring of pink salmon in the Transboundary region is limited, and the best available information is the Canyon Island fish wheel on the Taku River. In 2018, Fishwheel operation decreased from 24 hours to 8 hours per day, so comparisons across the time series are cautioned.
 
 ```{r transboundary pink, fig.cap="**Above:**Spawner abundance of Transboundary pink salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 # Load data ---
-tbrpk <- read.csv(here("data/TTC_ManualExtract_Taku_Pink.csv")) %>%
-	filter(!is.na(Value))
+tbrpk <- read.csv(here("data/TTC_Taku_fishwheel.csv"))
 
 # Check if years are continuous
 #unique(diff(tbrpk$Year)) # Yes, all one year apart
@@ -446,11 +473,11 @@ tbrpk_sps <- data.frame(
 	region = rep("Northern Transboundary", nrow(tbrpk)), 
 	species = rep("Pink", nrow(tbrpk)), 
 	year = tbrpk$Year, 
-	spawners = tbrpk$Value,
+	spawners = tbrpk$Pink,
 	smoothedSpawners = NA,
 	runsize = NA,
 	smoothedRunsize = NA,
-	source_id = rep("Foos_20250415", nrow(tbrpk))
+	source_id = rep("Foos_20260708", nrow(tbrpk))
 ) 
 # Smoothing
 tbrpk_sps$smoothedSpawners <- genSmooth(
@@ -467,22 +494,27 @@ plot_abund(tbrpk_sps)
 
 ```
 
+#### Chum {.unnumbered}
+
+Monitoring of chum salmon in the Transboundary region is limited, and the best available information is the Canyon Island fish wheel on the Taku River. In 2018, Fishwheel operation decreased from 24 hours to 8 hours per day, so comparisons across the time series are cautioned.
+
+
 ```{r transboundary chum, fig.cap="**Above:**Spawner abundance of Transboundary chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 # Load data ---
-tbrcm <- read.csv(here("data/TTC_ManualExtract_Taku_Chum.csv")) %>%
-	filter(!is.na(Value))
+tbrcm <- read.csv(here("data/TTC_Taku_fishwheel.csv"))
+
 
 # Reformat data for SPS
 tbrcm_sps <- data.frame(
-	region = rep("Northern Transboundary", nrow(tbrcm)), #length(which(tbrpkcm$species_pooled == "Chum"))),
-	species = rep("Chum", nrow(tbrcm)), #length(which(tbrpkcm$species_pooled == "Chum"))),
-	year = tbrcm$Year, #sort(tbrpkcm$year[tbrpkcm$species_pooled == "Chum"]),
-	spawners = tbrcm$Value, #tbrpkcm$stream_observed_count[tbrpkcm$species_pooled == "Chum"][order(tbrpkcm$year[tbrpkcm$species_pooled == "Chum"])], 
+	region = rep("Northern Transboundary", nrow(tbrcm)), 
+	species = rep("Chum", nrow(tbrcm)), 
+	year = tbrcm$Year, 
+	spawners = tbrcm$Chum, 
 	smoothedSpawners = NA,
 	runsize = NA,
 	smoothedRunsize = NA,
-	source_id = rep("Foos_20250415", nrow(tbrcm))
+	source_id = rep("Foos_20260708", nrow(tbrcm))
 ) 
 # Smoothing
 tbrcm_sps$smoothedSpawners <- genSmooth(
@@ -500,8 +532,45 @@ plot_abund(tbrcm_sps)
 ```
 
 #### Steelhead {.unnumbered}
-Steelhead trout have also been enumerated at the Canyon Island fish wheel since 1987, though recent estimates have been patchy and the timing of the fish wheel likely misses a substantial portion of the Taku summer run steelhead. Thus, we do not use the Canyon Island counts.
+**Updated 2026**
+Steelhead trout have also been enumerated at the Canyon Island fish wheel since 1987, though in past versions of datasets estimates have been patchy and the timing of the fish wheel likely misses a substantial portion of the Taku summer run steelhead. Thus, we have not previously used the Canyon Island counts. However, the 2026 dataset included a more complete time series for Steelhead. 
 
+In 2018, Fishwheel operation decreased from 24 hours to 8 hours per day, so comparisons across the time series are cautioned.
+
+**Decision needed: use these or not?**
+```{r transboundary steelhead}
+
+# Load data
+tbrsh <- read.csv(here("data/TTC_Taku_fishwheel.csv")) %>%
+	filter(Year > 1986) # Remove leading years that are NA
+
+# Check if years are continuous
+#unique(diff(tbrsh$Year)) # Yes, all one year apart
+
+# Reformat data for SPS
+tbrsh_sps <- data.frame(
+	region = rep("Northern Transboundary", nrow(tbrsh)), 
+	species = rep("Steelhead", nrow(tbrsh)), 
+	year = tbrsh$Year, 
+	spawners = tbrsh$Steelhead, 
+	smoothedSpawners = NA,
+	runsize = NA,
+	smoothedRunsize = NA,
+	source_id = rep("Foos_20260708", nrow(tbrsh))
+) 
+# Smoothing
+tbrsh_sps$smoothedSpawners <- genSmooth(
+	abund = tbrsh_sps$spawners,
+	years = tbrsh_sps$year,
+	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Steelhead"]
+)
+
+# Add to master sps dataframe
+sps_data <- rbind(sps_data, tbrsh_sps)
+
+# Generate standard plot
+plot_abund(tbrsh_sps)
+```
 
 ### Haida Gwaii
 
@@ -778,7 +847,8 @@ plot_expansions(speciesname = "Sockeye",
 
 #### Chinook {.unnumbered}
 
-Chinook spawners and total return were taken from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @ChinookTechnicalCommittee2025AnnualReportCatch. Specifically, Nass River (Area 3) escapement and terminal run are provided in Table B3 (fields `Esc` and `t.run` respectively). In the figure below, these CTC estimates correspond closely to estimates of Nass Chinook available from the [Nisga'a Fisheries Nass Stock Assessment Updates](https://www.dropbox.com/scl/fo/ahrrza0aplzcnamatapar/h?rlkey=n51s6qgu0yze0vrphue8dk4ap&e=2&st=n0g2ox45&dl=0), especially in recent years. Historically, the Nisga'a estimates of total abundance tended to be higher than the CTC estimates. 
+**updated 2026**
+We have estimates of escapement (spawners) and total run to 2025 from the [2025 Nass River Salmon Stock Assessment Post-Season Summary](https://www.dropbox.com/scl/fi/ogfqvqj7u6uc95j17x4aw/2025-NFWD-Nass-Stock-Assessment-Update_Post-Season-v1-_2Dec25.pdf?rlkey=nwmx4hw42ts1tvxdi2prowm3m&dl=0), Tables 20 and 22. The escapement estimates correspond closely to those from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/), though less so in 2018 and 2022 (purple open circles). The 'Total run' from the Nisgaa dataset is consistently higher than 't.run' from the CTC dataset (blue open circles), except in 2021 and 2022. **It is unclear whether one or both include marine fisheries?** Specifically, we use Nass River (Area 3) escapement and terminal run provided in Table B3 of the CTC report (fields `Esc` and `t.run` respectively).
 
 ```{r nass chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Nass chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 # Load data ---
@@ -819,6 +889,9 @@ sps_data <- rbind(sps_data, nassck_sps)
 
 # Generate standard plot
 plot_abund(nassck_sps)
+points(x=nass_ctc$Year, y=nass_ctc$Esc/1000, col="purple")
+points(x=nass_ctc$Year, y=nass_ctc$t.run/1000, col="blue") # See how t.run from ctc (blue) compares to total run from Nisgaa
+
 ```
 
 
@@ -2495,56 +2568,29 @@ cowplot::plot_grid(esc.stacked, esc.sum, labels="auto", rel_widths=c(0.75, 1))
 ```
 
 #### Chum {.unnumbered}
-Fraser chum catch and escapement are reported by PSC's Chum Technical Committee [@20232019PostSeasonSummary], and were provided to us on request to Brittany Jenewin (DFO, pers. comm.). For 2023 and 2024, estimates were extracted from the [Fraser Management Council post-season review](https://frasersalmon.ca/wp-content/uploads/2025/01/2024-Fraser-Coho-and-Chum-Post-season-Review-2025-01-28-FINAL-1.pdf).
+**Updated 2026**
+Fraser chum escapement and total run estimates were provided to us upon request by Brittany Jenewin (DFO, pers. comm.). Escapement includes hatchery + ESSR fish. For comparison, PSC Chum Technical Committee data from the 2023 report [@20232019PostSeasonSummary] plus additional years of PSC data provided by Brittany Jenewein in previous years are shown in purple and blue open circles (escapement and run size, respectively.)
+
 
 ```{r fraser chum, echo=FALSE, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Fraser Chum salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
-# (2) Use TCCHUM Fraser data
-suppressMessages(
-frcm_esc <- readxl::read_xlsx(here("data/ChumTC Report Tables - full time series up to 2022.xlsx"), sheet = "3-11", range = "A4:B29") %>%
-	rename(year = "...1", esc = "Fraser River") )
 
-suppressMessages(
-frcm_catch1 <- readxl::read_xlsx(here("data/ChumTC Report Tables - full time series up to 2022.xlsx"), sheet = "3-8", range = "A3:G30") %>%
-	rename(year = "Year", catch = "Total") %>%
-	dplyr::select(year, catch) )
+# Use data provided by Brittany Jenewein (2026-07-09)
+frcm <- readxl::read_xlsx(here("data/Fraser_Chum_Run_Reconstruction_2026-07-09.xlsx"), n_max=length(1996:2025))
 
-suppressMessages(
-frcm_catch2 <- readxl::read_xlsx(here("data/ChumTC Report Tables - full time series up to 2022.xlsx"), sheet = "3-9", range = "A4:G31") %>%
-	rename(year = "...1", catch = "Total") %>%
-	dplyr::select(year, catch) )
-
-
-# Find years when catch and escapement are reported
-yrs_tcchum <- c(max(c(min(frcm_esc$year), min(frcm_catch1$year), min(frcm_catch2$year))):min(c(max(frcm_esc$year), max(frcm_catch1$year), max(frcm_catch2$year)))) #1998:2022
-
-frcm_run <- frcm_esc$esc[match(yrs_tcchum, frcm_esc$year)] + frcm_catch1$catch[match(yrs_tcchum, frcm_catch1$year)] + frcm_catch2$catch[match(yrs_tcchum, frcm_catch2$year)] 
-	
-# Data extracted from Fraser Management council post-season review presentation
-# https://frasersalmon.ca/wp-content/uploads/2025/01/2024-Fraser-Coho-and-Chum-Post-season-Review-2025-01-28-FINAL-1.pdf
-frcm_FMC <- read.csv(here("data/FraserChum_FMC.csv"))
-
-# Data from PSC post-season (Brittany Jenewin)
+# For comparison: PSC post-season data (provided by Brittany Jenewein in past years) - This is the SAME data that's in the TCCHUM report from 2023 [@20232019PostSeasonSummary]
 frcm_PSC <- read.csv(here("data/FraserChum_PSC.csv"))
-
-frcm <- frcm_esc %>%
-	mutate(runsize = frcm_run) %>%
-	bind_rows(data.frame(
-		year = c(2023, 2024),
-		esc = frcm_PSC$escapement[match(c(2023, 2024), frcm_PSC$year)],
-		runsize = frcm_PSC$total_run[match(c(2023, 2024), frcm_PSC$year)]
-	))
 
 
 # Put in SPS format
 frcm_sps <- data.frame(
-	region = rep("Fraser", length(frcm$year)), 
-	species = rep("Chum", length(frcm$year)), 
-	year = frcm$year, 
-	spawners = frcm$esc,  
+	region = rep("Fraser", length(frcm$Year)), 
+	species = rep("Chum", length(frcm$Year)), 
+	year = frcm$Year, 
+	spawners = frcm$Escapement1,  
 	smoothedSpawners = NA,
-	runsize = frcm$runsize,
+	runsize = frcm$'Pre-terminal Run Size',
 	smoothedRunsize = NA,
-	source_id = c(rep("Jenewin_20240416", nrow(frcm_esc)), rep("DFO_20250128", 2))
+	source_id = 'Jenewin_20260709'
 ) 
 
 # Smoothing
@@ -2565,25 +2611,39 @@ sps_data <- rbind(sps_data, frcm_sps)
 
 # Generate standard plot
 plot_abund(frcm_sps)
+points(x=frcm_PSC$year, y=frcm_PSC$total_run/1000, col="blue")
+points(x=frcm_PSC$year, y=frcm_PSC$escapement/1000, col="purple")
+
 ```
 
 
 #### Coho {.unnumbered}
-For interior Fraser coho CUs, spawner abundance and total return to 2022 were provided by DFO on data request (pers. comm. Marissa Glavas, Data Manager, Fraser River Stock Assessment). We report total return as the sum of "Total Pre-Fishery Abundance" to all CUs and spawner abundance as the sum of "Total Return" (i.e., final spawner estimate plus fish removed from the system by DFO Salmon Enhancement Program or First Nations) to all CUs (we note the term "total return" is used differently in this data set to represent spawners!). We recognize that using these estimates ignores coastal coho populations, for which monitoring has been patchy through time. Spawner and run size for 2023 and preliminary spawner abundance for 2024 were taken from the presentation of [2025/26 Southern B.C. Salmon: Chum and Coho](https://frasersalmon.ca/wp-content/uploads/2025/02/2025-Forum-2_Richmond_Chum-and-Coho.pdf) dated February 2025. Preliminary 2024 spawner abundance is for natural-origin spawners only, and is a lower estimate of the total 2024 spawner abundance. However, the numbers of hatchery-origin spawners have been low (< 10\%) over the past two decades.
+**Updated 2026**
+In 2026, Tanya Vivian (DFO) provided new IFC estimates dating back to 1984 (purple and blue circles). "Total Prefishery Abundance" is total return plus harvest, and can be considered equivalent to run size, while "Total Return" is spawners plus fish removed later for brood collection or AFC sacrifices (applicable only to the three indicator stocks). These respectively align exactly with our past data series until the 2010s when some small differences are introduced. For comparison, the old dataset is shown by purple and blue open circles for spawners and total abundance, respectively.
+
+**Previous description**:
+In past years, spawner abundance and total return to 2022 were provided by DFO on data request (pers. comm. Marissa Glavas, Data Manager, Fraser River Stock Assessment). We report total return as the sum of "Total Pre-Fishery Abundance" to all CUs and spawner abundance as the sum of "Total Return" (i.e., final spawner estimate plus fish removed from the system by DFO Salmon Enhancement Program or First Nations) to all CUs (we note the term "total return" is used differently in this data set to represent spawners!). We recognize that using these estimates ignores coastal coho populations, for which monitoring has been patchy through time. Spawner and run size for 2023 and preliminary spawner abundance for 2024 were taken from the presentation of [2025/26 Southern B.C. Salmon: Chum and Coho](https://frasersalmon.ca/wp-content/uploads/2025/02/2025-Forum-2_Richmond_Chum-and-Coho.pdf) dated February 2025. Preliminary 2024 spawner abundance is for natural-origin spawners only, and is a lower estimate of the total 2024 spawner abundance. However, the numbers of hatchery-origin spawners have been low (< 10\%) over the past two decades.
 
 ```{r fraser coho, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Fraser coho salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 ## Load data ---
-frco <- read.csv(here("data/IFC_data_compiled.csv"))
+frco <- readxl::read_excel(here("data/IFC-Data-TanyaVivian-2026.xlsx"), sheet=2) %>%
+	summarize(Run.size = sum(Total.Prefishery.Abundance),
+						Spawners = sum(Total.Return),
+						Natural.Spawners = sum(Natural.Returns),
+						Hatchery.Spawners = sum(`Hatchery Returns`), .by=ReturnYear)
+frco_old <- read.csv(here("data/IFC_data_compiled.csv"))
+
+
 # Put in SPS format
 frco_sps <- data.frame(
-	region = rep("Fraser", length(frco$year)),
-	species = rep("Coho", length(frco$year)),
-	year = frco$year,
-	spawners = frco$spawners, # Note this is the fish that returned to spawn, NOT a mistake!
+	region = rep("Fraser", length(frco$ReturnYear)),
+	species = rep("Coho", length(frco$ReturnYear)),
+	year = frco$ReturnYear,
+	spawners = frco$Spawners, # Note this is the fish that returned to spawn, NOT a mistake!
 	smoothedSpawners = NA,
-	runsize = frco$runsize,
+	runsize = frco$Run.size,
 	smoothedRunsize = NA,
-	source_id = c(rep("Glavas_20231006", length(frco$year) - 2), rep("DFO_20250225", 2))
+	source_id = "Vivian_20260527" # c(rep("Glavas_20231006", length(frco$year) - 2), rep("DFO_20250225", 2))
 ) 
 
 # Smoothing
@@ -2604,11 +2664,13 @@ sps_data <- rbind(sps_data, frco_sps)
 
 # Generate standard figure
 plot_abund(frco_sps)
+points(frco_old$year, frco_old$spawners/1000, col="purple")
+points(frco_old$year, frco_old$runsize/1000, col="blue")
 
 ```
 
 
-#### Pink and Sockeye {.unnumbered}
+#### Pink {.unnumbered}
 Data on total return and spawner abundance of pink salmon and sockeye salmon in the Fraser region are provided by the PSC and accessed through the Fraser Panel Annual Report: Data Application [@PacificSalmonCommission2024PSCAnnualReport]. Total escapement for Fraser sockeye was not yet available for 2025, and 2025 total return is considered preliminary. We note that Fraser River pink salmon are only counted in the dominant, odd-year run. 
 
 ```{r fraser pink, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Fraser pink salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
@@ -2641,18 +2703,27 @@ plot_abund(frpk_sps)
 
 ```
 
+#### Sockeye {.unnumbered}
+
+**Updated 2026**
+Data on total return and spawner abundance of sockeye salmon in the Fraser region are provided by the PSC and accessed through the Fraser Panel Annual Report: Data Application [@PacificSalmonCommission2024PSCAnnualReport]. The 2025 total return is considered preliminary (in-season estimate) and the 2025 escapement is considered "near-final" (Provided by email by Sean Everitt). 
+
 ```{r fraser sockeye, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Fraser sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 ## Load data ---
 # From PSC
 frse <- read.csv(here("data/Fraser Sockeye Run Size_2026-04-20.csv")) %>%
 	filter(Management.Group == "Total Fraser")
 
+# Load 2025 Near-final escapement estimates
+frse_esc_2025 <- readxl::read_xlsx(here("data/2025 Fraser Sockeye Escapement Summary.xlsx"), sheet=2)
+
 # Put in SPS format
 frse_sps <- data.frame(
 	region = rep("Fraser", length(frse$Year)),
 	species = rep("Sockeye", length(frse$Year)),
 	year = frse$Year,
-	spawners = frse$Spawning.Escapement, # Note this is the fish that returned to spawn, NOT a mistake!
+	spawners = c(frse$Spawning.Escapement[which(frse$Year<2025)], 
+							 frse_esc_2025$escapement[frse_esc_2025$area_cu=="Total"]), # Add 2025 near-final estimate # Note this is the fish that returned to spawn, NOT a mistake!
 	smoothedSpawners = NA,
 	runsize = frse$Run.Size,
 	smoothedRunsize = NA,
@@ -2852,7 +2923,7 @@ plot_abund(colsh_sps)
 
 <!--- This code chunk must go after the last data processing step --->
 ```{r save processed data}
-write.csv(sps_data, here("output/sps-data.csv"), row.names = FALSE) # Always have most recent # Not until this script is confirmed to be working 
+write.csv(sps_data, here("output/sps-data.csv"), row.names = FALSE) # Always have most recent 
 write.csv(sps_data, paste0(Dropbox_dir, "/output/archive/", "sps-data", Sys.Date(), ".csv"), row.names = FALSE) # Archive with date
 
 ```
@@ -2987,29 +3058,25 @@ The standardized approach to quantifying change described above was applied acro
 
 # Results 
 
-:::: {.blackbox data-latex=""}
-::: {.center data-latex=""}
-**NOTICE!**
-:::
 
 **These are PRELIMINARY results and the following figures should not be taken as a statement on the status of salmon in these regions. Text "Highlights are LAST YEAR'S text.** At this time, we are working to verify datasets and refine our methods.
-::::
+
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
-# library(viridis)
 library(reactable)
 library(reactablefmtr)
-library(dplyr)
-library(abind)
 library(tools)
 
 # Run 3_calc-metrics to get updated sps-metrics
-source(here("code/3_calc-metrics.R"))
+source(here("code/3_calc-metrics.R"), local = knitr::knit_global())
+```
 
 
+```{r read results data, echo = FALSE}
 # Read in data for plots
-sps_dat <- read.csv("output/sps-data.csv")
-sps_metrics <- read.csv("output/sps-metrics.csv")
+#sps_dat <- read.csv(here("output/sps-data.csv"))
+sps_dat <- sps_data
+sps_metrics <- read.csv(here("output/sps-metrics.csv"))
 sps_metrics <- sps_metrics %>% select(!regionspecies)
 
 	
@@ -3017,7 +3084,6 @@ sps_metrics <- sps_metrics %>% select(!regionspecies)
 sps_metrics_2025 <- read.csv(here(Dropbox_dir, "output/archive/sps-metrics_2025-11-05.csv"))
 
 regions <- unique(sps_metrics$region)
-
 
 ```
 
@@ -3034,12 +3100,12 @@ regions <- unique(sps_metrics$region)
 
 ## All regions
 
-### 2024 compared to 2023 {.unnumbered}
+### 2025 compared to 2024 {.unnumbered}
 
-Most of our results are based on **generational averages** (i.e., "smoothed" abundance), but in some places it's worth highlighting what happened in 2024. In particular, several regions/species seemed to have big returns in 2024 that are not reflected in the "current abundance" but we may want to highlight in the narrative. 
+Most of our results are based on **generational averages** (i.e., "smoothed" abundance), but in some places it's worth highlighting what happened in 2025. In particular, several regions/species seemed to have big returns in 2024 that are not reflected in the "current abundance" but we may want to highlight in the narrative. 
 
 ### Overview results table {.tabset .unnumbered}
-**Below**: Summary of current status for **spawner or total abundance** (tabs) across regions and species, comparing between previous years' outcomes and revised outcomes. Regions and species below historical average are in red and above historical average are in green. Black cells indicate species that are not thought to be present in the given region, and grey cells indicate status was Unknown. For some regions and species, numbers have changed even though the year is the same because (1) the long-term average is calculated from raw instead of smoothed abundances or (2) an updated or different data source was used (e.g., final "synoptic evaluations" have been published for Transboundary Chinook post-release of the 2024 State of Salmon report, and final numbers changed slightly; see [Region-specific Data Sources](#data-sources)).
+**Below**: Summary of current status for **spawner or total abundance** (tabs) across regions and species, comparing between previous years' outcomes and revised outcomes. Regions and species below historical average are in red and above historical average are in green. Black cells indicate species that are not thought to be present in the given region, and grey cells indicate status was Unknown. For some regions and species, numbers have changed even though the year is the same because (1) the long-term average is calculated from raw instead of smoothed abundances or (2) an updated or different data source was used.
 
 #### Spawners {.unnumbered}
 
@@ -3058,6 +3124,7 @@ btn_table.all(
 	old_metrics = sps_metrics_2025[which(sps_metrics_2025$type == "Run Size"), ]
 )
 ```
+
 
 
 ## Yukon
@@ -3424,3 +3491,8 @@ btn_table(
   sps_metrics = sps_metrics
 )
 ```
+ 
+# References
+
+
+ 
