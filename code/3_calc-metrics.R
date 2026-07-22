@@ -20,10 +20,10 @@ write.output <- TRUE
 # Read in data 
 
 # Compiled spawner and run size
-sps_dat <- read.csv("output/sps-data.csv")
+sps_dat <- read.csv(here("output/sps-data.csv"))
 
 # Generation length
-genLength <-read.csv("data/gen_length_regions.csv")
+genLength <-read.csv(here("data/gen_length_regions.csv"))
 
 # # Number of streams
 # numStreams <- read.csv("output/num-surveys/numStreams_all-regions.csv")
@@ -33,8 +33,8 @@ regions <- unique(unique(sps_dat$region))
 species_vec <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead")
 
 # Source script with code for plotting functions
-source("code/functions.R")
-source("code/colours.R")
+source(here("code/functions.R"))
+source(here("code/colours.R"))
 
 ###############################################################################
 # Create metrics for each region and species
@@ -318,8 +318,8 @@ sps_metrics <- sps_metrics[- which(paste(sps_metrics$region, sps_metrics$species
 
 if(write.output){
 	# Write output to base folder
-	write.csv(sps_metrics, file = "output/sps-metrics.csv", row.names = FALSE)
-	write.csv(sps_dat, "output/sps-data.csv", row.names = FALSE)
+	write.csv(sps_metrics, file = here("output/sps-metrics.csv"), row.names = FALSE)
+	write.csv(sps_dat, here("output/sps-data.csv"), row.names = FALSE)
 	
 	# Write dated archive copy
 	write.csv(sps_metrics, file = paste0(Dropbox_dir, "/output/archive/sps-metrics_", Sys.Date(), ".csv"), row.names = FALSE)
@@ -369,7 +369,7 @@ sps_summary_internal <- sps_metrics_temp %>%
 
 if(write.output){
 	write.csv(sps_summary_internal, file = paste0(Dropbox_dir, "/output/ignore/sps-summary-internal_", Sys.Date(), ".csv"), row.names = FALSE)
-	write.csv(sps_summary_internal, file = "output/sps-summary-internal.csv", row.names = FALSE)
+	write.csv(sps_summary_internal, file = here("output/sps-summary-internal.csv"), row.names = FALSE)
 }
 
 ###############################################################################
@@ -469,7 +469,7 @@ for(i in 1:2){ # for spawners and run type
 
 if(write.output){
 	write.csv(sps_summary, file = paste0(Dropbox_dir, "/output/archive/sps-summary_", Sys.Date(), ".csv"), row.names = FALSE)
-	write.csv(sps_summary, file = "output/sps-summary.csv", row.names = FALSE)
+	write.csv(sps_summary, file = here("output/sps-summary.csv"), row.names = FALSE)
 }
 
 #------------------------------------------------------------------------------
@@ -515,7 +515,7 @@ makePrettyNums <- function(x){
 }
 
 # Read in CU list to calculate number of CUs
-cu_list <- read.csv("data/conservationunits_decoder.csv") %>%
+cu_list <- read.csv(here("data/conservationunits_decoder.csv")) %>%
 	distinct(pooledcuid, .keep_all = TRUE) %>% # there are duplicates for pooledcuid
 	mutate(species = case_when(
 		species_name %in% c("Lake sockeye", "River sockeye") ~ "Sockeye",
@@ -559,7 +559,7 @@ sps_profile[is.na(sps_profile$spawner_average_years), c("spawner_current_years",
 sps_profile[is.na(sps_profile$total_average_years), c("total_current_years", "total_average_years")] <- ""
 
 # Merge in text part
-sps_text <- read.csv("output/sps-profile-text.csv")
+sps_text <- read.csv(here("output/sps-profile-text.csv"))
 sps_profile <- sps_profile %>% left_join(sps_text)
 
 # Include "unknown" text for regions/species with any data gaps
@@ -573,7 +573,7 @@ sps_profile$spawner_current_years[which(sps_profile$spawner_current_abundance ==
 
 if(write.output){
 	write.csv(sps_profile, file = paste0(Dropbox_dir, "/output/archive/sps-profile_", Sys.Date(), ".csv"), row.names = FALSE)
-	write.csv(sps_profile, file = "output/sps-profile.csv", row.names = FALSE)
+	write.csv(sps_profile, file = here("output/sps-profile.csv"), row.names = FALSE)
 }
 
 #------------------------------------------------------------------------------
@@ -618,6 +618,6 @@ for(r in 1:length(regions)){ # for each region
 
 if(write.output){
 	write.csv(trends_plotting, file = paste0(Dropbox_dir, "/output/archive/sps-trends_plotting_", Sys.Date(), ".csv"), row.names = FALSE)
-	write.csv(trends_plotting, file = "output/sps-trends_plotting.csv", row.names = FALSE)
+	write.csv(trends_plotting, file = here("output/sps-trends_plotting.csv"), row.names = FALSE)
 }
 
