@@ -1130,10 +1130,15 @@ plot_abund(nasssh_sps)
 #### Chinook {.unnumbered}
 Chinook spawners were taken from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @ChinookTechnicalCommittee2025AnnualReportCatch. Specifically, Skeena River (Area 4) escapement is provided in Table B3 (field `GSI esc`). There is no total return for the Skeena River provided in the CTC data sets.
 
+**Purple open circles are escapement data from Table 32 of Joint Northern Boundary Technical Report [@JointNorthernBoundaryTechnicalCommittee2026USCanadaNorthern] for comparison.**
+
 ```{r skeena chinook, fig.cap="**Above:**Spawner abundance of Skeena chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 # Load data ---
 # TCCHINOOK Table B3
 sk_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B3", range = "A5:G54", col_types = "numeric", col_names = c("Year", "Nass_Above_Gitwinksihlkw2", "Nass_Esc", "Nass_t.run", "Skeena_Total esc.", "Skeena_GSI esc", "Skeena_GSI SD"))
+
+# Alternative source: NBTC report (all years included) for escapement - Table 32
+skck_nbtc <- read.csv(file=here("data/2026_Skeena_escapement_NBTC_Table32.csv"), na.strings = c("UNK", "UKN")) %>% select(YEAR, CHINOOK)
 
 # Reformat data for SPS
 skck_sps <- data.frame(
@@ -1159,13 +1164,14 @@ sps_data <- rbind(sps_data, skck_sps)
 
 #Generate standard figure
 plot_abund(skck_sps)
+points(x=skck_nbtc$YEAR, y=skck_nbtc$CHINOOK/1000, col="purple")
 
 ```
 
 
 
 #### Sockeye {.unnumbered}
-Skeena sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 4 sockeye from the 2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast]. Data for 2023 were provided by Charmaine Carr-Harris (DFO) on request. **Data for 2024 are preliminary numbers from Joint Northern Boundary Technical Report [@JointNorthernBoundaryTechnicalCommittee2026USCanadaNorthern]**
+Skeena sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 4 sockeye from the 2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast]. Data for 2023 were provided by Charmaine Carr-Harris (DFO) on request. **Data for 2024 are preliminary numbers from Joint Northern Boundary Technical Report [@JointNorthernBoundaryTechnicalCommittee2026USCanadaNorthern], but ideally we will receive data from Charmaine again. Purple open circles show Escapement estimates for 1970-2024 from Table 32 of the Joint Northern Boundary Technical Report.**
 
 ```{r skeena sockeye, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Skeena sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
@@ -1198,14 +1204,17 @@ skse_2024 <- data.frame(
 	source_id = NA)
 
 # combine sources
-skse <- skse_ch2[ , c("Year", "Spawners", "Returns", "source_id")] %>%
+skse <- skse_ch2[ , c("Year", "Spawners", "Returns", "source_id")] %>% # Use PSC data
 	rename(TE = Spawners,
 				 Total.Run  = Returns) %>%
-	bind_rows(skse_LGL[which(skse_LGL$Year < 1982), c("Year", "TE", "Total.Run", "source_id")]) %>%
-	bind_rows(skse_2023[ c("Year", "TE", "Total.Run", "source_id")]) %>%
-	bind_rows(skse_2024[ c("Year", "TE", "Total.Run", "source_id")]) %>%
+	bind_rows(skse_LGL[which(skse_LGL$Year < 1982), c("Year", "TE", "Total.Run", "source_id")]) %>% # Use LGL data for pre-1982
+	bind_rows(skse_2023[ c("Year", "TE", "Total.Run", "source_id")]) %>% # Add 2023 data from Charmaine
+	bind_rows(skse_2024[ c("Year", "TE", "Total.Run", "source_id")]) %>% # Add 2024 data from NBTC report
 	arrange(Year)
 
+
+# Alternative source: NBTC report (all years included) for escapement
+skse_nbtc <- read.csv(file=here("data/2026_Skeena_escapement_NBTC_Table32.csv"), na.strings = c("UNK", "UKN")) %>% select(YEAR, SOCKEYE)
 	
 #unique(diff(skse$Year)) # Yes, all one year apart
 
@@ -1239,6 +1248,7 @@ sps_data <- rbind(sps_data, skse_sps)
 
 # Generate standard figure 
 plot_abund(skse_sps)
+points(x=skse_nbtc$YEAR, y=skse_nbtc$SOCKEYE/1000, col="purple")
 ```
 
 
@@ -1280,7 +1290,7 @@ plot_abund(sksh_sps)
 
 
 #### Chum {.unnumbered}
-Chum salmon spawner abundances in the Skeena were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS.
+Chum salmon spawner abundances in the Skeena were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS. **Purple open circles are escapement data from Table 32 of Joint Northern Boundary Technical Report [@JointNorthernBoundaryTechnicalCommittee2026USCanadaNorthern] for comparison.**
 
 ```{r skeena expansion data}
 region_spawners <- sp <- readRDS(here("output/expanded-spawners/Skeena-spawners.rds"))
@@ -1290,6 +1300,9 @@ expansion_factors <- readRDS(here("output/expanded-spawners/Skeena-expansion-fac
 sk_table32 <- read.csv(here("data/TCNB-23-01_Table32_Area4escapement.csv"))
 names(sk_table32) <- c("year", "Sockeye", "Coho", "Pink", "Chum", "Chinook") # Change names to be consistent with species
 
+
+# Load Joint N. Boundary Tech Committee data (Table 32) for comparison to spawner expansions
+nbtc_tbl32 <- read.csv(file=here("data/2026_Skeena_escapement_NBTC_Table32.csv"), na.strings = c("UNK", "UKN"))
 ```
 
 
@@ -1323,6 +1336,8 @@ sps_data <- rbind(sps_data, skeena.s_sps)
 
 # Generate standard figure
 plot_abund(skeena.s_sps)
+points(x=nbtc_tbl32$YEAR, y=skse_nbtc$CHUM/1000, col="purple")
+
 ```
 
 
@@ -1343,7 +1358,7 @@ plot_expansions(speciesname = "Chum",
 
 
 #### Coho {.unnumbered}
-Coho salmon spawner abundances in the Skeena were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS.
+Coho salmon spawner abundances in the Skeena were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS. **Purple open circles are escapement data from Table 32 of Joint Northern Boundary Technical Report [@JointNorthernBoundaryTechnicalCommittee2026USCanadaNorthern] for comparison.**
 ```{r skeena coho, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**Spawner abundance of Skeena coho salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 ## Process data 
@@ -1374,6 +1389,8 @@ sps_data <- rbind(sps_data, skeena.s_sps)
 
 # Generate standard figure
 plot_abund(skeena.s_sps)
+points(x=nbtc_tbl32$YEAR, y=skse_nbtc$COHO/1000, col="purple")
+
 ```
 
 
@@ -1394,7 +1411,7 @@ plot_expansions(speciesname = "Coho",
 
 
 #### Pink {.unnumbered}
-Skeena pink salmon spawner abundances were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS.
+Skeena pink salmon spawner abundances were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS. **Purple open circles are escapement data from Table 32 of Joint Northern Boundary Technical Report [@JointNorthernBoundaryTechnicalCommittee2026USCanadaNorthern] for comparison.**
 ```{r skeena pink, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**Spawner abundance of Haida Gwaii chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 ## Process data 
@@ -1425,6 +1442,8 @@ sps_data <- rbind(sps_data, skeena.s_sps)
 
 # Generate standard figure
 plot_abund(skeena.s_sps)
+points(x=nbtc_tbl32$YEAR, y=skse_nbtc$PINK/1000, col="purple")
+
 ```
 
 
