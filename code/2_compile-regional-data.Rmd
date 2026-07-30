@@ -1336,7 +1336,7 @@ sps_data <- rbind(sps_data, skeena.s_sps)
 
 # Generate standard figure
 plot_abund(skeena.s_sps)
-points(x=nbtc_tbl32$YEAR, y=skse_nbtc$CHUM/1000, col="purple")
+points(x=nbtc_tbl32$YEAR, y=nbtc_tbl32$CHUM/1000, col="purple")
 
 ```
 
@@ -1389,7 +1389,7 @@ sps_data <- rbind(sps_data, skeena.s_sps)
 
 # Generate standard figure
 plot_abund(skeena.s_sps)
-points(x=nbtc_tbl32$YEAR, y=skse_nbtc$COHO/1000, col="purple")
+points(x=nbtc_tbl32$YEAR, y=nbtc_tbl32$COHO/1000, col="purple")
 
 ```
 
@@ -1442,7 +1442,7 @@ sps_data <- rbind(sps_data, skeena.s_sps)
 
 # Generate standard figure
 plot_abund(skeena.s_sps)
-points(x=nbtc_tbl32$YEAR, y=skse_nbtc$PINK/1000, col="purple")
+points(x=nbtc_tbl32$YEAR, y=nbtc_tbl32$PINK/1000, col="purple")
 
 ```
 
