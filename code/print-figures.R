@@ -1,5 +1,5 @@
 ###############################################################################
-# Code to produce figures for print report drawing on output daat
+# Code to produce figures for print report drawing on output data
 # Figures are output to output/print-figures
 #
 # Steph Peacock, June 13, 2025
@@ -15,12 +15,19 @@ library(extrafont)
 file_type <- "pdf" # Choose one of "pdf" or "png"
 
 # Import fonts
-# font_import(paths = "data/print-report/fonts")
-loadfonts()
+#font_import(paths = "data/print-report/fonts")
+#loadfonts(device = "pdf")
+#names(pdfFonts())[grepl("Sofia", names(pdfFonts()), ignore.case = TRUE)]
 
 # # Trying to add .otf (Sofia Pro Condensed)
-# library(showtext)
-# font_add("Sofia Pro Condensed", regular = "data/print-report/fonts/SofiaProRegCond.otf")
+#library(showtext)
+#font_add("Sofia Pro Condensed", regular = "data/print-report/fonts/SofiaProRegCond.otf")
+
+#fonttable() %>% dplyr::filter(grepl("Sofia", FamilyName, ignore.case = TRUE)) %>% distinct(FamilyName)
+
+# Help R system find ghostscript (needs to be installed if not done previously)
+Sys.setenv(R_GSCMD = "C:/Program Files/gs/gs10.07.1/bin/gswin64c.exe")
+
 
 # From James: Green: 96b584, Red: ad605f
 fishy_cols <- c("#9c2323", "#b85657", "#ffcaca", "#98df8a", "#54a35c", "#299330")
