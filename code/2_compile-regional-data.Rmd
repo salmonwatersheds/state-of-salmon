@@ -414,6 +414,7 @@ plot_abund(tbrse_sps)
 
 #### Coho {.unnumbered}
 
+
 ```{r transboundary coho, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Transboundary coho salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 # Load data ---
@@ -453,6 +454,7 @@ sps_data <- rbind(sps_data, tbrco_sps)
 
 # Generate standard plot
 plot_abund(tbrco_sps)
+points(x=tbrco$Year, y=tbrco$TotalRun/1000, col="blue")
 
 ```
 
@@ -2630,8 +2632,8 @@ sps_data <- rbind(sps_data, frcm_sps)
 
 # Generate standard plot
 plot_abund(frcm_sps)
-points(x=frcm_PSC$year, y=frcm_PSC$total_run/1000, col="blue")
-points(x=frcm_PSC$year, y=frcm_PSC$escapement/1000, col="purple")
+#points(x=frcm_PSC$year, y=frcm_PSC$total_run/1000, col="blue")
+#points(x=frcm_PSC$year, y=frcm_PSC$escapement/1000, col="purple")
 
 ```
 
@@ -2640,8 +2642,6 @@ points(x=frcm_PSC$year, y=frcm_PSC$escapement/1000, col="purple")
 **Updated 2026**
 In 2026, Tanya Vivian (DFO) provided new IFC estimates dating back to 1984 (purple and blue circles). "Total Prefishery Abundance" is total return plus harvest, and can be considered equivalent to run size, while "Total Return" is spawners plus fish removed later for brood collection or AFC sacrifices (applicable only to the three indicator stocks). These respectively align exactly with our past data series until the 2010s when some small differences are introduced. For comparison, the old dataset is shown by purple and blue open circles for spawners and total abundance, respectively.
 
-**Previous description**:
-In past years, spawner abundance and total return to 2022 were provided by DFO on data request (pers. comm. Marissa Glavas, Data Manager, Fraser River Stock Assessment). We report total return as the sum of "Total Pre-Fishery Abundance" to all CUs and spawner abundance as the sum of "Total Return" (i.e., final spawner estimate plus fish removed from the system by DFO Salmon Enhancement Program or First Nations) to all CUs (we note the term "total return" is used differently in this data set to represent spawners!). We recognize that using these estimates ignores coastal coho populations, for which monitoring has been patchy through time. Spawner and run size for 2023 and preliminary spawner abundance for 2024 were taken from the presentation of [2025/26 Southern B.C. Salmon: Chum and Coho](https://frasersalmon.ca/wp-content/uploads/2025/02/2025-Forum-2_Richmond_Chum-and-Coho.pdf) dated February 2025. Preliminary 2024 spawner abundance is for natural-origin spawners only, and is a lower estimate of the total 2024 spawner abundance. However, the numbers of hatchery-origin spawners have been low (< 10\%) over the past two decades.
 
 ```{r fraser coho, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Fraser coho salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 ## Load data ---
@@ -2683,8 +2683,8 @@ sps_data <- rbind(sps_data, frco_sps)
 
 # Generate standard figure
 plot_abund(frco_sps)
-points(frco_old$year, frco_old$spawners/1000, col="purple")
-points(frco_old$year, frco_old$runsize/1000, col="blue")
+#points(frco_old$year, frco_old$spawners/1000, col="purple")
+#points(frco_old$year, frco_old$runsize/1000, col="blue")
 
 ```
 
