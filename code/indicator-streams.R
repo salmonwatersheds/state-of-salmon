@@ -16,7 +16,7 @@ spawner_surveys.all <- read.csv("data/dataset2_spawner-surveys_2026-03-16.csv") 
 								latitude, longitude, year, stream_observed_count, source_id)
 
 # Read in LGL indicator streams list
-lgl <- read.csv("data/ignore/OUTPUT_NCCStreams_2017.csv") %>%
+lgl <- read.csv("data/ignore/OUTPUT_NCCStreams_2017.csv") %>% 
 	dplyr::select(POP_ID, Indicator, SPP, GFE_ID, SYS_NM)#, CU_findex, CU_name, CU_index)
 species_qualified <- sort(unique(lgl$SPP))
 
@@ -99,6 +99,7 @@ spwn %>% group_by(region, year, species_name, ind_nuseds) %>% summarize(n_stream
 	facet_grid(rows=vars(region), cols=vars(ind_nuseds))
 
 # Monitoring has gone down overall, but mainly for non-indicator streams.
+# Central coast, Nass, and SKeena have seen recent declines in monitoring of indicator streams.
 
 spwn %>% group_by(region, year, species_name, ind_nuseds) %>% summarize(n_streams = n_distinct(streamid)) %>%
 	ungroup() %>% mutate(pr_streams = n_streams/max(n_streams), .by=c(region, species_name, ind_nuseds)) %>%
@@ -117,6 +118,7 @@ spwn %>% group_by(region, year, species_name, ind_lgl) %>% summarize(n_streams =
 	facet_grid(rows=vars(region), cols=vars(ind_lgl))
 
 # Story roughly the same for LGL indicator streams
+# Central coast, Nass, and SKeena have seen recent declines in monitoring of indicator streams.
 
 spwn %>% group_by(region, year, species_name, ind_lgl) %>% summarize(n_streams = n_distinct(POP_ID)) %>%
 	ungroup() %>% mutate(pr_streams = n_streams/max(n_streams), .by=c(region, species_name, ind_lgl)) %>%
@@ -240,3 +242,40 @@ ind_compare_lgl_nuseds +
 # --> Does past monitoring historically predict 
 # future monitoring?
 #######################################################
+
+
+
+
+
+
+########################################################
+## Check out current expansion factors
+########################################################
+library(here)
+regions <- c("Yukon", "Transboundary", "Haida Gwaii", "Nass", "Skeena", "Central Coast", "West Vancouver Island", "East Vancouver Island & Mainland Inlets", "Fraser", "Columbia")
+species_vec <- c("Chinook", "Chum", "Coho", "Pink", "Sockeye", "Steelhead") 
+exp_lst <- vector("list", length(regions))
+names(exp_lst) <- regions
+
+for(r in 1:length(regions)){
+	if(any(grepl(regions[r], list.files(here("output/expanded-spawners"))))){
+		
+		regionname <- regions[r]
+		region_spawners <- readRDS(here("output/expanded-spawners", paste0(regions[r], "-spawners.rds")))
+		expansion_factors <- readRDS(file=here("output/expanded-spawners", paste0(regions[r], "-expansion-factors.rds")))
+		
+		# Get species from region_spawners
+		sp <- dimnames(region_spawners)[[2]]
+		names(expansion_factors) <- sp
+		
+	exp_summary <- lapply(expansion_factors, function(x){
+			x[["exp1"]] <- sort(x[["exp1"]], decreasing=T)[1:10]
+			x[["exp2"]] <- mean(x[["exp2"]], na.rm=T)
+			return(x)
+		})
+		 
+	exp_lst[[r]] <- exp_summary
+	}
+}
+
+
