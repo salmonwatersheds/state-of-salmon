@@ -25,3 +25,6 @@ output/print-figures
 data/sources
 data/ignore
 
+maps-figs/*.rds
+maps-figs/*.svg
+maps-figs/*.png

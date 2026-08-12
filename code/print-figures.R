@@ -26,7 +26,7 @@ file_type <- "pdf" # Choose one of "pdf" or "png"
 #fonttable() %>% dplyr::filter(grepl("Sofia", FamilyName, ignore.case = TRUE)) %>% distinct(FamilyName)
 
 # Help R system find ghostscript (needs to be installed if not done previously)
-Sys.setenv(R_GSCMD = "C:/Program Files/gs/gs10.07.1/bin/gswin64c.exe")
+(R_GSCMD = "C:/Program Files/gs/gs10.07.1/bin/gswin64c.exe")
 
 
 # From James: Green: 96b584, Red: ad605f

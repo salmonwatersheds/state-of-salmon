@@ -17,12 +17,8 @@ dat_root <- paste0(XDrive, "1_PROJECTS/1_Active/Climate Change/Data & Analysis/c
 # Lakes, rivers, and shorelines
 #------------------------------------------------------------------------------
 
-lakes <- readRDS(paste0(dat_root, "/layers/waterbodies_250.rds"))# %>% st_crop(bounds)
-rivers <- readRDS(paste0(dat_root, "layers/watercourse_250.rds")) #%>% st_crop(bounds)
-
-# bounds0 <- c(xmin = -127, ymin = 49, xmax = -116.5, ymax = 56)
-lakes0 <- readRDS(paste0(dat_root, "layers/waterbodies_lowRes.rds"))# %>% st_crop(bounds)
-rivers0 <- readRDS(paste0(dat_root, "layers/watercourse_lowRes.rds")) #%>% st_crop(bounds)
+lakes <- readRDS("maps-figs/waterbodies_lowRes_Can.rds")
+rivers <- readRDS("maps-figs/watercourse_lowRes_Can.rds")
 shoreline <- st_read(dsn = paste0(dat_root, "layers/GSHHS_i_L1.shp"))
 
 # BC Yuk border
@@ -51,13 +47,13 @@ fac <- readxl::read_xlsx(paste0(XDrive, "1_PROJECTS/1_Active/Population Methods 
 rel_dat <- readxl::read_xlsx(paste0(XDrive, "1_PROJECTS/1_Active/Population Methods and Analysis/population-indicators/hatchery-releases/output/archive/SWP_hatchery_data_2026-06-02.xlsx"), sheet = "DataEntry_releases") %>%
 	rename("year" = "release_date") %>%
 	mutate(unique_site = paste(release_site_latitude, release_site_longitude)) %>%
-	mutate(locationid = as.numeric(as.factor(rel_dat$unique_site))) %>%
+	mutate(locationid = as.numeric(as.factor(unique_site))) %>%
 	mutate(channel = grepl("Chan", release_stage))
 
 # Create spatial points for releases
 rel_pts <- rel_dat %>% 
 	mutate(recent_releases = max(year > 2015)) %>%
-	select(release_site_name, locationid, release_site_latitude, release_site_longitude, recent_releases) %>%
+	dplyr::select(release_site_name, locationid, release_site_latitude, release_site_longitude, recent_releases) %>%
 	distinct(locationid, .keep_all = TRUE) %>%
 	rename("latitude" = "release_site_latitude",
 				 "longitude" = "release_site_longitude"
@@ -121,13 +117,14 @@ rel_loc <- rel_summ$locationid[which(rel_summ$channel == FALSE & rel_summ$avg_re
 # Labels
 rel_coords <- st_coordinates(rel_pts[which(rel_pts$locationid %in% rel_loc), ])
 
-svg("hatchery_releases.svg", width = 8, height = 6)
+svg("hatchery_releases_wide.svg", width = 10, height = 6)
+png("maps-figs/hatchery_releases_wide.png", width = 10, height = 6, units = "in", res = 300)
 par(bg = "#EBF8F9")
-plot(st_geometry(rel_pts), pch = 1, col = NA, bg = "#EBF8F9", xlim = c(-132, -118), ylim = c(48, 59))
+plot(st_geometry(rel_pts), pch = 1, col = NA, bg = "#EBF8F9", xlim = c(-138, -110), ylim = c(45, 61))
 plot(st_geometry(shoreline), col = "#CED0CD", border = "#86888F", add = TRUE)
 plot(st_geometry(BCYuk), col = NA, border = "#86888F", add = TRUE)
-plot(st_geometry(lakes0), col = "#EBF8F9", border = "#86888F60", add =TRUE)
-plot(st_geometry(rivers0),  col = "#86888F60", add =TRUE)
+plot(st_geometry(lakes), col = "#EBF8F9", border = "#86888F60", add =TRUE)
+plot(st_geometry(rivers),  col = "#86888F60", add =TRUE)
 
 plot(st_geometry(rel_pts), pch = 21, bg = "#97c8c8", col = "#00000060", add = TRUE)
 plot(st_geometry(rel_pts %>% filter(locationid %in% chan_loc)), pch = 21, bg = "#9D9692", col = "#000000", add = TRUE)
@@ -143,6 +140,6 @@ plot(st_geometry(rel_pts %>% filter(locationid %in% rel_loc)), pch = 21, bg = "#
 # )
 
 
-legend("topright", pch = 21, pt.bg= c("#97c8c8", "#9D9692", "#0EA1A0"), col = c("#00000060", "#000000", "#000000"), pt.cex = c(1, 1, 1.2), legend = c("Release sites", "Spawning channels >1M", "Hatchery releases >1M"), bg = "white")
+# legend("topright", pch = 21, pt.bg= c("#97c8c8", "#9D9692", "#0EA1A0"), col = c("#00000060", "#000000", "#000000"), pt.cex = c(1, 1, 1.2), legend = c("Release sites", "Spawning channels >1M", "Hatchery releases >1M"), bg = "white")
 
 dev.off()
