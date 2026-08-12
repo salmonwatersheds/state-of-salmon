@@ -18,6 +18,7 @@ library(PNWColors)
 source("code/expansion-functions.R")
 
 source("https://raw.githubusercontent.com/salmonwatersheds/population-indicators/refs/heads/master/code/functions_general.R")
+X_Drive <- get_XDrive()
 
 ###############################################################################
 # Import spawner survey data
@@ -57,7 +58,7 @@ library(sf)
 library(PNWColors)
 
 # 2025 boundaries split EVIMI and WVI
-pse_regions <- readRDS("data/ignore/pse-regions-2025/pse-regions-2025.rds")
+pse_regions <- readRDS(paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/2_Data & Analysis/state-of-salmon/data/ignore/pse-regions-2025/pse-regions-2025.rds"))
 plot(st_geometry(pse_regions), col = pnw_palette("Sunset2", n = 10)[c(1,6,2,7,3,8,4,9,5,10)])
 
 # Make spatial object for streams
