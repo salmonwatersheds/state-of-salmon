@@ -10,7 +10,7 @@ library(dplyr)
 source("https://raw.githubusercontent.com/salmonwatersheds/population-indicators/refs/heads/master/code/functions_general.R")
 
 # Read in spawner survey data from PSE, *including POP_ID field* 
-spawner_surveys.all <- read.csv("data/3_nuseds_cuid_streamid_Reynolds_2026-03-16.csv") %>%
+spawner_surveys.all <- read.csv(paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/2_Data & Analysis/state-of-salmon/data/ignore/3_nuseds_cuid_streamid_Reynolds_2026-03-16.csv")) %>%
 	dplyr::filter(Year >= 1950, !is.na(MAX_ESTIMATE)) %>%
 	rename("year" = Year,
 				 "species_name" = SPECIES,
@@ -20,7 +20,7 @@ spawner_surveys.all <- read.csv("data/3_nuseds_cuid_streamid_Reynolds_2026-03-16
 				 ) %>%
 	dplyr::select(region, species_name, species_qualified, streamid, GFE_ID, POP_ID, indicator_nuseds, year, stream_observed_count, source_id) %>%
 	left_join(
-		read.csv("data/dataset2_spawner-surveys_2026-03-16.csv") %>%
+		read.csv(paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/2_Data & Analysis/state-of-salmon/data/ignore/dataset2_spawner-surveys_2026-03-16.csv")) %>%
 		select(streamid, stream_name_pse, latitude, longitude) %>%
 		dplyr::distinct(.keep_all = TRUE)) %>%
 	select(region, species_name, species_qualified, streamid, POP_ID, stream_name_pse, GFE_ID, indicator_nuseds, latitude, longitude, year, stream_observed_count, source_id)
