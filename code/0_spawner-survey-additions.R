@@ -10,25 +10,19 @@ library(dplyr)
 source("https://raw.githubusercontent.com/salmonwatersheds/population-indicators/refs/heads/master/code/functions_general.R")
 
 # Read in spawner survey data from PSE, *including POP_ID field* 
-spawner_surveys.all <- read.csv(paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/2_Data & Analysis/state-of-salmon/data/ignore/3_nuseds_cuid_streamid_Reynolds_2026-03-16.csv")) %>%
-	dplyr::filter(Year >= 1950, !is.na(MAX_ESTIMATE)) %>%
-	rename("year" = Year,
-				 "species_name" = SPECIES,
-				 "species_qualified" = SPECIES_QUALIFIED,
-				 "indicator_nuseds" = IS_INDICATOR,
-				 "stream_observed_count" = MAX_ESTIMATE
-				 ) %>%
-	dplyr::select(region, species_name, species_qualified, streamid, GFE_ID, POP_ID, indicator_nuseds, year, stream_observed_count, source_id) %>%
-	left_join(
-		read.csv(paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/2_Data & Analysis/state-of-salmon/data/ignore/dataset2_spawner-surveys_2026-03-16.csv")) %>%
-		select(streamid, stream_name_pse, latitude, longitude) %>%
-		dplyr::distinct(.keep_all = TRUE)) %>%
+# Note that TTC data and other data for Yukon aren't in NuSEDS. Best to start with PSF data and then add POPID
+spawner_surveys.all <- read.csv(paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/2_Data & Analysis/state-of-salmon/data/ignore/dataset2_spawner-surveys_2026-03-16.csv")) %>%
+	dplyr::filter(year >= 1950, !is.na(stream_observed_count)) %>% # Use only data from 1950 to present
+		dplyr::select(region, species_name, species_qualified, streamid, stream_name_pse, GFE_ID, indicator, latitude, longitude, year, stream_observed_count, source_id) %>%
+	left_join(read.csv(paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/2_Data & Analysis/state-of-salmon/data/ignore/3_nuseds_cuid_streamid_Reynolds_2026-03-16.csv")) %>%
+							rename("species_name" = SPECIES,
+										 "species_qualified" = SPECIES_QUALIFIED,
+										 "indicator_nuseds" = IS_INDICATOR) %>%
+							select(streamid, POP_ID, indicator_nuseds) %>%
+							distinct(.keep_all = TRUE)
+							) %>%
 	select(region, species_name, species_qualified, streamid, POP_ID, stream_name_pse, GFE_ID, indicator_nuseds, latitude, longitude, year, stream_observed_count, source_id)
 	
-# spawner_surveys.all <- read.csv("data/dataset2_spawner-surveys_2026-03-16.csv") %>%
-# 	dplyr::filter(year >= 1950, !is.na(stream_observed_count)) %>% # Use only data from 1950 to present
-# 	dplyr::select(region, species_name, species_qualified, streamid, stream_name_pse, GFE_ID, indicator, latitude, longitude, year, stream_observed_count, source_id)
-
 ###############################################################################
 # Change indicator/non-indicator designations from NuSEDS
 ###############################################################################
