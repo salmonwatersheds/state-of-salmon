@@ -250,32 +250,39 @@ We recognize that our approach in the Transboundary lacks information from many 
 #### Chinook {.unnumbered}
 The regional spawner abundance and total return of Chinook was calculated as the sum of escapement and total return, respectively, to the Stikine, Alsek, and Taku indicator stocks. For each of these stocks, we used escapement and exploitation rates provided by the [PSC's Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/) as part of their Synoptic Evaluations of Stock Status. These data were downloaded from their [Data Application](https://psc1.shinyapps.io/ctc-shiny-app/_w_efbbad27/). Total abundance was calculated from the escapement, $E$, and exploitation rate, $r$, as $E/(1-r)$. 
 
-**2024 updates:**
-The Synoptic Evaluations of Stock Status are not yet available for 2024 so we used the escapement estimates for Stikine, Alsek, and Taku Chinook from Table B2 of Appendix B - Detailed Escapement, available as a downloadable dataset from the [Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/). Canadian and US harvest of Chinook was provided by Aaron Foos (DFO) as updated tables from the Transboundary Technical Committee report. Specifically, harvest for Stikine Chinook from Table B12 and harvest of Taku Chinook from Table D8. Total harvest of Alsek Chinook was 235, provided by Teresa Wallace (DFO, pers. comm.): US Commercial: 187, US Subsistence: 8, CAN (Aboriginal): 40, CAN Recreational: 0 (No CAN recreational harvest permitted in 2024).
 
-**2025 updates:**
-2025 data are available for the Taku and Stikine systems (escapement and harvest) as provided as preliminary pre-publication data from Aaron Foos on July 8, 2026. Awaiting Updated CTC datasets coming in July 2026 for final escapement for all stocks, and Alsek harvest estimate (source TBD). (Use 'Escapement detailed' to 2025 + harvest from Aaron Foos email + get Alsek Chinook harvest) 
+For 2025, the Synoptic Evaluations of Stock Status are not yet available. We used the escapement estimates for Stikine, Alsek, and Taku Chinook from Table B2 of Appendix B - Detailed Escapement, available as a downloadable dataset from the [Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/). Canadian and US harvest of Chinook provided by Aaron Foos (DFO) as updated tables from the Transboundary Technical Committee report. Specifically, harvest for Stikine Chinook from Table B12 and harvest of Taku Chinook from Table D8. Total harvest of Alsek Chinook was provided by Teresa Wallace (DFO, pers. comm.): US Commercial: 194, US Subsistence: 8, CAN (Aboriginal): 94, CAN Recreational: 0 (No CAN recreational harvest permitted in 2025) (Total harvest = 296).
 
 ```{r transboundary chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Transboundary chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 # Load data ---
-tbrck_raw <- read.csv(here("data/CTC_Synoptic_evaluation_data_all_2025-04-16.csv")) %>%
+
+# Get Synoptic evaluation data (up to 2024)
+tbrck_raw <- read.csv(here("data/CTC_Synoptic_evaluation_data_all_2026-08-19.csv")) %>%
 	filter(Year > 1975) %>% # Remove 1975 -> missing Alsek data
 	filter(Stock %in% c("Alsek", "Taku", "Stikine")) %>%
 	dplyr::select(Stock, Year, Escapement, RateType, Rate) %>%
 	mutate(TotalRun = Escapement/(1 - Rate))
 
-tbrck_esc <- readxl::read_xlsx(here("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B2", range = "A5:G53", col_names = c("year", "Alsek_esc", "Alsek_cv", "Taku_esc", "Taku_cv", "Stikine_esc", "Stikine_cv"))
-# Ignore 1975 because not available for Alsek
+# Get CTC detailed escapement (Appendix B) data - for 2025
+tbrck_esc <- readxl::read_xlsx(here("data/TCCHINOOK-2026-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B2", range = "A5:G54", col_names = c("year", "Alsek_esc", "Alsek_cv", "Taku_esc", "Taku_cv", "Stikine_esc", "Stikine_cv")) %>%
+	mutate(Total_esc = Alsek_esc + Taku_esc + Stikine_esc)
 
-# For 2024, take harvest from TTC B12, D8, Alsek harvest provided by email (Teresa Wallace, DFO)
+# 2025 Harvest data - from data provided by Aaron Foos on 2026-07-08 and Teresa Wallace on 2026-08-21
+tbrck_harvest <- data.frame(Year = rep(c(2025), 3), 
+													 Stock = rep(c("Alsek", "Taku", "Stikine")),
+													 CAD_harv = c(94, 44, 263),
+													 USA_harv = c((194+8), 857, 12)) %>%
+								mutate(Total_harv = CAD_harv + USA_harv)
+
+# For 2025, take harvest from TTC B12, D8, Provided by Aaron Foos; Alsek harvest provided by email (Teresa Wallace, DFO)
 tbrck <- tbrck_raw %>%
 	group_by(Year) %>%
 	summarise(Escapement_all = sum(Escapement),
 						TotalRun_all = sum(TotalRun), 
-						source_id = "PSC_20250416") %>%
-	bind_rows(data.frame(Year = 2024,
-						Escapement_all = (tbrck_esc$Alsek_esc + tbrck_esc$Taku_esc + tbrck_esc$Stikine_esc)[tbrck_esc$year == 2024],
-						TotalRun_all = 717 + (tbrck_esc$Alsek_esc + tbrck_esc$Taku_esc + tbrck_esc$Stikine_esc)[tbrck_esc$year == 2024], source_id = "Foos_20250415")) 
+						source_id = "PSC_20260819") %>%
+	bind_rows(data.frame(Year = 2025,
+						Escapement_all = (tbrck_esc$Alsek_esc + tbrck_esc$Taku_esc + tbrck_esc$Stikine_esc)[tbrck_esc$year == 2025],
+						TotalRun_all = sum(tbrck_harvest$Total_harv) + tbrck_esc[tbrck_esc$year == 2025, "Total_esc"], source_id = "Foos_20260708")) # Total run = sum of escapements and harvests
 
 
 # Reformat data for SPS
@@ -312,37 +319,32 @@ sps_data <- rbind(sps_data, tbrck_sps)
 
 ```{r transboundary chinook figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 9, fig.height = 5, fig.cap = "**Above:** (a) Chinook salmon spawner abundance and (b) total abundance showing the contributions of the Alsek, Taku, and Stikine river basins."}
 
-# Update 2024 data for each system -- different than above, this method from previous Rmd, updates each system
-# Update 2025 data for systems available -- Taku + Stikine
+# Update 2025 data by system - from Appendix B detailed escapement data
 tbrck_raw_updated <- tbrck_raw %>%
-	rbind(data.frame( # 2024 data
-		Stock = c("Alsek", "Taku", "Stikine"),
-		Year = rep(2024, 3),
-		Escapement = as.numeric(tbrck_esc %>% filter(year == 2024) %>% dplyr::select("Alsek_esc", "Taku_esc", "Stikine_esc")),
+	rbind(data.frame( # 2025 data  (From data provided by Aaron Foos)
+		Stock = c("Taku", "Stikine", "Alsek"),
+		Year = rep(2025, 3),
+		Escapement = c(tbrck_esc$Taku_esc[tbrck_esc$year==2025], 
+									 tbrck_esc$Stikine_esc[tbrck_esc$year==2025],
+									 tbrck_esc$Alsek_esc[tbrck_esc$year==2025]), 
 		RateType = rep(NA, 3),
 		Rate = rep(NA, 3),
-		TotalRun = rep(NA, 3))) %>%
-	rbind(data.frame( # 2025 datan  (From data provided by Aaron Foos, not same source as 2024 data)
-		Stock = c("Taku", "Stikine"),
-		Year = rep(2025, 2),
-		Escapement = c(42972, 14813), # 'unadjusted CAD spawning escapement' for Taku, 'Canadian escapement' for Stikine
-		RateType = rep(NA, 2),
-		Rate = rep(NA, 2),
-		TotalRun = rep(NA, 2)))
+		TotalRun = rep(NA, 3)))
 
-# Harbest data - from data provided by Aaron Foos on 2026-07-08
-tbrck_harvest <- data.frame(Year = rep(c(2024:2025), 3), 
-													 Stock = rep(c("Alsek", "Taku", "Stikine"), each=2),
-													 CAD_harv = c(40, NA, 22, 44, 49, 263),
-													 USA_harv = c(195, NA, 372, 857, 37, 12)) 
+# For 2025, take harvest from TTC B12, D8, Provided by Aaron Foos; Alsek harvest provided by email (Teresa Wallace, DFO)
+tbrck_harvest <- data.frame(Year = rep(c(2025), 3), 
+													 Stock = rep(c("Alsek", "Taku", "Stikine")),
+													 CAD_harv = c(94, 44, 263),
+													 USA_harv = c((194+8), 857, 12)) %>%
+								mutate(Total_harv = CAD_harv + USA_harv)
 
 # Calculate Total Run for 2024 and 2025
-tbrck_raw_updated_24_25 <- tbrck_raw_updated %>% 
-	filter(Year %in% 2024:2025) %>%
+tbrck_raw_updated_25 <- tbrck_raw_updated %>% 
+	filter(Year == 2025) %>%
 	left_join(tbrck_harvest, by=c("Year", "Stock")) %>%
-	mutate(TotalRun = Escapement + CAD_harv + USA_harv)
+	mutate(TotalRun = Escapement + Total_harv)
 	
-tbrck_raw_updated$TotalRun[tbrck_raw_updated$Year >= 2024] <- tbrck_raw_updated_24_25$TotalRun
+tbrck_raw_updated$TotalRun[tbrck_raw_updated$Year == 2025] <- tbrck_raw_updated_25$TotalRun
 
 # Plot ---
 
@@ -855,22 +857,21 @@ We have estimates of escapement (spawners) and total run to 2025 from the [2025 
 ```{r nass chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Nass chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 # Load data ---
 # TCCHINOOK Table B3
-nass_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B3", range = "A5:D54", col_types = "numeric", col_names = c("Year", "Above_Gitwinksihlkw2", "Esc", "t.run"))
+nass_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-2026-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B3", range = "A5:D55", col_types = "numeric", col_names = c("Year", "Above_Gitwinksihlkw2", "Esc", "t.run"))
 
-# TEMPORARY - use Nisgaa Data until CTC is ready # Compare them
+# Nisgaa data for comparison
 nass_nisgaa <- read.csv(here("data/2025NassStockAssessment_Table20+22.csv"))
 
 # Reformat data for SPS
 nassck_sps <- data.frame(
-	region = rep("Nass", length(nass_nisgaa$Year)),
-	species = rep("Chinook", length(nass_nisgaa$Year)),
-	year = nass_nisgaa$Year,
-	spawners = nass_nisgaa$ESC_Chinook, 
+	region = rep("Nass", length(nass_ctc$Year)),
+	species = rep("Chinook", length(nass_ctc$Year)),
+	year = nass_ctc$Year,
+	spawners = nass_ctc$Esc, 
 	smoothedSpawners = NA,
-	runsize = nass_nisgaa$TOTAL_RUN_Chinook,
+	runsize = nass_ctc$t.run,
 	smoothedRunsize = NA,
-	source_id = rep("Nisgaa_20251202", length(nass_nisgaa$Year))
-	#source_id = rep(ctc_id, length(nass_nisgaa$Year))
+	source_id = rep(ctc_id, length(nass_ctc$Year))
 ) 
 
 # Smoothing
@@ -891,8 +892,8 @@ sps_data <- rbind(sps_data, nassck_sps)
 
 # Generate standard plot
 plot_abund(nassck_sps)
-points(x=nass_ctc$Year, y=nass_ctc$Esc/1000, col="purple")
-points(x=nass_ctc$Year, y=nass_ctc$t.run/1000, col="blue") # See how t.run from ctc (blue) compares to total run from Nisgaa
+points(x=nass_nisgaa$Year, y=nass_nisgaa$ESC_Chinook/1000, col="purple")
+points(x=nass_nisgaa$Year, y=nass_nisgaa$TOTAL_RUN_Chinook/1000, col="blue") # Big difference! 
 
 ```
 
@@ -1137,7 +1138,7 @@ Chinook spawners were taken from the [PSC's Chinook Technical Committee (CTC) da
 ```{r skeena chinook, fig.cap="**Above:**Spawner abundance of Skeena chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 # Load data ---
 # TCCHINOOK Table B3
-sk_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B3", range = "A5:G54", col_types = "numeric", col_names = c("Year", "Nass_Above_Gitwinksihlkw2", "Nass_Esc", "Nass_t.run", "Skeena_Total esc.", "Skeena_GSI esc", "Skeena_GSI SD"))
+sk_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-2026-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B3", range = "A5:G55", col_types = "numeric", col_names = c("Year", "Nass_Above_Gitwinksihlkw2", "Nass_Esc", "Nass_t.run", "Skeena_Total esc.", "Skeena_GSI esc", "Skeena_GSI SD"))
 
 # Alternative source: NBTC report (all years included) for escapement - Table 32
 skck_nbtc <- read.csv(file=here("data/2026_Skeena_escapement_NBTC_Table32.csv"), na.strings = c("UNK", "UKN")) %>% select(YEAR, CHINOOK)
@@ -1474,8 +1475,8 @@ For Central Coast Chinook, the PSC's Chinook Technical Committee (CTC) reported 
 
 ## Load data ---
 # TCCHINOOK Table B3
-cc_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B3", range = "H5:K54", col_types = "numeric", col_names = c("Atnarko_Total_esc", "Atnarko_CV", "Atnarko_Wild", "Rivers_Inlet")) %>%
-	mutate(Year = c(1975:2024))
+cc_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-2026-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B3", range = "H5:K55", col_types = "numeric", col_names = c("Atnarko_Total_esc", "Atnarko_CV", "Atnarko_Wild", "Rivers_Inlet")) %>%
+	mutate(Year = c(1975:2025))
 
 # Reformat data for SPS
 ccck_sps <- data.frame(
@@ -1743,7 +1744,7 @@ PSC's Chinook Technical Committee (CTC) reports escapement (spawner abundance) a
 ```{r east VI chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of East Vancouver Island & Mainland Inlets chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 ## Load data --
 # (1) CTC data
-evimi_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B4", range = "A5:G54", col_types = "numeric", col_names = c("Year", "Nanaimo_esc", "Nanaimo_trun", "Cowichan_esc", "Cowichan_trun", "Phillips_esc", "Phillips_trun")) # Southern BC
+evimi_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-2026-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B4", range = "A5:G55", col_types = "numeric", col_names = c("Year", "Nanaimo_esc", "Nanaimo_trun", "Cowichan_esc", "Cowichan_trun", "Phillips_esc", "Phillips_trun")) # Southern BC
 
 evimi_ctc_summed <- evimi_ctc %>%
 	group_by(Year) %>%
@@ -1785,7 +1786,7 @@ plot_abund(evimick_sps)
 
 ```{r east VI chinook figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 9, fig.height = 5, fig.cap = "**Above:** (a) Chinook salmon spawner abundance and (b) total abundance showing the contributions of the Cowichan, Nanaimo, and Philips indicator stocks."}
 
-evimi_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B4", range = "A5:G54", col_types = "numeric", col_names = c("Year", "Nanaimo_esc", "Nanaimo_trun", "Cowichan_esc", "Cowichan_trun", "Phillips_esc", "Phillips_trun")) # Southern BC
+evimi_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-2026-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B4", range = "A5:G55", col_types = "numeric", col_names = c("Year", "Nanaimo_esc", "Nanaimo_trun", "Cowichan_esc", "Cowichan_trun", "Phillips_esc", "Phillips_trun")) # Southern BC
 	
 
 # Spawner abundance
@@ -1877,9 +1878,10 @@ plot_expansions(speciesname = "Chum",
 								regionname = "East Vancouver Island & Mainland Inlets",
 								region_spawners = region_spawners,
 								expansion_factors = expansion_factors,
-								added_series = added_series.s)
+								added_series = added_series.s,
+								exp_ylim = c(1, 2))
 	abline(v = 1952.5)
-	text(1953, 5, "Data prior to 1953 were discarded", adj = 0)
+	text(1953, 1.5, "Data prior to 1953 were discarded", adj = 0)
 ```
 
 #### Coho {.unnumbered}
@@ -1933,9 +1935,10 @@ plot_expansions(speciesname = "Coho",
 								regionname = "East Vancouver Island & Mainland Inlets",
 								region_spawners = region_spawners,
 								expansion_factors = expansion_factors,
-								added_series = added_series.s)
+								added_series = added_series.s,
+								exp_ylim = c(1,2))
 	abline(v = 1952.5)
-	text(1953, 5, "Data prior to 1953 were discarded", adj = 0)
+	text(1953, 1.5, "Data prior to 1953 were discarded", adj = 0)
 ```
 
 #### Pink {.unnumbered}
@@ -1989,9 +1992,10 @@ plot_expansions(speciesname = "Pink",
 								regionname = "East Vancouver Island & Mainland Inlets",
 								region_spawners = region_spawners,
 								expansion_factors = expansion_factors,
-								added_series = added_series.s)
+								added_series = added_series.s,
+								exp_ylim = c(1, 2))
 	abline(v = 1952.5)
-	text(1953, 5, "Data prior to 1953 were discarded", adj = 0)
+	text(1953, 1.5, "Data prior to 1953 were discarded", adj = 0)
 ```
 
 #### Sockeye {.unnumbered}
@@ -2045,9 +2049,10 @@ plot_expansions(speciesname = "Sockeye",
 								regionname = "East Vancouver Island & Mainland Inlets",
 								region_spawners = region_spawners,
 								expansion_factors = expansion_factors,
-								added_series = added_series.s)
+								added_series = added_series.s,
+								exp_ylim = c(1, 2))
 	abline(v = 1952.5)
-	text(1953, 5, "Data prior to 1953 were discarded", adj = 0)
+	text(1953, 1.5, "Data prior to 1953 were discarded", adj = 0)
 ```
 
 
@@ -2102,55 +2107,80 @@ plot_expansions(speciesname = "Steelhead",
 								regionname = "East Vancouver Island & Mainland Inlets",
 								region_spawners = region_spawners,
 								expansion_factors = expansion_factors,
-								added_series = added_series.s)
+								added_series = added_series.s,
+								exp_ylim = c(1, 2))
 	abline(v = 1952.5)
-	text(1953, 5, "Data prior to 1953 were discarded", adj = 0)
+	text(1953, 1.5, "Data prior to 1953 were discarded", adj = 0)
 ```
 
 
 ### West VI
 
-In the 2025 State of Salmon report, we have split the former "Vancouver Island & Mainland Inlets" region into two: East Vancouver Island & Mainland Inlets and West Vancouver Island. This split was made to better reflect the different ecology and habitats of salmon between the regions that may lead to different status and trends. 
+In the 2026 State of Salmon report, we have split the former "Vancouver Island & Mainland Inlets" region into two: East Vancouver Island & Mainland Inlets and West Vancouver Island. This split was made to better reflect the different ecology and habitats of salmon between the regions that may lead to different status and trends. 
 
 #### Chinook {.unnumbered}
-For Chinook spawner abundance, we used a 17-stream index of escapements from DFO. Streams were selected to represent WVI Chinook populations with minimal hatchery influence and infilling was done using data from neighbouring streams. We compare this below to the Chinook Technical Committee 14-stream index [@ChinookTechnicalCommittee2025AnnualReportCatch] used in last year's report and find them similar [@ChinookTechnicalCommittee2025AnnualReportCatch].
+For Chinook spawner abundance, we used a 17-stream index of escapements from DFO (Nicholas Brown, pers. comm.). Streams were selected to represent WVI Chinook populations with minimal hatchery influence and infilling was done using data from neighbouring streams. For 2024 and 2025, this index was not yet available, but we reconstructed it using stream-level data from NuSEDS. We compare this below to the Chinook Technical Committee 14-stream index [@ChinookTechnicalCommittee2025AnnualReportCatch] used in the 2024 report (red circles) and find them similar [@ChinookTechnicalCommittee2025AnnualReportCatch].
 
 Chinook total abundance was reported by DFO in 2025 [@DFO2025WestCoastVancouver]. The data shown in Figure 3 of @DFO2025WestCoastVancouver are available for download at https://zenodo.org/records/14847020 [accessed 25-Aug-2025]. We assumed that total abundance is the sum of the (non-terminal) ocean catch, hatchery-origin terminal return, and natural-origin terminal return. We note that this estimate of total abundance represents a total count of all Chinook from the region, and thus cannot be compared to the index of spawner abundance, which represents only a proportion of those fish. 
 
+```{r west VI expansion data}
+
+region_spawners <- sp <- readRDS(here("output/expanded-spawners/West Vancouver Island-spawners.rds"))
+yrs <- as.numeric(dimnames(sp)[[3]])
+expansion_factors <- readRDS(here("output/expanded-spawners/West Vancouver Island-expansion-factors.rds"))
+
+```
 
 ```{r west VI chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of West Vancouver Island chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 ## Load data ---
 # 17 stream index from Nicholas Brown @ DFO (pers comm.)
 wvi_ck <- read.csv(here("data/R-OUT_infilled_indicators_escapement_timeseries.csv")) %>% 
 	group_by(year) %>% summarize(tot_esc = sum(escapement))
+stream_lst <- read.csv(here("data/R-OUT_infilled_indicators_escapement_timeseries.csv")) %>% distinct(river)
 
-# 14 Stream index from CTC
-wvi_ck_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B5", range = "K24:K53", col_names = "WCVI_14Stream_Index") %>%
-	mutate(Year = c(1995:2024)) # Escapement methods changed in 1995; only use earlier data for assessments
+# **Reconstructed** 17-stream index using NuSEDS data
+nuseds_17 <- read.csv(here("data/spawner-survey-raw-wvi-ck.csv"))
+nuseds_17_sum <- nuseds_17 %>% group_by(year) %>% 
+	summarize(total_observed = sum(stream_observed_count)) %>%
+	filter(year >=1979) # make it match the extent of the DFO data
 
-# Compare the CTC and DFO indices
-wvi_ck %>% ggplot(aes(x=year, y=tot_esc/1000)) + geom_line(aes(col="DFO 17-Stream Index")) +
-	geom_line(data=wvi_ck_ctc, aes(x=Year, y=WCVI_14Stream_Index/1000, col="CTC 14-Stream Index")) +
-	scale_colour_manual(values = c("DFO 17-Stream Index" = "blue", "CTC 14-Stream Index" = "red")) +
-	labs(col="Source", y="Spawner escapement (000s)", x="Year")
+
+# Compare the 17 stream index and our reconstructed version
+##wvi_ck %>% ggplot(aes(x=year, y=tot_esc/1000)) + geom_line(aes(col="DFO 17-Stream Index")) +
+	#geom_line(data=nuseds_17_sum, aes(x=year, y=total_observed/1000, col="Reconstructed 17-stream")) +
+	#scale_colour_manual(values = c("DFO 17-Stream Index" = "blue", "CTC 14-Stream Index" = "red", 
+	#															 "Reconstructed 17-stream" = "purple")) +
+	#labs(col="Source", y="Spawner escapement (000s)", x="Year")
+
+
+# Combine DFO 17-stream index from Nick brown with our reconstruction (2024,2025)
+wvi_ck <- data.frame(year = c(wvi_ck$year, 2024:2025),
+					 tot_esc = c(wvi_ck$tot_esc, 
+					 						nuseds_17_sum$total_observed[nuseds_17_sum$year %in% 2024:2025]),
+					 sourceid = c(rep("Brown_20260421", nrow(wvi_ck)), rep(nuseds_id, 2))
+						)
+wvi_ck <- wvi_ck %>% filter(year >=1985) # Total abundance only goes back to 1985, match that?
+
+# Alternate (currently unused) source: 14 Stream index from CTC
+wvi_ck_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-2026-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B5", range = "K24:K54", col_names = "WCVI_14Stream_Index") %>%
+	mutate(Year = c(1995:2025)) # Escapement methods changed in 1995; only use earlier data for assessments
+
 	
 # Total abundance from Brown et al. 2025
 wvi_ck_tot <- read_xlsx(here("data/WCVI_Chinook_total_abundance.xlsx"))
-
 wvi_ck_tot$total_abundance <-  wvi_ck_tot$`Hatchery origin Terminal Return` + wvi_ck_tot$`Natural origin Terminal Return` +  wvi_ck_tot$`non-terminal Ocean catch`
 
-yrs <- sort(unique(c(wvi_ck_tot$`Return year`, wvi_ck$Year)))
 
 # Put in SPS format
 wvick_sps <- data.frame(
-	region = rep("West Vancouver Island", length(yrs)),
-	species = rep("Chinook", length(yrs)),
-	year = yrs,
-	spawners = wvi_ck$tot_esc[match(yrs, wvi_ck$year)], 
+	region = rep("West Vancouver Island", nrow(wvi_ck)),
+	species = rep("Chinook", nrow(wvi_ck)),
+	year = wvi_ck$year,
+	spawners = wvi_ck$tot_esc, 
 	smoothedSpawners = NA,
-	runsize = wvi_ck_tot$total_abundance[match(yrs, wvi_ck_tot$`Return year`)],
+	runsize = c(wvi_ck_tot$total_abundance, NA, NA),
 	smoothedRunsize = NA,
-	source_id = rep(paste("Brown_20260421", "Brown_20250703", sep = ", "), length(yrs)) # update source ID 
+	source_id = wvi_ck$sourceid # update source ID 
 ) 
 
 # Smoothing
@@ -2181,6 +2211,17 @@ sps_data <- rbind(sps_data, wvick_sps)
 
 # Generate standard plot
 plot_abund(wvick_sps)
+
+# Generate plot of spawners ONLY so CTC comparison is more visible
+wvi_ck %>% ggplot(aes(x=year, y=tot_esc/1000)) + 
+geom_line(aes(col="DFO 17-Stream Index")) +
+geom_point(aes(col="DFO 17-Stream Index"), shape=21) +
+geom_point(data=wvi_ck_ctc, aes(x=Year, y=WCVI_14Stream_Index/1000, col="CTC 14-Stream Index"), shape=21) +
+geom_line(data=wvi_ck_ctc, aes(x=Year, y=WCVI_14Stream_Index/1000, col="CTC 14-Stream Index"), alpha=0.5) +
+scale_colour_manual(values = c("DFO 17-Stream Index" = "grey50", "CTC 14-Stream Index" = "red")) +
+	labs(col="Source", y="Spawner escapement (000s)", x="Year") +
+	theme_minimal() +
+	theme(legend.position=c(0.6, 0.9))
 
 ```
 
@@ -2241,14 +2282,6 @@ plot_abund(wvise_sps)
 
 #### Chum {.unnumbered}
 For West Vancouver Island chum salmon, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2025) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
-
-```{r west VI expansion data}
-
-region_spawners <- sp <- readRDS(here("output/expanded-spawners/West Vancouver Island-spawners.rds"))
-yrs <- as.numeric(dimnames(sp)[[3]])
-expansion_factors <- readRDS(here("output/expanded-spawners/West Vancouver Island-expansion-factors.rds"))
-
-```
 
 ```{r west VI chum, fig.width = 7, fig.height = 6, fig.cap="**Above:**Spawner abundance of West Vancouver Island chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 ## Process data ---
@@ -2479,37 +2512,36 @@ plot_expansions(speciesname = "Steelhead",
 #### Chinook {.unnumbered}
 <!-- River-level spawner abundance for Fraser Chinook found in NuSEDS can be highly unreliable, thus we based our expansions on only the most intensively monitored streams that have been deemed as reliable estimates of abundance by @BrownEtAl20202020SummaryAbundance. These streams are those shown in the [Pacific Salmon Explorer](https://www.salmonexplorer.ca), and the associated data can be accessed from the stream survey data in the [SWP Data Library](https://data.salmonwatersheds.ca/result?datasetid=1). We also truncated the Chinook index of abundance to 1984 and more recent data, as earlier years have been deemed unreliable [@BrownEtAl20202020SummaryAbundance] and from 1984 onward spawner estimates mirrored those reported by @AtlasEtAl2023TrendsChinookSalmon. For Chinook total return, we used the sum of total run for four Fraser populations (Harrison, Nicola, Lower Shuswap, and South Thompson - all) reported in @AtlasEtAl2023TrendsChinookSalmon and available from the associated [GitHub repository](https://github.com/willatlas/ChinookEscapement-RunSize). -->
 
-Escapement of Fraser Chinook is provided in the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) and are reported on in @ChinookTechnicalCommittee2025AnnualReportCatch. We took the sum of escapement to five major stocks from Table B6 (Fraser Spring 4-2 (age 1.2), Fraser Spring 5-2 (age 1.3), Fraser Summer 5-2 (age 1.3), Fraser Summer 4-1 (age 0.3), and Harrison (Fraser Fall 4-1, age 0.3)) as an index of spawner abundance. Total run size is also reported in Table B6 for the Spring/Summer runs, and we use this as an index of total abundance for Fraser Chinook, noting that it excludes the Fall 4-1 stock.
+Escapement and run size for Fraser Chinook were provided to PSF by Lauren Weir, DFO (pers. comm.). We took the sum of escapement and terminal run for five major stocks (Fraser Spring 4-2 (age 1.2), Fraser Spring 5-2 (age 1.3), Fraser Summer 5-2 (age 1.3), Fraser Summer 4-1 (age 0.3), and Harrison (Fraser Fall 4-1, age 0.3)). Escapement numbers match those in Table B6 of the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) as shown by purple open circles below. The 't.run' in the CTC dataset excludes the Harrison stock.
 
 ```{r fraser chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Fraser chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
-# Data from Chuck Parken (shared 23-Oct-2025 via email)
-frck_cp <- readxl::read_xlsx(here("data/1975-2025 Fraser Chinook escapement and terminal run by SMU - for PSF.xlsx"), skip=1)
+# Data from Lauren Weir (shared 2026-04-24 by email)
+frck <- readxl::read_xlsx(here("data/1975-2025 Fraser Chinook escapement and terminal run by SMU - for PSF.xlsx"), skip=1)
 frck_smu <- readxl::read_xlsx(here("data/1975-2025 Fraser Chinook escapement and terminal run by SMU - for PSF.xlsx"), range="A1:K1", col_names=F) # get smu names
 frck_smu <- rep(stringr::str_remove_all(frck_smu, "Fraser|age|-run|[[:punct:]]|[[:space:]]")[!is.na(frck_smu)], each=2)
-names(frck_cp)[2:ncol(frck_cp)] <- paste(frck_smu, stringr::str_extract_all(names(frck_cp)[2:ncol(frck_cp)], "Esc|Run"), sep="_") # stitch together smu and col names
-names(frck_cp) <- stringr::str_to_lower(names(frck_cp))
+names(frck)[2:ncol(frck)] <- paste(frck_smu, stringr::str_extract_all(names(frck)[2:ncol(frck)], "Esc|Run"), sep="_") # stitch together smu and col names
+names(frck) <- stringr::str_to_lower(names(frck))
+
 
 # Cut data to only 1984 onward when Harrison data were available.
-frck_cp <- frck_cp %>% dplyr::filter(year >= 1984)
-
-# Numbers match CTC except that t.run from CTC doesn't include Harrison fall. So need to add that in
+frck <- frck %>% dplyr::filter(year >= 1984)
 
 # Sum across SMUs
-frck_cp_esc <- round(apply(frck_cp[, grep("esc", names(frck_cp))], 1, sum))
-frck_cp_run <- round(apply(frck_cp[, grep("run", names(frck_cp))], 1, sum))
+frck_esc <- round(apply(frck[, grep("esc", names(frck))], 1, sum))
+frck_run <- round(apply(frck[, grep("run", names(frck))], 1, sum))
 
-yrs <- frck_cp$year
+yrs <- frck$year
 
 # Put in SPS format
 frck_sps <- data.frame(
 	region = rep("Fraser", length(yrs)),
 	species = rep("Chinook", length(yrs)),
 	year = yrs,
-	spawners = frck_cp_esc,
+	spawners = frck_esc,
 	smoothedSpawners = NA,
-	runsize = frck_cp_run,
+	runsize = frck_run,
 	smoothedRunsize = NA,
-	source_id = rep("Parken_20251023", length(yrs))
+	source_id = rep("Weir_20260424", length(yrs))
 ) 
 	
 	# Smoothing
@@ -2525,7 +2557,6 @@ frck_sps$smoothedRunsize <- genSmooth(
 	genLength = genLength$gen_length[genLength$region == "Fraser" & genLength$species == "Chinook"]
 )
 
-#(tail(frck_sps$smoothedRunsize, 1) - exp(mean(log(frck_sps$runsize), na.rm = TRUE)))/exp(mean(log(frck_sps$runsize), na.rm = TRUE))
 
 # Add to master sps dataframe
 sps_data <- rbind(sps_data, frck_sps)
@@ -2533,33 +2564,47 @@ sps_data <- rbind(sps_data, frck_sps)
 # Generate standard figure
 plot_abund(frck_sps)
 
+# Load CTC data for comparison
+frck_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-2026-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B6", range = "A5:G54", col_types = "numeric", col_names = c("Year", "Spr12_esc", "Spr13_esc", "Sum03_esc", "Sum13_esc", "SprSum_trun", "Harr_esc"))
+frck_ctc <- frck_ctc %>% mutate(total_esc = Spr12_esc + Spr13_esc + Sum03_esc + Sum13_esc + Harr_esc)
+
+# Plot comparison
+points(x=frck_ctc$Year, y=frck_ctc$total_esc/1000, col="purple")
+
 ```
 
 
 ```{r fraser chinook figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 9, fig.height = 6, fig.cap = "**Above:** (a) Aggregate escapement of Fraser Chinook with the contribution of escapement to each of five stocks shown as coloured regions. Note that the Harrison River (Fall 4-1) time series begins later (1984) than the other four stocks (1975), and thus we only report spawner abundance from 1984 onward. (b) The proportional contribution of each of five stocks to aggregate Fraser Chinook escapement."}
-suppressMessages(
-ctc_fr <- readxl::read_xlsx(here("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B6", range = "A3:P53", col_types = "numeric", ) )
-names(ctc_fr) <- c("Year", "Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Fraser Spring/Summer t.run", "Harrison Esc", "Harrison CV", "Lower Shuswap Esc", "Lower Shuswap CV", "Nicola Esc", "Nicola CV", "Lower Chilcotin Esc", "Lower Chilcotin CV", "Chilko Esc", "Chilko CV")
-ctc_esc <- ctc_fr %>% dplyr::select(c("Year", "Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Harrison Esc"))
-ctc_trun <- ctc_fr %>% dplyr::select(c(Year, ))
-ctc_esc_sum <- apply(ctc_esc[, c("Fraser Spring Age 1.2 Esc", "Fraser Spring Age 1.3 Esc", "Fraser Summer Age 0.3 Esc", "Fraser Summer Age 1.3 Esc", "Harrison Esc")], 1, sum)
+# Data from Lauren Weir (shared 2026-04-24 by email)
+frck <- readxl::read_xlsx(here("data/1975-2025 Fraser Chinook escapement and terminal run by SMU - for PSF.xlsx"), skip=1)
+frck_smu <- readxl::read_xlsx(here("data/1975-2025 Fraser Chinook escapement and terminal run by SMU - for PSF.xlsx"), range="A1:K1", col_names=F) # get smu names
+frck_smu <- rep(stringr::str_remove_all(frck_smu, "Fraser|age|-run|[[:punct:]]|[[:space:]]")[!is.na(frck_smu)], each=2)
+names(frck)[2:ncol(frck)] <- paste(frck_smu, stringr::str_extract_all(names(frck)[2:ncol(frck)], "Esc|Run"), sep="_") # stitch together smu and col names
+names(frck) <- stringr::str_to_lower(names(frck))
 
-ctc_trun_sum <- ctc_fr$`Fraser Spring/Summer t.run`
+
+# Cut data to only 1984 onward when Harrison data were available.
+frck <- frck %>% dplyr::filter(year >= 1984)
+
+# Sum across SMUs
+frck_esc <- round(apply(frck[, grep("esc", names(frck))], 1, sum))
+frck_run <- round(apply(frck[, grep("run", names(frck))], 1, sum))
 
 col_frck <- viridisLite::viridis(n = 5)
 
 # Plot ---
 
 # Spawner abundance
-esc.stacked <- ctc_esc %>% 
-	rename('Spring 4-2' = 'Fraser Spring Age 1.2 Esc',
-				 'Spring 5-2' = 'Fraser Spring Age 1.3 Esc',
-				 'Summer 5-2' = 'Fraser Summer Age 1.3 Esc',
-				 'Summer 4-1' = 'Fraser Summer Age 0.3 Esc', 
-				 'Fall 4-1 (Harrison)' = 'Harrison Esc') %>% 
+esc.stacked <- frck %>% 
+	select(c(year, names(frck)[grepl(".esc$", names(frck))])) %>%
+	rename('Spring 4-2' = 'spring12_esc',
+				 'Spring 5-2' = 'spring13_esc',
+				 'Summer 5-2' = 'summer13_esc',
+				 'Summer 4-1' = 'summer03_esc', 
+				 'Fall 4-1 (Harrison)' = 'harrisonfall03_esc') %>% 
 	tidyr::pivot_longer(-1, names_to="Stock", values_to="Escapement") %>% 
 	ggplot() +
-	geom_area(aes(x=Year, y=Escapement/1000, fill=factor(Stock, levels=rev(unique(Stock)))), 
+	geom_area(aes(x=year, y=Escapement/1000, fill=factor(Stock, levels=rev(unique(Stock)))), 
 								alpha=0.6) + 
 	scale_fill_viridis_d() +
 	labs(y="Spawner abundance (thousands)", fill="") +
@@ -2568,16 +2613,17 @@ esc.stacked <- ctc_esc %>%
 
 
 
-esc.sum <- ctc_esc %>% 
-	rename('Spring 4-2' = 'Fraser Spring Age 1.2 Esc',
-				 'Spring 5-2' = 'Fraser Spring Age 1.3 Esc',
-				 'Summer 5-2' = 'Fraser Summer Age 1.3 Esc',
-				 'Summer 4-1' = 'Fraser Summer Age 0.3 Esc', 
-				 'Fall 4-1 (Harrison)' = 'Harrison Esc') %>% 
+esc.sum <- frck %>% 
+	select(c(year, names(frck)[grepl(".esc$", names(frck))])) %>%
+	rename('Spring 4-2' = 'spring12_esc',
+				 'Spring 5-2' = 'spring13_esc',
+				 'Summer 5-2' = 'summer13_esc',
+				 'Summer 4-1' = 'summer03_esc', 
+				 'Fall 4-1 (Harrison)' = 'harrisonfall03_esc') %>% 
 	tidyr::pivot_longer(-1, names_to="Stock", values_to="Escapement") %>% 
-	filter(Year >= 1984) %>% 
+	filter(year >= 1984) %>% 
 	ggplot() +
-	geom_area(aes(x=Year, y=Escapement/1000, fill=factor(Stock, levels=rev(unique(Stock)))), 
+	geom_area(aes(x=year, y=Escapement/1000, fill=factor(Stock, levels=rev(unique(Stock)))), 
 								alpha=0.6, position="fill") + 
 	scale_fill_viridis_d() +
 	labs(y="Proportion of spawner abundance (thousands)", fill="") +
