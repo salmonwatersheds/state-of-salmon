@@ -1,0 +1,1051 @@
+"Stock","Year","Period","Escapement","Smsy","Umsy","LowerGoal","RateType","Rate"
+"Situk",1975,"1975-1984",NA,NA,0.81008208,500,"calendar year exploitation rate",NA
+"Situk",1976,"1975-1984",1421,NA,0.81008208,500,"calendar year exploitation rate",0.390389447
+"Situk",1977,"1975-1984",1732,NA,0.81008208,500,"calendar year exploitation rate",0.369339148
+"Situk",1978,"1975-1984",808,NA,0.81008208,500,"calendar year exploitation rate",0.367908309
+"Situk",1979,"1975-1984",1284,NA,0.81008208,500,"calendar year exploitation rate",0.432178699
+"Situk",1980,"1975-1984",905,NA,0.81008208,500,"calendar year exploitation rate",0.466082996
+"Situk",1981,"1975-1984",702,NA,0.81008208,500,"calendar year exploitation rate",0.50226886
+"Situk",1982,"1975-1984",434,NA,0.81008208,500,"calendar year exploitation rate",0.31395451
+"Situk",1983,"1975-1984",592,NA,0.81008208,500,"calendar year exploitation rate",0.307583934
+"Situk",1984,"1975-1984",1726,NA,0.81008208,500,"calendar year exploitation rate",0.246355373
+"Situk",1985,"1985-1998",1521,NA,0.81008208,500,"calendar year exploitation rate",0.242877068
+"Situk",1986,"1985-1998",2067,NA,0.81008208,500,"calendar year exploitation rate",0.097507042
+"Situk",1987,"1985-1998",1379,NA,0.81008208,500,"calendar year exploitation rate",0.388848753
+"Situk",1988,"1985-1998",868,NA,0.81008208,500,"calendar year exploitation rate",0.273188915
+"Situk",1989,"1985-1998",637,NA,0.81008208,500,"calendar year exploitation rate",0.375300336
+"Situk",1990,"1985-1998",628,NA,0.81008208,500,"calendar year exploitation rate",0.313411079
+"Situk",1991,"1985-1998",889,NA,0.81008208,500,"calendar year exploitation rate",0.452263196
+"Situk",1992,"1985-1998",1595,NA,0.81008208,500,"calendar year exploitation rate",0.466161343
+"Situk",1993,"1985-1998",952,NA,0.81008208,500,"calendar year exploitation rate",0.429764022
+"Situk",1994,"1985-1998",1271,NA,0.81008208,500,"calendar year exploitation rate",0.549544843
+"Situk",1995,"1985-1998",4330,NA,0.81008208,500,"calendar year exploitation rate",0.647665897
+"Situk",1996,"1985-1998",1800,NA,0.81008208,500,"calendar year exploitation rate",0.66249287
+"Situk",1997,"1985-1998",1878,NA,0.81008208,500,"calendar year exploitation rate",0.532636287
+"Situk",1998,"1985-1998",924,NA,0.81008208,500,"calendar year exploitation rate",0.646175695
+"Situk",1999,"1999-2008",1461,NA,0.81008208,500,"calendar year exploitation rate",0.687532189
+"Situk",2000,"1999-2008",1785,NA,0.81008208,500,"calendar year exploitation rate",0.489378039
+"Situk",2001,"1999-2008",656,NA,0.81008208,500,"calendar year exploitation rate",0.642536089
+"Situk",2002,"1999-2008",1000,NA,0.81008208,500,"calendar year exploitation rate",0.308584752
+"Situk",2003,"1999-2008",2117,NA,0.81008208,500,"calendar year exploitation rate",0.552529531
+"Situk",2004,"1999-2008",757,NA,0.81008208,500,"calendar year exploitation rate",0.598559247
+"Situk",2005,"1999-2008",610,NA,0.81008208,500,"calendar year exploitation rate",0.158330459
+"Situk",2006,"1999-2008",747,NA,0.81008208,500,"calendar year exploitation rate",0.212399178
+"Situk",2007,"1999-2008",677,NA,0.81008208,500,"calendar year exploitation rate",0.260265764
+"Situk",2008,"1999-2008",413,NA,0.81008208,500,"calendar year exploitation rate",0.501809409
+"Situk",2009,"2009-2018",902,NA,0.81008208,500,"calendar year exploitation rate",0.493542953
+"Situk",2010,"2009-2018",197,NA,0.81008208,500,"calendar year exploitation rate",0.726008345
+"Situk",2011,"2009-2018",240,NA,0.81008208,500,"calendar year exploitation rate",0.215686275
+"Situk",2012,"2009-2018",322,NA,0.81008208,500,"calendar year exploitation rate",0.26146789
+"Situk",2013,"2009-2018",912,NA,0.81008208,500,"calendar year exploitation rate",0.339130435
+"Situk",2014,"2009-2018",475,NA,0.81008208,500,"calendar year exploitation rate",0.225122349
+"Situk",2015,"2009-2018",174,NA,0.81008208,500,"calendar year exploitation rate",0.107692308
+"Situk",2016,"2009-2018",329,NA,0.81008208,500,"calendar year exploitation rate",0.162849873
+"Situk",2017,"2009-2018",1187,NA,0.81008208,500,"calendar year exploitation rate",0.020627063
+"Situk",2018,"2009-2018",420,NA,0.81008208,500,"calendar year exploitation rate",0.004739336
+"Situk",2019,"2019-2028",623,NA,0.81008208,500,"calendar year exploitation rate",0
+"Situk",2020,"2019-2028",1197,NA,0.81008208,500,"calendar year exploitation rate",0
+"Situk",2021,"2019-2028",1064,NA,0.81008208,500,"calendar year exploitation rate",0.061728395
+"Situk",2022,"2019-2028",890,NA,0.81008208,500,"calendar year exploitation rate",0.013303769
+"Situk",2023,"2019-2028",144,NA,0.81008208,500,"calendar year exploitation rate",0
+"Situk",2024,"2019-2028",517,NA,0.81008208,500,"calendar year exploitation rate",0
+"Alsek",1975,"1975-1984",NA,NA,0.58137892,3500,"calendar year exploitation rate",NA
+"Alsek",1976,"1975-1984",5282,NA,0.58137892,3500,"calendar year exploitation rate",0.142114666
+"Alsek",1977,"1975-1984",12706,NA,0.58137892,3500,"calendar year exploitation rate",0.140092041
+"Alsek",1978,"1975-1984",12034,NA,0.58137892,3500,"calendar year exploitation rate",0.204363636
+"Alsek",1979,"1975-1984",17354,NA,0.58137892,3500,"calendar year exploitation rate",0.207905427
+"Alsek",1980,"1975-1984",10718,NA,0.58137892,3500,"calendar year exploitation rate",0.143039898
+"Alsek",1981,"1975-1984",8587,NA,0.58137892,3500,"calendar year exploitation rate",0.129372402
+"Alsek",1982,"1975-1984",9584,NA,0.58137892,3500,"calendar year exploitation rate",0.114805579
+"Alsek",1983,"1975-1984",10344,NA,0.58137892,3500,"calendar year exploitation rate",0.066510243
+"Alsek",1984,"1975-1984",7213,NA,0.58137892,3500,"calendar year exploitation rate",0.080912334
+"Alsek",1985,"1985-1998",6087,NA,0.58137892,3500,"calendar year exploitation rate",0.097018247
+"Alsek",1986,"1985-1998",11069,NA,0.58137892,3500,"calendar year exploitation rate",0.065039277
+"Alsek",1987,"1985-1998",11276,NA,0.58137892,3500,"calendar year exploitation rate",0.071322682
+"Alsek",1988,"1985-1998",8852,NA,0.58137892,3500,"calendar year exploitation rate",0.056289979
+"Alsek",1989,"1985-1998",10178,NA,0.58137892,3500,"calendar year exploitation rate",0.068971826
+"Alsek",1990,"1985-1998",8775,NA,0.58137892,3500,"calendar year exploitation rate",0.094894275
+"Alsek",1991,"1985-1998",11667,NA,0.58137892,3500,"calendar year exploitation rate",0.081700118
+"Alsek",1992,"1985-1998",5773,NA,0.58137892,3500,"calendar year exploitation rate",0.089432177
+"Alsek",1993,"1985-1998",13917,NA,0.58137892,3500,"calendar year exploitation rate",0.045342297
+"Alsek",1994,"1985-1998",15970,NA,0.58137892,3500,"calendar year exploitation rate",0.077997806
+"Alsek",1995,"1985-1998",24772,NA,0.58137892,3500,"calendar year exploitation rate",0.086477118
+"Alsek",1996,"1985-1998",15922,NA,0.58137892,3500,"calendar year exploitation rate",0.108111136
+"Alsek",1997,"1985-1998",12494,NA,0.58137892,3500,"calendar year exploitation rate",0.083345561
+"Alsek",1998,"1985-1998",6833,NA,0.58137892,3500,"calendar year exploitation rate",0.123074949
+"Alsek",1999,"1999-2008",14615,NA,0.58137892,3500,"calendar year exploitation rate",0.060309908
+"Alsek",2000,"1999-2008",7905,NA,0.58137892,3500,"calendar year exploitation rate",0.101398204
+"Alsek",2001,"1999-2008",6705,NA,0.58137892,3500,"calendar year exploitation rate",0.11097852
+"Alsek",2002,"1999-2008",5569,NA,0.58137892,3500,"calendar year exploitation rate",0.162052362
+"Alsek",2003,"1999-2008",5904,NA,0.58137892,3500,"calendar year exploitation rate",0.167630058
+"Alsek",2004,"1999-2008",7083,NA,0.58137892,3500,"calendar year exploitation rate",0.11184953
+"Alsek",2005,"1999-2008",4390,NA,0.58137892,3500,"calendar year exploitation rate",0.162852784
+"Alsek",2006,"1999-2008",2321,NA,0.58137892,3500,"calendar year exploitation rate",0.239515072
+"Alsek",2007,"1999-2008",2827,NA,0.58137892,3500,"calendar year exploitation rate",0.234704927
+"Alsek",2008,"1999-2008",1885,NA,0.58137892,3500,"calendar year exploitation rate",0.251687177
+"Alsek",2009,"2009-2018",6239,NA,0.58137892,3500,"calendar year exploitation rate",0.161875336
+"Alsek",2010,"2009-2018",9526,NA,0.58137892,3500,"calendar year exploitation rate",0.062678343
+"Alsek",2011,"2009-2018",6850,NA,0.58137892,3500,"calendar year exploitation rate",0.105043115
+"Alsek",2012,"2009-2018",3027,NA,0.58137892,3500,"calendar year exploitation rate",0.230945122
+"Alsek",2013,"2009-2018",4992,NA,0.58137892,3500,"calendar year exploitation rate",0.101026472
+"Alsek",2014,"2009-2018",3357,NA,0.58137892,3500,"calendar year exploitation rate",0.256313691
+"Alsek",2015,"2009-2018",5697,NA,0.58137892,3500,"calendar year exploitation rate",0.065146045
+"Alsek",2016,"2009-2018",2514,NA,0.58137892,3500,"calendar year exploitation rate",0.084819803
+"Alsek",2017,"2009-2018",1741,NA,0.58137892,3500,"calendar year exploitation rate",0.096053998
+"Alsek",2018,"2009-2018",4348,NA,0.58137892,3500,"calendar year exploitation rate",0.025985663
+"Alsek",2019,"2019-2028",6319,NA,0.58137892,3500,"calendar year exploitation rate",0.021068939
+"Alsek",2020,"2019-2028",5330,NA,0.58137892,3500,"calendar year exploitation rate",0.04050405
+"Alsek",2021,"2019-2028",5562,NA,0.58137892,3500,"calendar year exploitation rate",0.065838092
+"Alsek",2022,"2019-2028",3351,NA,0.58137892,3500,"calendar year exploitation rate",0.03955288
+"Alsek",2023,"2019-2028",4185,NA,0.58137892,3500,"calendar year exploitation rate",0.044738644
+"Alsek",2024,"2019-2028",4771,NA,0.58137892,3500,"calendar year exploitation rate",0.047134012
+"Taku",1975,"1975-1984",12920,NA,0.5925,19000,"calendar year exploitation rate",0.052682134
+"Taku",1976,"1975-1984",24582,NA,0.5925,19000,"calendar year exploitation rate",0.040828747
+"Taku",1977,"1975-1984",29497,NA,0.5925,19000,"calendar year exploitation rate",0.084052533
+"Taku",1978,"1975-1984",17124,NA,0.5925,19000,"calendar year exploitation rate",0.101196578
+"Taku",1979,"1975-1984",21617,NA,0.5925,19000,"calendar year exploitation rate",0.165364729
+"Taku",1980,"1975-1984",39239,NA,0.5925,19000,"calendar year exploitation rate",0.133416065
+"Taku",1981,"1975-1984",49559,NA,0.5925,19000,"calendar year exploitation rate",0.115571319
+"Taku",1982,"1975-1984",23848,NA,0.5925,19000,"calendar year exploitation rate",0.170478904
+"Taku",1983,"1975-1984",9794,NA,0.5925,19000,"calendar year exploitation rate",0.149044879
+"Taku",1984,"1975-1984",20778,NA,0.5925,19000,"calendar year exploitation rate",0.148102728
+"Taku",1985,"1985-1998",35916,NA,0.5925,19000,"calendar year exploitation rate",0.083611061
+"Taku",1986,"1985-1998",38111,NA,0.5925,19000,"calendar year exploitation rate",0.064216594
+"Taku",1987,"1985-1998",28935,NA,0.5925,19000,"calendar year exploitation rate",0.062603407
+"Taku",1988,"1985-1998",44524,NA,0.5925,19000,"calendar year exploitation rate",0.061909578
+"Taku",1989,"1985-1998",40329,NA,0.5925,19000,"calendar year exploitation rate",0.108401773
+"Taku",1990,"1985-1998",52142,NA,0.5925,19000,"calendar year exploitation rate",0.109431247
+"Taku",1991,"1985-1998",51645,NA,0.5925,19000,"calendar year exploitation rate",0.119850913
+"Taku",1992,"1985-1998",55889,NA,0.5925,19000,"calendar year exploitation rate",0.096495493
+"Taku",1993,"1985-1998",66125,NA,0.5925,19000,"calendar year exploitation rate",0.141868584
+"Taku",1994,"1985-1998",48368,NA,0.5925,19000,"calendar year exploitation rate",0.137583432
+"Taku",1995,"1985-1998",33805,NA,0.5925,19000,"calendar year exploitation rate",0.130071888
+"Taku",1996,"1985-1998",79019,NA,0.5925,19000,"calendar year exploitation rate",0.110955075
+"Taku",1997,"1985-1998",114938,NA,0.5925,19000,"calendar year exploitation rate",0.096178458
+"Taku",1998,"1985-1998",31039,NA,0.5925,19000,"calendar year exploitation rate",0.102334091
+"Taku",1999,"1999-2008",16786,NA,0.5925,19000,"calendar year exploitation rate",0.198537308
+"Taku",2000,"1999-2008",34997,NA,0.5925,19000,"calendar year exploitation rate",0.132046843
+"Taku",2001,"1999-2008",46544,NA,0.5925,19000,"calendar year exploitation rate",0.132527029
+"Taku",2002,"1999-2008",55044,NA,0.5925,19000,"calendar year exploitation rate",0.142750943
+"Taku",2003,"1999-2008",36435,NA,0.5925,19000,"calendar year exploitation rate",0.155903327
+"Taku",2004,"1999-2008",75032,NA,0.5925,19000,"calendar year exploitation rate",0.11999233
+"Taku",2005,"1999-2008",38725,NA,0.5925,19000,"calendar year exploitation rate",0.429767195
+"Taku",2006,"1999-2008",42191,NA,0.5925,19000,"calendar year exploitation rate",0.339741402
+"Taku",2007,"1999-2008",14749,NA,0.5925,19000,"calendar year exploitation rate",0.371058355
+"Taku",2008,"1999-2008",26645,NA,0.5925,19000,"calendar year exploitation rate",0.243587831
+"Taku",2009,"2009-2018",22761,NA,0.5925,19000,"calendar year exploitation rate",0.430846989
+"Taku",2010,"2009-2018",28769,NA,0.5925,19000,"calendar year exploitation rate",0.273757795
+"Taku",2011,"2009-2018",19672,NA,0.5925,19000,"calendar year exploitation rate",0.317508662
+"Taku",2012,"2009-2018",16713,NA,0.5925,19000,"calendar year exploitation rate",0.341165637
+"Taku",2013,"2009-2018",18002,NA,0.5925,19000,"calendar year exploitation rate",0.166301438
+"Taku",2014,"2009-2018",23532,NA,0.5925,19000,"calendar year exploitation rate",0.196495482
+"Taku",2015,"2009-2018",23567,NA,0.5925,19000,"calendar year exploitation rate",0.183526397
+"Taku",2016,"2009-2018",9177,NA,0.5925,19000,"calendar year exploitation rate",0.290513388
+"Taku",2017,"2009-2018",8214,NA,0.5925,19000,"calendar year exploitation rate",0.247824093
+"Taku",2018,"2009-2018",7271,NA,0.5925,19000,"calendar year exploitation rate",0.196373353
+"Taku",2019,"2019-2028",11558,NA,0.5925,19000,"calendar year exploitation rate",0.051456709
+"Taku",2020,"2019-2028",15593,NA,0.5925,19000,"calendar year exploitation rate",0.068295889
+"Taku",2021,"2019-2028",11341,NA,0.5925,19000,"calendar year exploitation rate",0.068806963
+"Taku",2022,"2019-2028",12722,NA,0.5925,19000,"calendar year exploitation rate",0.111654214
+"Taku",2023,"2019-2028",14571,NA,0.5925,19000,"calendar year exploitation rate",0.079423509
+"Taku",2024,"2019-2028",24518,NA,0.5925,19000,"calendar year exploitation rate",0.052188032
+"Chilkat",1975,"1975-1984",NA,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1976,"1975-1984",NA,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1977,"1975-1984",NA,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1978,"1975-1984",NA,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1979,"1975-1984",NA,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1980,"1975-1984",NA,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1981,"1975-1984",NA,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1982,"1975-1984",NA,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1983,"1975-1984",NA,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1984,"1975-1984",NA,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1985,"1985-1998",NA,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1986,"1985-1998",NA,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1987,"1985-1998",NA,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1988,"1985-1998",NA,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1989,"1985-1998",NA,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1990,"1985-1998",NA,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1991,"1985-1998",5882,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1992,"1985-1998",5277,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1993,"1985-1998",4463,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1994,"1985-1998",6792,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1995,"1985-1998",3768,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1996,"1985-1998",4902,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1997,"1985-1998",8089,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1998,"1985-1998",3656,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",1999,"1999-2008",2258,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",2000,"1999-2008",2029,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",2001,"1999-2008",4514,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",2002,"1999-2008",4034,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",2003,"1999-2008",5631,NA,0.399374157,1750,"calendar year exploitation rate",NA
+"Chilkat",2004,"1999-2008",3406,NA,0.399374157,1750,"calendar year exploitation rate",0.206117358
+"Chilkat",2005,"1999-2008",3361,NA,0.399374157,1750,"calendar year exploitation rate",0.13580791
+"Chilkat",2006,"1999-2008",3003,NA,0.399374157,1750,"calendar year exploitation rate",0.120835374
+"Chilkat",2007,"1999-2008",1435,NA,0.399374157,1750,"calendar year exploitation rate",0.325345764
+"Chilkat",2008,"1999-2008",2881,NA,0.399374157,1750,"calendar year exploitation rate",0.23013725
+"Chilkat",2009,"2009-2018",4406,NA,0.399374157,1750,"calendar year exploitation rate",0.099225603
+"Chilkat",2010,"2009-2018",1797,NA,0.399374157,1750,"calendar year exploitation rate",0.372411052
+"Chilkat",2011,"2009-2018",2674,NA,0.399374157,1750,"calendar year exploitation rate",0.290338983
+"Chilkat",2012,"2009-2018",1723,NA,0.399374157,1750,"calendar year exploitation rate",0.374595243
+"Chilkat",2013,"2009-2018",1719,NA,0.399374157,1750,"calendar year exploitation rate",0.188018748
+"Chilkat",2014,"2009-2018",1529,NA,0.399374157,1750,"calendar year exploitation rate",0.416111398
+"Chilkat",2015,"2009-2018",2452,NA,0.399374157,1750,"calendar year exploitation rate",0.223529776
+"Chilkat",2016,"2009-2018",1380,NA,0.399374157,1750,"calendar year exploitation rate",0.231655359
+"Chilkat",2017,"2009-2018",1173,NA,0.399374157,1750,"calendar year exploitation rate",0.169007605
+"Chilkat",2018,"2009-2018",873,NA,0.399374157,1750,"calendar year exploitation rate",0.183260586
+"Chilkat",2019,"2019-2028",2028,NA,0.399374157,1750,"calendar year exploitation rate",0.041359077
+"Chilkat",2020,"2019-2028",3180,NA,0.399374157,1750,"calendar year exploitation rate",0.024240565
+"Chilkat",2021,"2019-2028",2038,NA,0.399374157,1750,"calendar year exploitation rate",0.058660508
+"Chilkat",2022,"2019-2028",1582,NA,0.399374157,1750,"calendar year exploitation rate",0.027060271
+"Chilkat",2023,"2019-2028",2234,NA,0.399374157,1750,"calendar year exploitation rate",0.035405872
+"Chilkat",2024,"2019-2028",2070,NA,0.399374157,1750,"calendar year exploitation rate",0.058234759
+"Stikine",1975,"1975-1984",7571,NA,0.415250411,14000,"calendar year exploitation rate",0.089829221
+"Stikine",1976,"1975-1984",5723,NA,0.415250411,14000,"calendar year exploitation rate",0.069617805
+"Stikine",1977,"1975-1984",11445,NA,0.415250411,14000,"calendar year exploitation rate",0.143319432
+"Stikine",1978,"1975-1984",6835,NA,0.415250411,14000,"calendar year exploitation rate",0.172552041
+"Stikine",1979,"1975-1984",12610,NA,0.415250411,14000,"calendar year exploitation rate",0.281966269
+"Stikine",1980,"1975-1984",30573,NA,0.415250411,14000,"calendar year exploitation rate",0.227490047
+"Stikine",1981,"1975-1984",36057,NA,0.415250411,14000,"calendar year exploitation rate",0.108624731
+"Stikine",1982,"1975-1984",40488,NA,0.415250411,14000,"calendar year exploitation rate",0.148608644
+"Stikine",1983,"1975-1984",6424,NA,0.415250411,14000,"calendar year exploitation rate",0.372423596
+"Stikine",1984,"1975-1984",13995,NA,0.415250411,14000,"calendar year exploitation rate",0.20545697
+"Stikine",1985,"1985-1998",16037,NA,0.415250411,14000,"calendar year exploitation rate",0.301873468
+"Stikine",1986,"1985-1998",14889,NA,0.415250411,14000,"calendar year exploitation rate",0.351947403
+"Stikine",1987,"1985-1998",24632,NA,0.415250411,14000,"calendar year exploitation rate",0.242539944
+"Stikine",1988,"1985-1998",37554,NA,0.415250411,14000,"calendar year exploitation rate",0.1564948
+"Stikine",1989,"1985-1998",24282,NA,0.415250411,14000,"calendar year exploitation rate",0.244417328
+"Stikine",1990,"1985-1998",22619,NA,0.415250411,14000,"calendar year exploitation rate",0.284788421
+"Stikine",1991,"1985-1998",23206,NA,0.415250411,14000,"calendar year exploitation rate",0.267005298
+"Stikine",1992,"1985-1998",34129,NA,0.415250411,14000,"calendar year exploitation rate",0.1711688
+"Stikine",1993,"1985-1998",58962,NA,0.415250411,14000,"calendar year exploitation rate",0.127370114
+"Stikine",1994,"1985-1998",33094,NA,0.415250411,14000,"calendar year exploitation rate",0.165133304
+"Stikine",1995,"1985-1998",16784,NA,0.415250411,14000,"calendar year exploitation rate",0.213931686
+"Stikine",1996,"1985-1998",28949,NA,0.415250411,14000,"calendar year exploitation rate",0.183117536
+"Stikine",1997,"1985-1998",26996,NA,0.415250411,14000,"calendar year exploitation rate",0.273991756
+"Stikine",1998,"1985-1998",25968,NA,0.415250411,14000,"calendar year exploitation rate",0.139164164
+"Stikine",1999,"1999-2008",19947,NA,0.415250411,14000,"calendar year exploitation rate",0.296676893
+"Stikine",2000,"1999-2008",27531,NA,0.415250411,14000,"calendar year exploitation rate",0.184618629
+"Stikine",2001,"1999-2008",63523,NA,0.415250411,14000,"calendar year exploitation rate",0.089168034
+"Stikine",2002,"1999-2008",50875,NA,0.415250411,14000,"calendar year exploitation rate",0.12655193
+"Stikine",2003,"1999-2008",46824,NA,0.415250411,14000,"calendar year exploitation rate",0.146739465
+"Stikine",2004,"1999-2008",48900,NA,0.415250411,14000,"calendar year exploitation rate",0.233517506
+"Stikine",2005,"1999-2008",39833,NA,0.415250411,14000,"calendar year exploitation rate",0.47796766
+"Stikine",2006,"1999-2008",24405,NA,0.415250411,14000,"calendar year exploitation rate",0.53677973
+"Stikine",2007,"1999-2008",14560,NA,0.415250411,14000,"calendar year exploitation rate",0.64171881
+"Stikine",2008,"1999-2008",18352,NA,0.415250411,14000,"calendar year exploitation rate",0.480136071
+"Stikine",2009,"2009-2018",12972,NA,0.415250411,14000,"calendar year exploitation rate",0.389179263
+"Stikine",2010,"2009-2018",15148,NA,0.415250411,14000,"calendar year exploitation rate",0.356270011
+"Stikine",2011,"2009-2018",14511,NA,0.415250411,14000,"calendar year exploitation rate",0.366170206
+"Stikine",2012,"2009-2018",22332,NA,0.415250411,14000,"calendar year exploitation rate",0.338177015
+"Stikine",2013,"2009-2018",16784,NA,0.415250411,14000,"calendar year exploitation rate",0.314524485
+"Stikine",2014,"2009-2018",24374,NA,0.415250411,14000,"calendar year exploitation rate",0.214243111
+"Stikine",2015,"2009-2018",21597,NA,0.415250411,14000,"calendar year exploitation rate",0.245796952
+"Stikine",2016,"2009-2018",10554,NA,0.415250411,14000,"calendar year exploitation rate",0.371718186
+"Stikine",2017,"2009-2018",7335,NA,0.415250411,14000,"calendar year exploitation rate",0.248125308
+"Stikine",2018,"2009-2018",8603,NA,0.415250411,14000,"calendar year exploitation rate",0.029385009
+"Stikine",2019,"2019-2028",13817,NA,0.415250411,14000,"calendar year exploitation rate",0.107025745
+"Stikine",2020,"2019-2028",9753,NA,0.415250411,14000,"calendar year exploitation rate",0.092564522
+"Stikine",2021,"2019-2028",8376,NA,0.415250411,14000,"calendar year exploitation rate",0.123574343
+"Stikine",2022,"2019-2028",9090,NA,0.415250411,14000,"calendar year exploitation rate",0.179010116
+"Stikine",2023,"2019-2028",12795,NA,0.415250411,14000,"calendar year exploitation rate",0.106432013
+"Stikine",2024,"2019-2028",9835,NA,0.415250411,14000,"calendar year exploitation rate",0.150275103
+"Unuk",1975,"1975-1984",NA,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1976,"1975-1984",NA,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1977,"1975-1984",4706,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1978,"1975-1984",5344,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1979,"1975-1984",2783,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1980,"1975-1984",4909,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1981,"1975-1984",3532,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1982,"1975-1984",6528,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1983,"1975-1984",5436,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1984,"1975-1984",8876,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1985,"1985-1998",5721,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1986,"1985-1998",10273,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1987,"1985-1998",9533,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1988,"1985-1998",8437,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1989,"1985-1998",5552,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1990,"1985-1998",2856,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1991,"1985-1998",3165,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1992,"1985-1998",4223,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1993,"1985-1998",5160,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1994,"1985-1998",3435,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1995,"1985-1998",3730,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1996,"1985-1998",5639,NA,0.600630302,1800,"calendar year exploitation rate",NA
+"Unuk",1997,"1985-1998",2970,NA,0.600630302,1800,"calendar year exploitation rate",0.082552338
+"Unuk",1998,"1985-1998",4132,NA,0.600630302,1800,"calendar year exploitation rate",0.122156263
+"Unuk",1999,"1999-2008",3914,NA,0.600630302,1800,"calendar year exploitation rate",0.246496831
+"Unuk",2000,"1999-2008",5872,NA,0.600630302,1800,"calendar year exploitation rate",0.209817153
+"Unuk",2001,"1999-2008",10541,NA,0.600630302,1800,"calendar year exploitation rate",0.136617131
+"Unuk",2002,"1999-2008",6988,NA,0.600630302,1800,"calendar year exploitation rate",0.165359472
+"Unuk",2003,"1999-2008",5546,NA,0.600630302,1800,"calendar year exploitation rate",0.200915151
+"Unuk",2004,"1999-2008",3963,NA,0.600630302,1800,"calendar year exploitation rate",0.185665359
+"Unuk",2005,"1999-2008",4742,NA,0.600630302,1800,"calendar year exploitation rate",0.356491408
+"Unuk",2006,"1999-2008",5645,NA,0.600630302,1800,"calendar year exploitation rate",0.213124643
+"Unuk",2007,"1999-2008",5668,NA,0.600630302,1800,"calendar year exploitation rate",0.288022957
+"Unuk",2008,"1999-2008",3104,NA,0.600630302,1800,"calendar year exploitation rate",0.20665215
+"Unuk",2009,"2009-2018",3157,NA,0.600630302,1800,"calendar year exploitation rate",0.264179589
+"Unuk",2010,"2009-2018",3835,NA,0.600630302,1800,"calendar year exploitation rate",0.291424939
+"Unuk",2011,"2009-2018",3195,NA,0.600630302,1800,"calendar year exploitation rate",0.368815362
+"Unuk",2012,"2009-2018",956,NA,0.600630302,1800,"calendar year exploitation rate",0.743837219
+"Unuk",2013,"2009-2018",1135,NA,0.600630302,1800,"calendar year exploitation rate",0.62583912
+"Unuk",2014,"2009-2018",1691,NA,0.600630302,1800,"calendar year exploitation rate",0.457120674
+"Unuk",2015,"2009-2018",2623,NA,0.600630302,1800,"calendar year exploitation rate",0.580678247
+"Unuk",2016,"2009-2018",1463,NA,0.600630302,1800,"calendar year exploitation rate",0.501298531
+"Unuk",2017,"2009-2018",1203,NA,0.600630302,1800,"calendar year exploitation rate",0.311513773
+"Unuk",2018,"2009-2018",1971,NA,0.600630302,1800,"calendar year exploitation rate",0.302752129
+"Unuk",2019,"2019-2028",3115,NA,0.600630302,1800,"calendar year exploitation rate",0.234642636
+"Unuk",2020,"2019-2028",1135,NA,0.600630302,1800,"calendar year exploitation rate",0.344858774
+"Unuk",2021,"2019-2028",2666,NA,0.600630302,1800,"calendar year exploitation rate",0.17801048
+"Unuk",2022,"2019-2028",1304,NA,0.600630302,1800,"calendar year exploitation rate",0.35951083
+"Unuk",2023,"2019-2028",2072,NA,0.600630302,1800,"calendar year exploitation rate",0.351478997
+"Unuk",2024,"2019-2028",1980,NA,0.600630302,1800,"calendar year exploitation rate",0.189829399
+"Kitsumkalum",1975,"1975-1984",NA,5235,0.626,NA,"mature-run equivalent exploitation rate",NA
+"Kitsumkalum",1976,"1975-1984",NA,5235,0.626,NA,"mature-run equivalent exploitation rate",NA
+"Kitsumkalum",1977,"1975-1984",NA,5235,0.626,NA,"mature-run equivalent exploitation rate",NA
+"Kitsumkalum",1978,"1975-1984",NA,5235,0.626,NA,"mature-run equivalent exploitation rate",NA
+"Kitsumkalum",1979,"1975-1984",NA,5235,0.626,NA,"mature-run equivalent exploitation rate",NA
+"Kitsumkalum",1980,"1975-1984",NA,5235,0.626,NA,"mature-run equivalent exploitation rate",NA
+"Kitsumkalum",1981,"1975-1984",NA,5235,0.626,NA,"mature-run equivalent exploitation rate",NA
+"Kitsumkalum",1982,"1975-1984",NA,5235,0.626,NA,"mature-run equivalent exploitation rate",NA
+"Kitsumkalum",1983,"1975-1984",NA,5235,0.626,NA,"mature-run equivalent exploitation rate",NA
+"Kitsumkalum",1984,"1975-1984",9569,5235,0.626,NA,"mature-run equivalent exploitation rate",NA
+"Kitsumkalum",1985,"1985-1998",9081.008789,5235,0.626,NA,"mature-run equivalent exploitation rate",0.487829157
+"Kitsumkalum",1986,"1985-1998",8080.553223,5235,0.626,NA,"mature-run equivalent exploitation rate",0.480116226
+"Kitsumkalum",1987,"1985-1998",15549.01367,5235,0.626,NA,"mature-run equivalent exploitation rate",0.475812876
+"Kitsumkalum",1988,"1985-1998",15853,5235,0.626,NA,"mature-run equivalent exploitation rate",0.525278487
+"Kitsumkalum",1989,"1985-1998",17822.76758,5235,0.626,NA,"mature-run equivalent exploitation rate",0.376183107
+"Kitsumkalum",1990,"1985-1998",11118.94629,5235,0.626,NA,"mature-run equivalent exploitation rate",0.478530361
+"Kitsumkalum",1991,"1985-1998",9267.214844,5235,0.626,NA,"mature-run equivalent exploitation rate",0.622288895
+"Kitsumkalum",1992,"1985-1998",10879.50781,5235,0.626,NA,"mature-run equivalent exploitation rate",0.466824594
+"Kitsumkalum",1993,"1985-1998",13181.05371,5235,0.626,NA,"mature-run equivalent exploitation rate",0.551698621
+"Kitsumkalum",1994,"1985-1998",14003.2959,5235,0.626,NA,"mature-run equivalent exploitation rate",0.504041304
+"Kitsumkalum",1995,"1985-1998",6514.631836,5235,0.626,NA,"mature-run equivalent exploitation rate",0.564665636
+"Kitsumkalum",1996,"1985-1998",8594.546875,5235,0.626,NA,"mature-run equivalent exploitation rate",0.484709653
+"Kitsumkalum",1997,"1985-1998",4675.111328,5235,0.626,NA,"mature-run equivalent exploitation rate",0.449430734
+"Kitsumkalum",1998,"1985-1998",6008.955566,5235,0.626,NA,"mature-run equivalent exploitation rate",0.322724251
+"Kitsumkalum",1999,"1999-2008",9034.946289,5235,0.626,NA,"mature-run equivalent exploitation rate",0.412114453
+"Kitsumkalum",2000,"1999-2008",10178.24023,5235,0.626,NA,"mature-run equivalent exploitation rate",0.432704529
+"Kitsumkalum",2001,"1999-2008",17865.76563,5235,0.626,NA,"mature-run equivalent exploitation rate",0.533382337
+"Kitsumkalum",2002,"1999-2008",11219.6543,5235,0.626,NA,"mature-run equivalent exploitation rate",0.58184254
+"Kitsumkalum",2003,"1999-2008",17524.69141,5235,0.626,NA,"mature-run equivalent exploitation rate",0.397882997
+"Kitsumkalum",2004,"1999-2008",19664.08789,5235,0.626,NA,"mature-run equivalent exploitation rate",0.411787831
+"Kitsumkalum",2005,"1999-2008",11381.64355,5235,0.626,NA,"mature-run equivalent exploitation rate",0.504369227
+"Kitsumkalum",2006,"1999-2008",8396.075195,5235,0.626,NA,"mature-run equivalent exploitation rate",0.524941119
+"Kitsumkalum",2007,"1999-2008",11739.13281,5235,0.626,NA,"mature-run equivalent exploitation rate",0.371681943
+"Kitsumkalum",2008,"1999-2008",6903.182617,5235,0.626,NA,"mature-run equivalent exploitation rate",0.665892214
+"Kitsumkalum",2009,"2009-2018",8349.78418,5235,0.626,NA,"mature-run equivalent exploitation rate",0.36920101
+"Kitsumkalum",2010,"2009-2018",8932.287109,5235,0.626,NA,"mature-run equivalent exploitation rate",0.503867022
+"Kitsumkalum",2011,"2009-2018",6755.459961,5235,0.626,NA,"mature-run equivalent exploitation rate",0.500448753
+"Kitsumkalum",2012,"2009-2018",6290.652344,5235,0.626,NA,"mature-run equivalent exploitation rate",0.48357062
+"Kitsumkalum",2013,"2009-2018",11355.93652,5235,0.626,NA,"mature-run equivalent exploitation rate",0.306248462
+"Kitsumkalum",2014,"2009-2018",10042.36328,5235,0.626,NA,"mature-run equivalent exploitation rate",0.362902554
+"Kitsumkalum",2015,"2009-2018",14904.50488,5235,0.626,NA,"mature-run equivalent exploitation rate",0.330415137
+"Kitsumkalum",2016,"2009-2018",9537.856445,5235,0.626,NA,"mature-run equivalent exploitation rate",0.463435028
+"Kitsumkalum",2017,"2009-2018",4131.848633,5235,0.626,NA,"mature-run equivalent exploitation rate",0.43843953
+"Kitsumkalum",2018,"2009-2018",9549.578125,5235,0.626,NA,"mature-run equivalent exploitation rate",0.231665781
+"Kitsumkalum",2019,"2019-2028",6673.334961,5235,0.626,NA,"mature-run equivalent exploitation rate",0.307882896
+"Kitsumkalum",2020,"2019-2028",4777,5235,0.626,NA,"mature-run equivalent exploitation rate",0.281763864
+"Kitsumkalum",2021,"2019-2028",4032,5235,0.626,NA,"mature-run equivalent exploitation rate",0.374390945
+"Kitsumkalum",2022,"2019-2028",5649,5235,0.626,NA,"mature-run equivalent exploitation rate",0.207899258
+"Kitsumkalum",2023,"2019-2028",4944,5235,0.626,NA,"mature-run equivalent exploitation rate",0.336144563
+"Kitsumkalum",2024,"2019-2028",5451,5235,0.626,NA,"mature-run equivalent exploitation rate",0.318128194
+"Atnarko",1975,"1975-1984",NA,5009,0.768768,NA,"mature-run equivalent exploitation rate",NA
+"Atnarko",1976,"1975-1984",NA,5009,0.768768,NA,"mature-run equivalent exploitation rate",NA
+"Atnarko",1977,"1975-1984",NA,5009,0.768768,NA,"mature-run equivalent exploitation rate",NA
+"Atnarko",1978,"1975-1984",NA,5009,0.768768,NA,"mature-run equivalent exploitation rate",NA
+"Atnarko",1979,"1975-1984",NA,5009,0.768768,NA,"mature-run equivalent exploitation rate",NA
+"Atnarko",1980,"1975-1984",NA,5009,0.768768,NA,"mature-run equivalent exploitation rate",NA
+"Atnarko",1981,"1975-1984",NA,5009,0.768768,NA,"mature-run equivalent exploitation rate",NA
+"Atnarko",1982,"1975-1984",NA,5009,0.768768,NA,"mature-run equivalent exploitation rate",NA
+"Atnarko",1983,"1975-1984",NA,5009,0.768768,NA,"mature-run equivalent exploitation rate",NA
+"Atnarko",1984,"1975-1984",NA,5009,0.768768,NA,"mature-run equivalent exploitation rate",NA
+"Atnarko",1985,"1985-1998",NA,5009,0.768768,NA,"mature-run equivalent exploitation rate",NA
+"Atnarko",1986,"1985-1998",NA,5009,0.768768,NA,"mature-run equivalent exploitation rate",NA
+"Atnarko",1987,"1985-1998",NA,5009,0.768768,NA,"mature-run equivalent exploitation rate",NA
+"Atnarko",1988,"1985-1998",NA,5009,0.768768,NA,"mature-run equivalent exploitation rate",NA
+"Atnarko",1989,"1985-1998",NA,5009,0.768768,NA,"mature-run equivalent exploitation rate",NA
+"Atnarko",1990,"1985-1998",11630,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.318206081
+"Atnarko",1991,"1985-1998",8952,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.380263833
+"Atnarko",1992,"1985-1998",22015,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.41465777
+"Atnarko",1993,"1985-1998",20961,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.366445521
+"Atnarko",1994,"1985-1998",12257,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.355327891
+"Atnarko",1995,"1985-1998",8150,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.344703301
+"Atnarko",1996,"1985-1998",5962,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.314746752
+"Atnarko",1997,"1985-1998",4013,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.328477052
+"Atnarko",1998,"1985-1998",6094,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.394916569
+"Atnarko",1999,"1999-2008",7199,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.275189093
+"Atnarko",2000,"1999-2008",9964,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.328236391
+"Atnarko",2001,"1999-2008",16743,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.380327917
+"Atnarko",2002,"1999-2008",8550,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.447067728
+"Atnarko",2003,"1999-2008",10136,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.591572963
+"Atnarko",2004,"1999-2008",8230,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.516049601
+"Atnarko",2005,"1999-2008",7619,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.535184725
+"Atnarko",2006,"1999-2008",9565,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.406194578
+"Atnarko",2007,"1999-2008",5799,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.599723986
+"Atnarko",2008,"1999-2008",5517,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.175595525
+"Atnarko",2009,"2009-2018",6331,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.526894867
+"Atnarko",2010,"2009-2018",5683,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.50370894
+"Atnarko",2011,"2009-2018",6061,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.660410511
+"Atnarko",2012,"2009-2018",2542,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.540267149
+"Atnarko",2013,"2009-2018",9860,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.340960123
+"Atnarko",2014,"2009-2018",11935,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.331097025
+"Atnarko",2015,"2009-2018",13640,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.295116175
+"Atnarko",2016,"2009-2018",9936,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.340302583
+"Atnarko",2017,"2009-2018",5418,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.454310553
+"Atnarko",2018,"2009-2018",5328,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.37321875
+"Atnarko",2019,"2019-2028",4587,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.402712114
+"Atnarko",2020,"2019-2028",9835,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.313837319
+"Atnarko",2021,"2019-2028",4779,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.246059877
+"Atnarko",2022,"2019-2028",5139,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.286943564
+"Atnarko",2023,"2019-2028",6903,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.266041733
+"Atnarko",2024,"2019-2028",10479,5009,0.768768,NA,"mature-run equivalent exploitation rate",0.311746498
+"Cowichan",1975,"1975-1984",NA,6514,0.690217,NA,"mature-run equivalent exploitation rate",NA
+"Cowichan",1976,"1975-1984",NA,6514,0.690217,NA,"mature-run equivalent exploitation rate",NA
+"Cowichan",1977,"1975-1984",NA,6514,0.690217,NA,"mature-run equivalent exploitation rate",NA
+"Cowichan",1978,"1975-1984",NA,6514,0.690217,NA,"mature-run equivalent exploitation rate",NA
+"Cowichan",1979,"1975-1984",7750,6514,0.690217,NA,"mature-run equivalent exploitation rate",NA
+"Cowichan",1980,"1975-1984",5500,6514,0.690217,NA,"mature-run equivalent exploitation rate",NA
+"Cowichan",1981,"1975-1984",5500,6514,0.690217,NA,"mature-run equivalent exploitation rate",NA
+"Cowichan",1982,"1975-1984",4500,6514,0.690217,NA,"mature-run equivalent exploitation rate",NA
+"Cowichan",1983,"1975-1984",4500,6514,0.690217,NA,"mature-run equivalent exploitation rate",NA
+"Cowichan",1984,"1975-1984",5000,6514,0.690217,NA,"mature-run equivalent exploitation rate",NA
+"Cowichan",1985,"1985-1998",3500,6514,0.690217,NA,"mature-run equivalent exploitation rate",NA
+"Cowichan",1986,"1985-1998",1832,6514,0.690217,NA,"mature-run equivalent exploitation rate",NA
+"Cowichan",1987,"1985-1998",1937,6514,0.690217,NA,"mature-run equivalent exploitation rate",NA
+"Cowichan",1988,"1985-1998",6200,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.790501798
+"Cowichan",1989,"1985-1998",5000,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.935557432
+"Cowichan",1990,"1985-1998",5300,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.786481606
+"Cowichan",1991,"1985-1998",6000,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.866703113
+"Cowichan",1992,"1985-1998",8500,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.92011729
+"Cowichan",1993,"1985-1998",5058,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.898149389
+"Cowichan",1994,"1985-1998",5050,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.914268071
+"Cowichan",1995,"1985-1998",14300,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.693649197
+"Cowichan",1996,"1985-1998",12980,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.780814149
+"Cowichan",1997,"1985-1998",9845,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.656597284
+"Cowichan",1998,"1985-1998",4371,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.736249686
+"Cowichan",1999,"1999-2008",4500,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.629731232
+"Cowichan",2000,"1999-2008",5109,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.473246344
+"Cowichan",2001,"1999-2008",3283,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.661748838
+"Cowichan",2002,"1999-2008",2505,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.715311587
+"Cowichan",2003,"1999-2008",2494,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.829760022
+"Cowichan",2004,"1999-2008",2226,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.723296147
+"Cowichan",2005,"1999-2008",1527,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.822201863
+"Cowichan",2006,"1999-2008",1069,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.802115942
+"Cowichan",2007,"1999-2008",1860,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.82773374
+"Cowichan",2008,"1999-2008",1109,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.926487737
+"Cowichan",2009,"2009-2018",540,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.924854566
+"Cowichan",2010,"2009-2018",2419,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.856003273
+"Cowichan",2011,"2009-2018",2786,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.767904358
+"Cowichan",2012,"2009-2018",2668,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.806732652
+"Cowichan",2013,"2009-2018",4362,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.725554578
+"Cowichan",2014,"2009-2018",4185,6514,0.690217,NA,"mature-run equivalent exploitation rate",NA
+"Cowichan",2015,"2009-2018",5984,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.748974848
+"Cowichan",2016,"2009-2018",7787,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.79648942
+"Cowichan",2017,"2009-2018",10590,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.698485102
+"Cowichan",2018,"2009-2018",14353,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.843651831
+"Cowichan",2019,"2019-2028",15348,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.723491711
+"Cowichan",2020,"2019-2028",8737,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.489751473
+"Cowichan",2021,"2019-2028",12902,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.472160933
+"Cowichan",2022,"2019-2028",17574,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.488872595
+"Cowichan",2023,"2019-2028",19855,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.403885812
+"Cowichan",2024,"2019-2028",22938,6514,0.690217,NA,"mature-run equivalent exploitation rate",0.335437785
+"Nicola",1975,"1975-1984",5606,6600,0.6,NA,"mature-run equivalent exploitation rate",NA
+"Nicola",1976,"1975-1984",4445,6600,0.6,NA,"mature-run equivalent exploitation rate",NA
+"Nicola",1977,"1975-1984",3498,6600,0.6,NA,"mature-run equivalent exploitation rate",NA
+"Nicola",1978,"1975-1984",3974,6600,0.6,NA,"mature-run equivalent exploitation rate",NA
+"Nicola",1979,"1975-1984",3017,6600,0.6,NA,"mature-run equivalent exploitation rate",NA
+"Nicola",1980,"1975-1984",6180,6600,0.6,NA,"mature-run equivalent exploitation rate",NA
+"Nicola",1981,"1975-1984",3258,6600,0.6,NA,"mature-run equivalent exploitation rate",NA
+"Nicola",1982,"1975-1984",4737,6600,0.6,NA,"mature-run equivalent exploitation rate",NA
+"Nicola",1983,"1975-1984",2407,6600,0.6,NA,"mature-run equivalent exploitation rate",NA
+"Nicola",1984,"1975-1984",4679,6600,0.6,NA,"mature-run equivalent exploitation rate",NA
+"Nicola",1985,"1985-1998",7088,6600,0.6,NA,"mature-run equivalent exploitation rate",NA
+"Nicola",1986,"1985-1998",7876,6600,0.6,NA,"mature-run equivalent exploitation rate",NA
+"Nicola",1987,"1985-1998",4445,6600,0.6,NA,"mature-run equivalent exploitation rate",NA
+"Nicola",1988,"1985-1998",3246,6600,0.6,NA,"mature-run equivalent exploitation rate",NA
+"Nicola",1989,"1985-1998",4445,6600,0.6,NA,"mature-run equivalent exploitation rate",0.36157458
+"Nicola",1990,"1985-1998",3017,6600,0.6,NA,"mature-run equivalent exploitation rate",0.369059442
+"Nicola",1991,"1985-1998",3258,6600,0.6,NA,"mature-run equivalent exploitation rate",0.339332697
+"Nicola",1992,"1985-1998",5061,6600,0.6,NA,"mature-run equivalent exploitation rate",0.464988884
+"Nicola",1993,"1985-1998",5028,6600,0.6,NA,"mature-run equivalent exploitation rate",0.370079749
+"Nicola",1994,"1985-1998",9510,6600,0.6,NA,"mature-run equivalent exploitation rate",0.193658684
+"Nicola",1995,"1985-1998",10624,6600,0.6,NA,"mature-run equivalent exploitation rate",0.15996038
+"Nicola",1996,"1985-1998",17777,6600,0.6,NA,"mature-run equivalent exploitation rate",0.237804016
+"Nicola",1997,"1985-1998",9612,6600,0.6,NA,"mature-run equivalent exploitation rate",0.22576197
+"Nicola",1998,"1985-1998",1547,6600,0.6,NA,"mature-run equivalent exploitation rate",0.376664296
+"Nicola",1999,"1999-2008",8130,6600,0.6,NA,"mature-run equivalent exploitation rate",0.110772885
+"Nicola",2000,"1999-2008",8183,6600,0.6,NA,"mature-run equivalent exploitation rate",0.198413413
+"Nicola",2001,"1999-2008",8984,6600,0.6,NA,"mature-run equivalent exploitation rate",0.165896054
+"Nicola",2002,"1999-2008",12885,6600,0.6,NA,"mature-run equivalent exploitation rate",0.111338933
+"Nicola",2003,"1999-2008",14490,6600,0.6,NA,"mature-run equivalent exploitation rate",0.147689838
+"Nicola",2004,"1999-2008",10153,6600,0.6,NA,"mature-run equivalent exploitation rate",0.340197553
+"Nicola",2005,"1999-2008",3248,6600,0.6,NA,"mature-run equivalent exploitation rate",0.562454612
+"Nicola",2006,"1999-2008",5087,6600,0.6,NA,"mature-run equivalent exploitation rate",0.313586703
+"Nicola",2007,"1999-2008",1010,6600,0.6,NA,"mature-run equivalent exploitation rate",0.634239224
+"Nicola",2008,"1999-2008",4411,6600,0.6,NA,"mature-run equivalent exploitation rate",0.435610219
+"Nicola",2009,"2009-2018",538,6600,0.6,NA,"mature-run equivalent exploitation rate",0.572244327
+"Nicola",2010,"2009-2018",5258,6600,0.6,NA,"mature-run equivalent exploitation rate",0.121210733
+"Nicola",2011,"2009-2018",2731,6600,0.6,NA,"mature-run equivalent exploitation rate",0.237331001
+"Nicola",2012,"2009-2018",5702,6600,0.6,NA,"mature-run equivalent exploitation rate",0.335087698
+"Nicola",2013,"2009-2018",3445,6600,0.6,NA,"mature-run equivalent exploitation rate",0.122069769
+"Nicola",2014,"2009-2018",7122,6600,0.6,NA,"mature-run equivalent exploitation rate",0.189268916
+"Nicola",2015,"2009-2018",4836,6600,0.6,NA,"mature-run equivalent exploitation rate",0.17584227
+"Nicola",2016,"2009-2018",2180,6600,0.6,NA,"mature-run equivalent exploitation rate",0.264233499
+"Nicola",2017,"2009-2018",1702,6600,0.6,NA,"mature-run equivalent exploitation rate",0.187000205
+"Nicola",2018,"2009-2018",1627,6600,0.6,NA,"mature-run equivalent exploitation rate",0.176914701
+"Nicola",2019,"2019-2028",3859,6600,0.6,NA,"mature-run equivalent exploitation rate",0.027450563
+"Nicola",2020,"2019-2028",3955,6600,0.6,NA,"mature-run equivalent exploitation rate",0.312278078
+"Nicola",2021,"2019-2028",4010,6600,0.6,NA,"mature-run equivalent exploitation rate",0.058803777
+"Nicola",2022,"2019-2028",7438,6600,0.6,NA,"mature-run equivalent exploitation rate",0.02886178
+"Nicola",2023,"2019-2028",4482,6600,0.6,NA,"mature-run equivalent exploitation rate",0.050751196
+"Nicola",2024,"2019-2028",2056,6600,0.6,NA,"mature-run equivalent exploitation rate",0.089150997
+"Lower Shuswap",1975,"1975-1984",31570,12339,0.73442577,NA,"mature-run equivalent exploitation rate",NA
+"Lower Shuswap",1976,"1975-1984",3347,12339,0.73442577,NA,"mature-run equivalent exploitation rate",NA
+"Lower Shuswap",1977,"1975-1984",15503,12339,0.73442577,NA,"mature-run equivalent exploitation rate",NA
+"Lower Shuswap",1978,"1975-1984",17220,12339,0.73442577,NA,"mature-run equivalent exploitation rate",NA
+"Lower Shuswap",1979,"1975-1984",16453,12339,0.73442577,NA,"mature-run equivalent exploitation rate",NA
+"Lower Shuswap",1980,"1975-1984",5723,12339,0.73442577,NA,"mature-run equivalent exploitation rate",NA
+"Lower Shuswap",1981,"1975-1984",8248,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.137448865
+"Lower Shuswap",1982,"1975-1984",3347,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.839166413
+"Lower Shuswap",1983,"1975-1984",5396,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.854321487
+"Lower Shuswap",1984,"1975-1984",7582,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.800507015
+"Lower Shuswap",1985,"1985-1998",10539,12339,0.73442577,NA,"mature-run equivalent exploitation rate",NA
+"Lower Shuswap",1986,"1985-1998",20334,12339,0.73442577,NA,"mature-run equivalent exploitation rate",NA
+"Lower Shuswap",1987,"1985-1998",16453,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.318242
+"Lower Shuswap",1988,"1985-1998",20334,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.399345095
+"Lower Shuswap",1989,"1985-1998",18378,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.367803703
+"Lower Shuswap",1990,"1985-1998",23779,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.696505454
+"Lower Shuswap",1991,"1985-1998",15795,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.828027009
+"Lower Shuswap",1992,"1985-1998",20358,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.756441607
+"Lower Shuswap",1993,"1985-1998",13828,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.495480016
+"Lower Shuswap",1994,"1985-1998",36410,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.682765473
+"Lower Shuswap",1995,"1985-1998",14177,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.573101522
+"Lower Shuswap",1996,"1985-1998",35358,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.390712898
+"Lower Shuswap",1997,"1985-1998",19393,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.533919642
+"Lower Shuswap",1998,"1985-1998",34338,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.671780688
+"Lower Shuswap",1999,"1999-2008",46369,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.429324819
+"Lower Shuswap",2000,"1999-2008",27800,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.421692327
+"Lower Shuswap",2001,"1999-2008",35743,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.238030966
+"Lower Shuswap",2002,"1999-2008",54219,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.55886107
+"Lower Shuswap",2003,"1999-2008",39910,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.403526421
+"Lower Shuswap",2004,"1999-2008",16963,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.620036271
+"Lower Shuswap",2005,"1999-2008",17893,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.728257643
+"Lower Shuswap",2006,"1999-2008",59085,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.693425802
+"Lower Shuswap",2007,"1999-2008",15926,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.650851202
+"Lower Shuswap",2008,"1999-2008",14921,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.596228527
+"Lower Shuswap",2009,"2009-2018",25288,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.627030452
+"Lower Shuswap",2010,"2009-2018",71354,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.515091705
+"Lower Shuswap",2011,"2009-2018",18895,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.628405828
+"Lower Shuswap",2012,"2009-2018",4091,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.557565851
+"Lower Shuswap",2013,"2009-2018",28797,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.388031254
+"Lower Shuswap",2014,"2009-2018",43952,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.563164622
+"Lower Shuswap",2015,"2009-2018",39440,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.403136815
+"Lower Shuswap",2016,"2009-2018",6438,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.474077946
+"Lower Shuswap",2017,"2009-2018",13430,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.466259271
+"Lower Shuswap",2018,"2009-2018",17120,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.477579249
+"Lower Shuswap",2019,"2019-2028",29649,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.233639432
+"Lower Shuswap",2020,"2019-2028",25528,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.33292174
+"Lower Shuswap",2021,"2019-2028",29507,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.258454226
+"Lower Shuswap",2022,"2019-2028",33914,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.35253823
+"Lower Shuswap",2023,"2019-2028",74517,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.195146523
+"Lower Shuswap",2024,"2019-2028",16445,12339,0.73442577,NA,"mature-run equivalent exploitation rate",0.424068886
+"Harrison",1975,"1975-1984",NA,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",NA
+"Harrison",1976,"1975-1984",NA,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",NA
+"Harrison",1977,"1975-1984",NA,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",NA
+"Harrison",1978,"1975-1984",NA,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",NA
+"Harrison",1979,"1975-1984",NA,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",NA
+"Harrison",1980,"1975-1984",NA,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",NA
+"Harrison",1981,"1975-1984",NA,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",NA
+"Harrison",1982,"1975-1984",NA,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",NA
+"Harrison",1983,"1975-1984",NA,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",NA
+"Harrison",1984,"1975-1984",120835,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.772858172
+"Harrison",1985,"1985-1998",174776,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.846710625
+"Harrison",1986,"1985-1998",162594,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.88434709
+"Harrison",1987,"1985-1998",79036,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.77132734
+"Harrison",1988,"1985-1998",35114,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.719222823
+"Harrison",1989,"1985-1998",74683,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.613008917
+"Harrison",1990,"1985-1998",177373,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.703059114
+"Harrison",1991,"1985-1998",90636,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.757671654
+"Harrison",1992,"1985-1998",130409,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.676098614
+"Harrison",1993,"1985-1998",118997,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.681246175
+"Harrison",1994,"1985-1998",98342,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.757268735
+"Harrison",1995,"1985-1998",28616,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.655555773
+"Harrison",1996,"1985-1998",37392,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.384181104
+"Harrison",1997,"1985-1998",70514,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.535720977
+"Harrison",1998,"1985-1998",200258,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.336908383
+"Harrison",1999,"1999-2008",104415,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.271758589
+"Harrison",2000,"1999-2008",77754,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.573996207
+"Harrison",2001,"1999-2008",108502,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.49764268
+"Harrison",2002,"1999-2008",83011,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.561774209
+"Harrison",2003,"1999-2008",246986,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.509286973
+"Harrison",2004,"1999-2008",139126,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.422509457
+"Harrison",2005,"1999-2008",88589,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.573523457
+"Harrison",2006,"1999-2008",60421,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.493337305
+"Harrison",2007,"1999-2008",76483,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.615183774
+"Harrison",2008,"1999-2008",41603,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.348128393
+"Harrison",2009,"2009-2018",70142,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.471419063
+"Harrison",2010,"2009-2018",103558,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.259665926
+"Harrison",2011,"2009-2018",123647,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.379022124
+"Harrison",2012,"2009-2018",44467,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.412069327
+"Harrison",2013,"2009-2018",42953,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.359010846
+"Harrison",2014,"2009-2018",44686,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.424425501
+"Harrison",2015,"2009-2018",101516,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.370735392
+"Harrison",2016,"2009-2018",41327,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.26846063
+"Harrison",2017,"2009-2018",29799,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.417728415
+"Harrison",2018,"2009-2018",46094,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.561786999
+"Harrison",2019,"2019-2028",45186,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.354506626
+"Harrison",2020,"2019-2028",43087,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.316773338
+"Harrison",2021,"2019-2028",36449,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.248911852
+"Harrison",2022,"2019-2028",81649,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.235075332
+"Harrison",2023,"2019-2028",146498,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.200954268
+"Harrison",2024,"2019-2028",131544,75072.3386,0.56764608,NA,"mature-run equivalent exploitation rate",0.156494039
+"Skagit Spring",1975,"1975-1984",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1976,"1975-1984",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1977,"1975-1984",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1978,"1975-1984",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1979,"1975-1984",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1980,"1975-1984",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1981,"1975-1984",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1982,"1975-1984",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1983,"1975-1984",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1984,"1975-1984",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1985,"1985-1998",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1986,"1985-1998",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1987,"1985-1998",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1988,"1985-1998",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",0.502546417
+"Skagit Spring",1989,"1985-1998",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",0.698502583
+"Skagit Spring",1990,"1985-1998",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",0.638552049
+"Skagit Spring",1991,"1985-1998",NA,1024,0.452,NA,"mature-run equivalent exploitation rate",0.735862847
+"Skagit Spring",1992,"1985-1998",986,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1993,"1985-1998",782,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1994,"1985-1998",470,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1995,"1985-1998",855,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Spring",1996,"1985-1998",1051,1024,0.452,NA,"mature-run equivalent exploitation rate",0.233363775
+"Skagit Spring",1997,"1985-1998",1041,1024,0.452,NA,"mature-run equivalent exploitation rate",0.32746657
+"Skagit Spring",1998,"1985-1998",1071,1024,0.452,NA,"mature-run equivalent exploitation rate",0.361567568
+"Skagit Spring",1999,"1999-2008",471,1024,0.452,NA,"mature-run equivalent exploitation rate",0.245702804
+"Skagit Spring",2000,"1999-2008",1021,1024,0.452,NA,"mature-run equivalent exploitation rate",0.284540225
+"Skagit Spring",2001,"1999-2008",1852,1024,0.452,NA,"mature-run equivalent exploitation rate",0.257252203
+"Skagit Spring",2002,"1999-2008",1026,1024,0.452,NA,"mature-run equivalent exploitation rate",0.315001793
+"Skagit Spring",2003,"1999-2008",844,1024,0.452,NA,"mature-run equivalent exploitation rate",0.376450033
+"Skagit Spring",2004,"1999-2008",1575,1024,0.452,NA,"mature-run equivalent exploitation rate",0.362658698
+"Skagit Spring",2005,"1999-2008",1208,1024,0.452,NA,"mature-run equivalent exploitation rate",0.405257819
+"Skagit Spring",2006,"1999-2008",1896,1024,0.452,NA,"mature-run equivalent exploitation rate",0.419508357
+"Skagit Spring",2007,"1999-2008",613,1024,0.452,NA,"mature-run equivalent exploitation rate",0.363359524
+"Skagit Spring",2008,"1999-2008",1470,1024,0.452,NA,"mature-run equivalent exploitation rate",0.66133289
+"Skagit Spring",2009,"2009-2018",978,1024,0.452,NA,"mature-run equivalent exploitation rate",0.564987141
+"Skagit Spring",2010,"2009-2018",1361,1024,0.452,NA,"mature-run equivalent exploitation rate",0.417466974
+"Skagit Spring",2011,"2009-2018",794,1024,0.452,NA,"mature-run equivalent exploitation rate",0.425355839
+"Skagit Spring",2012,"2009-2018",2763,1024,0.452,NA,"mature-run equivalent exploitation rate",0.456598156
+"Skagit Spring",2013,"2009-2018",1976,1024,0.452,NA,"mature-run equivalent exploitation rate",0.553734609
+"Skagit Spring",2014,"2009-2018",1608,1024,0.452,NA,"mature-run equivalent exploitation rate",0.534073916
+"Skagit Spring",2015,"2009-2018",1409,1024,0.452,NA,"mature-run equivalent exploitation rate",0.417767095
+"Skagit Spring",2016,"2009-2018",2429,1024,0.452,NA,"mature-run equivalent exploitation rate",0.345277047
+"Skagit Spring",2017,"2009-2018",2851,1024,0.452,NA,"mature-run equivalent exploitation rate",0.448778041
+"Skagit Spring",2018,"2009-2018",2376,1024,0.452,NA,"mature-run equivalent exploitation rate",0.59725822
+"Skagit Spring",2019,"2019-2028",1131,1024,0.452,NA,"mature-run equivalent exploitation rate",0.582170904
+"Skagit Spring",2020,"2019-2028",1449,1024,0.452,NA,"mature-run equivalent exploitation rate",0.408091487
+"Skagit Spring",2021,"2019-2028",1602,1024,0.452,NA,"mature-run equivalent exploitation rate",0.479198835
+"Skagit Spring",2022,"2019-2028",3487,1024,0.452,NA,"mature-run equivalent exploitation rate",0.561918041
+"Skagit Spring",2023,"2019-2028",1184,1024,0.452,NA,"mature-run equivalent exploitation rate",0.65767002
+"Skagit Spring",2024,"2019-2028",2276,1024,0.452,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1975,"1975-1984",11320,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1976,"1975-1984",14120,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1977,"1975-1984",9218,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1978,"1975-1984",13075,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1979,"1975-1984",13306,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1980,"1975-1984",20058,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1981,"1975-1984",8283,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1982,"1975-1984",9910,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1983,"1975-1984",8723,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1984,"1975-1984",12628,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1985,"1985-1998",16002,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1986,"1985-1998",17908,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1987,"1985-1998",9409,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1988,"1985-1998",11468,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1989,"1985-1998",6684,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1990,"1985-1998",16521,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1991,"1985-1998",5824,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1992,"1985-1998",7348,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1993,"1985-1998",5801,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1994,"1985-1998",5561,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1995,"1985-1998",6892,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1996,"1985-1998",10613,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Skagit Summer-Fall",1997,"1985-1998",4872,8201,0.59,NA,"mature-run equivalent exploitation rate",0.689555369
+"Skagit Summer-Fall",1998,"1985-1998",14609,8201,0.59,NA,"mature-run equivalent exploitation rate",0.144697617
+"Skagit Summer-Fall",1999,"1999-2008",4924,8201,0.59,NA,"mature-run equivalent exploitation rate",0.431670549
+"Skagit Summer-Fall",2000,"1999-2008",16930,8201,0.59,NA,"mature-run equivalent exploitation rate",0.214817527
+"Skagit Summer-Fall",2001,"1999-2008",13793,8201,0.59,NA,"mature-run equivalent exploitation rate",0.263604845
+"Skagit Summer-Fall",2002,"1999-2008",19591,8201,0.59,NA,"mature-run equivalent exploitation rate",0.316825867
+"Skagit Summer-Fall",2003,"1999-2008",9777,8201,0.59,NA,"mature-run equivalent exploitation rate",0.437508992
+"Skagit Summer-Fall",2004,"1999-2008",23553,8201,0.59,NA,"mature-run equivalent exploitation rate",0.329946389
+"Skagit Summer-Fall",2005,"1999-2008",20803,8201,0.59,NA,"mature-run equivalent exploitation rate",0.315575606
+"Skagit Summer-Fall",2006,"1999-2008",20768,8201,0.59,NA,"mature-run equivalent exploitation rate",0.338237435
+"Skagit Summer-Fall",2007,"1999-2008",11281,8201,0.59,NA,"mature-run equivalent exploitation rate",0.343820963
+"Skagit Summer-Fall",2008,"1999-2008",11664,8201,0.59,NA,"mature-run equivalent exploitation rate",0.519657627
+"Skagit Summer-Fall",2009,"2009-2018",6979,8201,0.59,NA,"mature-run equivalent exploitation rate",0.732055438
+"Skagit Summer-Fall",2010,"2009-2018",8017,8201,0.59,NA,"mature-run equivalent exploitation rate",0.447117038
+"Skagit Summer-Fall",2011,"2009-2018",5510,8201,0.59,NA,"mature-run equivalent exploitation rate",0.551616798
+"Skagit Summer-Fall",2012,"2009-2018",13817,8201,0.59,NA,"mature-run equivalent exploitation rate",0.425169373
+"Skagit Summer-Fall",2013,"2009-2018",10882,8201,0.59,NA,"mature-run equivalent exploitation rate",0.517644688
+"Skagit Summer-Fall",2014,"2009-2018",10480,8201,0.59,NA,"mature-run equivalent exploitation rate",0.519541723
+"Skagit Summer-Fall",2015,"2009-2018",13076,8201,0.59,NA,"mature-run equivalent exploitation rate",0.440484418
+"Skagit Summer-Fall",2016,"2009-2018",19290,8201,0.59,NA,"mature-run equivalent exploitation rate",0.509655803
+"Skagit Summer-Fall",2017,"2009-2018",12579,8201,0.59,NA,"mature-run equivalent exploitation rate",0.669043033
+"Skagit Summer-Fall",2018,"2009-2018",10903,8201,0.59,NA,"mature-run equivalent exploitation rate",0.539775939
+"Skagit Summer-Fall",2019,"2019-2028",11810,8201,0.59,NA,"mature-run equivalent exploitation rate",0.374106541
+"Skagit Summer-Fall",2020,"2019-2028",10865,8201,0.59,NA,"mature-run equivalent exploitation rate",0.296438792
+"Skagit Summer-Fall",2021,"2019-2028",9177,8201,0.59,NA,"mature-run equivalent exploitation rate",0.275244076
+"Skagit Summer-Fall",2022,"2019-2028",17323,8201,0.59,NA,"mature-run equivalent exploitation rate",0.382732606
+"Skagit Summer-Fall",2023,"2019-2028",11788,8201,0.59,NA,"mature-run equivalent exploitation rate",0.349641988
+"Skagit Summer-Fall",2024,"2019-2028",9386,8201,0.59,NA,"mature-run equivalent exploitation rate",NA
+"Grays Harbor Fall",1975,"1975-1984",4251,13326,0.673,NA,"mature-run equivalent exploitation rate",NA
+"Grays Harbor Fall",1976,"1975-1984",1836,13326,0.673,NA,"mature-run equivalent exploitation rate",NA
+"Grays Harbor Fall",1977,"1975-1984",5195,13326,0.673,NA,"mature-run equivalent exploitation rate",NA
+"Grays Harbor Fall",1978,"1975-1984",4555,13326,0.673,NA,"mature-run equivalent exploitation rate",NA
+"Grays Harbor Fall",1979,"1975-1984",9381,13326,0.673,NA,"mature-run equivalent exploitation rate",NA
+"Grays Harbor Fall",1980,"1975-1984",11656,13326,0.673,NA,"mature-run equivalent exploitation rate",NA
+"Grays Harbor Fall",1981,"1975-1984",7577,13326,0.673,NA,"mature-run equivalent exploitation rate",0.552795431
+"Grays Harbor Fall",1982,"1975-1984",5606,13326,0.673,NA,"mature-run equivalent exploitation rate",0.772978556
+"Grays Harbor Fall",1983,"1975-1984",5482,13326,0.673,NA,"mature-run equivalent exploitation rate",0.78568687
+"Grays Harbor Fall",1984,"1975-1984",21058,13326,0.673,NA,"mature-run equivalent exploitation rate",0.612308152
+"Grays Harbor Fall",1985,"1985-1998",9537,13326,0.673,NA,"mature-run equivalent exploitation rate",0.753121011
+"Grays Harbor Fall",1986,"1985-1998",13808,13326,0.673,NA,"mature-run equivalent exploitation rate",0.602609188
+"Grays Harbor Fall",1987,"1985-1998",19013,13326,0.673,NA,"mature-run equivalent exploitation rate",0.586283807
+"Grays Harbor Fall",1988,"1985-1998",28158,13326,0.673,NA,"mature-run equivalent exploitation rate",0.669480019
+"Grays Harbor Fall",1989,"1985-1998",25677,13326,0.673,NA,"mature-run equivalent exploitation rate",0.601141259
+"Grays Harbor Fall",1990,"1985-1998",16995,13326,0.673,NA,"mature-run equivalent exploitation rate",0.700040555
+"Grays Harbor Fall",1991,"1985-1998",14392,13326,0.673,NA,"mature-run equivalent exploitation rate",0.776666234
+"Grays Harbor Fall",1992,"1985-1998",16592,13326,0.673,NA,"mature-run equivalent exploitation rate",0.755694905
+"Grays Harbor Fall",1993,"1985-1998",13349,13326,0.673,NA,"mature-run equivalent exploitation rate",0.755324121
+"Grays Harbor Fall",1994,"1985-1998",14320,13326,0.673,NA,"mature-run equivalent exploitation rate",0.769746591
+"Grays Harbor Fall",1995,"1985-1998",12727,13326,0.673,NA,"mature-run equivalent exploitation rate",0.770574309
+"Grays Harbor Fall",1996,"1985-1998",20227,13326,0.673,NA,"mature-run equivalent exploitation rate",0.571099493
+"Grays Harbor Fall",1997,"1985-1998",18168,13326,0.673,NA,"mature-run equivalent exploitation rate",0.640756328
+"Grays Harbor Fall",1998,"1985-1998",12529,13326,0.673,NA,"mature-run equivalent exploitation rate",0.723619517
+"Grays Harbor Fall",1999,"1999-2008",10363,13326,0.673,NA,"mature-run equivalent exploitation rate",0.345580444
+"Grays Harbor Fall",2000,"1999-2008",9385,13326,0.673,NA,"mature-run equivalent exploitation rate",0.558500871
+"Grays Harbor Fall",2001,"1999-2008",9492,13326,0.673,NA,"mature-run equivalent exploitation rate",0.585863403
+"Grays Harbor Fall",2002,"1999-2008",11841,13326,0.673,NA,"mature-run equivalent exploitation rate",0.416597059
+"Grays Harbor Fall",2003,"1999-2008",19871,13326,0.673,NA,"mature-run equivalent exploitation rate",0.371487405
+"Grays Harbor Fall",2004,"1999-2008",31773,13326,0.673,NA,"mature-run equivalent exploitation rate",0.47722477
+"Grays Harbor Fall",2005,"1999-2008",19695,13326,0.673,NA,"mature-run equivalent exploitation rate",0.380937923
+"Grays Harbor Fall",2006,"1999-2008",17428,13326,0.673,NA,"mature-run equivalent exploitation rate",0.565444286
+"Grays Harbor Fall",2007,"1999-2008",13117,13326,0.673,NA,"mature-run equivalent exploitation rate",0.653192435
+"Grays Harbor Fall",2008,"1999-2008",15391,13326,0.673,NA,"mature-run equivalent exploitation rate",0.470173945
+"Grays Harbor Fall",2009,"2009-2018",9291,13326,0.673,NA,"mature-run equivalent exploitation rate",0.61401305
+"Grays Harbor Fall",2010,"2009-2018",18166,13326,0.673,NA,"mature-run equivalent exploitation rate",0.549525081
+"Grays Harbor Fall",2011,"2009-2018",22870,13326,0.673,NA,"mature-run equivalent exploitation rate",0.574202291
+"Grays Harbor Fall",2012,"2009-2018",14032,13326,0.673,NA,"mature-run equivalent exploitation rate",0.755153744
+"Grays Harbor Fall",2013,"2009-2018",12503,13326,0.673,NA,"mature-run equivalent exploitation rate",0.722299137
+"Grays Harbor Fall",2014,"2009-2018",11893,13326,0.673,NA,"mature-run equivalent exploitation rate",0.64884797
+"Grays Harbor Fall",2015,"2009-2018",17304,13326,0.673,NA,"mature-run equivalent exploitation rate",0.702961238
+"Grays Harbor Fall",2016,"2009-2018",11248,13326,0.673,NA,"mature-run equivalent exploitation rate",0.619051334
+"Grays Harbor Fall",2017,"2009-2018",17145,13326,0.673,NA,"mature-run equivalent exploitation rate",0.561555364
+"Grays Harbor Fall",2018,"2009-2018",20730,13326,0.673,NA,"mature-run equivalent exploitation rate",0.625541555
+"Grays Harbor Fall",2019,"2019-2028",14890,13326,0.673,NA,"mature-run equivalent exploitation rate",0.609859786
+"Grays Harbor Fall",2020,"2019-2028",20879,13326,0.673,NA,"mature-run equivalent exploitation rate",0.623963975
+"Grays Harbor Fall",2021,"2019-2028",13207,13326,0.673,NA,"mature-run equivalent exploitation rate",0.602628637
+"Grays Harbor Fall",2022,"2019-2028",14259,13326,0.673,NA,"mature-run equivalent exploitation rate",0.647731277
+"Grays Harbor Fall",2023,"2019-2028",10943,13326,0.673,NA,"mature-run equivalent exploitation rate",0.621582484
+"Grays Harbor Fall",2024,"2019-2028",13803,13326,0.673,NA,"mature-run equivalent exploitation rate",NA
+"Queets Fall",1975,"1975-1984",NA,2500,0.87,NA,"mature-run equivalent exploitation rate",NA
+"Queets Fall",1976,"1975-1984",1200,2500,0.87,NA,"mature-run equivalent exploitation rate",NA
+"Queets Fall",1977,"1975-1984",3600,2500,0.87,NA,"mature-run equivalent exploitation rate",NA
+"Queets Fall",1978,"1975-1984",2200,2500,0.87,NA,"mature-run equivalent exploitation rate",NA
+"Queets Fall",1979,"1975-1984",3900,2500,0.87,NA,"mature-run equivalent exploitation rate",NA
+"Queets Fall",1980,"1975-1984",3200,2500,0.87,NA,"mature-run equivalent exploitation rate",NA
+"Queets Fall",1981,"1975-1984",4250,2500,0.87,NA,"mature-run equivalent exploitation rate",0.659486701
+"Queets Fall",1982,"1975-1984",4150,2500,0.87,NA,"mature-run equivalent exploitation rate",0.73460358
+"Queets Fall",1983,"1975-1984",2750,2500,0.87,NA,"mature-run equivalent exploitation rate",0.815462609
+"Queets Fall",1984,"1975-1984",4350,2500,0.87,NA,"mature-run equivalent exploitation rate",0.827395616
+"Queets Fall",1985,"1985-1998",4150,2500,0.87,NA,"mature-run equivalent exploitation rate",0.723611857
+"Queets Fall",1986,"1985-1998",7894,2500,0.87,NA,"mature-run equivalent exploitation rate",0.464859343
+"Queets Fall",1987,"1985-1998",6557,2500,0.87,NA,"mature-run equivalent exploitation rate",0.579575624
+"Queets Fall",1988,"1985-1998",9494,2500,0.87,NA,"mature-run equivalent exploitation rate",0.648419562
+"Queets Fall",1989,"1985-1998",9324,2500,0.87,NA,"mature-run equivalent exploitation rate",0.508480348
+"Queets Fall",1990,"1985-1998",10569,2500,0.87,NA,"mature-run equivalent exploitation rate",0.44028722
+"Queets Fall",1991,"1985-1998",4795,2500,0.87,NA,"mature-run equivalent exploitation rate",0.630662512
+"Queets Fall",1992,"1985-1998",4911,2500,0.87,NA,"mature-run equivalent exploitation rate",0.68702016
+"Queets Fall",1993,"1985-1998",3463,2500,0.87,NA,"mature-run equivalent exploitation rate",0.607468699
+"Queets Fall",1994,"1985-1998",4233,2500,0.87,NA,"mature-run equivalent exploitation rate",0.719558193
+"Queets Fall",1995,"1985-1998",3127,2500,0.87,NA,"mature-run equivalent exploitation rate",0.679367359
+"Queets Fall",1996,"1985-1998",4218,2500,0.87,NA,"mature-run equivalent exploitation rate",0.45641875
+"Queets Fall",1997,"1985-1998",2872,2500,0.87,NA,"mature-run equivalent exploitation rate",0.617815448
+"Queets Fall",1998,"1985-1998",3875,2500,0.87,NA,"mature-run equivalent exploitation rate",0.677769385
+"Queets Fall",1999,"1999-2008",1929,2500,0.87,NA,"mature-run equivalent exploitation rate",0.305208422
+"Queets Fall",2000,"1999-2008",3410,2500,0.87,NA,"mature-run equivalent exploitation rate",0.293025825
+"Queets Fall",2001,"1999-2008",2872,2500,0.87,NA,"mature-run equivalent exploitation rate",0.317696861
+"Queets Fall",2002,"1999-2008",2419,2500,0.87,NA,"mature-run equivalent exploitation rate",0.463243093
+"Queets Fall",2003,"1999-2008",4886,2500,0.87,NA,"mature-run equivalent exploitation rate",0.418813935
+"Queets Fall",2004,"1999-2008",4978,2500,0.87,NA,"mature-run equivalent exploitation rate",0.414463735
+"Queets Fall",2005,"1999-2008",4401,2500,0.87,NA,"mature-run equivalent exploitation rate",0.453008794
+"Queets Fall",2006,"1999-2008",2931,2500,0.87,NA,"mature-run equivalent exploitation rate",0.566393534
+"Queets Fall",2007,"1999-2008",768,2500,0.87,NA,"mature-run equivalent exploitation rate",0.701512313
+"Queets Fall",2008,"1999-2008",2971,2500,0.87,NA,"mature-run equivalent exploitation rate",0.553282126
+"Queets Fall",2009,"2009-2018",4010,2500,0.87,NA,"mature-run equivalent exploitation rate",0.623910432
+"Queets Fall",2010,"2009-2018",3861,2500,0.87,NA,"mature-run equivalent exploitation rate",0.512699258
+"Queets Fall",2011,"2009-2018",3710,2500,0.87,NA,"mature-run equivalent exploitation rate",0.571235723
+"Queets Fall",2012,"2009-2018",3586,2500,0.87,NA,"mature-run equivalent exploitation rate",0.80044691
+"Queets Fall",2013,"2009-2018",2502,2500,0.87,NA,"mature-run equivalent exploitation rate",0.760654853
+"Queets Fall",2014,"2009-2018",3684,2500,0.87,NA,"mature-run equivalent exploitation rate",0.621139231
+"Queets Fall",2015,"2009-2018",5313,2500,0.87,NA,"mature-run equivalent exploitation rate",0.548024956
+"Queets Fall",2016,"2009-2018",2915,2500,0.87,NA,"mature-run equivalent exploitation rate",0.591935542
+"Queets Fall",2017,"2009-2018",2707,2500,0.87,NA,"mature-run equivalent exploitation rate",0.623694954
+"Queets Fall",2018,"2009-2018",2095,2500,0.87,NA,"mature-run equivalent exploitation rate",0.658626418
+"Queets Fall",2019,"2019-2028",2504,2500,0.87,NA,"mature-run equivalent exploitation rate",0.709024558
+"Queets Fall",2020,"2019-2028",3459,2500,0.87,NA,"mature-run equivalent exploitation rate",0.758076591
+"Queets Fall",2021,"2019-2028",3187,2500,0.87,NA,"mature-run equivalent exploitation rate",0.699658891
+"Queets Fall",2022,"2019-2028",1643,2500,0.87,NA,"mature-run equivalent exploitation rate",0.826132517
+"Queets Fall",2023,"2019-2028",2058,2500,0.87,NA,"mature-run equivalent exploitation rate",0.725769693
+"Queets Fall",2024,"2019-2028",4068,2500,0.87,NA,"mature-run equivalent exploitation rate",NA
+"Quillayute Fall",1975,"1975-1984",NA,3000,0.87,NA,"mature-run equivalent exploitation rate",NA
+"Quillayute Fall",1976,"1975-1984",2500,3000,0.87,NA,"mature-run equivalent exploitation rate",NA
+"Quillayute Fall",1977,"1975-1984",3300,3000,0.87,NA,"mature-run equivalent exploitation rate",NA
+"Quillayute Fall",1978,"1975-1984",4700,3000,0.87,NA,"mature-run equivalent exploitation rate",NA
+"Quillayute Fall",1979,"1975-1984",3900,3000,0.87,NA,"mature-run equivalent exploitation rate",NA
+"Quillayute Fall",1980,"1975-1984",6700,3000,0.87,NA,"mature-run equivalent exploitation rate",NA
+"Quillayute Fall",1981,"1975-1984",5963,3000,0.87,NA,"mature-run equivalent exploitation rate",0.342899065
+"Quillayute Fall",1982,"1975-1984",7107,3000,0.87,NA,"mature-run equivalent exploitation rate",0.586416379
+"Quillayute Fall",1983,"1975-1984",3069,3000,0.87,NA,"mature-run equivalent exploitation rate",0.802090204
+"Quillayute Fall",1984,"1975-1984",9128,3000,0.87,NA,"mature-run equivalent exploitation rate",0.628461979
+"Quillayute Fall",1985,"1985-1998",6145,3000,0.87,NA,"mature-run equivalent exploitation rate",0.705829256
+"Quillayute Fall",1986,"1985-1998",10006,3000,0.87,NA,"mature-run equivalent exploitation rate",0.537716442
+"Quillayute Fall",1987,"1985-1998",12352,3000,0.87,NA,"mature-run equivalent exploitation rate",0.590333231
+"Quillayute Fall",1988,"1985-1998",15168,3000,0.87,NA,"mature-run equivalent exploitation rate",0.681549569
+"Quillayute Fall",1989,"1985-1998",9951,3000,0.87,NA,"mature-run equivalent exploitation rate",0.509096934
+"Quillayute Fall",1990,"1985-1998",13711,3000,0.87,NA,"mature-run equivalent exploitation rate",0.440167855
+"Quillayute Fall",1991,"1985-1998",6292,3000,0.87,NA,"mature-run equivalent exploitation rate",0.587383356
+"Quillayute Fall",1992,"1985-1998",6342,3000,0.87,NA,"mature-run equivalent exploitation rate",0.617161748
+"Quillayute Fall",1993,"1985-1998",5254,3000,0.87,NA,"mature-run equivalent exploitation rate",0.478783476
+"Quillayute Fall",1994,"1985-1998",4932,3000,0.87,NA,"mature-run equivalent exploitation rate",0.58754193
+"Quillayute Fall",1995,"1985-1998",5532,3000,0.87,NA,"mature-run equivalent exploitation rate",0.547200614
+"Quillayute Fall",1996,"1985-1998",7316,3000,0.87,NA,"mature-run equivalent exploitation rate",0.450252934
+"Quillayute Fall",1997,"1985-1998",5405,3000,0.87,NA,"mature-run equivalent exploitation rate",0.465617566
+"Quillayute Fall",1998,"1985-1998",6752,3000,0.87,NA,"mature-run equivalent exploitation rate",0.635212096
+"Quillayute Fall",1999,"1999-2008",3334,3000,0.87,NA,"mature-run equivalent exploitation rate",0.451258244
+"Quillayute Fall",2000,"1999-2008",3730,3000,0.87,NA,"mature-run equivalent exploitation rate",0.429424713
+"Quillayute Fall",2001,"1999-2008",5136,3000,0.87,NA,"mature-run equivalent exploitation rate",0.434815585
+"Quillayute Fall",2002,"1999-2008",6067,3000,0.87,NA,"mature-run equivalent exploitation rate",0.505224983
+"Quillayute Fall",2003,"1999-2008",7398,3000,0.87,NA,"mature-run equivalent exploitation rate",0.456402728
+"Quillayute Fall",2004,"1999-2008",3831,3000,0.87,NA,"mature-run equivalent exploitation rate",0.576768758
+"Quillayute Fall",2005,"1999-2008",6406,3000,0.87,NA,"mature-run equivalent exploitation rate",0.460771721
+"Quillayute Fall",2006,"1999-2008",5642,3000,0.87,NA,"mature-run equivalent exploitation rate",0.590973741
+"Quillayute Fall",2007,"1999-2008",3066,3000,0.87,NA,"mature-run equivalent exploitation rate",0.658265418
+"Quillayute Fall",2008,"1999-2008",3612,3000,0.87,NA,"mature-run equivalent exploitation rate",0.566047231
+"Quillayute Fall",2009,"2009-2018",3130,3000,0.87,NA,"mature-run equivalent exploitation rate",0.700537054
+"Quillayute Fall",2010,"2009-2018",4635,3000,0.87,NA,"mature-run equivalent exploitation rate",0.585187679
+"Quillayute Fall",2011,"2009-2018",3963,3000,0.87,NA,"mature-run equivalent exploitation rate",0.624785778
+"Quillayute Fall",2012,"2009-2018",3518,3000,0.87,NA,"mature-run equivalent exploitation rate",0.786772962
+"Quillayute Fall",2013,"2009-2018",3901,3000,0.87,NA,"mature-run equivalent exploitation rate",0.764575985
+"Quillayute Fall",2014,"2009-2018",2782,3000,0.87,NA,"mature-run equivalent exploitation rate",0.806611925
+"Quillayute Fall",2015,"2009-2018",3440,3000,0.87,NA,"mature-run equivalent exploitation rate",0.735281518
+"Quillayute Fall",2016,"2009-2018",3654,3000,0.87,NA,"mature-run equivalent exploitation rate",0.622669571
+"Quillayute Fall",2017,"2009-2018",3604,3000,0.87,NA,"mature-run equivalent exploitation rate",0.736234502
+"Quillayute Fall",2018,"2009-2018",3937,3000,0.87,NA,"mature-run equivalent exploitation rate",0.718556841
+"Quillayute Fall",2019,"2019-2028",7765,3000,0.87,NA,"mature-run equivalent exploitation rate",0.62692842
+"Quillayute Fall",2020,"2019-2028",8672,3000,0.87,NA,"mature-run equivalent exploitation rate",0.635119555
+"Quillayute Fall",2021,"2019-2028",5568,3000,0.87,NA,"mature-run equivalent exploitation rate",0.604586131
+"Quillayute Fall",2022,"2019-2028",8369,3000,0.87,NA,"mature-run equivalent exploitation rate",0.650203338
+"Quillayute Fall",2023,"2019-2028",6682,3000,0.87,NA,"mature-run equivalent exploitation rate",0.694000881
+"Quillayute Fall",2024,"2019-2028",5378,3000,0.87,NA,"mature-run equivalent exploitation rate",NA
+"Hoh Fall",1975,"1975-1984",NA,1200,0.9,NA,"mature-run equivalent exploitation rate",NA
+"Hoh Fall",1976,"1975-1984",2500,1200,0.9,NA,"mature-run equivalent exploitation rate",NA
+"Hoh Fall",1977,"1975-1984",2100,1200,0.9,NA,"mature-run equivalent exploitation rate",NA
+"Hoh Fall",1978,"1975-1984",1900,1200,0.9,NA,"mature-run equivalent exploitation rate",NA
+"Hoh Fall",1979,"1975-1984",1700,1200,0.9,NA,"mature-run equivalent exploitation rate",NA
+"Hoh Fall",1980,"1975-1984",2200,1200,0.9,NA,"mature-run equivalent exploitation rate",NA
+"Hoh Fall",1981,"1975-1984",3100,1200,0.9,NA,"mature-run equivalent exploitation rate",0.393023571
+"Hoh Fall",1982,"1975-1984",4500,1200,0.9,NA,"mature-run equivalent exploitation rate",0.563939009
+"Hoh Fall",1983,"1975-1984",2500,1200,0.9,NA,"mature-run equivalent exploitation rate",0.730058171
+"Hoh Fall",1984,"1975-1984",1900,1200,0.9,NA,"mature-run equivalent exploitation rate",0.68925138
+"Hoh Fall",1985,"1985-1998",1725,1200,0.9,NA,"mature-run equivalent exploitation rate",0.745907014
+"Hoh Fall",1986,"1985-1998",4981,1200,0.9,NA,"mature-run equivalent exploitation rate",0.487038298
+"Hoh Fall",1987,"1985-1998",4006,1200,0.9,NA,"mature-run equivalent exploitation rate",0.559962548
+"Hoh Fall",1988,"1985-1998",4128,1200,0.9,NA,"mature-run equivalent exploitation rate",0.722400353
+"Hoh Fall",1989,"1985-1998",5148,1200,0.9,NA,"mature-run equivalent exploitation rate",0.495460737
+"Hoh Fall",1990,"1985-1998",4236,1200,0.9,NA,"mature-run equivalent exploitation rate",0.538311268
+"Hoh Fall",1991,"1985-1998",1420,1200,0.9,NA,"mature-run equivalent exploitation rate",0.729595889
+"Hoh Fall",1992,"1985-1998",4003,1200,0.9,NA,"mature-run equivalent exploitation rate",0.635414427
+"Hoh Fall",1993,"1985-1998",2280,1200,0.9,NA,"mature-run equivalent exploitation rate",0.560152431
+"Hoh Fall",1994,"1985-1998",3967,1200,0.9,NA,"mature-run equivalent exploitation rate",0.563279691
+"Hoh Fall",1995,"1985-1998",2202,1200,0.9,NA,"mature-run equivalent exploitation rate",0.584062776
+"Hoh Fall",1996,"1985-1998",3022,1200,0.9,NA,"mature-run equivalent exploitation rate",0.479591405
+"Hoh Fall",1997,"1985-1998",1773,1200,0.9,NA,"mature-run equivalent exploitation rate",0.650917962
+"Hoh Fall",1998,"1985-1998",4257,1200,0.9,NA,"mature-run equivalent exploitation rate",0.66096183
+"Hoh Fall",1999,"1999-2008",1924,1200,0.9,NA,"mature-run equivalent exploitation rate",0.487266975
+"Hoh Fall",2000,"1999-2008",1749,1200,0.9,NA,"mature-run equivalent exploitation rate",0.513030861
+"Hoh Fall",2001,"1999-2008",2560,1200,0.9,NA,"mature-run equivalent exploitation rate",0.472162573
+"Hoh Fall",2002,"1999-2008",4415,1200,0.9,NA,"mature-run equivalent exploitation rate",0.396559441
+"Hoh Fall",2003,"1999-2008",1649,1200,0.9,NA,"mature-run equivalent exploitation rate",0.50373258
+"Hoh Fall",2004,"1999-2008",3282,1200,0.9,NA,"mature-run equivalent exploitation rate",0.50160289
+"Hoh Fall",2005,"1999-2008",4180,1200,0.9,NA,"mature-run equivalent exploitation rate",0.449566977
+"Hoh Fall",2006,"1999-2008",1535,1200,0.9,NA,"mature-run equivalent exploitation rate",0.635372792
+"Hoh Fall",2007,"1999-2008",1556,1200,0.9,NA,"mature-run equivalent exploitation rate",0.704383445
+"Hoh Fall",2008,"1999-2008",2999,1200,0.9,NA,"mature-run equivalent exploitation rate",0.516218352
+"Hoh Fall",2009,"2009-2018",2081,1200,0.9,NA,"mature-run equivalent exploitation rate",0.574122114
+"Hoh Fall",2010,"2009-2018",2599,1200,0.9,NA,"mature-run equivalent exploitation rate",0.492590057
+"Hoh Fall",2011,"2009-2018",1293,1200,0.9,NA,"mature-run equivalent exploitation rate",0.61710221
+"Hoh Fall",2012,"2009-2018",1937,1200,0.9,NA,"mature-run equivalent exploitation rate",0.739344134
+"Hoh Fall",2013,"2009-2018",1269,1200,0.9,NA,"mature-run equivalent exploitation rate",0.840425624
+"Hoh Fall",2014,"2009-2018",1933,1200,0.9,NA,"mature-run equivalent exploitation rate",0.63103591
+"Hoh Fall",2015,"2009-2018",1795,1200,0.9,NA,"mature-run equivalent exploitation rate",0.622417048
+"Hoh Fall",2016,"2009-2018",2831,1200,0.9,NA,"mature-run equivalent exploitation rate",0.514122461
+"Hoh Fall",2017,"2009-2018",1808,1200,0.9,NA,"mature-run equivalent exploitation rate",0.586592707
+"Hoh Fall",2018,"2009-2018",2478,1200,0.9,NA,"mature-run equivalent exploitation rate",0.561293884
+"Hoh Fall",2019,"2019-2028",1552,1200,0.9,NA,"mature-run equivalent exploitation rate",0.707394839
+"Hoh Fall",2020,"2019-2028",2273,1200,0.9,NA,"mature-run equivalent exploitation rate",0.714603066
+"Hoh Fall",2021,"2019-2028",2622,1200,0.9,NA,"mature-run equivalent exploitation rate",0.675545303
+"Hoh Fall",2022,"2019-2028",1866,1200,0.9,NA,"mature-run equivalent exploitation rate",0.686460236
+"Hoh Fall",2023,"2019-2028",2323,1200,0.9,NA,"mature-run equivalent exploitation rate",0.705721777
+"Hoh Fall",2024,"2019-2028",2158,1200,0.9,NA,"mature-run equivalent exploitation rate",NA
+"Upriver Brights",1975,"1975-1984",29600,40000,0.5628,NA,"mature-run equivalent exploitation rate",NA
+"Upriver Brights",1976,"1975-1984",27700,40000,0.5628,NA,"mature-run equivalent exploitation rate",NA
+"Upriver Brights",1977,"1975-1984",36060,40000,0.5628,NA,"mature-run equivalent exploitation rate",NA
+"Upriver Brights",1978,"1975-1984",25798,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.382263181
+"Upriver Brights",1979,"1975-1984",28926,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.748349918
+"Upriver Brights",1980,"1975-1984",27658,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.643880212
+"Upriver Brights",1981,"1975-1984",19520,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.587000793
+"Upriver Brights",1982,"1975-1984",28313,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.362870312
+"Upriver Brights",1983,"1975-1984",45402,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.442227059
+"Upriver Brights",1984,"1975-1984",53947,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.65630649
+"Upriver Brights",1985,"1985-1998",80756,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.805554007
+"Upriver Brights",1986,"1985-1998",92796,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.720021341
+"Upriver Brights",1987,"1985-1998",125632,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.784409157
+"Upriver Brights",1988,"1985-1998",97719,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.86461062
+"Upriver Brights",1989,"1985-1998",82926,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.883411558
+"Upriver Brights",1990,"1985-1998",48820,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.775975944
+"Upriver Brights",1991,"1985-1998",40066,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.667399898
+"Upriver Brights",1992,"1985-1998",41429,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.464262056
+"Upriver Brights",1993,"1985-1998",42515,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.558695184
+"Upriver Brights",1994,"1985-1998",66637,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.561328919
+"Upriver Brights",1995,"1985-1998",50546,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.487624261
+"Upriver Brights",1996,"1985-1998",53049,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.361457928
+"Upriver Brights",1997,"1985-1998",50198,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.555447539
+"Upriver Brights",1998,"1985-1998",41936,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.433909914
+"Upriver Brights",1999,"1999-2008",43549,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.450155103
+"Upriver Brights",2000,"1999-2008",49579,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.612181392
+"Upriver Brights",2001,"1999-2008",84445,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.386700115
+"Upriver Brights",2002,"1999-2008",116628,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.503388435
+"Upriver Brights",2003,"1999-2008",160609,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.477448838
+"Upriver Brights",2004,"1999-2008",147623,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.461332559
+"Upriver Brights",2005,"1999-2008",110116,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.576524404
+"Upriver Brights",2006,"1999-2008",75483,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.689152804
+"Upriver Brights",2007,"1999-2008",44698,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.677303551
+"Upriver Brights",2008,"1999-2008",72406,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.464532013
+"Upriver Brights",2009,"2009-2018",83778,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.762971939
+"Upriver Brights",2010,"2009-2018",164917,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.43266567
+"Upriver Brights",2011,"2009-2018",128280,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.678782948
+"Upriver Brights",2012,"2009-2018",128074,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.568003505
+"Upriver Brights",2013,"2009-2018",365920,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.503294667
+"Upriver Brights",2014,"2009-2018",297063,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.554564877
+"Upriver Brights",2015,"2009-2018",383944,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.448167025
+"Upriver Brights",2016,"2009-2018",186006,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.548963809
+"Upriver Brights",2017,"2009-2018",124748,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.609660767
+"Upriver Brights",2018,"2009-2018",73893,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.441259207
+"Upriver Brights",2019,"2019-2028",94796,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.392356413
+"Upriver Brights",2020,"2019-2028",125815,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.358004005
+"Upriver Brights",2021,"2019-2028",117077,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.438507278
+"Upriver Brights",2022,"2019-2028",95558,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.445287391
+"Upriver Brights",2023,"2019-2028",103116,40000,0.5628,NA,"mature-run equivalent exploitation rate",0.32569259
+"Upriver Brights",2024,"2019-2028",101051,40000,0.5628,NA,"mature-run equivalent exploitation rate",NA
+"Lewis",1975,"1975-1984",13859,5791,0.759118235,NA,"mature-run equivalent exploitation rate",NA
+"Lewis",1976,"1975-1984",3371,5791,0.759118235,NA,"mature-run equivalent exploitation rate",NA
+"Lewis",1977,"1975-1984",6930,5791,0.759118235,NA,"mature-run equivalent exploitation rate",NA
+"Lewis",1978,"1975-1984",5363,5791,0.759118235,NA,"mature-run equivalent exploitation rate",NA
+"Lewis",1979,"1975-1984",8023,5791,0.759118235,NA,"mature-run equivalent exploitation rate",NA
+"Lewis",1980,"1975-1984",13839,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.385185927
+"Lewis",1981,"1975-1984",19297,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.413963764
+"Lewis",1982,"1975-1984",8370,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.564017486
+"Lewis",1983,"1975-1984",13540,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.420309221
+"Lewis",1984,"1975-1984",7132,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.679113931
+"Lewis",1985,"1985-1998",7491,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.574853776
+"Lewis",1986,"1985-1998",10472,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.573130647
+"Lewis",1987,"1985-1998",12210,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.607127074
+"Lewis",1988,"1985-1998",11165,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.695154022
+"Lewis",1989,"1985-1998",20058,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.41301878
+"Lewis",1990,"1985-1998",15378,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.395294306
+"Lewis",1991,"1985-1998",8787,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.515199851
+"Lewis",1992,"1985-1998",5508,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.449220963
+"Lewis",1993,"1985-1998",6462,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.48389784
+"Lewis",1994,"1985-1998",8456,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.14796211
+"Lewis",1995,"1985-1998",9715,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.451823098
+"Lewis",1996,"1985-1998",13077,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.264255769
+"Lewis",1997,"1985-1998",8168,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.244067694
+"Lewis",1998,"1985-1998",5173,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.222505929
+"Lewis",1999,"1999-2008",2417,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.270764603
+"Lewis",2000,"1999-2008",8741,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.19752722
+"Lewis",2001,"1999-2008",11274,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.220377968
+"Lewis",2002,"1999-2008",13293,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.411061202
+"Lewis",2003,"1999-2008",12912,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.324340431
+"Lewis",2004,"1999-2008",12928,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.230394647
+"Lewis",2005,"1999-2008",9775,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.453083912
+"Lewis",2006,"1999-2008",5066,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.640643288
+"Lewis",2007,"1999-2008",3708,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.624707014
+"Lewis",2008,"1999-2008",5485,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.343598183
+"Lewis",2009,"2009-2018",6283,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.502688719
+"Lewis",2010,"2009-2018",9294,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.532815573
+"Lewis",2011,"2009-2018",8205,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.651399616
+"Lewis",2012,"2009-2018",8143,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.565968822
+"Lewis",2013,"2009-2018",16624,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.572093991
+"Lewis",2014,"2009-2018",19518,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.263541442
+"Lewis",2015,"2009-2018",18771,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.450199512
+"Lewis",2016,"2009-2018",9087,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.407924988
+"Lewis",2017,"2009-2018",7459,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.330605986
+"Lewis",2018,"2009-2018",4540,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.674409081
+"Lewis",2019,"2019-2028",11710,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.355472039
+"Lewis",2020,"2019-2028",25449,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.344580845
+"Lewis",2021,"2019-2028",12751,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.477168105
+"Lewis",2022,"2019-2028",6833,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.688582815
+"Lewis",2023,"2019-2028",7607,5791,0.759118235,NA,"mature-run equivalent exploitation rate",0.61409785
+"Lewis",2024,"2019-2028",12954,5791,0.759118235,NA,"mature-run equivalent exploitation rate",NA
+"Mid-Columbia Summers",1975,"1975-1984",15000,12143,0.751743221,NA,"mature-run equivalent exploitation rate",NA
+"Mid-Columbia Summers",1976,"1975-1984",11700,12143,0.751743221,NA,"mature-run equivalent exploitation rate",NA
+"Mid-Columbia Summers",1977,"1975-1984",14403,12143,0.751743221,NA,"mature-run equivalent exploitation rate",NA
+"Mid-Columbia Summers",1978,"1975-1984",18667,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.25230453
+"Mid-Columbia Summers",1979,"1975-1984",18797,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.469225526
+"Mid-Columbia Summers",1980,"1975-1984",13854,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.560181475
+"Mid-Columbia Summers",1981,"1975-1984",8639,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.618711115
+"Mid-Columbia Summers",1982,"1975-1984",6587,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.800946988
+"Mid-Columbia Summers",1983,"1975-1984",6334,12143,0.751743221,NA,"mature-run equivalent exploitation rate",NA
+"Mid-Columbia Summers",1984,"1975-1984",13984,12143,0.751743221,NA,"mature-run equivalent exploitation rate",NA
+"Mid-Columbia Summers",1985,"1985-1998",14505,12143,0.751743221,NA,"mature-run equivalent exploitation rate",NA
+"Mid-Columbia Summers",1986,"1985-1998",14850,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.360698384
+"Mid-Columbia Summers",1987,"1985-1998",13415,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.491892525
+"Mid-Columbia Summers",1988,"1985-1998",13634,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.614664726
+"Mid-Columbia Summers",1989,"1985-1998",17484,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.501545719
+"Mid-Columbia Summers",1990,"1985-1998",13432,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.635600451
+"Mid-Columbia Summers",1991,"1985-1998",10191,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.529177892
+"Mid-Columbia Summers",1992,"1985-1998",7706,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.484743374
+"Mid-Columbia Summers",1993,"1985-1998",12927,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.627610623
+"Mid-Columbia Summers",1994,"1985-1998",12292,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.483047538
+"Mid-Columbia Summers",1995,"1985-1998",10623,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.335459037
+"Mid-Columbia Summers",1996,"1985-1998",9417,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.112280616
+"Mid-Columbia Summers",1997,"1985-1998",10063,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.178393078
+"Mid-Columbia Summers",1998,"1985-1998",11225,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.225518948
+"Mid-Columbia Summers",1999,"1999-2008",18588,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.180983468
+"Mid-Columbia Summers",2000,"1999-2008",20218,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.374750667
+"Mid-Columbia Summers",2001,"1999-2008",48844,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.434083944
+"Mid-Columbia Summers",2002,"1999-2008",86825,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.704922209
+"Mid-Columbia Summers",2003,"1999-2008",81543,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.808631702
+"Mid-Columbia Summers",2004,"1999-2008",62311,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.733883322
+"Mid-Columbia Summers",2005,"1999-2008",54033,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.624413582
+"Mid-Columbia Summers",2006,"1999-2008",61821,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.585243925
+"Mid-Columbia Summers",2007,"1999-2008",28222,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.605998648
+"Mid-Columbia Summers",2008,"1999-2008",38171,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.53289908
+"Mid-Columbia Summers",2009,"2009-2018",44295,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.51599287
+"Mid-Columbia Summers",2010,"2009-2018",47220,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.538854897
+"Mid-Columbia Summers",2011,"2009-2018",44432,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.587325647
+"Mid-Columbia Summers",2012,"2009-2018",52184,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.51501572
+"Mid-Columbia Summers",2013,"2009-2018",68386,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.519552659
+"Mid-Columbia Summers",2014,"2009-2018",77982,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.653971646
+"Mid-Columbia Summers",2015,"2009-2018",88691,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.561932548
+"Mid-Columbia Summers",2016,"2009-2018",79253,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.565995609
+"Mid-Columbia Summers",2017,"2009-2018",56265,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.503397948
+"Mid-Columbia Summers",2018,"2009-2018",38816,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.485271751
+"Mid-Columbia Summers",2019,"2019-2028",41090,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.352240423
+"Mid-Columbia Summers",2020,"2019-2028",70654,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.248286948
+"Mid-Columbia Summers",2021,"2019-2028",52076,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.372310307
+"Mid-Columbia Summers",2022,"2019-2028",64497,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.493522027
+"Mid-Columbia Summers",2023,"2019-2028",49410,12143,0.751743221,NA,"mature-run equivalent exploitation rate",0.406744766
+"Mid-Columbia Summers",2024,"2019-2028",41142,12143,0.751743221,NA,"mature-run equivalent exploitation rate",NA
