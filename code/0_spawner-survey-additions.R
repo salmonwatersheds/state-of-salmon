@@ -73,7 +73,7 @@ write.csv(indicator_change, paste0("data/indicator_changed_", Sys.Date(), ".csv"
 spawner_surveys.all <- spawner_surveys.all[-which(spawner_surveys.all$year == 2024 & spawner_surveys.all$stream_name_pse == "ATNARKO RIVER"), ]
 
 ###############################################################################
-# Add 2024 WVI estimated and re-visit indicator designation
+# Add 2025 WVI estimated and re-visit indicator designation
 ###############################################################################
 
 species_vec  <- sort(unique(spawner_surveys.all$species_name))
@@ -109,6 +109,35 @@ for(s in 1:5){ # No steelhead
 		}
 	} # end i
 } #end s
+
+# Save a copy of raw spawner survey data for 17 streams in data provided by Nick Brown (DFO)
+# To allow it to be recreated for 2024/2025
+
+# List of names in 17-stream index
+dfo_dat <- read.csv(here("data/R-OUT_infilled_indicators_escapement_timeseries.csv"))
+stream_lst <- dfo_dat %>% distinct(river) 
+stream_lst <- toupper(gsub("_", " ", as.character(stream_lst$river)))
+
+# Replace name in streams_list with matches to Nuseds stream names
+stream_lst[stream_lst=="BEDWELL URSUS"] <- c("BEDWELL RIVER")
+stream_lst[length(stream_lst)+1] <- c("URSUS CREEK")
+stream_lst[stream_lst=="COLONIAL CAYEGHLE CREEKS"] <- c("CAYEGHLE CREEK")
+stream_lst[stream_lst=="GOLD RIVER AGGREGATE"] <- c("GOLD RIVER")
+
+# Check that everything in streams_lst is in Nuseds data (after name changes)
+stream_lst %in% spawner_surveys.all$stream_name_pse
+# Filter data to 17 (actually 18) streams
+nuseds_17_streams <- spawner_surveys.all %>% filter(species_name == "Chinook",
+																										stream_name_pse %in% stream_lst)
+# Were all monitored in 2024?
+nuseds_17_streams %>% filter(year==2024) %>% nrow() # Should be 18
+# Were all monitored in 2025?
+nuseds_17_streams %>% filter(year==2025) # 16 of 18
+
+write.csv(nuseds_17_streams, "data/spawner-survey-raw-wvi-ck.csv") # Save it
+
+## -- 
+
 
 # For Pink salmon, declare indicators as those with >10 years of data in the past 20 years
 pink_nyrs <- spawner_surveys.all %>% 
@@ -161,3 +190,8 @@ spawner_surveys.all %>% filter(species_name == "Pink" & region %in% c("East Vanc
 
 write.csv(spawner_surveys.all, file = "data/spawner_surveys_revised2026.csv")
 	
+
+
+
+
+
