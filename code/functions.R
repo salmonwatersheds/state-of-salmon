@@ -717,7 +717,8 @@ plot_expansions <- function(
 		regionname = "Haida Gwaii", # For display
 		region_spawners, # rds saved output 
 		expansion_factors, # rds saved output 
-		added_series = NULL # added time series with columns year and value if desired
+		added_series = NULL, # added time series with columns year and value if desired
+		exp_ylim = NULL # To explicitly control y axis if needed
 		){
 
 	col.exp <- viridisLite::viridis(n = 3, alpha = 0.8)
@@ -729,7 +730,9 @@ plot_expansions <- function(
 	
 	if(sum(!is.na(region_spawners[2, s,])) > 0){
 		
-		plot(yrs, region_spawners[2, s,]*10^-3, "o", lwd = 1.2, pch = 19, cex = 0.8, bty = "l", las = 1, xlab = "", ylab = "Spawners (thousands)", ylim = c(0, max(region_spawners[2, s,]*10^-3, na.rm = TRUE)), xpd = NA, yaxs = "i")
+		plot(yrs, region_spawners[2, s,]*10^-3, "o", lwd = 1.2, pch = 19, cex = 0.8, bty = "l", las = 1, 
+				 xlab = "", ylab = "Spawners (thousands)", ylim = c(0, max(region_spawners[2, s,]*10^-3, na.rm = TRUE)), 
+				 xpd = NA, yaxs = "i")
 		abline(v = 2024, lty = 3, lwd = 1.2)
 		text(2024, par('usr')[4], pos = 3, 2024, cex = 0.8, xpd = NA)
 		abline(v = seq(1940, 2025, 5), lty = 3, col = grey(0.8), lwd = 0.8)
@@ -745,7 +748,9 @@ plot_expansions <- function(
 			legend("topleft", pch = c(19, 21), col = c(1,col.exp[1]), c("Expanded", "Observed (indicator)"), bg = "white", pt.bg = "white", lwd = c(1.2, NA))
 		}
 		
-		plot(yrs, expansion_factors[[s]]$exp1, las = 1, ylab = "Expansion Factor 1", xlab = "", bty = "l", pch = 19, cex = 0.8)
+		if(is.null(exp_ylim)) exp_ylim <- c(1, max(expansion_factors[[s]]$exp1[is.finite(expansion_factors[[s]]$exp1)]) + 1)
+		
+		plot(yrs, expansion_factors[[s]]$exp1, las = 1, ylim = exp_ylim, ylab = "Expansion Factor 1", xlab = "", bty = "l", pch = 19, cex = 0.8)
 		abline(v = seq(1940, 2025, 5), lty = 3, col = grey(0.8), lwd = 0.8)
 		abline(h = pretty(expansion_factors[[s]]$exp1), lty = 3, col = grey(0.8), lwd = 0.8)
 		abline(h = 1, col = col.exp[3], lwd = 2)
