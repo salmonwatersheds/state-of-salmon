@@ -89,55 +89,56 @@
 "Yukon","Chum",2023,-70.1,-56,39.6,-81.5,-69.2,-34.8
 "Yukon","Chum",2024,-72.8,-65.2,41.8,-83.4,-76.9,-38.1
 "Yukon","Chum",2025,-73.9,-72.5,44.1,-84,-82.7,-41.2
-"Northern Transboundary","Chinook",1976,-36.1,NA,36.9,-45.1,NA,25.9
-"Northern Transboundary","Chinook",1977,-21.6,NA,35.2,-30.9,NA,24.7
-"Northern Transboundary","Chinook",1978,-26.5,NA,33.5,-33.7,NA,23.6
-"Northern Transboundary","Chinook",1979,-22.1,NA,31.8,-27.9,NA,22.4
-"Northern Transboundary","Chinook",1980,-11.8,NA,30.1,-17.5,NA,21.3
-"Northern Transboundary","Chinook",1981,7.1,NA,28.5,1.5,NA,20.2
-"Northern Transboundary","Chinook",1982,14.2,NA,26.9,9.3,NA,19.1
-"Northern Transboundary","Chinook",1983,7.5,NA,25.3,3.7,NA,18
-"Northern Transboundary","Chinook",1984,3.1,NA,23.7,-1.4,NA,16.9
-"Northern Transboundary","Chinook",1985,-3.4,NA,22.1,-8,NA,15.9
-"Northern Transboundary","Chinook",1986,-10.6,NA,20.6,-14.1,NA,14.8
-"Northern Transboundary","Chinook",1987,-12.9,NA,19,-16.5,NA,13.8
-"Northern Transboundary","Chinook",1988,11.4,NA,17.5,5,NA,12.7
-"Northern Transboundary","Chinook",1989,25.1,NA,16,17.9,NA,11.7
-"Northern Transboundary","Chinook",1990,34.5,NA,14.6,26.9,NA,10.7
-"Northern Transboundary","Chinook",1991,42.8,NA,13.1,34.9,NA,9.6
-"Northern Transboundary","Chinook",1992,54.4,NA,11.7,45.4,NA,8.6
-"Northern Transboundary","Chinook",1993,68.1,NA,10.3,59.1,NA,7.7
-"Northern Transboundary","Chinook",1994,77.2,NA,8.9,67.2,NA,6.7
-"Northern Transboundary","Chinook",1995,73.6,NA,7.5,62.5,NA,5.7
-"Northern Transboundary","Chinook",1996,86.5,NA,6.1,73.3,NA,4.7
-"Northern Transboundary","Chinook",1997,105.2,NA,4.8,91,NA,3.8
-"Northern Transboundary","Chinook",1998,75.7,NA,3.5,63.1,NA,2.8
-"Northern Transboundary","Chinook",1999,54.5,NA,2.2,45.9,NA,1.9
-"Northern Transboundary","Chinook",2000,52.5,NA,0.9,44.9,NA,0.9
-"Northern Transboundary","Chinook",2001,50.7,NA,-0.4,42.7,NA,0
-"Northern Transboundary","Chinook",2002,41.2,NA,-1.7,33.8,NA,-0.9
-"Northern Transboundary","Chinook",2003,50.9,NA,-2.9,44.2,NA,-1.8
-"Northern Transboundary","Chinook",2004,82,NA,-4.1,72.3,NA,-2.7
-"Northern Transboundary","Chinook",2005,88.1,NA,-5.4,93.9,NA,-3.6
-"Northern Transboundary","Chinook",2006,69.2,NA,-6.6,90.4,NA,-4.5
-"Northern Transboundary","Chinook",2007,32,NA,-7.7,67.3,NA,-5.4
-"Northern Transboundary","Chinook",2008,16,NA,-8.9,55.6,NA,-6.2
-"Northern Transboundary","Chinook",2009,-7.6,NA,-10.1,31.9,NA,-7.1
-"Northern Transboundary","Chinook",2010,-15.4,-13.2,-11.2,14.5,13.8,-7.9
-"Northern Transboundary","Chinook",2011,-23.7,-17.4,-12.3,-0.4,5,-8.8
-"Northern Transboundary","Chinook",2012,-19.5,-21.4,-13.4,-1.8,-3.1,-9.6
-"Northern Transboundary","Chinook",2013,-22.1,-25.2,-14.5,-8.4,-10.5,-10.4
-"Northern Transboundary","Chinook",2014,-18.9,-28.8,-15.6,-9.4,-17.4,-11.3
-"Northern Transboundary","Chinook",2015,-19.7,-32.2,-16.7,-12,-23.8,-12.1
-"Northern Transboundary","Chinook",2016,-29,-35.5,-17.7,-22,-29.6,-12.9
-"Northern Transboundary","Chinook",2017,-40.5,-38.6,-18.8,-36.4,-35.1,-13.7
-"Northern Transboundary","Chinook",2018,-48.1,-41.6,-19.8,-46.2,-40.1,-14.5
-"Northern Transboundary","Chinook",2019,-52.8,-44.4,-20.8,-52.8,-44.7,-15.2
-"Northern Transboundary","Chinook",2020,-57.4,-47.1,-21.8,-58.6,-48.9,-16
-"Northern Transboundary","Chinook",2021,-56.3,-49.6,-22.8,-59.9,-52.9,-16.8
-"Northern Transboundary","Chinook",2022,-52.8,-52,-23.8,-58.1,-56.5,-17.5
-"Northern Transboundary","Chinook",2023,-48.5,-54.3,-24.7,-54.4,-59.8,-18.3
-"Northern Transboundary","Chinook",2024,-46.3,-56.5,-25.7,-52.9,-62.9,-19
+"Northern Transboundary","Chinook",1976,-36.3,NA,37.4,-45,NA,26.4
+"Northern Transboundary","Chinook",1977,-21.8,NA,35.6,-30.6,NA,25.2
+"Northern Transboundary","Chinook",1978,-26.7,NA,33.8,-33.3,NA,24
+"Northern Transboundary","Chinook",1979,-22.3,NA,32.1,-27.2,NA,22.9
+"Northern Transboundary","Chinook",1980,-12.1,NA,30.4,-16.9,NA,21.7
+"Northern Transboundary","Chinook",1981,6.8,NA,28.7,2.1,NA,20.6
+"Northern Transboundary","Chinook",1982,13.9,NA,27,9.9,NA,19.4
+"Northern Transboundary","Chinook",1983,7.2,NA,25.3,4.4,NA,18.3
+"Northern Transboundary","Chinook",1984,2.8,NA,23.7,-1.1,NA,17.2
+"Northern Transboundary","Chinook",1985,-3.7,NA,22.1,-7.7,NA,16.1
+"Northern Transboundary","Chinook",1986,-10.8,NA,20.5,-13.8,NA,15
+"Northern Transboundary","Chinook",1987,-13.1,NA,18.9,-16.2,NA,14
+"Northern Transboundary","Chinook",1988,11.1,NA,17.4,5,NA,12.9
+"Northern Transboundary","Chinook",1989,24.7,NA,15.8,17.7,NA,11.8
+"Northern Transboundary","Chinook",1990,34.1,NA,14.3,26.7,NA,10.8
+"Northern Transboundary","Chinook",1991,42.4,NA,12.8,34.9,NA,9.8
+"Northern Transboundary","Chinook",1992,54,NA,11.4,45.2,NA,8.7
+"Northern Transboundary","Chinook",1993,67.6,NA,9.9,58.9,NA,7.7
+"Northern Transboundary","Chinook",1994,76.7,NA,8.5,67,NA,6.7
+"Northern Transboundary","Chinook",1995,73.1,NA,7.1,62.6,NA,5.7
+"Northern Transboundary","Chinook",1996,86,NA,5.7,73.4,NA,4.7
+"Northern Transboundary","Chinook",1997,104.7,NA,4.3,91.1,NA,3.7
+"Northern Transboundary","Chinook",1998,75.2,NA,2.9,63.3,NA,2.8
+"Northern Transboundary","Chinook",1999,54.1,NA,1.6,46.1,NA,1.8
+"Northern Transboundary","Chinook",2000,52,NA,0.3,44.6,NA,0.8
+"Northern Transboundary","Chinook",2001,50.2,NA,-1,42.3,NA,-0.1
+"Northern Transboundary","Chinook",2002,40.8,NA,-2.3,33.4,NA,-1
+"Northern Transboundary","Chinook",2003,50.5,NA,-3.6,43.7,NA,-2
+"Northern Transboundary","Chinook",2004,81.5,NA,-4.8,71.5,NA,-2.9
+"Northern Transboundary","Chinook",2005,87.5,NA,-6.1,92.9,NA,-3.8
+"Northern Transboundary","Chinook",2006,68.8,NA,-7.3,89.5,NA,-4.7
+"Northern Transboundary","Chinook",2007,31.6,NA,-8.5,66.6,NA,-5.6
+"Northern Transboundary","Chinook",2008,15.7,NA,-9.7,54.9,NA,-6.5
+"Northern Transboundary","Chinook",2009,-7.8,NA,-10.9,31.3,NA,-7.3
+"Northern Transboundary","Chinook",2010,-15.6,NA,-12.1,13.8,12.6,-8.2
+"Northern Transboundary","Chinook",2011,-23.9,-20.7,-13.2,-1,4.1,-9.1
+"Northern Transboundary","Chinook",2012,-19.7,-23.8,-14.3,-2.5,-3.9,-9.9
+"Northern Transboundary","Chinook",2013,-22.3,-26.8,-15.4,-9,-11.2,-10.8
+"Northern Transboundary","Chinook",2014,-19.1,-29.6,-16.5,-10.1,-18,-11.6
+"Northern Transboundary","Chinook",2015,-19.9,-32.4,-17.6,-12.6,-24.2,-12.4
+"Northern Transboundary","Chinook",2016,-29.2,-35,-18.7,-22.5,-30,-13.3
+"Northern Transboundary","Chinook",2017,-40.7,-37.6,-19.8,-36.9,-35.3,-14.1
+"Northern Transboundary","Chinook",2018,-48.2,-40,-20.8,-46.6,-40.3,-14.9
+"Northern Transboundary","Chinook",2019,-53,-42.3,-21.8,-53,-44.8,-15.7
+"Northern Transboundary","Chinook",2020,-57.5,-44.6,-22.9,-58.8,-49,-16.5
+"Northern Transboundary","Chinook",2021,-56.4,-46.8,-23.9,-60.1,-52.9,-17.2
+"Northern Transboundary","Chinook",2022,-53,-48.8,-24.9,-58.1,-56.5,-18
+"Northern Transboundary","Chinook",2023,-48.6,-50.8,-25.8,-54.3,-59.8,-18.8
+"Northern Transboundary","Chinook",2024,-46.4,-52.8,-26.8,-52.2,-62.9,-19.5
+"Northern Transboundary","Chinook",2025,-37.9,-54.6,-27.8,NA,NA,NA
 "Northern Transboundary","Sockeye",1984,-1.9,NA,-10.5,-26.1,NA,-4.4
 "Northern Transboundary","Sockeye",1985,27.7,NA,-10.1,-6.4,NA,-4.2
 "Northern Transboundary","Sockeye",1986,12.2,NA,-9.7,-15.2,NA,-4.1
@@ -733,40 +734,57 @@
 "Haida Gwaii","Sockeye",2022,-19.9,-5.3,-13.3,NA,NA,NA
 "Haida Gwaii","Sockeye",2023,-4,-6.6,-13.5,NA,NA,NA
 "Haida Gwaii","Sockeye",2024,12.9,-7.8,-13.8,NA,NA,NA
-"Nass","Chinook",1992,9.7,NA,41.5,28,NA,58.9
-"Nass","Chinook",1993,31.8,NA,38.6,45.8,NA,54.8
-"Nass","Chinook",1994,38.3,NA,35.8,49.1,NA,50.8
-"Nass","Chinook",1995,9.8,NA,33,27.4,NA,46.8
-"Nass","Chinook",1996,15.3,NA,30.3,32,NA,43
-"Nass","Chinook",1997,17.7,NA,27.6,32.8,NA,39.3
-"Nass","Chinook",1998,16.8,NA,25,32.8,NA,35.7
-"Nass","Chinook",1999,2.5,NA,22.4,22.4,NA,32.1
-"Nass","Chinook",2000,20.2,NA,19.9,33.1,NA,28.7
-"Nass","Chinook",2001,28.4,NA,17.5,37.7,NA,25.4
-"Nass","Chinook",2002,21.3,NA,15,32.2,NA,22.1
-"Nass","Chinook",2003,24.9,NA,12.7,31,NA,18.9
-"Nass","Chinook",2004,31.8,NA,10.4,34.4,NA,15.8
-"Nass","Chinook",2005,26,NA,8.1,28.5,NA,12.8
-"Nass","Chinook",2006,23.6,NA,5.9,25.4,NA,9.9
-"Nass","Chinook",2007,36.9,NA,3.7,32.6,NA,7
-"Nass","Chinook",2008,29.5,NA,1.6,21.7,NA,4.2
-"Nass","Chinook",2009,45.1,NA,-0.5,25.8,NA,1.5
-"Nass","Chinook",2010,53.2,NA,-2.5,25.8,NA,-1.1
-"Nass","Chinook",2011,26.2,-15.5,-4.5,6.5,-15.3,-3.7
-"Nass","Chinook",2012,5.1,-16.7,-6.5,-10.7,-16.7,-6.2
-"Nass","Chinook",2013,-12.1,-17.9,-8.4,-21.3,-18,-8.7
-"Nass","Chinook",2014,-25.7,-19,-10.3,-28.3,-19.4,-11
-"Nass","Chinook",2015,-25.7,-20.2,-12.1,-25.1,-20.7,-13.4
-"Nass","Chinook",2016,-27.1,-21.3,-13.9,-25.1,-22,-15.6
-"Nass","Chinook",2017,-36.5,-22.4,-15.7,-30.1,-23.3,-17.8
-"Nass","Chinook",2018,-41.4,-23.5,-17.4,-24.2,-24.5,-19.9
-"Nass","Chinook",2019,-42.4,-24.6,-19.1,-26.8,-25.8,-22
-"Nass","Chinook",2020,-46.9,-25.7,-20.8,-33.3,-27,-24.1
-"Nass","Chinook",2021,-44,-26.8,-22.4,-33.3,-28.2,-26
-"Nass","Chinook",2022,-26.1,-27.8,-24,-26.9,-29.4,-28
-"Nass","Chinook",2023,-13.8,-28.8,-25.5,-30.2,-30.5,-29.8
-"Nass","Chinook",2024,-7.5,-29.8,-27.1,-27.7,-31.7,-31.7
-"Nass","Chinook",2025,1.2,-30.8,-28.6,-23.4,-32.8,-33.4
+"Nass","Chinook",1975,-11.8,NA,8.6,-22.9,NA,-0.9
+"Nass","Chinook",1976,-15,NA,8.2,-25.7,NA,-0.9
+"Nass","Chinook",1977,-15.1,NA,7.8,-24.1,NA,-0.9
+"Nass","Chinook",1978,-11.6,NA,7.4,-19.9,NA,-0.9
+"Nass","Chinook",1979,-14.3,NA,7,-22,NA,-0.9
+"Nass","Chinook",1980,-14.3,NA,6.6,-21.3,NA,-0.9
+"Nass","Chinook",1981,-14.2,NA,6.2,-20.3,NA,-0.9
+"Nass","Chinook",1982,-19.5,NA,5.9,-25.4,NA,-0.9
+"Nass","Chinook",1983,-20.1,NA,5.5,-26.3,NA,-0.9
+"Nass","Chinook",1984,-8.6,NA,5.1,-15.9,NA,-0.9
+"Nass","Chinook",1985,-3.3,NA,4.7,-11,NA,-0.9
+"Nass","Chinook",1986,18.6,NA,4.3,8.7,NA,-0.9
+"Nass","Chinook",1987,37.2,NA,4,24.9,NA,-0.9
+"Nass","Chinook",1988,38.1,NA,3.6,25.6,NA,-0.9
+"Nass","Chinook",1989,42.5,NA,3.2,29.5,NA,-0.9
+"Nass","Chinook",1990,51.2,NA,2.8,37.4,NA,-0.9
+"Nass","Chinook",1991,10.1,NA,2.5,6.1,NA,-0.9
+"Nass","Chinook",1992,6,NA,2.1,5.1,NA,-0.9
+"Nass","Chinook",1993,15.4,NA,1.7,17.4,NA,-0.9
+"Nass","Chinook",1994,11.8,NA,1.3,14.9,NA,-0.9
+"Nass","Chinook",1995,-10.3,NA,1,-0.6,NA,-0.9
+"Nass","Chinook",1996,11,NA,0.6,18,NA,-0.9
+"Nass","Chinook",1997,14.1,NA,0.2,20,NA,-0.9
+"Nass","Chinook",1998,13,NA,-0.1,18.8,NA,-0.9
+"Nass","Chinook",1999,-1.5,NA,-0.5,10,NA,-0.9
+"Nass","Chinook",2000,15.3,NA,-0.8,25.4,NA,-0.9
+"Nass","Chinook",2001,23.5,NA,-1.2,34.9,NA,-0.9
+"Nass","Chinook",2002,15.9,NA,-1.6,28.3,NA,-1
+"Nass","Chinook",2003,19.1,NA,-1.9,29.5,NA,-1
+"Nass","Chinook",2004,26.4,NA,-2.3,32.6,NA,-1
+"Nass","Chinook",2005,21,NA,-2.6,25.9,NA,-1
+"Nass","Chinook",2006,17.6,NA,-3,21.4,NA,-1
+"Nass","Chinook",2007,30.6,NA,-3.3,33.2,NA,-1
+"Nass","Chinook",2008,24.3,NA,-3.7,24.6,NA,-1
+"Nass","Chinook",2009,39.1,NA,-4,34.5,NA,-1
+"Nass","Chinook",2010,47.3,NA,-4.4,36.7,NA,-1
+"Nass","Chinook",2011,21.8,-17.2,-4.7,14.2,-14.9,-1
+"Nass","Chinook",2012,1,-17.8,-5.1,-3.1,-15.2,-1
+"Nass","Chinook",2013,-15.6,-18.3,-5.4,-15.1,-15.5,-1
+"Nass","Chinook",2014,-28.4,-18.8,-5.8,-25,-15.9,-1
+"Nass","Chinook",2015,-28.5,-19.3,-6.1,-23.6,-16.2,-1
+"Nass","Chinook",2016,-29.4,-19.9,-6.5,-22.8,-16.5,-1
+"Nass","Chinook",2017,-38.3,-20.4,-6.8,-30.4,-16.8,-1
+"Nass","Chinook",2018,-30.5,-20.9,-7.1,-23.4,-17.1,-1
+"Nass","Chinook",2019,-31.8,-21.4,-7.5,-24.3,-17.4,-1
+"Nass","Chinook",2020,-36.6,-21.9,-7.8,-29.1,-17.7,-1
+"Nass","Chinook",2021,-33.7,-22.4,-8.1,-24.7,-18,-1
+"Nass","Chinook",2022,-12.5,-22.9,-8.5,-9.3,-18.3,-1
+"Nass","Chinook",2023,-16.4,-23.4,-8.8,-11.9,-18.6,-1
+"Nass","Chinook",2024,-10.1,-23.9,-9.1,-10.8,-18.9,-1
+"Nass","Chinook",2025,-2,-24.4,-9.5,-5.8,-19.2,-1
 "Nass","Sockeye",1982,33.3,NA,-6.1,38.9,NA,38.3
 "Nass","Sockeye",1983,3.2,NA,-5.9,13.6,NA,36.3
 "Nass","Sockeye",1984,-6.4,NA,-5.7,1.8,NA,34.4
@@ -1040,47 +1058,48 @@
 "Skeena","Chinook",1981,NA,NA,NA,NA,NA,NA
 "Skeena","Chinook",1982,NA,NA,NA,NA,NA,NA
 "Skeena","Chinook",1983,NA,NA,NA,NA,NA,NA
-"Skeena","Chinook",1984,-16.5,NA,42.1,NA,NA,NA
-"Skeena","Chinook",1985,-20,NA,39.8,NA,NA,NA
-"Skeena","Chinook",1986,-30.3,NA,37.5,NA,NA,NA
-"Skeena","Chinook",1987,-7.8,NA,35.3,NA,NA,NA
-"Skeena","Chinook",1988,-0.5,NA,33.1,NA,NA,NA
-"Skeena","Chinook",1989,7.6,NA,30.9,NA,NA,NA
-"Skeena","Chinook",1990,6,NA,28.8,NA,NA,NA
-"Skeena","Chinook",1991,9.3,NA,26.7,NA,NA,NA
-"Skeena","Chinook",1992,36.1,NA,24.6,NA,NA,NA
-"Skeena","Chinook",1993,39.4,NA,22.6,NA,NA,NA
-"Skeena","Chinook",1994,48,NA,20.6,NA,NA,NA
-"Skeena","Chinook",1995,41.8,NA,18.6,NA,NA,NA
-"Skeena","Chinook",1996,70.1,NA,16.7,NA,NA,NA
-"Skeena","Chinook",1997,74.9,NA,14.8,NA,NA,NA
-"Skeena","Chinook",1998,52.7,NA,12.9,NA,NA,NA
-"Skeena","Chinook",1999,32.8,NA,11.1,NA,NA,NA
-"Skeena","Chinook",2000,25.4,NA,9.3,NA,NA,NA
-"Skeena","Chinook",2001,39.7,NA,7.5,NA,NA,NA
-"Skeena","Chinook",2002,18.6,NA,5.8,NA,NA,NA
-"Skeena","Chinook",2003,29.1,NA,4,NA,NA,NA
-"Skeena","Chinook",2004,52.3,NA,2.3,NA,NA,NA
-"Skeena","Chinook",2005,56.6,NA,0.7,NA,NA,NA
-"Skeena","Chinook",2006,53.4,NA,-1,NA,NA,NA
-"Skeena","Chinook",2007,40.4,47.8,-2.6,NA,NA,NA
-"Skeena","Chinook",2008,43.9,37.6,-4.2,NA,NA,NA
-"Skeena","Chinook",2009,37.3,28.1,-5.7,NA,NA,NA
-"Skeena","Chinook",2010,26.2,19.3,-7.3,NA,NA,NA
-"Skeena","Chinook",2011,12.4,11.1,-8.8,NA,NA,NA
-"Skeena","Chinook",2012,-3.8,3.4,-10.2,NA,NA,NA
-"Skeena","Chinook",2013,-10.4,-3.7,-11.7,NA,NA,NA
-"Skeena","Chinook",2014,-11,-10.3,-13.1,NA,NA,NA
-"Skeena","Chinook",2015,-12.6,-16.5,-14.6,NA,NA,NA
-"Skeena","Chinook",2016,-23.8,-22.2,-16,NA,NA,NA
-"Skeena","Chinook",2017,-31.7,-27.6,-17.3,NA,NA,NA
-"Skeena","Chinook",2018,-26,-32.6,-18.7,NA,NA,NA
-"Skeena","Chinook",2019,-34.2,-37.2,-20,NA,NA,NA
-"Skeena","Chinook",2020,-44.1,-41.5,-21.3,NA,NA,NA
-"Skeena","Chinook",2021,-52.7,-45.5,-22.6,NA,NA,NA
-"Skeena","Chinook",2022,-53.8,-49.3,-23.8,NA,NA,NA
-"Skeena","Chinook",2023,-49.2,-52.8,-25.1,NA,NA,NA
-"Skeena","Chinook",2024,-50.5,-56,-26.3,NA,NA,NA
+"Skeena","Chinook",1984,-16.1,NA,44.7,NA,NA,NA
+"Skeena","Chinook",1985,-19.6,NA,42.2,NA,NA,NA
+"Skeena","Chinook",1986,-29.9,NA,39.8,NA,NA,NA
+"Skeena","Chinook",1987,-7.3,NA,37.3,NA,NA,NA
+"Skeena","Chinook",1988,0.1,NA,35,NA,NA,NA
+"Skeena","Chinook",1989,8.2,NA,32.7,NA,NA,NA
+"Skeena","Chinook",1990,6.6,NA,30.4,NA,NA,NA
+"Skeena","Chinook",1991,9.9,NA,28.1,NA,NA,NA
+"Skeena","Chinook",1992,36.8,NA,25.9,NA,NA,NA
+"Skeena","Chinook",1993,40.2,NA,23.8,NA,NA,NA
+"Skeena","Chinook",1994,48.8,NA,21.6,NA,NA,NA
+"Skeena","Chinook",1995,42.5,NA,19.5,NA,NA,NA
+"Skeena","Chinook",1996,71,NA,17.5,NA,NA,NA
+"Skeena","Chinook",1997,75.9,NA,15.5,NA,NA,NA
+"Skeena","Chinook",1998,53.5,NA,13.5,NA,NA,NA
+"Skeena","Chinook",1999,33.5,NA,11.5,NA,NA,NA
+"Skeena","Chinook",2000,26.1,NA,9.6,NA,NA,NA
+"Skeena","Chinook",2001,40.4,NA,7.7,NA,NA,NA
+"Skeena","Chinook",2002,19.3,NA,5.9,NA,NA,NA
+"Skeena","Chinook",2003,29.8,NA,4,NA,NA,NA
+"Skeena","Chinook",2004,53.1,NA,2.2,NA,NA,NA
+"Skeena","Chinook",2005,57.4,NA,0.5,NA,NA,NA
+"Skeena","Chinook",2006,54.2,NA,-1.2,NA,NA,NA
+"Skeena","Chinook",2007,41.1,NA,-2.9,NA,NA,NA
+"Skeena","Chinook",2008,44.7,36.2,-4.6,NA,NA,NA
+"Skeena","Chinook",2009,38,27.3,-6.3,NA,NA,NA
+"Skeena","Chinook",2010,26.9,19,-7.9,NA,NA,NA
+"Skeena","Chinook",2011,13,11.3,-9.5,NA,NA,NA
+"Skeena","Chinook",2012,-3.3,4.1,-11,NA,NA,NA
+"Skeena","Chinook",2013,-9.9,-2.7,-12.5,NA,NA,NA
+"Skeena","Chinook",2014,-10.5,-9,-14,NA,NA,NA
+"Skeena","Chinook",2015,-12.2,-15,-15.5,NA,NA,NA
+"Skeena","Chinook",2016,-23.4,-20.5,-17,NA,NA,NA
+"Skeena","Chinook",2017,-31.3,-25.7,-18.4,NA,NA,NA
+"Skeena","Chinook",2018,-25.6,-30.5,-19.8,NA,NA,NA
+"Skeena","Chinook",2019,-33.8,-35,-21.2,NA,NA,NA
+"Skeena","Chinook",2020,-43.8,-39.2,-22.5,NA,NA,NA
+"Skeena","Chinook",2021,-52.5,-43.2,-23.9,NA,NA,NA
+"Skeena","Chinook",2022,-53.5,-46.9,-25.2,NA,NA,NA
+"Skeena","Chinook",2023,-48.9,-50.3,-26.5,NA,NA,NA
+"Skeena","Chinook",2024,-50.2,-53.6,-27.7,NA,NA,NA
+"Skeena","Chinook",2025,-45.1,-56.6,-29,NA,NA,NA
 "Skeena","Sockeye",1960,-69.3,NA,-27.7,-67.8,NA,-9.1
 "Skeena","Sockeye",1961,-42.6,NA,-27,-41.7,NA,-8.9
 "Skeena","Sockeye",1962,-40.6,NA,-26.4,-38.2,NA,-8.7
@@ -1441,56 +1460,57 @@
 "Skeena","Pink",2022,52.9,-10.8,-14.8,NA,NA,NA
 "Skeena","Pink",2023,231.4,133.8,-15.1,NA,NA,NA
 "Skeena","Pink",2024,309.6,512.9,-15.5,NA,NA,NA
-"Central Coast","Chinook",1975,-59.4,NA,-26.3,NA,NA,NA
-"Central Coast","Chinook",1976,-43,NA,-25.5,NA,NA,NA
-"Central Coast","Chinook",1977,-37,NA,-24.6,NA,NA,NA
-"Central Coast","Chinook",1978,-30,NA,-23.8,NA,NA,NA
-"Central Coast","Chinook",1979,-38.5,NA,-22.9,NA,NA,NA
-"Central Coast","Chinook",1980,-35.6,NA,-22,NA,NA,NA
-"Central Coast","Chinook",1981,-43.1,NA,-21.1,NA,NA,NA
-"Central Coast","Chinook",1982,-47.1,NA,-20.2,NA,NA,NA
-"Central Coast","Chinook",1983,-51,NA,-19.3,NA,NA,NA
-"Central Coast","Chinook",1984,-41.2,NA,-18.4,NA,NA,NA
-"Central Coast","Chinook",1985,-26.2,NA,-17.5,NA,NA,NA
-"Central Coast","Chinook",1986,-4.2,NA,-16.6,NA,NA,NA
-"Central Coast","Chinook",1987,10.5,NA,-15.6,NA,NA,NA
-"Central Coast","Chinook",1988,22,NA,-14.7,NA,NA,NA
-"Central Coast","Chinook",1989,32.5,NA,-13.7,NA,NA,NA
-"Central Coast","Chinook",1990,22.9,NA,-12.7,NA,NA,NA
-"Central Coast","Chinook",1991,8.7,NA,-11.7,NA,NA,NA
-"Central Coast","Chinook",1992,25,NA,-10.7,NA,NA,NA
-"Central Coast","Chinook",1993,46.3,NA,-9.7,NA,NA,NA
-"Central Coast","Chinook",1994,52.7,NA,-8.7,NA,NA,NA
-"Central Coast","Chinook",1995,60.7,NA,-7.7,NA,NA,NA
-"Central Coast","Chinook",1996,73.9,NA,-6.6,NA,NA,NA
-"Central Coast","Chinook",1997,44.8,NA,-5.6,NA,NA,NA
-"Central Coast","Chinook",1998,22.6,NA,-4.5,NA,NA,NA
-"Central Coast","Chinook",1999,10.7,NA,-3.4,NA,NA,NA
-"Central Coast","Chinook",2000,9,NA,-2.3,NA,NA,NA
-"Central Coast","Chinook",2001,13.7,NA,-1.2,NA,NA,NA
-"Central Coast","Chinook",2002,14.8,NA,-0.1,NA,NA,NA
-"Central Coast","Chinook",2003,10.1,NA,1,NA,NA,NA
-"Central Coast","Chinook",2004,6.2,NA,2.2,NA,NA,NA
-"Central Coast","Chinook",2005,-0.4,NA,3.3,NA,NA,NA
-"Central Coast","Chinook",2006,-4.8,NA,4.5,NA,NA,NA
-"Central Coast","Chinook",2007,-9.2,NA,5.7,NA,NA,NA
-"Central Coast","Chinook",2008,-12,NA,6.9,NA,NA,NA
-"Central Coast","Chinook",2009,-13.2,NA,8.1,NA,NA,NA
-"Central Coast","Chinook",2010,-15.8,-11.8,9.3,NA,NA,NA
-"Central Coast","Chinook",2011,-23.9,-9.4,10.5,NA,NA,NA
-"Central Coast","Chinook",2012,-28.7,-7.1,11.8,NA,NA,NA
-"Central Coast","Chinook",2013,-17.5,-4.6,13.1,NA,NA,NA
-"Central Coast","Chinook",2014,-7.7,-2.1,14.3,NA,NA,NA
-"Central Coast","Chinook",2015,19.6,0.5,15.6,NA,NA,NA
-"Central Coast","Chinook",2016,41.1,3.1,16.9,NA,NA,NA
-"Central Coast","Chinook",2017,54.4,5.8,18.3,NA,NA,NA
-"Central Coast","Chinook",2018,42.9,8.6,19.6,NA,NA,NA
-"Central Coast","Chinook",2019,31.9,11.4,21,NA,NA,NA
-"Central Coast","Chinook",2020,13.6,14.4,22.3,NA,NA,NA
-"Central Coast","Chinook",2021,2.2,17.4,23.7,NA,NA,NA
-"Central Coast","Chinook",2022,1.8,20.5,25.1,NA,NA,NA
-"Central Coast","Chinook",2023,4.9,23.6,26.5,NA,NA,NA
-"Central Coast","Chinook",2024,10,26.9,28,NA,NA,NA
+"Central Coast","Chinook",1975,-59.6,NA,-26.2,NA,NA,NA
+"Central Coast","Chinook",1976,-43.2,NA,-25.3,NA,NA,NA
+"Central Coast","Chinook",1977,-37.3,NA,-24.5,NA,NA,NA
+"Central Coast","Chinook",1978,-30.3,NA,-23.7,NA,NA,NA
+"Central Coast","Chinook",1979,-38.8,NA,-22.9,NA,NA,NA
+"Central Coast","Chinook",1980,-35.9,NA,-22,NA,NA,NA
+"Central Coast","Chinook",1981,-43.4,NA,-21.2,NA,NA,NA
+"Central Coast","Chinook",1982,-47.3,NA,-20.3,NA,NA,NA
+"Central Coast","Chinook",1983,-51.2,NA,-19.5,NA,NA,NA
+"Central Coast","Chinook",1984,-41.5,NA,-18.6,NA,NA,NA
+"Central Coast","Chinook",1985,-26.6,NA,-17.7,NA,NA,NA
+"Central Coast","Chinook",1986,-4.7,NA,-16.8,NA,NA,NA
+"Central Coast","Chinook",1987,10,NA,-15.9,NA,NA,NA
+"Central Coast","Chinook",1988,21.4,NA,-15,NA,NA,NA
+"Central Coast","Chinook",1989,31.9,NA,-14,NA,NA,NA
+"Central Coast","Chinook",1990,22.3,NA,-13.1,NA,NA,NA
+"Central Coast","Chinook",1991,8.1,NA,-12.2,NA,NA,NA
+"Central Coast","Chinook",1992,24.4,NA,-11.2,NA,NA,NA
+"Central Coast","Chinook",1993,45.6,NA,-10.2,NA,NA,NA
+"Central Coast","Chinook",1994,51.9,NA,-9.3,NA,NA,NA
+"Central Coast","Chinook",1995,59.9,NA,-8.3,NA,NA,NA
+"Central Coast","Chinook",1996,73,NA,-7.3,NA,NA,NA
+"Central Coast","Chinook",1997,44.1,NA,-6.3,NA,NA,NA
+"Central Coast","Chinook",1998,22,NA,-5.2,NA,NA,NA
+"Central Coast","Chinook",1999,10.2,NA,-4.2,NA,NA,NA
+"Central Coast","Chinook",2000,8.5,NA,-3.2,NA,NA,NA
+"Central Coast","Chinook",2001,13.1,NA,-2.1,NA,NA,NA
+"Central Coast","Chinook",2002,14.2,NA,-1,NA,NA,NA
+"Central Coast","Chinook",2003,9.6,NA,0,NA,NA,NA
+"Central Coast","Chinook",2004,5.7,NA,1.1,NA,NA,NA
+"Central Coast","Chinook",2005,-0.9,NA,2.2,NA,NA,NA
+"Central Coast","Chinook",2006,-5.3,NA,3.4,NA,NA,NA
+"Central Coast","Chinook",2007,-9.7,NA,4.5,NA,NA,NA
+"Central Coast","Chinook",2008,-12.4,NA,5.6,NA,NA,NA
+"Central Coast","Chinook",2009,-13.6,NA,6.8,NA,NA,NA
+"Central Coast","Chinook",2010,-16.2,NA,7.9,NA,NA,NA
+"Central Coast","Chinook",2011,-24.2,-6.9,9.1,NA,NA,NA
+"Central Coast","Chinook",2012,-29,-5,10.3,NA,NA,NA
+"Central Coast","Chinook",2013,-17.9,-3.1,11.5,NA,NA,NA
+"Central Coast","Chinook",2014,-8.2,-1.1,12.7,NA,NA,NA
+"Central Coast","Chinook",2015,19.1,0.8,14,NA,NA,NA
+"Central Coast","Chinook",2016,40.4,2.9,15.2,NA,NA,NA
+"Central Coast","Chinook",2017,53.6,4.9,16.5,NA,NA,NA
+"Central Coast","Chinook",2018,42.2,7,17.7,NA,NA,NA
+"Central Coast","Chinook",2019,31.2,9.2,19,NA,NA,NA
+"Central Coast","Chinook",2020,13.1,11.4,20.3,NA,NA,NA
+"Central Coast","Chinook",2021,1.7,13.6,21.6,NA,NA,NA
+"Central Coast","Chinook",2022,1.3,15.9,22.9,NA,NA,NA
+"Central Coast","Chinook",2023,4.4,18.2,24.3,NA,NA,NA
+"Central Coast","Chinook",2024,9.5,20.6,25.6,NA,NA,NA
+"Central Coast","Chinook",2025,7.2,23,27,NA,NA,NA
 "Central Coast","Chum",1950,59.9,NA,30.7,NA,NA,NA
 "Central Coast","Chum",1951,54,NA,29.8,NA,NA,NA
 "Central Coast","Chum",1952,50.9,NA,28.9,NA,NA,NA
@@ -1791,56 +1811,57 @@
 "Central Coast","Sockeye",2022,-38.1,-31.6,-41.7,NA,NA,NA
 "Central Coast","Sockeye",2023,-43.4,-30.9,-42.6,NA,NA,NA
 "Central Coast","Sockeye",2024,-38.8,-30.2,-43.6,NA,NA,NA
-"East Vancouver Island & Mainland Inlets","Chinook",1975,NA,NA,NA,-38.7,NA,-34.2
-"East Vancouver Island & Mainland Inlets","Chinook",1976,NA,NA,NA,-44.9,NA,-33.2
-"East Vancouver Island & Mainland Inlets","Chinook",1977,NA,NA,NA,-40.2,NA,-32.2
-"East Vancouver Island & Mainland Inlets","Chinook",1978,NA,NA,NA,-37.4,NA,-31.2
-"East Vancouver Island & Mainland Inlets","Chinook",1979,36.4,NA,-25.2,-26,NA,-30.1
-"East Vancouver Island & Mainland Inlets","Chinook",1980,22.6,NA,-24.4,-9.2,NA,-29.1
-"East Vancouver Island & Mainland Inlets","Chinook",1981,8.7,NA,-23.5,-3.4,NA,-28
-"East Vancouver Island & Mainland Inlets","Chinook",1982,-1.3,NA,-22.7,-1.7,NA,-26.9
-"East Vancouver Island & Mainland Inlets","Chinook",1983,-10.9,NA,-21.8,-10.5,NA,-25.8
-"East Vancouver Island & Mainland Inlets","Chinook",1984,-12.1,NA,-20.9,-14.3,NA,-24.7
-"East Vancouver Island & Mainland Inlets","Chinook",1985,-20.1,NA,-20,-21,NA,-23.6
-"East Vancouver Island & Mainland Inlets","Chinook",1986,-21,NA,-19.1,-21.8,NA,-22.5
-"East Vancouver Island & Mainland Inlets","Chinook",1987,-26.4,NA,-18.1,-23.7,NA,-21.3
-"East Vancouver Island & Mainland Inlets","Chinook",1988,-28.8,NA,-17.2,-23.9,NA,-20.1
-"East Vancouver Island & Mainland Inlets","Chinook",1989,-21.6,NA,-16.3,-17.1,NA,-18.9
-"East Vancouver Island & Mainland Inlets","Chinook",1990,-15.9,NA,-15.3,-13,NA,-17.7
-"East Vancouver Island & Mainland Inlets","Chinook",1991,-7.5,NA,-14.4,-6.3,NA,-16.5
-"East Vancouver Island & Mainland Inlets","Chinook",1992,-0.9,NA,-13.4,0.4,NA,-15.2
-"East Vancouver Island & Mainland Inlets","Chinook",1993,-1.8,NA,-12.4,1.7,NA,-14
-"East Vancouver Island & Mainland Inlets","Chinook",1994,-6.8,NA,-11.4,-0.3,NA,-12.7
-"East Vancouver Island & Mainland Inlets","Chinook",1995,12.7,NA,-10.4,19.3,NA,-11.4
-"East Vancouver Island & Mainland Inlets","Chinook",1996,26,NA,-9.4,31.7,NA,-10
-"East Vancouver Island & Mainland Inlets","Chinook",1997,45.2,NA,-8.3,40.5,NA,-8.7
-"East Vancouver Island & Mainland Inlets","Chinook",1998,47.5,NA,-7.3,45.6,NA,-7.3
-"East Vancouver Island & Mainland Inlets","Chinook",1999,17.8,NA,-6.2,20,NA,-5.9
-"East Vancouver Island & Mainland Inlets","Chinook",2000,-4.7,NA,-5.2,-0.3,NA,-4.5
-"East Vancouver Island & Mainland Inlets","Chinook",2001,-20.8,NA,-4.1,-7.8,NA,-3.1
-"East Vancouver Island & Mainland Inlets","Chinook",2002,-28.5,NA,-3,-10.4,NA,-1.7
-"East Vancouver Island & Mainland Inlets","Chinook",2003,-36.5,NA,-1.9,-19.1,NA,-0.2
-"East Vancouver Island & Mainland Inlets","Chinook",2004,-48.5,NA,-0.8,-33.9,NA,1.3
-"East Vancouver Island & Mainland Inlets","Chinook",2005,-57.8,NA,0.4,-42.4,NA,2.8
-"East Vancouver Island & Mainland Inlets","Chinook",2006,-59.3,NA,1.5,-47.7,NA,4.4
-"East Vancouver Island & Mainland Inlets","Chinook",2007,-58.9,NA,2.7,-49.5,NA,5.9
-"East Vancouver Island & Mainland Inlets","Chinook",2008,-55.4,NA,3.8,-43.5,NA,7.5
-"East Vancouver Island & Mainland Inlets","Chinook",2009,-57.5,NA,5,-48.9,NA,9.1
-"East Vancouver Island & Mainland Inlets","Chinook",2010,-53.4,NA,6.2,-46.6,NA,10.8
-"East Vancouver Island & Mainland Inlets","Chinook",2011,-47,NA,7.4,-39.8,NA,12.4
-"East Vancouver Island & Mainland Inlets","Chinook",2012,-41.2,NA,8.7,-33.8,NA,14.1
-"East Vancouver Island & Mainland Inlets","Chinook",2013,-16.3,-14.7,9.9,-15.3,-18.1,15.8
-"East Vancouver Island & Mainland Inlets","Chinook",2014,-6.9,-3.3,11.2,-8.7,-7.5,17.5
-"East Vancouver Island & Mainland Inlets","Chinook",2015,3.4,9.7,12.4,0,4.4,19.3
-"East Vancouver Island & Mainland Inlets","Chinook",2016,23.5,24.4,13.7,10.4,17.9,21.1
-"East Vancouver Island & Mainland Inlets","Chinook",2017,42.7,41.1,15,29,33.2,22.9
-"East Vancouver Island & Mainland Inlets","Chinook",2018,75.2,60.1,16.3,59.1,50.4,24.7
-"East Vancouver Island & Mainland Inlets","Chinook",2019,103.3,81.6,17.6,88.3,69.9,26.6
-"East Vancouver Island & Mainland Inlets","Chinook",2020,116.1,106,19,100.5,91.9,28.5
-"East Vancouver Island & Mainland Inlets","Chinook",2021,131.1,133.6,20.3,114.2,116.7,30.4
-"East Vancouver Island & Mainland Inlets","Chinook",2022,155.1,165,21.7,140.4,144.7,32.4
-"East Vancouver Island & Mainland Inlets","Chinook",2023,178.7,200.5,23.1,160,176.4,34.4
-"East Vancouver Island & Mainland Inlets","Chinook",2024,236.2,240.9,24.5,214.5,212.2,36.4
+"East Vancouver Island & Mainland Inlets","Chinook",1975,NA,NA,NA,-38.8,NA,-38.2
+"East Vancouver Island & Mainland Inlets","Chinook",1976,NA,NA,NA,-45,NA,-37.1
+"East Vancouver Island & Mainland Inlets","Chinook",1977,NA,NA,NA,-40.3,NA,-36
+"East Vancouver Island & Mainland Inlets","Chinook",1978,NA,NA,NA,-37.5,NA,-34.9
+"East Vancouver Island & Mainland Inlets","Chinook",1979,33.2,NA,-32,-26.1,NA,-33.8
+"East Vancouver Island & Mainland Inlets","Chinook",1980,19.8,NA,-31,-9.3,NA,-32.7
+"East Vancouver Island & Mainland Inlets","Chinook",1981,6.2,NA,-29.9,-3.6,NA,-31.5
+"East Vancouver Island & Mainland Inlets","Chinook",1982,-3.6,NA,-28.8,-1.8,NA,-30.3
+"East Vancouver Island & Mainland Inlets","Chinook",1983,-13,NA,-27.8,-10.6,NA,-29.1
+"East Vancouver Island & Mainland Inlets","Chinook",1984,-14.1,NA,-26.7,-14.4,NA,-27.9
+"East Vancouver Island & Mainland Inlets","Chinook",1985,-21.9,NA,-25.5,-21.6,NA,-26.7
+"East Vancouver Island & Mainland Inlets","Chinook",1986,-24,NA,-24.4,-24.2,NA,-25.4
+"East Vancouver Island & Mainland Inlets","Chinook",1987,-29.5,NA,-23.3,-26.7,NA,-24.1
+"East Vancouver Island & Mainland Inlets","Chinook",1988,-32.3,NA,-22.1,-27.6,NA,-22.8
+"East Vancouver Island & Mainland Inlets","Chinook",1989,-25.9,NA,-20.9,-21.5,NA,-21.5
+"East Vancouver Island & Mainland Inlets","Chinook",1990,-20.3,NA,-19.7,-16.7,NA,-20.2
+"East Vancouver Island & Mainland Inlets","Chinook",1991,-12,NA,-18.5,-9.3,NA,-18.8
+"East Vancouver Island & Mainland Inlets","Chinook",1992,-4.9,NA,-17.2,-1.8,NA,-17.4
+"East Vancouver Island & Mainland Inlets","Chinook",1993,-6.7,NA,-16,-1.3,NA,-16
+"East Vancouver Island & Mainland Inlets","Chinook",1994,-12.3,NA,-14.7,-4,NA,-14.5
+"East Vancouver Island & Mainland Inlets","Chinook",1995,5.5,NA,-13.4,14.1,NA,-13.1
+"East Vancouver Island & Mainland Inlets","Chinook",1996,16.8,NA,-12.1,24.8,NA,-11.6
+"East Vancouver Island & Mainland Inlets","Chinook",1997,33.7,NA,-10.7,32.5,NA,-10
+"East Vancouver Island & Mainland Inlets","Chinook",1998,35.4,NA,-9.4,37.9,NA,-8.5
+"East Vancouver Island & Mainland Inlets","Chinook",1999,8.7,NA,-8,13.6,NA,-6.9
+"East Vancouver Island & Mainland Inlets","Chinook",2000,-13,NA,-6.6,-6.9,NA,-5.3
+"East Vancouver Island & Mainland Inlets","Chinook",2001,-28.9,NA,-5.2,-15.1,NA,-3.7
+"East Vancouver Island & Mainland Inlets","Chinook",2002,-35.8,NA,-3.7,-19,NA,-2
+"East Vancouver Island & Mainland Inlets","Chinook",2003,-43.7,NA,-2.2,-27.3,NA,-0.3
+"East Vancouver Island & Mainland Inlets","Chinook",2004,-48.2,NA,-0.8,-34.1,NA,1.4
+"East Vancouver Island & Mainland Inlets","Chinook",2005,-54.2,NA,0.8,-41.6,NA,3.1
+"East Vancouver Island & Mainland Inlets","Chinook",2006,-55.4,NA,2.3,-47.1,NA,4.9
+"East Vancouver Island & Mainland Inlets","Chinook",2007,-54,NA,3.8,-48.5,NA,6.7
+"East Vancouver Island & Mainland Inlets","Chinook",2008,-55.9,NA,5.4,-49,NA,8.5
+"East Vancouver Island & Mainland Inlets","Chinook",2009,-59.5,NA,7,-54.3,NA,10.4
+"East Vancouver Island & Mainland Inlets","Chinook",2010,-55,NA,8.7,-51.6,NA,12.3
+"East Vancouver Island & Mainland Inlets","Chinook",2011,-49.9,NA,10.3,-45.9,NA,14.2
+"East Vancouver Island & Mainland Inlets","Chinook",2012,-43.5,NA,12,-38.3,NA,16.2
+"East Vancouver Island & Mainland Inlets","Chinook",2013,-15.9,NA,13.7,-15.1,NA,18.2
+"East Vancouver Island & Mainland Inlets","Chinook",2014,-6.2,-2,15.4,-6.5,-6.5,20.2
+"East Vancouver Island & Mainland Inlets","Chinook",2015,5.6,10.7,17.2,3.5,5.4,22.3
+"East Vancouver Island & Mainland Inlets","Chinook",2016,26.1,25,19,15.1,18.9,24.4
+"East Vancouver Island & Mainland Inlets","Chinook",2017,39.4,41.1,20.8,28.7,34.1,26.5
+"East Vancouver Island & Mainland Inlets","Chinook",2018,71.2,59.3,22.6,58.7,51.3,28.7
+"East Vancouver Island & Mainland Inlets","Chinook",2019,98.6,79.9,24.5,87.7,70.7,30.9
+"East Vancouver Island & Mainland Inlets","Chinook",2020,111.1,103.1,26.4,99.9,92.5,33.2
+"East Vancouver Island & Mainland Inlets","Chinook",2021,125.7,129.4,28.3,113.3,117.2,35.4
+"East Vancouver Island & Mainland Inlets","Chinook",2022,149.1,159,30.3,138.7,145,37.8
+"East Vancouver Island & Mainland Inlets","Chinook",2023,172.3,192.5,32.3,158.4,176.3,40.1
+"East Vancouver Island & Mainland Inlets","Chinook",2024,228.4,230.2,34.3,211.7,211.7,42.6
+"East Vancouver Island & Mainland Inlets","Chinook",2025,278.9,272.9,36.3,259.8,251.6,45
 "East Vancouver Island & Mainland Inlets","Chum",1953,-7.1,NA,-17.2,NA,NA,NA
 "East Vancouver Island & Mainland Inlets","Chum",1954,-2.1,NA,-16.7,NA,NA,NA
 "East Vancouver Island & Mainland Inlets","Chum",1955,-14.3,NA,-16.3,NA,NA,NA
@@ -2201,45 +2222,47 @@
 "East Vancouver Island & Mainland Inlets","Steelhead",2022,-48.5,-32.7,-35.8,NA,NA,NA
 "East Vancouver Island & Mainland Inlets","Steelhead",2023,-45.5,-35.7,-37.2,NA,NA,NA
 "East Vancouver Island & Mainland Inlets","Steelhead",2024,-44,-38.5,-38.6,NA,NA,NA
-"West Vancouver Island","Chinook",1985,-50.7,NA,-42.5,25.7,NA,-1.6
-"West Vancouver Island","Chinook",1986,-50.3,NA,-41,-18.4,NA,-1.6
-"West Vancouver Island","Chinook",1987,-56,NA,-39.4,-27.5,NA,-1.6
-"West Vancouver Island","Chinook",1988,-51.4,NA,-37.8,-22.8,NA,-1.6
-"West Vancouver Island","Chinook",1989,-45.9,NA,-36.1,-25,NA,-1.7
-"West Vancouver Island","Chinook",1990,-42.3,NA,-34.4,1.4,NA,-1.7
-"West Vancouver Island","Chinook",1991,-31.6,NA,-32.7,45.1,NA,-1.7
-"West Vancouver Island","Chinook",1992,-28,NA,-30.9,98.9,NA,-1.7
-"West Vancouver Island","Chinook",1993,-24.9,NA,-29.1,137.1,NA,-1.7
-"West Vancouver Island","Chinook",1994,-17.7,NA,-27.2,126.7,NA,-1.8
-"West Vancouver Island","Chinook",1995,-23.8,NA,-25.2,57.2,NA,-1.8
-"West Vancouver Island","Chinook",1996,-23,NA,-23.3,0.5,NA,-1.8
-"West Vancouver Island","Chinook",1997,-18.4,NA,-21.2,-19.1,NA,-1.8
-"West Vancouver Island","Chinook",1998,2.5,NA,-19.1,-21.3,NA,-1.8
-"West Vancouver Island","Chinook",1999,38,NA,-17,-16.7,NA,-1.9
-"West Vancouver Island","Chinook",2000,29.1,NA,-14.8,-35.7,NA,-1.9
-"West Vancouver Island","Chinook",2001,13.8,NA,-12.5,-47.8,NA,-1.9
-"West Vancouver Island","Chinook",2002,5.6,NA,-10.2,-52,NA,-1.9
-"West Vancouver Island","Chinook",2003,12.4,NA,-7.8,-44.7,NA,-1.9
-"West Vancouver Island","Chinook",2004,46.3,NA,-5.3,-5.3,NA,-2
-"West Vancouver Island","Chinook",2005,46.5,NA,-2.8,20.3,NA,-2
-"West Vancouver Island","Chinook",2006,29.7,NA,-0.2,27.6,NA,-2
-"West Vancouver Island","Chinook",2007,-4.2,NA,2.4,17.4,NA,-2
-"West Vancouver Island","Chinook",2008,-29.9,NA,5.2,-11.8,NA,-2
-"West Vancouver Island","Chinook",2009,-21,NA,8,-21.4,NA,-2.1
-"West Vancouver Island","Chinook",2010,-25.2,NA,10.8,-34.9,NA,-2.1
-"West Vancouver Island","Chinook",2011,-18.4,NA,13.8,-32.2,NA,-2.1
-"West Vancouver Island","Chinook",2012,-13,-3.6,16.8,-33.2,-27.3,-2.1
-"West Vancouver Island","Chinook",2013,-7.3,1.7,19.9,-24.9,-22.3,-2.1
-"West Vancouver Island","Chinook",2014,-2.7,7.3,23.1,-18.8,-16.9,-2.2
-"West Vancouver Island","Chinook",2015,17,13.3,26.4,-15.5,-11.2,-2.2
-"West Vancouver Island","Chinook",2016,49.7,19.5,29.7,6.4,-5.2,-2.2
-"West Vancouver Island","Chinook",2017,50.6,26.1,33.2,10.8,1.4,-2.2
-"West Vancouver Island","Chinook",2018,51.9,33.1,36.7,22.3,8.3,-2.2
-"West Vancouver Island","Chinook",2019,39.3,40.5,40.4,22.9,15.8,-2.3
-"West Vancouver Island","Chinook",2020,34.5,48.2,44.1,20.3,23.7,-2.3
-"West Vancouver Island","Chinook",2021,40.4,56.4,47.9,21.4,32.2,-2.3
-"West Vancouver Island","Chinook",2022,50.7,65.1,51.9,34.1,41.3,-2.3
-"West Vancouver Island","Chinook",2023,79.5,74.2,55.9,46.7,51,-2.3
+"West Vancouver Island","Chinook",1985,-51.2,NA,-43.2,25.7,NA,-1.6
+"West Vancouver Island","Chinook",1986,-50.8,NA,-41.7,-18.4,NA,-1.6
+"West Vancouver Island","Chinook",1987,-56.4,NA,-40.1,-27.5,NA,-1.6
+"West Vancouver Island","Chinook",1988,-51.8,NA,-38.5,-22.8,NA,-1.6
+"West Vancouver Island","Chinook",1989,-46.5,NA,-36.9,-25,NA,-1.7
+"West Vancouver Island","Chinook",1990,-42.8,NA,-35.2,1.4,NA,-1.7
+"West Vancouver Island","Chinook",1991,-32.2,NA,-33.4,45.1,NA,-1.7
+"West Vancouver Island","Chinook",1992,-28.7,NA,-31.7,98.9,NA,-1.7
+"West Vancouver Island","Chinook",1993,-25.7,NA,-29.8,137.1,NA,-1.7
+"West Vancouver Island","Chinook",1994,-18.4,NA,-27.9,126.7,NA,-1.8
+"West Vancouver Island","Chinook",1995,-24.5,NA,-26,57.2,NA,-1.8
+"West Vancouver Island","Chinook",1996,-23.7,NA,-24,0.5,NA,-1.8
+"West Vancouver Island","Chinook",1997,-19.2,NA,-22,-19.1,NA,-1.8
+"West Vancouver Island","Chinook",1998,1.6,NA,-19.9,-21.3,NA,-1.8
+"West Vancouver Island","Chinook",1999,36.7,NA,-17.7,-16.7,NA,-1.9
+"West Vancouver Island","Chinook",2000,27.8,NA,-15.5,-35.7,NA,-1.9
+"West Vancouver Island","Chinook",2001,12.7,NA,-13.2,-47.8,NA,-1.9
+"West Vancouver Island","Chinook",2002,4.6,NA,-10.9,-52,NA,-1.9
+"West Vancouver Island","Chinook",2003,11.3,NA,-8.5,-44.7,NA,-1.9
+"West Vancouver Island","Chinook",2004,44.9,NA,-6.1,-5.3,NA,-2
+"West Vancouver Island","Chinook",2005,45.1,NA,-3.5,20.3,NA,-2
+"West Vancouver Island","Chinook",2006,28.4,NA,-1,27.6,NA,-2
+"West Vancouver Island","Chinook",2007,-5.1,NA,1.7,17.4,NA,-2
+"West Vancouver Island","Chinook",2008,-30.5,NA,4.4,-11.8,NA,-2
+"West Vancouver Island","Chinook",2009,-21.8,NA,7.2,-21.4,NA,-2.1
+"West Vancouver Island","Chinook",2010,-25.9,NA,10.1,-34.9,NA,-2.1
+"West Vancouver Island","Chinook",2011,-19.2,NA,13.1,-32.2,NA,-2.1
+"West Vancouver Island","Chinook",2012,-13.8,NA,16.1,-33.2,-27.3,-2.1
+"West Vancouver Island","Chinook",2013,-8.2,NA,19.2,-24.9,-22.3,-2.1
+"West Vancouver Island","Chinook",2014,-3.6,17.3,22.4,-18.8,-16.9,-2.2
+"West Vancouver Island","Chinook",2015,15.9,21.5,25.7,-15.5,-11.2,-2.2
+"West Vancouver Island","Chinook",2016,48.3,25.9,29.1,6.4,-5.2,-2.2
+"West Vancouver Island","Chinook",2017,49.2,30.4,32.6,10.8,1.4,-2.2
+"West Vancouver Island","Chinook",2018,50.4,35.1,36.1,22.3,8.3,-2.2
+"West Vancouver Island","Chinook",2019,38,40,39.8,22.9,15.8,-2.3
+"West Vancouver Island","Chinook",2020,33.2,45.1,43.5,20.3,23.7,-2.3
+"West Vancouver Island","Chinook",2021,39.1,50.3,47.4,21.4,32.2,-2.3
+"West Vancouver Island","Chinook",2022,49.3,55.8,51.3,34.1,41.3,-2.3
+"West Vancouver Island","Chinook",2023,77.8,61.4,55.4,46.7,51,-2.3
+"West Vancouver Island","Chinook",2024,82.5,67.2,59.6,NA,NA,NA
+"West Vancouver Island","Chinook",2025,52.7,73.3,63.8,NA,NA,NA
 "West Vancouver Island","Sockeye",1977,-25.6,NA,-14.1,102.8,NA,25.9
 "West Vancouver Island","Sockeye",1978,-45.7,NA,-13.6,1.5,NA,24.7
 "West Vancouver Island","Sockeye",1979,-35.7,NA,-13.2,20.2,NA,23.6

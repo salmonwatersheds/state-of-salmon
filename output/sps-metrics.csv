@@ -5,8 +5,8 @@
 "Yukon","Chum","Run Size",-0.840036867426303,-0.249513431813161,"arrow-down",-0.0509186056325234,"arrow-down",20283.9078626022,2025,126803.6424159,73100.9655238295,4,"Yukon Chum",25,"2001-2025"
 "Yukon","Coho","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,NA
 "Yukon","Coho","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,NA
-"Northern Transboundary","Chinook","Spawners",-0.462833016404266,-0.0481945630902882,"arrow-down",-0.012657068703404,"arrow-down",29921.1066611605,2024,55701.6860211178,26281.059427171,5,"Northern Transboundary Chinook",49,"1976-2024"
-"Northern Transboundary","Chinook","Run Size",-0.529113849074763,-0.0769790081594526,"arrow-down",-0.00915193374287859,"arrow-down",32246.986373989,2024,68481.4924172804,32351.2057612211,5,"Northern Transboundary Chinook",49,"1976-2024"
+"Northern Transboundary","Chinook","Spawners",-0.379106914460004,-0.0390593500836461,"arrow-down",-0.0130341700004205,"arrow-down",34683.0903371325,2025,55860.0041534821,23753.3925714712,5,"Northern Transboundary Chinook",50,"1976-2025"
+"Northern Transboundary","Chinook","Run Size",-0.522498308810453,-0.07620292278917,"arrow-down",-0.00936348872556869,"arrow-down",32930.9299306922,2024,68965.0540266256,32387.1421271123,5,"Northern Transboundary Chinook",49,"1976-2024"
 "Northern Transboundary","Chum","Spawners",-0.730856093884647,-0.129419474358599,"arrow-down",-0.0528557329235131,"arrow-down",59.4051510960939,2025,220.718915592439,46.8625476981719,4,"Northern Transboundary Chum",42,"1984-2025"
 "Northern Transboundary","Chum","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,NA
 "Northern Transboundary","Coho","Spawners",-0.140981387148111,-0.0253316135708689,"arrow-down",0.00479665491873082,"arrows-left-right",67222.1902113106,2025,78254.6375661606,64531.0459255165,5,"Northern Transboundary Coho",39,"1987-2025"
@@ -29,8 +29,8 @@
 "Haida Gwaii","Sockeye","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,NA
 "Haida Gwaii","Steelhead","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,NA
 "Haida Gwaii","Steelhead","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,NA
-"Nass","Chinook","Spawners",0.0121101097308879,-0.0142255187510647,"arrows-left-right",-0.020510020434098,"arrow-down",16609.5523632328,2025,16410.8155857164,8719.40091949593,5,"Nass Chinook",34,"1992-2025"
-"Nass","Chinook","Run Size",-0.234163464213877,-0.0164024357915777,"arrow-down",-0.0260322696520583,"arrow-down",22129.1690498221,2025,28895.4209100337,19275.8316503827,5,"Nass Chinook",34,"1992-2025"
+"Nass","Chinook","Spawners",-0.0199953843273244,-0.00640715997241559,"arrows-left-right",-0.00363038477740951,"arrows-left-right",16543.0955884321,2025,16880.630278539,10702.4667778973,5,"Nass Chinook",51,"1975-2025"
+"Nass","Chinook","Run Size",-0.0581494572245129,-0.00367993456089388,"arrows-left-right",-2.22904021947024e-05,"arrows-left-right",21835.8798199578,2025,23184.017875714,16441.4536871852,5,"Nass Chinook",51,"1975-2025"
 "Nass","Chum","Spawners",0.993133821589364,0.194642185076851,"arrow-up",-0.00909569023211176,"arrow-down",85055.8296319404,2025,42674.4199062937,60503.3107899833,4,"Nass Chum",76,"1950-2025"
 "Nass","Chum","Run Size",0.95683340302553,0.191501903757445,"arrow-up",-0.0282986598439311,"arrow-down",99763.6864379118,2025,50982.2074192231,71086.6902480025,4,"Nass Chum",34,"1992-2025"
 "Nass","Coho","Spawners",0.650636246865503,0.0243614617319781,"arrows-left-right",0.026452825899417,"arrow-up",211822.771115762,2025,128327.953247122,116254.247603655,4,"Nass Coho",34,"1992-2025"
@@ -41,7 +41,7 @@
 "Nass","Sockeye","Run Size",-0.0839019420198118,-0.0051093566491569,"arrows-left-right",-0.0144521510220005,"arrow-down",607237.586772937,2025,662852.171209459,356348.421134151,5,"Nass Sockeye",44,"1982-2025"
 "Nass","Steelhead","Spawners",0.0625588446917789,-0.0424544763116486,"arrow-down",0.0213410217943393,"arrow-up",12057.2745218731,2025,11347.3946239378,12919.9531917583,5,"Nass Steelhead",34,"1992-2025"
 "Nass","Steelhead","Run Size",-0.0727421165609538,-0.0478452041814214,"arrow-down",0.0054436785383376,"arrows-left-right",16450.8630469578,2025,17741.4108208434,15995.8117364262,5,"Nass Steelhead",34,"1992-2025"
-"Skeena","Chinook","Spawners",-0.504924104792379,-0.0688212474327566,"arrow-down",-0.0162807009424409,"arrow-down",22415.1519611877,2024,45276.1933638223,33515.5453285974,6,"Skeena Chinook",41,"1984-2024"
+"Skeena","Chinook","Spawners",-0.451385527384987,-0.0650530486104198,"arrow-down",-0.0172090082309351,"arrow-down",24707.5078180938,2025,45036.1939967124,29811.6568229942,6,"Skeena Chinook",42,"1984-2025"
 "Skeena","Chinook","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,6,NA,NA,NA
 "Skeena","Chum","Spawners",-0.846826492007735,-0.0947904860703278,"arrow-down",-0.0269601260934391,"arrow-down",1333.31235935647,2024,8704.58852077605,2317.62156401698,5,"Skeena Chum",75,"1950-2024"
 "Skeena","Chum","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,NA
@@ -53,7 +53,7 @@
 "Skeena","Sockeye","Run Size",0.139537635487508,0.0155363786857601,"arrows-left-right",0.00200874257471995,"arrows-left-right",2367526.85344332,2024,2077620.58901237,1411025.40757077,5,"Skeena Sockeye",65,"1960-2024"
 "Skeena","Steelhead","Spawners",-0.436059695674901,-0.0897936713133867,"arrow-down",0.0066132836813364,"arrow-up",12200.207118691,2025,21633.862706961,23697.1842324642,5,"Skeena Steelhead",70,"1956-2025"
 "Skeena","Steelhead","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,NA
-"Central Coast","Chinook","Spawners",0.100098326049345,0.0262794490317868,"arrows-left-right",0.0113224821048619,"arrow-up",18278.2165729752,2024,16615.0753438701,21910.168984771,5,"Central Coast Chinook",50,"1975-2024"
+"Central Coast","Chinook","Spawners",0.0721035720869228,0.0200741734664402,"arrows-left-right",0.0109029216167715,"arrow-up",17899.3264946453,2025,16695.5198738896,18881.7869070847,5,"Central Coast Chinook",51,"1975-2025"
 "Central Coast","Chinook","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,NA
 "Central Coast","Chum","Spawners",-0.295984084015309,-0.0823025985053263,"arrow-down",-0.00683218835024912,"arrow-down",347784.791678136,2024,494001.319830529,212765.487642357,4,"Central Coast Chum",75,"1950-2024"
 "Central Coast","Chum","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,NA
@@ -65,8 +65,8 @@
 "Central Coast","Sockeye","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,NA
 "Central Coast","Steelhead","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,NA
 "Central Coast","Steelhead","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,NA
-"East Vancouver Island & Mainland Inlets","Chinook","Spawners",2.36212694309796,0.134223092879962,"arrow-up",0.0113959540582995,"arrows-left-right",26382.1576450569,2024,7846.86541928951,16959.7203099778,4,"East Vancouver Island & Mainland Inlets Chinook",46,"1979-2024"
-"East Vancouver Island & Mainland Inlets","Chinook","Run Size",2.145112130188,0.129389615867616,"arrow-up",0.0149715297822042,"arrow-up",30119.1854277325,2024,9576.50607704474,19200.0983931286,4,"East Vancouver Island & Mainland Inlets Chinook",50,"1975-2024"
+"East Vancouver Island & Mainland Inlets","Chinook","Spawners",2.78933455440452,0.129178002778208,"arrow-up",0.0152377150356175,"arrow-up",30432.1159931721,2025,8030.99213232556,18126.0880897933,4,"East Vancouver Island & Mainland Inlets Chinook",47,"1979-2025"
+"East Vancouver Island & Mainland Inlets","Chinook","Run Size",2.5983613894681,0.128009785551494,"arrow-up",0.0171964407688736,"arrow-up",34516.9864918417,2025,9592.41798026961,20458.9069873327,4,"East Vancouver Island & Mainland Inlets Chinook",51,"1975-2025"
 "East Vancouver Island & Mainland Inlets","Chum","Spawners",-0.492255238533283,-0.113943469467901,"arrow-down",0.00548181091613964,"arrow-up",418121.291282613,2024,823487.159325466,704910.436742818,4,"East Vancouver Island & Mainland Inlets Chum",72,"1953-2024"
 "East Vancouver Island & Mainland Inlets","Chum","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,NA
 "East Vancouver Island & Mainland Inlets","Coho","Spawners",0.32946909863013,0.0217674448938918,"arrows-left-right",-0.00365478041436351,"arrow-down",354988.546802,2024,267015.267348279,239721.92096906,4,"East Vancouver Island & Mainland Inlets Coho",72,"1953-2024"
@@ -77,7 +77,7 @@
 "East Vancouver Island & Mainland Inlets","Sockeye","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,NA
 "East Vancouver Island & Mainland Inlets","Steelhead","Spawners",-0.440377673904461,-0.0440884090905295,"arrow-down",-0.0216744850850203,"arrow-down",731.109673572891,2024,1306.43407076664,1123.32699084751,5,"East Vancouver Island & Mainland Inlets Steelhead",49,"1976-2024"
 "East Vancouver Island & Mainland Inlets","Steelhead","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,NA
-"West Vancouver Island","Chinook","Spawners",0.794964540904508,0.055303184846262,"arrow-up",0.0265986096663258,"arrow-up",22745.3436269195,2023,12671.7509502766,17652.35093571,4,"West Vancouver Island Chinook",39,"1985-2023"
+"West Vancouver Island","Chinook","Spawners",0.526949623510265,0.0361359740401346,"arrow-up",0.0268493143348689,"arrow-up",19534.6966173735,2025,12793.2816620798,17794.5362172561,4,"West Vancouver Island Chinook",41,"1985-2025"
 "West Vancouver Island","Chinook","Run Size",0.467094727983574,0.0686716048632789,"arrow-up",-0.000205373883430116,"arrows-left-right",355233.414607189,2023,242133.931661955,297638.093400404,4,"West Vancouver Island Chinook",39,"1985-2023"
 "West Vancouver Island","Chum","Spawners",-0.410059718253478,-0.0790048759627112,"arrow-down",0.0056414222077128,"arrow-up",291696.405854305,2025,494450.734895972,343920.591897065,4,"West Vancouver Island Chum",73,"1953-2025"
 "West Vancouver Island","Chum","Run Size",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,NA
