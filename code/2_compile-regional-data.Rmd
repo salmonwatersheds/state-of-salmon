@@ -119,7 +119,7 @@ genLength <- read.csv(here("data/gen_length_regions.csv"))
 
 # Set version of NuSEDS for source_id
 nuseds_id <- "PSF_20260428"
-ctc_id <- "CTC_20250714"
+ctc_id <- "CTC_20260818"
 
 # Initiate dataframe
 sps_data <- NULL
@@ -1515,11 +1515,11 @@ yrs <- as.numeric(names(ccck_ex))
 e <- readRDS(here("output/expanded-spawners/Central Coast-expansion-factors.rds"))[[1]]
 
 # TCCHINOOK Table B3
-cc_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-25-02-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B3", 
-														range = "H5:K54", col_types = "numeric", 
+cc_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-2026-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B3", 
+														range = "H5:K55", col_types = "numeric", 
 														col_names = c("Atnarko_Total_esc", "Atnarko_CV", 
 																					"Atnarko_Wild", "Rivers_Inlet")) %>%
-	mutate(Year = c(1975:2024))
+	mutate(Year = c(1975:2025))
 
 par(mar = c(3,4,2,4))
 plot(yrs, e$exp1, pch = 4, bty = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "", col = grey(0.6), ylim = c(0, 30), lwd = 2)
