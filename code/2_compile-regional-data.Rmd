@@ -2793,7 +2793,7 @@ frse_sps <- data.frame(
 	smoothedSpawners = NA,
 	runsize = frse$Run.Size,
 	smoothedRunsize = NA,
-	source_id = rep("PSC_20260417", length(frse$Year))
+	source_id = c(rep("PSC_20260417", length(frse$Year)-1), "Everitt_20260708")
 ) 
 
 # Fill in run size with in-season estimates if available
