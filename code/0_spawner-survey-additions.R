@@ -258,7 +258,7 @@ spawner_surveys.all %>% filter(species_name == "Pink" & region %in% c("East Vanc
 # - Update lat/lon of Little Campbell
 
 # steelhead_update <- read.csv("https://github.com/salmonwatersheds/steelhead-data/blob/main/output/dataset2_spawner-surveys_steelhead.csv")
-steelhead_update <- read.csv(paste0(X_Drive, "1_PROJECTS/1_Active/Population Methods and Analysis/population-data/steelhead-data/output/archive/dataset2_spawner-surveys_Steelhead_2026-08-12.csv"))
+steelhead_update <- read.csv(paste0(get_XDrive(), "1_PROJECTS/1_Active/Population Methods and Analysis/population-data/steelhead-data/output/archive/dataset2_spawner-surveys_Steelhead_2026-08-14.csv"))
 
 names(steelhead_update)
 names(spawner_surveys.all)
