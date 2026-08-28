@@ -9,7 +9,10 @@
 
 # Ignore rendered methods-results doc, which may be large.
 methods-results/*.html
-code/*.html
+#code/*.html
+
+# Ignore temporary files from Rmd
+code/2_compile-regional-data_files
 
 
 # Old code files archived on local repos
