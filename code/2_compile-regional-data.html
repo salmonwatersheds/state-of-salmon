@@ -11,7 +11,7 @@
 
 <meta name="author" content="Salmon Watersheds Program, Steph Peacock, Hannah Hunter" />
 
-<meta name="date" content="2026-08-27" />
+<meta name="date" content="2026-08-31" />
 
 <title>compile-regional-data</title>
 
@@ -2830,7 +2830,7 @@ border-radius: 0px;
 <h1 class="title toc-ignore">compile-regional-data</h1>
 <h4 class="author">Salmon Watersheds Program, Steph Peacock, Hannah
 Hunter</h4>
-<h4 class="date">August 27, 2026</h4>
+<h4 class="date">August 31, 2026</h4>
 
 </div>
 
@@ -6148,7 +6148,7 @@ frse_sps &lt;- data.frame(
     smoothedSpawners = NA,
     runsize = frse$Run.Size,
     smoothedRunsize = NA,
-    source_id = rep(&quot;PSC_20260417&quot;, length(frse$Year))
+    source_id = c(rep(&quot;PSC_20260417&quot;, length(frse$Year)-1), &quot;Everitt_20260708&quot;)
 ) 
 
 # Fill in run size with in-season estimates if available

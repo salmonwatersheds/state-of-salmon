@@ -2147,11 +2147,11 @@ nuseds_17_sum <- nuseds_17 %>% group_by(year) %>%
 
 
 # Compare the 17 stream index and our reconstructed version
-##wvi_ck %>% ggplot(aes(x=year, y=tot_esc/1000)) + geom_line(aes(col="DFO 17-Stream Index")) +
-	#geom_line(data=nuseds_17_sum, aes(x=year, y=total_observed/1000, col="Reconstructed 17-stream")) +
-	#scale_colour_manual(values = c("DFO 17-Stream Index" = "blue", "CTC 14-Stream Index" = "red", 
-	#															 "Reconstructed 17-stream" = "purple")) +
-	#labs(col="Source", y="Spawner escapement (000s)", x="Year")
+wvi_ck %>% ggplot(aes(x=year, y=tot_esc/1000)) + geom_line(aes(col="DFO 17-Stream Index")) +
+	geom_line(data=nuseds_17_sum, aes(x=year, y=total_observed/1000, col="Reconstructed 17-stream")) +
+	scale_colour_manual(values = c("DFO 17-Stream Index" = "blue", "CTC 14-Stream Index" = "red", 
+															 "Reconstructed 17-stream" = "purple")) +
+	labs(col="Source", y="Spawner escapement (000s)", x="Year")
 
 
 # Combine DFO 17-stream index from Nick brown with our reconstruction (2024,2025)
@@ -2831,7 +2831,8 @@ Steelhead trout in the Fraser are monitored by the Province in at least 10 diffe
 ```{r fraser steelhead, fig.cap="**Above:**Spawner abundance of Fraser steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 ## Load data ---
 # Use sum of two main Fraser steelhead CUs
-frsh <- read.csv(here("data/dataset1cu_steelhead_20250117.csv")) %>% 
+
+frsh <- read.csv("https://raw.githubusercontent.com/salmonwatersheds/steelhead-data/refs/heads/main/output/dataset1_spawner-abundance_Steelhead.csv") %>% 
 	filter(region == "Fraser", species_name == "Steelhead") %>%
 	filter(cu_name_pse %in% c("Thompson Summer", "Mid Fraser Summer")) %>%
 	filter(!is.na(estimated_count) & estimated_count != -989898)
