@@ -809,7 +809,7 @@ for(k in 1:2){
 	# quartz(width = 7, height = 7, pointsize = 10, family = "Sofia Pro Bold")
 	# png(file = paste0("output/ignore/", type_name[k], "_highlight_fig_2025-08-25.png"), width = 7, height = 7, units = "in", res = 350, pointsize = 10, family = "Sofia Pro Semi Bold", bg = NA)
 	
-	pdf(file = paste0(XDrive_SoS, "output/print-figures/pdf/", "highlights_", type_name[k], "_", Sys.Date(), ".pdf"), width = 7, height = 7, pointsize = 10, family = "Sofia Pro Semi Bold", bg = NA)
+	pdf(file = paste0(XDrive_SoS, "output/print-figures/pdf/", "highlights_", type_name[k], ".pdf"), width = 7, height = 7, pointsize = 10, family = "Sofia Pro Semi Bold", bg = NA)
 	
 	
 	
@@ -861,6 +861,6 @@ for(k in 1:2){
 	dev.off()
 	
 	if(file_type == "pdf"){
-		embed_fonts(paste0(XDrive_SoS, "output/print-figures/pdf/", "highlights_", type_name[k], "year_", Sys.Date(), ".pdf"), outfile = paste0(XDrive_SoS, "output/print-figures/pdf/", "highlights_", type_name[k], "year_", Sys.Date(), ".pdf"))
+		embed_fonts(paste0(XDrive_SoS, "output/print-figures/pdf/", "highlights_", type_name[k], ".pdf"), outfile = paste0(XDrive_SoS, "output/print-figures/pdf/", "highlights_", type_name[k], ".pdf"))
 	}
-}
+} # end k
