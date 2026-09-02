@@ -10,7 +10,7 @@ library(dplyr)
 ###############################################################################
 # Basic runsize plot
 ###############################################################################
-plot_abund <- function(sps_data_subset, cols = c("#000000", grey(0.6))){
+plot_abund <- function(sps_data_subset, cols = c("#000000", grey(0.6)), red_points = FALSE){
 	
 	par(mar = c(3,4,2,1), mfrow = c(1,1))
 	
@@ -28,18 +28,30 @@ plot_abund <- function(sps_data_subset, cols = c("#000000", grey(0.6))){
 	# Add run size
 	if(sum(!is.na(sps_data_subset$runsize)) > 0){
 		abline(h = exp(mean(log(sps_data_subset$runsize), na.rm = TRUE))*10^-3, col = cols[1], lty = 2)
-	lines(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], xpd = NA, lwd = 0.5)
-	points(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], pch = 21, bg = "white", lwd = 0.5)
-	lines(sps_data_subset$year, sps_data_subset$smoothedRunsize*10^-3, col = cols[1], lwd = 2, xpd = NA)
-	legend("topleft", lwd = 2, col = cols, c("Total", "Spawner"), bty = "n")
-	
+		lines(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], xpd = NA, lwd = 0.5)
+		points(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], pch = 21, bg = "white", lwd = 0.5)
+		lines(sps_data_subset$year, sps_data_subset$smoothedRunsize*10^-3, col = cols[1], lwd = 2, xpd = NA)
+		legend.names <- c("Total", "Spawner")
+		legend.cols <- cols[1:2]
 	} else {
-		legend("topleft", lwd = 2, col = cols[2], c("Spawner"), bty = "n")
+		legend.names <- "Spawner"
+		legend.cols <- cols[2]
+	}
+	
+  # Add legend
+	if(red_points != FALSE){
+		if(length(legend.names) == 1){
+		legend("topleft", lwd = c(1, NA), col = c(legend.cols, 2), legend = c(legend.names, red_points), bty = "n", pch = c(21, 19), pt.cex = c(1,0.6), pt.bg = "white")
+		} else{
+			legend("topleft", lwd = c(1, 1, NA), col = c(legend.cols, 2), legend = c(legend.names, red_points), bty = "n", pch = c(21, 21, 19), pt.cex = c(1,1,0.6), pt.bg = "white")
+		}
+	} else {
+		legend("topleft", lwd = 2, col = legend.cols, legend = legend.names, bty = "n")
 	}
 	
 	mtext(side = 3, line = 1, paste(unique(sps_data_subset$region), unique(sps_data_subset$species)))
-
-	}
+	
+}
 
 ###############################################################################
 # Return time series of smoothed abundance 
