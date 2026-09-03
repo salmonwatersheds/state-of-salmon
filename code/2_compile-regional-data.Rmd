@@ -239,7 +239,7 @@ points(ytcm_B20$Year, ytcm_B20$Spawning.escapement*10^-3, col = 2, pch = 19, cex
 
 
 ### Northern Transboundary
-<!-- > Internal note: Processing of raw excel file from Aaron Foos to extract relevant tables and fields is in [population-data/transboundary-data/code/sos-data-extract.R](https://www.dropbox.com/scl/fi/zxgtulvx2p5iphr3rjx57/sos-data-extract.R?rlkey=f18myjpthqbee4ciz9ny0pjf9&dl=0) -->
+<!-- > Internal note: Processing of raw excel file from Aaron Foos to extract relevant tables and fields is in code/tbr-data-extract.R -->
 
 The best-available information on salmon abundance in the Northern Transboundary region is from the PSC's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The most recent TTC report [@TTC2025FinalEstimatesTransboundary] includes data through 2023. Updated report appendices were provided by Aaron Foos (DFO) on July 8, 2026 in advance of report publication, and numbers for 2024-2025 should be considered **preliminary**.
 
@@ -3369,6 +3369,8 @@ plot_sps_metrics_detail(region = "Yukon", species = "Chinook", types="Run Size",
 ```
 
 ### Chum {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
 ```{r yk cm spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Yukon Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
 plot_sps_metrics_detail(region = "Yukon", species = "Chum", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
 ```
@@ -3616,6 +3618,7 @@ plot_sps_metrics_detail(region = "Nass", species = "Steelhead", types="Run Size"
 
 ### All species table
 
+
 **Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
@@ -3688,6 +3691,7 @@ plot_sps_metrics_detail(region = "Skeena", species = "Pink", types="Spawners", s
 ### All species table
 
 **Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
 btn_table(
@@ -3757,6 +3761,7 @@ plot_sps_metrics_detail(region = "Central Coast", species = "Sockeye", types="Sp
 ### All species table
 
 **Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
 btn_table(
@@ -3824,6 +3829,7 @@ plot_sps_metrics_detail(region = "East Vancouver Island & Mainland Inlets", spec
 ### All species table
 
 **Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
 btn_table(
