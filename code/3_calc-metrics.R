@@ -456,12 +456,12 @@ for(i in 1:2){ # for spawners and run type
 			
 		}
 	
-		
-		plot(rep(1,dim(sps_summary.is)[1]), sps_summary.is$current_status, pch = 19, cex = 1.5, col = rainbow(9), xlim = c(0.5, 3.5), main = paste(species_vec[s], c("Spawners", "Total return")[i]))
-		points(rep(1.2,dim(sps_summary.is)[1]) + sps_summary.is$status_offset_x/25,  sps_summary.is$current_status + sps_summary.is$status_offset_y, pch = 19, cex = 1.5, col = rainbow(9))
-		points(rep(1.2,dim(sps_summary.is)[1])+ sps_summary.is$status_offset_x/25, sps_summary.is$current_status + sps_summary.is$status_offset_y, pch = 19, cex = 0.5)
-		segments(x0 = 1.2 + sps_summary.is$status_offset_x/25, x1 = 1.7, y0 = sps_summary.is$current_status + sps_summary.is$status_offset_y, y1 = sps_summary.is$current_status + sps_summary.is$status_offset_y + sps_summary.is$region_label_offset_y)
-		text(1.7, sps_summary.is$current_status + sps_summary.is$status_offset_y + sps_summary.is$region_label_offset_y, sps_summary.is$region, adj = 0)
+		# Do not generate dot plots for now
+		#plot(rep(1,dim(sps_summary.is)[1]), sps_summary.is$current_status, pch = 19, cex = 1.5, col = rainbow(9), xlim = c(0.5, 3.5), main = paste(species_vec[s], c("Spawners", "Total return")[i]))
+		#points(rep(1.2,dim(sps_summary.is)[1]) + sps_summary.is$status_offset_x/25,  sps_summary.is$current_status + sps_summary.is$status_offset_y, pch = 19, cex = 1.5, col = rainbow(9))
+		#points(rep(1.2,dim(sps_summary.is)[1])+ sps_summary.is$status_offset_x/25, sps_summary.is$current_status + sps_summary.is$status_offset_y, pch = 19, cex = 0.5)
+		#segments(x0 = 1.2 + sps_summary.is$status_offset_x/25, x1 = 1.7, y0 = sps_summary.is$current_status + sps_summary.is$status_offset_y, y1 = sps_summary.is$current_status + sps_summary.is$status_offset_y + sps_summary.is$region_label_offset_y)
+		#text(1.7, sps_summary.is$current_status + sps_summary.is$status_offset_y + sps_summary.is$region_label_offset_y, sps_summary.is$region, adj = 0)
 		
 		} # end species
 	}

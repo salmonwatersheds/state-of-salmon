@@ -10,7 +10,7 @@ library(dplyr)
 ###############################################################################
 # Basic runsize plot
 ###############################################################################
-plot_abund <- function(sps_data_subset, cols = c("#000000", grey(0.6))){
+plot_abund <- function(sps_data_subset, cols = c("#000000", grey(0.6)), red_points = FALSE){
 	
 	par(mar = c(3,4,2,1), mfrow = c(1,1))
 	
@@ -28,18 +28,30 @@ plot_abund <- function(sps_data_subset, cols = c("#000000", grey(0.6))){
 	# Add run size
 	if(sum(!is.na(sps_data_subset$runsize)) > 0){
 		abline(h = exp(mean(log(sps_data_subset$runsize), na.rm = TRUE))*10^-3, col = cols[1], lty = 2)
-	lines(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], xpd = NA, lwd = 0.5)
-	points(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], pch = 21, bg = "white", lwd = 0.5)
-	lines(sps_data_subset$year, sps_data_subset$smoothedRunsize*10^-3, col = cols[1], lwd = 2, xpd = NA)
-	legend("topleft", lwd = 2, col = cols, c("Total", "Spawner"), bty = "n")
-	
+		lines(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], xpd = NA, lwd = 0.5)
+		points(sps_data_subset$year, sps_data_subset$runsize*10^-3, col = cols[1], pch = 21, bg = "white", lwd = 0.5)
+		lines(sps_data_subset$year, sps_data_subset$smoothedRunsize*10^-3, col = cols[1], lwd = 2, xpd = NA)
+		legend.names <- c("Total", "Spawner")
+		legend.cols <- cols[1:2]
 	} else {
-		legend("topleft", lwd = 2, col = cols[2], c("Spawner"), bty = "n")
+		legend.names <- "Spawner"
+		legend.cols <- cols[2]
+	}
+	
+  # Add legend
+	if(red_points != FALSE){
+		if(length(legend.names) == 1){
+		legend("topleft", lwd = c(1, NA), col = c(legend.cols, 2), legend = c(legend.names, red_points), bty = "n", pch = c(21, 19), pt.cex = c(1,0.6), pt.bg = "white")
+		} else{
+			legend("topleft", lwd = c(1, 1, NA), col = c(legend.cols, 2), legend = c(legend.names, red_points), bty = "n", pch = c(21, 21, 19), pt.cex = c(1,1,0.6), pt.bg = "white")
+		}
+	} else {
+		legend("topleft", lwd = 2, col = legend.cols, legend = legend.names, bty = "n")
 	}
 	
 	mtext(side = 3, line = 1, paste(unique(sps_data_subset$region), unique(sps_data_subset$species)))
-
-	}
+	
+}
 
 ###############################################################################
 # Return time series of smoothed abundance 
@@ -768,5 +780,104 @@ plot_expansions <- function(
 		# mtext(side = 3, adj = 0, line = 0.5, "(c)")
 	}
 	
+}
+
+##################################################################
+# Plot detailed status & trend metrics for a given region/species
+##################################################################
+# Reproduces the plots generated in the sps-metrics_detailed.pdf loop in
+# 3_calc-metrics.R, using sps_dat and sps_metrics as already loaded above
+# (i.e., freshly updated by the source() call to 3_calc-metrics.R).
+# Nothing is recalculated here.
+#
+# Parameters:
+# region: character, matching sps_metrics$region
+# species: character, matching sps_metrics$species
+# types: character vector, one or both of "Spawners", "Run Size"
+
+plot_sps_metrics_detail <- function(region, species, types = c("Spawners", "Run Size"), sps_dat, sps_metrics) {
+	
+	ind_dat <- which(sps_dat$region == region & sps_dat$species == species)
+	
+	if (length(ind_dat) == 0) {
+		message("No data for ", region, " ", species)
+		return(invisible(NULL))
+	}
+	
+	x <- sps_dat$year[ind_dat]
+	
+	for (type in types) {
+		
+		ind <- which(sps_metrics$region == region & sps_metrics$species == species & sps_metrics$type == type)
+		if (length(ind) == 0) next
+		
+		raw_col <- if (type == "Spawners") "spawners" else "runsize"
+		smooth_col <- if (type == "Spawners") "smoothedSpawners" else "smoothedRunsize"
+		short_col <- paste0(raw_col, "_short_trend")
+		long_col <- paste0(raw_col, "_long_trend")
+		
+		yraw <- sps_dat[[raw_col]][ind_dat]
+		y <- sps_dat[[smooth_col]][ind_dat]
+		
+		y_short_fit <- sps_dat[[short_col]][ind_dat]
+		y_short_lwr <- sps_dat[[paste0(short_col, "_lwr")]][ind_dat]
+		y_short_upr <- sps_dat[[paste0(short_col, "_upr")]][ind_dat]
+		
+		y_long_fit <- sps_dat[[long_col]][ind_dat]
+		y_long_lwr <- sps_dat[[paste0(long_col, "_lwr")]][ind_dat]
+		y_long_upr <- sps_dat[[paste0(long_col, "_upr")]][ind_dat]
+		
+		g <- sps_metrics$gen_length[ind]
+		
+		par(mar = c(3, 4, 2, 1))
+		
+		plot(x, yraw * 10^-3, "l", col = SWP_cols['stone1'],
+				 xlab = "", ylab = paste(type, "(thousands)"),
+				 bty = "l", las = 1, lty = 3)
+		lines(x, y * 10^-3, lwd = 1.5, col = SWP_cols['stone3'])
+		
+		abline(h = sps_metrics$average_abundance[ind] * 10^-3, lty = 2, col = SWP_cols['stone3'])
+		
+		points(sps_metrics$current_abundance_year[ind], sps_metrics$current_abundance[ind] * 10^-3,
+					 pch = 19, col = SWP_cols['stone3'])
+		points(sps_metrics$current_abundance_year[ind] - g, sps_metrics$previous_gen_abundance[ind] * 10^-3,
+					 pch = 21, bg = "#FFFFFF", col = SWP_cols['stone3'], lwd = 1.5)
+		
+		ok_short <- !is.na(y_short_fit)
+		if (any(ok_short)) {
+			polygon(x = c(x[ok_short], rev(x[ok_short])),
+							y = c(y_short_upr[ok_short], rev(y_short_lwr[ok_short])) * 10^-3,
+							border = NA, col = paste0(SWP_cols['clay1'], 30))
+			lines(x[ok_short], y_short_fit[ok_short] * 10^-3, col = SWP_cols['clay1'], lwd = 2)
+		}
+		
+		text(x[1], 0.9 * max(yraw, na.rm = TRUE) * 10^-3,
+				 paste0("Short-term trend: ", round(sps_metrics$short_trend[ind] * 100, 1),
+				 			 "% (", sps_metrics$short_trend_cat[ind], ")"),
+				 col = SWP_cols['clay1'], adj = 0, cex = 0.8)
+		
+		ok_long <- !is.na(y_long_fit)
+		if (any(ok_long)) {
+			polygon(x = c(x[ok_long], rev(x[ok_long])),
+							y = c(y_long_upr[ok_long], rev(y_long_lwr[ok_long])) * 10^-3,
+							border = NA, col = paste0(SWP_cols['tidal2'], 30))
+			lines(x[ok_long], y_long_fit[ok_long] * 10^-3, col = SWP_cols['tidal2'], lwd = 2)
+		}
+		
+		text(x[1], 0.95 * max(yraw, na.rm = TRUE) * 10^-3,
+				 paste0("Long-term trend: ", round(sps_metrics$long_trend[ind] * 100, 1),
+				 			 "% (", sps_metrics$long_trend_cat[ind], ")"),
+				 col = SWP_cols['tidal2'], adj = 0, cex = 0.8)
+		
+		text(x[1], max(yraw, na.rm = TRUE) * 10^-3,
+				 paste0("Current status: ", round(sps_metrics$current_status[ind] * 100, 1), "%"),
+				 adj = 0, cex = 0.8, col = SWP_cols['stone3'])
+		
+		mtext(side = 3, paste(region, species, tolower(type)))
+		
+		legend("topright", lwd = c(1.5, 1), lty = c(1, 3),
+					 col = c(SWP_cols['stone3'], SWP_cols['stone1']),
+					 c("Smoothed", "Raw"), bty = "n", cex = 0.8)
+	}
 }
 

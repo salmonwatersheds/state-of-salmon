@@ -19,7 +19,12 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(
+	echo = TRUE,
+	fig.width  = 10, 
+  fig.height = 5,
+  fig.align  = "center"
+)
 
 # Set colour palette for species
 # sp_cols <- viridis(5)
@@ -139,7 +144,7 @@ We used Chinook `RR Spawning escapement estimate` and `RR Canadian origin total 
 
 <!-- There is no coho compiled here - why listed above? -->
 
-```{r yukon chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Yukon River Chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r yukon chinook, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Yukon River Chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 # Load data ---
 ytck <- read.csv(here('data/yukon_chinook_appendixB11.csv'), na.strings = "-") 
@@ -186,7 +191,7 @@ plot_abund(ytck_sps)
 
 Canadian-origin fall chum spawner abundance was taken as the `Spawning escapement estimate` in Appendix B16 and total abundance as the `Total estimated Canadian-origin run size` from Appendix B20 of @YukonRiverJointTechnicalCommittee2025YukonRiverSalmon. 
 
-```{r yukon chum, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Yukon River chum salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r yukon chum, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Yukon River chum salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each. We use the spawning escapement from Appendix B16 for spawner abundance, while the escapement data from Appendix B20 makes up part of the total abundance. There are small differences between the two datasets in the early 2000s."}
 # Load data ---
 ytcm_B16 <- read.csv(here('data/yukon_chum_appendixB16.csv')) # Historical data
 names(ytcm_B16)[1] <- "Year"
@@ -225,24 +230,18 @@ ytcm_sps$smoothedRunsize <- genSmooth(
 sps_data <- rbind(sps_data, ytcm_sps)
 
 # Generate standard plot
-plot_abund(ytcm_sps)
-
-
-```
-
-```{r yukon chum figs, fig.cap = "**Above:**Comparison of spawning escapement data from two sources in the Yukon River Joint Technical Committee documentation. We use the spawning escapement from Appendix B16 for our spawning escapement metric, while the escapement data from Appendix B20 makes up part of the total abundance metric we use."}
-# Compare data from two appendices; note that spawning escapement is sometimes different
-plot(ytcm_B16$Year, ytcm_B16$Spawning.escapement.estimate*10^-3, "o", ylab = "Spawning escapement (thousands)", las = 1, bty = "l", xlab = "", pch = 21, bg = "white", main = "Canadian-origin chum salmon")
-abline(v = seq(1970, 2024, 2), col = "#00000060", lwd = 0.8, lty = 3)
+plot_abund(ytcm_sps, cols = c("#000000", grey(0.6), 2), red_points = "Spawner (Appendix B20)")
 points(ytcm_B20$Year, ytcm_B20$Spawning.escapement*10^-3, col = 2, pch = 19, cex = 0.6)
-legend("topleft", pch= c(1, 19), pt.cex = c(1, 0.6), col = c(1,2), c("Appendix B16", "Appendix B20"))
+
+
+
 ```
 
 
 ### Northern Transboundary
 <!-- > Internal note: Processing of raw excel file from Aaron Foos to extract relevant tables and fields is in [population-data/transboundary-data/code/sos-data-extract.R](https://www.dropbox.com/scl/fi/zxgtulvx2p5iphr3rjx57/sos-data-extract.R?rlkey=f18myjpthqbee4ciz9ny0pjf9&dl=0) -->
 
-The best-available information on salmon abundance in the Northern Transboundary region is from the PSC's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The most recent TTC report [@TTC2022FinalEstimatesTransboundary] includes data through 2021. Updated report appendices were provided by Aaron Foos (DFO) on July 8, 2026 in advance of report publication, and numbers for 2023-2025 should be considered **preliminary**.
+The best-available information on salmon abundance in the Northern Transboundary region is from the PSC's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The most recent TTC report [@TTC2025FinalEstimatesTransboundary] includes data through 2023. Updated report appendices were provided by Aaron Foos (DFO) on July 8, 2026 in advance of report publication, and numbers for 2024-2025 should be considered **preliminary**.
 
 We recognize that our approach in the Transboundary lacks information from many un-monitored watersheds, in particular the smaller watersheds of the Chilkat, Unuk, and Whiting Rivers. In the absence of better monitoring, we choose to report available data as a proxy for regional abundance, and note that the contribution of these smaller watersheds to total regional abundance for each species is likely small. 
 
@@ -253,7 +252,7 @@ The regional spawner abundance and total return of Chinook was calculated as the
 
 For 2025, the Synoptic Evaluations of Stock Status are not yet available. We used the escapement estimates for Stikine, Alsek, and Taku Chinook from Table B2 of Appendix B - Detailed Escapement, available as a downloadable dataset from the [Chinook Technical Committee](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/). Canadian and US harvest of Chinook provided by Aaron Foos (DFO) as updated tables from the Transboundary Technical Committee report. Specifically, harvest for Stikine Chinook from Table B12 and harvest of Taku Chinook from Table D8. Total harvest of Alsek Chinook was provided by Teresa Wallace (DFO, pers. comm.): US Commercial: 194, US Subsistence: 8, CAN (Aboriginal): 94, CAN Recreational: 0 (No CAN recreational harvest permitted in 2025) (Total harvest = 296).
 
-```{r transboundary chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Transboundary chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r transboundary chinook, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Transboundary chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 # Load data ---
 
 # Get Synoptic evaluation data (up to 2024)
@@ -311,14 +310,47 @@ tbrck_sps$smoothedRunsize <- genSmooth(
 	genLength = genLength$gen_length[genLength$region == "Northern Transboundary" & genLength$species == "Chinook"]
 )
 
-plot_abund(tbrck_sps)
+# Plot abund using ggplot instead of base?
+
+# plot_abund(tbrck_sps)
+
+ggplot(tbrck_sps, aes(x = year)) +
+  geom_line(aes(y = spawners/1000, colour = "Spawner"), lwd = 0.5) +
+  geom_point(aes(y = spawners/1000, colour = "Spawner"), 
+             pch = 21, fill = "white") +
+  geom_line(aes(y = runsize/1000, colour = "Total"), lwd = 0.5) +
+  geom_point(aes(y = runsize/1000, colour = "Total"), 
+             pch = 21, fill = "white") +
+  geom_line(aes(y = smoothedRunsize/1000), lwd = 1.2) +
+  geom_line(aes(y = smoothedSpawners/1000), 
+            lwd = 1.2, colour = grey(0.6)) +
+  scale_colour_manual(
+    name = NULL,
+    values = c(
+      "Spawner" = grey(0.7),
+      "Total" = "black"
+    )
+  ) +
+  labs(
+    title = "Northern Transboundary Chinook",
+    y = "Abundance (thousands)"
+  ) +
+  lims(
+    y = c(0, max(c(tbrck_sps$spawners, tbrck_sps$runsize), 
+                 na.rm = TRUE)/1000)
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = c(0.98, 0.98),
+    legend.justification = c("right", "top")
+  )
 
 # Add to master sps dataframe
 sps_data <- rbind(sps_data, tbrck_sps)
 
 ```
 
-```{r transboundary chinook figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 9, fig.height = 5, fig.cap = "**Above:** (a) Chinook salmon spawner abundance and (b) total abundance showing the contributions of the Alsek, Taku, and Stikine river basins."}
+```{r transboundary chinook figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 10, fig.height = 8, fig.cap = "**Above:**  Northern Transboundary Chinook salmon (a) spawner abundance and (b) total abundance showing the contributions of the Alsek, Taku, and Stikine river basins."}
 
 # Update 2025 data by system - from Appendix B detailed escapement data
 tbrck_raw_updated <- tbrck_raw %>%
@@ -355,7 +387,7 @@ spwn.stack <- tbrck_raw_updated %>% ggplot() +
 								alpha=0.6) + 
 	scale_fill_viridis_d() +
 	labs(y="Spawner abundance (thousands)", fill="") + lims(y=c(0,185)) +
-	theme_minimal() + theme(legend.position = "none")
+	theme_minimal() + theme(legend.position = "top")
 
 # Total abundance
 tot.stack <- tbrck_raw_updated %>% ggplot() +
@@ -363,20 +395,56 @@ tot.stack <- tbrck_raw_updated %>% ggplot() +
 								alpha=0.6) + 
 	scale_fill_viridis_d() +
 	labs(y="Total abundance (thousands)", fill="") + lims(y=c(0,185)) +
-	theme_minimal() 
+	theme_minimal() + theme(legend.position = "none")
 
-cowplot::plot_grid(spwn.stack, tot.stack, rel_widths = c(0.75,1), labels="auto")
+cowplot::plot_grid(spwn.stack, tot.stack, labels="auto", nrow = 2, ncol = 1)
 
 ```
 
 #### Sockeye {.unnumbered}
 
-```{r transboundary sockeye, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Transboundary sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+Sockeye spawner abundance and total return were taken from the updated TTC report appendices. Specifically, Stikine sockeye spawner and total abundance were the `Escapement/broodstock` and `Terminal Run`, respectively, summed across the Stikine River (Appendix B26) and the Taku River (Appendix D17). 
+
+```{r, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 4, fig.cap = "**Above:** Sockeye salmon spawner abundance (top) and total abundance (bottom) in the Taku and Stikine river basins. We report regional abundance only from 1984 onwards when data for both rivers are available; prior to 1984, only dat for the Stikine are available."}
 
 # TBR Sockeye data are the sum of the Stikine (Appendix B26) and Taku (Appendix D17) 
 # In 2024, the Appendix numbers given were B21 and D15 respectively, but that's changed.
 tbrse_stik <- read.csv(here('data/tbr_sockeye_appendixB26.csv'))
 tbrse_taku <- read.csv(here('data/tbr_sockeye_appendixD17.csv'))
+
+# Combine
+tbrse_raw <- tbrse_stik %>%
+	rename("Escapement" = "StikineRiver_EscapementBroodstock",
+				 "TotalRun" = "StikineRiver_TerminalRun") %>%
+	mutate(Stock = "Stikine") %>%
+	bind_rows(tbrse_taku %>%
+							rename("Escapement" = "Escapement",
+										 "TotalRun" = "Run") %>%
+							mutate(Stock = "Taku")	)
+# Plot ---
+
+# Spawner abundance
+spwn.stack <- tbrse_raw %>% ggplot() +
+	geom_area(aes(x=Year, y=Escapement/1000, fill=factor(Stock, levels=c("Taku", "Stikine"))), 
+								alpha=0.6) + 
+	scale_fill_viridis_d() +
+	labs(y="Spawner abundance (thousands)", fill="") + #lims(y=c(0,185)) +
+	theme_minimal() + theme(legend.position = "top")
+
+# Total abundance
+tot.stack <- tbrse_raw %>% ggplot() +
+	geom_area(aes(x=Year, y=TotalRun/1000, fill=factor(Stock, levels=c( "Taku", "Stikine"))), 
+								alpha=0.6) + 
+	scale_fill_viridis_d() +
+	labs(y="Total abundance (thousands)", fill="") + #lims(y=c(0,185)) +
+	theme_minimal() + theme(legend.position = "none")
+
+cowplot::plot_grid(spwn.stack, tot.stack, labels="auto", nrow = 2, ncol = 1)
+
+```
+
+
+```{r transboundary sockeye, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Transboundary sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 # Remove Stikine data prior to 1984
 tbrse_stik <- subset(tbrse_stik, tbrse_stik$Year >= 1984)
@@ -416,9 +484,9 @@ plot_abund(tbrse_sps)
 
 
 #### Coho {.unnumbered}
+Coho spawner abundance and total abundance are available for the Taku River only, taken from Appendix D22 (`Escapement` and `Terminal Run` respectively) of the TTC updated report appendices.
 
-
-```{r transboundary coho, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Transboundary coho salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r transboundary coho, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Transboundary coho salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each. We used terminal run as the total abundance, but total run (including US fisheries outside of District 111) is shown as red points (not available for 2025)."}
 
 # Load data ---
 
@@ -456,33 +524,106 @@ tbrco_sps$smoothedRunsize <- genSmooth(
 sps_data <- rbind(sps_data, tbrco_sps)
 
 # Generate standard plot
-plot_abund(tbrco_sps)
-points(x=tbrco$Year, y=tbrco$TotalRun/1000, col="blue")
+plot_abund(tbrco_sps, red_points = "App D22 Total run")
+points(x=tbrco$Year, y=tbrco$TotalRun/1000, col=2, pch = 19, cex = 0.6, xpd = NA)
 
 ```
 
-#### Pink {.unnumbered}
+#### Chum, pink, and steelhead {.unnumbered}
 
-Monitoring of pink salmon in the Transboundary region is limited, and the best available information is the Canyon Island fish wheel on the Taku River. In 2018, Fishwheel operation decreased from 24 hours to 8 hours per day, so comparisons across the time series are cautioned.
+Monitoring of chum salmon, pink salmon, and steelhead in the Transboundary region is limited, and the best available information is the Canyon Island fish wheel on the Taku River. Data from the fish wheel are reported in the annual Transboundary Technical Committee reports. The window of operation, number of operating days, and hours of operation have varied from year to year, and thus the raw counts are not a reliable index of abundance through time. For example, fish wheel operation decreased from 24 hours to 16 hours per day in 2018 and further to 8 hours a day in 2023 [@TTC2025FinalEstimatesTransboundary]. 
 
-```{r transboundary pink, fig.cap="**Above:**Spawner abundance of Transboundary pink salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r canyon-island-fw, fig.cap="**Above:**  Operation of the Canyon Island fish wheel on th Taku River from 1982 to 2025: a) Operating window each year occurred between April and October. (b) Total number of operating days varied between 73 and 172 with an average of 138.8, while the hours of operation each day decreased from 24 (1982-2017) to 16 (2018-2022) to 8 (2023-2025).", fig.width = 10, fig.height = 8}
 
-# Load data ---
-tbrpk <- read.csv(here("data/TTC_Taku_fishwheel.csv"))
+appD24 <- read_xlsx(here("data/2025 PSF Pacific Salmon Explorer Data.xlsx"), sheet = "TAK Appen D.24", range = "A8:P50")
+
+# Calculate annual operating days
+z <- strsplit(appD24$Operation, split = "-")
+operationDates <- data.frame(
+	Year = appD24$Year,
+	startDate = NA,
+	endDate = NA
+)
+ny <- length(appD24$Year)
+
+for(i in 1:ny){
+	operationDates$startDate[i] <- as.Date(paste0(z[[i]][1], "/", operationDates$Year[i]), format = "%m/%d/%Y")
+	operationDates$endDate[i] <- as.Date(paste0(z[[i]][2], "/", operationDates$Year[i]), format = "%m/%d/%Y")
+}
+
+operationDates$nDays <- operationDates$endDate - operationDates$startDate + 1
+operationDates$startDate <- as.Date(operationDates$startDate, origin = "1970-01-01")
+operationDates$endDate <- as.Date(operationDates$endDate, origin = "1970-01-01")
+
+operationDates$startMonth <- as.numeric(strftime(operationDates$startDate, format = "%m"))
+operationDates$startDay <- as.numeric(strftime(operationDates$startDate, format = "%d"))
+operationDates$endMonth <- as.numeric(strftime(operationDates$endDate, format = "%m"))
+operationDates$endDay <- as.numeric(strftime(operationDates$endDate, format = "%d"))
+
+par(mfrow = c(2,1), mar = c(3,4,1,4), oma = c(0,0,2,0), family = "Arial")
+plot(range(operationDates$Year), as.Date(c("2000-04-01", "2000-10-31")), "n", xlab= "", ylab = "Operating window", las = 1, bty = "l")
+abline(h = as.Date(paste(rep(2000, 8), c(4:11), rep(1, 8), sep = "-")), lty = 2)
+for(i in 1:ny){
+	segments(x0 = operationDates$Year[i],
+					 x1 = operationDates$Year[i],
+					 y0 = as.Date(paste(2000, operationDates$startMonth[i], operationDates$startDay[i], sep = "-")),
+					 y1 = as.Date(paste(2000, operationDates$endMonth[i], operationDates$endDay[i], sep = "-")),
+					 lwd = 5, lend = 1)
+}
+mtext(side = 3, line = 0.5, adj = 0, "a)")
+
+plot(operationDates$Year, operationDates$nDays, "o", pch = 21, bg = 'white', ylab = "Number of operating days", xlab = "", las = 1, bty = "l")		
+par(new = TRUE)
+plot(appD24$Year, appD24$hours, "l", col = 2, xaxt = "n", yaxt = "n", xlab = "", ylab = "", lwd = 2)
+axis(side = 4, col = 2, las = 1)
+mtext(side = 3, line = 0.5, adj = 0, "b)")
+
+mtext(side = 3, outer= TRUE, "Canyon Island Fish Wheel Operation")
+mtext(side = 4, "Operating hours per day", col = 2, line = 2.5)
+
+```
+
+To account for changes in fish wheel operation through time we calculate an index of abundance for chum, pink, and steelhead as the annual catch per unit effort (CPUE) multiplied by the average effort across all years. Catch per unit effort (CPUE) is calculated each year as the raw count $C_t$ divided by the operating days:
+$$ \text{CPUE }_t = \frac{C_{t}}{d_t \times h_t/24} $$
+where $d_t$ is the number of operating days in year $t$ and $h_t$ is the operating hours per day. The resulting index of abundance was used as the spawner abundance for the regional population.
+
+```{r transboundary-cpue, echo = FALSE}
+
+avgDays <- mean(operationDates$nDays * appD24$hours/24)
+
+# Merge datasets
+tbr_cmpksh <- appD24 %>% left_join(operationDates) %>%
+	dplyr::select(Year, Operation, startDate, endDate, nDays, hours, Pink_12, Chum, Steelhead_3) %>%
+	rename("pink_raw" = "Pink_12",
+				 "chum_raw" = "Chum",
+				 "steelhead_raw" = "Steelhead_3") %>%
+	# Calculate CPUE, where effort is fish wheel days
+	mutate(pink_cpue = pink_raw/(nDays * hours/24),
+				 chum_cpue = chum_raw/(nDays * hours/24),
+				 steelhead_cpue = steelhead_raw/(nDays * hours/24)) %>%
+	# calculate adjusted (standardized) index based on average number of days
+	mutate(pink_adj = pink_cpue * avgDays,
+				 chum_adj = chum_cpue * avgDays,
+				 steelhead_adj = steelhead_cpue * avgDays)
+				 
+```
+
+##### Pink {.unnumbered}
+```{r transboundary pink, fig.cap="**Above:** Spawner abundance of Transboundary pink salmon. The annual spawner abundance is shown by points and the smoothed metric by solid lines. The small red points are the raw counts from the Canyon Island fish wheel prior to adjusting by CPUE. Dashed horizonal lines represent the long-term average."}
 
 # Check if years are continuous
 #unique(diff(tbrpk$Year)) # Yes, all one year apart
 
 # Reformat data for SPS
 tbrpk_sps <- data.frame(
-	region = rep("Northern Transboundary", nrow(tbrpk)), 
-	species = rep("Pink", nrow(tbrpk)), 
-	year = tbrpk$Year, 
-	spawners = tbrpk$Pink,
+	region = rep("Northern Transboundary", nrow(tbr_cmpksh)), 
+	species = rep("Pink", nrow(tbr_cmpksh)), 
+	year = tbr_cmpksh$Year, 
+	spawners = tbr_cmpksh$pink_adj,
 	smoothedSpawners = NA,
 	runsize = NA,
 	smoothedRunsize = NA,
-	source_id = rep("Foos_20260708", nrow(tbrpk))
+	source_id = rep("Foos_20260708", nrow(tbr_cmpksh))
 ) 
 # Smoothing
 tbrpk_sps$smoothedSpawners <- genSmooth(
@@ -495,31 +636,25 @@ tbrpk_sps$smoothedSpawners <- genSmooth(
 sps_data <- rbind(sps_data, tbrpk_sps)
 
 # Generate standard plot
-plot_abund(tbrpk_sps)
+plot_abund(tbrpk_sps, red_points = "Raw fish wheel count")
+points(tbr_cmpksh$Year, tbr_cmpksh$pink_raw*10^-3, col = 2, pch = 19, cex = 0.6)
 
 ```
 
-#### Chum {.unnumbered}
+##### Chum {.unnumbered}
 
-Monitoring of chum salmon in the Transboundary region is limited, and the best available information is the Canyon Island fish wheel on the Taku River. In 2018, Fishwheel operation decreased from 24 hours to 8 hours per day, so comparisons across the time series are cautioned.
-
-
-```{r transboundary chum, fig.cap="**Above:**Spawner abundance of Transboundary chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
-
-# Load data ---
-tbrcm <- read.csv(here("data/TTC_Taku_fishwheel.csv"))
-
+```{r transboundary chum, fig.cap="**Above:** Spawner abundance of Transboundary chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 # Reformat data for SPS
 tbrcm_sps <- data.frame(
-	region = rep("Northern Transboundary", nrow(tbrcm)), 
-	species = rep("Chum", nrow(tbrcm)), 
-	year = tbrcm$Year, 
-	spawners = tbrcm$Chum, 
+	region = rep("Northern Transboundary", nrow(tbr_cmpksh)), 
+	species = rep("Chum", nrow(tbr_cmpksh)), 
+	year = tbr_cmpksh$Year, 
+	spawners = tbr_cmpksh$chum_adj, 
 	smoothedSpawners = NA,
 	runsize = NA,
 	smoothedRunsize = NA,
-	source_id = rep("Foos_20260708", nrow(tbrcm))
+	source_id = rep("Foos_20260708", nrow(tbr_cmpksh))
 ) 
 # Smoothing
 tbrcm_sps$smoothedSpawners <- genSmooth(
@@ -532,37 +667,30 @@ tbrcm_sps$smoothedSpawners <- genSmooth(
 sps_data <- rbind(sps_data, tbrcm_sps)
 
 # Generate standard plot
-plot_abund(tbrcm_sps)
+plot_abund(tbrcm_sps, red_points = "Raw fish wheel count")
+points(tbr_cmpksh$Year, tbr_cmpksh$chum_raw*10^-3, col = 2, pch = 19, cex = 0.6)
 
 ```
 
-#### Steelhead {.unnumbered}
-**Updated 2026**
-Steelhead trout have also been enumerated at the Canyon Island fish wheel since 1987, though in past versions of datasets estimates have been patchy and the timing of the fish wheel likely misses a substantial portion of the Taku summer run steelhead. Thus, we have not previously used the Canyon Island counts. However, the 2026 dataset included a more complete time series for Steelhead. 
+##### Steelhead {.unnumbered}
 
-In 2018, Fishwheel operation decreased from 24 hours to 8 hours per day, so comparisons across the time series are cautioned.
+Steelhead trout have also been enumerated at the Canyon Island fish wheel since 1987, though in past versions of datasets estimates have been patchy and the timing of the fish wheel likely misses a substantial portion of the Taku summer run steelhead. Thus, we have not previously used the Canyon Island counts. However, the 2026 dataset included a more complete time series for Steelhead and we were able to adjust for changes in fish wheel operation as described above. 
 
-**Decision needed: use these or not?**
-```{r transboundary steelhead}
+```{r transboundary steelhead, fig.cap="**Above:** Spawner abundance of Transboundary steelhead. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average. Red points show the raw fish wheel counts, which were used to calculate an index of abundance based on CPUE."}
 
-# Load data
-tbrsh <- read.csv(here("data/TTC_Taku_fishwheel.csv")) %>%
-	filter(Year > 1986) # Remove leading years that are NA
-
-# Check if years are continuous
-#unique(diff(tbrsh$Year)) # Yes, all one year apart
 
 # Reformat data for SPS
 tbrsh_sps <- data.frame(
-	region = rep("Northern Transboundary", nrow(tbrsh)), 
-	species = rep("Steelhead", nrow(tbrsh)), 
-	year = tbrsh$Year, 
-	spawners = tbrsh$Steelhead, 
+	region = rep("Northern Transboundary", nrow(tbr_cmpksh)), 
+	species = rep("Steelhead", nrow(tbr_cmpksh)), 
+	year = tbr_cmpksh$Year, 
+	spawners = tbr_cmpksh$steelhead_adj, 
 	smoothedSpawners = NA,
 	runsize = NA,
 	smoothedRunsize = NA,
-	source_id = rep("Foos_20260708", nrow(tbrsh))
-) 
+	source_id = rep("Foos_20260708", nrow(tbr_cmpksh))
+) %>% filter(year > 1986) # Take out early years with no steelhead data
+
 # Smoothing
 tbrsh_sps$smoothedSpawners <- genSmooth(
 	abund = tbrsh_sps$spawners,
@@ -574,7 +702,9 @@ tbrsh_sps$smoothedSpawners <- genSmooth(
 sps_data <- rbind(sps_data, tbrsh_sps)
 
 # Generate standard plot
-plot_abund(tbrsh_sps)
+plot_abund(tbrsh_sps, red_points = "Raw fish wheel count")
+points(tbr_cmpksh$Year, tbr_cmpksh$steelhead_raw*10^-3, col = 2, pch = 19, cex = 0.6)
+
 ```
 
 ### Haida Gwaii
@@ -584,7 +714,7 @@ The only available data for Chinook salmon in Haida Gwaii are from a single enum
 
 These estimates (prior to 2006) also match the estimated escapement to Area 1 in the  @NorthernBoundaryTechnicalCommittee2023USCanadaNorthern (Appendix 30).
 
-```{r haida gwaii chinook, fig.cap="**Above:**Spawner abundance of Haida Gwaii chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average. here, purple points are from NuSEDS spawner surveys and grey are from recent enumeration project."}
+```{r haida gwaii chinook, fig.cap="**Above:** Spawner abundance of Haida Gwaii chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average. here, purple points are from NuSEDS spawner surveys and grey are from recent enumeration project."}
 
 # Get spawner survey data to compare
 hgck_ss <- read.csv(here("data/spawner_surveys.csv")) %>%
@@ -643,7 +773,7 @@ names(hg_table30) <- c("year", "Sockeye", "Coho", "Pink", "Chum", "Chinook") # C
 ```
 
 
-```{r haida gwaii chum, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of Haida Gwaii chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r haida gwaii chum, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**  Spawner abundance of Haida Gwaii chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 # Data loaded above
 hg.s <- sp[2, "Chum", ]
@@ -676,7 +806,7 @@ plot_abund(hg.s_sps)
 ```
 
 
-```{r haida gwaii chum figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (purple) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 30) is shown in blue. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
+```{r haida gwaii chum figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (purple) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 30) is shown in blue. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
 
 # Additional series to plot
 added_series.s <- hg_table30 %>% 
@@ -695,7 +825,7 @@ plot_expansions(speciesname = "Chum",
 
 #### Coho {.unnumbered}
 For chum, coho, pink, and sockeye in Haida Gwaii, we followed the [Expansion Factors](#expansion-factors) approach described below. We compared our expansion approach to estimates of escapement to Area 1 reported in the @NorthernBoundaryTechnicalCommittee2023USCanadaNorthern (Appendix 30) but found the Area 1 estimates were much lower for coho.
-```{r haida gwaii coho, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of Haida Gwaii coho salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r haida gwaii coho, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**  Spawner abundance of Haida Gwaii coho salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 # Data loaded above
 hg.s <- sp[2, "Coho", ]
@@ -728,7 +858,7 @@ plot_abund(hg.s_sps)
 ```
 
 
-```{r haida gwaii coho figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (purple) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 30) is shown in blue. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
+```{r haida gwaii coho figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (purple) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 30) is shown in blue. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
 
 # Additional series to plot
 added_series.s <- hg_table30 %>% 
@@ -747,7 +877,7 @@ plot_expansions(speciesname = "Coho",
 
 #### Pink {.unnumbered}
 For chum, coho, pink, and sockeye in Haida Gwaii, we followed the [Expansion Factors](#expansion-factors) approach described below. We compared our expansion approach to estimates of Area 1 escapement as reported in the @NorthernBoundaryTechnicalCommittee2023USCanadaNorthern (Appendix 30), but found the Area 1 estimates were much lower for pink (see "alternate" series in figure below).  
-```{r haida gwaii pink, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of Haida Gwaii pink salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r haida gwaii pink, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**  Spawner abundance of Haida Gwaii pink salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 # Data loaded above
 hg.s <- sp[2, "Pink", ]
@@ -780,7 +910,7 @@ plot_abund(hg.s_sps)
 ```
 
 
-```{r haida gwaii pink figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (purple) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 30) is shown in blue. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
+```{r haida gwaii pink figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (purple) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 30) is shown in blue. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
 
 # Additional series to plot
 added_series.s <- hg_table30 %>% 
@@ -798,7 +928,7 @@ plot_expansions(speciesname = "Pink",
 
 #### Sockeye {.unnumbered}
 For chum, coho, pink, and sockeye in Haida Gwaii, we followed the [Expansion Factors](#expansion-factors) approach described below. We compared our expansion approach to estimates of Area 1 escapement as reported in the @NorthernBoundaryTechnicalCommittee2023USCanadaNorthern (Appendix 30), but found the Area 1 estimates were much lower for sockeye (see "alternate" series in figure below).  
-```{r haida gwaii sockeye, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of Haida Gwaii sockeye salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r haida gwaii sockeye, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**  Spawner abundance of Haida Gwaii sockeye salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 # Data loaded above
 hg.s <- sp[2, "Sockeye", ]
@@ -831,7 +961,7 @@ plot_abund(hg.s_sps)
 ```
 
 
-```{r haida gwaii sockeye figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (purple) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 30) is shown in blue. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
+```{r haida gwaii sockeye figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (purple) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 30) is shown in blue. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
 
 # Additional series to plot
 added_series.s <- hg_table30 %>% 
@@ -855,7 +985,7 @@ plot_expansions(speciesname = "Sockeye",
 **updated 2026**
 We have estimates of escapement (spawners) and total run to 2025 from the [2025 Nass River Salmon Stock Assessment Post-Season Summary](https://www.dropbox.com/scl/fi/ogfqvqj7u6uc95j17x4aw/2025-NFWD-Nass-Stock-Assessment-Update_Post-Season-v1-_2Dec25.pdf?rlkey=nwmx4hw42ts1tvxdi2prowm3m&dl=0), Tables 20 and 22. The escapement estimates correspond closely to those from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/), though less so in 2018 and 2022 (purple open circles). The 'Total run' from the Nisgaa dataset is consistently higher than 't.run' from the CTC dataset (blue open circles), except in 2021 and 2022. **It is unclear whether one or both include marine fisheries?** Specifically, we use Nass River (Area 3) escapement and terminal run provided in Table B3 of the CTC report (fields `Esc` and `t.run` respectively).
 
-```{r nass chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Nass chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r nass chinook, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Nass chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 # Load data ---
 # TCCHINOOK Table B3
 nass_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-2026-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B3", range = "A5:D55", col_types = "numeric", col_names = c("Year", "Above_Gitwinksihlkw2", "Esc", "t.run"))
@@ -904,7 +1034,7 @@ points(x=nass_nisgaa$Year, y=nass_nisgaa$TOTAL_RUN_Chinook/1000, col="blue") # B
 
 Nass sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 3 sockeye from the 2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast]. For 2023-2025, we obtained the same model output from @NisgaaFisheriesandWildlifeDepartment20242024NassRiver. As can be seen in the figure below, historical numbers from these two sources closely matched, giving us confidence that it was justifiable to combine the two sources.
 
-```{r nass sockeye, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Nass sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r nass sockeye, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Nass sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 # Load Nisgaa data
 nass_nisgaa <- read.csv(here("data/2025NassStockAssessment_Table20+22.csv"))
@@ -961,7 +1091,7 @@ plot_abund(nassse_sps)
 
 Nass coho escapement and total return were available from the Nisga'a Fisheries and Wildlife Department (@NisgaaFisheriesandWildlifeDepartment20242024NassRiver) for 1992 to 2024. These data closely matched previous estimates from @EnglishEtAl2023PreliminaryAreaSalmon used in the 2024 report. Spawner surveys in NuSEDS tended to generally underestimate spawner abudnance to the region, and were not used because other data were available.
 
-```{r nass coho, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Nass coho salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r nass coho, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Nass coho salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 # Reformat data for SPS
 nassco_sps <- data.frame(
@@ -1002,7 +1132,7 @@ plot_abund(nassco_sps)
 
 Chum and pink salmon spawner abundances were expanded from available spawner surveys from 1950 to 1991, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Nass region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS. From 1992 to 2025, estimates of spawner and total abundance were provided in the 2025 post-season report from the Nisga'a Fisheries and Wildlife Department (@NisgaaFisheriesandWildlifeDepartment2025NassRiver).
 
-```{r nass pink, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Nass pink salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r nass pink, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Nass pink salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 # Use expanded spawner abundance to 1991 then Nisga'a final report data
 sp <- readRDS(here("output/expanded-spawners/Nass-spawners.rds"))
 yrs <- as.numeric(dimnames(sp)[[3]])
@@ -1047,7 +1177,7 @@ plot_abund(nasspk_sps)
 	
 ```
 
-```{r nass chum, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Nass chum salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r nass chum, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Nass chum salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 nasscm <- data.frame(
 	year = c(yrs),
@@ -1094,7 +1224,7 @@ plot_abund(nasscm_sps)
 
 The index of Nass steelhead spawner abundance and total return are for the Nass Summer CU, developed in collaboration with the Nisga’a Fish and Wildlife Department and LGL Ltd. [@EnglishEtAl2023PreliminaryAreaSalmon, @NisgaaFisheriesandWildlifeDepartment20242024NassRiver]. There is another steelhead CU in the Nass region - Nass Winter - which is not well monitored and therefore not included in our index of spawner abundance.
 
-```{r nass steelhead, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Nass steelhead salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r nass steelhead, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Nass steelhead salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 # Reformat data for SPS
 nasssh_sps <- data.frame(
@@ -1136,7 +1266,7 @@ Chinook spawners were taken from the [PSC's Chinook Technical Committee (CTC) da
 
 **Purple open circles are escapement data from Table 32 of Joint Northern Boundary Technical Report [@JointNorthernBoundaryTechnicalCommittee2026USCanadaNorthern] for comparison.**
 
-```{r skeena chinook, fig.cap="**Above:**Spawner abundance of Skeena chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r skeena chinook, fig.cap="**Above:** Spawner abundance of Skeena chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 # Load data ---
 # TCCHINOOK Table B3
 sk_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-2026-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B3", range = "A5:G55", col_types = "numeric", col_names = c("Year", "Nass_Above_Gitwinksihlkw2", "Nass_Esc", "Nass_t.run", "Skeena_Total esc.", "Skeena_GSI esc", "Skeena_GSI SD"))
@@ -1177,7 +1307,7 @@ points(x=skck_nbtc$YEAR, y=skck_nbtc$CHINOOK/1000, col="purple")
 #### Sockeye {.unnumbered}
 Skeena sockeye escapement and total return were derived from the Northern Boundary Sockeye Run Reconstruction (NBSRR) Model that estimates total escapement and total return for the Skeena and Nass Rivers [@EnglishEtAl2017SkeenaSockeyeInriver; @EnglishEtAl2004AssessmentCanadianAlaskan]. Specifically, we used fields `TE` (Total Escapement) and `Total run` for Area 4 sockeye from the 2022 update to the North and Central Coast (NCC) Salmon Database Version 2, maintained by LGL Ltd. with support from PSF [@EnglishEtAl2018NorthCentralCoast; @ChallengerEtAl2018NorthCentralCoast]. Data for 2023 were provided by Charmaine Carr-Harris (DFO) on request. **Data for 2024 are preliminary numbers from Joint Northern Boundary Technical Report [@JointNorthernBoundaryTechnicalCommittee2026USCanadaNorthern], but ideally we will receive data from Charmaine again. Purple open circles show Escapement estimates for 1970-2024 from Table 32 of the Joint Northern Boundary Technical Report.**
 
-```{r skeena sockeye, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Skeena sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r skeena sockeye, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Skeena sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 # Compare to NCC run reconstruction: https://github.com/LGLLimited/nccdbv2/tree/master/run/2022-nass-update/data/KarlEnglish-2023-05-29
 skse_LGL <- read.csv(here("data/nassskeena_sockeye_lgl.csv")) %>%
@@ -1260,7 +1390,7 @@ points(x=skse_nbtc$YEAR, y=skse_nbtc$SOCKEYE/1000, col="purple")
 #### Steelhead {.unnumbered}
 The index of Skeena steelhead spawner abundance is derived from estimated escapement of Skeena Summer steelhead at the Tyee Test Fishery (1956 - present), provided by the Province via email. As for other regions, these estimates may not capture winter-run steelhead, for which data are not available.
 
-```{r skeena steelhead, fig.cap="**Above:**Spawner abundance of Skeena steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r skeena steelhead, fig.cap="**Above:** Spawner abundance of Skeena steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 # Load data ---
 # Use Skeena steelhead run size from BC Updates
 sksh <- read.csv(here("data/SkeenaSteelhead_1956-2025.csv"))
@@ -1310,7 +1440,7 @@ nbtc_tbl32 <- read.csv(file=here("data/2026_Skeena_escapement_NBTC_Table32.csv")
 ```
 
 
-```{r skeena chum, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**Spawner abundance of Skeena chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r skeena chum, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of Skeena chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 ## Process data 
 skeena.s <- sp[2, "Chum", ]
@@ -1345,7 +1475,7 @@ points(x=nbtc_tbl32$YEAR, y=nbtc_tbl32$CHUM/1000, col="purple")
 ```
 
 
-```{r skeena chum figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (purple) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 32) is shown in blue. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
+```{r skeena chum figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (purple) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 32) is shown in blue. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
 
 added_series.s <- sk_table32 %>% 
 		select(year, "Chum") %>%
@@ -1363,7 +1493,7 @@ plot_expansions(speciesname = "Chum",
 
 #### Coho {.unnumbered}
 Coho salmon spawner abundances in the Skeena were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS. **Purple open circles are escapement data from Table 32 of Joint Northern Boundary Technical Report [@JointNorthernBoundaryTechnicalCommittee2026USCanadaNorthern] for comparison.**
-```{r skeena coho, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**Spawner abundance of Skeena coho salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r skeena coho, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of Skeena coho salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 ## Process data 
 skeena.s <- sp[2, "Coho", ]
@@ -1398,7 +1528,7 @@ points(x=nbtc_tbl32$YEAR, y=nbtc_tbl32$COHO/1000, col="purple")
 ```
 
 
-```{r skeena coho figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (purple) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 32) is shown in blue. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
+```{r skeena coho figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (purple) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 32) is shown in blue. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
 
 added_series.s <- sk_table32 %>% 
 		select(year, "Coho") %>%
@@ -1416,7 +1546,7 @@ plot_expansions(speciesname = "Coho",
 
 #### Pink {.unnumbered}
 Skeena pink salmon spawner abundances were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Note that the designation of indicator streams for the Skeena region was based on @EnglishEtAl2018NorthCentralCoast rather than the indicator designation in NuSEDS. **Purple open circles are escapement data from Table 32 of Joint Northern Boundary Technical Report [@JointNorthernBoundaryTechnicalCommittee2026USCanadaNorthern] for comparison.**
-```{r skeena pink, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**Spawner abundance of Haida Gwaii chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r skeena pink, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of Haida Gwaii chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 ## Process data 
 skeena.s <- sp[2, "Pink", ]
@@ -1451,7 +1581,7 @@ points(x=nbtc_tbl32$YEAR, y=nbtc_tbl32$PINK/1000, col="purple")
 ```
 
 
-```{r skeena pink figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (purple) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 32) is shown in bkue. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
+```{r skeena pink figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (purple) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. Alternative time series from the PSC's Northern Boundary Technical Committee Report (Appendix 32) is shown in bkue. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade. See section on Expansion Factors below for further details."}
 
 added_series.s <- sk_table32 %>% 
 		select(year, "Pink") %>%
@@ -1472,7 +1602,7 @@ plot_expansions(speciesname = "Pink",
 
 For Central Coast Chinook, the PSC's Chinook Technical Committee (CTC) reported escapement for two indicator stocks on the Central Coast: the Atnarko River and Rivers Inlet [@ChinookTechnicalCommittee2025AnnualReportCatch]. Rivers Inlet is monitored "using an index of escapements to the Wannock, Kilbella, and Chuckwalla rivers" [@ChinookTechnicalCommittee2025AnnualReportCatch]. Because monitoring of Central Coast Chinook reported in NuSEDS has recently declined, expansions from spawner surveys are unreliable. As such, in 2025 we moved to using a composite indicator equal to the sum of the Atnarko River (`Total esc.`) and Rivers Inlet index reported by the CTC in Appendix Table B3.
 
-```{r central coast chinook, fig.cap="**Above:**Spawner abundance of Central Coast chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r central coast chinook, fig.cap="**Above:** Spawner abundance of Central Coast chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 ## Load data ---
 # TCCHINOOK Table B3
@@ -1507,7 +1637,7 @@ plot_abund(ccck_sps)
 ```
 
 
-```{r central coast chinook figs, fig.cap = "**Above:** Comparison of Chinook escapements on the Central Coast. The sum of Atnarko escapement (red) and Rivers Inlet escapement index (blue) from the CTC (purple points) was used in 2025. The expanded data from NuSEDS, not used, are in black with expansion factors used shown by grey 'x'"}
+```{r central coast chinook figs, fig.cap = "**Above:**  Comparison of Chinook escapements on the Central Coast. The sum of Atnarko escapement (red) and Rivers Inlet escapement index (blue) from the CTC (purple points) was used in 2025. The expanded data from NuSEDS, not used, are in black with expansion factors used shown by grey 'x'"}
 ## Code to generate index comparison plot:
 # Expanded spawner estimate
 ccck_ex <- readRDS(here("output/expanded-spawners/Central Coast-spawners.rds"))[2, "Chinook", ]
@@ -1558,7 +1688,7 @@ expansion_factors <- readRDS(here("output/expanded-spawners/Central Coast-expans
 ```
 
 
-```{r central coast chum, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of Central Coast chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r central coast chum, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**  Spawner abundance of Central Coast chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 ## Process data 
 cc.s <- sp[2, "Chum", ]
@@ -1588,7 +1718,7 @@ plot_abund(cc.s_sps)
 ```
 
 
-```{r central coast chum figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+```{r central coast chum figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 plot_expansions(speciesname = "Chum",
 								regionname = "Central Coast",
@@ -1602,7 +1732,7 @@ plot_expansions(speciesname = "Chum",
 
 Estimates of spawner abundance for coho salmon on the Central Coast were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Monitoring and reporting of observed spawners on the Central Coast has declined in recent decades, thus requiring larger expansion factors to arrive at an area-wide estimate that can be compared through time. As such, estimates of spawner abundance for the Central Coast over the past decade are more uncertain and should be interpreted with caution. 
 
-```{r central coast coho, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of Central Coast coho salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r central coast coho, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**  Spawner abundance of Central Coast coho salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 ## Process data 
 cc.s <- sp[2, "Coho", ]
@@ -1632,7 +1762,7 @@ plot_abund(cc.s_sps)
 ```
 
 
-```{r central coast coho figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+```{r central coast coho figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 plot_expansions(speciesname = "Coho",
 								regionname = "Central Coast",
@@ -1646,7 +1776,7 @@ plot_expansions(speciesname = "Coho",
 
 Estimates of spawner abundance for pink salmon on the Central Coast were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Monitoring and reporting of observed spawners on the Central Coast has declined in recent decades, thus requiring larger expansion factors to arrive at an area-wide estimate that can be compared through time. As such, estimates of spawner abundance for the Central Coast over the past decade are more uncertain and should be interpreted with caution. 
 
-```{r central coast pink, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of Central Coast pink salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r central coast pink, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**  Spawner abundance of Central Coast pink salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 ## Process data 
 cc.s <- sp[2, "Pink", ]
@@ -1676,7 +1806,7 @@ plot_abund(cc.s_sps)
 ```
 
 
-```{r central coast pink figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+```{r central coast pink figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 plot_expansions(speciesname = "Pink",
 								regionname = "Central Coast",
@@ -1691,7 +1821,7 @@ plot_expansions(speciesname = "Pink",
 
 Estimates of spawner abundance for sockeye salmon on the Central Coast were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Monitoring and reporting of observed spawners on the Central Coast has declined in recent decades, thus requiring larger expansion factors to arrive at an area-wide estimate that can be compared through time. As such, estimates of spawner abundance for the Central Coast over the past decade are more uncertain and should be interpreted with caution. 
 
-```{r central coast sockeye, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of Central Coast sockeye salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r central coast sockeye, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**  Spawner abundance of Central Coast sockeye salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 
 ## Process data 
 cc.s <- sp[2, "Sockeye", ]
@@ -1721,7 +1851,7 @@ plot_abund(cc.s_sps)
 ```
 
 
-```{r central coast sockeye figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+```{r central coast sockeye figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 plot_expansions(speciesname = "Sockeye",
 								regionname = "Central Coast",
@@ -1742,7 +1872,7 @@ In the 2025 State of Salmon report, we have split the former "Vancouver Island &
 
 PSC's Chinook Technical Committee (CTC) reports escapement (spawner abundance) and run size (total abundance) for three indicator stocks in the Strait of Georgia: Nanaimo, Cowichan, and Phillips [@ChinookTechnicalCommittee2025AnnualReportCatch]. We report spawner abundance and total abundance as the sum of `Esc` and `t.run`, respectively, across these three indicator stocks as reported in Appendix Table B4 available from the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/).
 
-```{r east VI chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of East Vancouver Island & Mainland Inlets chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r east VI chinook, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of East Vancouver Island & Mainland Inlets chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 ## Load data --
 # (1) CTC data
 evimi_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-2026-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B4", range = "A5:G55", col_types = "numeric", col_names = c("Year", "Nanaimo_esc", "Nanaimo_trun", "Cowichan_esc", "Cowichan_trun", "Phillips_esc", "Phillips_trun")) # Southern BC
@@ -1785,7 +1915,7 @@ plot_abund(evimick_sps)
 ```
 
 
-```{r east VI chinook figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 9, fig.height = 5, fig.cap = "**Above:** (a) Chinook salmon spawner abundance and (b) total abundance showing the contributions of the Cowichan, Nanaimo, and Philips indicator stocks."}
+```{r east VI chinook figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 9, fig.height = 5, fig.cap = "**Above:**  (a) Chinook salmon spawner abundance and (b) total abundance showing the contributions of the Cowichan, Nanaimo, and Philips indicator stocks."}
 
 evimi_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-2026-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B4", range = "A5:G55", col_types = "numeric", col_names = c("Year", "Nanaimo_esc", "Nanaimo_trun", "Cowichan_esc", "Cowichan_trun", "Phillips_esc", "Phillips_trun")) # Southern BC
 	
@@ -1831,7 +1961,7 @@ yrs <- as.numeric(dimnames(sp)[[3]])
 expansion_factors <- readRDS(here("output/expanded-spawners/East Vancouver Island & Mainland Inlets-expansion-factors.rds"))
 ```
 
-```{r east VI chum, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of East Vancouver Island & Mainland Inlets chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r east VI chum, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**  Spawner abundance of East Vancouver Island & Mainland Inlets chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 ## Process data
 evimi.s <- sp[2, "Chum", ]
 
@@ -1868,7 +1998,7 @@ plot_abund(evimi.s_sps)
 
 ```
 
-```{r east VI chum figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+```{r east VI chum figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 added_series.s <- sps_data %>% 
 	filter(region == "East Vancouver Island & Mainland Inlets", species == "Chum") %>%
@@ -1888,7 +2018,7 @@ plot_expansions(speciesname = "Chum",
 #### Coho {.unnumbered}
 Initial time series of spawner abundances for coho salmon in East Vancouver Island & Mainland Inlets were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). For the assessments, we truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
 
-```{r east VI coho, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of East Vancouver Island & Mainland Inlets coho salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r east VI coho, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**  Spawner abundance of East Vancouver Island & Mainland Inlets coho salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 ## Process data
 evimi.s <- sp[2, "Coho", ]
 
@@ -1925,7 +2055,7 @@ plot_abund(evimi.s_sps)
 
 ```
 
-```{r east VI coho figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+```{r east VI coho figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 added_series.s <- sps_data %>% 
 	filter(region == "East Vancouver Island & Mainland Inlets", species == "Coho") %>%
@@ -1945,7 +2075,7 @@ plot_expansions(speciesname = "Coho",
 #### Pink {.unnumbered}
 Initial time series of spawner abundances for pink salmon in East Vancouver Island & Mainland Inlets were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). For the assessments, we truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
 
-```{r east VI pink, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of East Vancouver Island & Mainland Inlets pink salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r east VI pink, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**  Spawner abundance of East Vancouver Island & Mainland Inlets pink salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 ## Process data
 evimi.s <- sp[2, "Pink", ]
 
@@ -1982,7 +2112,7 @@ plot_abund(evimi.s_sps)
 
 ```
 
-```{r east VI pink figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+```{r east VI pink figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 added_series.s <- sps_data %>% 
 	filter(region == "East Vancouver Island & Mainland Inlets", species == "Pink") %>%
@@ -2002,7 +2132,7 @@ plot_expansions(speciesname = "Pink",
 #### Sockeye {.unnumbered}
 Initial time series of spawner abundances for sockeye salmon in East Vancouver Island & Mainland Inlets were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). For the assessments, we truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
 
-```{r east VI sockeye, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of East Vancouver Island & Mainland Inlets sockeye salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r east VI sockeye, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**  Spawner abundance of East Vancouver Island & Mainland Inlets sockeye salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 ## Process data
 evimi.s <- sp[2, "Sockeye", ]
 
@@ -2039,7 +2169,7 @@ plot_abund(evimi.s_sps)
 
 ```
 
-```{r east VI sockeye figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+```{r east VI sockeye figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 added_series.s <- sps_data %>% 
 	filter(region == "East Vancouver Island & Mainland Inlets", species == "Sockeye") %>%
@@ -2060,7 +2190,7 @@ plot_expansions(speciesname = "Sockeye",
 #### Steelhead {.unnumbered}
 Initial time series of spawner abundances for steelhead salmon in East Vancouver Island & Mainland Inlets were expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). For the assessments, we truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
 
-```{r east VI steelhead, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of East Vancouver Island & Mainland Inlets steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r east VI steelhead, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:**  Spawner abundance of East Vancouver Island & Mainland Inlets steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 ## Process data
 evimi.s <- sp[2, "Steelhead", ]
 
@@ -2097,7 +2227,7 @@ plot_abund(evimi.s_sps)
 
 ```
 
-```{r east VI steelhead figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+```{r east VI steelhead figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 added_series.s <- sps_data %>% 
 	filter(region == "East Vancouver Island & Mainland Inlets", species == "Steelhead") %>%
@@ -2132,7 +2262,7 @@ expansion_factors <- readRDS(here("output/expanded-spawners/West Vancouver Islan
 
 ```
 
-```{r west VI chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of West Vancouver Island chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r west VI chinook, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of West Vancouver Island chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 ## Load data ---
 # 17 stream index from Nicholas Brown @ DFO (pers comm.)
 wvi_ck <- read.csv(here("data/R-OUT_infilled_indicators_escapement_timeseries.csv")) %>% 
@@ -2230,7 +2360,7 @@ scale_colour_manual(values = c("DFO 17-Stream Index" = "grey50", "CTC 14-Stream 
 #### Sockeye {.unnumbered}
 Reconstructions of sockeye spawners and recruitment are compelted by DFO (Nicholas Brown, pers. comm.) for three Conservation Units on West Vancouver Island: Sproat, Great Central, and Hucuktlis (formerly Henderson). We used the sum of spawners and total return for these three Conservation Units as the index of sockeye spawner and total abundance for WVI. We acknowledge that this index does not account for lake-type sockeye in other watersheds (e.g., Muchalat, Kennedy, Clayoquot) or river-type sockeye in West Vancouver Island and Northwest Vancouver Island CUs, which tend to be in much lower abundance.
 
-```{r west VI sockeye, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of West Vancouver Island sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r west VI sockeye, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of West Vancouver Island sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 # Sum of CU abundance from Sproat, Great Central, and Henderson
 ## Load data ---
@@ -2284,7 +2414,7 @@ plot_abund(wvise_sps)
 #### Chum {.unnumbered}
 For West Vancouver Island chum salmon, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2025) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
 
-```{r west VI chum, fig.width = 7, fig.height = 6, fig.cap="**Above:**Spawner abundance of West Vancouver Island chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r west VI chum, fig.width = 7, fig.height = 6, fig.cap="**Above:** Spawner abundance of West Vancouver Island chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 ## Process data ---
 wvi.s <- sp[2, "Chum", ]
 # Get rid of NAs (esp in 2024)
@@ -2319,7 +2449,7 @@ sps_data <- rbind(sps_data, wvi.s_sps)
 plot_abund(wvi.s_sps) 
 ```
 
-```{r west VI chum figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+```{r west VI chum figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 # added_series.s <- sps_data %>%
 # 	filter(region == "West Vancouver Island", species == "Chum") %>%
@@ -2340,7 +2470,7 @@ plot_expansions(speciesname = "Chum",
 
 #### Coho {.unnumbered}
 For West Vancouver Island coho salmon, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). The latest year of data (2025) were extracted from West Coast of Vancouver Island Stock Assessment bulletin dated November 15, 2024, and should be considered preliminary. We truncated the time series of spawner abundance to years 1953+ because earlier years had high expansion factor values indicating lack of monitoring on key indicator streams (see figures below). 
-```{r west VI coho, fig.width = 7, fig.height = 6, fig.cap="**Above:**Spawner abundance of West Vancouver Island coho salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r west VI coho, fig.width = 7, fig.height = 6, fig.cap="**Above:** Spawner abundance of West Vancouver Island coho salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 ## Process data ---
 wvi.s <- sp[2, "Coho", ]
 # Get rid of NAs (esp in 2024)
@@ -2375,7 +2505,7 @@ sps_data <- rbind(sps_data, wvi.s_sps)
 plot_abund(wvi.s_sps) 
 ```
 
-```{r west VI coho figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+```{r west VI coho figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 # added_series.s <- sps_data %>%
 # 	filter(region == "West Vancouver Island", species == "Coho") %>%
@@ -2399,7 +2529,7 @@ For West Vancouver Island pink salmon, spawner abundance was expanded from avail
 
 For chum, coho, and steelhead, we relied on NuSEDS' designations of indicator or non-indicator streams, but for pink salmon in this region we designated indicator streams as those with at least 10 years of data in the most recent 20 years. As a result, expansion factors were higher in historical years, but data from both indicator and non-indicator streams show markedly higher counts in the period 1960-1980 then in subsequent decades and it is unlikely that the observed decline is a result of uncertain expansions. 
 
-```{r west VI pink, fig.width = 7, fig.height = 6, fig.cap="**Above:**Spawner abundance of West Vancouver Island pink salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r west VI pink, fig.width = 7, fig.height = 6, fig.cap="**Above:** Spawner abundance of West Vancouver Island pink salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 ## Process data ---
 wvi.s <- sp[2, "Pink", ]
 # Get rid of NAs 
@@ -2434,7 +2564,7 @@ sps_data <- rbind(sps_data, wvi.s_sps)
 plot_abund(wvi.s_sps) 
 ```
 
-```{r west VI pink figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+```{r west VI pink figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 # added_series.s <- sps_data %>%
 # 	filter(region == "West Vancouver Island", species == "Pink") %>%
@@ -2455,7 +2585,7 @@ plot_expansions(speciesname = "Pink",
 #### Steelhead {.unnumbered}
 For West Vancouver Island steelhead, spawner abundance was expanded from available spawner surveys, as described below in [Expansion Factors](#expansion-factors). Data from the Englishman, Gold, Herber, Gordon, and Tsitika Rivers were provided by Michael McCulloch from BC's Ministry of Water, Land and Resource Stewardship. 
 
-```{r west VI steelhead, fig.width = 7, fig.height = 6, fig.cap="**Above:**Spawner abundance of West Vancouver Island steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r west VI steelhead, fig.width = 7, fig.height = 6, fig.cap="**Above:** Spawner abundance of West Vancouver Island steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 ## Process data ---
 wvi.s <- sp[2, "Steelhead", ]
 # Get rid of NAs (esp in 2024)
@@ -2490,7 +2620,7 @@ sps_data <- rbind(sps_data, wvi.s_sps)
 plot_abund(wvi.s_sps) 
 ```
 
-```{r west VI steelhead figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:** (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
+```{r west VI steelhead figs, results = 'asis', fig.width = 7, fig.height = 6, fig.cap = "**Above:**  (a) Time series of spawner abundances showing raw sum of counts for indicator streams (red) and expanded estimates of spawner abudnance to indicator and non-indicator streams (black). This expanded time series is what is used to assess the current state and trends in spawner abundance for the region and species. (b) The values of Expansion Factor 1 that accounts for unmonitored indicator streams in a given year, and is calculated based on the proportional contribution of the unmonitored indicator stream(s) to the sum of all indicator streams in a (reference) decade."}
 
 # added_series.s <- sps_data %>%
 # 	filter(region == "West Vancouver Island", species == "Steelhead") %>%
@@ -2515,7 +2645,7 @@ plot_expansions(speciesname = "Steelhead",
 
 Escapement and run size for Fraser Chinook were provided to PSF by Lauren Weir, DFO (pers. comm.). We took the sum of escapement and terminal run for five major stocks (Fraser Spring 4-2 (age 1.2), Fraser Spring 5-2 (age 1.3), Fraser Summer 5-2 (age 1.3), Fraser Summer 4-1 (age 0.3), and Harrison (Fraser Fall 4-1, age 0.3)). Escapement numbers match those in Table B6 of the [PSC's Chinook Technical Committee (CTC) data sets](https://www.psc.org/publications/technical-reports/technical-committee-reports/chinook/ctc-data-sets/) as shown by purple open circles below. The 't.run' in the CTC dataset excludes the Harrison stock.
 
-```{r fraser chinook, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Fraser chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r fraser chinook, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Fraser chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 # Data from Lauren Weir (shared 2026-04-24 by email)
 frck <- readxl::read_xlsx(here("data/1975-2025 Fraser Chinook escapement and terminal run by SMU - for PSF.xlsx"), skip=1)
 frck_smu <- readxl::read_xlsx(here("data/1975-2025 Fraser Chinook escapement and terminal run by SMU - for PSF.xlsx"), range="A1:K1", col_names=F) # get smu names
@@ -2575,7 +2705,7 @@ points(x=frck_ctc$Year, y=frck_ctc$total_esc/1000, col="purple")
 ```
 
 
-```{r fraser chinook figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 9, fig.height = 6, fig.cap = "**Above:** (a) Aggregate escapement of Fraser Chinook with the contribution of escapement to each of five stocks shown as coloured regions. Note that the Harrison River (Fall 4-1) time series begins later (1984) than the other four stocks (1975), and thus we only report spawner abundance from 1984 onward. (b) The proportional contribution of each of five stocks to aggregate Fraser Chinook escapement."}
+```{r fraser chinook figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 9, fig.height = 6, fig.cap = "**Above:**  (a) Aggregate escapement of Fraser Chinook with the contribution of escapement to each of five stocks shown as coloured regions. Note that the Harrison River (Fall 4-1) time series begins later (1984) than the other four stocks (1975), and thus we only report spawner abundance from 1984 onward. (b) The proportional contribution of each of five stocks to aggregate Fraser Chinook escapement."}
 # Data from Lauren Weir (shared 2026-04-24 by email)
 frck <- readxl::read_xlsx(here("data/1975-2025 Fraser Chinook escapement and terminal run by SMU - for PSF.xlsx"), skip=1)
 frck_smu <- readxl::read_xlsx(here("data/1975-2025 Fraser Chinook escapement and terminal run by SMU - for PSF.xlsx"), range="A1:K1", col_names=F) # get smu names
@@ -2640,7 +2770,7 @@ cowplot::plot_grid(esc.stacked, esc.sum, labels="auto", rel_widths=c(0.75, 1))
 Fraser chum escapement and total run estimates were provided to us upon request by Brittany Jenewin (DFO, pers. comm.). Escapement includes hatchery + ESSR fish. For comparison, PSC Chum Technical Committee data from the 2023 report [@20232019PostSeasonSummary] plus additional years of PSC data provided by Brittany Jenewein in previous years are shown in purple and blue open circles (escapement and run size, respectively.)
 
 
-```{r fraser chum, echo=FALSE, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Fraser Chum salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r fraser chum, echo=FALSE, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Fraser Chum salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 # Use data provided by Brittany Jenewein (2026-07-09)
 frcm <- readxl::read_xlsx(here("data/Fraser_Chum_Run_Reconstruction_2026-07-09.xlsx"), n_max=length(1996:2025))
@@ -2690,7 +2820,7 @@ plot_abund(frcm_sps)
 In 2026, Tanya Vivian (DFO) provided new IFC estimates dating back to 1984 (purple and blue circles). "Total Prefishery Abundance" is total return plus harvest, and can be considered equivalent to run size, while "Total Return" is spawners plus fish removed later for brood collection or AFC sacrifices (applicable only to the three indicator stocks). These respectively align exactly with our past data series until the 2010s when some small differences are introduced. For comparison, the old dataset is shown by purple and blue open circles for spawners and total abundance, respectively.
 
 
-```{r fraser coho, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Fraser coho salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r fraser coho, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Fraser coho salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 ## Load data ---
 frco <- readxl::read_excel(here("data/IFC-Data-TanyaVivian-2026.xlsx"), sheet=2) %>%
 	summarize(Run.size = sum(Total.Prefishery.Abundance),
@@ -2739,7 +2869,7 @@ plot_abund(frco_sps)
 #### Pink {.unnumbered}
 Data on total return and spawner abundance of pink salmon and sockeye salmon in the Fraser region are provided by the PSC and accessed through the Fraser Panel Annual Report: Data Application [@PacificSalmonCommission2024PSCAnnualReport]. Total escapement for Fraser sockeye was not yet available for 2025, and 2025 total return is considered preliminary. We note that Fraser River pink salmon are only counted in the dominant, odd-year run. 
 
-```{r fraser pink, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Fraser pink salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r fraser pink, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Fraser pink salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 ## Load data ---
 # Note: Only odd year data, so no change in some years
 # From PSC 
@@ -2774,7 +2904,7 @@ plot_abund(frpk_sps)
 **Updated 2026**
 Data on total return and spawner abundance of sockeye salmon in the Fraser region are provided by the PSC and accessed through the Fraser Panel Annual Report: Data Application [@PacificSalmonCommission2024PSCAnnualReport]. The 2025 total return is considered preliminary (in-season estimate) and the 2025 escapement is considered "near-final" (Provided by email by Sean Everitt). 
 
-```{r fraser sockeye, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Fraser sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r fraser sockeye, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Fraser sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 ## Load data ---
 # From PSC
 frse <- read.csv(here("data/Fraser Sockeye Run Size_2026-04-20.csv")) %>%
@@ -2828,7 +2958,7 @@ plot_abund(frse_sps)
 #### Steelhead {.unnumbered}
 Steelhead trout in the Fraser are monitored by the Province in at least 10 different streams, but these data are not readily available. Relatively reliable estimates of steelhead spawner abundance are available at the CU-level for interior Fraser steelhead from the Thompson Summer CU (monitored at the Thompson River) and Mid Fraser Summer CU (primarily monitored at the Chilcotin River; data in the [Pacific Salmon Explorer](https://salmonexplorer.ca)). We used the sum of CU-level spawner abundance for these two CUs as an index of Fraser steelhead abundance. We note that this approach does not include more coastal populations, such as the Lower Fraser Summer steelhead monitored in the Coquihalla River or Boundary Bay Winter steelhead, which may not have declined to the same extent over the past decade. However, a lack of publicly accessible data on coastal Fraser steelhead has limited our ability to include these CUs in our index of abundance.
 
-```{r fraser steelhead, fig.cap="**Above:**Spawner abundance of Fraser steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r fraser steelhead, fig.cap="**Above:** Spawner abundance of Fraser steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 ## Load data ---
 # Use sum of two main Fraser steelhead CUs
 
@@ -2873,7 +3003,7 @@ plot_abund(frsh_sps)
 
 We used CU-level estimates of spawner abundance (run reconstructions) sourced from DFO (Athena Ogden, pers. comm.) for 2006-2023 and Okanagan Nation Alliance (Katherine Fegan, pers. comm.) for 2024-2025. 
 
-```{r columbia chinook, fig.cap="**Above:**Spawner abundance of Columbia chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r columbia chinook, fig.cap="**Above:** Spawner abundance of Columbia chinook salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 colck <- read.csv(here("data/Chinook_Okanagan_NEW.csv")) %>% filter(Year >= 2006)
 # Downloaded from https://github.com/SOLV-Code/Scanner-Data-Processing/blame/main/DATA_IN/Chinook_Okanagan_NEW.csv
 # on March 18, 2025
@@ -2915,7 +3045,7 @@ plot_abund(colck_sps)
 
 We used CU-level estimates of spawner abundance (run reconstructions) sourced from DFO (Athena Ogden, pers. comm.) for Chinook and sockeye. Spawner abundance for Columbia sockeye was the sum of estimates for Osoyoos and, more recently, Skaha Lakes and were the most up-to-date estimates as of June 2025 (Athena Ogden, pers. comm.). Total abundance for sockeye was extracted from DFO's 2024 Wild Salmon Policy assessment for Osoyoos sockeye [@DFO2024WildSalmonPolicy] from 1980-2023.
 
-```{r columbia sockeye, fig.cap="**Above:**Spawner abundance (grey) and total abundance (black) of Columbia sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
+```{r columbia sockeye, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Columbia sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 # Load data ---
 colse_old <- read.csv(here("data/spawner_abundance.csv")) %>% 
@@ -2963,7 +3093,7 @@ plot_abund(colse_sps)
 
 There is no monitoring of steelhead trout in the Canadian portion of the Columbia region, but the Okanagan Nation Alliance does enumerate steelhead in akskwəkwant (Inkaneep Creek) and estimate a Canadian portion of steelhead spawning abundance. These data can be found in Table 8 of the associated report (e.g. @OBMEP20252024OkanoganSubbasin) and are available for the Mid Columbia Summer Conservation Unit [in the Pacific Salmon Explorer](https://salmonexplorer.ca/explore/data/spawner-abundance/columbia/steelhead/mid-columbia-summer-1380/).
 
-```{r columbia steelhead, fig.cap="**Above:**Spawner abundance of Columbia steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
+```{r columbia steelhead, fig.cap="**Above:** Spawner abundance of Columbia steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 colsh <- read.csv(here("data/Columbia_Steelhead_OBMEP.csv"))
 
 # Put in SPS format
@@ -2997,8 +3127,16 @@ plot_abund(colsh_sps)
 
 <!--- This code chunk must go after the last data processing step --->
 ```{r save processed data}
+
+# Round abundances
+sps_data$spawners <- round(sps_data$spawners)
+sps_data$runsize <- round(sps_data$runsize)
+
+sps_data$smoothedSpawners <- round(sps_data$smoothedSpawners, 1)
+sps_data$smoothedRunsize <- round(sps_data$smoothedRunsize, 1)
+
 write.csv(sps_data, here("output/sps-data.csv"), row.names = FALSE) # Always have most recent 
-write.csv(sps_data, paste0(Dropbox_dir, "/output/archive/", "sps-data", Sys.Date(), ".csv"), row.names = FALSE) # Archive with date
+write.csv(sps_data, paste0(Dropbox_dir, "/output/archive/", "sps-data_", Sys.Date(), ".csv"), row.names = FALSE) # Archive with date
 
 ```
 
@@ -3067,7 +3205,7 @@ If the slope $m$ is not significantly different from zero ($p \geq 0.05$), then 
 
 The **short-term trend** is calculated as described above, but only using the time series over the most recent three generations.
 
-```{r, echo = FALSE, include = TRUE, fig.width = 8, fig.height = 3.5, fig.cap = "**Above:** Simulated time series of spawner abundance (grey line), smoothed with a running geometric mean over the generation length (4 years; black line). The three metrics are illustrated: **Current status** relative to historical average (black);  **Long-term trend** over the entire time series (green); and **Short-term trend** over the most recent three generations (clay). The shaded regions of the regression lines indicate the 95% prediction intervals. In this example, the short-term trend is not statistically significant (p > 0.05), and so the trend is characterized as 'stable' despite the negative slope."}
+```{r, echo = FALSE, include = TRUE, fig.width = 8, fig.height = 3.5, fig.cap = "**Above:**  Simulated time series of spawner abundance (grey line), smoothed with a running geometric mean over the generation length (4 years; black line). The three metrics are illustrated: **Current status** relative to historical average (black);  **Long-term trend** over the entire time series (green); and **Short-term trend** over the most recent three generations (clay). The shaded regions of the regression lines indicate the 95% prediction intervals. In this example, the short-term trend is not statistically significant (p > 0.05), and so the trend is characterized as 'stable' despite the negative slope."}
 
 # Simulate time series over 72 years (1950 - 2021)
 S <- numeric(72)
@@ -3127,7 +3265,7 @@ The standardized approach to quantifying change described above was applied acro
 
 1. If the species and region had no data in the most recent generation, the current status was "Unknown" even if historical abundance information was available. This was the case for **Haida Gwaii Chinook**, for which there were no reliable estimates of spawners since 2006.
 
-2. If there was reliable information that the absolute population size was < 1,500 spawners, then the species and region was considered at risk of extirpation regardless of the outcome of the metrics above. This was the case for **Columbia Chinook** which have been assessed as Endangered by COSEWIC due to low population size [@COSEWIC2017ChinookSalmonOncorhynchus] and **Columbia steelhead**. There were other regions and species that had spawner abundance < 1,500, but none of these had reliable estimates of **absolute** spawner abundance.
+2. If there was reliable information that the absolute population size was < 1,500 spawners, then the species and region was considered at risk of extirpation regardless of the outcome of the metrics above. This was the case for **Columbia Chinook** which have been assessed as Endangered by COSEWIC due to low population size [@COSEWIC2017COSEWICAssessmentStatus] and **Columbia steelhead**. There were other regions and species that had spawner abundance < 1,500, but none of these had reliable estimates of **absolute** spawner abundance.
 
 
 # Results 
@@ -3143,23 +3281,25 @@ library(tools)
 
 # Run 3_calc-metrics to get updated sps-metrics
 source(here("code/3_calc-metrics.R"), local = knitr::knit_global())
+
 ```
 
 
 ```{r read results data, echo = FALSE}
 # Read in data for plots
-#sps_dat <- read.csv(here("output/sps-data.csv"))
-sps_dat <- sps_data
+#sps_dat <- read.csv(here("output/sps-data.csv")) # not necessary since 3_calc-metrics run in local env
 sps_metrics <- read.csv(here("output/sps-metrics.csv"))
 sps_metrics <- sps_metrics %>% select(!regionspecies)
 
 	
 # Read in last-year's metrics 
 sps_metrics_2025 <- read.csv(here(Dropbox_dir, "output/archive/sps-metrics_2025-11-05.csv"))
+sps_metrics_2024 <- read.csv(here(Dropbox_dir, "output/archive/sps-metrics_2024-07-19.csv")) # work to add into table of results...
 
 regions <- unique(sps_metrics$region)
 
 ```
+
 
 * These trends in aggregated spawner abundance provide a broad overview of how salmon are doing, but must be interpreted with caution due to the diversity of populations with potentially different outlooks within each region and species. 
 * The status of spawner abundance is, in most cases, more positive than the status in total return, highlighting that declines in fisheries have been pervasive. 
@@ -3174,9 +3314,6 @@ regions <- unique(sps_metrics$region)
 
 ## All regions
 
-### 2025 compared to 2024 {.unnumbered}
-
-Most of our results are based on **generational averages** (i.e., "smoothed" abundance), but in some places it's worth highlighting what happened in 2025. In particular, several regions/species seemed to have big returns in 2024 that are not reflected in the "current abundance" but we may want to highlight in the narrative. 
 
 ### Overview results table {.tabset .unnumbered}
 **Below**: Summary of current status for **spawner or total abundance** (tabs) across regions and species, comparing between previous years' outcomes and revised outcomes. Regions and species below historical average are in red and above historical average are in green. Black cells indicate species that are not thought to be present in the given region, and grey cells indicate status was Unknown. For some regions and species, numbers have changed even though the year is the same because (1) the long-term average is calculated from raw instead of smoothed abundances or (2) an updated or different data source was used.
@@ -3203,67 +3340,52 @@ btn_table.all(
 
 ## Yukon
 
-**Highlights**
+### All species table
+
+**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
+
+btn_table(
+  selected_region = "Yukon",
+  sps_metrics = sps_metrics
+)
+```
+
+### Chinook {.tabset .unnumbered}
 
 <!-- * Chinook and chum salmon spawners have both experienced precipitous declines in recent years. -->
 <!-- * Trends in Chinook total return show statistically significant declines of 3% and 4% **per year** over long and short time frames, respectively, highlighting the significant, persistent decline that has led to closure of fisheries, including First Nations subsistence fishing, throughout in the Canadian portion of the Yukon.    -->
 <!-- * Accompanying declines in **abundance**, there is also evidence that Yukon Chinook body size and reproductive capacity have been reduced [@OhlbergerEtAl2020ReproductiveValueLarge]. -->
 <!-- * These shifts in quality of escapement, combined with warming rivers during spawning migrations and shifting ocean conditions with climate change, may continue to challenge recovery efforts for Yukon salmon [@SchoenEtAl2023NOAAArcticReport]. -->
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "Yukon",
-	abund = "spawners", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
+#### Spawners {.unnumbered}
+```{r yk ck spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Yukon Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Yukon", species = "Chinook", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
 ```
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "Yukon",
-	abund = "runsize", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
+#### Total Return {.unnumbered}
+```{r yk ck run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Yukon Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Yukon", species = "Chinook", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
 ```
 
-
-**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
-```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
-
-btn_table(
-  selected_region = "Yukon",
-  sps_metrics = sps_metrics
-)
+### Chum {.tabset .unnumbered}
+```{r yk cm spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Yukon Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Yukon", species = "Chum", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
 ```
 
-## Transboundary
+#### Total Return {.unnumbered}
+```{r yk cm run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Yukon Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Yukon", species = "Chum", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+## Northern Transboundary
 
 **Highlights**
 
 <!-- * Most species in the Transboundary are below historical average spawner abundance, except sockeye salmon which have shown a recent increase, driven by increases in river-type type sockeye in the Taku River. -->
 <!-- * As in many other regions, the most recent index of spawner abundance is lower than the index of total return for the three Transboundary species that have both types of data (Chinook: `r round(sps_metrics$current_status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Chinook" & sps_metrics$type == "Spawners"]*100, 1)`% compared to `r round(sps_metrics$current_status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Chinook" & sps_metrics$type == "Run Size"]*100, 1)`%, coho: `r round(sps_metrics$current_status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Coho" & sps_metrics$type == "Spawners"]*100, 1)`% compared to `r round(sps_metrics$current_status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Coho" & sps_metrics$type == "Run Size"]*100, 1)`%, and sockeye: `r round(sps_metrics$current_status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Spawners"]*100, 1)`% compared to `r round(sps_metrics$current_status[sps_metrics$region == "Transboundary" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`%), indicating that **declines in catch** have also occurred in recent years. -->
 
-
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "Northern Transboundary",
-	abund = "spawners", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
-```
-
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "Northern Transboundary",
-	abund = "runsize", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
-```
-
+### All species table
 
 **Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
@@ -3273,6 +3395,66 @@ btn_table(
   sps_metrics = sps_metrics
 )
 ```
+
+### Chinook {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r tb ck spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Transboundary Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Northern Transboundary", species = "Chinook", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r tb ck run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Transboundary Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Northern Transboundary", species = "Chinook", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Sockeye {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r tb so spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Transboundary Sockeye: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Northern Transboundary", species = "Sockeye", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r tb so run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Transboundary Sockeye: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Northern Transboundary", species = "Sockeye", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Coho {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r tb co spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Transboundary Coho: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Northern Transboundary", species = "Coho", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r tb co run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Transboundary Coho: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Northern Transboundary", species = "Coho", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Chum {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r tb cm spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Transboundary Chum: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Northern Transboundary", species = "Chum", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Pink {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r tb pk spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Transboundary Pink: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Northern Transboundary", species = "Pink", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Steelhead {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r tb st spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Transboundary Steelhead: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Northern Transboundary", species = "Steelhead", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
 
 ## Haida Gwaii
 
@@ -3282,24 +3464,7 @@ btn_table(
 <!-- * Unlike in other regions, where pink salmon have been doing relatively well, pink salmon have shown the most dramatic declines, and most recent spawner abundance was `r -round(sps_metrics$current_status[sps_metrics$region == "Haida Gwaii" & sps_metrics$species == "Pink" & sps_metrics$type == "Spawners"]*100, 1)`% **lower** than the historical average. -->
 <!-- * There is only one indicator stream for Chinook in Haida Gwaii,the Yakoun River, which has not been monitored since 2006 and although abundance was relatively high at that time, current status is unknown. -->
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "Haida Gwaii",
-	abund = "spawners", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
-```
-
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "Haida Gwaii",
-	abund = "runsize", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
-```
-
+### All species table
 
 **Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
@@ -3309,6 +3474,46 @@ btn_table(
   sps_metrics = sps_metrics
 )
 ```
+
+### Chinook {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r hg ck spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Haida Gwaii Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Haida Gwaii", species = "Chinook", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Chum {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r hg cm spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Haida Gwaii Chum: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Haida Gwaii", species = "Chum", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Coho {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r hg co spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Haida Gwaii Coho: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Haida Gwaii", species = "Coho", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Pink {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r hg pk spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Haida Gwaii Pink: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Haida Gwaii", species = "Pink", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Sockeye {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r hg so spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Haida Gwaii Sockeye: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Haida Gwaii", species = "Sockeye", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
 
 ## Nass
 
@@ -3318,24 +3523,7 @@ btn_table(
 <!-- * Chum salmon are the species furthest below their historical average (`r round(sps_metrics$current_status[sps_metrics$region == "Nass" & sps_metrics$species == "Chum" & sps_metrics$type == "Spawners"]*100, 1)`%) with an average long-term decline of `r round(sps_metrics$long_trend[sps_metrics$region == "Nass" & sps_metrics$species == "Chum" & sps_metrics$type == "Spawners"]*100, 1)`%. -->
 <!-- * Although sockeye total return is `r -round(sps_metrics$current_status[sps_metrics$region == "Nass" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`% **below** historical average with concerning negative short- and long-term trends, increases over the last two years have put **spawner abundance** above historical average with an increasing short-term trend over the most recent three generations.  -->
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "Nass",
-	abund = "spawners", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
-```
-
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "Nass",
-	abund = "runsize", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
-```
-
+### All species table
 
 **Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
@@ -3344,6 +3532,78 @@ btn_table(
   selected_region = "Nass",
   sps_metrics = sps_metrics
 )
+```
+
+### Chinook {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r na ck spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Nass Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Nass", species = "Chinook", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r na ck run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Nass Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Nass", species = "Chinook", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Sockeye {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r na so spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Nass Sockeye: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Nass", species = "Sockeye", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r na so run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Nass Sockeye: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Nass", species = "Sockeye", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Coho {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r na co spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Nass Coho: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Nass", species = "Coho", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r na co run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Nass Coho: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Nass", species = "Coho", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Pink {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r na pk spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Nass Pink: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Nass", species = "Pink", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r na pk run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Nass Pink: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Nass", species = "Pink", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Chum {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r na cm spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Nass Chum: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Nass", species = "Chum", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r na cm run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Nass Chum: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Nass", species = "Chum", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Steelhead {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r na st spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Nass Steelhead: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Nass", species = "Steelhead", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r na st run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Nass Steelhead: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Nass", species = "Steelhead", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
 ```
 
 ## Skeena
@@ -3354,24 +3614,7 @@ btn_table(
 <!-- * Total return was only available for Skeena sockeye, and shows increases in the 1980s and 90s, with a decline from the peak in 1996. Slight increases over the last two years put current total return `r -round(sps_metrics$current_status[sps_metrics$region == "Skeena" & sps_metrics$species == "Sockeye" & sps_metrics$type == "Run Size"]*100, 1)`% below historical average, with stable long-term and short-term trends. Other research has found that the decline in sockeye abundance from the 1980s has been accompanied by erosion of diversity, with enhanced stocks increasingly dominating returns [@PriceEtAl2021PortfolioSimplificationArising]. -->
 <!-- * Estimates of regional spawner abundance have become increasingly uncertain since 2000, especially for coho, due to a decline in monitoring of indicator streams. -->
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "Skeena",
-	abund = "spawners", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
-```
-
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "Skeena",
-	abund = "runsize", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
-```
-
+### All species table
 
 **Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
@@ -3380,6 +3623,57 @@ btn_table(
   selected_region = "Skeena",
   sps_metrics = sps_metrics
 )
+```
+
+### Chinook {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r ske ck spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Skeena Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Skeena", species = "Chinook", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Sockeye {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r ske so spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Skeena Sockeye: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Skeena", species = "Sockeye", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r ske so run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Skeena Sockeye: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Skeena", species = "Sockeye", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Steelhead {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r ske st spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Skeena Steelhead: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Skeena", species = "Steelhead", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Chum {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r ske cm spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Skeena Chum: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Skeena", species = "Chum", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Coho {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r ske co spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Skeena Coho: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Skeena", species = "Coho", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Pink {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r ske pk spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Skeena Pink: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Skeena", species = "Pink", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
 ```
 
 
@@ -3391,32 +3685,62 @@ btn_table(
 <!-- * Pink salmon, which tend to fluctuate in abundance more than other species, have increased only recently from an all-time low in 2019, more than doubling between 2019 and 2021. -->
 <!-- * Expansion factors for regional-scale reconstructions have increased substantially since the mid-2000s, with a decline in monitoring creating uncertainties in our results for all species, but especially coho, sockeye, and Chinook. -->
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "Central Coast",
-	abund = "spawners", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
+### All species table
 
-```
-
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "Central Coast",
-	abund = "runsize", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
-```
-
-
-**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
 btn_table(
   selected_region = "Central Coast",
   sps_metrics = sps_metrics
 )
+```
+
+### Chinook {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r cc ck spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Central Coast Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Central Coast", species = "Chinook", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Steelhead {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r cc st spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Central Coast Steelhead: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Central Coast", species = "Steelhead", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Chum {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r cc cm spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Central Coast Chum: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Central Coast", species = "Chum", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Coho {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r cc co spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Central Coast Coho: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Central Coast", species = "Coho", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Pink {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r cc pk spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Central Coast Pink: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Central Coast", species = "Pink", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Sockeye {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r cc so spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Central Coast Sockeye: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Central Coast", species = "Sockeye", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
 ```
 
 
@@ -3430,26 +3754,9 @@ btn_table(
 <!-- * Short-term trends are stable or increasing for Chinook, pink, and sockeye, suggestion possibility for recovery. -->
 <!-- * Dynamics through time are more stable for the regional aggregate because there are many component populations in this large area, but some local trends are concerning highlighting a need to understand and conserve the diversity represented by component populations (for more detailed information on populations within regions, see the [Pacific Salmon Explorer](https://www.salmonexplorer.ca)). -->
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "East Vancouver Island & Mainland Inlets",
-	abund = "spawners", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
+### All species table
 
-```
-
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "East Vancouver Island & Mainland Inlets",
-	abund = "runsize", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
-```
-
-
-**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
 btn_table(
@@ -3457,31 +3764,66 @@ btn_table(
   sps_metrics = sps_metrics
 )
 ```
+
+### Chinook {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r evmi ck spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for East Vancouver Island & Mainland Inlets Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "East Vancouver Island & Mainland Inlets", species = "Chinook", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r evmi ck run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for East Vancouver Island & Mainland Inlets Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "East Vancouver Island & Mainland Inlets", species = "Chinook", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Chum {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r evmi cm spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for East Vancouver Island & Mainland Inlets Chum: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "East Vancouver Island & Mainland Inlets", species = "Chum", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Coho {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r evmi co spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for East Vancouver Island & Mainland Inlets Coho: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "East Vancouver Island & Mainland Inlets", species = "Coho", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Pink {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r evmi pk spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for East Vancouver Island & Mainland Inlets Pink: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "East Vancouver Island & Mainland Inlets", species = "Pink", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Sockeye {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r evmi so spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for East Vancouver Island & Mainland Inlets Sockeye: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "East Vancouver Island & Mainland Inlets", species = "Sockeye", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Steelhead {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r evmi st spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for East Vancouver Island & Mainland Inlets Steelhead: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "East Vancouver Island & Mainland Inlets", species = "Steelhead", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
 
 ## West Vancouver Island 
 
 **Highlights**
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "West Vancouver Island",
-	abund = "spawners", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
+### All species table
 
-```
-
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "West Vancouver Island",
-	abund = "runsize", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
-```
-
-
-**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
+**Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
 
 btn_table(
@@ -3489,6 +3831,62 @@ btn_table(
   sps_metrics = sps_metrics
 )
 ```
+
+### Chinook {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r wvi ck spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for West Vancouver Island Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "West Vancouver Island", species = "Chinook", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r wvi ck run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for West Vancouver Island Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "West Vancouver Island", species = "Chinook", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Sockeye {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r wvi so spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for West Vancouver Island Sockeye: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "West Vancouver Island", species = "Sockeye", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r wvi so run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for West Vancouver Island Sockeye: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "West Vancouver Island", species = "Sockeye", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Chum {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r wvi cm spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for West Vancouver Island Chum: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "West Vancouver Island", species = "Chum", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Coho {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r wvi co spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for West Vancouver Island Coho: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "West Vancouver Island", species = "Coho", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Pink {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r wvi pk spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for West Vancouver Island Pink: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "West Vancouver Island", species = "Pink", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Steelhead {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r wvi st spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for West Vancouver Island Steelhead: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "West Vancouver Island", species = "Steelhead", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
 
 ## Fraser
 
@@ -3500,24 +3898,7 @@ btn_table(
 
 <!-- * Declines of Chinook, chum, pink, sockeye, and steelhead since the early 2000s may reflect the increasing pressures of climate change on these southern and interior populations. -->
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "Fraser",
-	abund = "spawners", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
-```
-
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "Fraser",
-	abund = "runsize", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
-```
-
+### All species table
 
 **Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
@@ -3527,6 +3908,74 @@ btn_table(
   sps_metrics = sps_metrics
 )
 ```
+
+### Chinook {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r fr ck spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Fraser Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Fraser", species = "Chinook", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r fr ck run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Fraser Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Fraser", species = "Chinook", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Chum {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r fr cm spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Fraser Chum: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Fraser", species = "Chum", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r fr cm run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Fraser Chum: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Fraser", species = "Chum", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Coho {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r fr co spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Fraser Coho: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Fraser", species = "Coho", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r fr co run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Fraser Coho: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Fraser", species = "Coho", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Pink {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r fr pk spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Fraser Pink: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Fraser", species = "Pink", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r fr pk run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Fraser Pink: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Fraser", species = "Pink", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Sockeye {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r fr so spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Fraser Sockeye: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Fraser", species = "Sockeye", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r fr so run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Fraser Sockeye: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Fraser", species = "Sockeye", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Steelhead {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r fr st spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Fraser Steelhead: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Fraser", species = "Steelhead", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
 
 ## Columbia
 
@@ -3535,27 +3984,10 @@ btn_table(
 <!-- * The current status of Columbia Chinook and steelhead is categorized as Unknown because the are insufficient data to establish a meaningful baseline (fewer than 20 years; Chinook 2006-2022 and steelhead 2006-2021). -->
 <!-- * Columbia Chinook and sockeye show promise of rebuilding, with positive long-term trends.  -->
 <!-- * The time series for Chinook and steelhead are short, making it difficult to establish a meaningful baseline. For this reason, we show the current status relative to the historical average as "Unknown" for Columbia Chinook and steelhead. -->
-<!-- * Although Chinook spawner abundance has increased from a low in 2011, the absolute abundance is still less than 1000 spawners and the Okanagan population of Chinook was listed as Endangered in 2017 by COSEWIC [@COSEWIC2017ChinookSalmonOncorhynchus]. Recent increases should be cautiously celebrated, knowing that this population is still at risk of extirpation. -->
+<!-- * Although Chinook spawner abundance has increased from a low in 2011, the absolute abundance is still less than 1000 spawners and the Okanagan population of Chinook was listed as Endangered in 2017 by COSEWIC [@COSEWIC2017COSEWICAssessmentStatus]. Recent increases should be cautiously celebrated, knowing that this population is still at risk of extirpation. -->
 <!-- * Columbia steelhead have declined precipitously since a peak spawner abundance in 2012. -->
 
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Spawner abundance through time as a percentage of the long-term average. Spawner abundance is smoothed using a one-generation geometric running average (right-aligned), and plotted relative to the historical average for each species. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "Columbia",
-	abund = "spawners", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
-```
-
-```{r, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap = "**Above:** Total return through time as a percentage of the long-term average. Closed points highlight the most recent index of spawner abundance. The percent shown is the percent change from the historical average to the most recent year.", message = FALSE, warning = FALSE}
-plot.regional_abund(
-  selected_region = "Columbia",
-	abund = "runsize", # Select "spawners" or "runsize"
-	sps_metrics = sps_metrics, 
-	sps_dat = sps_dat)
-
-```
-
+### All species table
 
 **Below:** Summary of the three metrics for spawners and total return. For long-term  trends and short-term  trends, the percentage is the average annual change calculated over the respective time period. Grey values indicate the % change was not significantly different from zero (i.e., stable), red values indicate declining trends, and green values indicate increasing trends.
 ```{r, echo = FALSE, include = TRUE, message = FALSE, warning = FALSE}
@@ -3565,6 +3997,35 @@ btn_table(
   sps_metrics = sps_metrics
 )
 ```
+
+### Chinook {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r col ck spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Columbia Chinook: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Columbia", species = "Chinook", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
+### Sockeye {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r col so spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Columbia Sockeye: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Columbia", species = "Sockeye", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+#### Total Return {.unnumbered}
+```{r col so run metrics detail, echo = FALSE, include = TRUE, fig.width = 10, fig.height = 4, fig.cap="**Above:** Detailed status and trend metrics for Columbia Sockeye: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Columbia", species = "Sockeye", types="Run Size", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+### Steelhead {.tabset .unnumbered}
+
+#### Spawners {.unnumbered}
+```{r col st spwn metrics detail, echo = FALSE, include = TRUE, fig.cap="**Above:** Detailed status and trend metrics for Columbia Steelhead: short-term (3-generation) and long-term trend lines with 95% confidence intervals, the long-term average (dashed line), and current status relative to that average."}
+plot_sps_metrics_detail(region = "Columbia", species = "Steelhead", types="Spawners", sps_dat=sps_dat, sps_metrics=sps_metrics)
+```
+
+
  
 # References
 
