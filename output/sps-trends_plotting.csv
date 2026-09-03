@@ -82,7 +82,7 @@
 "Yukon","Chum",2016,96.4,127.5,25.1,99.9,129.4,-5.9
 "Yukon","Chum",2017,133.7,79.9,27.1,133.4,72.1,-10.7
 "Yukon","Chum",2018,132.7,42.3,29.1,146.8,29.2,-15.3
-"Yukon","Chum",2019,127.8,12.6,31.1,138.3,-3,-19.6
+"Yukon","Chum",2019,127.9,12.6,31.1,138.3,-3,-19.6
 "Yukon","Chum",2020,44.5,-11,33.2,28.2,-27.2,-23.7
 "Yukon","Chum",2021,-29.2,-29.6,35.3,-42.4,-45.4,-27.6
 "Yukon","Chum",2022,-56.4,-44.3,37.5,-69.1,-59,-31.3
@@ -220,129 +220,129 @@
 "Northern Transboundary","Coho",2023,-8.2,-16.3,7.5,-17,-21.6,-12.5
 "Northern Transboundary","Coho",2024,-12.5,-18.4,8,-18.9,-24,-13.6
 "Northern Transboundary","Coho",2025,-14.1,-20.5,8.6,-17.6,-26.2,-14.6
-"Northern Transboundary","Pink",1984,144.4,NA,107.5,NA,NA,NA
-"Northern Transboundary","Pink",1985,182.2,NA,100.4,NA,NA,NA
-"Northern Transboundary","Pink",1986,66.9,NA,93.6,NA,NA,NA
-"Northern Transboundary","Pink",1987,107.5,NA,87,NA,NA,NA
-"Northern Transboundary","Pink",1988,53.7,NA,80.6,NA,NA,NA
-"Northern Transboundary","Pink",1989,31.3,NA,74.4,NA,NA,NA
-"Northern Transboundary","Pink",1990,140.4,NA,68.4,NA,NA,NA
-"Northern Transboundary","Pink",1991,108.9,NA,62.7,NA,NA,NA
-"Northern Transboundary","Pink",1992,73.9,NA,57.1,NA,NA,NA
-"Northern Transboundary","Pink",1993,-54.3,NA,51.8,NA,NA,NA
-"Northern Transboundary","Pink",1994,-21.8,NA,46.6,NA,NA,NA
-"Northern Transboundary","Pink",1995,-19.8,NA,41.6,NA,NA,NA
-"Northern Transboundary","Pink",1996,-28.4,NA,36.7,NA,NA,NA
-"Northern Transboundary","Pink",1997,21.9,NA,32.1,NA,NA,NA
-"Northern Transboundary","Pink",1998,26.8,NA,27.6,NA,NA,NA
-"Northern Transboundary","Pink",1999,175.9,NA,23.2,NA,NA,NA
-"Northern Transboundary","Pink",2000,45.9,NA,19,NA,NA,NA
-"Northern Transboundary","Pink",2001,-9,NA,14.9,NA,NA,NA
-"Northern Transboundary","Pink",2002,-15.2,NA,11,NA,NA,NA
-"Northern Transboundary","Pink",2003,10.4,NA,7.2,NA,NA,NA
-"Northern Transboundary","Pink",2004,34.9,NA,3.5,NA,NA,NA
-"Northern Transboundary","Pink",2005,36.4,NA,0,NA,NA,NA
-"Northern Transboundary","Pink",2006,118.5,NA,-3.4,NA,NA,NA
-"Northern Transboundary","Pink",2007,93.4,NA,-6.7,NA,NA,NA
-"Northern Transboundary","Pink",2008,-10,NA,-9.9,NA,NA,NA
-"Northern Transboundary","Pink",2009,-22.4,NA,-13,NA,NA,NA
-"Northern Transboundary","Pink",2010,6.6,NA,-15.9,NA,NA,NA
-"Northern Transboundary","Pink",2011,47.9,NA,-18.8,NA,NA,NA
-"Northern Transboundary","Pink",2012,19.9,NA,-21.6,NA,NA,NA
-"Northern Transboundary","Pink",2013,-38.6,NA,-24.3,NA,NA,NA
-"Northern Transboundary","Pink",2014,-60.3,NA,-26.9,NA,NA,NA
-"Northern Transboundary","Pink",2015,-9.5,NA,-29.4,NA,NA,NA
-"Northern Transboundary","Pink",2016,-32.1,NA,-31.8,NA,NA,NA
-"Northern Transboundary","Pink",2017,-40.7,NA,-34.1,NA,NA,NA
-"Northern Transboundary","Pink",2018,-35.8,NA,-36.4,NA,NA,NA
-"Northern Transboundary","Pink",2019,-38.5,NA,-38.5,NA,NA,NA
-"Northern Transboundary","Pink",2020,5.6,63.6,-40.6,NA,NA,NA
-"Northern Transboundary","Pink",2021,33.1,0.4,-42.7,NA,NA,NA
-"Northern Transboundary","Pink",2022,-12.6,-38.4,-44.6,NA,NA,NA
-"Northern Transboundary","Pink",2023,-55.2,-62.2,-46.5,NA,NA,NA
-"Northern Transboundary","Pink",2024,-83.3,-76.8,-48.3,NA,NA,NA
-"Northern Transboundary","Pink",2025,-86.2,-85.7,-50.1,NA,NA,NA
-"Northern Transboundary","Chum",1984,43.2,NA,230.5,NA,NA,NA
-"Northern Transboundary","Chum",1985,198.8,NA,213,NA,NA,NA
-"Northern Transboundary","Chum",1986,47.9,NA,196.5,NA,NA,NA
-"Northern Transboundary","Chum",1987,117.7,NA,180.8,NA,NA,NA
-"Northern Transboundary","Chum",1988,196.7,NA,166,NA,NA,NA
-"Northern Transboundary","Chum",1989,145.5,NA,151.9,NA,NA,NA
-"Northern Transboundary","Chum",1990,329.2,NA,138.6,NA,NA,NA
-"Northern Transboundary","Chum",1991,291.7,NA,126,NA,NA,NA
-"Northern Transboundary","Chum",1992,152.8,NA,114.1,NA,NA,NA
-"Northern Transboundary","Chum",1993,116.2,NA,102.7,NA,NA,NA
-"Northern Transboundary","Chum",1994,80.9,NA,92,NA,NA,NA
-"Northern Transboundary","Chum",1995,21.8,NA,81.9,NA,NA,NA
-"Northern Transboundary","Chum",1996,45.8,NA,72.3,NA,NA,NA
-"Northern Transboundary","Chum",1997,58.7,NA,63.2,NA,NA,NA
-"Northern Transboundary","Chum",1998,32.6,NA,54.5,NA,NA,NA
-"Northern Transboundary","Chum",1999,23.5,NA,46.4,NA,NA,NA
-"Northern Transboundary","Chum",2000,26.2,NA,38.6,NA,NA,NA
-"Northern Transboundary","Chum",2001,6.9,NA,31.3,NA,NA,NA
-"Northern Transboundary","Chum",2002,10.6,NA,24.4,NA,NA,NA
-"Northern Transboundary","Chum",2003,25.1,NA,17.8,NA,NA,NA
-"Northern Transboundary","Chum",2004,24.4,NA,11.6,NA,NA,NA
-"Northern Transboundary","Chum",2005,25.4,NA,5.7,NA,NA,NA
-"Northern Transboundary","Chum",2006,54,NA,0.1,NA,NA,NA
-"Northern Transboundary","Chum",2007,78.3,NA,-5.2,NA,NA,NA
-"Northern Transboundary","Chum",2008,71,NA,-10.2,NA,NA,NA
-"Northern Transboundary","Chum",2009,66.3,NA,-15,NA,NA,NA
-"Northern Transboundary","Chum",2010,11.5,NA,-19.5,NA,NA,NA
-"Northern Transboundary","Chum",2011,-13.2,NA,-23.7,NA,NA,NA
-"Northern Transboundary","Chum",2012,-21.7,NA,-27.7,NA,NA,NA
-"Northern Transboundary","Chum",2013,-18.7,NA,-31.6,NA,NA,NA
-"Northern Transboundary","Chum",2014,9.6,-10.2,-35.2,NA,NA,NA
-"Northern Transboundary","Chum",2015,-6.2,-21.8,-38.6,NA,NA,NA
-"Northern Transboundary","Chum",2016,-31.5,-31.9,-41.9,NA,NA,NA
-"Northern Transboundary","Chum",2017,-33.7,-40.7,-44.9,NA,NA,NA
-"Northern Transboundary","Chum",2018,-62.4,-48.4,-47.8,NA,NA,NA
-"Northern Transboundary","Chum",2019,-60.3,-55.1,-50.6,NA,NA,NA
-"Northern Transboundary","Chum",2020,-64.1,-60.9,-53.2,NA,NA,NA
-"Northern Transboundary","Chum",2021,-78.8,-66,-55.7,NA,NA,NA
-"Northern Transboundary","Chum",2022,-68.8,-70.4,-58,NA,NA,NA
-"Northern Transboundary","Chum",2023,-73.5,-74.2,-60.2,NA,NA,NA
-"Northern Transboundary","Chum",2024,-75.2,-77.5,-62.3,NA,NA,NA
-"Northern Transboundary","Chum",2025,-73.1,-80.4,-64.3,NA,NA,NA
-"Northern Transboundary","Steelhead",1987,-22.7,NA,69.6,NA,NA,NA
-"Northern Transboundary","Steelhead",1988,-22.7,NA,65.3,NA,NA,NA
-"Northern Transboundary","Steelhead",1989,-19.7,NA,61.2,NA,NA,NA
-"Northern Transboundary","Steelhead",1990,-15.7,NA,57.2,NA,NA,NA
-"Northern Transboundary","Steelhead",1991,9.7,NA,53.2,NA,NA,NA
-"Northern Transboundary","Steelhead",1992,0.5,NA,49.4,NA,NA,NA
-"Northern Transboundary","Steelhead",1993,-13.5,NA,45.6,NA,NA,NA
-"Northern Transboundary","Steelhead",1994,6.4,NA,42,NA,NA,NA
-"Northern Transboundary","Steelhead",1995,14.1,NA,38.5,NA,NA,NA
-"Northern Transboundary","Steelhead",1996,-1,NA,35,NA,NA,NA
-"Northern Transboundary","Steelhead",1997,34.8,NA,31.6,NA,NA,NA
-"Northern Transboundary","Steelhead",1998,101.3,NA,28.3,NA,NA,NA
-"Northern Transboundary","Steelhead",1999,105.7,NA,25.1,NA,NA,NA
-"Northern Transboundary","Steelhead",2000,149.4,NA,22,NA,NA,NA
-"Northern Transboundary","Steelhead",2001,181.7,NA,18.9,NA,NA,NA
-"Northern Transboundary","Steelhead",2002,172.3,NA,15.9,NA,NA,NA
-"Northern Transboundary","Steelhead",2003,159.2,NA,13,NA,NA,NA
-"Northern Transboundary","Steelhead",2004,128.3,NA,10.2,NA,NA,NA
-"Northern Transboundary","Steelhead",2005,98.2,NA,7.5,NA,NA,NA
-"Northern Transboundary","Steelhead",2006,63,NA,4.8,NA,NA,NA
-"Northern Transboundary","Steelhead",2007,49.8,NA,2.1,NA,NA,NA
-"Northern Transboundary","Steelhead",2008,37.4,NA,-0.4,NA,NA,NA
-"Northern Transboundary","Steelhead",2009,31,NA,-2.9,NA,NA,NA
-"Northern Transboundary","Steelhead",2010,60,NA,-5.3,NA,NA,NA
-"Northern Transboundary","Steelhead",2011,89.8,44.6,-7.7,NA,NA,NA
-"Northern Transboundary","Steelhead",2012,52.9,28.9,-10,NA,NA,NA
-"Northern Transboundary","Steelhead",2013,6.5,15,-12.3,NA,NA,NA
-"Northern Transboundary","Steelhead",2014,31.6,2.5,-14.5,NA,NA,NA
-"Northern Transboundary","Steelhead",2015,1.1,-8.6,-16.6,NA,NA,NA
-"Northern Transboundary","Steelhead",2016,-31.8,-18.5,-18.7,NA,NA,NA
-"Northern Transboundary","Steelhead",2017,-42.8,-27.3,-20.7,NA,NA,NA
-"Northern Transboundary","Steelhead",2018,-41.8,-35.2,-22.7,NA,NA,NA
-"Northern Transboundary","Steelhead",2019,-60,-42.2,-24.6,NA,NA,NA
-"Northern Transboundary","Steelhead",2020,-66.6,-48.4,-26.5,NA,NA,NA
-"Northern Transboundary","Steelhead",2021,-65.2,-54,-28.4,NA,NA,NA
-"Northern Transboundary","Steelhead",2022,-54.3,-59,-30.2,NA,NA,NA
-"Northern Transboundary","Steelhead",2023,-56.8,-63.4,-31.9,NA,NA,NA
-"Northern Transboundary","Steelhead",2024,-57.6,-67.4,-33.6,NA,NA,NA
-"Northern Transboundary","Steelhead",2025,-58.6,-70.9,-35.3,NA,NA,NA
+"Northern Transboundary","Pink",1984,205.4,NA,78.1,NA,NA,NA
+"Northern Transboundary","Pink",1985,249.1,NA,73.2,NA,NA,NA
+"Northern Transboundary","Pink",1986,136.7,NA,68.5,NA,NA,NA
+"Northern Transboundary","Pink",1987,194.4,NA,63.9,NA,NA,NA
+"Northern Transboundary","Pink",1988,62.2,NA,59.4,NA,NA,NA
+"Northern Transboundary","Pink",1989,11.9,NA,55.1,NA,NA,NA
+"Northern Transboundary","Pink",1990,96.2,NA,50.8,NA,NA,NA
+"Northern Transboundary","Pink",1991,83.2,NA,46.7,NA,NA,NA
+"Northern Transboundary","Pink",1992,85.7,NA,42.7,NA,NA,NA
+"Northern Transboundary","Pink",1993,-47,NA,38.8,NA,NA,NA
+"Northern Transboundary","Pink",1994,-12.3,NA,35,NA,NA,NA
+"Northern Transboundary","Pink",1995,-22.2,NA,31.3,NA,NA,NA
+"Northern Transboundary","Pink",1996,-40.3,NA,27.7,NA,NA,NA
+"Northern Transboundary","Pink",1997,-0.1,NA,24.3,NA,NA,NA
+"Northern Transboundary","Pink",1998,5.4,NA,20.9,NA,NA,NA
+"Northern Transboundary","Pink",1999,127.9,NA,17.6,NA,NA,NA
+"Northern Transboundary","Pink",2000,10.1,NA,14.3,NA,NA,NA
+"Northern Transboundary","Pink",2001,-33.9,NA,11.2,NA,NA,NA
+"Northern Transboundary","Pink",2002,-38.9,NA,8.2,NA,NA,NA
+"Northern Transboundary","Pink",2003,-21.8,NA,5.2,NA,NA,NA
+"Northern Transboundary","Pink",2004,-2.5,NA,2.4,NA,NA,NA
+"Northern Transboundary","Pink",2005,1,NA,-0.4,NA,NA,NA
+"Northern Transboundary","Pink",2006,61.8,NA,-3.2,NA,NA,NA
+"Northern Transboundary","Pink",2007,45.9,NA,-5.8,NA,NA,NA
+"Northern Transboundary","Pink",2008,-32.9,NA,-8.4,NA,NA,NA
+"Northern Transboundary","Pink",2009,-42,NA,-10.9,NA,NA,NA
+"Northern Transboundary","Pink",2010,-18.6,NA,-13.3,NA,NA,NA
+"Northern Transboundary","Pink",2011,11.6,NA,-15.7,NA,NA,NA
+"Northern Transboundary","Pink",2012,4.3,NA,-18,NA,NA,NA
+"Northern Transboundary","Pink",2013,-26.9,NA,-20.2,NA,NA,NA
+"Northern Transboundary","Pink",2014,-59.6,NA,-22.4,NA,NA,NA
+"Northern Transboundary","Pink",2015,-32.1,NA,-24.5,NA,NA,NA
+"Northern Transboundary","Pink",2016,-46.8,NA,-26.6,NA,NA,NA
+"Northern Transboundary","Pink",2017,-49.9,NA,-28.6,NA,NA,NA
+"Northern Transboundary","Pink",2018,-23.9,NA,-30.5,NA,NA,NA
+"Northern Transboundary","Pink",2019,-13,NA,-32.4,NA,NA,NA
+"Northern Transboundary","Pink",2020,32.5,88.5,-34.3,NA,NA,NA
+"Northern Transboundary","Pink",2021,78.5,35,-36.1,NA,NA,NA
+"Northern Transboundary","Pink",2022,17.6,-3.2,-37.8,NA,NA,NA
+"Northern Transboundary","Pink",2023,-21.3,-30.7,-39.5,NA,NA,NA
+"Northern Transboundary","Pink",2024,-59.1,-50.3,-41.2,NA,NA,NA
+"Northern Transboundary","Pink",2025,-66.3,-64.4,-42.8,NA,NA,NA
+"Northern Transboundary","Chum",1984,78.9,NA,203.3,NA,NA,NA
+"Northern Transboundary","Chum",1985,269.5,NA,188.1,NA,NA,NA
+"Northern Transboundary","Chum",1986,101.1,NA,173.7,NA,NA,NA
+"Northern Transboundary","Chum",1987,188.4,NA,160,NA,NA,NA
+"Northern Transboundary","Chum",1988,262.8,NA,147,NA,NA,NA
+"Northern Transboundary","Chum",1989,169.9,NA,134.7,NA,NA,NA
+"Northern Transboundary","Chum",1990,298.3,NA,123,NA,NA,NA
+"Northern Transboundary","Chum",1991,238.6,NA,111.8,NA,NA,NA
+"Northern Transboundary","Chum",1992,136.1,NA,101.2,NA,NA,NA
+"Northern Transboundary","Chum",1993,118.2,NA,91.2,NA,NA,NA
+"Northern Transboundary","Chum",1994,98.1,NA,81.6,NA,NA,NA
+"Northern Transboundary","Chum",1995,29.3,NA,72.6,NA,NA,NA
+"Northern Transboundary","Chum",1996,40.9,NA,63.9,NA,NA,NA
+"Northern Transboundary","Chum",1997,41.5,NA,55.7,NA,NA,NA
+"Northern Transboundary","Chum",1998,10.4,NA,48,NA,NA,NA
+"Northern Transboundary","Chum",1999,1.6,NA,40.6,NA,NA,NA
+"Northern Transboundary","Chum",2000,0,NA,33.5,NA,NA,NA
+"Northern Transboundary","Chum",2001,-17.1,NA,26.9,NA,NA,NA
+"Northern Transboundary","Chum",2002,-18.4,NA,20.5,NA,NA,NA
+"Northern Transboundary","Chum",2003,-10.2,NA,14.5,NA,NA,NA
+"Northern Transboundary","Chum",2004,-10.2,NA,8.8,NA,NA,NA
+"Northern Transboundary","Chum",2005,-9.2,NA,3.4,NA,NA,NA
+"Northern Transboundary","Chum",2006,12.7,NA,-1.8,NA,NA,NA
+"Northern Transboundary","Chum",2007,33.3,NA,-6.7,NA,NA,NA
+"Northern Transboundary","Chum",2008,27,NA,-11.4,NA,NA,NA
+"Northern Transboundary","Chum",2009,24.9,NA,-15.8,NA,NA,NA
+"Northern Transboundary","Chum",2010,-15.9,NA,-20,NA,NA,NA
+"Northern Transboundary","Chum",2011,-34.8,NA,-24,NA,NA,NA
+"Northern Transboundary","Chum",2012,-36.2,NA,-27.8,NA,NA,NA
+"Northern Transboundary","Chum",2013,-22.9,NA,-31.4,NA,NA,NA
+"Northern Transboundary","Chum",2014,3.1,-29.7,-34.8,NA,NA,NA
+"Northern Transboundary","Chum",2015,-11.4,-33.9,-38.1,NA,NA,NA
+"Northern Transboundary","Chum",2016,-38.8,-37.9,-41.2,NA,NA,NA
+"Northern Transboundary","Chum",2017,-47.2,-41.6,-44.1,NA,NA,NA
+"Northern Transboundary","Chum",2018,-63.7,-45.1,-46.9,NA,NA,NA
+"Northern Transboundary","Chum",2019,-56.6,-48.4,-49.6,NA,NA,NA
+"Northern Transboundary","Chum",2020,-56.3,-51.5,-52.1,NA,NA,NA
+"Northern Transboundary","Chum",2021,-70.7,-54.4,-54.5,NA,NA,NA
+"Northern Transboundary","Chum",2022,-59.4,-57.1,-56.8,NA,NA,NA
+"Northern Transboundary","Chum",2023,-59.4,-59.7,-58.9,NA,NA,NA
+"Northern Transboundary","Chum",2024,-54.9,-62.1,-61,NA,NA,NA
+"Northern Transboundary","Chum",2025,-44.2,-64.4,-62.9,NA,NA,NA
+"Northern Transboundary","Steelhead",1987,-3.7,NA,41.9,NA,NA,NA
+"Northern Transboundary","Steelhead",1988,-17.1,NA,39.4,NA,NA,NA
+"Northern Transboundary","Steelhead",1989,-21.5,NA,36.8,NA,NA,NA
+"Northern Transboundary","Steelhead",1990,-20.4,NA,34.4,NA,NA,NA
+"Northern Transboundary","Steelhead",1991,3.3,NA,31.9,NA,NA,NA
+"Northern Transboundary","Steelhead",1992,-5,NA,29.5,NA,NA,NA
+"Northern Transboundary","Steelhead",1993,-15.3,NA,27.2,NA,NA,NA
+"Northern Transboundary","Steelhead",1994,12.1,NA,24.9,NA,NA,NA
+"Northern Transboundary","Steelhead",1995,19.8,NA,22.6,NA,NA,NA
+"Northern Transboundary","Steelhead",1996,2.2,NA,20.4,NA,NA,NA
+"Northern Transboundary","Steelhead",1997,27.2,NA,18.2,NA,NA,NA
+"Northern Transboundary","Steelhead",1998,82.1,NA,16.1,NA,NA,NA
+"Northern Transboundary","Steelhead",1999,71.8,NA,14,NA,NA,NA
+"Northern Transboundary","Steelhead",2000,103.8,NA,11.9,NA,NA,NA
+"Northern Transboundary","Steelhead",2001,122.9,NA,9.9,NA,NA,NA
+"Northern Transboundary","Steelhead",2002,111.5,NA,7.9,NA,NA,NA
+"Northern Transboundary","Steelhead",2003,92.4,NA,5.9,NA,NA,NA
+"Northern Transboundary","Steelhead",2004,68,NA,4,NA,NA,NA
+"Northern Transboundary","Steelhead",2005,45.9,NA,2.1,NA,NA,NA
+"Northern Transboundary","Steelhead",2006,20.9,NA,0.3,NA,NA,NA
+"Northern Transboundary","Steelhead",2007,12.3,NA,-1.5,NA,NA,NA
+"Northern Transboundary","Steelhead",2008,4.4,NA,-3.3,NA,NA,NA
+"Northern Transboundary","Steelhead",2009,0,NA,-5.1,NA,NA,NA
+"Northern Transboundary","Steelhead",2010,23.7,NA,-6.8,NA,NA,NA
+"Northern Transboundary","Steelhead",2011,46.3,5.2,-8.5,NA,NA,NA
+"Northern Transboundary","Steelhead",2012,26.8,-0.5,-10.2,NA,NA,NA
+"Northern Transboundary","Steelhead",2013,-1.7,-5.9,-11.8,NA,NA,NA
+"Northern Transboundary","Steelhead",2014,20.9,-11,-13.4,NA,NA,NA
+"Northern Transboundary","Steelhead",2015,-7.4,-15.8,-15,NA,NA,NA
+"Northern Transboundary","Steelhead",2016,-36.4,-20.4,-16.5,NA,NA,NA
+"Northern Transboundary","Steelhead",2017,-48.2,-24.7,-18,NA,NA,NA
+"Northern Transboundary","Steelhead",2018,-45.8,-28.8,-19.5,NA,NA,NA
+"Northern Transboundary","Steelhead",2019,-58.5,-32.6,-21,NA,NA,NA
+"Northern Transboundary","Steelhead",2020,-61.8,-36.3,-22.4,NA,NA,NA
+"Northern Transboundary","Steelhead",2021,-55.5,-39.7,-23.8,NA,NA,NA
+"Northern Transboundary","Steelhead",2022,-37,-43,-25.2,NA,NA,NA
+"Northern Transboundary","Steelhead",2023,-35.3,-46.1,-26.5,NA,NA,NA
+"Northern Transboundary","Steelhead",2024,-27.4,-49,-27.9,NA,NA,NA
+"Northern Transboundary","Steelhead",2025,-18.8,-51.8,-29.2,NA,NA,NA
 "Haida Gwaii","Chinook",1935,-7.6,NA,-18.2,NA,NA,NA
 "Haida Gwaii","Chinook",1936,-7.6,NA,-17.7,NA,NA,NA
 "Haida Gwaii","Chinook",1937,-7.6,NA,-17.2,NA,NA,NA
@@ -1069,7 +1069,7 @@
 "Skeena","Chinook",1992,36.8,NA,25.9,NA,NA,NA
 "Skeena","Chinook",1993,40.2,NA,23.8,NA,NA,NA
 "Skeena","Chinook",1994,48.8,NA,21.6,NA,NA,NA
-"Skeena","Chinook",1995,42.5,NA,19.5,NA,NA,NA
+"Skeena","Chinook",1995,42.6,NA,19.5,NA,NA,NA
 "Skeena","Chinook",1996,71,NA,17.5,NA,NA,NA
 "Skeena","Chinook",1997,75.9,NA,15.5,NA,NA,NA
 "Skeena","Chinook",1998,53.5,NA,13.5,NA,NA,NA
@@ -1241,10 +1241,10 @@
 "Skeena","Chum",1953,111,NA,133.8,NA,NA,NA
 "Skeena","Chum",1954,132,NA,128.4,NA,NA,NA
 "Skeena","Chum",1955,50.2,NA,123.1,NA,NA,NA
-"Skeena","Chum",1956,85.8,NA,118,NA,NA,NA
+"Skeena","Chum",1956,85.8,NA,117.9,NA,NA,NA
 "Skeena","Chum",1957,56.1,NA,112.9,NA,NA,NA
 "Skeena","Chum",1958,42.9,NA,108,NA,NA,NA
-"Skeena","Chum",1959,28.2,NA,103.2,NA,NA,NA
+"Skeena","Chum",1959,28.1,NA,103.2,NA,NA,NA
 "Skeena","Chum",1960,66.8,NA,98.5,NA,NA,NA
 "Skeena","Chum",1961,69.5,NA,93.9,NA,NA,NA
 "Skeena","Chum",1962,71.4,NA,89.5,NA,NA,NA
@@ -1256,7 +1256,7 @@
 "Skeena","Chum",1968,34.9,NA,64.7,NA,NA,NA
 "Skeena","Chum",1969,44.9,NA,60.9,NA,NA,NA
 "Skeena","Chum",1970,52.8,NA,57.2,NA,NA,NA
-"Skeena","Chum",1971,12.7,NA,53.6,NA,NA,NA
+"Skeena","Chum",1971,12.6,NA,53.6,NA,NA,NA
 "Skeena","Chum",1972,30.2,NA,50,NA,NA,NA
 "Skeena","Chum",1973,47,NA,46.6,NA,NA,NA
 "Skeena","Chum",1974,47.5,NA,43.2,NA,NA,NA
@@ -1286,7 +1286,7 @@
 "Skeena","Chum",1998,52.4,NA,-18.2,NA,NA,NA
 "Skeena","Chum",1999,26.1,NA,-20.1,NA,NA,NA
 "Skeena","Chum",2000,15.4,NA,-21.9,NA,NA,NA
-"Skeena","Chum",2001,17.9,NA,-23.7,NA,NA,NA
+"Skeena","Chum",2001,17.8,NA,-23.7,NA,NA,NA
 "Skeena","Chum",2002,-17.8,NA,-25.5,NA,NA,NA
 "Skeena","Chum",2003,-9.3,NA,-27.2,NA,NA,NA
 "Skeena","Chum",2004,36.5,NA,-28.9,NA,NA,NA
@@ -2191,7 +2191,7 @@
 "East Vancouver Island & Mainland Inlets","Steelhead",1991,170.6,NA,31.3,NA,NA,NA
 "East Vancouver Island & Mainland Inlets","Steelhead",1992,111.2,NA,28.2,NA,NA,NA
 "East Vancouver Island & Mainland Inlets","Steelhead",1993,51.5,NA,25.2,NA,NA,NA
-"East Vancouver Island & Mainland Inlets","Steelhead",1994,15.7,NA,22.3,NA,NA,NA
+"East Vancouver Island & Mainland Inlets","Steelhead",1994,15.7,NA,22.2,NA,NA,NA
 "East Vancouver Island & Mainland Inlets","Steelhead",1995,-6.8,NA,19.4,NA,NA,NA
 "East Vancouver Island & Mainland Inlets","Steelhead",1996,-18.1,NA,16.5,NA,NA,NA
 "East Vancouver Island & Mainland Inlets","Steelhead",1997,-34.9,NA,13.8,NA,NA,NA
@@ -2199,7 +2199,7 @@
 "East Vancouver Island & Mainland Inlets","Steelhead",1999,-48.2,NA,8.5,NA,NA,NA
 "East Vancouver Island & Mainland Inlets","Steelhead",2000,-56,NA,5.9,NA,NA,NA
 "East Vancouver Island & Mainland Inlets","Steelhead",2001,-50.7,NA,3.4,NA,NA,NA
-"East Vancouver Island & Mainland Inlets","Steelhead",2002,-44.3,NA,1,NA,NA,NA
+"East Vancouver Island & Mainland Inlets","Steelhead",2002,-44.4,NA,1,NA,NA,NA
 "East Vancouver Island & Mainland Inlets","Steelhead",2003,-33.8,NA,-1.4,NA,NA,NA
 "East Vancouver Island & Mainland Inlets","Steelhead",2004,-34.7,NA,-3.7,NA,NA,NA
 "East Vancouver Island & Mainland Inlets","Steelhead",2005,-28.7,NA,-6,NA,NA,NA
@@ -2233,7 +2233,7 @@
 "West Vancouver Island","Chinook",1991,-32.2,NA,-33.4,45.1,NA,-1.7
 "West Vancouver Island","Chinook",1992,-28.7,NA,-31.7,98.9,NA,-1.7
 "West Vancouver Island","Chinook",1993,-25.7,NA,-29.8,137.1,NA,-1.7
-"West Vancouver Island","Chinook",1994,-18.4,NA,-27.9,126.7,NA,-1.8
+"West Vancouver Island","Chinook",1994,-18.5,NA,-27.9,126.7,NA,-1.8
 "West Vancouver Island","Chinook",1995,-24.5,NA,-26,57.2,NA,-1.8
 "West Vancouver Island","Chinook",1996,-23.7,NA,-24,0.5,NA,-1.8
 "West Vancouver Island","Chinook",1997,-19.2,NA,-22,-19.1,NA,-1.8
@@ -2460,45 +2460,45 @@
 "West Vancouver Island","Coho",2023,65,47.4,34.9,NA,NA,NA
 "West Vancouver Island","Coho",2024,42.6,37.1,36,NA,NA,NA
 "West Vancouver Island","Coho",2025,7,27.5,37.2,NA,NA,NA
-"West Vancouver Island","Pink",1953,4250.5,NA,2629.5,NA,NA,NA
-"West Vancouver Island","Pink",1954,2167.9,NA,2392.7,NA,NA,NA
-"West Vancouver Island","Pink",1955,102.8,NA,2176.4,NA,NA,NA
-"West Vancouver Island","Pink",1956,135.4,NA,1978.9,NA,NA,NA
-"West Vancouver Island","Pink",1957,565.8,NA,1798.6,NA,NA,NA
-"West Vancouver Island","Pink",1958,604.3,NA,1633.9,NA,NA,NA
-"West Vancouver Island","Pink",1959,339.9,NA,1483.5,NA,NA,NA
-"West Vancouver Island","Pink",1960,318.1,NA,1346.1,NA,NA,NA
-"West Vancouver Island","Pink",1961,1881.2,NA,1220.6,NA,NA,NA
-"West Vancouver Island","Pink",1962,2804,NA,1106.1,NA,NA,NA
-"West Vancouver Island","Pink",1963,160.6,NA,1001.4,NA,NA,NA
-"West Vancouver Island","Pink",1964,54,NA,905.9,NA,NA,NA
-"West Vancouver Island","Pink",1965,320.3,NA,818.6,NA,NA,NA
-"West Vancouver Island","Pink",1966,906.7,NA,738.9,NA,NA,NA
-"West Vancouver Island","Pink",1967,1535.7,NA,666.1,NA,NA,NA
-"West Vancouver Island","Pink",1968,1966.1,NA,599.7,NA,NA,NA
-"West Vancouver Island","Pink",1969,1633.6,NA,539,NA,NA,NA
-"West Vancouver Island","Pink",1970,1404.5,NA,483.5,NA,NA,NA
+"West Vancouver Island","Pink",1953,4250.2,NA,2629.3,NA,NA,NA
+"West Vancouver Island","Pink",1954,2167.7,NA,2392.5,NA,NA,NA
+"West Vancouver Island","Pink",1955,102.8,NA,2176.3,NA,NA,NA
+"West Vancouver Island","Pink",1956,135.4,NA,1978.8,NA,NA,NA
+"West Vancouver Island","Pink",1957,565.7,NA,1798.4,NA,NA,NA
+"West Vancouver Island","Pink",1958,604.3,NA,1633.7,NA,NA,NA
+"West Vancouver Island","Pink",1959,339.8,NA,1483.3,NA,NA,NA
+"West Vancouver Island","Pink",1960,318.1,NA,1346,NA,NA,NA
+"West Vancouver Island","Pink",1961,1881,NA,1220.5,NA,NA,NA
+"West Vancouver Island","Pink",1962,2803.8,NA,1106,NA,NA,NA
+"West Vancouver Island","Pink",1963,160.6,NA,1001.3,NA,NA,NA
+"West Vancouver Island","Pink",1964,53.9,NA,905.8,NA,NA,NA
+"West Vancouver Island","Pink",1965,320.3,NA,818.5,NA,NA,NA
+"West Vancouver Island","Pink",1966,906.6,NA,738.8,NA,NA,NA
+"West Vancouver Island","Pink",1967,1535.5,NA,666.1,NA,NA,NA
+"West Vancouver Island","Pink",1968,1965.9,NA,599.6,NA,NA,NA
+"West Vancouver Island","Pink",1969,1633.5,NA,538.9,NA,NA,NA
+"West Vancouver Island","Pink",1970,1404.4,NA,483.5,NA,NA,NA
 "West Vancouver Island","Pink",1971,768.6,NA,432.9,NA,NA,NA
-"West Vancouver Island","Pink",1972,1635,NA,386.7,NA,NA,NA
-"West Vancouver Island","Pink",1973,1316.6,NA,344.5,NA,NA,NA
-"West Vancouver Island","Pink",1974,679.8,NA,305.9,NA,NA,NA
-"West Vancouver Island","Pink",1975,1689.9,NA,270.7,NA,NA,NA
-"West Vancouver Island","Pink",1976,1630.6,NA,238.5,NA,NA,NA
-"West Vancouver Island","Pink",1977,3271.9,NA,209.2,NA,NA,NA
-"West Vancouver Island","Pink",1978,3159,NA,182.3,NA,NA,NA
-"West Vancouver Island","Pink",1979,460.6,NA,157.8,NA,NA,NA
+"West Vancouver Island","Pink",1972,1634.9,NA,386.6,NA,NA,NA
+"West Vancouver Island","Pink",1973,1316.5,NA,344.4,NA,NA,NA
+"West Vancouver Island","Pink",1974,679.7,NA,305.9,NA,NA,NA
+"West Vancouver Island","Pink",1975,1689.7,NA,270.7,NA,NA,NA
+"West Vancouver Island","Pink",1976,1630.5,NA,238.5,NA,NA,NA
+"West Vancouver Island","Pink",1977,3271.7,NA,209.1,NA,NA,NA
+"West Vancouver Island","Pink",1978,3158.8,NA,182.3,NA,NA,NA
+"West Vancouver Island","Pink",1979,460.5,NA,157.8,NA,NA,NA
 "West Vancouver Island","Pink",1980,311.7,NA,135.5,NA,NA,NA
-"West Vancouver Island","Pink",1981,288.7,NA,115,NA,NA,NA
+"West Vancouver Island","Pink",1981,288.6,NA,115,NA,NA,NA
 "West Vancouver Island","Pink",1982,92.7,NA,96.4,NA,NA,NA
-"West Vancouver Island","Pink",1983,293.5,NA,79.3,NA,NA,NA
+"West Vancouver Island","Pink",1983,293.4,NA,79.3,NA,NA,NA
 "West Vancouver Island","Pink",1984,68.3,NA,63.8,NA,NA,NA
 "West Vancouver Island","Pink",1985,77.6,NA,49.6,NA,NA,NA
 "West Vancouver Island","Pink",1986,148.8,NA,36.6,NA,NA,NA
-"West Vancouver Island","Pink",1987,82,NA,24.8,NA,NA,NA
+"West Vancouver Island","Pink",1987,82,NA,24.7,NA,NA,NA
 "West Vancouver Island","Pink",1988,-35.3,NA,13.9,NA,NA,NA
 "West Vancouver Island","Pink",1989,-81.7,NA,4,NA,NA,NA
 "West Vancouver Island","Pink",1990,-56.3,NA,-5,NA,NA,NA
-"West Vancouver Island","Pink",1991,343.5,NA,-13.2,NA,NA,NA
+"West Vancouver Island","Pink",1991,343.4,NA,-13.2,NA,NA,NA
 "West Vancouver Island","Pink",1992,-49.1,NA,-20.8,NA,NA,NA
 "West Vancouver Island","Pink",1993,-55.4,NA,-27.6,NA,NA,NA
 "West Vancouver Island","Pink",1994,131.2,NA,-33.9,NA,NA,NA
@@ -2558,11 +2558,11 @@
 "West Vancouver Island","Steelhead",1975,-34.3,NA,23.3,NA,NA,NA
 "West Vancouver Island","Steelhead",1976,-42.9,NA,22.2,NA,NA,NA
 "West Vancouver Island","Steelhead",1977,-38.1,NA,21.1,NA,NA,NA
-"West Vancouver Island","Steelhead",1978,-43.6,NA,20.1,NA,NA,NA
+"West Vancouver Island","Steelhead",1978,-43.5,NA,20.1,NA,NA,NA
 "West Vancouver Island","Steelhead",1979,-40.8,NA,19,NA,NA,NA
 "West Vancouver Island","Steelhead",1980,-30.9,NA,17.9,NA,NA,NA
 "West Vancouver Island","Steelhead",1981,-12.8,NA,16.9,NA,NA,NA
-"West Vancouver Island","Steelhead",1982,5,NA,15.9,NA,NA,NA
+"West Vancouver Island","Steelhead",1982,5,NA,15.8,NA,NA,NA
 "West Vancouver Island","Steelhead",1983,36,NA,14.8,NA,NA,NA
 "West Vancouver Island","Steelhead",1984,78.1,NA,13.8,NA,NA,NA
 "West Vancouver Island","Steelhead",1985,87,NA,12.8,NA,NA,NA
@@ -2572,10 +2572,10 @@
 "West Vancouver Island","Steelhead",1989,58.9,NA,8.8,NA,NA,NA
 "West Vancouver Island","Steelhead",1990,44.1,NA,7.9,NA,NA,NA
 "West Vancouver Island","Steelhead",1991,27.7,NA,6.9,NA,NA,NA
-"West Vancouver Island","Steelhead",1992,20.6,NA,6,NA,NA,NA
-"West Vancouver Island","Steelhead",1993,13,NA,5,NA,NA,NA
+"West Vancouver Island","Steelhead",1992,20.6,NA,5.9,NA,NA,NA
+"West Vancouver Island","Steelhead",1993,12.9,NA,5,NA,NA,NA
 "West Vancouver Island","Steelhead",1994,8,NA,4.1,NA,NA,NA
-"West Vancouver Island","Steelhead",1995,6.4,NA,3.2,NA,NA,NA
+"West Vancouver Island","Steelhead",1995,6.4,NA,3.1,NA,NA,NA
 "West Vancouver Island","Steelhead",1996,24.1,NA,2.2,NA,NA,NA
 "West Vancouver Island","Steelhead",1997,22.1,NA,1.3,NA,NA,NA
 "West Vancouver Island","Steelhead",1998,36.5,NA,0.4,NA,NA,NA
@@ -2601,7 +2601,7 @@
 "West Vancouver Island","Steelhead",2018,-21.9,-23.4,-16,NA,NA,NA
 "West Vancouver Island","Steelhead",2019,-40.5,-28.4,-16.8,NA,NA,NA
 "West Vancouver Island","Steelhead",2020,-41.1,-33.1,-17.5,NA,NA,NA
-"West Vancouver Island","Steelhead",2021,-53.8,-37.5,-18.2,NA,NA,NA
+"West Vancouver Island","Steelhead",2021,-53.7,-37.5,-18.2,NA,NA,NA
 "West Vancouver Island","Steelhead",2022,-51.9,-41.6,-19,NA,NA,NA
 "West Vancouver Island","Steelhead",2023,-54.8,-45.4,-19.7,NA,NA,NA
 "West Vancouver Island","Steelhead",2024,-37.4,-49,-20.4,NA,NA,NA
@@ -2943,25 +2943,25 @@
 "Fraser","Steelhead",2025,-78.1,-82.6,-45.6,NA,NA,NA
 "Fraser","Steelhead",2026,-79.4,-84.9,-46.9,NA,NA,NA
 "Columbia","Chinook",2006,51,NA,-41.4,NA,NA,NA
-"Columbia","Chinook",2007,-31.4,NA,-38,NA,NA,NA
-"Columbia","Chinook",2008,-33.6,NA,-34.4,NA,NA,NA
-"Columbia","Chinook",2009,-47.2,NA,-30.5,NA,NA,NA
+"Columbia","Chinook",2007,-31.6,NA,-38,NA,NA,NA
+"Columbia","Chinook",2008,-33.8,NA,-34.4,NA,NA,NA
+"Columbia","Chinook",2009,-47.2,NA,-30.6,NA,NA,NA
 "Columbia","Chinook",2010,-55.6,NA,-26.5,NA,NA,NA
-"Columbia","Chinook",2011,-59.6,-34.4,-22.2,NA,NA,NA
-"Columbia","Chinook",2012,-55.8,-29.1,-17.6,NA,NA,NA
-"Columbia","Chinook",2013,-45.5,-23.3,-12.8,NA,NA,NA
-"Columbia","Chinook",2014,-15.8,-17,-7.8,NA,NA,NA
-"Columbia","Chinook",2015,38.9,-10.2,-2.4,NA,NA,NA
-"Columbia","Chinook",2016,58,-2.9,3.3,NA,NA,NA
-"Columbia","Chinook",2017,117.9,5,9.4,NA,NA,NA
-"Columbia","Chinook",2018,65.2,13.6,15.8,NA,NA,NA
+"Columbia","Chinook",2011,-59.6,-34.3,-22.2,NA,NA,NA
+"Columbia","Chinook",2012,-55.6,-28.9,-17.7,NA,NA,NA
+"Columbia","Chinook",2013,-45.4,-23.2,-12.8,NA,NA,NA
+"Columbia","Chinook",2014,-15.6,-16.9,-7.8,NA,NA,NA
+"Columbia","Chinook",2015,39,-10.1,-2.4,NA,NA,NA
+"Columbia","Chinook",2016,58.1,-2.8,3.3,NA,NA,NA
+"Columbia","Chinook",2017,118,5.1,9.4,NA,NA,NA
+"Columbia","Chinook",2018,65.2,13.7,15.8,NA,NA,NA
 "Columbia","Chinook",2019,28.3,22.9,22.5,NA,NA,NA
-"Columbia","Chinook",2020,35.1,32.9,29.7,NA,NA,NA
-"Columbia","Chinook",2021,52.4,43.8,37.2,NA,NA,NA
-"Columbia","Chinook",2022,28,55.5,45.2,NA,NA,NA
-"Columbia","Chinook",2023,47.1,68.2,53.7,NA,NA,NA
-"Columbia","Chinook",2024,75.2,81.9,62.7,NA,NA,NA
-"Columbia","Chinook",2025,20.2,96.8,72.2,NA,NA,NA
+"Columbia","Chinook",2020,35,32.9,29.7,NA,NA,NA
+"Columbia","Chinook",2021,52.3,43.8,37.3,NA,NA,NA
+"Columbia","Chinook",2022,27.9,55.5,45.3,NA,NA,NA
+"Columbia","Chinook",2023,47,68.1,53.8,NA,NA,NA
+"Columbia","Chinook",2024,75.4,81.8,62.8,NA,NA,NA
+"Columbia","Chinook",2025,20.3,96.6,72.3,NA,NA,NA
 "Columbia","Sockeye",1961,-85.8,NA,-56.7,NA,NA,NA
 "Columbia","Sockeye",1962,-81.4,NA,-55.7,NA,NA,NA
 "Columbia","Sockeye",1963,-65.6,NA,-54.6,NA,NA,NA
@@ -3027,23 +3027,23 @@
 "Columbia","Sockeye",2023,136.8,123.4,99.4,276.3,192.2,160.5
 "Columbia","Sockeye",2024,190,118.8,104.4,331.7,186.9,173.6
 "Columbia","Sockeye",2025,137.4,114.4,109.5,309.4,181.7,187.5
-"Columbia","Steelhead",2006,659.3,NA,461.3,NA,NA,NA
-"Columbia","Steelhead",2007,253.3,NA,384,NA,NA,NA
-"Columbia","Steelhead",2008,199.5,NA,317.3,NA,NA,NA
-"Columbia","Steelhead",2009,195.4,NA,259.8,NA,NA,NA
-"Columbia","Steelhead",2010,244.2,NA,210.2,NA,NA,NA
-"Columbia","Steelhead",2011,167.5,205.1,167.5,NA,NA,NA
-"Columbia","Steelhead",2012,134.5,159.2,130.6,NA,NA,NA
-"Columbia","Steelhead",2013,110.2,120.2,98.8,NA,NA,NA
-"Columbia","Steelhead",2014,80,87.1,71.4,NA,NA,NA
-"Columbia","Steelhead",2015,61.4,59,47.8,NA,NA,NA
-"Columbia","Steelhead",2016,34.1,35.1,27.4,NA,NA,NA
-"Columbia","Steelhead",2017,23.6,14.8,9.9,NA,NA,NA
-"Columbia","Steelhead",2018,3.4,-2.5,-5.3,NA,NA,NA
-"Columbia","Steelhead",2019,11.8,-17.1,-18.3,NA,NA,NA
-"Columbia","Steelhead",2020,-8.4,-29.6,-29.6,NA,NA,NA
-"Columbia","Steelhead",2021,-46.6,-40.2,-39.3,NA,NA,NA
-"Columbia","Steelhead",2022,-47.7,-49.2,-47.7,NA,NA,NA
-"Columbia","Steelhead",2023,-50.3,-56.8,-54.9,NA,NA,NA
-"Columbia","Steelhead",2024,-62.8,-63.3,-61.1,NA,NA,NA
+"Columbia","Steelhead",2006,659.2,NA,461.2,NA,NA,NA
+"Columbia","Steelhead",2007,253.5,NA,383.9,NA,NA,NA
+"Columbia","Steelhead",2008,199.7,NA,317.3,NA,NA,NA
+"Columbia","Steelhead",2009,195.2,NA,259.8,NA,NA,NA
+"Columbia","Steelhead",2010,244.5,NA,210.2,NA,NA,NA
+"Columbia","Steelhead",2011,167.4,204.9,167.5,NA,NA,NA
+"Columbia","Steelhead",2012,134.6,159.1,130.7,NA,NA,NA
+"Columbia","Steelhead",2013,110.2,120.2,98.9,NA,NA,NA
+"Columbia","Steelhead",2014,80.2,87.1,71.5,NA,NA,NA
+"Columbia","Steelhead",2015,61.5,59,47.9,NA,NA,NA
+"Columbia","Steelhead",2016,34.3,35.1,27.5,NA,NA,NA
+"Columbia","Steelhead",2017,23.5,14.8,9.9,NA,NA,NA
+"Columbia","Steelhead",2018,3.7,-2.4,-5.2,NA,NA,NA
+"Columbia","Steelhead",2019,11.6,-17.1,-18.3,NA,NA,NA
+"Columbia","Steelhead",2020,-8.2,-29.5,-29.5,NA,NA,NA
+"Columbia","Steelhead",2021,-46.7,-40.1,-39.2,NA,NA,NA
+"Columbia","Steelhead",2022,-47.9,-49.1,-47.6,NA,NA,NA
+"Columbia","Steelhead",2023,-50.1,-56.8,-54.8,NA,NA,NA
+"Columbia","Steelhead",2024,-62.6,-63.2,-61,NA,NA,NA
 "Columbia","Steelhead",2025,-80.2,-68.8,-66.4,NA,NA,NA

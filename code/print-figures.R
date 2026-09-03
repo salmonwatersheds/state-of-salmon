@@ -14,6 +14,11 @@ library(extrafont)
 
 file_type <- "pdf" # Choose one of "pdf" or "png"
 
+# Get Dropbox location for saving files
+source("https://raw.githubusercontent.com/salmonwatersheds/population-indicators/refs/heads/master/code/functions_general.R")
+XDrive <- get_XDrive()
+XDrive_SoS <- paste0(XDrive, "1_PROJECTS/1_Active/State of Salmon/2_Data & Analysis/state-of-salmon/")
+
 # Import fonts
 #font_import(paths = "data/print-report/fonts")
 #loadfonts(device = "pdf")
@@ -26,7 +31,7 @@ file_type <- "pdf" # Choose one of "pdf" or "png"
 #fonttable() %>% dplyr::filter(grepl("Sofia", FamilyName, ignore.case = TRUE)) %>% distinct(FamilyName)
 
 # Help R system find ghostscript (needs to be installed if not done previously)
-(R_GSCMD = "C:/Program Files/gs/gs10.07.1/bin/gswin64c.exe")
+# (R_GSCMD = "C:/Program Files/gs/gs10.07.1/bin/gswin64c.exe")
 
 
 # From James: Green: 96b584, Red: ad605f
@@ -85,8 +90,14 @@ sps_dat <- read.csv("output/sps-data.csv")
 trends_plotting <- read.csv("output/sps-trends_plotting.csv")
 sps_summary <- read.csv("output/sps-summary.csv")
 
+# # 2025 report data
+# sps_dat <- read.csv(paste0(XDrive_SoS, "output/archive/sps-data_2025-11-05.csv"))
+# trends_plotting <- read.csv(paste0(XDrive_SoS, "output/archive/sps-trends_plotting_2025-11-05.csv"))
+# sps_summary <- read.csv(paste0(XDrive_SoS, "output/archive/sps-summary_2025-11-05.csv"))
+
+
 # Adjust Chinook labels
-sps_summary$region_label_offset_y[sps_summary$species == "Chinook" & sps_summary$region %in% c("Skeena", "Yukon") & sps_summary$type == "Spawners"] <- c(-3, -1)
+# sps_summary$region_label_offset_y[sps_summary$species == "Chinook" & sps_summary$region %in% c("Skeena", "Yukon") & sps_summary$type == "Spawners"] <- c(-3, -1)
 
 # What is the range of current status outcomes for fishy dot plot?
 range(sps_summary$current_status, na.rm = TRUE)
@@ -106,13 +117,15 @@ fish_outline <- image_read("data/print-report/fish-icons/Fish_Outline_thin.png")
 
 y_range <- c(-100, 150)
 vert_space <- 0.06
-green_range <- y_range[2] + 250/6 * c(vert_space, vert_space + 0.5)
+green_range <- y_range[2] + 250/6 * c(vert_space, vert_space + 0.65)
 crit_range <- y_range[1] - 250/6 * c(vert_space + 0.4, vert_space)
 dd_range <- crit_range[1] - 250/6 * c(vert_space, vert_space + 1.2)
 
+fig_height_px <- 2725 #2676 when there were 3 green fish in 2025
+
 # Locations for data deficient fish (starting at top)
 dd_y <- dd_range[1] - 5 - c(0:7)*5
-green_y <- green_range[1] + 5 + c(0:2)*5
+green_y <- green_range[1] + 5 + c(0:3)*5 # Now have four fish!
 
 mar_width <- 0 # Inch for each axis
 plot_height <- (max(green_range) - min(dd_range))* 6/250 + 1
@@ -124,20 +137,22 @@ text_cex <- 0.7
 fishwidth <- 0.5
 fishheight <- 0.5 * image_info(fish)$height/image_info(fish)$width
 
+add_year <- FALSE
+
 for(k in 1:2){
 
-	# quartz(width = 2246/350, height = 2676/350, pointsize = 10, family = "Sofia Pro Bold")
+	# quartz(width = fig_height_px/350, height = fig_height_px/350, pointsize = 10, family = "Sofia Pro Bold")
 	if(file_type == "png"){
-		 png(file = paste0("output/print-figures/png/main_", type_name[k], ".png"), width = 2246, height = 2676, res = 350, pointsize = 10, family = "Sofia Pro Bold")
+		 png(file = paste0(XDrive_SoS, "output/print-figures/png/main_", type_name[k], ".png"), width = 2246, height = fig_height_px, res = 350, pointsize = 10, family = "Sofia Pro Bold")
 	} else if(file_type == "pdf"){
-		pdf(file = paste0("output/print-figures/pdf/main_", type_name[k], ".pdf"), width = 2246/350, height = 2676/350, pointsize = 10, family = "Sofia Pro Bold")
+		pdf(file = paste0(XDrive_SoS, "output/print-figures/pdf/main_", type_name[k], ".pdf"), width = 2246/350, height = fig_height_px/350, pointsize = 10, family = "Sofia Pro Bold")
 	}
 	
 	
 	par(mai = c(0, mar_width, mar_width, 0), mfrow = c(1,1), family = "Sofia Pro Bold")
 	plot(1,1,"n", xlab = "", ylab = "", bty = "n", xaxt  = "n", yaxt = "n", xlim = c(0.02,5.98), ylim = c(min(dd_range), max(green_range)), xaxs = "i", yaxs = "i")
 	
-	polygon(x = c(0, 0, 6, 6), y = c(green_range, rev(green_range)), col = fishy_bgcols['high'], border = NA)
+	polygon(x = c(0, 0, 6, 6), y = c(green_range , rev(green_range)), col = fishy_bgcols['high'], border = NA)
 	polygon(x = c(0, 0, 6, 6), y = c(y_range, rev(y_range)), col = fishy_bgcols['bg'], border = NA)
 	polygon(x = c(0, 0, 6, 6), y = c(crit_range, rev(crit_range)), col = fishy_bgcols['crit'], border = NA)
 	polygon(x = c(0, 0, 6, 6), y = c(dd_range, rev(dd_range)), col = fishy_bgcols['dd'], border = NA)
@@ -188,6 +203,9 @@ for(k in 1:2){
 			
 			text(s - text_pad, y_crit, region_abbr[match(sps_summary.s$region[crit_ind], regions)], col = crit_col, font = 2, cex = text_cex)
 			
+			if(add_year){
+				text(x_crit - xinch(fishwidth)/2, y_crit, sps_summary.s$current_abundance_year[crit_ind] - 2000, col = "white", font = 2, cex = text_cex + 0.1)
+			}
 		}
 		
 		# High
@@ -201,7 +219,7 @@ for(k in 1:2){
 				
 			} else {
 				x_high <- s - 0.45 #rep(c(s - 0.25, s - 0.55), ceiling(length(high_ind)))[1:length(high_ind)]
-				y_high <- green_y
+				y_high <- green_y[1:length(high_ind)]
 			}
 			
 			for(i in length(high_ind):1){
@@ -217,6 +235,10 @@ for(k in 1:2){
 										ybottom = y_high[i] - yinch(fishheight)/2, 
 										xright = x_high,
 										ytop = y_high[i] + yinch(fishheight)/2)
+				
+				if(add_year){
+					text(x_high - xinch(fishwidth)/2, y_high[i], sps_summary.s$current_abundance_year[high_ind[i]] - 2000, col = "white", font = 2, cex = text_cex + 0.1)
+				}
 			}
 			
 			text(s - 0.33, y_high, paste0("+", sps_summary.s$current_status[high_ind], "%"), font = 2, cex = text_cex)
@@ -243,6 +265,11 @@ for(k in 1:2){
 									ybottom = y_loc[i] - yinch(fishheight)/2, 
 									xright = x_loc,
 									ytop = y_loc[i] + yinch(fishheight)/2)
+			
+			if(add_year){
+				text(x_loc - xinch(fishwidth)/2, y_loc[i], sps_summary.s$current_abundance_year[cs_ind[i]] - 2000, col = "white", font = 2, cex = text_cex + 0.1)
+			}
+			
 		}
 		
 		text(s - 0.32, y_loc + sps_summary.s$region_label_offset_y[cs_ind], paste0(ifelse(sps_summary.s$current_status[cs_ind]>0, "+", ""), sps_summary.s$current_status[cs_ind], "%"), font = 2, cex = text_cex)
@@ -252,7 +279,7 @@ for(k in 1:2){
 	# quartz.save(paste0("output/print-figures/main_", type_name[k], ".pdf"), type = "pdf")
 	dev.off()
 	if(file_type == "pdf"){
-		embed_fonts(paste0("output/print-figures/pdf/main_", type_name[k], ".pdf"), outfile = paste0("output/print-figures/pdf/main_", type_name[k], ".pdf"))
+		embed_fonts(paste0(XDrive_SoS, "output/print-figures/pdf/main_", type_name[k], ".pdf"), outfile = paste0(XDrive_SoS, "output/print-figures/pdf/main_", type_name[k], ".pdf"))
 	}
 } # end k
 
@@ -265,10 +292,10 @@ for(s in 1:6){
 	
 	if(file_type == "png"){
 		
-	png(file = paste0("output/print-figures/png/species_", species[s], ".png"), width = 875, height = 2625, res = 350, pointsize = 10, family = "Sofia Pro Bold")
+	png(file = paste0(XDrive_SoS, "output/print-figures/png/species_", species[s], ".png"), width = 875, height = fig_height_px, res = 350, pointsize = 10, family = "Sofia Pro Bold")
 	
 	} else if(file_type == "pdf"){
-		pdf(file = paste0("output/print-figures/pdf/species_", species[s], ".pdf"), width = 875/350, height = 2625/350, pointsize = 10, family = "Sofia Pro Bold")
+		pdf(file = paste0(XDrive_SoS, "output/print-figures/pdf/species_", species[s], ".pdf"), width = 875/350, height = fig_height_px/350, pointsize = 10, family = "Sofia Pro Bold")
 	}
 
 	par(mai = rep(0, 4), mfrow = c(1,1), family = "Sofia Pro Bold")
@@ -337,7 +364,7 @@ for(s in 1:6){
 				
 			} else {
 				x_high <- k - 0.5 
-				y_high <- green_y
+				y_high <- green_y[1:length(high_ind)]
 			}
 			
 			for(i in length(high_ind):1){
@@ -390,7 +417,7 @@ for(s in 1:6){
 		dev.off()
 		
 		if(file_type == "pdf"){
-			embed_fonts(paste0("output/print-figures/pdf/species_", species[s], ".pdf"), outfile = paste0("output/print-figures/pdf/species_", species[s], ".pdf"))
+			embed_fonts(paste0(XDrive_SoS, "output/print-figures/pdf/species_", species[s], ".pdf"), outfile = paste0(XDrive_SoS, "output/print-figures/pdf/species_", species[s], ".pdf"))
 		}
 		
 	} # end s
@@ -421,11 +448,11 @@ for(r in 1:length(regions)){
 		
 		
 	if(file_type == "png"){
-		png(file = paste0("output/print-figures/png/region_", region_abbr[r], "_", type_name[k], ".png"), width = 1925, height = 2538, res = 350, pointsize = 10, family = "Sofia Pro Bold")
+		png(file = paste0(XDrive_SoS, "output/print-figures/png/region_", region_abbr[r], "_", type_name[k], ".png"), width = 1925, height = 2538, res = 350, pointsize = 10, family = "Sofia Pro Bold")
 	} else if(file_type == "pdf"){
-		pdf(file = paste0("output/print-figures/pdf/region_", region_abbr[r], "_", type_name[k], ".pdf"), width = 1925/350, height = 2538/350, pointsize = 10, family = "Sofia Pro Bold")
+		pdf(file = paste0(XDrive_SoS, "output/print-figures/pdf/region_", region_abbr[r], "_", type_name[k], ".pdf"), width = 1925/350, height = 2538/350, pointsize = 10, family = "Sofia Pro Bold")
 	}
-	# quartz(width = 5, height = 5 * 2538/1925, pointsize = 10, family = "Sofia Pro Bold")
+	# quartz(width = 1925/350, height = 2538/350, pointsize = 10, family = "Sofia Pro Bold")
 	
 	par(mai = c(0, mar_width, mar_width, 0), mfrow = c(1,1), family = "Sofia Pro Bold")
 	
@@ -596,7 +623,7 @@ for(r in 1:length(regions)){
 		
 		# Embed fonts if pdf
 		if(file_type == "pdf"){
-			embed_fonts(paste0("output/print-figures/pdf/region_", region_abbr[r], "_", type_name[k], ".pdf"), outfile = paste0("output/print-figures/pdf/region_", region_abbr[r], "_", type_name[k], ".pdf"))
+			embed_fonts(paste0(XDrive_SoS, "output/print-figures/pdf/region_", region_abbr[r], "_", type_name[k], ".pdf"), outfile = paste0(XDrive_SoS, "output/print-figures/pdf/region_", region_abbr[r], "_", type_name[k], ".pdf"))
 		}
 		
 	} # end k
@@ -637,9 +664,9 @@ for(r in 1:length(regions)){
 			if(dim(summ.rsk)[1] > 0){
 				
 				if(file_type == "png"){
-					png(file = paste0("output/print-figures/png/trend_", region_abbr[r], "_", species[s], "_", type_name[k], ".png"), width = 1633, height = 1167, res = 350, pointsize = 10, family = "Sofia Pro Bold")
+					png(file = paste0(XDrive_SoS, "output/print-figures/png/trend_", region_abbr[r], "_", species[s], "_", type_name[k], ".png"), width = 1633, height = 1167, res = 350, pointsize = 10, family = "Sofia Pro Bold")
 				} else if(file_type == "pdf"){
-					pdf(file = paste0("output/print-figures/pdf/trend_", region_abbr[r], "_", species[s], "_", type_name[k], ".pdf"), width = 1633/350, height = 1167/350, pointsize = 10, family = "Sofia Pro Bold")
+					pdf(file = paste0(XDrive_SoS, "output/print-figures/pdf/trend_", region_abbr[r], "_", species[s], "_", type_name[k], ".pdf"), width = 1633/350, height = 1167/350, pointsize = 10, family = "Sofia Pro Bold")
 				}
 				# quartz(width = 1633/350, height = 1167/350, pointsize = 10, family = "Sofia Pro")
 				
@@ -763,7 +790,7 @@ for(r in 1:length(regions)){
 				
 				# Embed fonts if pdf
 				if(file_type == "pdf"){
-					embed_fonts(paste0("output/print-figures/pdf/trend_", region_abbr[r], "_", species[s], "_", type_name[k], ".pdf"), outfile = paste0("output/print-figures/pdf/trend_", region_abbr[r], "_", species[s], "_", type_name[k], ".pdf"))
+					embed_fonts(paste0(XDrive_SoS, "output/print-figures/pdf/trend_", region_abbr[r], "_", species[s], "_", type_name[k], ".pdf"), outfile = paste0(XDrive_SoS, "output/print-figures/pdf/trend_", region_abbr[r], "_", species[s], "_", type_name[k], ".pdf"))
 				}
 				
 			} # end if 
@@ -774,60 +801,66 @@ for(r in 1:length(regions)){
 ###############################################################################
 # 5) Highlights report
 ###############################################################################
-k <- 1
+
 fishwidth <- 1
 fishheight <- fishwidth * image_info(fish)$height/image_info(fish)$width
 
-# quartz(width = 7, height = 7, pointsize = 10, family = "Sofia Pro Bold")
-# png(file = paste0("output/ignore/", type_name[k], "_highlight_fig_2025-08-25.png"), width = 7, height = 7, units = "in", res = 350, pointsize = 10, family = "Sofia Pro Semi Bold", bg = NA)
-
-pdf(file = paste0("output/ignore/", type_name[k], "_highlight_fig_", Sys.Date(), ".pdf"), width = 7, height = 7, pointsize = 10, family = "Sofia Pro Semi Bold", bg = NA)
-
-
-
-par(mar = rep(0,4), family = "Sofia Pro Semi Bold")
-plot(1,1,"n", xlab = "", ylab = "", bty = "n", xaxt  = "n", yaxt = "n", xlim = c(0.02,5.98), ylim = c(0.02, 9.98), xaxs = "i", yaxs = "i")
-for(r in 1:10){
-	for(s in 1:6){
-		region.r <- rev(regions)[r]
-		species.s <- species[s]
-		type.k <- c("Spawners", "Total return")[k]
-		summ.rsk <- sps_summary %>% filter(region == region.r & species == species.s & type == type.k)
-		
-		
-		if(dim(summ.rsk)[1] > 0){
-				if(is.na(summ.rsk$current_status)){
-				polygon(x = c(s-0.98, s-0.98, s-0.02, s-0.02), y = c(r-0.97, r-0.03, r-0.03, r-0.97), col = fishy_bgcols['dd'], border = NA)
-			} else if(summ.rsk$current_status == -999999){
-				polygon(x = c(s-0.98, s-0.98, s-0.02, s-0.02), y = c(r-0.97, r-0.03, r-0.03, r-0.97), col = fishy_bgcols['crit'], border = NA)
-			} else {
-				polygon(x = c(s-0.98, s-0.98, s-0.02, s-0.02), y = c(r-0.97, r-0.03, r-0.03, r-0.97), col = fishy_bgcols['bg'], border = NA)
-			}
-
-			rasterImage(image_colorize(image = fish, opacity = 100, color = fishy_cols_func(summ.rsk$current_status)),
-									xleft = s - 0.08 - xinch(fishwidth),
-									ybottom = r - 0.5 - yinch(fishheight)/2,
-									xright = s - 0.08,
-									ytop = r - 0.5 + yinch(fishheight)/2)
-
-			if(is.na(summ.rsk$current_status)){
-				text(s - 0.5, r - 0.5, "?", cex = 1.3)
-			} else if(summ.rsk$current_status == -999999){
-				text(s - 0.5, r - 0.5, "!", cex = 1.3)
-			} else if (summ.rsk$current_status > 150 | summ.rsk$current_status < -80){
-				text(s - 0.5, r - 0.5, paste0(ifelse(summ.rsk$current_status > 0, "+", ""), summ.rsk$current_status, "%"), cex = 1.3)
-			} else {
-				 text(s - 0.5, r - 0.5, paste0(ifelse(summ.rsk$current_status > 0, "+", ""), summ.rsk$current_status, "%"), cex = 1.3)
-			}
-		} # end if species are present
+for(k in 1:2){
+	# quartz(width = 7, height = 7, pointsize = 10, family = "Sofia Pro Bold")
+	# png(file = paste0("output/ignore/", type_name[k], "_highlight_fig_2025-08-25.png"), width = 7, height = 7, units = "in", res = 350, pointsize = 10, family = "Sofia Pro Semi Bold", bg = NA)
 	
+	pdf(file = paste0(XDrive_SoS, "output/print-figures/pdf/", "highlights_", type_name[k], ".pdf"), width = 7, height = 7, pointsize = 10, family = "Sofia Pro Semi Bold", bg = NA)
+	
+	
+	
+	par(mar = rep(0,4), family = "Sofia Pro Semi Bold")
+	plot(1,1,"n", xlab = "", ylab = "", bty = "n", xaxt  = "n", yaxt = "n", xlim = c(0.02,5.98), ylim = c(0.02, 9.98), xaxs = "i", yaxs = "i")
+	for(r in 1:10){
+		for(s in 1:6){
+			region.r <- rev(regions)[r]
+			species.s <- species[s]
+			type.k <- c("Spawners", "Total return")[k]
+			summ.rsk <- sps_summary %>% filter(region == region.r & species == species.s & type == type.k)
+			
+			
+			if(dim(summ.rsk)[1] > 0){
+				if(is.na(summ.rsk$current_status)){
+					polygon(x = c(s-0.98, s-0.98, s-0.02, s-0.02), y = c(r-0.97, r-0.03, r-0.03, r-0.97), col = fishy_bgcols['dd'], border = NA)
+				} else if(summ.rsk$current_status == -999999){
+					polygon(x = c(s-0.98, s-0.98, s-0.02, s-0.02), y = c(r-0.97, r-0.03, r-0.03, r-0.97), col = fishy_bgcols['crit'], border = NA)
+				} else {
+					polygon(x = c(s-0.98, s-0.98, s-0.02, s-0.02), y = c(r-0.97, r-0.03, r-0.03, r-0.97), col = fishy_bgcols['bg'], border = NA)
+				}
+				
+				rasterImage(image_colorize(image = fish, opacity = 100, color = fishy_cols_func(summ.rsk$current_status)),
+										xleft = s - 0.08 - xinch(fishwidth),
+										ybottom = r - 0.5 - yinch(fishheight)/2,
+										xright = s - 0.08,
+										ytop = r - 0.5 + yinch(fishheight)/2)
+				
+				if(add_year){
+					text(s - 0.5, r - 0.9, summ.rsk$current_abundance_year, col = grey(0.6))
+				}
+				
+				if(is.na(summ.rsk$current_status)){
+					text(s - 0.5, r - 0.5, "?", cex = 1.3)
+				} else if(summ.rsk$current_status == -999999){
+					text(s - 0.5, r - 0.5, "!", cex = 1.3)
+				} else if (summ.rsk$current_status > 150 | summ.rsk$current_status < -80){
+					text(s - 0.5, r - 0.5, paste0(ifelse(summ.rsk$current_status > 0, "+", ""), summ.rsk$current_status, "%"), cex = 1.3)
+				} else {
+					text(s - 0.5, r - 0.5, paste0(ifelse(summ.rsk$current_status > 0, "+", ""), summ.rsk$current_status, "%"), cex = 1.3)
+				}
+			} # end if species are present
+			
 		} # end s
-} # end r
-
-# abline(v = seq(0, 6, 1), lwd = 5, col = "white")
-# abline(h = seq(0, 10, 1), lwd = 5, col = "white")
-dev.off()
-
-if(file_type == "pdf"){
-	embed_fonts(paste0("output/ignore/", type_name[k], "_highlight_fig_", Sys.Date(), ".pdf"), outfile = paste0("output/ignore/", type_name[k], "_highlight_fig_", Sys.Date(), ".pdf"))
-}
+	} # end r
+	
+	# abline(v = seq(0, 6, 1), lwd = 5, col = "white")
+	# abline(h = seq(0, 10, 1), lwd = 5, col = "white")
+	dev.off()
+	
+	if(file_type == "pdf"){
+		embed_fonts(paste0(XDrive_SoS, "output/print-figures/pdf/", "highlights_", type_name[k], ".pdf"), outfile = paste0(XDrive_SoS, "output/print-figures/pdf/", "highlights_", type_name[k], ".pdf"))
+	}
+} # end k

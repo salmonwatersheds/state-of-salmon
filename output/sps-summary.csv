@@ -1,25 +1,25 @@
 "region","species","type","current_status","short_trend","short_trend_cat","long_trend","long_trend_cat","current_abundance","current_abundance_year","average_abundance","previous_gen_abundance","gen_length","regionspecies","nyears","rangeyears","status_offset_x","status_offset_y","region_label_offset_x","region_label_offset_y"
 "Yukon","Chinook","Spawners",-53,-3.2,"arrow-down",-0.7,"arrow-down",21453,2025,46029,62197,6,"Yukon Chinook",44,"1982-2025",0,0,0,0
 "Yukon","Chinook","Total return",-74,-5.9,"arrow-down",-3.5,"arrow-down",24775,2025,93555,82521,6,"Yukon Chinook",44,"1982-2025",0,0,0,0
-"Yukon","Chum","Spawners",-74,-20.9,"arrow-down",1.6,"arrow-up",19813,2025,75973,53812,4,"Yukon Chum",46,"1980-2025",-1,0,0,-8
+"Yukon","Chum","Spawners",-74,-20.9,"arrow-down",1.6,"arrow-up",19813,2025,75973,53812,4,"Yukon Chum",46,"1980-2025",-1,0,0,-5
 "Yukon","Chum","Total return",-84,-25,"arrow-down",-5.1,"arrow-down",20284,2025,126804,73101,4,"Yukon Chum",25,"2001-2025",0,0,0,0
 "Yukon","Coho","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,NA,0,0,0,0
 "Yukon","Coho","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,NA,0,0,0,0
 "Northern Transboundary","Chinook","Spawners",-38,-3.9,"arrow-down",-1.3,"arrow-down",34683,2025,55860,23753,5,"Northern Transboundary Chinook",50,"1976-2025",0,0,0,0
 "Northern Transboundary","Chinook","Total return",-45,-6.5,"arrow-down",-1,"arrow-down",37748,2025,68892,28412,5,"Northern Transboundary Chinook",50,"1976-2025",0,0,0,0
-"Northern Transboundary","Chum","Spawners",-73,-12.9,"arrow-down",-5.3,"arrow-down",59,2025,221,47,4,"Northern Transboundary Chum",42,"1984-2025",0,1,0,0
+"Northern Transboundary","Chum","Spawners",-44,-6,"arrow-down",-5,"arrow-down",130,2025,233,68,4,"Northern Transboundary Chum",42,"1984-2025",0,0,0,-2
 "Northern Transboundary","Chum","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,NA,0,0,0,0
 "Northern Transboundary","Coho","Spawners",-14,-2.5,"arrow-down",0.5,"arrows-left-right",67222,2025,78255,64531,5,"Northern Transboundary Coho",39,"1987-2025",0,-1,0,-2
 "Northern Transboundary","Coho","Total return",-18,-3,"arrow-down",-1.2,"arrow-down",92334,2025,112038,86459,5,"Northern Transboundary Coho",34,"1992-2025",0,0,0,0
-"Northern Transboundary","Pink","Spawners",-86,-38.6,"arrow-down",-3.4,"arrow-down",1168,2025,8490,3807,2,"Northern Transboundary Pink",42,"1984-2025",0,0,0,0
+"Northern Transboundary","Pink","Spawners",-66,-28.3,"arrow-down",-2.7,"arrow-down",3015,2025,8953,7046,2,"Northern Transboundary Pink",42,"1984-2025",0,0,0,0
 "Northern Transboundary","Pink","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,2,NA,NA,NA,0,0,0,0
 "Northern Transboundary","Sockeye","Spawners",47,2.5,"arrow-up",0.5,"arrow-up",206440,2025,140871,132378,5,"Northern Transboundary Sockeye",42,"1984-2025",0,0,0,0
 "Northern Transboundary","Sockeye","Total return",4,-1.3,"arrow-down",0.2,"arrows-left-right",330835,2025,319647,257579,5,"Northern Transboundary Sockeye",42,"1984-2025",0,0,0,0
-"Northern Transboundary","Steelhead","Spawners",-59,-10.8,"arrow-down",-2.5,"arrow-down",18,2025,44,15,5,"Northern Transboundary Steelhead",39,"1987-2025",0,0,0,0
+"Northern Transboundary","Steelhead","Spawners",-19,-5.4,"arrow-down",-1.8,"arrow-down",37,2025,46,17,5,"Northern Transboundary Steelhead",39,"1987-2025",0,0,0,0
 "Northern Transboundary","Steelhead","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,NA,0,0,0,0
 "Haida Gwaii","Chinook","Spawners",11,11.9,"arrows-left-right",0.6,"arrow-up",1800,2025,1624,NA,5,"Haida Gwaii Chinook",81,"1935-2025",0,0,0,0
 "Haida Gwaii","Chinook","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,NA,0,0,0,0
-"Haida Gwaii","Chum","Spawners",-74,-7.2,"arrow-down",-1.8,"arrow-down",67251,2024,258388,160386,5,"Haida Gwaii Chum",75,"1950-2024",1,-1,0,-2
+"Haida Gwaii","Chum","Spawners",-74,-7.2,"arrow-down",-1.8,"arrow-down",67251,2024,258388,160386,5,"Haida Gwaii Chum",75,"1950-2024",1,0,0,0
 "Haida Gwaii","Chum","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,NA,0,0,0,0
 "Haida Gwaii","Coho","Spawners",-78,-13.7,"arrow-down",-1.2,"arrow-down",16894,2024,75571,53013,4,"Haida Gwaii Coho",75,"1950-2024",0,0,0,0
 "Haida Gwaii","Coho","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,NA,0,0,0,0
@@ -30,7 +30,7 @@
 "Haida Gwaii","Steelhead","Spawners",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,NA,0,0,0,0
 "Haida Gwaii","Steelhead","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,NA,0,0,0,0
 "Nass","Chinook","Spawners",-2,-0.6,"arrows-left-right",-0.4,"arrows-left-right",16543,2025,16881,10702,5,"Nass Chinook",51,"1975-2025",0,0,0,0
-"Nass","Chinook","Total return",-6,-0.4,"arrows-left-right",0,"arrows-left-right",21836,2025,23184,16441,5,"Nass Chinook",51,"1975-2025",0,0,0,0
+"Nass","Chinook","Total return",-6,-0.4,"arrows-left-right",0,"arrows-left-right",21836,2025,23184,16442,5,"Nass Chinook",51,"1975-2025",0,0,0,0
 "Nass","Chum","Spawners",93,19.5,"arrow-up",-1.1,"arrow-down",85056,2025,44168,60503,4,"Nass Chum",76,"1950-2025",0,0,0,0
 "Nass","Chum","Total return",96,19.2,"arrow-up",-2.8,"arrow-down",99764,2025,50982,71087,4,"Nass Chum",34,"1992-2025",0,0,0,0
 "Nass","Coho","Spawners",65,2.4,"arrows-left-right",2.6,"arrow-up",211823,2025,128328,116254,4,"Nass Coho",34,"1992-2025",0,0,0,0
@@ -43,7 +43,7 @@
 "Nass","Steelhead","Total return",-7,-4.8,"arrow-down",0.5,"arrows-left-right",16451,2025,17741,15996,5,"Nass Steelhead",34,"1992-2025",0,0,0,0
 "Skeena","Chinook","Spawners",-45,-6.5,"arrow-down",-1.7,"arrow-down",24708,2025,45036,29812,6,"Skeena Chinook",42,"1984-2025",0,0,0,0
 "Skeena","Chinook","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,6,NA,NA,NA,0,0,0,0
-"Skeena","Chum","Spawners",-84,-15.4,"arrow-down",-2.3,"arrow-down",1876,2024,11427,3202,5,"Skeena Chum",75,"1950-2024",0,0,0,-3
+"Skeena","Chum","Spawners",-84,-15.4,"arrow-down",-2.3,"arrow-down",1876,2024,11427,3202,5,"Skeena Chum",75,"1950-2024",0,0,0,0
 "Skeena","Chum","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,NA,0,0,0,0
 "Skeena","Coho","Spawners",-13,-4.6,"arrow-down",-0.9,"arrow-down",76465,2024,87874,74365,4,"Skeena Coho",75,"1950-2024",0,1,0,0
 "Skeena","Coho","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,NA,0,0,0,0
@@ -67,23 +67,23 @@
 "Central Coast","Steelhead","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,NA,NA,NA,NA,0,0,0,0
 "East Vancouver Island & Mainland Inlets","Chinook","Spawners",279,12.9,"arrow-up",1.5,"arrow-up",30432,2025,8031,18126,4,"East Vancouver Island & Mainland Inlets Chinook",47,"1979-2025",0,0,0,0
 "East Vancouver Island & Mainland Inlets","Chinook","Total return",260,12.8,"arrow-up",1.7,"arrow-up",34517,2025,9592,20459,4,"East Vancouver Island & Mainland Inlets Chinook",51,"1975-2025",0,0,0,0
-"East Vancouver Island & Mainland Inlets","Chum","Spawners",-49,-11.4,"arrow-down",0.5,"arrow-up",418121,2024,823487,704910,4,"East Vancouver Island & Mainland Inlets Chum",72,"1953-2024",0,0,0,0
+"East Vancouver Island & Mainland Inlets","Chum","Spawners",-49,-11.4,"arrow-down",0.5,"arrow-up",418121,2024,823487,704910,4,"East Vancouver Island & Mainland Inlets Chum",72,"1953-2024",0,0,0,-2
 "East Vancouver Island & Mainland Inlets","Chum","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,NA,0,0,0,0
 "East Vancouver Island & Mainland Inlets","Coho","Spawners",16,0.1,"arrows-left-right",-0.4,"arrow-down",307337,2024,264553,220956,4,"East Vancouver Island & Mainland Inlets Coho",72,"1953-2024",0,0,0,0
 "East Vancouver Island & Mainland Inlets","Coho","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,NA,0,0,0,0
 "East Vancouver Island & Mainland Inlets","Pink","Spawners",269,32.6,"arrow-up",2,"arrow-up",4174842,2024,1130212,2439691,2,"East Vancouver Island & Mainland Inlets Pink",72,"1953-2024",0,0,0,-1
 "East Vancouver Island & Mainland Inlets","Pink","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,2,NA,NA,NA,0,0,0,0
-"East Vancouver Island & Mainland Inlets","Sockeye","Spawners",-10,0.3,"arrows-left-right",-1,"arrow-down",100162,2024,110742,102746,5,"East Vancouver Island & Mainland Inlets Sockeye",72,"1953-2024",0,0,0,0
+"East Vancouver Island & Mainland Inlets","Sockeye","Spawners",-10,0.3,"arrows-left-right",-1,"arrow-down",100162,2024,110741,102746,5,"East Vancouver Island & Mainland Inlets Sockeye",72,"1953-2024",0,0,0,0
 "East Vancouver Island & Mainland Inlets","Sockeye","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,NA,0,0,0,0
 "East Vancouver Island & Mainland Inlets","Steelhead","Spawners",-41,-6,"arrow-down",-2.4,"arrow-down",664,2026,1134,743,5,"East Vancouver Island & Mainland Inlets Steelhead",51,"1976-2026",0,0,0,0
 "East Vancouver Island & Mainland Inlets","Steelhead","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,NA,0,0,0,0
-"West Vancouver Island","Chinook","Spawners",53,3.6,"arrow-up",2.7,"arrow-up",19535,2025,12793,17795,4,"West Vancouver Island Chinook",41,"1985-2025",0,0,0,0
+"West Vancouver Island","Chinook","Spawners",53,3.6,"arrow-up",2.7,"arrow-up",19535,2025,12793,17794,4,"West Vancouver Island Chinook",41,"1985-2025",0,0,0,0
 "West Vancouver Island","Chinook","Total return",47,6.9,"arrow-up",0,"arrows-left-right",355233,2023,242134,297638,4,"West Vancouver Island Chinook",39,"1985-2023",0,0,0,-1
 "West Vancouver Island","Chum","Spawners",-41,-7.9,"arrow-down",0.6,"arrow-up",291791,2025,494611,344032,4,"West Vancouver Island Chum",73,"1953-2025",0,0,0,0
 "West Vancouver Island","Chum","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,NA,0,0,0,0
 "West Vancouver Island","Coho","Spawners",7,-7,"arrow-down",0.8,"arrow-up",105135,2025,98248,171600,4,"West Vancouver Island Coho",73,"1953-2025",0,0,0,0
 "West Vancouver Island","Coho","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,4,NA,NA,NA,0,0,0,0
-"West Vancouver Island","Pink","Spawners",-90,41.3,"arrow-up",-8.7,"arrow-down",852,2025,8678,586,2,"West Vancouver Island Pink",73,"1953-2025",0,0,0,-1
+"West Vancouver Island","Pink","Spawners",-90,41.3,"arrow-up",-8.7,"arrow-down",852,2025,8679,586,2,"West Vancouver Island Pink",73,"1953-2025",0,0,0,0
 "West Vancouver Island","Pink","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,2,NA,NA,NA,0,0,0,0
 "West Vancouver Island","Sockeye","Spawners",24,-2.9,"arrows-left-right",0.5,"arrow-up",496665,2025,400465,306241,5,"West Vancouver Island Sockeye",49,"1977-2025",0,0,0,0
 "West Vancouver Island","Sockeye","Total return",12,-3.8,"arrows-left-right",-0.9,"arrow-down",785232,2025,700427,445068,5,"West Vancouver Island Sockeye",49,"1977-2025",0,-1,0,-1
@@ -101,9 +101,9 @@
 "Fraser","Sockeye","Total return",-35,-7.4,"arrow-down",-0.1,"arrows-left-right",2957318,2025,4547181,1580923,4,"Fraser Sockeye",133,"1893-2025",0,0,0,0
 "Fraser","Steelhead","Spawners",-79,-13.1,"arrow-down",-2.5,"arrow-down",275,2026,1331,295,5,"Fraser Steelhead",55,"1972-2026",0,0,0,0
 "Fraser","Steelhead","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,NA,0,0,0,0
-"Columbia","Chinook","Spawners",-999999,8.2,"arrow-up",5.8,"arrow-up",27,2025,23,30,5,"Columbia Chinook",20,"2006-2025",0,0,0,0
+"Columbia","Chinook","Spawners",-999999,8.1,"arrow-up",5.8,"arrow-up",27,2025,23,30,5,"Columbia Chinook",20,"2006-2025",0,0,0,0
 "Columbia","Chinook","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,NA,0,0,0,0
-"Columbia","Sockeye","Spawners",137,-2.1,"arrows-left-right",2.5,"arrow-up",52925,2025,22297,40891,4,"Columbia Sockeye",65,"1961-2025",0,0,0,0
+"Columbia","Sockeye","Spawners",137,-2.1,"arrows-left-right",2.5,"arrow-up",52924,2025,22297,40891,4,"Columbia Sockeye",65,"1961-2025",0,0,0,0
 "Columbia","Sockeye","Total return",309,-1.8,"arrows-left-right",5.1,"arrow-up",291477,2025,71202,142064,4,"Columbia Sockeye",46,"1980-2025",0,0,0,0
-"Columbia","Steelhead","Spawners",-999999,-15,"arrow-down",-13.8,"arrow-down",3,2025,18,16,5,"Columbia Steelhead",20,"2006-2025",0,0,0,0
+"Columbia","Steelhead","Spawners",-999999,-15,"arrow-down",-13.8,"arrow-down",4,2025,18,16,5,"Columbia Steelhead",20,"2006-2025",0,0,0,0
 "Columbia","Steelhead","Total return",NA,NA,"",NA,"",NA,NA,NA,NA,5,NA,NA,NA,0,0,0,0
