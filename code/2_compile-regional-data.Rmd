@@ -14,6 +14,13 @@ output:
     toc_float: true
     number_sections: true
     code_folding: hide
+knit: (function(input, ...) {
+    rmarkdown::render(
+      input,
+      output_dir = file.path(dirname(dirname(input)), "docs/2026"),
+      envir = globalenv()
+    )
+  })
 editor_options: 
   chunk_output_type: console
 ---
