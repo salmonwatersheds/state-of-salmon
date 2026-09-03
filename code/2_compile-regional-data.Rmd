@@ -1,5 +1,5 @@
 ---
-title: "compile-regional-data"
+title: "State of Salmon: Technical Documentation"
 author: "Salmon Watersheds Program, Steph Peacock, Hannah Hunter"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 bibliography: "../methods-results/references.json"
@@ -17,7 +17,7 @@ output:
 knit: (function(input, ...) {
     rmarkdown::render(
       input,
-      output_dir = file.path(dirname(dirname(input)), "docs/2026"),
+      output_file = file.path(dirname(dirname(input)), "docs/2026/tech-doc.html"),
       envir = globalenv()
     )
   })
