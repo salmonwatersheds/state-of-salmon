@@ -6,6 +6,8 @@
 #
 # Created by Steph Peacock
 # on September 18, 2025
+
+# Revised Sept 10, 2026 so that trends are in percent anomaly scale
 ###############################################################################
 library(dplyr)
 
@@ -23,20 +25,24 @@ sps_trends <- read.csv("output/sps-trends_plotting.csv")
 
 names(sps_data)
 
-dat551 <- sps_data %>% left_join(
-	sps_trends %>% 
-		dplyr::select(region, species, year, spawners, total_return) %>% 
+dat551 <- sps_data %>% 
+	select(region, species, year, spawners, smoothedSpawners, runsize, smoothedRunsize, source_id) %>% # Remove unnecessary fields
+	left_join(
+	sps_trends %>% # Use all fields
 		rename(
-			"spawnersAnomaly" = spawners, 
-			"runsizeAnomaly" = total_return)) %>%
+			"spawnersAnomaly" = "spawners", 
+			"runsizeAnomaly" = "total_return",
+			"runsize_short_trend" = "total_return_short_trend",
+		"runsize_long_trend" = 	"total_return_long_trend")) %>%
 	dplyr::select(
-		"region", "species", "year", "spawners", "smoothedSpawners", "spawnersAnomaly", "runsize", "smoothedRunsize","runsizeAnomaly", "spawners_short_trend",  "spawners_short_trend_lwr",  "spawners_short_trend_upr",  "spawners_long_trend", "spawners_long_trend_lwr", "spawners_long_trend_upr",  "runsize_short_trend", "runsize_short_trend_lwr", "runsize_short_trend_upr", "runsize_long_trend", "runsize_long_trend_lwr", "runsize_long_trend_upr",  "source_id") %>%
+		"region", "species", "year", "spawners", "smoothedSpawners", "spawnersAnomaly", "spawners_short_trend",   "spawners_long_trend", "runsize", "smoothedRunsize","runsizeAnomaly", "runsize_short_trend", "runsize_long_trend", "source_id") %>%
 	mutate(datasetversion = strftime(Sys.Date(), format = "%Y%m%d"))
 
 names(dat551)
 
-# Round abundance numbers to whole
-var_to_smooth <- c( "spawners", "smoothedSpawners", "runsize", "smoothedRunsize", "spawners_short_trend",  "spawners_short_trend_lwr",  "spawners_short_trend_upr",  "spawners_long_trend", "spawners_long_trend_lwr", "spawners_long_trend_upr",  "runsize_short_trend", "runsize_short_trend_lwr", "runsize_short_trend_upr", "runsize_long_trend", "runsize_long_trend_lwr", "runsize_long_trend_upr")
+# Round abundance numbers to whole and anomalies to 3 decimals
+var_to_round0 <- c("spawners", "smoothedSpawners", "runsize", "smoothedRunsize")
+var_to_round3 <- c("spawnersAnomaly", "spawners_short_trend",   "spawners_long_trend", "runsizeAnomaly", "runsize_short_trend", "runsize_long_trend")
 
 dat551[, var_to_smooth] <- round(dat551[, var_to_smooth])
 
