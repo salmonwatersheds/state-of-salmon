@@ -15,7 +15,7 @@ Dropbox_dir <- paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/2_Data 
 
 
 # Write output files?
-write.output <- TRUE
+# write.output <- TRUE # Comment out - defined in 2_compile-regional-data.Rmd
 
 # Read in data 
 
