@@ -2270,34 +2270,29 @@ expansion_factors <- readRDS(here("output/expanded-spawners/West Vancouver Islan
 ```
 
 ```{r west VI chinook, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of West Vancouver Island chinook salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
-## Load data ---
+
+## Process data ---
+wvi.s <- sp[2, "Chinook", ]
+# Get rid of NAs (esp in 2024)
+wvi.s <- wvi.s[1:max(which(!is.na(wvi.s)))]
+
+# For all VIMI species, start in 1953 - earlier expansion factors are large
+wvi.s	<- wvi.s[which(as.numeric(names(wvi.s)) >= 1953)]
+
+
+## Load other data ---
 # 17 stream index from Nicholas Brown @ DFO (pers comm.)
-wvi_ck <- read.csv(here("data/R-OUT_infilled_indicators_escapement_timeseries.csv")) %>% 
+wvi_ck_dfo <- read.csv(here("data/R-OUT_infilled_indicators_escapement_timeseries.csv")) %>% 
 	group_by(year) %>% summarize(tot_esc = sum(escapement))
-stream_lst <- read.csv(here("data/R-OUT_infilled_indicators_escapement_timeseries.csv")) %>% distinct(river)
 
-# **Reconstructed** 17-stream index using NuSEDS data
-nuseds_17 <- read.csv(here("data/spawner-survey-raw-wvi-ck.csv"))
-nuseds_17_sum <- nuseds_17 %>% group_by(year) %>% 
-	summarize(total_observed = sum(stream_observed_count)) %>%
-	filter(year >=1979) # make it match the extent of the DFO data
-
-
-# Compare the 17 stream index and our reconstructed version
-wvi_ck %>% ggplot(aes(x=year, y=tot_esc/1000)) + geom_line(aes(col="DFO 17-Stream Index")) +
-	geom_line(data=nuseds_17_sum, aes(x=year, y=total_observed/1000, col="Reconstructed 17-stream")) +
+# Compare the 17 stream index and Nuseds reconstruction (same streams)
+wvi.s_df <- data.frame(year=as.numeric(names(wvi.s)), spwn = wvi.s)
+wvi_ck_dfo %>% ggplot(aes(x=year, y=tot_esc/1000)) + geom_line(aes(col="DFO 17-Stream Index")) +
+	geom_line(data=wvi.s_df, aes(x=year, y=spwn/1000, col="Reconstructed 17-stream")) +
 	scale_colour_manual(values = c("DFO 17-Stream Index" = "blue", "CTC 14-Stream Index" = "red", 
 															 "Reconstructed 17-stream" = "purple")) +
-	labs(col="Source", y="Spawner escapement (000s)", x="Year")
+	labs(col="Source", y="Spawner escapement (000s)", x="Year") + lims(x=c(1979, 2025))
 
-
-# Combine DFO 17-stream index from Nick brown with our reconstruction (2024,2025)
-wvi_ck <- data.frame(year = c(wvi_ck$year, 2024:2025),
-					 tot_esc = c(wvi_ck$tot_esc, 
-					 						nuseds_17_sum$total_observed[nuseds_17_sum$year %in% 2024:2025]),
-					 sourceid = c(rep("Brown_20260421", nrow(wvi_ck)), rep(nuseds_id, 2))
-						)
-wvi_ck <- wvi_ck %>% filter(year >=1985) # Total abundance only goes back to 1985, match that?
 
 # Alternate (currently unused) source: 14 Stream index from CTC
 wvi_ck_ctc <- readxl::read_xlsx(here("data/TCCHINOOK-2026-Appendix-B-Escapement-Detailed.xlsx"), sheet = "B5", range = "K24:K54", col_names = "WCVI_14Stream_Index") %>%
@@ -2309,17 +2304,19 @@ wvi_ck_tot <- read_xlsx(here("data/WCVI_Chinook_total_abundance.xlsx"))
 wvi_ck_tot$total_abundance <-  wvi_ck_tot$`Hatchery origin Terminal Return` + wvi_ck_tot$`Natural origin Terminal Return` +  wvi_ck_tot$`non-terminal Ocean catch`
 
 
+yrs <- sort(as.numeric(names(wvi.s[as.character(1979:2025)]))) # years in Nick Brown's spawner index
 # Put in SPS format
 wvick_sps <- data.frame(
-	region = rep("West Vancouver Island", nrow(wvi_ck)),
-	species = rep("Chinook", nrow(wvi_ck)),
-	year = wvi_ck$year,
-	spawners = wvi_ck$tot_esc, 
+	region = rep("West Vancouver Island", length(yrs)),
+	species = rep("Chinook", length(yrs)),
+	year = yrs,
+	spawners = as.numeric(wvi.s)[match(yrs, as.numeric(names(wvi.s)))], 
 	smoothedSpawners = NA,
-	runsize = c(wvi_ck_tot$total_abundance, NA, NA),
+	runsize = wvi_ck_tot$total_abundance[match(yrs, wvi_ck_tot$`Return year`)],
 	smoothedRunsize = NA,
-	source_id = wvi_ck$sourceid # update source ID 
+	source_id = rep(nuseds_id, length(yrs))  
 ) 
+
 
 # Smoothing
 wvick_sps$smoothedSpawners <- genSmooth(
@@ -2351,7 +2348,7 @@ sps_data <- rbind(sps_data, wvick_sps)
 plot_abund(wvick_sps)
 
 # Generate plot of spawners ONLY so CTC comparison is more visible
-wvi_ck %>% ggplot(aes(x=year, y=tot_esc/1000)) + 
+wvick_sps %>% ggplot(aes(x=year, y=spawners/1000)) + 
 geom_line(aes(col="DFO 17-Stream Index")) +
 geom_point(aes(col="DFO 17-Stream Index"), shape=21) +
 geom_point(data=wvi_ck_ctc, aes(x=Year, y=WCVI_14Stream_Index/1000, col="CTC 14-Stream Index"), shape=21) +
@@ -3050,7 +3047,7 @@ plot_abund(colck_sps)
 
 #### Sockeye {.unnumbered}
 
-We used CU-level estimates of spawner abundance (run reconstructions) sourced from DFO (Athena Ogden, pers. comm.) for Chinook and sockeye. Spawner abundance for Columbia sockeye was the sum of estimates for Osoyoos and, more recently, Skaha Lakes and were the most up-to-date estimates as of June 2025 (Athena Ogden, pers. comm.). Total abundance for sockeye was extracted from DFO's 2024 Wild Salmon Policy assessment for Osoyoos sockeye [@DFO2024WildSalmonPolicy] from 1980-2023.
+We used CU-level estimates of spawner abundance (run reconstructions) sourced from DFO (Athena Ogden, pers. comm.) for Chinook and sockeye. Spawner abundance for Columbia sockeye was the sum of estimates for Osoyoos and, more recently, Skaha Lakes and were the most up-to-date estimates as of June 2025 (Athena Ogden, pers. comm.). Total abundance for sockeye was provided by Howard Stiff at DFO (pers. comm.).
 
 ```{r columbia sockeye, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Columbia sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
@@ -3059,7 +3056,8 @@ colse_old <- read.csv(here("data/spawner_abundance.csv")) %>%
 	subset(region == "Columbia" &  species_name == "Lake sockeye") %>%
 	subset(!is.na(estimated_count))
 
-colse <- read.csv(here("data/OkanaganSockeye.csv"))
+# Total abundance data received by email from Howard Stiff on 9/11/2026
+colse <- read.csv(here("data/OSO_SKA_Recruitment_251115.csv"))
 
 colse2 <- readxl::read_xlsx(here("data/Okanagan Sockeye Esc for KR_revJn2025.xlsx"), sheet = "CAN Escapement", range = "A1:E65")
 
@@ -3071,9 +3069,9 @@ colse_sps <- data.frame(
 	year = yrs,
 	spawners = c(round(colse2$`Total spawners`[match(yrs[1:64], colse2$Year)]), 9440+1756), # 2025 numbers from Patrick Thompson email dated August 26 2026 
 	smoothedSpawners = NA,
-	runsize = c(colse$runsize[match(yrs[1:63], colse$year)], 522231+85293, 81887+14907),
+	runsize = c(colse$Okanagan.Bound.Sockeye[match(yrs[1:64], colse$Year)], 81887+14907), # 2025 numbers from Patrick Thompson email dated August 26 2026 
 	smoothedRunsize = NA, 
-	source_id = c(rep("Ogden_20250627, Ogden_20250901", length(yrs) - 2), "Ogden_20250627, Thompson_20260826", "Thompson_20260826")
+	source_id = c(rep("Ogden_20250627, Stiff_20260911", length(yrs) - 1), "Thompson_20260826")
 ) 
 
 # Smoothing

@@ -147,6 +147,30 @@ species_vec  <- sort(unique(spawner_surveys.all$species_name))
 # Set Malksope coho as an indicator (McHugh & King 2018)
 spawner_surveys.all$indicator[which(spawner_surveys.all$species_name == "Coho" & spawner_surveys.all$stream_name_pse == "MALKSOPE RIVER")] <- "Y"
 
+
+# Set WVI Chinook indicators to list provided by Nick Brown (DFO)
+# List of names in 17-stream index
+dfo_dat <- read.csv(here("data/R-OUT_infilled_indicators_escapement_timeseries.csv"))
+stream_lst <- dfo_dat %>% distinct(river) 
+stream_lst <- toupper(gsub("_", " ", as.character(stream_lst$river)))
+
+# Replace name in streams_list with matches to Nuseds stream names
+# Bedwell Ursus is sum of Bedwell and Ursus; therefore it is 18 Nuseds streams
+stream_lst[stream_lst=="BEDWELL URSUS"] <- c("BEDWELL RIVER")
+stream_lst[length(stream_lst)+1] <- c("URSUS CREEK")
+stream_lst[stream_lst=="COLONIAL CAYEGHLE CREEKS"] <- c("CAYEGHLE CREEK")
+stream_lst[stream_lst=="GOLD RIVER AGGREGATE"] <- c("GOLD RIVER")
+
+# Check that everything in streams_lst is in Nuseds data (after name changes)
+stream_lst %in% spawner_surveys.all$stream_name_pse
+
+# Set this list of streams to indicators
+spawner_surveys.all$indicator[which(spawner_surveys.all$species_name == "Chinook" & 
+																			spawner_surveys.all$stream_name_pse %in% stream_lst)] <- "Y"
+# Remove all other (non-indicator) streams - so that expansion factor 2 isn't applied
+spawner_surveys.all <- spawner_surveys.all %>% filter(!(species_name == "Chinook" & !(spawner_surveys.all$stream_name_pse %in% stream_lst)))
+
+
 # More recent data for WVI
 wvi2025 <- read.csv("data/2025_WVI_Esc_Bulletin_7_Oct_24.csv")
 for(s in 1:5){ # No steelhead
@@ -198,9 +222,8 @@ nuseds_17_streams <- spawner_surveys.all %>% filter(species_name == "Chinook",
 # Were all monitored in 2024?
 nuseds_17_streams %>% filter(year==2024) %>% nrow() # Should be 18
 # Were all monitored in 2025?
-nuseds_17_streams %>% filter(year==2025) # 16 of 18
+nuseds_17_streams %>% filter(year==2025) %>% nrow() # 16 of 18
 
-write.csv(nuseds_17_streams, "data/spawner-survey-raw-wvi-ck.csv") # Save it
 
 ## -- 
 
