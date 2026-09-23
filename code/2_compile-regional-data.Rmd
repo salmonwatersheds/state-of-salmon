@@ -26,6 +26,10 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
+
+# Do we want to re-write output files (e.g., sps-data.csv)?
+write.output <- FALSE
+
 knitr::opts_chunk$set(
 	echo = TRUE,
 	fig.width  = 10, 
@@ -2728,6 +2732,7 @@ frck <- frck %>% dplyr::filter(year >= 1984)
 frck_esc <- round(apply(frck[, grep("esc", names(frck))], 1, sum))
 frck_run <- round(apply(frck[, grep("run", names(frck))], 1, sum))
 
+# plot(frck$year, (frck$spring12_esc + frck$spring13_esc + frck$summer13_esc)/frck_esc, "o", ylab = "Proportion stream-type", xlab = "")
 col_frck <- viridisLite::viridis(n = 5)
 
 # Plot ---
@@ -3142,8 +3147,11 @@ sps_data$runsize <- round(sps_data$runsize)
 sps_data$smoothedSpawners <- round(sps_data$smoothedSpawners, 1)
 sps_data$smoothedRunsize <- round(sps_data$smoothedRunsize, 1)
 
-write.csv(sps_data, here("output/sps-data.csv"), row.names = FALSE) # Always have most recent 
-write.csv(sps_data, paste0(Dropbox_dir, "/output/archive/", "sps-data_", Sys.Date(), ".csv"), row.names = FALSE) # Archive with date
+
+if(write.output == TRUE){
+	write.csv(sps_data, here("output/sps-data.csv"), row.names = FALSE) # Always have most recent 
+	write.csv(sps_data, paste0(Dropbox_dir, "/output/archive/", "sps-data_", Sys.Date(), ".csv"), row.names = FALSE) # Archive with date
+}
 
 ```
 
@@ -3294,8 +3302,6 @@ source(here("code/3_calc-metrics.R"), local = knitr::knit_global())
 
 ```{r read results data, echo = FALSE}
 # Read in data for plots
-#sps_dat <- read.csv(here("output/sps-data.csv")) # not necessary since 3_calc-metrics run in local env
-sps_metrics <- read.csv(here("output/sps-metrics.csv"))
 sps_metrics <- sps_metrics %>% select(!regionspecies)
 
 	
