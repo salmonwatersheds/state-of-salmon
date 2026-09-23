@@ -11,6 +11,11 @@
 ###############################################################################
 library(dplyr)
 
+# Load functions
+source("https://raw.githubusercontent.com/salmonwatersheds/population-indicators/refs/heads/master/code/functions_general.R")
+# Get dropbox directory
+Dropbox_dir <- paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/2_Data & Analysis/")
+
 # Load sps output
 
 sps_data <- read.csv("output/sps-data.csv")
@@ -44,12 +49,13 @@ names(dat551)
 var_to_round0 <- c("spawners", "smoothedSpawners", "runsize", "smoothedRunsize")
 var_to_round3 <- c("spawnersAnomaly", "spawners_short_trend",   "spawners_long_trend", "runsizeAnomaly", "runsize_short_trend", "runsize_long_trend")
 
-dat551[, var_to_smooth] <- round(dat551[, var_to_smooth])
+dat551[, var_to_round0] <- round(dat551[, var_to_round0])
+dat551[, var_to_round3] <- round(dat551[, var_to_round3], 3)
 
 
 # Write
-write.csv(dat551, file = "../Data Library/dataset551_sps-data.csv", row.names = FALSE)
-write.csv(dat551, file = paste0("../Data Library/archive/dataset551_sps-data_", Sys.Date(), ".csv"), row.names = FALSE)
+write.csv(dat551, file = "output/dataset551_sps-data.csv", row.names = FALSE)
+write.csv(dat551, file = paste0(Dropbox_dir, "Data Library/archive/dataset551_sps-data_", Sys.Date(), ".csv"), row.names = FALSE)
 
 
 ###############################################################################
@@ -73,7 +79,7 @@ dat552$long_trend_cat[dat552$long_trend_cat == ""] <- NA
 
 
 # Write
-write.csv(dat552, file = "../Data Library/dataset552_sps-metrics.csv", row.names = FALSE)
-write.csv(dat552, file = paste0("../Data Library/archive/dataset552_sps-metrics_", Sys.Date(), ".csv"), row.names = FALSE)
+write.csv(dat552, file = "output/dataset552_sps-metrics.csv", row.names = FALSE)
+write.csv(dat552, file = paste0(Dropbox_dir, "Data Library/archive/dataset552_sps-metrics_", Sys.Date(), ".csv"), row.names = FALSE)
 
 
