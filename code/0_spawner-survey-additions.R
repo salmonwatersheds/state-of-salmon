@@ -166,10 +166,18 @@ stream_lst[stream_lst=="GOLD RIVER AGGREGATE"] <- c("GOLD RIVER")
 stream_lst %in% spawner_surveys.all$stream_name_pse
 
 # Set this list of streams to indicators
-spawner_surveys.all$indicator[which(spawner_surveys.all$species_name == "Chinook" & 
-																			spawner_surveys.all$stream_name_pse %in% stream_lst)] <- "Y"
+spawner_surveys.all$indicator[which(spawner_surveys.all$region == "West Vancouver Island" &
+																		spawner_surveys.all$species_name == "Chinook" & 
+																		spawner_surveys.all$stream_name_pse %in% stream_lst)] <- "Y"
 # Remove all other (non-indicator) streams - so that expansion factor 2 isn't applied
-spawner_surveys.all <- spawner_surveys.all %>% filter(!(species_name == "Chinook" & !(spawner_surveys.all$stream_name_pse %in% stream_lst)))
+stream_rm <- spawner_surveys.all %>% filter(region == "West Vancouver Island" &
+																						species_name == "Chinook" &
+																						!(stream_name_pse %in% stream_lst)) %>% 
+						distinct(stream_name_pse)
+
+spawner_surveys.all <- spawner_surveys.all %>% filter(!(region == "West Vancouver Island" &
+																												species_name == "Chinook" & 
+																												stream_name_pse %in% stream_rm$stream_name_pse))
 
 
 # More recent data for WVI
