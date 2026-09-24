@@ -9,10 +9,10 @@ Northern Transboundary,Pink,Numbers represent counts from a single fish wheel on
 Northern Transboundary,Sockeye,Numbers represent the sum of estimated abundance for two major watersheds (Stikine and Taku).
 Northern Transboundary,Steelhead,
 Haida Gwaii,Chinook,Numbers represent estimated abundance for the Yakoun River.
-Haida Gwaii,Chum,Numbers represent the sum of estimated abundance for 183 surveyed streams in the region.
-Haida Gwaii,Coho,Numbers represent the sum of estimated abundance for 193 surveyed streams in the region.
-Haida Gwaii,Pink,Numbers represent the sum of estimated abundance for 139 surveyed streams in the region.
-Haida Gwaii,Sockeye,Numbers represent the sum of estimated abundance for 45 surveyed streams in the region.
+Haida Gwaii,Chum,Numbers represent the sum of estimated abundance for 209 surveyed streams in the region.
+Haida Gwaii,Coho,Numbers represent the sum of estimated abundance for 201 surveyed streams in the region.
+Haida Gwaii,Pink,Numbers represent the sum of estimated abundance for 184 surveyed streams in the region.
+Haida Gwaii,Sockeye,Numbers represent the sum of estimated abundance for 50 surveyed streams in the region.
 Haida Gwaii,Steelhead,
 Nass,Chinook,Numbers represent absolute estimates of Chinook for the Nass River.
 Nass,Chum,Numbers represent absolute estimates of chum salmon for the Nass River.
@@ -21,27 +21,27 @@ Nass,Pink,Numbers represent absolute estimates of pink salmon for the Nass River
 Nass,Sockeye,Numbers represent absolute estimates of sockeye salmon for the Nass River.
 Nass,Steelhead,Numbers represent absolute estimates of steelhead for the Nass River.
 Skeena,Chinook,Numbers represent absolute estimates of Chinook for the Skeena River.
-Skeena,Chum,Numbers represent the sum of estimated abundance for 68 surveyed streams in the region.
-Skeena,Coho,Numbers represent the sum of estimated abundance for 177 surveyed streams in the region.
-Skeena,Pink,Numbers represent the sum of estimated abundance for 149 surveyed streams in the region.
+Skeena,Chum,Numbers represent the sum of estimated abundance for 76 surveyed streams in the region.
+Skeena,Coho,Numbers represent the sum of estimated abundance for 214 surveyed streams in the region.
+Skeena,Pink,Numbers represent the sum of estimated abundance for 164 surveyed streams in the region.
 Skeena,Sockeye,Numbers represent absolute estimates of sockeye for the Skeena River.
 Skeena,Steelhead,Numbers represent an index of steelhead abundance from the Tyee Test Fishery.
 Central Coast,Chinook,Numbers represent the sum of two indicator stocks (Atnarko River and Rivers Inlet).
-Central Coast,Chum,Numbers represent the sum of estimated abundance for 293 surveyed streams in the region.
-Central Coast,Coho,Numbers represent the sum of estimated abundance for 298 surveyed streams in the region.
-Central Coast,Pink,Numbers represent the sum of estimated abundance for 302 surveyed streams in the region.
-Central Coast,Sockeye,Numbers represent the sum of estimated abundance for 200 surveyed streams in the region.
+Central Coast,Chum,Numbers represent the sum of estimated abundance for 353 surveyed streams in the region.
+Central Coast,Coho,Numbers represent the sum of estimated abundance for 354 surveyed streams in the region.
+Central Coast,Pink,Numbers represent the sum of estimated abundance for 353 surveyed streams in the region.
+Central Coast,Sockeye,Numbers represent the sum of estimated abundance for 228 surveyed streams in the region.
 Central Coast,Steelhead,
 East Vancouver Island & Mainland Inlets,Chinook,"Numbers represent the sum of estimated abundance for three indicator stocks (Nanaimo, Cowichan, and Phillips)."
-East Vancouver Island & Mainland Inlets,Chum,Numbers represent the sum of estimated abundance for 327 surveyed streams in the region.
-East Vancouver Island & Mainland Inlets,Coho,Numbers represent the sum of estimated abundance for 347 surveyed streams in the region.
-East Vancouver Island & Mainland Inlets,Pink,Numbers represent the sum of estimated abundance for 205 surveyed streams in the region.
-East Vancouver Island & Mainland Inlets,Sockeye,Numbers represent the sum of estimated abundance for 92 surveyed streams in the region.
-East Vancouver Island & Mainland Inlets,Steelhead,Numbers represent the sum of estimated abundance for 6 surveyed streams in the region.
+East Vancouver Island & Mainland Inlets,Chum,Numbers represent the sum of estimated abundance for 333 surveyed streams in the region.
+East Vancouver Island & Mainland Inlets,Coho,Numbers represent the sum of estimated abundance for 357 surveyed streams in the region.
+East Vancouver Island & Mainland Inlets,Pink,Numbers represent the sum of estimated abundance for 210 surveyed streams in the region.
+East Vancouver Island & Mainland Inlets,Sockeye,Numbers represent the sum of estimated abundance for 102 surveyed streams in the region.
+East Vancouver Island & Mainland Inlets,Steelhead,Numbers represent the sum of estimated abundance for 5 surveyed streams in the region.
 West Vancouver Island,Chinook,"Spawner abundance numbers represent a 14-stream index of primarily naturally spawned Chinook compiled by the Pacific Salmon Commission, while the total abundance includes catch and spawners from abundant hatchery populations in the region, provided by Fisheries and Oceans Canada."
-West Vancouver Island,Chum,Numbers represent the sum of estimated abundance for 259 surveyed streams in the region.
-West Vancouver Island,Coho,Numbers represent the sum of estimated abundance for 270 surveyed streams in the region.
-West Vancouver Island,Pink,Numbers represent the sum of estimated abundance for 128 surveyed streams in the region.
+West Vancouver Island,Chum,Numbers represent the sum of estimated abundance for 275 surveyed streams in the region.
+West Vancouver Island,Coho,Numbers represent the sum of estimated abundance for 281 surveyed streams in the region.
+West Vancouver Island,Pink,Numbers represent the sum of estimated abundance for 129 surveyed streams in the region.
 West Vancouver Island,Sockeye,"Numbers represent the sum of estimated abundance for 3 Conservation Units (Great Central, Sproat, and Hucuktlis)."
 West Vancouver Island,Steelhead,Numbers represent the sum of estimated abundance for 3 surveyed streams in the region.
 Fraser,Chinook,"Numbers represent the sum of abundances for five run-timing groups, provided by Fisheries and Oceans Canada."
