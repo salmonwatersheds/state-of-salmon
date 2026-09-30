@@ -48,6 +48,7 @@ library(readxl)
 library(ggplot2)
 library(cowplot)
 library(here)
+library(kableExtra)
 
 # Get functions and colours
 source(here("code/colours.R"))
@@ -721,7 +722,7 @@ points(tbr_cmpksh$Year, tbr_cmpksh$steelhead_raw*10^-3, col = 2, pch = 19, cex =
 ### Haida Gwaii
 
 #### Chinook {.unnumbered}
-The only available data for Chinook salmon in Haida Gwaii are from a single enumeration project on the Yakoun River. Monitoring on the Yakoun has recently been restored. **More information about methods**
+The only available data for Chinook salmon in Haida Gwaii are from a single enumeration project on the Yakoun River. Monitoring on the Yakoun has recently been restored. Data were provided by Mark Spoljaric, Haida Nation. **More information about methods**
 
 These estimates (prior to 2006) also match the estimated escapement to Area 1 in the  @NorthernBoundaryTechnicalCommittee2023USCanadaNorthern (Appendix 30).
 
@@ -1448,7 +1449,13 @@ names(sk_table32) <- c("year", "Sockeye", "Coho", "Pink", "Chum", "Chinook") # C
 
 # Load Joint N. Boundary Tech Committee data (Table 32) for comparison to spawner expansions
 nbtc_tbl32 <- read.csv(file=here("data/2026_Skeena_escapement_NBTC_Table32.csv"), na.strings = c("UNK", "UKN"))
+
+# Load indicator streams list
+streams <- readRDS(here("output/stream-names/Skeena-stream-names.RDS"))
+
 ```
+
+
 
 
 ```{r skeena chum, results = 'asis', fig.width = 7, fig.height = 4, fig.cap="**Above:** Spawner abundance of Skeena chum salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
@@ -1497,9 +1504,7 @@ plot_expansions(speciesname = "Chum",
 									region_spawners = region_spawners,
 									expansion_factors = expansion_factors,
 									added_series = added_series.s)
-
 ```
-
 
 
 #### Coho {.unnumbered}
@@ -2833,7 +2838,7 @@ In 2026, Tanya Vivian (DFO) provided new IFC estimates dating back to 1984 (purp
 
 ```{r fraser coho, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Fraser coho salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 ## Load data ---
-frco <- readxl::read_excel(here("data/IFC-Data-TanyaVivian-2026.xlsx"), sheet=2) %>%
+frco <- readxl::read_excel(here("data/IFC-Data-TanyaVivian-2026.xlsx"), sheet=2) %>% 
 	summarize(Run.size = sum(Total.Prefishery.Abundance),
 						Spawners = sum(Total.Return),
 						Natural.Spawners = sum(Natural.Returns),
@@ -3104,7 +3109,7 @@ plot_abund(colse_sps)
 
 #### Steelhead {.unnumbered}
 
-There is no monitoring of steelhead trout in the Canadian portion of the Columbia region, but the Okanagan Nation Alliance does enumerate steelhead in akskwəkwant (Inkaneep Creek) and estimate a Canadian portion of steelhead spawning abundance. These data can be found in Table 8 of the associated report (e.g. @OBMEP20252024OkanoganSubbasin) and are available for the Mid Columbia Summer Conservation Unit [in the Pacific Salmon Explorer](https://salmonexplorer.ca/explore/data/spawner-abundance/columbia/steelhead/mid-columbia-summer-1380/). We use the sum of natural and hatchery-origin spawners.
+There is no monitoring of steelhead trout in the Canadian portion of the Columbia region, but the Okanagan Nation Alliance does enumerate steelhead in akskwəkwant (Inkaneep Creek) and estimate a Canadian portion of steelhead spawning abundance. These data can be found in Table 8 of the associated report (e.g. @OBMEP20262025OkanoganSubbasin) and are available for the Mid Columbia Summer Conservation Unit [in the Pacific Salmon Explorer](https://salmonexplorer.ca/explore/data/spawner-abundance/columbia/steelhead/mid-columbia-summer-1380/). We use the sum of natural and hatchery-origin spawners.
 
 ```{r columbia steelhead, fig.cap="**Above:** Spawner abundance of Columbia steelhead salmon. The raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average."}
 colsh <- read.csv(here("data/Columbia_Steelhead_OBMEP.csv"))
@@ -3189,6 +3194,83 @@ where $\bar{S}_{d,i}$ and $\bar{S}_{d,j}$ are the deacdal average number of spaw
 $$ S''_{y} = F_{2,d} S'_{y} $$
 
 Note that when expanding spawner abundance for spawner-recruit analysis, a third expansion factor is applied to account for streams that are never monitored and for observer (in)efficiency [@PeacockEtAl2020EvaluatingConsequencesCommon]. We did not apply this third expansion factor because it is highly undertain and we are interested in relative changes in abundance through time, so we do not require to expand to absolute abundance.
+
+### List of Indicator streams {.tabset}
+
+The following are the indicator streams used for the expansions described above, by region.
+
+```{r indicator streams lists, results = 'asis', echo = FALSE}
+
+regions_use <- c("Haida Gwaii", "Skeena", "Central Coast", "East Vancouver Island & Mainland Inlets")
+species_use <- list("Haida Gwaii" = species_vec[2:5],
+										"Skeena" = species_vec[2:4],
+										"Central Coast" = species_vec[2:5],
+										"East Vancouver Island & Mainland Inlets" = species_vec[2:6])
+
+# Wrap a vector of stream names into an n-column matrix for a compact table
+make_compact_table <- function(streams, ncol) {
+  streams <- sort(stringr::str_to_title(streams))
+  nrow <- ceiling(length(streams) / ncol)
+  length(streams) <- nrow * ncol   # pad with NA to fill the grid
+  m <- matrix(streams, nrow = nrow, ncol = ncol)
+  m[is.na(m)] <- ""
+  m
+}
+
+for (r in regions_use) {
+
+  rds_path <- here("output/stream-names",
+                          paste0(r, "-stream-names.RDS"))
+
+  if (!file.exists(rds_path)) next  # skip if a region has no file 
+
+  streams_list <- readRDS(rds_path)
+  species_use_r <- species_use[[r]]
+
+  cat(paste0("\n\n### ", r, " {.tabset .unnumbered .unlisted}\n\n"))
+
+  for (sp in species_use_r) {
+
+    sp_streams <- streams_list[[sp]]
+    indicator_streams <- names(sp_streams)[sp_streams == "Y"]
+
+    cat(paste0("\n\n#### ", sp, " {.unnumbered}\n\n"))
+
+    if (length(indicator_streams) == 0) {
+      cat("*No indicator streams identified for this species.*\n\n")
+      next
+    }
+
+    # scale columns to list length so long lists stay compact rather than tall
+    n <- length(indicator_streams)
+    ncol_use <- dplyr::case_when(
+      n > 60 ~ 5,
+      n > 20 ~ 4,
+      n > 8  ~ 3,
+      TRUE   ~ 2
+    )
+    ncol_use <- min(ncol_use, n)
+
+    tbl <- make_compact_table(indicator_streams, ncol = ncol_use)
+
+    out <- kable(tbl, format = "html", col.names = rep("", ncol_use),
+                 row.names = FALSE,
+                 caption = paste0(sp, " indicator streams (n = ", n, ")")) %>%
+      kable_styling(bootstrap_options = c("striped", "condensed"),
+                    full_width = FALSE, font_size = 12,
+      							position = "left")
+
+    # cap long tables at fixed height with internal scroll
+    if (nrow(tbl) > 15) {
+      out <- out %>% scroll_box(height = "300px")
+    }
+
+    print(out)
+    cat("\n\n")
+  }
+}
+
+```
 
 ## Smoothing
 We smoothed time series of spawner abundance and total return using a right-aligned running geometric mean over the length of a generation. This reduces the influence of dominant years and produces an index that is less sensitive to stochastic interannual variability that is common in salmon population dynamics. The generation length was based on the dominant life-history type for each species in a particular region. The smoothed spawner abundance in year $y$ given a generation length $g$ was calculated as:
