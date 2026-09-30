@@ -11,7 +11,7 @@
 
 <meta name="author" content="Salmon Watersheds Program, Steph Peacock, Hannah Hunter" />
 
-<meta name="date" content="2026-09-24" />
+<meta name="date" content="2026-09-29" />
 
 <title>State of Salmon: Technical Documentation</title>
 
@@ -2831,7 +2831,7 @@ border-radius: 0px;
 Documentation</h1>
 <h4 class="author">Salmon Watersheds Program, Steph Peacock, Hannah
 Hunter</h4>
-<h4 class="date">September 24, 2026</h4>
+<h4 class="date">September 29, 2026</h4>
 
 </div>
 
@@ -3564,8 +3564,8 @@ abundance based on CPUE.
 <h4 class="unnumbered">Chinook</h4>
 <p>The only available data for Chinook salmon in Haida Gwaii are from a
 single enumeration project on the Yakoun River. Monitoring on the Yakoun
-has recently been restored. <strong>More information about
-methods</strong></p>
+has recently been restored. Data were provided by Mark Spoljaric, Haida
+Nation. <strong>More information about methods</strong></p>
 <p>These estimates (prior to 2006) also match the estimated escapement
 to Area 1 in the <span class="citation">Northern Boundary Technical
 Committee (<a href="#ref-NorthernBoundaryTechnicalCommittee2023USCanadaNorthern">2023</a>)</span>
@@ -4479,7 +4479,10 @@ names(sk_table32) &lt;- c(&quot;year&quot;, &quot;Sockeye&quot;, &quot;Coho&quot
 
 
 # Load Joint N. Boundary Tech Committee data (Table 32) for comparison to spawner expansions
-nbtc_tbl32 &lt;- read.csv(file=here(&quot;data/2026_Skeena_escapement_NBTC_Table32.csv&quot;), na.strings = c(&quot;UNK&quot;, &quot;UKN&quot;))</code></pre>
+nbtc_tbl32 &lt;- read.csv(file=here(&quot;data/2026_Skeena_escapement_NBTC_Table32.csv&quot;), na.strings = c(&quot;UNK&quot;, &quot;UKN&quot;))
+
+# Load indicator streams list
+streams &lt;- readRDS(here(&quot;output/stream-names/Skeena-stream-names.RDS&quot;))</code></pre>
 <pre class="r"><code>## Process data 
 skeena.s &lt;- sp[2, &quot;Chum&quot;, ]
 skeena.s &lt;- skeena.s[!is.na(skeena.s)]
@@ -6148,7 +6151,7 @@ with our past data series until the 2010s when some small differences
 are introduced. For comparison, the old dataset is shown by purple and
 blue open circles for spawners and total abundance, respectively.</p>
 <pre class="r"><code>## Load data ---
-frco &lt;- readxl::read_excel(here(&quot;data/IFC-Data-TanyaVivian-2026.xlsx&quot;), sheet=2) %&gt;%
+frco &lt;- readxl::read_excel(here(&quot;data/IFC-Data-TanyaVivian-2026.xlsx&quot;), sheet=2) %&gt;% 
     summarize(Run.size = sum(Total.Prefishery.Abundance),
                         Spawners = sum(Total.Return),
                         Natural.Spawners = sum(Natural.Returns),
@@ -6486,7 +6489,7 @@ represent the long-term average for each.
 the Columbia region, but the Okanagan Nation Alliance does enumerate
 steelhead in akskwəkwant (Inkaneep Creek) and estimate a Canadian
 portion of steelhead spawning abundance. These data can be found in
-Table 8 of the associated report (e.g. <span class="citation">OBMEP (<a href="#ref-OBMEP20252024OkanoganSubbasin">2025</a>)</span>) and are
+Table 8 of the associated report (e.g. <span class="citation">OBMEP (<a href="#ref-OBMEP20262025OkanoganSubbasin">2026</a>)</span>) and are
 available for the Mid Columbia Summer Conservation Unit <a href="https://salmonexplorer.ca/explore/data/spawner-abundance/columbia/steelhead/mid-columbia-summer-1380/">in
 the Pacific Salmon Explorer</a>. We use the sum of natural and
 hatchery-origin spawners.</p>
@@ -6645,6 +6648,2847 @@ that are never monitored and for observer (in)efficiency <span class="citation">
 it is highly undertain and we are interested in relative changes in
 abundance through time, so we do not require to expand to absolute
 abundance.</p>
+<div id="list-of-indicator-streams" class="section level3 tabset" number="2.3.1">
+<h3 class="tabset"><span class="header-section-number">2.3.1</span> List
+of Indicator streams</h3>
+<p>The following are the indicator streams used for the expansions
+described above, by region.</p>
+</div>
+<div id="haida-gwaii-1" class="section level3 tabset unnumbered unlisted">
+<h3 class="tabset unnumbered unlisted">Haida Gwaii</h3>
+<div id="chum-8" class="section level4 unnumbered">
+<h4 class="unnumbered">Chum</h4>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
+<table class="table table-striped table-condensed" style="font-size: 12px; color: black; width: auto !important; ">
+<caption style="font-size: initial !important;">
+Chum indicator streams (n = 80)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ain River
+</td>
+<td style="text-align:left;">
+Dana Creek #1
+</td>
+<td style="text-align:left;">
+Inskip Creek
+</td>
+<td style="text-align:left;">
+Mud Bay Creek
+</td>
+<td style="text-align:left;">
+Saltspring Bay Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Anna Inlet Creek
+</td>
+<td style="text-align:left;">
+Dana Creek #2
+</td>
+<td style="text-align:left;">
+Island Bay Creeks-R/H
+</td>
+<td style="text-align:left;">
+Mudge Creek
+</td>
+<td style="text-align:left;">
+Sandy Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Awun River
+</td>
+<td style="text-align:left;">
+Dana Creek #3
+</td>
+<td style="text-align:left;">
+Kano Inlet Head Creek
+</td>
+<td style="text-align:left;">
+Naden River
+</td>
+<td style="text-align:left;">
+Security Inlet Creek-L/H
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bag Harbour Creek
+</td>
+<td style="text-align:left;">
+Dawson Harbour Creek
+</td>
+<td style="text-align:left;">
+Kootenay Inlet North Arm Creek
+</td>
+<td style="text-align:left;">
+North Arm Creek-Rh
+</td>
+<td style="text-align:left;">
+Security Inlet Creek-R/H
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Big Goose Creek
+</td>
+<td style="text-align:left;">
+Dawson Inlet Creek
+</td>
+<td style="text-align:left;">
+Kootenay Inlet South Arm Creek
+</td>
+<td style="text-align:left;">
+North Arm Head Creek
+</td>
+<td style="text-align:left;">
+Sedgwick Bay Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Botany Inlet Creek-Head
+</td>
+<td style="text-align:left;">
+Deena Creek
+</td>
+<td style="text-align:left;">
+Kostan Creek
+</td>
+<td style="text-align:left;">
+Oxalis Creek
+</td>
+<td style="text-align:left;">
+Skaat Harbour Creek-L/H
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Botany Inlet Creek-Outer
+</td>
+<td style="text-align:left;">
+East Narrows Creek
+</td>
+<td style="text-align:left;">
+Lagins Creek
+</td>
+<td style="text-align:left;">
+Pacofi Creek
+</td>
+<td style="text-align:left;">
+Slatechuck Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bottle Inlet Creek
+</td>
+<td style="text-align:left;">
+Fairfax Creek
+</td>
+<td style="text-align:left;">
+Lagoon Creek
+</td>
+<td style="text-align:left;">
+Pallant Creek
+</td>
+<td style="text-align:left;">
+Sleeping Beauty Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Browns Cabin Creek
+</td>
+<td style="text-align:left;">
+Fairfax Inlet Creek-Outer
+</td>
+<td style="text-align:left;">
+Little Goose Creek
+</td>
+<td style="text-align:left;">
+Peel Inlet Creek-L/H #1
+</td>
+<td style="text-align:left;">
+Stanley Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Buck Channel Creek #3
+</td>
+<td style="text-align:left;">
+Flat Creek
+</td>
+<td style="text-align:left;">
+Louscoone Inlet Creek
+</td>
+<td style="text-align:left;">
+Peel Inlet Creek-L/H #2
+</td>
+<td style="text-align:left;">
+Tangle Cove Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Canoe Pass Creek
+</td>
+<td style="text-align:left;">
+George Bay Creek
+</td>
+<td style="text-align:left;">
+Mace Creek
+</td>
+<td style="text-align:left;">
+Peel Inlet Head Creek
+</td>
+<td style="text-align:left;">
+Tasu Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Carmichael Creek
+</td>
+<td style="text-align:left;">
+Gold Harbour Creek
+</td>
+<td style="text-align:left;">
+Matheson Creek-L/H
+</td>
+<td style="text-align:left;">
+Powrivco Creek
+</td>
+<td style="text-align:left;">
+Thorsen Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chadsey Creek
+</td>
+<td style="text-align:left;">
+Goski Bay Creek
+</td>
+<td style="text-align:left;">
+Matheson Creek-R/H
+</td>
+<td style="text-align:left;">
+Rennell Creek
+</td>
+<td style="text-align:left;">
+Thurston Harbour Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clapp Basin Creek
+</td>
+<td style="text-align:left;">
+Hutton Creek-Head
+</td>
+<td style="text-align:left;">
+Mckenzie Cove Creek
+</td>
+<td style="text-align:left;">
+Richardson Creek
+</td>
+<td style="text-align:left;">
+Waterfall Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clint Creek
+</td>
+<td style="text-align:left;">
+Hutton Creek-L/H
+</td>
+<td style="text-align:left;">
+Mercer Creek
+</td>
+<td style="text-align:left;">
+Rockrun Creek
+</td>
+<td style="text-align:left;">
+Wilson Bay Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Crescent Inlet Creek
+</td>
+<td style="text-align:left;">
+Indian Cabin Creek
+</td>
+<td style="text-align:left;">
+Mountain Creek
+</td>
+<td style="text-align:left;">
+Salmon River
+</td>
+<td style="text-align:left;">
+Yakulanas Creek
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="coho-8" class="section level4 unnumbered">
+<h4 class="unnumbered">Coho</h4>
+<table class="table table-striped table-condensed" style="font-size: 12px; color: black; width: auto !important; ">
+<caption style="font-size: initial !important;">
+Coho indicator streams (n = 9)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Botany Inlet Creek-Head
+</td>
+<td style="text-align:left;">
+Dawson Harbour Creek
+</td>
+<td style="text-align:left;">
+Lagoon Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Botany Inlet Creek-Outer
+</td>
+<td style="text-align:left;">
+Deena Creek
+</td>
+<td style="text-align:left;">
+Pallant Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Crescent Inlet Creek
+</td>
+<td style="text-align:left;">
+Lagins Creek
+</td>
+<td style="text-align:left;">
+Tlell River
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="pink-7" class="section level4 unnumbered">
+<h4 class="unnumbered">Pink</h4>
+<table class="table table-striped table-condensed" style="font-size: 12px; color: black; width: auto !important; ">
+<caption style="font-size: initial !important;">
+Pink indicator streams (n = 42)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ain River
+</td>
+<td style="text-align:left;">
+Echo Harbour Creek
+</td>
+<td style="text-align:left;">
+Matheson Creek-R/H
+</td>
+<td style="text-align:left;">
+Security Inlet Creek-R/H
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Big Goose Creek
+</td>
+<td style="text-align:left;">
+Gate Creek
+</td>
+<td style="text-align:left;">
+Mckenzie Cove Creek
+</td>
+<td style="text-align:left;">
+Skedans Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bonanza Creek
+</td>
+<td style="text-align:left;">
+Gregory Creek
+</td>
+<td style="text-align:left;">
+Naden River
+</td>
+<td style="text-align:left;">
+Slatechuck Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Boomchain Bay Creek
+</td>
+<td style="text-align:left;">
+Honna River
+</td>
+<td style="text-align:left;">
+Pacofi Creek
+</td>
+<td style="text-align:left;">
+Tarundl Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Browns Cabin Creek
+</td>
+<td style="text-align:left;">
+Kano Inlet Head Creek
+</td>
+<td style="text-align:left;">
+Pallant Creek
+</td>
+<td style="text-align:left;">
+Tasu Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chadsey Creek
+</td>
+<td style="text-align:left;">
+Lagins Creek
+</td>
+<td style="text-align:left;">
+Peel Inlet Creek-L/H #2
+</td>
+<td style="text-align:left;">
+Thorsen Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Copper Creek
+</td>
+<td style="text-align:left;">
+Lignite Creek
+</td>
+<td style="text-align:left;">
+Riley Creek
+</td>
+<td style="text-align:left;">
+Tlell River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Crescent Inlet Creek
+</td>
+<td style="text-align:left;">
+Little Goose Creek
+</td>
+<td style="text-align:left;">
+Sachs Creek
+</td>
+<td style="text-align:left;">
+Windy Bay Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Datlamen Creek
+</td>
+<td style="text-align:left;">
+Mamin River
+</td>
+<td style="text-align:left;">
+Salmon River
+</td>
+<td style="text-align:left;">
+Yakoun River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Davidson Creek
+</td>
+<td style="text-align:left;">
+Mathers Creek
+</td>
+<td style="text-align:left;">
+Seal Inlet Creek
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Deena Creek
+</td>
+<td style="text-align:left;">
+Matheson Creek-L/H
+</td>
+<td style="text-align:left;">
+Security Inlet Creek-L/H
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sockeye-9" class="section level4 unnumbered">
+<h4 class="unnumbered">Sockeye</h4>
+<table class="table table-striped table-condensed" style="font-size: 12px; color: black; width: auto !important; ">
+<caption style="font-size: initial !important;">
+Sockeye indicator streams (n = 6)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Awun River
+</td>
+<td style="text-align:left;">
+Mercer Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Copper Creek
+</td>
+<td style="text-align:left;">
+Naden River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mathers Creek
+</td>
+<td style="text-align:left;">
+Yakoun River
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="skeena-1" class="section level3 tabset unnumbered unlisted">
+<h3 class="tabset unnumbered unlisted">Skeena</h3>
+<div id="chum-9" class="section level4 unnumbered">
+<h4 class="unnumbered">Chum</h4>
+<table class="table table-striped table-condensed" style="font-size: 12px; color: black; width: auto !important; ">
+<caption style="font-size: initial !important;">
+Chum indicator streams (n = 16)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Alpha Creek
+</td>
+<td style="text-align:left;">
+Ecstall River
+</td>
+<td style="text-align:left;">
+Kumealon Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Andesite Creek
+</td>
+<td style="text-align:left;">
+Gitnadoix River
+</td>
+<td style="text-align:left;">
+Pa-Aat River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Captain Cove Creek
+</td>
+<td style="text-align:left;">
+Kasiks River
+</td>
+<td style="text-align:left;">
+Silver Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Date Creek
+</td>
+<td style="text-align:left;">
+Kitkatla Creek
+</td>
+<td style="text-align:left;">
+Stumaun Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Denise Creek
+</td>
+<td style="text-align:left;">
+Kitwanga River
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dog Tag Creek
+</td>
+<td style="text-align:left;">
+Kleanza Creek
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="coho-9" class="section level4 unnumbered">
+<h4 class="unnumbered">Coho</h4>
+<table class="table table-striped table-condensed" style="font-size: 12px; color: black; width: auto !important; ">
+<caption style="font-size: initial !important;">
+Coho indicator streams (n = 55)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Andalas Creek
+</td>
+<td style="text-align:left;">
+Deep Creek
+</td>
+<td style="text-align:left;">
+Kadeen Creek
+</td>
+<td style="text-align:left;">
+Salmon Run Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Asitka River
+</td>
+<td style="text-align:left;">
+Diana Lake Creek
+</td>
+<td style="text-align:left;">
+Kasiks River
+</td>
+<td style="text-align:left;">
+Schulbuckhand Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bear River
+</td>
+<td style="text-align:left;">
+Dry Creek
+</td>
+<td style="text-align:left;">
+Kathlyn Creek
+</td>
+<td style="text-align:left;">
+Shawatlan River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Billy Creek
+</td>
+<td style="text-align:left;">
+Ecstall River
+</td>
+<td style="text-align:left;">
+Kitwanga River
+</td>
+<td style="text-align:left;">
+Singlehurst Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Buck Creek
+</td>
+<td style="text-align:left;">
+Erlandsen Creek
+</td>
+<td style="text-align:left;">
+Kumealon Creek
+</td>
+<td style="text-align:left;">
+Skunsnat Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bulkley River - Upper
+</td>
+<td style="text-align:left;">
+Exchamsiks River
+</td>
+<td style="text-align:left;">
+Lakelse River
+</td>
+<td style="text-align:left;">
+Snass Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Canyon Creek
+</td>
+<td style="text-align:left;">
+Exstew River
+</td>
+<td style="text-align:left;">
+Morice River
+</td>
+<td style="text-align:left;">
+Station Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Captain Cove Creek
+</td>
+<td style="text-align:left;">
+Foote Creek
+</td>
+<td style="text-align:left;">
+Motase Lake
+</td>
+<td style="text-align:left;">
+Steep Canyon Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clear Creek
+</td>
+<td style="text-align:left;">
+Footsore Lake Creek
+</td>
+<td style="text-align:left;">
+Murder Creek
+</td>
+<td style="text-align:left;">
+Stephens Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clearwater Creek
+</td>
+<td style="text-align:left;">
+Gitnadoix River
+</td>
+<td style="text-align:left;">
+Nangeese River
+</td>
+<td style="text-align:left;">
+Telkwa River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clifford Creek
+</td>
+<td style="text-align:left;">
+Goat Creek
+</td>
+<td style="text-align:left;">
+Pa-Aat River
+</td>
+<td style="text-align:left;">
+Toboggan Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Club Creek - Lower (Between Club Lake And Stephens Lake)
+</td>
+<td style="text-align:left;">
+Gosnell Creek
+</td>
+<td style="text-align:left;">
+Phoenix Creek
+</td>
+<td style="text-align:left;">
+Williams Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cullon Creek
+</td>
+<td style="text-align:left;">
+Herman Creek
+</td>
+<td style="text-align:left;">
+Porcher Creek
+</td>
+<td style="text-align:left;">
+Zymagotitz River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Damshilgwit Creek
+</td>
+<td style="text-align:left;">
+Ironside Creek
+</td>
+<td style="text-align:left;">
+Prudhomme Creek
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="pink-8" class="section level4 unnumbered">
+<h4 class="unnumbered">Pink</h4>
+<table class="table table-striped table-condensed" style="font-size: 12px; color: black; width: auto !important; ">
+<caption style="font-size: initial !important;">
+Pink indicator streams (n = 27)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Alpha Creek
+</td>
+<td style="text-align:left;">
+Gitnadoix River
+</td>
+<td style="text-align:left;">
+Kumealon Creek
+</td>
+<td style="text-align:left;">
+Sandy Bay Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Babine River - Section 4
+</td>
+<td style="text-align:left;">
+Head Creek
+</td>
+<td style="text-align:left;">
+La Hou Creek
+</td>
+<td style="text-align:left;">
+Silver Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Brundige Creek
+</td>
+<td style="text-align:left;">
+Kasiks River
+</td>
+<td style="text-align:left;">
+Lakelse River
+</td>
+<td style="text-align:left;">
+Spiller River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Captain Cove Creek
+</td>
+<td style="text-align:left;">
+Khyex River
+</td>
+<td style="text-align:left;">
+Morice River
+</td>
+<td style="text-align:left;">
+Stumaun Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ecstall River
+</td>
+<td style="text-align:left;">
+Kitwanga River
+</td>
+<td style="text-align:left;">
+Oona River
+</td>
+<td style="text-align:left;">
+Whitly Point Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Exchamsiks River
+</td>
+<td style="text-align:left;">
+Kleanza Creek
+</td>
+<td style="text-align:left;">
+Pa-Aat River
+</td>
+<td style="text-align:left;">
+Wolf Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+False Stewart Creek
+</td>
+<td style="text-align:left;">
+Kloiya River
+</td>
+<td style="text-align:left;">
+Porcher Creek
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="central-coast-1" class="section level3 tabset unnumbered unlisted">
+<h3 class="tabset unnumbered unlisted">Central Coast</h3>
+<div id="chum-10" class="section level4 unnumbered">
+<h4 class="unnumbered">Chum</h4>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
+<table class="table table-striped table-condensed" style="font-size: 12px; color: black; width: auto !important; ">
+<caption style="font-size: initial !important;">
+Chum indicator streams (n = 129)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Aaltanhash River
+</td>
+<td style="text-align:left;">
+Cooper Inlet-Ada Cove Creek
+</td>
+<td style="text-align:left;">
+Head Creek
+</td>
+<td style="text-align:left;">
+Limestone Creek
+</td>
+<td style="text-align:left;">
+Sagar Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Airport Side Channel
+</td>
+<td style="text-align:left;">
+Cooper Inlet-Fannie Cove Lh Creek
+</td>
+<td style="text-align:left;">
+Hevenor Inlet Creek
+</td>
+<td style="text-align:left;">
+Little Creek
+</td>
+<td style="text-align:left;">
+Salloomt River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Arnoup Creek
+</td>
+<td style="text-align:left;">
+Crab River
+</td>
+<td style="text-align:left;">
+Hird Point Creek
+</td>
+<td style="text-align:left;">
+Little Tillhorn Creek
+</td>
+<td style="text-align:left;">
+Salmon Bay Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Barnard Creek
+</td>
+<td style="text-align:left;">
+Crane Bay Creek
+</td>
+<td style="text-align:left;">
+Hook Nose Creek
+</td>
+<td style="text-align:left;">
+Lockhart Gordon Creek
+</td>
+<td style="text-align:left;">
+Scow Bay Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Belowe Creek
+</td>
+<td style="text-align:left;">
+Dala River
+</td>
+<td style="text-align:left;">
+Hotspring Creek
+</td>
+<td style="text-align:left;">
+Macnair Creek
+</td>
+<td style="text-align:left;">
+Scribner Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Big Bay Creek
+</td>
+<td style="text-align:left;">
+Dally Creek
+</td>
+<td style="text-align:left;">
+Hugh Creek
+</td>
+<td style="text-align:left;">
+Markle Inlet Creek
+</td>
+<td style="text-align:left;">
+Snootli Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Big Creek
+</td>
+<td style="text-align:left;">
+Dean River
+</td>
+<td style="text-align:left;">
+James Bay Creek
+</td>
+<td style="text-align:left;">
+Mcloughlin Creek
+</td>
+<td style="text-align:left;">
+Soda Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Big Tillhorn Creek
+</td>
+<td style="text-align:left;">
+Draney Creek
+</td>
+<td style="text-align:left;">
+Jenny Bay Creeks
+</td>
+<td style="text-align:left;">
+Milton River
+</td>
+<td style="text-align:left;">
+Tankeeah River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bish Creek
+</td>
+<td style="text-align:left;">
+Duthie Creek
+</td>
+<td style="text-align:left;">
+Kadjusdis River
+</td>
+<td style="text-align:left;">
+Mussel River
+</td>
+<td style="text-align:left;">
+Tastsquan Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Black Rock Creek
+</td>
+<td style="text-align:left;">
+Eagle Bay Creek
+</td>
+<td style="text-align:left;">
+Kainet Creek
+</td>
+<td style="text-align:left;">
+Neekas Creek
+</td>
+<td style="text-align:left;">
+Thorsen Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Blee Creek
+</td>
+<td style="text-align:left;">
+Eagle Creek
+</td>
+<td style="text-align:left;">
+Kemano River
+</td>
+<td style="text-align:left;">
+Nekite River
+</td>
+<td style="text-align:left;">
+Tsimtack Lake Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bloomfield Creek
+</td>
+<td style="text-align:left;">
+East Arm Creek
+</td>
+<td style="text-align:left;">
+Khutze River
+</td>
+<td style="text-align:left;">
+Nekite Spawning Channel
+</td>
+<td style="text-align:left;">
+Turn Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bolin Bay Creek
+</td>
+<td style="text-align:left;">
+Elcho Creek
+</td>
+<td style="text-align:left;">
+Kilbella River
+</td>
+<td style="text-align:left;">
+Nias Creek
+</td>
+<td style="text-align:left;">
+Turtle Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Borrowman Creek
+</td>
+<td style="text-align:left;">
+Evelyn Creek
+</td>
+<td style="text-align:left;">
+Kiltuish River
+</td>
+<td style="text-align:left;">
+Noohalk Creek
+</td>
+<td style="text-align:left;">
+Tyler Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Brim River
+</td>
+<td style="text-align:left;">
+Fancy Cove Head Creek
+</td>
+<td style="text-align:left;">
+Kimsquit River
+</td>
+<td style="text-align:left;">
+Nooklikonnik Creek
+</td>
+<td style="text-align:left;">
+Verney Passage Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bullock Channel #2 Creek
+</td>
+<td style="text-align:left;">
+Fish Creek
+</td>
+<td style="text-align:left;">
+Kiskosh Creek
+</td>
+<td style="text-align:left;">
+Pa-Aat River
+</td>
+<td style="text-align:left;">
+Wahoo Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bullock Channel #3 North Creek
+</td>
+<td style="text-align:left;">
+Flux Creek
+</td>
+<td style="text-align:left;">
+Kitasoo Creek
+</td>
+<td style="text-align:left;">
+Paril River
+</td>
+<td style="text-align:left;">
+Walkum Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bullock Channel #3 South Creek
+</td>
+<td style="text-align:left;">
+Foch River
+</td>
+<td style="text-align:left;">
+Kitkiata Creek
+</td>
+<td style="text-align:left;">
+Poison Cove Creek
+</td>
+<td style="text-align:left;">
+Wathl Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Canyon Creek
+</td>
+<td style="text-align:left;">
+Four Lakes Creek
+</td>
+<td style="text-align:left;">
+Klekane River
+</td>
+<td style="text-align:left;">
+Price Creek
+</td>
+<td style="text-align:left;">
+Webster Lake Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Captain Cove Creek
+</td>
+<td style="text-align:left;">
+Frenchman Creek
+</td>
+<td style="text-align:left;">
+Korich Creek
+</td>
+<td style="text-align:left;">
+Pyne Creek
+</td>
+<td style="text-align:left;">
+Weewanie Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Carter River
+</td>
+<td style="text-align:left;">
+Gabion River
+</td>
+<td style="text-align:left;">
+Kumealon Creek
+</td>
+<td style="text-align:left;">
+Quaal River
+</td>
+<td style="text-align:left;">
+West Arm Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cascade River
+</td>
+<td style="text-align:left;">
+Garbage Dump Creek
+</td>
+<td style="text-align:left;">
+Kunsoot River
+</td>
+<td style="text-align:left;">
+Quartcha Creek
+</td>
+<td style="text-align:left;">
+Whalen Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cheenis Lake Creek
+</td>
+<td style="text-align:left;">
+George Hall Creek
+</td>
+<td style="text-align:left;">
+Kwakusdis River
+</td>
+<td style="text-align:left;">
+Quatlena River
+</td>
+<td style="text-align:left;">
+Wilson Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chuckwalla River
+</td>
+<td style="text-align:left;">
+Gil Creek
+</td>
+<td style="text-align:left;">
+Kwatna River
+</td>
+<td style="text-align:left;">
+Rainbow Creek
+</td>
+<td style="text-align:left;">
+Windy Bay Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clatse Creek
+</td>
+<td style="text-align:left;">
+Gorilla Creek
+</td>
+<td style="text-align:left;">
+Lard Creek
+</td>
+<td style="text-align:left;">
+Riordan Creek
+</td>
+<td style="text-align:left;">
+Woran Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clyak River
+</td>
+<td style="text-align:left;">
+Grantham Creek
+</td>
+<td style="text-align:left;">
+Lee Creek
+</td>
+<td style="text-align:left;">
+Roscoe Creek
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="coho-10" class="section level4 unnumbered">
+<h4 class="unnumbered">Coho</h4>
+<table class="table table-striped table-condensed" style="font-size: 12px; color: black; width: auto !important; ">
+<caption style="font-size: initial !important;">
+Coho indicator streams (n = 70)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Aaltanhash River
+</td>
+<td style="text-align:left;">
+Curtis Inlet Creek
+</td>
+<td style="text-align:left;">
+Green River
+</td>
+<td style="text-align:left;">
+Kitasoo Creek
+</td>
+<td style="text-align:left;">
+Quaal River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Airport Side Channel
+</td>
+<td style="text-align:left;">
+Dala River
+</td>
+<td style="text-align:left;">
+Hankin Creek
+</td>
+<td style="text-align:left;">
+Kooryet Creek
+</td>
+<td style="text-align:left;">
+Quartcha Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Anderson Creek
+</td>
+<td style="text-align:left;">
+Deer Lake Creek
+</td>
+<td style="text-align:left;">
+Hevenor Inlet Creek
+</td>
+<td style="text-align:left;">
+Kumealon Creek
+</td>
+<td style="text-align:left;">
+Riordan Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Banks Lakes Creek
+</td>
+<td style="text-align:left;">
+Devon Lake Creek
+</td>
+<td style="text-align:left;">
+Hugh Creek
+</td>
+<td style="text-align:left;">
+Kumowdah River
+</td>
+<td style="text-align:left;">
+Roscoe Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bella Coola River
+</td>
+<td style="text-align:left;">
+Docee River
+</td>
+<td style="text-align:left;">
+Indian Harbour Creek
+</td>
+<td style="text-align:left;">
+Lewis Creek
+</td>
+<td style="text-align:left;">
+Ryan Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Belowe Creek
+</td>
+<td style="text-align:left;">
+East Arm Creek
+</td>
+<td style="text-align:left;">
+Kainet Creek
+</td>
+<td style="text-align:left;">
+Martin River
+</td>
+<td style="text-align:left;">
+Salloomt River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Blee Creek
+</td>
+<td style="text-align:left;">
+Elcho Creek
+</td>
+<td style="text-align:left;">
+Keecha Creek
+</td>
+<td style="text-align:left;">
+Mcloughlin Creek
+</td>
+<td style="text-align:left;">
+Shaw Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Brim River
+</td>
+<td style="text-align:left;">
+End Hill Creek
+</td>
+<td style="text-align:left;">
+Keswar Creek
+</td>
+<td style="text-align:left;">
+Mikado Lake Creek
+</td>
+<td style="text-align:left;">
+Snooka Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Canoe Creek
+</td>
+<td style="text-align:left;">
+Evelyn Creek
+</td>
+<td style="text-align:left;">
+Khutze River
+</td>
+<td style="text-align:left;">
+Molly Creek
+</td>
+<td style="text-align:left;">
+Sylvia Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Canoona River
+</td>
+<td style="text-align:left;">
+Fish Creek
+</td>
+<td style="text-align:left;">
+Kilbella River
+</td>
+<td style="text-align:left;">
+Necleetsconnay River
+</td>
+<td style="text-align:left;">
+Thorsen Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Captain Cove Creek
+</td>
+<td style="text-align:left;">
+Foch River
+</td>
+<td style="text-align:left;">
+Kildala River
+</td>
+<td style="text-align:left;">
+Nooklikonnik Creek
+</td>
+<td style="text-align:left;">
+Tsimtack Lake Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cascade River
+</td>
+<td style="text-align:left;">
+Gabion River
+</td>
+<td style="text-align:left;">
+Kiltuish River
+</td>
+<td style="text-align:left;">
+Pa-Aat River
+</td>
+<td style="text-align:left;">
+Tyler Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chuckwalla River
+</td>
+<td style="text-align:left;">
+Garbage Dump Creek
+</td>
+<td style="text-align:left;">
+Kingkown Inlet Creeks
+</td>
+<td style="text-align:left;">
+Paril River
+</td>
+<td style="text-align:left;">
+Wahoo Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cooper Inlet-Fannie Cove Lh Creek
+</td>
+<td style="text-align:left;">
+George Hall Creek
+</td>
+<td style="text-align:left;">
+Kiskosh Creek
+</td>
+<td style="text-align:left;">
+Port Stephens Creek
+</td>
+<td style="text-align:left;">
+Whalen Creek
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="pink-9" class="section level4 unnumbered">
+<h4 class="unnumbered">Pink</h4>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
+<table class="table table-striped table-condensed" style="font-size: 12px; color: black; width: auto !important; ">
+<caption style="font-size: initial !important;">
+Pink indicator streams (n = 109)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Aaltanhash River
+</td>
+<td style="text-align:left;">
+Chuckwalla River
+</td>
+<td style="text-align:left;">
+Gil Creek
+</td>
+<td style="text-align:left;">
+Korich Creek
+</td>
+<td style="text-align:left;">
+Quaal River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Arnoup Creek
+</td>
+<td style="text-align:left;">
+Clatse Creek
+</td>
+<td style="text-align:left;">
+Hankin Creek
+</td>
+<td style="text-align:left;">
+Kumealon Creek
+</td>
+<td style="text-align:left;">
+Quartcha Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ashlulm Creek
+</td>
+<td style="text-align:left;">
+Clyak River
+</td>
+<td style="text-align:left;">
+Head Creek
+</td>
+<td style="text-align:left;">
+Kunsoot River
+</td>
+<td style="text-align:left;">
+Quatlena River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Barnard Creek
+</td>
+<td style="text-align:left;">
+Crab River
+</td>
+<td style="text-align:left;">
+Hird Point Creek
+</td>
+<td style="text-align:left;">
+Kwakusdis River
+</td>
+<td style="text-align:left;">
+Quigley Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bella Coola River
+</td>
+<td style="text-align:left;">
+Crane Bay Creek
+</td>
+<td style="text-align:left;">
+Hook Nose Creek
+</td>
+<td style="text-align:left;">
+Kwatna River
+</td>
+<td style="text-align:left;">
+Riordan Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Belowe Creek
+</td>
+<td style="text-align:left;">
+Dala River
+</td>
+<td style="text-align:left;">
+Hotspring Creek
+</td>
+<td style="text-align:left;">
+Lard Creek
+</td>
+<td style="text-align:left;">
+Roscoe Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Big Bay Creek
+</td>
+<td style="text-align:left;">
+Dallery Creek
+</td>
+<td style="text-align:left;">
+Hugh Creek
+</td>
+<td style="text-align:left;">
+Limestone Creek
+</td>
+<td style="text-align:left;">
+Salmon Bay Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Big Tillhorn Creek
+</td>
+<td style="text-align:left;">
+Dally Creek
+</td>
+<td style="text-align:left;">
+Hunter Creek
+</td>
+<td style="text-align:left;">
+Little Tillhorn Creek
+</td>
+<td style="text-align:left;">
+Scow Bay Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bish Creek
+</td>
+<td style="text-align:left;">
+Dean River
+</td>
+<td style="text-align:left;">
+James Bay Creek
+</td>
+<td style="text-align:left;">
+Lockhart Gordon Creek
+</td>
+<td style="text-align:left;">
+Shaw Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Black Rock Creek
+</td>
+<td style="text-align:left;">
+Draney Creek
+</td>
+<td style="text-align:left;">
+Jenny Bay Creeks
+</td>
+<td style="text-align:left;">
+Macnair Creek
+</td>
+<td style="text-align:left;">
+Skowquiltz River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Blee Creek
+</td>
+<td style="text-align:left;">
+Duthie Creek
+</td>
+<td style="text-align:left;">
+Johnston Creek
+</td>
+<td style="text-align:left;">
+Marmot Cove Creek
+</td>
+<td style="text-align:left;">
+Soda Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bloomfield Creek
+</td>
+<td style="text-align:left;">
+Eagle Bay Creek
+</td>
+<td style="text-align:left;">
+Kainet Creek
+</td>
+<td style="text-align:left;">
+Milton River
+</td>
+<td style="text-align:left;">
+Tankeeah River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bolin Bay Creek
+</td>
+<td style="text-align:left;">
+East Arm Creek
+</td>
+<td style="text-align:left;">
+Kemano River
+</td>
+<td style="text-align:left;">
+Mussel River
+</td>
+<td style="text-align:left;">
+Tsimtack Lake Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bolton Creek
+</td>
+<td style="text-align:left;">
+Elcho Creek
+</td>
+<td style="text-align:left;">
+Khutze River
+</td>
+<td style="text-align:left;">
+Necleetsconnay River
+</td>
+<td style="text-align:left;">
+Turn Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Borrowman Creek
+</td>
+<td style="text-align:left;">
+Evelyn Creek
+</td>
+<td style="text-align:left;">
+Kilbella River
+</td>
+<td style="text-align:left;">
+Neekas Creek
+</td>
+<td style="text-align:left;">
+Turtle Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Brim River
+</td>
+<td style="text-align:left;">
+Fancy Cove Head Creek
+</td>
+<td style="text-align:left;">
+Kiltuish River
+</td>
+<td style="text-align:left;">
+Nekite River
+</td>
+<td style="text-align:left;">
+Tyler Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Canoona River
+</td>
+<td style="text-align:left;">
+Fifer Cove Creek
+</td>
+<td style="text-align:left;">
+Kiskosh Creek
+</td>
+<td style="text-align:left;">
+Nias Creek
+</td>
+<td style="text-align:left;">
+Verney Passage Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Canyon Creek
+</td>
+<td style="text-align:left;">
+Fishtrap Bay Creek
+</td>
+<td style="text-align:left;">
+Kitasoo Creek
+</td>
+<td style="text-align:left;">
+Nicknaqueet River
+</td>
+<td style="text-align:left;">
+Wahoo Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Captain Cove Creek
+</td>
+<td style="text-align:left;">
+Foch River
+</td>
+<td style="text-align:left;">
+Kitkiata Creek
+</td>
+<td style="text-align:left;">
+Nooseseck River
+</td>
+<td style="text-align:left;">
+Weewanie Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Carter River
+</td>
+<td style="text-align:left;">
+Frenchman Creek
+</td>
+<td style="text-align:left;">
+Klekane River
+</td>
+<td style="text-align:left;">
+Pa-Aat River
+</td>
+<td style="text-align:left;">
+West Arm Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cascade River
+</td>
+<td style="text-align:left;">
+Gabion River
+</td>
+<td style="text-align:left;">
+Koeye River
+</td>
+<td style="text-align:left;">
+Paril River
+</td>
+<td style="text-align:left;">
+Woran Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cheenis Lake Creek
+</td>
+<td style="text-align:left;">
+Genesee Creek
+</td>
+<td style="text-align:left;">
+Kooryet Creek
+</td>
+<td style="text-align:left;">
+Pyne Creek
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="sockeye-10" class="section level4 unnumbered">
+<h4 class="unnumbered">Sockeye</h4>
+<table class="table table-striped table-condensed" style="font-size: 12px; color: black; width: auto !important; ">
+<caption style="font-size: initial !important;">
+Sockeye indicator streams (n = 37)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ashlulm Creek
+</td>
+<td style="text-align:left;">
+Green River
+</td>
+<td style="text-align:left;">
+Koeye River
+</td>
+<td style="text-align:left;">
+Quaal River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bella Coola River
+</td>
+<td style="text-align:left;">
+Hook Nose Creek
+</td>
+<td style="text-align:left;">
+Kooryet Creek
+</td>
+<td style="text-align:left;">
+Quartcha Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bloomfield Creek
+</td>
+<td style="text-align:left;">
+Hunter Creek
+</td>
+<td style="text-align:left;">
+Kumowdah River
+</td>
+<td style="text-align:left;">
+Smokehouse Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Canoe Creek
+</td>
+<td style="text-align:left;">
+Inziana River
+</td>
+<td style="text-align:left;">
+Kwakusdis River
+</td>
+<td style="text-align:left;">
+Tankeeah River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Canoona River
+</td>
+<td style="text-align:left;">
+Kadjusdis River
+</td>
+<td style="text-align:left;">
+Kwakwa Creek
+</td>
+<td style="text-align:left;">
+Tsimtack Lake Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Curtis Inlet Creek
+</td>
+<td style="text-align:left;">
+Kainet Creek
+</td>
+<td style="text-align:left;">
+Lagoon Creek
+</td>
+<td style="text-align:left;">
+Tzeo River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dallery Creek
+</td>
+<td style="text-align:left;">
+Keecha Creek
+</td>
+<td style="text-align:left;">
+Mary Cove Creek
+</td>
+<td style="text-align:left;">
+Washwash River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Devon Lake Creek
+</td>
+<td style="text-align:left;">
+Khutze River
+</td>
+<td style="text-align:left;">
+Mikado Lake Creek
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Evelyn Creek
+</td>
+<td style="text-align:left;">
+Kitlope River
+</td>
+<td style="text-align:left;">
+Namu River
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gabion River
+</td>
+<td style="text-align:left;">
+Klewnuggit Inlet Creek
+</td>
+<td style="text-align:left;">
+Neechanz River
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="east-vancouver-island-mainland-inlets-1" class="section level3 tabset unnumbered unlisted">
+<h3 class="tabset unnumbered unlisted">East Vancouver Island &amp;
+Mainland Inlets</h3>
+<div id="chum-11" class="section level4 unnumbered">
+<h4 class="unnumbered">Chum</h4>
+<table class="table table-striped table-condensed" style="font-size: 12px; color: black; width: auto !important; ">
+<caption style="font-size: initial !important;">
+Chum indicator streams (n = 31)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Alison River
+</td>
+<td style="text-align:left;">
+Drew Creek
+</td>
+<td style="text-align:left;">
+Mckercher Creek
+</td>
+<td style="text-align:left;">
+Rainbow Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Apple River
+</td>
+<td style="text-align:left;">
+Englishman River
+</td>
+<td style="text-align:left;">
+Myrtle Creek
+</td>
+<td style="text-align:left;">
+Salmon River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bird Cove Creek
+</td>
+<td style="text-align:left;">
+Goldstream River
+</td>
+<td style="text-align:left;">
+Nanaimo River
+</td>
+<td style="text-align:left;">
+Skwawka River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Campbell River
+</td>
+<td style="text-align:left;">
+Heydon Creek
+</td>
+<td style="text-align:left;">
+Nimpkish River
+</td>
+<td style="text-align:left;">
+Tzoonie River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chemainus River
+</td>
+<td style="text-align:left;">
+Homathko River
+</td>
+<td style="text-align:left;">
+Open Bay Creek
+</td>
+<td style="text-align:left;">
+Viner Sound Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clear Creek
+</td>
+<td style="text-align:left;">
+Jap Creek
+</td>
+<td style="text-align:left;">
+Puntledge River
+</td>
+<td style="text-align:left;">
+Waump Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cowichan River
+</td>
+<td style="text-align:left;">
+Lang Creek
+</td>
+<td style="text-align:left;">
+Qualicum River
+</td>
+<td style="text-align:left;">
+Wortley Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Deserted River
+</td>
+<td style="text-align:left;">
+Little Qualicum River
+</td>
+<td style="text-align:left;">
+Quinsam River
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="coho-11" class="section level4 unnumbered">
+<h4 class="unnumbered">Coho</h4>
+<table class="table table-striped table-condensed" style="font-size: 12px; color: black; width: auto !important; ">
+<caption style="font-size: initial !important;">
+Coho indicator streams (n = 48)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Adam River
+</td>
+<td style="text-align:left;">
+Colquitz River
+</td>
+<td style="text-align:left;">
+Keogh River
+</td>
+<td style="text-align:left;">
+Salmon River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ahta River
+</td>
+<td style="text-align:left;">
+Cook Creek
+</td>
+<td style="text-align:left;">
+Lang Creek
+</td>
+<td style="text-align:left;">
+Sechelt Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Alison River
+</td>
+<td style="text-align:left;">
+Cowichan River
+</td>
+<td style="text-align:left;">
+Mckercher Creek
+</td>
+<td style="text-align:left;">
+Simms Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Amor De Cosmos Creek
+</td>
+<td style="text-align:left;">
+Cowie Creek
+</td>
+<td style="text-align:left;">
+Millard Creek
+</td>
+<td style="text-align:left;">
+Trent River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Black Creek
+</td>
+<td style="text-align:left;">
+Craigflower Creek
+</td>
+<td style="text-align:left;">
+Mixal Lake Creek
+</td>
+<td style="text-align:left;">
+Tsable River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bonell Creek
+</td>
+<td style="text-align:left;">
+Docee River
+</td>
+<td style="text-align:left;">
+Myrtle Creek
+</td>
+<td style="text-align:left;">
+Tsitika River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bonsall Creek
+</td>
+<td style="text-align:left;">
+Driftwood Creek
+</td>
+<td style="text-align:left;">
+Nanaimo River
+</td>
+<td style="text-align:left;">
+Viner Sound Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bush Creek
+</td>
+<td style="text-align:left;">
+Englishman River
+</td>
+<td style="text-align:left;">
+Nanoose Creek
+</td>
+<td style="text-align:left;">
+Waterloo Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Canoe Creek
+</td>
+<td style="text-align:left;">
+Goldstream River
+</td>
+<td style="text-align:left;">
+Nile Creek
+</td>
+<td style="text-align:left;">
+Waump Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Charles Creek
+</td>
+<td style="text-align:left;">
+Granite Bay Creek
+</td>
+<td style="text-align:left;">
+Open Bay Creek
+</td>
+<td style="text-align:left;">
+Wilfred Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chase River
+</td>
+<td style="text-align:left;">
+Haslam Creek
+</td>
+<td style="text-align:left;">
+Qualicum River
+</td>
+<td style="text-align:left;">
+Willow Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clear Creek
+</td>
+<td style="text-align:left;">
+Heydon Creek
+</td>
+<td style="text-align:left;">
+Quinsam River
+</td>
+<td style="text-align:left;">
+Woods Creek
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="pink-10" class="section level4 unnumbered">
+<h4 class="unnumbered">Pink</h4>
+<table class="table table-striped table-condensed" style="font-size: 12px; color: black; width: auto !important; ">
+<caption style="font-size: initial !important;">
+Pink indicator streams (n = 32)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Adam River
+</td>
+<td style="text-align:left;">
+Frazer Creek
+</td>
+<td style="text-align:left;">
+Menzies Creek
+</td>
+<td style="text-align:left;">
+Read Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ahnuhati River
+</td>
+<td style="text-align:left;">
+Glendale Creek
+</td>
+<td style="text-align:left;">
+Nanaimo River
+</td>
+<td style="text-align:left;">
+Salmon River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ahta River
+</td>
+<td style="text-align:left;">
+Gray Creek
+</td>
+<td style="text-align:left;">
+Orford River
+</td>
+<td style="text-align:left;">
+Shoal Harbour Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Amor De Cosmos Creek
+</td>
+<td style="text-align:left;">
+Heydon Creek
+</td>
+<td style="text-align:left;">
+Phillips River
+</td>
+<td style="text-align:left;">
+Sliammon Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Campbell River
+</td>
+<td style="text-align:left;">
+Kakweiken River
+</td>
+<td style="text-align:left;">
+Puntledge River
+</td>
+<td style="text-align:left;">
+Tsolum River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clearwater Creek
+</td>
+<td style="text-align:left;">
+Keogh River
+</td>
+<td style="text-align:left;">
+Qualicum River
+</td>
+<td style="text-align:left;">
+Viner Sound Creek
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Embley Creek
+</td>
+<td style="text-align:left;">
+Lang Creek
+</td>
+<td style="text-align:left;">
+Quatam River
+</td>
+<td style="text-align:left;">
+Wakeman River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Englishman River
+</td>
+<td style="text-align:left;">
+Little Qualicum River
+</td>
+<td style="text-align:left;">
+Quinsam River
+</td>
+<td style="text-align:left;">
+Willow Creek
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sockeye-11" class="section level4 unnumbered">
+<h4 class="unnumbered">Sockeye</h4>
+<table class="table table-striped table-condensed" style="font-size: 12px; color: black; width: auto !important; ">
+<caption style="font-size: initial !important;">
+Sockeye indicator streams (n = 8)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Canoe Creek
+</td>
+<td style="text-align:left;">
+Nimpkish River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clearwater Creek
+</td>
+<td style="text-align:left;">
+Phillips River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Heydon Creek
+</td>
+<td style="text-align:left;">
+Quatse River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mackenzie River
+</td>
+<td style="text-align:left;">
+Ruby Creek
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="steelhead-8" class="section level4 unnumbered">
+<h4 class="unnumbered">Steelhead</h4>
+<table class="table table-striped table-condensed" style="font-size: 12px; color: black; width: auto !important; ">
+<caption style="font-size: initial !important;">
+Steelhead indicator streams (n = 5)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Cheakamus River
+</td>
+<td style="text-align:left;">
+Salmon River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Englishman River
+</td>
+<td style="text-align:left;">
+Tsitika River
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Keogh River
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="smoothing" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Smoothing</h2>
@@ -6853,7 +9697,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="chum-8" class="section level3 tabset unnumbered">
+<div id="chum-12" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Chum</h3>
 <div id="spawners-2" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -6926,7 +9770,7 @@ line), and current status relative to that average.
 </div>
 </div>
 </div>
-<div id="sockeye-9" class="section level3 tabset unnumbered">
+<div id="sockeye-12" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Sockeye</h3>
 <div id="spawners-4" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -6953,7 +9797,7 @@ line), and current status relative to that average.
 </div>
 </div>
 </div>
-<div id="coho-8" class="section level3 tabset unnumbered">
+<div id="coho-12" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Coho</h3>
 <div id="spawners-5" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -6980,7 +9824,7 @@ current status relative to that average.
 </div>
 </div>
 </div>
-<div id="chum-9" class="section level3 tabset unnumbered">
+<div id="chum-13" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Chum</h3>
 <div id="spawners-6" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -6995,7 +9839,7 @@ current status relative to that average.
 </div>
 </div>
 </div>
-<div id="pink-7" class="section level3 tabset unnumbered">
+<div id="pink-11" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Pink</h3>
 <div id="spawners-7" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7010,7 +9854,7 @@ current status relative to that average.
 </div>
 </div>
 </div>
-<div id="steelhead-8" class="section level3 tabset unnumbered">
+<div id="steelhead-9" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Steelhead</h3>
 <div id="spawners-8" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7026,7 +9870,7 @@ line), and current status relative to that average.
 </div>
 </div>
 </div>
-<div id="haida-gwaii-1" class="section level2" number="3.4">
+<div id="haida-gwaii-2" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Haida Gwaii</h2>
 <p><strong>Highlights</strong></p>
 <!-- * All species for which we had reliable data are currently below their historical average, with long-term trends either stable or declining. -->
@@ -7059,7 +9903,7 @@ current status relative to that average.
 </div>
 </div>
 </div>
-<div id="chum-10" class="section level3 tabset unnumbered">
+<div id="chum-14" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Chum</h3>
 <div id="spawners-10" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7074,7 +9918,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="coho-9" class="section level3 tabset unnumbered">
+<div id="coho-13" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Coho</h3>
 <div id="spawners-11" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7089,7 +9933,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="pink-8" class="section level3 tabset unnumbered">
+<div id="pink-12" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Pink</h3>
 <div id="spawners-12" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7104,7 +9948,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="sockeye-10" class="section level3 tabset unnumbered">
+<div id="sockeye-13" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Sockeye</h3>
 <div id="spawners-13" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7165,7 +10009,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="sockeye-11" class="section level3 tabset unnumbered">
+<div id="sockeye-14" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Sockeye</h3>
 <div id="spawners-15" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7192,7 +10036,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="coho-10" class="section level3 tabset unnumbered">
+<div id="coho-14" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Coho</h3>
 <div id="spawners-16" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7219,7 +10063,7 @@ relative to that average.
 </div>
 </div>
 </div>
-<div id="pink-9" class="section level3 tabset unnumbered">
+<div id="pink-13" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Pink</h3>
 <div id="spawners-17" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7246,7 +10090,7 @@ relative to that average.
 </div>
 </div>
 </div>
-<div id="chum-11" class="section level3 tabset unnumbered">
+<div id="chum-15" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Chum</h3>
 <div id="spawners-18" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7273,7 +10117,7 @@ relative to that average.
 </div>
 </div>
 </div>
-<div id="steelhead-9" class="section level3 tabset unnumbered">
+<div id="steelhead-10" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Steelhead</h3>
 <div id="spawners-19" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7301,7 +10145,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="skeena-1" class="section level2" number="3.6">
+<div id="skeena-2" class="section level2" number="3.6">
 <h2><span class="header-section-number">3.6</span> Skeena</h2>
 <p><strong>Highlights</strong></p>
 <!-- * Most species are below historical average spawner abundance, with chum salmon having declined by 83.6%. Exceptons include sockeye spawner abundance, which has recently increased to 72.8% above historical average in 2022 and pink salmon which were 294% in 2022. -->
@@ -7334,7 +10178,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="sockeye-12" class="section level3 tabset unnumbered">
+<div id="sockeye-15" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Sockeye</h3>
 <div id="spawners-21" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7361,7 +10205,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="steelhead-10" class="section level3 tabset unnumbered">
+<div id="steelhead-11" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Steelhead</h3>
 <div id="spawners-22" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7376,7 +10220,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="chum-12" class="section level3 tabset unnumbered">
+<div id="chum-16" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Chum</h3>
 <div id="spawners-23" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7391,7 +10235,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="coho-11" class="section level3 tabset unnumbered">
+<div id="coho-15" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Coho</h3>
 <div id="spawners-24" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7406,7 +10250,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="pink-10" class="section level3 tabset unnumbered">
+<div id="pink-14" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Pink</h3>
 <div id="spawners-25" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7422,7 +10266,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="central-coast-1" class="section level2" number="3.7">
+<div id="central-coast-2" class="section level2" number="3.7">
 <h2><span class="header-section-number">3.7</span> Central Coast</h2>
 <p><strong>Highlights</strong></p>
 <!-- * All species are below historical average abundance, with dramatic declines of culturally and economically important sockeye, Chinook, and chum salmon. -->
@@ -7455,14 +10299,14 @@ current status relative to that average.
 </div>
 </div>
 </div>
-<div id="steelhead-11" class="section level3 tabset unnumbered">
+<div id="steelhead-12" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Steelhead</h3>
 <div id="spawners-27" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
 <pre><code>## No data for Central Coast Steelhead</code></pre>
 </div>
 </div>
-<div id="chum-13" class="section level3 tabset unnumbered">
+<div id="chum-17" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Chum</h3>
 <div id="spawners-28" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7477,7 +10321,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="coho-12" class="section level3 tabset unnumbered">
+<div id="coho-16" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Coho</h3>
 <div id="spawners-29" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7492,7 +10336,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="pink-11" class="section level3 tabset unnumbered">
+<div id="pink-15" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Pink</h3>
 <div id="spawners-30" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7507,7 +10351,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="sockeye-13" class="section level3 tabset unnumbered">
+<div id="sockeye-16" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Sockeye</h3>
 <div id="spawners-31" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7523,7 +10367,7 @@ current status relative to that average.
 </div>
 </div>
 </div>
-<div id="east-vancouver-island-mainland-inlets-1" class="section level2" number="3.8">
+<div id="east-vancouver-island-mainland-inlets-2" class="section level2" number="3.8">
 <h2><span class="header-section-number">3.8</span> East Vancouver Island
 &amp; Mainland Inlets</h2>
 <p><strong>Highlights</strong></p>
@@ -7573,7 +10417,7 @@ average.
 </div>
 </div>
 </div>
-<div id="chum-14" class="section level3 tabset unnumbered">
+<div id="chum-18" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Chum</h3>
 <div id="spawners-33" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7588,7 +10432,7 @@ average (dashed line), and current status relative to that average.
 </div>
 </div>
 </div>
-<div id="coho-13" class="section level3 tabset unnumbered">
+<div id="coho-17" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Coho</h3>
 <div id="spawners-34" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7603,7 +10447,7 @@ average (dashed line), and current status relative to that average.
 </div>
 </div>
 </div>
-<div id="pink-12" class="section level3 tabset unnumbered">
+<div id="pink-16" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Pink</h3>
 <div id="spawners-35" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7618,7 +10462,7 @@ average (dashed line), and current status relative to that average.
 </div>
 </div>
 </div>
-<div id="sockeye-14" class="section level3 tabset unnumbered">
+<div id="sockeye-17" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Sockeye</h3>
 <div id="spawners-36" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7634,7 +10478,7 @@ average.
 </div>
 </div>
 </div>
-<div id="steelhead-12" class="section level3 tabset unnumbered">
+<div id="steelhead-13" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Steelhead</h3>
 <div id="spawners-37" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7694,7 +10538,7 @@ line), and current status relative to that average.
 </div>
 </div>
 </div>
-<div id="sockeye-15" class="section level3 tabset unnumbered">
+<div id="sockeye-18" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Sockeye</h3>
 <div id="spawners-39" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7721,7 +10565,7 @@ line), and current status relative to that average.
 </div>
 </div>
 </div>
-<div id="chum-15" class="section level3 tabset unnumbered">
+<div id="chum-19" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Chum</h3>
 <div id="spawners-40" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7736,7 +10580,7 @@ line), and current status relative to that average.
 </div>
 </div>
 </div>
-<div id="coho-14" class="section level3 tabset unnumbered">
+<div id="coho-18" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Coho</h3>
 <div id="spawners-41" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7751,7 +10595,7 @@ line), and current status relative to that average.
 </div>
 </div>
 </div>
-<div id="pink-13" class="section level3 tabset unnumbered">
+<div id="pink-17" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Pink</h3>
 <div id="spawners-42" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7766,7 +10610,7 @@ line), and current status relative to that average.
 </div>
 </div>
 </div>
-<div id="steelhead-13" class="section level3 tabset unnumbered">
+<div id="steelhead-14" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Steelhead</h3>
 <div id="spawners-43" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7828,7 +10672,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="chum-16" class="section level3 tabset unnumbered">
+<div id="chum-20" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Chum</h3>
 <div id="spawners-45" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7855,7 +10699,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="coho-15" class="section level3 tabset unnumbered">
+<div id="coho-19" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Coho</h3>
 <div id="spawners-46" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7882,7 +10726,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="pink-14" class="section level3 tabset unnumbered">
+<div id="pink-18" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Pink</h3>
 <div id="spawners-47" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7909,7 +10753,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="sockeye-16" class="section level3 tabset unnumbered">
+<div id="sockeye-19" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Sockeye</h3>
 <div id="spawners-48" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7936,7 +10780,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="steelhead-14" class="section level3 tabset unnumbered">
+<div id="steelhead-15" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Steelhead</h3>
 <div id="spawners-49" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -7987,7 +10831,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="sockeye-17" class="section level3 tabset unnumbered">
+<div id="sockeye-20" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Sockeye</h3>
 <div id="spawners-51" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -8014,7 +10858,7 @@ status relative to that average.
 </div>
 </div>
 </div>
-<div id="steelhead-15" class="section level3 tabset unnumbered">
+<div id="steelhead-16" class="section level3 tabset unnumbered">
 <h3 class="tabset unnumbered">Steelhead</h3>
 <div id="spawners-52" class="section level4 unnumbered">
 <h4 class="unnumbered">Spawners</h4>
@@ -8117,8 +10961,8 @@ Preliminary Expectations. Pacific Salmon Commission Joint Northern
 Boundary Technical Committee Report <strong>TCNB (23)-01</strong>: ii +
 73 p. Available from <a href="https://www.psc.org/publications/technical-reports/technical-committee-reports/northern-boundary/">https://www.psc.org/publications/technical-reports/technical-committee-reports/northern-boundary/</a>.
 </div>
-<div id="ref-OBMEP20252024OkanoganSubbasin" class="csl-entry">
-OBMEP. 2025. 2024 Okanogan Subbasin Steelhead Spawning Abundance and
+<div id="ref-OBMEP20262025OkanoganSubbasin" class="csl-entry">
+OBMEP. 2026. 2025 Okanogan Subbasin Steelhead Spawning Abundance and
 Distribution. Report submitted to the Bonneville Power Administration,
 Project No. 2003-022-00., Colville Confederated Tribes Fish and Wildlife
 Department, Nespelem, WA. Available from <a href="https://www.okanoganmonitoring.org/">https://www.okanoganmonitoring.org/</a>.

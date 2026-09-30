@@ -155,7 +155,10 @@ for(R in c(1:length(regionnames))){
 		} # end yrs
 	} # end species
 	
-	
+	# Save indicator streams
+	names(indicator) <- species_vec
+	saveRDS(indicator, here(paste0("output/stream-names/", r, "-stream-names.RDS")))
+	names(indicator) <- NULL
 	
 	#------------------------------------------------------------------------------
 	# Create arrays to store observed and expanded counts for each species
