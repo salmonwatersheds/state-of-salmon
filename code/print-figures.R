@@ -20,13 +20,13 @@ XDrive <- get_XDrive()
 XDrive_SoS <- paste0(XDrive, "1_PROJECTS/1_Active/State of Salmon/2_Data & Analysis/state-of-salmon/")
 
 # Import fonts
-#font_import(paths = "data/print-report/fonts")
-#loadfonts(device = "pdf")
-#names(pdfFonts())[grepl("Sofia", names(pdfFonts()), ignore.case = TRUE)]
-
-# # Trying to add .otf (Sofia Pro Condensed)
-#library(showtext)
-#font_add("Sofia Pro Condensed", regular = "data/print-report/fonts/SofiaProRegCond.otf")
+# font_import(paths = "data/print-report/fonts")
+# loadfonts(device = "pdf")
+# names(pdfFonts())[grepl("Sofia", names(pdfFonts()), ignore.case = TRUE)]
+# 
+# # # Trying to add .otf (Sofia Pro Condensed)
+# library(showtext)
+# font_add("Sofia Pro Condensed", regular = "data/print-report/fonts/SofiaProRegCond.otf")
 
 #fonttable() %>% dplyr::filter(grepl("Sofia", FamilyName, ignore.case = TRUE)) %>% distinct(FamilyName)
 
@@ -39,24 +39,24 @@ fishy_cols <- c("#9c2323", "#b85657", "#ffcaca", "#98df8a", "#54a35c", "#299330"
 crit_col <- c("#600918")
 fishy_bgcols <- c(bg = "#f1f8fa", dd = "#f5f6f6", crit = "#f2dcd7", high = "#e7eee3")
 
-# Create a linear scale for colours negative values in red and green positive
-fishy_cols_func <- function(x){
-	col_out <- rep(NA, length(x))
-	for(i in 1:length(x)){
-		if(is.na(x[i])){
-			col_out[i] <- "#A8A9AB"
-		} else if (x[i] == -999999){
-			col_out[i] <- "#600918"
-		} else if(x[i] < 0){
-			col_out[i] <- colorRampPalette(c('#ffcaca', '#b85657', '#9c2323'))(n = 100)[round(abs(x[i]))]
-		}	else if (x[i] >=0 & x[i] <= 150){
-			col_out[i] <- colorRampPalette(c('#98df8a', '#54a35c', '#288330'))(n = 150)[round(abs(x[i]))]
-		} else if(x[i] > 150){
-			col_out[i] <- "#1B4E1F"
-		}
-	}
-	return(col_out)
-}
+# # Create a linear scale for colours negative values in red and green positive
+# fishy_cols_func <- function(x){
+# 	col_out <- rep(NA, length(x))
+# 	for(i in 1:length(x)){
+# 		if(is.na(x[i])){
+# 			col_out[i] <- "#A8A9AB"
+# 		} else if (x[i] == -999999){
+# 			col_out[i] <- "#600918"
+# 		} else if(x[i] < 0){
+# 			col_out[i] <- colorRampPalette(c('#ffcaca', '#b85657', '#9c2323'))(n = 100)[round(abs(x[i]))]
+# 		}	else if (x[i] >=0 & x[i] <= 150){
+# 			col_out[i] <- colorRampPalette(c('#98df8a', '#54a35c', '#288330'))(n = 150)[round(abs(x[i]))]
+# 		} else if(x[i] > 150){
+# 			col_out[i] <- "#1B4E1F"
+# 		}
+# 	}
+# 	return(col_out)
+# }
 
 fishy_cols_func <- function(x){
 	col_out <- rep(NA, length(x))
@@ -96,8 +96,17 @@ sps_summary <- read.csv("output/sps-summary.csv")
 # sps_summary <- read.csv(paste0(XDrive_SoS, "output/archive/sps-summary_2025-11-05.csv"))
 
 
-# Adjust Chinook labels
-# sps_summary$region_label_offset_y[sps_summary$species == "Chinook" & sps_summary$region %in% c("Skeena", "Yukon") & sps_summary$type == "Spawners"] <- c(-3, -1)
+# Adjust  labels
+sps_summary %>% 
+	filter(region_label_offset_y != 0) %>%
+	dplyr::select(region, species, type, current_status, region_label_offset_y)
+
+sps_summary$region_label_offset_y[sps_summary$species == "Chum" & sps_summary$region == "Northern Transboundary" & sps_summary$type == "Spawners"] <- -1
+
+sps_summary$region_label_offset_y[sps_summary$species == "Chum" & sps_summary$region %in% c("Haida Gwaii", "Yukon") & sps_summary$type == "Spawners"] <- c(-2, 0)
+
+sps_summary$region_label_offset_y[sps_summary$species == "Sockeye" & sps_summary$region == "Nass" & sps_summary$type == "Spawners"] <- -2
+
 
 # What is the range of current status outcomes for fishy dot plot?
 range(sps_summary$current_status, na.rm = TRUE)

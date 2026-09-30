@@ -239,6 +239,12 @@ k <- 1
 fishwidth <- 1
 fishheight <- fishwidth * image_info(fish)$height/image_info(fish)$width
 
+#------------------------------------------------------------------------------
+# Below average
+#------------------------------------------------------------------------------
+this.file <- paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/7_Communications & Outreach(closed-sharepoint)/2026/State-of builds/highlights_spawners_belowAvg.pdf")
+
+pdf(file = this.file, width = 7, height = 7, pointsize = 10, family = "Sofia Pro Semi Bold")
 
 par(mar = rep(0,4), family = "Sofia Pro Semi Bold")
 plot(1,1,"n", xlab = "", ylab = "", bty = "n", xaxt  = "n", yaxt = "n", xlim = c(0.02,5.98), ylim = c(0.02, 9.98), xaxs = "i", yaxs = "i")
@@ -276,11 +282,59 @@ for(r in 1:10){
 	} # end s
 } # end r
 
-# abline(v = seq(0, 6, 1), lwd = 5, col = "white")
-# abline(h = seq(0, 10, 1), lwd = 5, col = "white")
+dev.off()
 
+if(file_type == "pdf"){
+	embed_fonts(this.file, outfile = this.file)
+}
 
+#----------------------------------------------------------------------------------------
+# Individual steelhead
+#----------------------------------------------------------------------------------------
+fishwidth <- 2.5
+fishheight <- fishwidth * image_info(fish)$height/image_info(fish)$width
 
+species.vec <- sort(unique(sps_summary$species))
+s <- 1
+for(r in 2:10){
+	
+	summ.rsk <- sps_summary %>% filter(region == regions[r] & species == species.vec[s] & type == "Spawners")
+	
+	if(nrow(summ.rsk) == 1 & !is.na(summ.rsk$current_status)){
+		this.file <- paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/7_Communications & Outreach(closed-sharepoint)/2026/State-of builds/", species.vec[s], "_", regions[r], ".pdf")
+		
+		pdf(file = this.file, width = 4, height = 3, pointsize = 12, family = "Sofia Pro Semi Bold")
+		# quartz(width = 4, height = 3, pointsize = 12, family = "Sofia Pro Semi Bold")
+		
+		par(mar = rep(0,4), family = "Sofia Pro Semi Bold")
+		plot(1,1, "n", bty="n", xaxt = "n", yaxt = "n", xlab = "", ylab = "")
+		
+		rasterImage(image_colorize(image = fish, opacity = 100, color = fishy_cols_func(summ.rsk$current_status)),
+								xleft = 1 - xinch(fishwidth)/2,
+								ybottom = 1 - yinch(fishheight)/2,
+								xright = 1 + xinch(fishwidth)/2,
+								ytop = 1 + yinch(fishheight)/2)
+		
+		
+		if(is.na(summ.rsk$current_status)){
+			text(1, 1, "?", cex = 2)
+		} else if(summ.rsk$current_status == -999999){
+			text(1, 1, "!", cex = 2)
+		} else if (summ.rsk$current_status > 150 | summ.rsk$current_status < -80){
+			text(1, 1, paste0(ifelse(summ.rsk$current_status > 0, "+", ""), summ.rsk$current_status, "%"), cex = 2)
+		} else {
+			text(1, 1, paste0(ifelse(summ.rsk$current_status > 0, "+", ""), summ.rsk$current_status, "%"), cex = 2)
+		}
+		
+		
+		dev.off()
+		embed_fonts(this.file, outfile = this.file)
+	}
+	
+} # end r
+#----------------------------------------------------------------------------------------
+# 
+#----------------------------------------------------------------------------------------
 par(mar = rep(0,4), family = "Sofia Pro Semi Bold")
 plot(1,1,"n", xlab = "", ylab = "", bty = "n", xaxt  = "n", yaxt = "n", xlim = c(0.02,5.98), ylim = c(0.02, 9.98), xaxs = "i", yaxs = "i")
 for(r in 1:10){
@@ -303,6 +357,8 @@ for(r in 1:10){
 			text(s - 0.5, r - 0.5, "?", cex = 1.3)
 		}
 	}}
+
+dev.off()
 
 # Spawners and total
 k <- 1
