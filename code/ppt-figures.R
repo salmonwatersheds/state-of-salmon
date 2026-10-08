@@ -295,13 +295,13 @@ fishwidth <- 2.5
 fishheight <- fishwidth * image_info(fish)$height/image_info(fish)$width
 
 species.vec <- sort(unique(sps_summary$species))
-s <- 1
+s <- 5
 for(r in 2:10){
 	
-	summ.rsk <- sps_summary %>% filter(region == regions[r] & species == species.vec[s] & type == "Spawners")
+	summ.rsk <- sps_summary %>% filter(region == regions[r] & species == species.vec[s] & type == "Total return")
 	
 	if(nrow(summ.rsk) == 1 & !is.na(summ.rsk$current_status)){
-		this.file <- paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/7_Communications & Outreach(closed-sharepoint)/2026/State-of builds/", species.vec[s], "_", regions[r], ".pdf")
+		this.file <- paste0(get_XDrive(), "1_PROJECTS/1_Active/State of Salmon/7_Communications & Outreach(closed-sharepoint)/2026/State-of builds/", species.vec[s], "_", regions[r], "_TOTAL.pdf")
 		
 		pdf(file = this.file, width = 4, height = 3, pointsize = 12, family = "Sofia Pro Semi Bold")
 		# quartz(width = 4, height = 3, pointsize = 12, family = "Sofia Pro Semi Bold")

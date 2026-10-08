@@ -9,6 +9,7 @@
 
 # Revised Sept 10, 2026 so that trends are in percent anomaly scale
 ###############################################################################
+
 library(dplyr)
 
 # Load functions
