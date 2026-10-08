@@ -19,6 +19,9 @@ code/2_compile-regional-data_files
 code/archive
 code/ignore
 
+# Media for 'docs' outputs
+docs/ignore
+
 # Output files - these should be saved to Dropbox in the 'shadow repo'
 output/ignore
 output/archive

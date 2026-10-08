@@ -1,0 +1,113 @@
+---
+title: "State of Salmon Technical Documentation"
+output:
+  html_document:
+    self_contained: true
+    
+knit: (function(input, ...) {
+    rmarkdown::render(
+      input,
+      output_file = file.path(dirname(dirname(input)), "docs/index.html"),
+      envir = globalenv()
+    )
+  })
+---
+
+```{css, echo=FALSE}
+
+body {
+  font-family: "Sofia Pro";
+}
+
+.intro {
+max-width: 640px;
+margin: 40px 0px;
+}
+
+.report-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 640px;
+  margin: 30px 0;
+}
+
+.report-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.report-row img {
+  width: 163px;
+  height: 211px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  background: #cfe3ea; /* shows if the image is missing */
+  flex-shrink: 0;
+}
+
+.report-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.report-title {
+  font-size: 1.3em;
+}
+
+.report-btn {
+  display: inline-block;
+  padding: 16px 34px;
+  font-size: 1.15em;
+  font-weight: 600;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #47807C, #74BDB8);
+  border-radius: 50px;
+  text-decoration: none !important;
+  box-shadow: 0 4px 10px #2a4D4a;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.report-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px #2a4D4a;
+  color: #ffffff !important;
+}
+
+@media (max-width: 500px) {
+  .report-row { flex-direction: column; align-items: flex-start; }
+  .report-row img { width: 100%; height: 500px; }
+}
+```
+
+
+<div class="intro">
+
+The full detailed methods for the [State of Salmon](https://stateofsalmon.psf.ca) reports, including data sources, are in the technical documentation. Find the right report below and click through to view the documentation.
+
+</div>
+
+
+<div class="report-list">
+
+<div class="report-row">
+<img src="../docs/ignore/2025-report-cover.png" alt="2025 State of Salmon report">
+<div class="report-text">
+<div class="report-title">2025 State of Salmon report</div>
+<a class="report-btn" href="https://salmonwatersheds.github.io/state-of-salmon/2025/index_23.html">View technical documentation</a>
+</div>
+</div>
+
+<div class="report-row">
+<img src="../docs/ignore/2024-report-cover.png" alt="2024 State of Salmon report">
+<div class="report-text">
+<div class="report-title">2024 State of Salmon report</div>
+<a class="report-btn" href="https://salmonwatersheds.github.io/state-of-salmon/2024/index.html">View technical documentation</a>
+</div>
+</div>
+
+</div>
