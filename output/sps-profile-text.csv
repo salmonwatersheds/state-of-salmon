@@ -3,11 +3,11 @@ Yukon,Chinook,Numbers represent absolute estimates of Canadian-origin Chinook fo
 Yukon,Chum,Numbers represent absolute estimates of Canadian-origin chum salmon for the Yukon River mainstem.
 Yukon,Coho,
 Northern Transboundary,Chinook,"Numbers represent the sum of estimated abundance for three major watersheds (Alsek, Stikine, and Taku)."
-Northern Transboundary,Chum,Numbers represent counts from a single fish wheel on the Taku River.
+Northern Transboundary,Chum,Numbers represent adjusted counts from a single fish wheel on the Taku River.
 Northern Transboundary,Coho,Numbers represent estimated abundance for a single watershed (Taku).
-Northern Transboundary,Pink,Numbers represent counts from a single fish wheel on the Taku River.
+Northern Transboundary,Pink,Numbers represent adjusted counts from a single fish wheel on the Taku River.
 Northern Transboundary,Sockeye,Numbers represent the sum of estimated abundance for two major watersheds (Stikine and Taku).
-Northern Transboundary,Steelhead,
+Northern Transboundary,Steelhead,Numbers represent adjusted counts from a single fish wheel on the Taku River.
 Haida Gwaii,Chinook,Numbers represent estimated abundance for the Yakoun River.
 Haida Gwaii,Chum,Numbers represent the sum of estimated abundance for 209 surveyed streams in the region.
 Haida Gwaii,Coho,Numbers represent the sum of estimated abundance for 201 surveyed streams in the region.
