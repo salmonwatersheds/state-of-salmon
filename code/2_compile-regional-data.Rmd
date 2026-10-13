@@ -28,7 +28,7 @@ editor_options:
 ```{r setup, include=FALSE}
 
 # Do we want to re-write output files (e.g., sps-data.csv)?
-write.output <- TRUE
+write.output <- FALSE
 
 knitr::opts_chunk$set(
 	echo = TRUE,
@@ -105,7 +105,7 @@ The Pacific Salmon Foundation's [State of Salmon Report](https://stateofsalmon.c
 
 This report, first released in September 2024, takes a data-driven approach to provide historical perspective and context for current news about salmon returns. The State of Salmon Report is being updated annually to reflect new data and changes to the state of Pacific salmon populations. 
 
-As part of this work, PSF's [Salmon Watersheds Program](https://www.salmonwatersheds.ca) has developed simple metrics to report on the status and trends in regional abundance for each species. This document outlines the  specific data sources and analytical approach that we used to estimate time series of spawner abundance and total abundance (including catch) for each species and region, as well as draft results. Our analyses are ongoing, and the information here is subject to change on a regular basis, but we will endeavor to keep it up-to-date.
+As part of this work, PSF's [Salmon Watersheds Program](https://www.salmonwatersheds.ca) has developed simple metrics to report on the status and trends in regional abundance for each species. This document outlines the  specific data sources and analytical approach that we used to estimate time series of spawner abundance and total abundance (including catch and en-route mortality) for each species and region, as well as draft results. Our analyses are ongoing, and the information here is subject to change on a regular basis, but we will endeavor to keep it up-to-date.
 
 # Methods
 
@@ -115,7 +115,7 @@ We report spawner abundance for each of ten regions that represent all major Pac
 
 We report on six species of Pacific salmon (*Oncorhynchus* spp.): Chinook, chum, coho, pink, sockeye, and steelhead. For each species, we report on state and trends based on generational averages. For pink salmon, we take the running average of even- and odd-year lineages, but do not separate assessments of even- and odd-year pink populations as is sometimes done in status assessments due to their consistent 2-year life cycle. Our approach of using generation running averages also smooths over dominant years for sockeye salmon, for which many populations display cyclic dominance. Shifts in dominance between even- and odd-year pink populations or declines in sub-dominant years of sockeye salmon are considered in a more nuanced way in our reporting when discussing how changes in abundance have been reflected in the diversity and distribution of each species within the region. 
 
-For each of these species, where data are available, we construct an index of **spawner abundance** at the regional scale. We focus on spawner abundance because these data are more readily accessible and easily summarised at different spatial scales. Spawners represent the abundance of salmon available to reproduce and contribute to future generations, as well as to meet cultural and ecological needs within watersheds, and thus provides a measure of status relevant to communities and ecosystems. We recognize that commercial catch has historically been a substantial portion of salmon that return to the coast, and that ignoring declines in catch will underestimate the declines in overall salmon abundance. There is also increasing rates of pre-spawn mortality (i.e. mortality of salmon after their enter the river but before they successfully spawn) that mean that spawner abundance may be less than the number of fish that survive to maturity Therefore, where data are available, we include information on **total abundance** (i.e. the number of salmon that survive to maturity, calculated as spawners plus catch plus pre-spawn mortality (where applicable)). 
+For each of these species, where data are available, we construct an index of **spawner abundance** at the regional scale. We focus on spawner abundance because these data are more readily accessible and easily summarised at different spatial scales. Spawners represent the abundance of salmon available to reproduce and contribute to future generations, as well as to meet cultural and ecological needs within watersheds, and thus provides a measure of status relevant to communities and ecosystems. We recognize that commercial catch has historically been a substantial portion of salmon that return to the coast, and that ignoring declines in catch will underestimate the declines in overall salmon abundance. There is also increasing rates of pre-spawn mortality (i.e. mortality of salmon after their enter the river but before they successfully spawn) that mean that spawner abundance may be less than the number of fish that survive to maturity. Therefore, where data are available, we include information on **total abundance** (i.e. the number of salmon that survive to maturity, calculated as spawners plus catch plus pre-spawn mortality (where applicable)). 
 
 We have based our assessments on the best available data for each region and species. For example, stocks that are governed by international treaties may be monitored by the [Pacific Salmon Commission (PSC)](https://www.psc.org/), and tend to have reliable time series of abundance available at regional scales. These data sources are outlined in the [Region-Specific Data section](#region-specific-data). For species and regions where aggregate abundance is not reported by the PSC or DFO at the scale needed, we adapted our approach to make the best use of available data. In most cases, this meant expanding spawner abundance from stream-level estimates to get a regional scale index of spawner abundance using two types of expansion factors [@EnglishEtAl2018NorthCentralCoast]. This expansion process is described in the [Expansion Factors section](#expansion-factors).  
 
@@ -253,7 +253,7 @@ points(ytcm_B20$Year, ytcm_B20$Spawning.escapement*10^-3, col = 2, pch = 19, cex
 ### Northern Transboundary
 <!-- > Internal note: Processing of raw excel file from Aaron Foos to extract relevant tables and fields is in code/tbr-data-extract.R -->
 
-The best-available information on salmon abundance in the Northern Transboundary region is from the PSC's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The most recent TTC report [@TTC2025FinalEstimatesTransboundary] includes data through 2023. Updated report appendices were provided by Aaron Foos (DFO) on July 8, 2026 in advance of report publication, and numbers for 2024-2025 should be considered **preliminary**.
+The best-available information on salmon abundance in the Northern Transboundary region is from the PSC's [Joint Transboundary Technical Committee Reports](https://www.psc.org/publications/technical-reports/technical-committee-reports/transboundary/). The most recent TTC report [@TransboundaryTechnicalCommittee2026FinalEstimatesTransboundary] includes data through 2024. Updated report appendices were provided by Aaron Foos (DFO) on July 8, 2026 in advance of report publication, and numbers for 2025 should be considered **preliminary**.
 
 We recognize that our approach in the Transboundary lacks information from many un-monitored watersheds, in particular the smaller watersheds of the Chilkat, Unuk, and Whiting Rivers. In the absence of better monitoring, we choose to report available data as a proxy for regional abundance, and note that the contribution of these smaller watersheds to total regional abundance for each species is likely small. 
 
@@ -417,46 +417,12 @@ cowplot::plot_grid(spwn.stack, tot.stack, labels="auto", nrow = 2, ncol = 1)
 
 Sockeye spawner abundance and total return were taken from the updated TTC report appendices. Specifically, Stikine sockeye spawner and total abundance were the `Escapement/broodstock` and `Terminal Run`, respectively, summed across the Stikine River (Appendix B26) and the Taku River (Appendix D17). 
 
-```{r, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 4, fig.cap = "**Above:** Sockeye salmon spawner abundance (top) and total abundance (bottom) in the Taku and Stikine river basins. We report regional abundance only from 1984 onwards when data for both rivers are available; prior to 1984, only dat for the Stikine are available."}
+```{r transboundary sockeye, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Transboundary sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 # TBR Sockeye data are the sum of the Stikine (Appendix B26) and Taku (Appendix D17) 
 # In 2024, the Appendix numbers given were B21 and D15 respectively, but that's changed.
 tbrse_stik <- read.csv(here('data/tbr_sockeye_appendixB26.csv'))
 tbrse_taku <- read.csv(here('data/tbr_sockeye_appendixD17.csv'))
-
-# Combine
-tbrse_raw <- tbrse_stik %>%
-	rename("Escapement" = "StikineRiver_EscapementBroodstock",
-				 "TotalRun" = "StikineRiver_TerminalRun") %>%
-	mutate(Stock = "Stikine") %>%
-	bind_rows(tbrse_taku %>%
-							rename("Escapement" = "Escapement",
-										 "TotalRun" = "Run") %>%
-							mutate(Stock = "Taku")	)
-# Plot ---
-
-# Spawner abundance
-spwn.stack <- tbrse_raw %>% ggplot() +
-	geom_area(aes(x=Year, y=Escapement/1000, fill=factor(Stock, levels=c("Taku", "Stikine"))), 
-								alpha=0.6) + 
-	scale_fill_viridis_d() +
-	labs(y="Spawner abundance (thousands)", fill="") + #lims(y=c(0,185)) +
-	theme_minimal() + theme(legend.position = "top")
-
-# Total abundance
-tot.stack <- tbrse_raw %>% ggplot() +
-	geom_area(aes(x=Year, y=TotalRun/1000, fill=factor(Stock, levels=c( "Taku", "Stikine"))), 
-								alpha=0.6) + 
-	scale_fill_viridis_d() +
-	labs(y="Total abundance (thousands)", fill="") + #lims(y=c(0,185)) +
-	theme_minimal() + theme(legend.position = "none")
-
-cowplot::plot_grid(spwn.stack, tot.stack, labels="auto", nrow = 2, ncol = 1)
-
-```
-
-
-```{r transboundary sockeye, fig.cap="**Above:** Spawner abundance (grey) and total abundance (black) of Transboundary sockeye salmon. For both, the raw data is shown by points and the smoothed metric by solid lines. Dashed horizonal lines represent the long-term average for each."}
 
 # Remove Stikine data prior to 1984
 tbrse_stik <- subset(tbrse_stik, tbrse_stik$Year >= 1984)
@@ -494,6 +460,40 @@ plot_abund(tbrse_sps)
 
 ```
 
+
+```{r transboundary sockeye figs, echo = FALSE, include = TRUE, results = 'asis', fig.width = 7, fig.height = 4, fig.cap = "**Above:** Sockeye salmon spawner abundance (top) and total abundance (bottom) in the Taku and Stikine river basins. We report regional abundance only from 1984 onwards when data for both rivers are available; prior to 1984, only dat for the Stikine are available."}
+
+
+# Combine data
+tbrse_raw <- tbrse_stik %>%
+	rename("Escapement" = "StikineRiver_EscapementBroodstock",
+				 "TotalRun" = "StikineRiver_TerminalRun") %>%
+	mutate(Stock = "Stikine") %>%
+	bind_rows(tbrse_taku %>%
+							rename("Escapement" = "Escapement",
+										 "TotalRun" = "Run") %>%
+							mutate(Stock = "Taku")	)
+# Plot ---
+
+# Spawner abundance
+spwn.stack <- tbrse_raw %>% ggplot() +
+	geom_area(aes(x=Year, y=Escapement/1000, fill=factor(Stock, levels=c("Taku", "Stikine"))), 
+								alpha=0.6) + 
+	scale_fill_viridis_d() +
+	labs(y="Spawner abundance \n(thousands)", fill="") + #lims(y=c(0,185)) +
+	theme_minimal() + theme(legend.position = "top")
+
+# Total abundance
+tot.stack <- tbrse_raw %>% ggplot() +
+	geom_area(aes(x=Year, y=TotalRun/1000, fill=factor(Stock, levels=c( "Taku", "Stikine"))), 
+								alpha=0.6) + 
+	scale_fill_viridis_d() +
+	labs(y="Total abundance \n(thousands)", fill="") + #lims(y=c(0,185)) +
+	theme_minimal() + theme(legend.position = "none")
+
+cowplot::plot_grid(spwn.stack, tot.stack, labels="auto", nrow = 2, ncol = 1)
+
+```
 
 #### Coho {.unnumbered}
 Coho spawner abundance and total abundance are available for the Taku River only, taken from Appendix D22 (`Escapement` and `Terminal Run` respectively) of the TTC updated report appendices.
