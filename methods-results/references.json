@@ -2009,5 +2009,114 @@
 				]
 			]
 		}
+	},	{
+		"id": "ChinookTechnicalCommittee2026AnnualReportCatch",
+		"type": "article-journal",
+		"citation-key": "ChinookTechnicalCommittee2026AnnualReportCatch",
+		"container-title": "Pacific Salmon Commission Joint Chinook Technical Committee Report",
+		"language": "en",
+		"page": "xviii + 180 p.",
+		"title": "Annual Report of Catch and Escapement for 2025",
+		"volume": "TCCHINOOK (26)-03",
+		"author": [
+			{
+				"family": "Chinook Technical Committee",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2026",
+					10
+				]
+			]
+		}
+	},
+	{
+		"id": "NisgaaFisheriesandWildlifeDepartment20252025NassRiver",
+		"type": "report",
+		"citation-key": "NisgaaFisheriesandWildlifeDepartment20252025NassRiver",
+		"page": "22",
+		"title": "2025 Nass River Salmon Stock Assessment - Post-Season Summary",
+		"author": [
+			{
+				"family": "Nisga'a Fisheries and Wildlife Department",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2025",
+					12
+				]
+			]
+		}
+	},
+	{
+		"id": "PacificSalmonCommission2026PSCAnnualReport",
+		"type": "dataset",
+		"citation-key": "PacificSalmonCommission2026PSCAnnualReport",
+		"title": "PSC Annual Report Application. Release 2026.06.v1 [Updated 2026 Jun 23; accessed 2026 Aug 19]",
+		"author": [
+			{
+				"family": "Pacific Salmon Commission",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2026"
+				]
+			]
+		}
+	},
+	{
+		"id": "TTC2025FinalEstimatesTransboundary",
+		"type": "article-journal",
+		"citation-key": "TTC2025FinalEstimatesTransboundary",
+		"container-title": "Pacific Salmon Commission Transboundary Technical Committee Report",
+		"page": "xiv + 151 p.",
+		"title": "Final Estimates of Transboundary River Salmon Production, Harvest and Escapement and a Review of Joint Enhancement Activities in 2023",
+		"volume": "TCTR (25)-04",
+		"author": [
+			{
+				"family": "Transboundary Technical Committee",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2025",
+					11
+				]
+			]
+		}
+	},
+	{
+		"id": "TransboundaryTechnicalCommittee2026FinalEstimatesTransboundary",
+		"type": "article-journal",
+		"citation-key": "TransboundaryTechnicalCommittee2026FinalEstimatesTransboundary",
+		"container-title": "Pacific Salmon Commission Transboundary Technical Committee Report",
+		"page": "xiv + 151 p.",
+		"title": "Final Estimates of Transboundary River Salmon Production, Harvest and Escapement and a Review of Joint Enhancement Activities in 2024",
+		"volume": "TCTR (26)-02",
+		"author": [
+			{
+				"family": "Transboundary Technical Committee",
+				"given": ""
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2026",
+					6
+				]
+			]
+		}
 	}
 ]
