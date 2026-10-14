@@ -95,6 +95,14 @@ The full detailed methods for the [State of Salmon](https://stateofsalmon.psf.ca
 <div class="report-list">
 
 <div class="report-row">
+<img src="../docs/ignore/2026-report-cover.png" alt="2026 State of Salmon report">
+<div class="report-text">
+<div class="report-title">2026 State of Salmon report</div>
+<a class="report-btn" href="https://salmonwatersheds.github.io/state-of-salmon/2026/tech-doc.html">View technical documentation</a>
+</div>
+</div>
+
+<div class="report-row">
 <img src="../docs/ignore/2025-report-cover.png" alt="2025 State of Salmon report">
 <div class="report-text">
 <div class="report-title">2025 State of Salmon report</div>
